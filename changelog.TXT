@@ -1,3 +1,12 @@
+Version:         3.6.5
+Date:         13/12/16 
+
+- Added Submenus in mobile navigation
+- Implemented SASS, changed structure of theme folders
+- Updated French language files
+- Minor fixes, overall optimization and improvements
+
+
 Version:         3.6.4
 Date:         17/7/16 
 

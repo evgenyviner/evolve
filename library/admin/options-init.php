@@ -174,7 +174,7 @@ add_action("redux/page/{$evolve_opt_name}/enqueue", "evolve_headerdefault");
 
 Redux::setArgs($evolve_opt_name, array(
     'display_name' => __('evolve', 'evolve'),
-    'display_name' => '<img width="135" height="28" src="' . get_template_directory_uri() . '/library/functions/images/logo.png" alt="evolve">',
+    'display_name' => '<img width="135" height="28" src="' . get_template_directory_uri() . '/assets/images/functions/logo.png" alt="evolve">',
     // Name that appears at the top of your panel
     'display_version' => $evolve_theme->get('Version'),
     'menu_type' => 'submenu',
@@ -4896,7 +4896,7 @@ if (!function_exists('evolve_redux_header_html')) {
         $url = esc_url("http://theme4press.com/evolve-multipurpose-wordpress-theme/");
         ?>
         <a href="<?php echo $url ?>" target="_blank">
-            <img class="evolve-logo" style="margin-bottom:20px;float:left;position:relative;top:10px;" width="1117" height="133" border="0" alt="evolve - Multipurpose WordPress Theme" src="<?php echo get_template_directory_uri(); ?>/library/functions/images/evolve.jpg">
+            <img class="evolve-logo" style="margin-bottom:20px;float:left;position:relative;top:10px;" width="1117" height="133" border="0" alt="evolve - Multipurpose WordPress Theme" src="<?php echo get_template_directory_uri(); ?>/assets/images/functions/evolve.jpg">
         </a><div style="clear:both;"></div>
         <div class="updated">
             <p>Happy with this theme? Please rate it <i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i> on <strong><a href="http://wordpress.org/themes/evolve" target="_blank">wordpress.org</a></strong></p>
