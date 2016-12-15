@@ -1,47 +1,63 @@
-// 
+//
 // Responsive Primary Menu
-// 
+//
 
-// Create the dropdown base
-jQuery('<select />').appendTo('.primary-menu .nav-holder');
+if(js_responsive_menu.responsive_menu_layout == 'dropdown') {
 
-// Create default option 'Menu'
-jQuery('<option />', {
-    'selected': 'selected',
-    'value': '',
-    'text': '<span class="t4p-icon-menu"></span>'
-}).appendTo('.primary-menu .nav-holder select');
-
-// Populate dropdown with menu items
-jQuery('.primary-menu .nav-holder a').each(function () {
-    var el = jQuery(this);
-
-    if (jQuery(el).parents('.sub-menu .sub-menu').length >= 1) {
-        jQuery('<option />', {
-            'value': el.attr('href'),
-            'text': '-- ' + el.text()
-        }).appendTo('.primary-menu .nav-holder select');
-    } else if (jQuery(el).parents('.sub-menu').length >= 1) {
-        jQuery('<option />', {
-            'value': el.attr('href'),
-            'text': '- ' + el.text()
-        }).appendTo('.primary-menu .nav-holder select');
-    } else {
-        jQuery('<option />', {
-            'value': el.attr('href'),
-            'text': el.text()
-        }).appendTo('.primary-menu .nav-holder select');
-    }
-});
-
-jQuery('.primary-menu .nav-holder select').ddslick({
-    width: '100%',
-    onSelected: function (selectedData) {
-        if (selectedData.selectedData.value != '') {
-            window.location = selectedData.selectedData.value;
+    jQuery(document).ready(function () {
+        if(js_responsive_menu.responsive_menu == '') {
+            jQuery('.primary-menu .nav-holder .evolve_mobile_menu').meanmenu();
+        }else {
+            jQuery('.primary-menu .nav-holder .evolve_mobile_menu').meanmenu({
+                meanMenuClose: "<label class='dd-selected-text'>"+js_responsive_menu.responsive_menu+"</label>",
+                meanMenuOpen: "<label class='dd-selected-text'>"+js_responsive_menu.responsive_menu+"</label>"
+            });
         }
-    }
-});
+    });
+
+}else {
+
+    // Create the dropdown base
+    jQuery('<select />').appendTo('.primary-menu .nav-holder');
+
+    // Create default option 'Menu'
+    jQuery('<option />', {
+        'selected': 'selected',
+        'value': '',
+        'text': js_responsive_menu.responsive_menu
+    }).appendTo('.primary-menu .nav-holder select');
+
+    // Populate dropdown with menu items
+    jQuery('.primary-menu .nav-holder a').each(function () {
+        var el = jQuery(this);
+
+        if (jQuery(el).parents('.sub-menu .sub-menu').length >= 1) {
+            jQuery('<option />', {
+                'value': el.attr('href'),
+                'text': '-- ' + el.text()
+            }).appendTo('.primary-menu .nav-holder select');
+        } else if (jQuery(el).parents('.sub-menu').length >= 1) {
+            jQuery('<option />', {
+                'value': el.attr('href'),
+                'text': '- ' + el.text()
+            }).appendTo('.primary-menu .nav-holder select');
+        } else {
+            jQuery('<option />', {
+                'value': el.attr('href'),
+                'text': el.text()
+            }).appendTo('.primary-menu .nav-holder select');
+        }
+    });
+
+    jQuery('.primary-menu .nav-holder select').ddslick({
+        width: '100%',
+        onSelected: function (selectedData) {
+            if (selectedData.selectedData.value != '') {
+                window.location = selectedData.selectedData.value;
+            }
+        }
+    });
+}
 
 //
 //

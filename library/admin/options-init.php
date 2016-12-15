@@ -896,6 +896,17 @@ Redux::setSection($evolve_opt_name, array(
             'required' => array(array("evl_responsive_menu", '=', 'text')),
             'default' => 'Menu',
         ),
+        array(
+            'subtitle' => __('Choose the layout of responsive menu on smaller screen sizes', 'evolve'),
+            'id' => 'evl_responsive_menu_layout',
+            'type' => 'select',
+            'options' => array(
+                'basic' => __('Basic Responsive Menu', 'evolve'),
+                'dropdown' => __('Clean Dropdown Menu', 'evolve'),
+            ),
+            'title' => __('Responsive Menu Layout', 'evolve'),
+            'default' => 'basic',
+        ),
     ),
         )
 );

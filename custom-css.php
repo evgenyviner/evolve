@@ -633,7 +633,7 @@ ul.breadcrumbs li:after {
 .widgets-back ul, 
 .widgets-back ul ul, 
 .widgets-back ul ul ul {
-    list-style-image: url(' . $evolve_template_url . '/assets/images/dark/list-style-dark.gif) !important;
+    list-style-image: url(' . $evolve_template_url . '/library/media/images/dark/list-style-dark.gif) !important;
 }
 
 .widgets-back a:hover {
@@ -899,9 +899,9 @@ ul.nav-menu li {
 .menu-header,
 body #header.sticky-header {
     background: #505050;
-	background: url(' . $evolve_template_url . '/assets/images/dark/trans.png) 0px -7px repeat-x, -moz-linear-gradient(center top, #606060 20%, #505050 100%);
-	background: url(' . $evolve_template_url . '/assets/images/dark/trans.png) 0px -7px repeat-x, -webkit-gradient(linear, left top, left bottom, color-stop(.2, #606060), color-stop(1, #505050)) !important;
-	background: url(' . $evolve_template_url . '/assets/images/dark/trans.png) 0px -7px repeat-x, -o-linear-gradient(top, #606060, #505050) !important;
+	background: url(' . $evolve_template_url . '/library/media/images/dark/trans.png) 0px -7px repeat-x, -moz-linear-gradient(center top, #606060 20%, #505050 100%);
+	background: url(' . $evolve_template_url . '/library/media/images/dark/trans.png) 0px -7px repeat-x, -webkit-gradient(linear, left top, left bottom, color-stop(.2, #606060), color-stop(1, #505050)) !important;
+	background: url(' . $evolve_template_url . '/library/media/images/dark/trans.png) 0px -7px repeat-x, -o-linear-gradient(top, #606060, #505050) !important;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'#606060\', endColorstr=\'#505050\');
     -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 5px rgba(0, 0, 0, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29);
     -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 5px rgba(0, 0, 0, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29);
@@ -945,11 +945,13 @@ ul.nav-menu li.current-menu-ancestor li.current-menu-item > a {
     border-bottom: 1px solid #404040!important;          
 }
 
-#wrapper .dd-options li { 
-    border-bottom: 1px solid #404040 !important; 
-}     
+#wrapper .dd-options li,
+.mean-container .mean-nav ul a {
+    border-bottom: 1px solid #404040 !important;
+}    
 
-#wrapper .dd-options {
+#wrapper .dd-options,
+.mean-container .mean-nav ul {
     background: #444!important;
     border-color: #404040!important;
 }
@@ -960,6 +962,7 @@ ul.nav-menu li.current-menu-ancestor li.current-menu-item > a {
 }
 
 #wrapper .dd-options li a:hover,
+.mean-container .mean-nav ul li a:hover,
 #wrapper .dd-options li.dd-option-selected a {
     background-color: #333 !important;
     color: #fff !important;
@@ -1005,14 +1008,15 @@ ul.nav-menu li {
 .menu-header,
 body #header.sticky-header.sticky {
     background: #' . $evolve_menu_back_color . ';
-    background: url(' . $evolve_template_url . '/assets/images/dark/trans.png) 0px -10px repeat-x, -moz-linear-gradient(center top, #' . $evolve_menu_back_color . ' 20%, #' . evolve_hexDarker($evolve_menu_back_color) . ' 100%);
-    background: url(' . $evolve_template_url . '/assets/images/dark/trans.png) 0px -10px repeat-x, -webkit-gradient(linear, left top, left bottom, color-stop(.2, #' . $evolve_menu_back_color . '), color-stop(1, #' . evolve_hexDarker($evolve_menu_back_color) . ')) !important;
-    background: url(' . $evolve_template_url . '/assets/images/dark/trans.png) 0px -10px repeat-x, -o-linear-gradient(top, #' . $evolve_menu_back_color . ', #' . evolve_hexDarker($evolve_menu_back_color) . ') !important;
+    background: url(' . $evolve_template_url . '/library/media/images/dark/trans.png) 0px -10px repeat-x, -moz-linear-gradient(center top, #' . $evolve_menu_back_color . ' 20%, #' . evolve_hexDarker($evolve_menu_back_color) . ' 100%);
+    background: url(' . $evolve_template_url . '/library/media/images/dark/trans.png) 0px -10px repeat-x, -webkit-gradient(linear, left top, left bottom, color-stop(.2, #' . $evolve_menu_back_color . '), color-stop(1, #' . evolve_hexDarker($evolve_menu_back_color) . ')) !important;
+    background: url(' . $evolve_template_url . '/library/media/images/dark/trans.png) 0px -10px repeat-x, -o-linear-gradient(top, #' . $evolve_menu_back_color . ', #' . evolve_hexDarker($evolve_menu_back_color) . ') !important;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'#' . $evolve_menu_back_color . '\', endColorstr=\'#' . evolve_hexDarker($evolve_menu_back_color) . '\');
     border-color: #' . evolve_hexDarker($evolve_menu_back_color) . ';
 } 
 
-#wrapper .dd-options {
+#wrapper .dd-options,
+.mean-container .mean-nav ul {
     background: #' . $evolve_menu_back_color . ';
 }
 
@@ -1022,17 +1026,20 @@ ul.nav-menu li:hover {
     border-right-color: #' . $evolve_menu_back_color . '!important;
 }
 
-ul.nav-menu ul, 
-ul.nav-menu li li, 
-ul.nav-menu li li li, 
+ul.nav-menu ul,
+ul.nav-menu li li,
+ul.nav-menu li li li,
 ul.nav-menu li li li li,
 #wrapper .dd-options li,
-#wrapper .dd-options {
+.mean-container .mean-nav ul a,
+#wrapper .dd-options,
+.mean-container .mean-nav ul {
     border-color: #' . evolve_hexDarker($evolve_menu_back_color) . '!important;
 }	
 
 #wrapper .dd-container .dd-selected-text,
-#wrapper .dd-options li a:hover, 
+#wrapper .dd-options li a:hover,
+.mean-container .mean-nav ul li a:hover,
 #wrapper .dd-options li.dd-option-selected a {
     background: #' . evolve_hexDarker($evolve_menu_back_color) . '!important;
 }
@@ -1233,7 +1240,7 @@ $evolve_css_data .= '
 
 //@since 2.0.2 mod by denzel
 //do not remove the extra slash, it's a folder path mistake in option-init.php at line 806, try to fix now will cause problem to users.
-$none = $evolve_template_url . '/assets/images//header-two/none.jpg';
+$none = $evolve_template_url . '/library/media/images//header-two/none.jpg';
 if ($evolve_main_pattern != $none && !empty($evolve_main_pattern) && @getimagesize($evolve_main_pattern)) {
     //fix it here, remove the extra slash, before we produce background image url.
 $evolve_main_pattern = str_replace('images//', 'images/', $evolve_main_pattern);
@@ -1498,7 +1505,7 @@ $evolve_css_data .= '
     $evolve_css_data .= evolve_print_fonts('evl_menu_blog_title_font', '#sticky-logo a', $additional_css = 'letter-spacing:-.03em');
 
     //Main menu font
-    $evolve_css_data .= evolve_print_fonts('evl_menu_font', 'ul.nav-menu a, .menu-header, #wrapper .dd-container label, #wrapper .dd-container a');
+    $evolve_css_data .= evolve_print_fonts('evl_menu_font', 'ul.nav-menu a, .menu-header, #wrapper .dd-container label, #wrapper .dd-container a, #wrapper .dd-container a.mean-expand');
 
     //Bootstrap Slider --> Slider Title font
     $evolve_css_data .= evolve_print_fonts('evl_bootstrap_slide_title_font', '#bootstrap-slider .carousel-caption h2 ', $additional_css = '');
@@ -1744,6 +1751,9 @@ h3.widget-title {
     border: 1px solid;
     border-color: ' . $evolve_widget_bgcolor . ';
     background: ' . $evolve_widget_bgcolor . ';
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(.2, #606060),color-stop(1, #505050)) !important;
+    background: -o-linear-gradient(top, #606060,#505050) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'#606060\', endColorstr=\'#505050\');*/
     -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 5px rgba(0, 0, 0, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29);
     -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 5px rgba(0, 0, 0, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29);
     -box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 5px rgba(0, 0, 0, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29);
