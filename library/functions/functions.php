@@ -126,7 +126,6 @@ function evolve_media() {
     );
 
     wp_localize_script('main', 'js_responsive_menu', $responsive_menu_vars);
-
 }
 
 /**

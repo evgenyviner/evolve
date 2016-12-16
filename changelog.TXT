@@ -4,6 +4,7 @@ Date:         13/12/16
 - Added Submenus in mobile navigation
 - Implemented SASS, changed structure of theme folders
 - Updated French language files
+- Updated FontAwesome Font
 - Minor fixes, overall optimization and improvements
 
 

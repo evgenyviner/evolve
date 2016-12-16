@@ -2,20 +2,20 @@
 // Responsive Primary Menu
 //
 
-if(js_responsive_menu.responsive_menu_layout == 'dropdown') {
+if (js_responsive_menu.responsive_menu_layout == 'dropdown') {
 
     jQuery(document).ready(function () {
-        if(js_responsive_menu.responsive_menu == '') {
+        if (js_responsive_menu.responsive_menu == '') {
             jQuery('.primary-menu .nav-holder .evolve_mobile_menu').meanmenu();
-        }else {
+        } else {
             jQuery('.primary-menu .nav-holder .evolve_mobile_menu').meanmenu({
-                meanMenuClose: "<label class='dd-selected-text'>"+js_responsive_menu.responsive_menu+"</label>",
-                meanMenuOpen: "<label class='dd-selected-text'>"+js_responsive_menu.responsive_menu+"</label>"
+                meanMenuClose: "<label class='dd-selected-text'>" + js_responsive_menu.responsive_menu + "</label>",
+                meanMenuOpen: "<label class='dd-selected-text'>" + js_responsive_menu.responsive_menu + "</label>"
             });
         }
     });
 
-}else {
+} else {
 
     // Create the dropdown base
     jQuery('<select />').appendTo('.primary-menu .nav-holder');

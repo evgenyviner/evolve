@@ -84,8 +84,7 @@ I. Evolve components
    ========================================================================== */
 
 .screen-reader-text,
-.bypostauthor {    
-}
+.bypostauthor {}
 
 
 /*!==========================================================================
@@ -3571,32 +3570,29 @@ ul.nav-menu li:hover > a {
     text-decoration: none;
 }
 
-.evolve_mobile_menu{
+.evolve_mobile_menu {
     display: none !important;
 }
 
 @media (max-width: 768px) {
-    .evolve_mobile_menu{
+    .evolve_mobile_menu {
         display: block;
     }
-
     ul.nav-menu ul {
         position: initial;
     }
-
-    ul.nav-menu li ul{
+    ul.nav-menu li ul {
         opacity: 1;
     }
-
     ul.nav-menu li:hover ul,
     ul.nav-menu li.nav-hover ul {
         background: none;
     }
-
     ul.nav-menu .sf-with-ul::after {
         display: none;
     }
 }
+
 
 /* Level Menu */
 
@@ -3878,6 +3874,7 @@ form.top-searchform {
 .primary-menu .sub-menu {
     display: none;
 }
+
 
 /*!==========================================================================
    Blog
