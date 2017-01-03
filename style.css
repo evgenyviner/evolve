@@ -2157,15 +2157,13 @@ p#copyright .credits a {
 
 .home-content-boxes .cntbox_btn {
     align-items: flex-end;
-    display: flex;
-    height: 100%;
     justify-content: center;
     left: 0;
-    margin: 0 auto;
-    position: absolute;
+    margin: 0 auto;    
     text-align: center;
-    top: -30px;
+    bottom: 30px;
     width: 100%;
+    position: absolute;        
 }
 
 
@@ -2209,11 +2207,7 @@ p#copyright .credits a {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
-        display: flex;
-        position: absolute;
-        top: -30px;
         left: 0px;
-        height: 100%;
         width: 100%;
         align-items: flex-end;
         -webkit-align-items: flex-end;
