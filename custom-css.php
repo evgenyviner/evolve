@@ -81,7 +81,7 @@ $evolve_css_data .= '
 
 @media (min-width: 768px) {
     .home-content-boxes .content-box {
-        padding: 30px 20px 70px 20px;
+        padding: 30px 20px 60px;
         margin: 0 0.98%;
     }
     .home-content-boxes .col-md-3.content-box {
