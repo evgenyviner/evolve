@@ -1656,4 +1656,5 @@ function evolve_bootstrap() {
     }
 
     add_filter('bbp_before_get_breadcrumb_parse_args', 'evolve_custom_bbp_breadcrumb');
-    
+    //filter added for buddypress-docs comment show
+    add_filter( 'bp_docs_allow_comment_section', '__return_true', 100 );
