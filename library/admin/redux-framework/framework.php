@@ -1388,59 +1388,6 @@
              */
             public function _options_page() {
 
-                if ( $this->args['menu_type'] == 'hidden' ) {
-
-                    // No menu to add!
-                } else if ( $this->args['menu_type'] == 'submenu' ) {
-                    $this->add_submenu(
-                        $this->args['page_parent'], $this->args['page_title'], $this->args['menu_title'], $this->args['page_permissions'], $this->args['page_slug']
-                    );
-                } else {
-                    // Theme-Check notice is displayed for WP.org theme devs, informing them to NOT use this.
-                    $this->page = call_user_func( 'add_menu_page', $this->args['page_title'], $this->args['menu_title'], $this->args['page_permissions'], $this->args['page_slug'], array(
-                        &$this,
-                        'generate_panel'
-                    ), $this->args['menu_icon'], $this->args['page_priority']
-                    );
-
-                    if ( true === $this->args['allow_sub_menu'] ) {
-                        if ( ! isset ( $section['type'] ) || $section['type'] != 'divide' ) {
-                            foreach ( $this->sections as $k => $section ) {
-                                $canBeSubSection = ( $k > 0 && ( ! isset ( $this->sections[ ( $k ) ]['type'] ) || $this->sections[ ( $k ) ]['type'] != "divide" ) ) ? true : false;
-
-                                if ( ! isset ( $section['title'] ) || ( $canBeSubSection && ( isset ( $section['subsection'] ) && $section['subsection'] == true ) ) ) {
-                                    continue;
-                                }
-
-                                if ( isset ( $section['submenu'] ) && $section['submenu'] == false ) {
-                                    continue;
-                                }
-
-                                if ( isset ( $section['customizer_only'] ) && $section['customizer_only'] == true ) {
-                                    continue;
-                                }
-
-                                if ( isset ( $section['hidden'] ) && $section['hidden'] == true ) {
-                                    continue;
-                                }
-
-                                if ( isset( $section['permissions'] ) && ! current_user_can( $section['permissions'] ) ) {
-                                    continue;
-                                }
-
-                                // ONLY for non-wp.org themes OR plugins. Theme-Check alert shown if used and IS theme.
-                                call_user_func( 'add_submenu_page', $this->args['page_slug'], $section['title'], $section['title'], $this->args['page_permissions'], $this->args['page_slug'] . '&tab=' . $k,
-                                    //create_function( '$a', "return null;" )
-                                    '__return_null' );
-                            }
-
-                            // Remove parent submenu item instead of adding null item.
-                            remove_submenu_page( $this->args['page_slug'], $this->args['page_slug'] );
-                        }
-                    }
-                }
-
-                add_action( "load-{$this->page}", array( &$this, '_load_page' ) );
             }
             // _options_page()
             

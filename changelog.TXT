@@ -1,5 +1,5 @@
 Version:         3.6.5
-Date:         13/12/16 
+Date:         13/1/17 
 
 - Added Submenus in mobile navigation
 - Implemented SASS, changed structure of theme folders
