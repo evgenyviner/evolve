@@ -88,8 +88,8 @@ function evl_SH_premium_options(sh) {
     // Hide/Show premium options:
     jQuery("." + evl_lockedFieldClass).each(
             function () {
-                sh == "hide" ? jQuery(this).parent().parent().addClass("redux-force-hide")
-                        : (sh == "show" ? jQuery(this).parent().parent().removeClass("redux-force-hide") : null);
+                sh == "hide" ? jQuery(this).parent().addClass("redux-force-hide")
+                        : (sh == "show" ? jQuery(this).parent().removeClass("redux-force-hide") : null);
             }
     );
     // Hide/Show special premium fields (Labels, for example)
@@ -102,8 +102,8 @@ function evl_SH_premium_options(sh) {
     // Hide/Show premium sections:
     jQuery("." + evl_lockedSectionClass).each(
             function () {
-                sh == "hide" ? jQuery(this).parent().parent().addClass("redux-force-hide")
-                        : (sh == "show" ? jQuery(this).parent().parent().removeClass("redux-force-hide") : null);
+                sh == "hide" ? jQuery(this).parent().addClass("redux-force-hide")
+                        : (sh == "show" ? jQuery(this).parent().removeClass("redux-force-hide") : null);
             }
     );
     // Hack for specific elements:
