@@ -8,8 +8,10 @@
         echo ' custom-header';
     }
     ?>">
+
         <div class="header-border-sticky">
             <!--BEGIN .header-->
+            <div class="header-bg"></div>
             <div class="header">
                 <!--BEGIN .container-header-->
                 <div class="container container-header header_v0">
@@ -102,7 +104,7 @@
                         ?>
                         <br /><br />
                     <?php } else { ?>
-                        <div class="primary-menu">
+                        <div class="primary-menu col-md-11 col-sm-11">
                             <?php
                             if (has_nav_menu('primary-menu')) {
                                 echo '<nav class="nav nav-holder link-effect">';
@@ -124,7 +126,7 @@
                             <!--BEGIN #searchform-->
                             <form action="<?php echo home_url(); ?>" method="get" class="searchform">
                                 <div id="search-text-box">
-                                    <label class="searchfield" id="search_label_top" for="search-text-top"><input id="search-text-top" type="text" tabindex="1" name="s" class="search" placeholder="<?php _e('Type your search', 'evolve'); ?>" /></label>
+                                    <label class="searchfield col-md-1 col-sm-1" id="search_label_top" for="search-text-top"><input id="search-text-top" type="text" tabindex="1" name="s" class="search" placeholder="<?php _e('Type your search', 'evolve'); ?>" /></label>
                                 </div>
                             </form>
                             <div class="clearfix"></div>
@@ -136,8 +138,7 @@
                             // sticky header
                             get_template_part('sticky-header');
                         }
-                        ?>
-                    <?php } ?>
+                     } ?>
                 </div><!-- /.container -->
             </div><!-- /.menu-header -->
         </div>

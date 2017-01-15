@@ -121,19 +121,19 @@ function evolve_footer4() {
 
 // Header widgets
 
-if (( $evolve_widgets_header == "one")) {
+if (($evolve_widgets_header == "one")) {
     evolve_header1();
 }
-if (( $evolve_widgets_header == "two")) {
+if (($evolve_widgets_header == "two")) {
     evolve_header1();
     evolve_header2();
 }
-if (( $evolve_widgets_header == "three")) {
+if (($evolve_widgets_header == "three")) {
     evolve_header1();
     evolve_header2();
     evolve_header3();
 }
-if (( $evolve_widgets_header == "four")) {
+if (($evolve_widgets_header == "four")) {
     evolve_header1();
     evolve_header2();
     evolve_header3();
@@ -144,19 +144,19 @@ if (( $evolve_widgets_header == "four")) {
 
 // Footer widgets
 
-if (( $evolve_widgets_footer == "one")) {
+if (($evolve_widgets_footer == "one")) {
     evolve_footer1();
 }
-if (( $evolve_widgets_footer == "two")) {
+if (($evolve_widgets_footer == "two")) {
     evolve_footer1();
     evolve_footer2();
 }
-if (( $evolve_widgets_footer == "three")) {
+if (($evolve_widgets_footer == "three")) {
     evolve_footer1();
     evolve_footer2();
     evolve_footer3();
 }
-if (( $evolve_widgets_footer == "four")) {
+if (($evolve_widgets_footer == "four")) {
     evolve_footer1();
     evolve_footer2();
     evolve_footer3();
@@ -259,7 +259,7 @@ class evolve_carousel_WP_Widget extends WP_Widget {
             $instance['text'] = $new_instance['text'];
         } else {
             $instance['text'] = stripslashes(wp_filter_post_kses(addslashes($new_instance['text'])));
-        } // wp_filter_post_kses() expects slashed
+        }// wp_filter_post_kses() expects slashed
         $instance['filter'] = isset($new_instance['filter']);
 
         return $instance;

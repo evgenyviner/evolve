@@ -145,11 +145,11 @@ $evolve_posts_excerpt_title_length = intval(evolve_get_option('evl_posts_excerpt
                                 </span>
 
                             <?php
-                            endif; //if ($image):      
+                            endif; //if ($image):     
 
-                        endif; //if (has_post_thumbnail()) :      
+                        endif; //if (has_post_thumbnail()) :     
 
-                    endif; //if ($evolve_featured_images == "1"):      
+                    endif; //if ($evolve_featured_images == "1"):     
 
                     echo evolve_excerpt_max_charlength(350);
                     ?>
@@ -319,9 +319,9 @@ $evolve_posts_excerpt_title_length = intval(evolve_get_option('evl_posts_excerpt
                                 </span>
 
                             <?php
-                            endif; //if ($image):      
+                            endif; //if ($image):     
 
-                        endif; //if (has_post_thumbnail()) :    
+                        endif; //if (has_post_thumbnail()) : 
                     }
 
                     if (($evolve_excerpt_thumbnail == "1")) :

@@ -261,7 +261,7 @@ Redux::setField($evolve_opt_name, array(
     'off' => __('Hide', 'evolve'),
     'default' => 0,
     'title' => __('Premium features:', 'evolve'),
-    'class' => ''
+    'class' => $evolve_prem_class
         )
 );
 /*
@@ -281,7 +281,7 @@ Redux::setField($evolve_opt_name, array(
     'off' => __('Hide', 'evolve'),
     'default' => 0,
     'title' => '.',
-    'class' => ''
+    'class' => $evolve_prem_class
         )
 );
 
@@ -309,7 +309,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'demo_data',
             'type' => 'import_button',
             'title' => __('Import Demo Content', 'evolve'),
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
     ),
         )
@@ -334,7 +334,7 @@ Redux::setSection($evolve_opt_name, array(
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'title' => __('Apple iPhone Icon Upload', 'evolve'),
             'url' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Favicon for Apple iPhone Retina Version (114px x 114px).', 'evolve'),
@@ -343,7 +343,7 @@ Redux::setSection($evolve_opt_name, array(
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'title' => __('Apple iPhone Retina Icon Upload', 'evolve'),
             'url' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Favicon for Apple iPad (72px x 72px).', 'evolve'),
@@ -352,7 +352,7 @@ Redux::setSection($evolve_opt_name, array(
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'title' => __('Apple iPad Icon Upload', 'evolve'),
             'url' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Favicon for Apple iPad Retina Version (144px x 144px).', 'evolve'),
@@ -361,7 +361,7 @@ Redux::setSection($evolve_opt_name, array(
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'title' => __('Apple iPad Retina Icon Upload', 'evolve'),
             'url' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
     ),
         )
@@ -421,7 +421,7 @@ Redux::setSection($evolve_opt_name, array(
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'type' => "text",
             'default' => '',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Select the left and right padding for the 100% width template main content area. Enter value in px. ex: 20px', 'evolve'),
@@ -430,7 +430,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('100% Width Template Left/Right Padding', 'evolve'),
             'default' => '20px',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'id' => 'evl_info_consid1',
@@ -468,14 +468,14 @@ Redux::setSection($evolve_opt_name, array(
             ),
             'title' => __('Content Width', 'evolve'),
             'default' => '8',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Select the width for your Sidebar 1', 'evolve'),
             'id' => 'evl_opt1_width_sidebar1',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'compiler' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
             'type' => 'select',
             'options' => array(
                 1 => '1/12',
@@ -513,7 +513,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_opt2_width_content',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'compiler' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
             'type' => 'select',
             'options' => array(
                 1 => '1/12',
@@ -537,7 +537,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_opt2_width_sidebar1',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'compiler' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
             'type' => 'select',
             'options' => array(
                 1 => '1/12',
@@ -561,7 +561,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_opt2_width_sidebar2',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'compiler' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
             'type' => 'select',
             'options' => array(
                 1 => '1/12',
@@ -622,7 +622,9 @@ Redux::setSection($evolve_opt_name, array(
         array(
             'subtitle' => __('Set the opacity of header menu background for Front Page, <br />0.1 (lowest) to 1 (highest) only for Header #4 and #5.', 'evolve'),
             'id' => 'evl_header_background_opacity',
+			'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'type' => 'slider',
+			'class' => $evolve_prem_class,
             'min' => 0.1,
             'max' => 1,
             'step' => 0.1,
@@ -660,7 +662,7 @@ Redux::setSection($evolve_opt_name, array(
             'compiler' => true,
             'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'type' => 'image_select',
-            'class' => '',
+            'class' => $evolve_prem_class,
             'options' => array(
                 'h2' => $evolve_imagepathfolder . '/header/h2.png',
                 'h3' => $evolve_imagepathfolder . '/header/h3.png',
@@ -694,7 +696,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_sticky_header_logo',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'type' => 'switch',
-            'class' => '',
+            'class' => $evolve_prem_class,
             'on' => __('Enabled', 'evolve'),
             'off' => __('Disabled', 'evolve'),
             'default' => 1,
@@ -716,7 +718,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'spinner',
             'title' => __('Sticky header logo size in height', 'evolve'),
             'default' => '100',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
     ),
         )
@@ -741,7 +743,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'media',
             'title' => __('Custom logo (Retina Version @2x)', 'evolve'),
             'url' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('If retina logo is uploaded, enter the standard logo (1x) version width, do not enter the retina logo width.', 'evolve'),
@@ -749,7 +751,7 @@ Redux::setSection($evolve_opt_name, array(
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'type' => 'text',
             'title' => __('Standard Logo Width for Retina Logo', 'evolve'),
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('If retina logo is uploaded, enter the standard logo (1x) version height, do not enter the retina logo height.', 'evolve'),
@@ -757,7 +759,7 @@ Redux::setSection($evolve_opt_name, array(
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'type' => 'text',
             'title' => __('Standard Logo Height for Retina Logo', 'evolve'),
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Upload a logo for your sticky header, or specify an image URL directly.', 'evolve'),
@@ -766,7 +768,7 @@ Redux::setSection($evolve_opt_name, array(
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'title' => __('Sticky header logo', 'evolve'),
             'url' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Select an image file for the retina version of the sticky header logo. It should be exactly 2x the size of sticky header logo.', 'evolve'),
@@ -775,7 +777,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'media',
             'title' => __('Sticky header logo (Retina Version @2x)', 'evolve'),
             'url' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('If retina logo is uploaded, enter the standard sticky header logo (1x) version width, do not enter the retina logo width.', 'evolve'),
@@ -783,7 +785,7 @@ Redux::setSection($evolve_opt_name, array(
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'type' => 'text',
             'title' => __('Standard Sticky Header Logo Width for Retina Logo', 'evolve'),
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('If retina logo is uploaded, enter the standard sticky header logo (1x) version height, do not enter the retina logo height.', 'evolve'),
@@ -791,7 +793,7 @@ Redux::setSection($evolve_opt_name, array(
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'type' => 'text',
             'title' => __('Standard Sticky Header Logo Height for Retina Logo', 'evolve'),
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Choose the position of your custom logo for Header #1', 'evolve'),
@@ -884,7 +886,7 @@ Redux::setSection($evolve_opt_name, array(
             ),
             'title' => __('Set the main menu text transform', 'evolve'),
             'default' => 'none',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Menu dropdown icon style', 'evolve'),
@@ -898,7 +900,7 @@ Redux::setSection($evolve_opt_name, array(
             ),
             'title' => __('Select the menu dropdown icon style', 'evolve'),
             'default' => 'regular',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Choose the style of responsive menu on smaller screen sizes', 'evolve'),
@@ -912,7 +914,7 @@ Redux::setSection($evolve_opt_name, array(
             ),
             'title' => __('Responsive Menu', 'evolve'),
             'default' => 'icon',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'title' => __('Responsive Menu Text', 'evolve'),
@@ -922,7 +924,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => "text",
             'required' => array(array("evl_responsive_menu", '=', 'text')),
             'default' => 'Menu',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Choose the layout of responsive menu on smaller screen sizes', 'evolve'),
@@ -1035,7 +1037,7 @@ Redux::setSection($evolve_opt_name, array(
     'subsection' => true,
     'class' => $evolve_prem_class,
     'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-    'class' => '',
+    'class' => $evolve_prem_class,
     'fields' => array(
         array(
             'raw' => __('<h3 style=\'margin: 0;\'>Custom fonts for all elements.</h3><p style="margin-bottom:0;">This will override the Google / standard font options. All 4 files are required.</h3>', 'evolve'),
@@ -1154,7 +1156,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'typography',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'text-align' => false,
-            'class' => '',
+            'class' => $evolve_prem_class,
             'line-height' => false,
             'title' => __('Top menu font', 'evolve'),
             'default' => array(
@@ -1171,7 +1173,7 @@ Redux::setSection($evolve_opt_name, array(
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'title' => __('Mega Menu Column Title Size', 'evolve'),
             'default' => '15px',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
     ),
         )
@@ -1398,7 +1400,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'select',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'compiler' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
             'options' => array(
                 'titlebar_breadcrumb' => __('Title + Breadcrumb', 'evolve'),
                 'titlebar' => __('Only Title', 'evolve'),
@@ -1415,7 +1417,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'switch',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'on' => __('Enabled', 'evolve'),
-            'class' => '',
+            'class' => $evolve_prem_class,
             'off' => __('Disabled', 'evolve'),
             'default' => 0,
             'title' => __('Page Title Bar', 'evolve'),
@@ -1426,7 +1428,7 @@ Redux::setSection($evolve_opt_name, array(
             'compiler' => true,
             'type' => 'image_select',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'class' => '',
+            'class' => $evolve_prem_class,
             'title' => __('Page Title Bar Layout Type', 'evolve'),
             'options' => array(
                 'titlebar_left' => $evolve_imagepathfolder . '/titlebarlayout/titlebar_left.jpg',
@@ -1440,7 +1442,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_pagetitlebar_padding',
             'type' => 'spinner',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'class' => '',
+            'class' => $evolve_prem_class,
             'title' => __('Page Title Bar Padding', 'evolve'),
             'default' => '25',
         ),
@@ -1449,7 +1451,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_pagetitlebar_background_color',
             'type' => 'color',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'class' => '',
+            'class' => $evolve_prem_class,
             'compiler' => true,
             'title' => __('Page Title Bar Background Color', 'evolve'),
             'default' => '#f9f9f9',
@@ -1459,7 +1461,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_pagetitlebar_background',
             'type' => 'media',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'class' => '',
+            'class' => $evolve_prem_class,
             'title' => __('Page Title Bar Background', 'evolve'),
             'url' => true,
         ),
@@ -1468,7 +1470,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_pagetitlebar_background_retina',
             'type' => 'media',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'class' => '',
+            'class' => $evolve_prem_class,
             'title' => __('Page Title Bar Background (Retina Version @2x)', 'evolve'),
             'url' => true,
         ),
@@ -1478,7 +1480,7 @@ Redux::setSection($evolve_opt_name, array(
             'compiler' => true,
             'type' => 'checkbox',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'class' => '',
+            'class' => $evolve_prem_class,
             'title' => __('100% Background Image', 'evolve'),
             'default' => '0',
         ),
@@ -1488,7 +1490,7 @@ Redux::setSection($evolve_opt_name, array(
             'compiler' => true,
             'type' => 'checkbox',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'class' => '',
+            'class' => $evolve_prem_class,
             'title' => __('Parallax Background Image', 'evolve'),
             'default' => '0',
         ),
@@ -1686,7 +1688,7 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '1',
         ),
         array(
-            'subtitle' => __('Background color of top menu for Header #4', 'evolve'),
+            'subtitle' => __('Background color of top menu for Header #2, #3, #4 and #6', 'evolve'),
             'id' => 'evl_top_menu_back',
             'type' => 'color',
             'compiler' => true,
@@ -1701,7 +1703,7 @@ Redux::setSection($evolve_opt_name, array(
             'compiler' => true,
             'title' => __('Custom menu hover background color', 'evolve'),
             'default' => '#313a43',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Menu hover font color', 'evolve'),
@@ -1970,7 +1972,9 @@ Redux::setSection($evolve_opt_name, array(
                 'XLarge' => __('XLarge', 'evolve'),
             ),
             'title' => __('Button Size', 'evolve'),
+			'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'default' => 'Large',
+			'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Select the default shape for buttons.', 'evolve'),
@@ -2885,7 +2889,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Blog Archive/Category Sidebar', 'evolve'),
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'default' => 'None',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Grid layout with <strong>3</strong> posts per row is recommended to use with disabled <strong>Sidebar(s)</strong>', 'evolve'),
@@ -3610,7 +3614,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'sortable',
             'mode' => 'checkbox',
             'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'class' => '',
+            'class' => $evolve_prem_class,
             'title' => __('Social Media Icons Order and Display', 'evolve'),
             'subtitle' => __('Drag up or down to arrange Social Media Icons.', 'evolve'),
             'options' => array(
@@ -3679,7 +3683,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'spacing',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'units' => array('px', 'em'),
-            'class' => '',
+            'class' => $evolve_prem_class,
             'title' => __('Content Boxes Padding', 'evolve'),
             'default' => array(
                 'padding-top' => '40px',
@@ -3732,7 +3736,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Content Box 1 Custom Icon', 'evolve'),
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'url' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'id' => 'evl_content_box1_desc',
@@ -3789,7 +3793,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Content Box 2 Custom Icon', 'evolve'),
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'url' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'id' => 'evl_content_box2_desc',
@@ -3846,7 +3850,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Content Box 3 Custom Icon', 'evolve'),
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'url' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'id' => 'evl_content_box3_desc',
@@ -3903,7 +3907,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Content Box 4 Custom Icon', 'evolve'),
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'url' => true,
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'id' => 'evl_content_box4_desc',
@@ -3996,7 +4000,7 @@ for ($i = 1; $i <= 5; $i ++) {
         'id' => 'bootstrap_another_slide',
         'type' => 'raw',
         'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-        'class' => '',
+        'class' => $evolve_prem_class,
         'title' => __('Add Another Slide', 'evolve'),
         'subtitle' => __('Add another slide to the Bootstrap Slider.', 'evolve'),
         'content' => __('<a class="button button-primary" href="">Add Slide</a>', 'evolve'),
@@ -4094,7 +4098,7 @@ Redux::setSection($evolve_opt_name, array(
             ),
             'title' => '',
             'default' => '',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
     ),
         )
@@ -4190,7 +4194,7 @@ for ($i = 1; $i <= 5; $i ++) {
         'id' => 'parallax_another_slide',
         'type' => 'raw',
         'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-        'class' => '',
+        'class' => $evolve_prem_class,
         'title' => __('Add Another Slide', 'evolve'),
         'subtitle' => __('Add another slide to the Parallax Slider.', 'evolve'),
         'content' => __('<a class="button button-primary" href="">Add Slide</a>', 'evolve'),
@@ -4429,7 +4433,7 @@ Redux::setSection($evolve_opt_name, array(
     'title' => __('Lightbox', 'evolve'),
     'icon' => 't4p-icon-appbarwindowmaximize',
     'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-    'class' => '',
+    'class' => $evolve_prem_class,
     'class' => $evolve_prem_class,
     'fields' => array(
         array(
@@ -4647,7 +4651,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Testimonials Speed', 'evolve'),
             'step' => 100,
             'default' => '4000',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Check the box to add rel="nofollow" attribute to social sharing box shortcode.', 'evolve'),
@@ -4655,7 +4659,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'checkbox',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'title' => __('Add rel="nofollow" to social links', 'evolve'),
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Choose the position of the <strong>Older/Newer Posts</strong> links', 'evolve'),
@@ -4696,7 +4700,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'checkbox',
             'title' => __('BBPress Use Global Sidebar', 'evolve'),
             'default' => '0',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Select the sidebar that will display on forum pages globally.', 'evolve'),
@@ -4706,7 +4710,7 @@ Redux::setSection($evolve_opt_name, array(
             'options' => $sidebar_options,
             'title' => __('BBPress Global Sidebar', 'evolve'),
             'default' => 'None',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
     ),
         )
@@ -4723,7 +4727,7 @@ Redux::setSection($evolve_opt_name, array(
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'type' => 'checkbox',
             'title' => __('Disable Mega Menu', 'evolve'),
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Check the box if you are using UberMenu, this option adds UberMenu support without editing any code.', 'evolve'),
@@ -4732,14 +4736,14 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'checkbox',
             'title' => __('UberMenu Plugin Support', 'evolve'),
             'default' => '0',
-            'class' => '',
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Check this box if you want to enable FlexSlider support', 'evolve'),
             'id' => 'evl_flexslider',
             'type' => 'checkbox',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'class' => '',
+            'class' => $evolve_prem_class,
             'title' => __('Enable FlexSlider support', 'evolve'),
         ),
         array(
@@ -4762,12 +4766,16 @@ Redux::setSection($evolve_opt_name, array(
             'subtitle' => __('Check the box to disable Youtube API scripts.', 'evolve'),
             'id' => 'evl_status_yt',
             'type' => 'checkbox',
+			'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+            'class' => $evolve_prem_class,
             'title' => __('Disable Youtube API Scripts', 'evolve'),
         ),
         array(
             'subtitle' => __('Check the box to disable Vimeo API scripts.', 'evolve'),
             'id' => 'evl_status_vimeo',
             'type' => 'checkbox',
+			'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+            'class' => $evolve_prem_class,
             'title' => __('Disable Vimeo API Scripts', 'evolve'),
         ),
         array(

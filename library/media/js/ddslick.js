@@ -57,7 +57,7 @@
         $(ddslickCSS).appendTo('head');
     }
 
-    //Public methods 
+    //Public methods
     methods.init = function (options) {
         //Preserve the original defaults by passing an empty object as the target
         var options = $.extend({}, defaults, options);

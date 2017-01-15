@@ -95,7 +95,7 @@ endif;
                                 edit_post_link(__('EDIT', 'evolve'), '<span class="edit-post">', '</span>');
                             endif;
                         }
-                        ?>                      
+                        ?>
                         <!--END .entry-meta .entry-header-->
                     </div> 
 
@@ -129,7 +129,7 @@ endif;
                 <div class="entry-content article">
 
                     <?php
-                    the_content(__('READ MORE &raquo;', 'evolve'));
+                    the_content(__('Read More &raquo;', 'evolve'));
 
                     wp_link_pages(array('before' => '<div id="page-links"><p>' . __('<strong>Pages:</strong>', 'evolve'), 'after' => '</p></div>'));
                     ?>	

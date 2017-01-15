@@ -1,6 +1,6 @@
 <?php
 /*
- * 
+ *
  * Template: 404.php
  *
  */

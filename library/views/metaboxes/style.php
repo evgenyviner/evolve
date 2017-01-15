@@ -56,7 +56,7 @@
 .t4p_metabox_tabs {
     margin: 0;
     padding: 0;
-    width: 20%;
+    width: 17%;
     float: left;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -95,7 +95,7 @@
 }
 
 .t4p_metabox_main {
-    width: 80%;
+    width: 83%;
     float: left;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;

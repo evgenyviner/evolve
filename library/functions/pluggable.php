@@ -154,5 +154,3 @@ function add_lighbox_rel($attachment_link) {
         $attachment_link = str_replace('a href', 'a rel="gallery" href', $attachment_link);
     return $attachment_link;
 }
-
-?>

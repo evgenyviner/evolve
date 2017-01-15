@@ -17,7 +17,7 @@ if (!bbp_is_single_forum()) :
 
     if (bbp_is_topic_edit()) :
 
-        bbp_topic_tag_list(bbp_get_topic_id(), array('before' => '<div class="bbp-topic-tags"><p>' . esc_html__('Tags:', 'evolve') . '&nbsp;', sep => ' '));
+        bbp_topic_tag_list(bbp_get_topic_id(), array('before' => '<div class="bbp-topic-tags"><p>' . esc_html__('Tags:', 'evolve') . '&nbsp;', 'sep' => ' '));
 
     endif;
 

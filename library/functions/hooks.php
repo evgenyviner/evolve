@@ -61,5 +61,3 @@ function evolve_hook_comments($callback = array('evolve_comment_author', 'evolve
     }
     do_action('evolve_hook_comments_close'); // Available action: evolve_comment_close
 }
-
-?>

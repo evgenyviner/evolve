@@ -39,11 +39,15 @@ class evolve_Tabs_Widget extends WP_Widget {
                 <ul id="tabs" class="tabset tabs">
                     <?php if ($show_popular_posts == 'true'): ?>
                         <li><a href="#tab-popular"><?php _e('Popular', 'evolve'); ?></a></li>
-                    <?php endif; ?>
-                    <?php if ($show_recent_posts == 'true'): ?>
+                        <?php
+                    endif;
+                    if ($show_recent_posts == 'true'):
+                        ?>
                         <li><a href="#tab-recent"><?php _e('Recent', 'evolve'); ?></a></li>
-                    <?php endif; ?>
-                    <?php if ($show_comments == 'true'): ?>
+                        <?php
+                    endif;
+                    if ($show_comments == 'true'):
+                        ?>
                         <li><a href="#tab-comments"><?php _e('Comments', 'evolve'); ?></a></li>
                     <?php endif; ?>
                 </ul>
@@ -81,8 +85,10 @@ class evolve_Tabs_Widget extends WP_Widget {
                                 </ul>
                             <?php endif; ?>
                         </div>
-                    <?php endif; ?>
-                    <?php if ($show_recent_posts == 'true'): ?>
+                        <?php
+                    endif;
+                    if ($show_recent_posts == 'true'):
+                        ?>
                         <div id="tab-recent" class="tab tab_content" style="display: none;">
                             <?php
                             $recent_posts = new WP_Query('showposts=' . $tags_count);
@@ -110,8 +116,10 @@ class evolve_Tabs_Widget extends WP_Widget {
                                 </ul>
                             <?php endif; ?>
                         </div>
-                    <?php endif; ?>
-                    <?php if ($show_comments == 'true'): ?>
+                        <?php
+                    endif;
+                    if ($show_comments == 'true'):
+                        ?>
                         <div id="tab-comments" class="tab tab_content" style="display: none;">
                             <ul class="news-list">
                                 <?php

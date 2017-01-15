@@ -1,6 +1,6 @@
 <?php
 /*
- * 
+ *
  * Template: Footer.php
  *
  */
@@ -13,11 +13,11 @@
 </div>
 <!--BEGIN .content-bottom-->
 <div class="content-bottom">
-    <!--END .content-bottom-->
+<!--END .content-bottom-->
 </div>
 <!--BEGIN .footer-->
 <div class="footer">
-    <!--BEGIN .container-->
+<!--BEGIN .container-->
     <div class="container container-footer">
         <?php
         $evolve_widgets_footer = evolve_get_option('evl_widgets_num', 'disable');

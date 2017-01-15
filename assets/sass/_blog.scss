@@ -1,21 +1,18 @@
 /*!==========================================================================
    Blog
    ========================================================================== */
+
 #primary {
     word-wrap: break-word;
     z-index: 0;
-    .hentry {
-        padding-bottom: 25px;
-        float:none;
-        display:inline-block;
-        margin:0 -2px;
-        vertical-align: top;   
-        width: 100%;
-    }
     .formatted-post{
         padding:15px 15px 25px;
         position:relative;
     }
+}
+
+#primary.full-width h1 {
+    margin: 0 0 15px;
 }
 
 .hentry{
@@ -337,16 +334,18 @@
 }
 
 .comments-title-back {
-    float: left;
     padding: 10px;
     padding-left: 0;
-    margin-bottom: 25px;
 }
 
 .comment-title {
     float: left;
     margin-right: 12px;
     letter-spacing: 0;
+}
+
+.pings-title h3{
+    margin: 0;
 }
 
 .comment-title-meta,
@@ -532,9 +531,12 @@ a.follow-replies:hover {
     margin: 18px;
 }
 
-.comment, .navigation-links {
+.comment, 
+.navigation-links {
     margin-bottom: 40px;
 }
+
+
 /* ======================== Comment Reply ======================== */
 #reply-title {
     letter-spacing: 0;
@@ -981,4 +983,76 @@ ul#slides {
     left: 8%;
     position: absolute;
     text-align: center;
+}
+
+.comment-list {
+    padding: 0;
+}
+
+#page-links {
+    clear: both;
+    float: left;
+    margin: 20px 0;
+    font-size: 11px;
+}
+
+#page-links a {
+    color: #999;
+    font-weight: bold;
+    margin: 0 2px;
+    background: #f6f6f6;
+    text-decoration: none;
+    padding: 3px 8px;
+}
+
+#page-links a:hover {
+    background: #fff;
+    color: #333;
+}
+
+#page-links p {
+    margin-bottom: 0;
+}
+
+#page-links strong {
+    text-transform: uppercase;
+}
+
+#primary .entry-meta {
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.t4p-blog-timeline .blog-timeline-layout {
+    background: transparent url("assets/images/timeline_line.png") repeat-y center center;
+    margin: 0 auto;
+    padding-top: 60px;
+    position: relative;
+    width: 775px;
+}
+
+@media (max-width: 769px) {
+    #primary .t4p-blog-timeline .blog-timeline-layout {
+        background: none;
+        width: 100%;
+    }
+    #primary .post {
+        width: 100%;
+    }
+    .timeline-circle {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    #primary .t4p-blog-timeline .blog-timeline-layout {
+        width: 100%;
+    }
+    #header.sticky-header {
+        width: 102%;
+    }
+}
+
+.menu-container .container-center {
+    margin: 0 auto;
 }

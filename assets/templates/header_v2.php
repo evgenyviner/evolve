@@ -30,6 +30,7 @@
             echo ' custom-header';
         }
         ?>">
+        	<div class="header-bg"></div>
             <!--BEGIN .header-->
             <div class="header">
                 <div class="container">
@@ -60,7 +61,7 @@
                             ?> 								
                         </div>
                         <!--END .title-container-->
-                        <div class="col-md-7">
+                        <div class="headerbar col-md-7 col-sm-7">
                             <!--BEGIN .container-menu-->
                             <div class="container-menu">
                                 <?php
@@ -87,6 +88,7 @@
                                     </div><!-- /.primary-menu -->
                                 <?php } ?>
                             </div>
+                            <div class="clearfix"></div>
                         </div>
                         <?php
                         $evolve_searchbox = evolve_get_option('evl_searchbox', '1');

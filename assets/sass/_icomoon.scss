@@ -21,8 +21,7 @@
 [class*=" t4p-icon-"],
 .widget-content [class^="t4p-icon-"],
 .widget-content [class*=" t4p-icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
+    font-family: 'icomoon';
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -296,8 +295,8 @@
     width: 35px;
     height: 35px;
     position: absolute;
-    top: 9px;
-    right: 1px;
+    top: 0px;
+    right: 0px;
 }
 
 .t4p-icon-menu {
@@ -359,7 +358,7 @@
 .t4p-social-networks a.t4p-social-network-icon:after {
     position: absolute;
     width: inherit;
-    height: 100%!important;
+    height: 100%;
     left: 0;
     bottom: -28px;
     color: #333;

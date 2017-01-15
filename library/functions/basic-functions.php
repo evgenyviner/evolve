@@ -135,6 +135,9 @@ add_action('after_setup_theme', 'evolve_after_setup');
  *
  * @since 3.1.5
  */
+
+load_theme_textdomain('evolve', get_template_directory() . '/languages');
+
 /**
  * Functions - Evolve gatekeeper
  * This file defines a few constants variables, loads up the core Evolve file,
@@ -289,15 +292,15 @@ function evolve_footer_hooks() {
 
             <script type='text/javascript'>
                 jQuery(document).ready(
-                        function ($) {
-                            jQuery('#gmap').goMap(
-                                    {
-                                        address: '<?php echo $addresses[0]; ?>',
-                                        maptype: '<?php echo $evolve_gmap_type; ?>',
-                                        zoom: <?php echo $evolve_map_zoom_level; ?>,
-                                        scrollwheel: <?php if ($evolve_map_scrollwheel): ?>false<?php else: ?>true<?php endif; ?>,
-                                                                    scaleControl: <?php if ($evolve_map_scale): ?>false<?php else: ?>true<?php endif; ?>,
-                                                                                                navigationControl: <?php if ($evolve_map_zoomcontrol): ?>false<?php else: ?>true<?php endif; ?>,
+                        function($) {
+                        jQuery('#gmap').goMap(
+                        {
+                        address: '<?php echo $addresses[0]; ?>',
+                                maptype: '<?php echo $evolve_gmap_type; ?>',
+                                zoom: <?php echo $evolve_map_zoom_level; ?>,
+                                scrollwheel: <?php if ($evolve_map_scrollwheel): ?>false<?php else: ?>true<?php endif; ?>,
+                                                    scaleControl: <?php if ($evolve_map_scale): ?>false<?php else: ?>true<?php endif; ?>,
+                                                                        navigationControl: <?php if ($evolve_map_zoomcontrol): ?>false<?php else: ?>true<?php endif; ?>,
             <?php if (!$evolve_map_pin): ?>markers: [<?php echo $markers; ?>], <?php endif; ?>
                                     }
                             );
@@ -311,41 +314,41 @@ function evolve_footer_hooks() {
     <script type="text/javascript">
         var $jx = jQuery.noConflict();
         $jx("div.post").mouseover(
-                function () {
-                    $jx(this).find("span.edit-post").css('visibility', 'visible');
+                function() {
+                $jx(this).find("span.edit-post").css('visibility', 'visible');
                 }
         ).mouseout(
-                function () {
-                    $jx(this).find("span.edit-post").css('visibility', 'hidden');
+                function() {
+                $jx(this).find("span.edit-post").css('visibility', 'hidden');
                 }
         );
         $jx("div.type-page").mouseover(
-                function () {
-                    $jx(this).find("span.edit-page").css('visibility', 'visible');
+                function() {
+                $jx(this).find("span.edit-page").css('visibility', 'visible');
                 }
         ).mouseout(
-                function () {
-                    $jx(this).find("span.edit-page").css('visibility', 'hidden');
+                function() {
+                $jx(this).find("span.edit-page").css('visibility', 'hidden');
                 }
         );
         $jx("div.type-attachment").mouseover(
-                function () {
-                    $jx(this).find("span.edit-post").css('visibility', 'visible');
+                function() {
+                $jx(this).find("span.edit-post").css('visibility', 'visible');
                 }
         ).mouseout(
-                function () {
-                    $jx(this).find("span.edit-post").css('visibility', 'hidden');
+                function() {
+                $jx(this).find("span.edit-post").css('visibility', 'hidden');
                 }
         );
         $jx("li.comment").mouseover(
-                function () {
-                    $jx(this).find("span.edit-comment").css('visibility', 'visible');
+                function() {
+                $jx(this).find("span.edit-comment").css('visibility', 'visible');
                 }
         ).mouseout(
-                function () {
-                    $jx(this).find("span.edit-comment").css('visibility', 'hidden');
+                function() {
+                $jx(this).find("span.edit-comment").css('visibility', 'hidden');
                 }
-        );</script> 
+        );</script>
 
     <?php
     $evolve_sticky_header = evolve_get_option('evl_sticky_header', '1');
@@ -379,20 +382,20 @@ function evolve_footer_hooks() {
 
         <script type="text/javascript">
             jQuery(document).ready(
-                    function ($) {
-                        if (jQuery('.sticky-header').length >= 1) {
-                            jQuery(window).scroll(function () {
-                                var header = jQuery(document).scrollTop();
-                                var headerHeight = jQuery('.new-top-menu').height() + jQuery('.menu-header').height() + jQuery('.header-pattern').height();
-                                if (header > headerHeight) {
-                                    jQuery('.sticky-header').addClass('sticky');
-                                    jQuery('.sticky-header').show();
-                                } else {
-                                    jQuery('.sticky-header').removeClass('sticky');
-                                    jQuery('.sticky-header').hide();
-                                }
-                            });
-                        }
+                    function($) {
+                    if (jQuery('.sticky-header').length >= 1) {
+                    jQuery(window).scroll(function() {
+                    var header = jQuery(document).scrollTop();
+                    var headerHeight = jQuery('.new-top-menu').height() + jQuery('.menu-header').height() + jQuery('.header-pattern').height();
+                    if (header > headerHeight) {
+                    jQuery('.sticky-header').addClass('sticky');
+                    jQuery('.sticky-header').show();
+                    } else {
+                    jQuery('.sticky-header').removeClass('sticky');
+                    jQuery('.sticky-header').hide();
+                    }
+                    });
+                    }
                     }
             );</script>
 
@@ -463,9 +466,9 @@ function evolve_footer_hooks() {
              /*----------------*/
             var $s = jQuery.noConflict();
             $s(
-                    function () {
-                        $s('#slides')
-                                .anythingSlider({autoPlay: true, delay: <?php echo $evolve_carousel_speed; ?>, })
+                    function() {
+                    $s('#slides')
+                            .anythingSlider({autoPlay: true, delay: <?php echo $evolve_carousel_speed; ?>, })
                     }
             )
         </script>
@@ -513,12 +516,12 @@ function evolve_footer_hooks() {
                 }
         )
 
-        $carousel('#carousel-nav a').click(
-                function (q) {
-                    q.preventDefault();
-                    targetSlide = $carousel(this).attr('data-to') - 1;
-                    $carousel('#myCarousel').carousel(targetSlide);
-                    $carousel(this).addClass('active').siblings().removeClass('active');
+                $carousel('#carousel-nav a').click(
+                function(q) {
+                q.preventDefault();
+                targetSlide = $carousel(this).attr('data-to') - 1;
+                $carousel('#myCarousel').carousel(targetSlide);
+                $carousel(this).addClass('active').siblings().removeClass('active');
                 }
         );
         $carousel('#bootstrap-slider').carousel(
@@ -542,6 +545,9 @@ function evolve_footer_hooks() {
 
 function evolve_hexDarker($hex, $factor = 30) {
     $new_hex = '';
+
+    // if hex code null than assign transparent for hide PHP warning /
+    $hex = empty($hex) ? 'ransparent' : $hex;
 
     $base['R'] = hexdec($hex{0} . $hex{1});
     $base['G'] = hexdec($hex{2} . $hex{3});
@@ -627,6 +633,7 @@ function evolve_bootstrap() {
                 echo "</div>";
             }
         }
+
         if ($wrap) {
             echo "</div>
             <a class='left carousel-control' href='#bootstrap-slider' data-slide='prev'></a><a class='right carousel-control' href='#bootstrap-slider' data-slide='next'></a></div>";
@@ -1056,7 +1063,7 @@ function evolve_bootstrap() {
         }
 
         if (is_home()) {
-            echo '<li>' . $data['blog_title'] . '</li>';
+            echo '<li>' . __('Blog', 'evolve') . '</li>';
         }
         if (is_page() && !is_front_page()) {
             $parents = array();
@@ -1186,13 +1193,12 @@ function evolve_bootstrap() {
                                     $excerpt_length = evolve_get_option('evl_posts_slider_excerpt_length', 40);
                                     echo evolve_excerpt_max_charlength($excerpt_length);
                                     ?></p>
-                                <a class="button post-more" href="<?php the_permalink(); ?>"><?php _e('Read more', 'evolve'); ?></a>
+                                <a class="button post-more" href="<?php the_permalink(); ?>"><?php _e('Read More', 'evolve'); ?></a>
 
                             </li>
 
                             <?php
                         endwhile;
-
                     else:
                         ?>
                         <li><?php _e('<h2 style="color:#fff;">Oops, no posts to display! Please check your post slider Category (ID) settings</h2>', 'evolve'); ?></li>
@@ -1206,6 +1212,41 @@ function evolve_bootstrap() {
         </div>
         <?php
     }
+
+// Register default function when plugin not activated
+    add_action('wp_head', 'evolve_plugins_loaded');
+
+    function evolve_plugins_loaded() {
+        if (!function_exists('is_woocommerce')) {
+
+            function is_woocommerce() {
+                return false;
+            }
+
+        }
+        if (!function_exists('is_product')) {
+
+            function is_product() {
+                return false;
+            }
+
+        }
+        if (!function_exists('is_buddypress')) {
+
+            function is_buddypress() {
+                return false;
+            }
+
+        }
+        if (!function_exists('is_bbpress')) {
+
+            function is_bbpress() {
+                return false;
+            }
+
+        }
+    }
+
 
     /**
      * Infinite Scroll
@@ -1252,6 +1293,37 @@ function evolve_bootstrap() {
         }
         echo '}
     </script>';
+
+	   
+    }
+
+    /*
+     * function to use get buddypress page id
+     *
+     * 
+     */
+
+    function evolve_bp_get_id() {
+        $post_id = '';
+        $bp_page_id = get_option('bp-pages');
+
+        if (is_buddypress()) {
+            if (bp_is_current_component('members')) {
+                $post_id = $bp_page_id['members'];
+            } elseif (bp_is_current_component('activity')) {
+                $post_id = $bp_page_id['activity'];
+            } elseif (bp_is_current_component('groups')) {
+                $post_id = $bp_page_id['groups'];
+            } elseif (bp_is_current_component('register')) {
+                $post_id = $bp_page_id['register'];
+            } elseif (bp_is_current_component('activate')) {
+                $post_id = $bp_page_id['activate'];
+            } else {
+                $post_id = '';
+            }
+        }
+
+        return $post_id;
     }
 
     /*
@@ -1273,6 +1345,8 @@ function evolve_bootstrap() {
         $post_id = '';
         if ($wp_query->is_posts_page) {
             $post_id = get_option('page_for_posts');
+        } elseif (is_buddypress()) {
+            $post_id = evolve_bp_get_id();
         } else {
             $post_id = isset($post->ID) ? $post->ID : '';
         }
@@ -1300,17 +1374,15 @@ function evolve_bootstrap() {
             }
         }
 
-        if (is_single() || is_page() || $wp_query->is_posts_page):
+        if (is_single() || is_page() || $wp_query->is_posts_page || is_buddypress() || is_bbpress()):
 
-            if ($type == 1) {
+            $evolve_sidebar_position = get_post_meta($post_id, 'evolve_sidebar_position', true);
 
-                //Moved from the above, Do this only in single.php or page.php
+            if (($type == 1 && $evolve_sidebar_position == 'default') || ($type == 2 && $evolve_sidebar_position == 'default')) {
                 if (get_post_meta($post_id, 'evolve_full_width', true) == 'yes') {
                     $layout_css .= ' full-width';
                 }
             }
-
-            $evolve_sidebar_position = get_post_meta($post_id, 'evolve_sidebar_position', true);
 
             if ($evolve_sidebar_position == '2cl') {
                 $layout_css = 'col-xs-12 col-sm-6 col-md-8 col-md-8 float-left';
@@ -1344,7 +1416,6 @@ function evolve_bootstrap() {
     /*
      * function to print out css class according to layout
      * used in content-blog.php, index.php.
-     * @since 3.3.0
      *
      * added by Denzel
      */
@@ -1377,8 +1448,7 @@ function evolve_bootstrap() {
     /*
      * function to print out css class according to post format
      * used in content-blog.php, index.php.
-     * @since 3.3.0
-     *
+     * 
      * added by Denzel
      */
 
@@ -1401,7 +1471,7 @@ function evolve_bootstrap() {
 
     /*
      * function to print out css class according to layout
-     * used in sidebar.php and sidebar-2.php
+     * used in sidebar.php
      * 
      * added by Denzel
      */
@@ -1413,6 +1483,8 @@ function evolve_bootstrap() {
         $post_id = '';
         if ($wp_query->is_posts_page) {
             $post_id = get_option('page_for_posts');
+        } elseif (is_buddypress()) {
+            $post_id = evolve_bp_get_id();
         } else {
             $post_id = isset($post->ID) ? $post->ID : '';
         }
@@ -1445,6 +1517,7 @@ function evolve_bootstrap() {
 
         $evolve_sidebar_position = get_post_meta($post_id, 'evolve_sidebar_position', true);
 
+		if(is_page() || is_single()):
         //use PHP switch statement, is easier to understand.
         switch ($evolve_sidebar_position):
             case "default":
@@ -1466,6 +1539,7 @@ function evolve_bootstrap() {
                 $sidebar_css = 'col-xs-12 col-sm-6 col-md-3 float-left';
                 break;
         endswitch;
+		endif;
 
 
         echo $sidebar_css;
@@ -1486,6 +1560,8 @@ function evolve_bootstrap() {
         $post_id = '';
         if ($wp_query->is_posts_page) {
             $post_id = get_option('page_for_posts');
+        } elseif (is_buddypress()) {
+            $post_id = evolve_bp_get_id();
         } else {
             $post_id = isset($post->ID) ? $post->ID : '';
         }
@@ -1498,11 +1574,11 @@ function evolve_bootstrap() {
             $get_sidebar = true;
         }
 
-        if ((is_page() || is_single() || $wp_query->is_posts_page) && get_post_meta($post_id, 'evolve_full_width', true) == 'yes') {
+        if (( is_page() || is_single() || $wp_query->is_posts_page || is_buddypress() || is_bbpress()) && get_post_meta($post_id, 'evolve_full_width', true) == 'yes') {
             $get_sidebar = false;
         }
 
-        if (is_single() || is_page() || $wp_query->is_posts_page):
+        if (is_single() || is_page() || $wp_query->is_posts_page || is_buddypress() || is_bbpress()):
 
             $evolve_sidebar_position = get_post_meta($post_id, 'evolve_sidebar_position', true);
 
@@ -1530,6 +1606,8 @@ function evolve_bootstrap() {
         $post_id = '';
         if ($wp_query->is_posts_page) {
             $post_id = get_option('page_for_posts');
+        } elseif (is_buddypress()) {
+            $post_id = evolve_bp_get_id();
         } else {
             $post_id = isset($post->ID) ? $post->ID : '';
         }
@@ -1542,11 +1620,11 @@ function evolve_bootstrap() {
             $get_sidebar = true;
         }
 
-        if ((is_page() || is_single() || $wp_query->is_posts_page) && get_post_meta($post_id, 'evolve_full_width', true) == 'yes') {
+        if (( is_page() || is_single() || $wp_query->is_posts_page || is_buddypress() || is_bbpress()) && get_post_meta($post_id, 'evolve_full_width', true) == 'yes') {
             $get_sidebar = false;
         }
 
-        if (is_single() || is_page() || $wp_query->is_posts_page):
+        if (is_single() || is_page() || $wp_query->is_posts_page || is_buddypress() || is_bbpress()):
 
             $evolve_sidebar_position = get_post_meta($post_id, 'evolve_sidebar_position', true);
 
@@ -1578,26 +1656,26 @@ function evolve_bootstrap() {
         }
         if ($options[$name]['font-family'] != '') {
             $font_family = $options[$name]['font-family'];
-            $css.= "$css_class{font-family:" . $font_family . " !important;}";
+            $css .= "$css_class{font-family:" . $font_family . ";}";
         }
         if (isset($options[$name]['font-style']) && $options[$name]['font-style'] != '') {
             $font_style = $options[$name]['font-style'];
-            $css.= "$css_class{font-style:" . $font_style . " !important;}";
+            $css .= "$css_class{font-style:" . $font_style . ";}";
         }
         if (isset($options[$name]['font-weight']) && $options[$name]['font-weight'] != '') {
             $font_weight = $options[$name]['font-weight'];
-            $css.= "$css_class{font-weight:" . $font_weight . " !important;}";
+            $css .= "$css_class{font-weight:" . $font_weight . ";}";
         }
-        if ($options[$name]['color'] != '') {
+        if (isset($options[$name]['color']) && $options[$name]['color'] != '') {
             $color = $options[$name]['color'];
-            $css.= "$css_class{color:" . $color . " !important;}";
+            $css .= "$css_class{color:" . $color . ";}";
         }
         if ($additional_css != '') {
-            $css.= "$css_class{" . $additional_css . ";}";
+            $css .= "$css_class{" . $additional_css . ";}";
         }
         if ($additional_color_css_class != '') {
             $color = $options[$name]['color'];
-            $css.= "$additional_color_css_class{color:" . $color . " !important;}";
+            $css .= "$additional_color_css_class{color:" . $color . ";}";
         }
 
         return $css;
@@ -1656,5 +1734,29 @@ function evolve_bootstrap() {
     }
 
     add_filter('bbp_before_get_breadcrumb_parse_args', 'evolve_custom_bbp_breadcrumb');
+
+    /* Change prefix pyre to evolve */
+
+    $evolve_change_metabox_prefix = get_option('evl_change_metabox_prefix', 0);
+    if ($evolve_change_metabox_prefix != 1) {
+        add_action('admin_init', 'evolve_change_prefix');
+        update_option('evl_change_metabox_prefix', 1);
+    }
+
+    function evolve_change_prefix() {
+        global $wpdb;
+
+        $querystr = " SELECT meta_key FROM $wpdb->postmeta WHERE `meta_key` LIKE '%pyre_%' ";
+
+        $evolve_meta_key = $wpdb->get_results($querystr);
+        foreach ($evolve_meta_key as $meta_key) {
+            $original_meta_key = $meta_key->meta_key;
+
+            $change_meta_key = str_replace("pyre_", "evolve_", $original_meta_key);
+
+            $wpdb->query("UPDATE $wpdb->postmeta SET meta_key = REPLACE(meta_key, '$original_meta_key', '$change_meta_key')");
+        }
+    }
+
     //filter added for buddypress-docs comment show
     add_filter( 'bp_docs_allow_comment_section', '__return_true', 100 );

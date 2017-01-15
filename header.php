@@ -1,6 +1,6 @@
 <?php
 /*
- * 
+ *
  * Template: Header.php
  *
  */
@@ -35,7 +35,7 @@
 
     </head><!--END head-->
 
-    <?php $evolve_header_type = evolve_get_option('evl_header_type', 'none'); ?>  
+    <?php $evolve_header_type = evolve_get_option('evl_header_type', 'none'); ?>
 
     <!--BEGIN body-->
     <body <?php body_class(); ?>>
@@ -76,7 +76,7 @@
                 $evolve_width_layout = evolve_get_option('evl_width_layout', 'fixed');
                 if ($evolve_width_layout == "fluid" && $evolve_menu_background == "1") {
                     ?>
-                    <div class="fluid-width">                        
+                    <div class="fluid-width">
                     <?php }
                     ?>
                     <div class="menu-back">

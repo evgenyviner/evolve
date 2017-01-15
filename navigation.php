@@ -33,5 +33,5 @@ if (is_singular() and ! is_page()) {
         <!--END .navigation-links-->
     </div>
     <div class="clearfix"></div> 
-<?php
-} 
+    <?php
+}

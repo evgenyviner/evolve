@@ -184,10 +184,7 @@ table {
   border-spacing: 0;
   border-collapse: collapse;
 }
-td,
-th {
-  padding: 0;
-}
+
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
   *,
@@ -1092,13 +1089,8 @@ a {
 a:hover,
 a:focus {
   color: #23527c;
-  text-decoration: underline;
 }
-a:focus {
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
+
 figure {
   margin: 0;
 }
@@ -1751,7 +1743,7 @@ pre code {
 .col-xs-offset-0 {
   margin-left: 0;
 }
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     float: left;
   }
@@ -6559,3 +6551,6 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+body #header.sticky-header {
+//    margin-left: -15px !important;
+}

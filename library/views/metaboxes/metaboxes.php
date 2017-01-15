@@ -122,9 +122,9 @@ class evolve_ThemeFrameworkMetaboxes {
         $html .= $label;
         $html .= '</label>';
         $html .= '<div class="field">';
-        $html .= '<select multiple="multiple" id="t4p_' . $id . '" name="pyre_' . $id . '[]">';
+        $html .= '<select multiple="multiple" id="t4p_' . $id . '" name="evolve_' . $id . '[]">';
         foreach ($options as $key => $option) {
-            if (is_array(get_post_meta($post->ID, 'pyre_' . $id, true)) && in_array($key, get_post_meta($post->ID, 'pyre_' . $id, true))) {
+            if (is_array(get_post_meta($post->ID, 'evolve_' . $id, true)) && in_array($key, get_post_meta($post->ID, 'evolve_' . $id, true))) {
                 $selected = 'selected="selected"';
             } else {
                 $selected = '';
@@ -145,7 +145,7 @@ class evolve_ThemeFrameworkMetaboxes {
     public function evolve_textarea($id, $label, $desc = '', $default = '') {
         global $post;
 
-        $db_value = get_post_meta($post->ID, 'pyre_' . $id, true);
+        $db_value = get_post_meta($post->ID, 'evolve_' . $id, true);
 
         if ($db_value) {
             $value = $db_value;
@@ -156,11 +156,11 @@ class evolve_ThemeFrameworkMetaboxes {
         $html = '';
         $html = '';
         $html .= '<div class="t4p_metabox_field">';
-        $html .= '<label for="pyre_' . $id . '">';
+        $html .= '<label for="evolve_' . $id . '">';
         $html .= $label;
         $html .= '</label>';
         $html .= '<div class="field">';
-        $html .= '<textarea cols="120" rows="10" id="pyre_' . $id . '" name="pyre_' . $id . '">' . $value . '</textarea>';
+        $html .= '<textarea cols="120" rows="10" id="evolve_' . $id . '" name="evolve_' . $id . '">' . $value . '</textarea>';
         if ($desc) {
             $html .= '<p>' . $desc . '</p>';
         }

@@ -10,12 +10,19 @@ html{
 	outline:none;
 }
 
-body, input, textarea{
+.evolve_mobile_menu {
+    display: none;
+}
+
+body, 
+input,
+textarea{
 	color: #888;
     font: 16px/1.5 "Roboto",arial,sans-serif;
 }
 
-body,html{
+body,
+html{
 	height:100%;
 }
 
@@ -24,22 +31,93 @@ body,html{
 	padding:0 !important;
 }
 
+.float-right {
+    margin: 15px 0;
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.video-shortcode iframe {
+    width: 100%;
+}
+
+#content .products-slider .cats a {
+    color: #333;
+}
+
+embed, 
+iframe,
+object,
+video {
+    max-width: 100%;
+}
+
 .main{
 	background: #eceeeb;
     padding: 53px 0 91px;
 }
 
-#rss, #email-newsletter, #facebook, #twitter, #instagram, #skype, #youtube, #flickr, #linkedin, #plus, #pinterest, #tumblr {
+#primary.full-width {
+    width: 100%;
+}
+
+#content .searchform {
+    float: none;
+}
+
+p,
+pre,
+ul,
+ol,
+dl,
+dd,
+blockquote,
+address,
+table,
+fieldset,
+form,
+.gallery-row,
+.comment-list ul,
+.comment-list ol {
+    margin-bottom: 20px;
+}
+
+#rss, 
+#email-newsletter,
+#facebook,
+#twitter,
+#instagram,
+#skype,
+#youtube,
+#flickr,
+#linkedin,
+#plus, 
+#pinterest, 
+#tumblr {
     color: #999;
     display: block;
     margin: 0 5px;
 }
 
+.excerpt-container iframe {
+    width: 100%;
+    height: auto;
+}
+
 .clearfix {
     clear: both;
 }
-.clearfix {
-    display: block;
+
+#social {
+    float: right;
+}
+
+.header {
+    position: relative;
+    z-index: 21;
 }
 
 #wp-toolbar > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input {
@@ -51,16 +129,49 @@ body,html{
     background-color: rgba(255, 255, 255, 0.9) !important;
 }
 
-a{transition: all 0.2s; outline: none;}
-a:focus, button:focus, input:focus{outline: none;}
-a:focus, a:active{text-decoration: none; color: $brand-primary;}
+a {
+    transition: all 0.2s; outline: none;
+}
 
-h1,h2,h3,h4,h5,h6{a{color: $gray-dark; &:hover{color: $brand-primary; text-decoration: none;}}}
+a:focus,
+button:focus,
+input:focus {
+    outline: none;
+}
 
-h1,h2{line-height: 36px; margin: 20px 0 10px;}
-h3,h4{line-height: 30px; margin: 20px 0 10px;}
-h5,h6{line-height: 26px; margin: 20px 0 10px;}
-/*p{color: $gray-light;}*/
+a:focus, 
+a:active {
+    text-decoration: none; color: $brand-primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    a {
+        color: $gray-dark; &:hover { 
+            color: $brand-primary; text-decoration: none;
+        }
+    }
+}
+
+h1,
+h2 {
+    line-height: 36px; margin: 20px 0 10px;
+}
+
+h3,
+h4 {
+    line-height: 30px; margin: 20px 0 10px;
+}
+
+h5,
+h6 {
+    line-height: 26px; margin: 20px 0 10px;
+}
+
 .alignleft {
     float: left;
 }
@@ -75,7 +186,11 @@ h5,h6{line-height: 26px; margin: 20px 0 10px;}
     display: block;
     clear: both;
 }
-img{max-width: 100%;}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
 
 .content{
     padding-top:35px;
@@ -84,7 +199,19 @@ img{max-width: 100%;}
     }
 }
 
-input[type="submit"], button, .button, .bootstrap-button, input#submit, .da-slide .da-link, span.more a, a.read-more, .entry-content a.t4p-button-default {
+.content .container-center {
+  margin: 0 auto;
+}
+
+input[type="submit"], 
+button, 
+.button, 
+.bootstrap-button, 
+input#submit, 
+.da-slide .da-link,
+span.more a,
+a.read-more,
+.entry-content a.t4p-button-default {
     background: #0bb697;
     border-color: #0bb697;
     border-radius: 4px;
@@ -102,7 +229,8 @@ input[type="submit"], button, .button, .bootstrap-button, input#submit, .da-slid
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
 }
 
-.margin-40, .home .formatted-single, .page-template-blog-page-php .formatted-single {
+.margin-40, .home .formatted-single,
+.page-template-blog-page-php .formatted-single {
     margin-bottom: 20px !important;
 }
 
@@ -121,7 +249,7 @@ input[type="submit"], button, .button, .bootstrap-button, input#submit, .da-slid
     margin-right: 5px;
 }
 
-.entry-categories{
+.entry-categories {
     color: #ccc;
 }
 
@@ -129,15 +257,17 @@ input[type="submit"], button, .button, .bootstrap-button, input#submit, .da-slid
     color: #ccc;
     font-size: 13px;
 }
+
 .entry-tags {
     float: left;
     padding: 10px 0px;
 }
 
-.sticky .entry-categories{
+.sticky .entry-categories {
     color:#fff;
 }
-@media (max-width: 1000px){
+
+@media (max-width: 1000px) {
 	.container{
 		width:100%;
 	}
@@ -153,21 +283,53 @@ input[type="submit"], button, .button, .bootstrap-button, input#submit, .da-slid
     color: #333;
 }
 
-.top-menu .sub-menu, .primary-menu .sub-menu{
-    padding:0;
-}
 #tagline {
     color: #aaaaaa;
     display: block;
     font: 400 13px "Roboto",arial,sans-serif;
 }
-.clearfix {
-    clear: both;
-}
-.home .type-post.sticky .entry-header a, .home .formatted-post .entry-header a, .home .type-post.sticky .entry-meta, .home .formatted-post .entry-meta, .home .type-post.sticky .entry-footer a, .home .formatted-post .entry-footer a, .page-template-blog-page-php .type-post.sticky .entry-header a, .page-template-blog-page-php .type-post.sticky .entry-meta, .page-template-blog-page-php .formatted-post .entry-header a, .page-template-blog-page-php .formatted-post .entry-meta, .page-template-blog-page-php .type-post.sticky .entry-footer a, .page-template-blog-page-php .formatted-post .entry-footer a {
+
+.home .type-post.sticky .entry-header a, 
+.home .formatted-post .entry-header a,
+.home .type-post.sticky .entry-meta,
+.home .formatted-post .entry-meta,
+.home .type-post.sticky .entry-footer a,
+.home .formatted-post .entry-footer a,
+.page-template-blog-page-php .type-post.sticky .entry-header a,
+.page-template-blog-page-php .type-post.sticky .entry-meta,
+.page-template-blog-page-php .formatted-post .entry-header a,
+.page-template-blog-page-php .formatted-post .entry-meta,
+.page-template-blog-page-php .type-post.sticky .entry-footer a,
+.page-template-blog-page-php .formatted-post .entry-footer a {
     color: #fff !important;
 }
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+.bypostauthor {
+    
+}
+
 /* ======================== Images ======================== */
+
 .entry-content .alignleft.wp-caption {
     margin: 5px 20px 20px 0;
 }
@@ -215,7 +377,9 @@ input[type="submit"], button, .button, .bootstrap-button, input#submit, .da-slid
     margin: 0 !important;
 }
 
+
 /* ======================== Headings ======================== */
+
 h1,
 h2,
 h3,
@@ -265,7 +429,10 @@ h6 {
     line-height: 18px;
     padding: 5px 0px;
 }
+
+
 /* ======================== Widgets ======================== */
+
 .widget ul{
     padding:0;
     position:relative;
@@ -309,7 +476,7 @@ h6 {
 
 .widget-content {
     position: relative;
-    margin: 0 0px 35px 0px;
+    margin: 0px 0px 35px 0px;
     padding: 10px 15px 21px 15px;
     font-size: 13px;
     background: #F6F6F6;
@@ -346,7 +513,10 @@ h6 {
     -webkit-box-shadow: none;
 }
 
-#secondary a, #secondary-2 a, .footer-widgets a, .header-widgets a {
+#secondary a, 
+#secondary-2 a, 
+.footer-widgets a, 
+.header-widgets a {
     color: #666;
     line-height: 180%;
     padding: 3px 0;
@@ -357,7 +527,30 @@ h6 {
     position: relative;
     top: -10px;
 }
+
+.product_list_widget li,
+.widget_layered_nav li {
+    overflow: hidden;
+    padding: 15px 0 !important;
+}
+
+#wp-calendar {
+    border: 1px solid #e0dddd;
+}
+
+#wp-calendar td:last-child {
+    border-right: 1px solid #e0dddd;
+}
+
+#wp-calendar #prev,
+#wp-calendar .pad,
+#wp-calendar .next {
+    border-right: 0;
+}
+
+
 /* ======================== Text Elements ======================== */
+
 address {
     font-style: italic;
 }
@@ -454,7 +647,9 @@ code {
     white-space: pre-wrap!important;
 }
 
+
 /* ======================== Lists: (ul, ol, dl) ======================== */
+
 ul.nav-menu {
     margin-left: 0px;
 }
@@ -463,6 +658,7 @@ ul.nav-menu {
 .entry-content ol,
 #search-query {
     margin-left: 25px;
+    padding: 0;
 }
 
 li ul,
@@ -475,6 +671,7 @@ ol ol,
 ul ol,
 ol ul {
     margin-bottom: 0;
+    padding: 0;
 }
 
 ol {
@@ -486,6 +683,7 @@ ul ul,
 ul ul ul {
     list-style-type: none;
     list-style-image: url('assets/images/list-style.png');
+    padding: 0;
 }
 
 ul.list-icon,
@@ -523,6 +721,7 @@ dt {
     margin-bottom: 10px;
 }
 
+
 /* ======================== Tables ======================== */
 
 table {
@@ -534,7 +733,6 @@ table {
     margin-bottom: 15px;
     border-spacing: 0;
     line-height: 18px;
-    margin: 0 0 22px 0;
     text-align: left;
     border-collapse: separate !important;
 }
@@ -543,12 +741,19 @@ table tbody tr td {
     padding: 5px 11px;
 }
 
-table tr:last-child td {
-    border-bottom: none !important;
+.table-2 table th {
+    background: #555;
+    color: #fff;
+    padding: 10px 11px;
 }
 
-table tbody tr:last-child th {
-    border-bottom: medium none !important;
+.table-1 tr td {
+    padding: 10px 11px;
+}
+
+.table-2 tr td {
+    border-bottom: 1px solid #dcdcdc;
+    padding: 10px 11px;
 }
 
 td.label {
@@ -569,7 +774,7 @@ caption {
 td,
 th {
     font-size: 14px;
-    padding: 8px 11px!important;
+    padding: 8px 11px !important;
     border-top: 1px solid rgba(255, 255, 255, 0.6);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -591,76 +796,19 @@ thead td {
 thead {
     box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
-/* ======================== Lists: (ul, ol, dl) ======================== */
 
-table {
-    position: relative;
-    width: 100%;
-    background: #fff;
-    border: 1px solid #E0DDDD !important;
-    border-bottom: 0;
-    margin-bottom: 15px;
-    border-spacing: 0;
-    line-height: 18px;
-    margin: 0 0 22px 0;
-    text-align: left;
-    border-collapse: separate !important;
-}
-
-table tbody tr td {
-    padding: 5px 11px;
-}
-
-table tr:last-child td {
-    border-bottom: none !important;
-}
-
-table tbody tr:last-child th {
-    border-bottom: medium none !important;
-}
-
-td.label {
-    font-size: 15px;
-    text-align: left;
-    display: table-cell;
-    color: #747474;
-}
-
-table .even {
+.table-1 tr:nth-child(2n) {
     background: #f6f6f6;
 }
 
-caption {
-    text-align: left;
+.table-1 tr td,
+.table-1 tr th {
+    padding: 8px 11px;
 }
 
-td,
-th {
-    font-size: 14px;
-    padding: 8px 11px!important;
-    border-top: 1px solid rgba(255, 255, 255, 0.6);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.widget_calendar td,
-.widget_calendar th {
-    padding: 8px 3px!important;
-}
-
-thead,
-thead th,
-thead td {
-    padding: 10px 11px;
-    font-weight: bold;
-    background: #f6f6f6;
-    color: #111;
-}
-
-thead {
-    box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
-}
 
 /* ======================== Forms ======================== */
+
 input[type="text"],
 input[type="tel"],
 input[type="password"],
@@ -678,6 +826,7 @@ textarea {
     border: 1px solid #ddd;
     background: #fff;
 }
+
 input[type="submit"],
 button,
 .button,
@@ -739,7 +888,9 @@ input#submit:hover {
     color: #fff;
 }
 
+
 /* ======================== [gallery] ======================== */
+
 .gallery {
     margin: auto;
 }
@@ -779,7 +930,9 @@ input#submit:hover {
     display: block;
 }
 
+
 /* ======================== General button style ======================== */
+
 .btn {
     border: none;
     cursor: pointer;

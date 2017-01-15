@@ -273,6 +273,7 @@ endif;
                                 if ($evolve_author_avatar == "1") {
                                     echo get_avatar(get_the_author_meta('email'), '30');
                                 }
+
                                 _e('Written by', 'evolve');
                                 ?> <strong><?php printf('<a class="url fn" href="' . get_author_posts_url($authordata->ID, $authordata->user_nicename) . '" title="' . sprintf('View all posts by %s', $authordata->display_name) . '">' . get_the_author() . '</a>') ?></strong>
                             </span>
@@ -310,6 +311,7 @@ endif;
                     <div class="entry-content article">
                         <?php
                         if ($evolve_featured_images == "1") {
+
                             if (has_post_thumbnail()) {
                                 echo '<div class="thumbnail-post"><a href="';
                                 the_permalink();
@@ -400,7 +402,6 @@ endif;
 
                 <?php
                 comments_template();
-
 
             endwhile;
 

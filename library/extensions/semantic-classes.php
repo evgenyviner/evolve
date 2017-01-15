@@ -264,6 +264,9 @@ function semantic_comments($classes = array()) {
 
     // Collects the comment type (comment, trackback)
     $classes[] = get_comment_type();
+    if (isset($classes[0]) && $classes[0] != 'comment') {
+        $classes[] = 'comment';
+    }
 
     // add css class to first comment
     if ($comment_first_class == 0)

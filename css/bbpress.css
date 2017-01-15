@@ -302,7 +302,7 @@ span.bbp-author-ip {
 #bbpress-forums div.bbp-reply-content a {
     background: none;
     border: none;
-    display: inline;
+    display: inline-block;
     font-weight: normal;
     margin: 0;
     padding: 0;

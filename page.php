@@ -69,7 +69,6 @@ endif;
                 }
                 ?>
 
-
                 <!--BEGIN .entry-content .article-->
                 <div class="entry-content article">
 

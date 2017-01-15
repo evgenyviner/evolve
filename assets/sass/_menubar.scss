@@ -2,10 +2,6 @@
    Menu Bar
    ========================================================================== */
 .primary-menu{
-	.nav .dd-container {
-	    display: none;
-	    max-width: 100%;
-	}
     .nav-menu{
         .children{
             padding:0;
@@ -21,6 +17,30 @@
     }
 }
 
+.header-logo-container {
+    .normal_logo {
+        display: block;
+    }
+    .retina_logo {
+        display: none;
+    }
+}
+.sticky-header {
+    .normal_logo {
+        display: block;
+    }
+    .retina_logo {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header-logo-container .normal_logo,
+    .sticky-header .normal_logo {
+        display: inline-block;
+    }
+}
+
 #header.sticky-header {
     background: rgba(242, 242, 242, 0.97) none repeat scroll 0 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -29,15 +49,11 @@
     padding: 0;
     position: fixed;
     top: 0;
-    width: 100%;
     z-index: 99998;
 }
 
 .menu-header {
     background: #f5f5f5;
-    background: url("assets/images/trans.png") 0px -7px repeat-x, -moz-linear-gradient(center top, #F8F8F8 20%, #eeeeee 100%);
-    background: url("assets/images/trans.png") 0px -7px repeat-x, -webkit-gradient(linear, left top, left bottom, color-stop(.2, #f8f8f8), color-stop(1, #eeeeee)) !important;
-    background: url("assets/images/trans.png") 0px -7px repeat-x, -o-linear-gradient(top, #f8f8f8, #eeeeee) !important;
     border-color: #e0dddd;
     border-style: solid;
     border-width: 1px;
@@ -59,10 +75,6 @@
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
 
-.menu-container {
-    background: #f2f2f2;
-}
-
 ul.nav-menu {
     width: 100%;
     margin-bottom: 0;
@@ -71,12 +83,6 @@ ul.nav-menu {
 ul.nav-menu,
 ul.nav-menu * {
     list-style: none;
-    left: 0;
-}
-
-ul.nav-menu li {
-    float: left;
-    position: relative;
 }
 
 ul.nav-menu li:first-child {
@@ -87,17 +93,11 @@ ul.nav-menu li:last-child {
     border-right: none;
 }
 
-ul.nav-menu ul li {
-    width: 100%;
-}
-
 
 /* Hides items under top menu */
 
 ul.nav-menu ul {
-    padding:0;
     position: absolute;
-    width: 14em!important;
     z-index: 9999;
     /* left offset of submenus need to match (see below) */
 }
@@ -123,7 +123,6 @@ ul.nav-menu li li li:hover ul,
 ul.nav-menu li li li.nav-hover ul,
 ul.nav-menu li li li li:hover ul,
 ul.nav-menu li li li li.nav-hover ul {
-    left: 14em!important;
     /* match .nav ul width */
     top: 0px;
 }
@@ -133,6 +132,13 @@ ul.nav-menu li li li li.nav-hover ul {
 
 ul.nav-menu {
     padding: 0px 0px 2px 0px;
+}
+
+/* webhook for chrom and safari browser */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    ul.nav-menu {
+        float: left;
+    }
 }
 
 ul.nav-menu ul {
@@ -160,7 +166,7 @@ ul.nav-menu li a {
 ul.nav-menu li:hover ul,
 ul.nav-menu li.nav-hover ul {
     z-index: 999999;	
-    background: #f6f6f6;	
+    //background: #f6f6f6;	
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     -box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
@@ -190,21 +196,6 @@ ul.nav-menu a {
     color: #c1c1c1;
     text-shadow: 1px 1px 0px #fff;
     font: 15px/1.5 "Roboto", arial, sans-serif;
-}
-
-ul.nav-menu a:hover,
-ul.nav-menu li.current_page_item a,
-ul.nav-menu li.current_page_parent a,
-ul.nav-menu li.current_page_ancestor a,
-ul.nav-menu li.current-menu-item > a,
-ul.nav-menu li.current-menu-parent > a,
-ul.nav-menu li.current-menu-ancestor > a {
-    text-decoration: none;
-    background: none;
-    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
-    -box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 ul.nav-menu li.current-menu-ancestor li.current-menu-item > a,
@@ -398,6 +389,7 @@ body #header.sticky-header .logo-url-text {
 
 #wrapper .dd-container .dd-select {
     height: auto;
+    border: none;
 }
 
 #wrapper .dd-container .dd-selected-text {
@@ -460,4 +452,64 @@ ul.nav-menu li ul {
 ul.nav-menu li.nav-hover ul {
     opacity: 1;
 }
+
+#wrapper ul.nav-menu li ul {
+    border: 0 none;
+    box-shadow: 0 0 0 0;
+}
+
+#wrapper .primary-menu .link-effect a {
+    line-height: 2.5em;
+    overflow: hidden;
+    padding: 8px 10px;
+}
+
+#wrapper .primary-menu .link-effect .sub-menu a {
+    height: auto;
+    line-height: 1.9em;
+    padding: 4px 10px;
+}
+
+#header.sticky-header .link-effect a {
+    line-height: 2.5em;
+    overflow: hidden;
+    padding: 8px 10px;
+}
+
+@media (min-width: 769px) {
+    #wrapper .evolve_mobile_menu {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    ul.nav-menu ul ul {
+        left: 14em;
+    }
+    #wrapper .link-effect li a {
+        overflow: hidden;
+        padding: 8px 10px;
+        line-height: 2.5em;
+        display: block;
+    }
+    #wrapper .link-effect .sub-menu a {
+        text-align: left;
+    }
+}
+
+.header_v0 .nav-menu .sub-menu {
+    margin-top: -1px;
+}
+
+.header_v0 .nav-menu .sub-menu .sub-menu {
+    margin-top: 0;
+}
+
+.header_v0 .link-effect .sub-menu a {
+    height: auto;
+    line-height: 1.9em;
+    padding: 4px 10px 0;
+}
+
+
 

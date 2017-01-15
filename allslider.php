@@ -7,8 +7,8 @@
 ?>
 <div class="sliderblock">
     <?php
-    $evolve_slider_page_id = '';
 // Bootstrap Slider
+    $evolve_slider_page_id = '';
     $evolve_bootstrap = evolve_get_option('evl_bootstrap_slider', 'homepage');
     if (!empty($post->ID)) {
         if (!is_home() && !is_front_page() && !is_archive()) {

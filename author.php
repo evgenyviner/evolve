@@ -1,6 +1,6 @@
 <?php
 /*
- * 
+ *
  * Template: author.php
  *
  */
@@ -126,6 +126,7 @@ endif;
 
                         <?php
                         if ($evolve_featured_images == "1") {
+
                             if (has_post_thumbnail()) {
                                 echo '<div class="thumbnail-post"><a href="';
                                 the_permalink();
@@ -289,6 +290,7 @@ endif;
                     <div class="entry-content article">
                         <?php
                         if ($evolve_featured_images == "1") {
+
                             if (has_post_thumbnail()) {
                                 echo '<div class="thumbnail-post"><a href="';
                                 the_permalink();
@@ -387,6 +389,7 @@ endif;
             } else {
                 
             }
+
         endif;
     }
     ?>

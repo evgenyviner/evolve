@@ -21,10 +21,10 @@ if ($evolve_width_layout == "fixed") {
         $evolve_blog_title = evolve_get_option('evl_blog_title', '0');
         if ($evolve_blog_title == "0") {
             ?>
-            <div id="sticky-logo" class="col-md-2 col-sm-2" ><a class='logo-url-text' href="<?php echo home_url(); ?>"><?php bloginfo('name') ?></a></div>
+            <div id="sticky-logo"><a class='logo-url-text' href="<?php echo home_url(); ?>"><?php bloginfo('name') ?></a></div>
         <?php }
         ?>
-        <div class="sticky-menubar col-md-9 col-sm-9">    
+        <div class="sticky-menubar col-md-10 col-sm-10">    
             <?php
             if (has_nav_menu('sticky_navigation')) {
                 echo '<nav class="nav nav-holder link-effect">';
@@ -40,7 +40,7 @@ if ($evolve_width_layout == "fixed") {
                 }
                 ?>
             </nav>
-        </div>            
+        </div>
         <?php
         $evolve_searchbox_sticky_header = evolve_get_option('evl_searchbox_sticky_header', '1');
         if ($evolve_searchbox_sticky_header == "1") {
@@ -53,6 +53,6 @@ if ($evolve_width_layout == "fixed") {
             </form>
             <div class="clearfix"></div>
             <!--END #searchform-->
-        <?php } ?>            
+        <?php } ?>
     </div>
 </header>

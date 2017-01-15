@@ -22,33 +22,31 @@ if (post_password_required()) {
 
                 <div class="clearfix"></div>
             </div>
-            <?php
-        else : // this is displayed if there are no comments so far
-            if (comments_open()) :
-                // If comments are open, but there are no comments.  
-                echo '<div class="comments-title-back"><h3 class="comment-title"><span class="comment-title-meta no-comment">';
-                _e('No Comments Yet', 'evolve');
-                echo '</span></h3>';
-                echo evolve_discussion_rss();
-                echo '<div class="clearfix"></div>';
-                echo '</div>';
-            else : // comments are closed
-            //do nothing..
-            endif;
-        endif; // ( $comments_by_type['comment'] ) 
-        ?>
-
+        <?php
+            else : // this is displayed if there are no comments so far
+                if (comments_open()) :
+                    // If comments are open, but there are no comments.  
+                    echo '<div class="comments-title-back"><h3 class="comment-title"><span class="comment-title-meta no-comment">';
+                    _e('No Comments Yet', 'evolve');
+                    echo '</span></h3>';
+                    echo evolve_discussion_rss();
+                    echo '<div class="clearfix"></div>';
+                    echo '</div>';
+                else : // comments are closed
+                //do nothing..
+                endif;
+            endif; // ( $comments_by_type['comment'] ) ?>
+        
         <?php if (!empty($comments_by_type['pings'])) : ?>
             <div class="comments-title-back pings-title"><?php evolve_discussion_title('pings'); ?>
 
                 <div class="clearfix"></div>
             </div>
-            <?php
-        else :
-        endif; // ( $comments_by_type['pings'] ) 
-        ?>
-
-        <?php if (!empty($comments_by_type['comment'])) : ?>
+        <?php
+            else : 
+            endif; // ( $comments_by_type['pings'] ) ?>
+        
+         <?php if (!empty($comments_by_type['comment'])) : ?>
             <!--BEGIN .comment-list-->
             <ol class="comment-list">
                 <?php
@@ -88,7 +86,7 @@ if (post_password_required()) {
     ?>
 </div>
 
-<?php if (comments_open()) : // show comment form   ?>
+<?php if (comments_open()) : // show comment form  ?>
     <!--BEGIN #respond-->
 
     <!--BEGIN #comment-form-->

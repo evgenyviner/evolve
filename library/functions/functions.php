@@ -90,7 +90,7 @@ function evolve_media() {
                 break;
         }
         wp_add_inline_style('bootstrapcsstheme', $evolve_css_data);
-        wp_enqueue_style('meanmenu', EVOLVEJS . '/css/meanmenu.css');
+	wp_enqueue_style('meanmenu', get_template_directory_uri() . '/assets/css/shortcode/meanmenu.css');
     }
 
     add_action('wp_enqueue_scripts', 'evolve_styles');

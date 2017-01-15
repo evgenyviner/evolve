@@ -35,8 +35,8 @@ class WPevolve {
 
         // URI shortcuts
         define('EVOLVETHEME', get_template_directory_uri(), true);
-        define('EVOLVELIBRARY', EVOLVETHEME . '/library', true); // Shortcut to point to the /library/ URI		
-        define('EVOLVEMEDIA', EVOLVELIBRARY . '/media', true); // Shortcut to point to the /media/ URI		
+        define('EVOLVELIBRARY', EVOLVETHEME . '/library', true); // Shortcut to point to the /library/ URI
+        define('EVOLVEMEDIA', EVOLVELIBRARY . '/media', true); // Shortcut to point to the /media/ URI
         define('EVOLVECSS', EVOLVEMEDIA . '/css', true);
         define('EVOLVEIMAGES', EVOLVEMEDIA . '/images', true);
         define('EVOLVEJS', EVOLVEMEDIA . '/js', true);
@@ -90,4 +90,3 @@ class WPevolve {
 }
 
 // end of WPevolve;
-?>

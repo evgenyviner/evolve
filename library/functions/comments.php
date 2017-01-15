@@ -31,9 +31,9 @@ function evolve_discussion_title($type = NULL, $echo = true) {
             break;
         case 'pings' :
             $count = $ping_count;
-            $many = apply_filters('evolve_many_pings', __('% Trackbacks', 'evolve')); // Available filter: evolve_many_pings
-            $none = apply_filters('evolve_no_pings', __('No Pings Yet', 'evolve')); // Available filter: evolve_no_pings
-            $one = apply_filters('evolve_one_ping', __('1 Trackback', 'evolve')); // Available filter: evolve_one_comment
+            $many = apply_filters('evolve_many_pings', __('% Pings/Trackbacks', 'evolve')); // Available filter: evolve_many_pings
+            $none = apply_filters('evolve_no_pings', __('No Pings/Trackbacks Yet', 'evolve')); // Available filter: evolve_no_pings
+            $one = apply_filters('evolve_one_ping', __('1 Ping/Trackback', 'evolve')); // Available filter: evolve_one_comment
             break;
     }
 
@@ -82,7 +82,7 @@ function evolve_count($type = NULL, $echo = true) {
     global $wp_query;
 
     $comment_count = $wp_query->comment_count;
-    $ping_count = count($wp_query->comments_by_type['trackback']);
+    $ping_count = count($wp_query->comments_by_type['pings']);
 
     switch ($type):
         case 'comment':
@@ -258,8 +258,8 @@ function evolve_comments_callback($comment, $args, $depth) {
 
     <!--BEING .comment-->
     <<?php echo $tag; ?> class="<?php semantic_comments(); ?>" id="comment-<?php echo comment_ID(); ?>">
-    <?php evolve_hook_comments(); ?>
     <?php
+    evolve_hook_comments();
 }
 
 /**
@@ -287,8 +287,10 @@ function evolve_pings_callback($comment, $args, $depth) {
     $tag = apply_filters('evolve_pings_callback_tag', (string) 'li'); // Available filter: evolve_pings_callback_tag
     $time = apply_filters('evolve_pings_callback_time', (string) ' on '); // Available filter: evolve_pings_callback_time
     $when = apply_filters('evolve_pings_callback_when', (string) ' at '); // Available filter: evolve_pings_callback_time
+
+    if ($comment->comment_approved == '0')
+		echo '<p class="ping-unapproved moderation alert">' . __('Your trackback is awaiting moderation.', 'evolve') . '</p>';
     ?>
-    <?php if ($comment->comment_approved == '0') echo '<p class="ping-unapproved moderation alert">Your trackback is awaiting moderation.</p>\n'; ?>
     <!--BEING .pings-->
     <<?php echo $tag; ?> class="<?php echo semantic_comments(); ?>" id="ping-<?php echo $comment->comment_ID; ?>">
     <?php
@@ -314,4 +316,3 @@ function evolve_pings_endcallback() {
     echo "</" . $tag . ">\n";
     do_action('evolve_hook_inside_pings_list'); // Available action: evolve_hook_inside_pings_list
 }
-?>
