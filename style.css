@@ -4064,7 +4064,7 @@ ul.nav-menu li.nav-hover ul {
     ul.nav-menu li.nav-hover ul {
         background: transparent;
     }
-}
+    }
 
 @media only screen and (min-width:769px) {
     ul.nav-menu ul ul {
