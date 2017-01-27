@@ -2473,9 +2473,7 @@ p#copyright .credits a {
         left: 20px;
         right: 20px;
     }
-    #bootstrap-slider .carousel-caption p,
-    #bootstrap-slider .carousel-caption .bootstrap-button,
-    #bootstrap-slider .carousel-control {
+    #bootstrap-slider .carousel-caption p {
         display: none;
     }
     #bootstrap-slider .carousel-caption h2 {
@@ -2484,7 +2482,8 @@ p#copyright .credits a {
     #bootstrap-slider .carousel-caption .bootstrap-button {
         padding: 0px 10px;
     }
-    #bootstrap-slider .layout-right {
+    #bootstrap-slider .layout-right,
+    #bootstrap-slider .layout-left {
         padding-bottom: 0px;
     }
 }
