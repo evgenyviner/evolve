@@ -76,7 +76,11 @@
                                         if (has_nav_menu('primary-menu')) {
                                             echo '<nav class="nav nav-holder link-effect">';
                                             wp_nav_menu(array('theme_location' => 'primary-menu', 'menu_class' => 'nav-menu', 'fallback_cb' => 'wp_page_menu', 'walker' => new evolve_Walker_Nav_Menu()));
-                                            wp_nav_menu(array('theme_location' => 'primary-menu', 'container_class' => 'evolve_mobile_menu', 'menu_class' => 'nav-menu', 'fallback_cb' => 'wp_page_menu'));
+                                            
+                                            $evolve_responsive_menu_layout = evolve_get_option('evl_responsive_menu_layout', 'basic');
+                                            if($evolve_responsive_menu_layout == 'dropdown'){
+                                                wp_nav_menu(array('theme_location' => 'primary-menu', 'container_class' => 'evolve_mobile_menu', 'menu_class' => 'nav-menu', 'fallback_cb' => 'wp_page_menu'));
+                                            }
                                         } else {
                                             ?>
                                             <nav class="nav nav-holder">

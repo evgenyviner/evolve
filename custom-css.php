@@ -1247,19 +1247,16 @@ $evolve_css_data .= '
 ';
     }
 
-//@since 2.0.2 mod by denzel
-//do not remove the extra slash, it's a folder path mistake in option-init.php at line 806, try to fix now will cause problem to users.
-$none = $evolve_template_url . '/assets/images//header-two/none.jpg';
-if ($evolve_main_pattern != $none && !empty($evolve_main_pattern) && @getimagesize($evolve_main_pattern)) {
-    //fix it here, remove the extra slash, before we produce background image url.
-$evolve_main_pattern = str_replace('images//', 'images/', $evolve_main_pattern);
-$evolve_css_data .= '
-.header-pattern, 
-.footer {
-    background-image: url(' . $evolve_main_pattern . ');
-}
-';
+$evolve_image_patten_array = array('none','pattern_1_thumb.png','pattern_2_thumb.png','pattern_3_thumb.png','pattern_4_thumb.png','pattern_5_thumb.png','pattern_6_thumb.png','pattern_7_thumb.png','pattern_8_thumb.png');
+if (!empty($evolve_main_pattern) && $evolve_main_pattern != 'none' && in_array($evolve_main_pattern, $evolve_image_patten_array)) {
+    $evolve_main_pattern = $evolve_template_url.'/assets/images/pattern/'.$evolve_main_pattern;
+    $evolve_css_data .= '
+    .header-pattern, 
+    .footer {
+        background-image: url(' . $evolve_main_pattern . ');
     }
+    ';
+}
 
 if ($evolve_scheme_widgets != "") {
 $evolve_scheme_color = mb_substr($evolve_scheme_widgets, 1);

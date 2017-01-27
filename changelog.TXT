@@ -1,3 +1,10 @@
+Version:         3.6.7  
+Date:         19/1/17        
+
+- Fixed double menu display and performance issues
+- Header and Footer patern option needs to be updated in theme options, if used before
+
+
 Version:         3.6.6
 Date:         15/1/17 
 
