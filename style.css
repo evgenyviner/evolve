@@ -1781,6 +1781,13 @@ input#submit:hover {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+@media (min-width:769px) and (max-width:1200px) {
+    #header.sticky-header {
+        width: 102%;
+        margin: 0;
+        left: 0;
+    }
+}
 
 /* ======================== DD Slick ======================== */
 
@@ -5133,6 +5140,49 @@ ul#slides {
     margin: 0 auto;
 }
 
+@media (max-width: 767px) {
+    #slide_holder {
+        min-height: 180px;
+        padding: 30px 25px;
+    }
+
+    .slide-container {
+        height: 180px;
+    }
+
+    #slide_holder .featured-title {
+        margin: 10px 0px;
+    }
+
+    #slide_holder .featured-title a {
+        font-weight: 400;
+    }
+    
+    #slide_holder p {
+        display: none;
+    }
+
+    .post-more {
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 640px) {
+    #slide_holder .featured-thumbnail {
+        top: 24px;
+    }
+
+    .post-more {
+        line-height: 25px;
+        padding: 0px 15px;
+    }
+}
+
+@media (max-width: 360px) {
+    #slide_holder .featured-title{
+        font-size: 16px;
+    }
+}
 
 /*!==========================================================================
    bbPress Styling
