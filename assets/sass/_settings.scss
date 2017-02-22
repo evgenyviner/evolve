@@ -7,6 +7,8 @@
 
 //== Colors
 
+$full-white-colour:      #ffffff;
+
 $gray-darker:            #1a1a1a;
 $gray-dark:              #444649;
 $gray:                   lighten(#000, 33.5%);
@@ -209,3 +211,59 @@ $legend-border-color:            #e5e5e5;
 $input-group-addon-bg:           $gray-lighter;
 //** Border color for textual input addons
 $input-group-addon-border-color: $input-border;
+
+
+
+
+
+/* ==========================================================================
+   Other
+   ========================================================================== */
+		@mixin border-radius($radius) {
+			-webkit-border-radius: $radius;
+			-moz-border-radius: $radius;
+			-ms-border-radius: $radius;
+			border-radius: $radius;
+		}
+		@mixin transition($animation-compass...) {
+		  -webkit-transition: $animation-compass;
+		  -moz-transition: $animation-compass;
+		  -ms-transition: $animation-compass;
+		  -o-transition: $animation-compass;
+		  transition: $animation-compass;
+		}
+		@mixin box-shadow($box-shadow...) {
+		  -webkit-box-shadow: $box-shadow;
+		  -moz-box-shadow: $box-shadow;
+		  -ms-box-shadow: $box-shadow;
+		  -o-box-shadow: $box-shadow;
+		  box-shadow: $box-shadow;
+		}
+		@mixin transform($transform...) {
+		  -webkit-transform: $transform;
+		  -moz-transform: $transform;
+		  -ms-transform: $transform;
+		  -o-transform: $transform;
+		  transform: $transform;
+		}
+		@mixin animation($animation-style...) {
+		  -webkit-animation: $animation-style;
+		  -moz-animation: $animation-style;
+		  -ms-animation: $animation-style;
+		  -o-animation: $animation-style;
+		  animation: $animation-style;
+		}
+		@mixin animation-duration($animation-durate...) {
+		  -webkit-animation-duration: $animation-durate;
+		  -moz-animation-duration: $animation-durate;
+		  -ms-animation-duration: $animation-durate;
+		  -o-animation-duration: $animation-durate;
+		  animation-duration: $animation-durate;
+		}
+		@mixin transition-duration($transition-durate...) {
+		  -webkit-transition-duration: $transition-durate;
+		  -moz-transition-duration: $transition-durate;
+		  -ms-transition-duration: $transition-durate;
+		  -o-transition-duration: $transition-durate;
+		  transition-duration: $transition-durate;
+		}

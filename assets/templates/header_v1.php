@@ -102,7 +102,7 @@
                     $evolve_main_menu = evolve_get_option('evl_main_menu', '0');
                     if ($evolve_main_menu == "1") {
                         ?>
-                        <br /><br />
+                        
                     <?php } else { ?>
                         <div class="primary-menu col-md-11 col-sm-11">
                             <?php
