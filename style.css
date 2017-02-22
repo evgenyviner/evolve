@@ -1966,17 +1966,17 @@ p#copyright .credits a {
 
 .widget-content #search-text-box {
   float: none;
-  width: 100% !important;
+  width: 100%;
 }
 
 .widget-content #search-text {
-  max-width: 100% !important;
+  max-width: 100%;
 }
 
 .widget-content #search-text,
 .widget-content #search-text-top:focus,
 #search-text-box #search_label {
-  width: 100% !important;
+  width: 100%;
 }
 
 .widget-content #search-button {
@@ -1998,7 +1998,7 @@ p#copyright .credits a {
   -o-box-shadow: 3px;
   box-shadow: 3px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: 12px !important;
+  font-size: 12px;
   position: relative;
   float: left;
   width: 170px;
@@ -2020,7 +2020,7 @@ p#copyright .credits a {
 }
 
 #search-text-top {
-  float: right !important;
+  float: right;
   margin-right: 10px;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -2036,15 +2036,15 @@ p#copyright .credits a {
   border-color: transparent;
   box-shadow: none;
   background: none;
-  background-color: transparent !important;
-  border-color: transparent !important;
+  background-color: transparent;
+  border-color: transparent;
 }
 
 #search-text-top:focus {
   text-indent: 1px;
-  background-color: #fff !important;
-  color: #888 !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  background-color: #fff;
+  color: #888;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 #search-text-box #search_label_top:after {
@@ -2056,7 +2056,7 @@ p#copyright .credits a {
   right: 25px;
   top: 25%;
   width: 5px;
-  font-size: 12px !important;
+  font-size: 12px;
 }
 
 #search-button-box {
@@ -2081,7 +2081,7 @@ p#copyright .credits a {
   padding: 0;
   width: 30px;
   border: none;
-  background: none !important;
+  background: none;
   filter: none;
 }
 
@@ -2102,7 +2102,7 @@ p#copyright .credits a {
 #search-text-box #search_label,
 #search-text-box #search_label_top {
   float: left;
-  height: 24px !important;
+  height: 24px;
   margin: 0 0 10px 0;
   position: relative;
   z-index: 12;
@@ -2110,7 +2110,7 @@ p#copyright .credits a {
 
 #search-text-box #search_label_top {
   top: 6px;
-  height: 40px !important;
+  height: 40px;
   margin-bottom: 0;
 }
 
@@ -2120,7 +2120,7 @@ p#copyright .credits a {
   left: -3px;
   cursor: text;
   display: block;
-  font-size: 13px !important;
+  font-size: 13px;
   height: 40px;
   margin-bottom: -40px;
   top: 10px;
@@ -2159,7 +2159,7 @@ p#copyright .credits a {
   right: 25px;
   top: 25%;
   width: 5px;
-  font-size: 12px !important;
+  font-size: 12px;
 }
 
 #search-stickyfix {
@@ -2172,15 +2172,15 @@ p#copyright .credits a {
   height: 35px;
   border-color: transparent;
   background: none;
-  position: absolute !important;
-  float: right !important;
-  background-color: transparent !important;
-  border-color: transparent !important;
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
-  -ms-box-shadow: none !important;
-  -o-box-shadow: none !important;
-  box-shadow: none !important;
+  position: absolute;
+  float: right;
+  background-color: transparent;
+  border-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
@@ -2191,16 +2191,16 @@ p#copyright .credits a {
 #search-stickyfix:focus {
   right: 0px;
   text-indent: 1px;
-  position: absolute !important;
-  left: initial !important;
-  background-color: #fff !important;
-  color: #888 !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
-  -ms-box-shadow: none !important;
-  -o-box-shadow: none !important;
-  box-shadow: none !important;
+  position: absolute;
+  left: initial;
+  background-color: #fff;
+  color: #888;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
 }
 
 /*!==========================================================================
@@ -2587,14 +2587,9 @@ p#copyright .credits a {
   /* Menu Effect : bottom line slides/fades in */
   .link-effect a {
     overflow: hidden;
-    padding: 8px 10px !important;
-    line-height: 2.5em !important;
+    padding: 8px 10px;
+    line-height: 2.5em;
     display: inline-block;
-  }
-  .link-effect .sub-menu a {
-    padding: 4px 10px !important;
-    height: auto !important;
-    line-height: 1.9em !important;
   }
   .link-effect a span {
     position: relative;
@@ -2602,9 +2597,6 @@ p#copyright .credits a {
     -webkit-transition: -webkit-transform 0.3s;
     -moz-transition: -moz-transform 0.3s;
     transition: transform 0.3s;
-  }
-  .link-effect .sub-menu a span {
-    display: block;
   }
   .link-effect a span::before {
     position: absolute;
@@ -2616,6 +2608,15 @@ p#copyright .credits a {
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
+  }
+  .link-effect .sub-menu a,
+  #wrapper .primary-menu .link-effect .sub-menu a {
+    padding: 4px 10px;
+    height: auto;
+    line-height: 1.9em;
+  }
+  .link-effect .sub-menu a span {
+    display: block;
   }
 }
 
@@ -2721,7 +2722,7 @@ ul.nav-menu li.menu-item-language ul {
   display: inline-block;
 }
 
-.menu-item-language a:after {
+.menu-item-language a::after {
   left: 3px;
 }
 
@@ -2884,7 +2885,7 @@ a:hover {
   width: 40px;
 }
 
-#backtotop:after {
+#backtotop::after {
   content: '\e91a';
   font-family: IcoMoon;
   position: absolute;
@@ -2914,7 +2915,9 @@ a:hover {
   padding-left: 18px;
 }
 
-/* ======================== Tabs ======================== */
+/* ==========================================================================
+   TABS May Be Delete this Styles
+   ========================================================================== */
 .tab-holder .tabs {
   height: 49px;
   list-style: none;
@@ -2943,10 +2946,11 @@ a:hover {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-right: 1px solid transparent !important;
   z-index: 2;
-  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
-  -box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
-  -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
   -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
+  -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
+  -ms-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
+  -o-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
 
 .tab-holder .tabs li.active a {
@@ -2958,11 +2962,11 @@ a:hover {
   font-weight: bold;
   text-decoration: none !important;
   top: 0px;
-  transition: none !important;
-  -transition: none !important;
-  -moz-transition: none !important;
-  -o-transition: none !important;
-  -webkit-transition: none !important;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
 }
 
 .widget .tab-holder .tabs li.active a {
@@ -3002,10 +3006,11 @@ a:hover {
   border-bottom: 1px solid #F0F0F0;
   padding: 15px 0 10px 0px !important;
   overflow: hidden;
-  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
-  -box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
-  -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
   -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
+  -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
+  -ms-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
+  -o-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
 
 .tab-holder .news-list li:nth-child(even) {
@@ -3130,13 +3135,17 @@ a:hover {
   color: #777;
   margin-right: 5px;
   padding: 5px 6px;
-  border: none !important;
-  -moz-border-radius: 3px;
+  border: none;
   -webkit-border-radius: 3px;
-  -border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
   border-radius: 3px;
-  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.05) !important;
-  box-shadow: none !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.05);
 }
 
 .share-this:hover strong {
@@ -3256,7 +3265,7 @@ a:hover {
   color: #fff;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  -border-radius: 3px;
+  -ms-border-radius: 3px;
   border-radius: 3px;
   background: #333;
   margin-top: 2px;
@@ -3364,7 +3373,7 @@ a:hover {
   text-align: center;
   padding: 0px 10px 0 0;
   margin-right: 10px;
-  border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .aside {
@@ -3382,26 +3391,18 @@ a:hover,
 a:link {
   outline: none !important;
   -webkit-transition: all 0.1s ease-in;
-  /* Saf3.2+, Chrome */
   -moz-transition: all 0.1s ease-in;
-  /* FF4+ */
   -ms-transition: all 0.1s ease-in;
-  /* IE10? */
   -o-transition: all 0.1s ease-in;
-  /* Opera 10.5+ */
   transition: all 0.1s ease-in;
 }
 
 .tab-holder .tabs li a,
 .da-slide .da-link {
   -webkit-transition: none;
-  /* Saf3.2+, Chrome */
   -moz-transition: none;
-  /* FF4+ */
   -ms-transition: none;
-  /* IE10? */
   -o-transition: none;
-  /* Opera 10.5+ */
   transition: none;
 }
 
@@ -3417,8 +3418,8 @@ a:link {
 
 .entry-meta {
   margin-bottom: 10px;
-  font-size: 13px !important;
-  line-height: 20px !important;
+  font-size: 13px;
+  line-height: 20px;
 }
 
 .entry-meta .meta-sep {
@@ -3481,7 +3482,7 @@ a:link {
 }
 
 .edit-comment a:before {
-  font-family: IcoMoon;
+  font-family: "IcoMoon";
   content: '\e902';
   margin-right: 5px;
 }
@@ -3513,13 +3514,13 @@ a.post-edit-link:before {
 
 .home .formatted-post,
 .page-template-blog-page-php .formatted-post {
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
 }
 
 .margin-40,
 .home .formatted-single,
 .page-template-blog-page-php .formatted-single {
-  margin-bottom: 20px !important;
+  margin-bottom: 20px;
 }
 
 /*!==========================================================================
