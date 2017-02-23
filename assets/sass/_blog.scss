@@ -997,7 +997,23 @@
                 }
             }
             #header.sticky-header {
-                width: 102%;
+                max-width: 100%;
+                width: 100%;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            body #header.sticky-header{
+                margin-left: auto !important;
+            }
+        }
+
+
+        @media screen and (max-width: 767px) {
+            .single-page-navigation .nav-previous,
+            .single-page-navigation .nav-next{
+                text-align: center;
             }
         }
 

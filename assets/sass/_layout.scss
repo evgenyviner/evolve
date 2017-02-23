@@ -3,6 +3,7 @@
    ========================================================================== */
 
 
+
 /* ======================== Body & Wrapper ======================== */
         #wrapper{
         	.dd-container {
@@ -34,6 +35,7 @@
         .header-widgets {
             padding-top: 35px;
         }
+
 
 
 /* ======================== Header ======================== */
@@ -85,6 +87,7 @@
             padding: 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
+
 
 
 /* ======================== DD Slick ======================== */
@@ -272,9 +275,6 @@
 
 
 
-
-
-
 /* ======================== Footer ======================== */
         .footer {
             position: relative;
@@ -303,7 +303,6 @@
                 }
             }
         }
-
 
 
 
@@ -372,7 +371,7 @@
             height: 35px;
             position: relative;
             border-color: transparent;
-            box-shadow: none;
+            @include box-shadow(none);
             background: none;
             background-color: transparent;
             border-color: transparent;
@@ -474,7 +473,7 @@
         #stickysearch_label {
             position: relative;
             z-index: 12;
-            top: 6px;
+            top: 9px;
         }
         #stickysearch-text-box{
         	#stickysearch_label{
@@ -524,6 +523,7 @@
    Home
    ========================================================================== */
 
+
 /* ======================== Bootstrap Slider ======================== */
         #bootstrap-slider{
         	.carousel-caption {
@@ -540,7 +540,7 @@
         		.bootstrap-button {
         		    background: rgba(0, 0, 0, .7);
         		    border: 0;
-        		    box-shadow: none;
+        		    @include box-shadow(none);
         		    bottom: -5px;
         		    position: relative;
         		    line-height: 41px;
@@ -575,6 +575,7 @@
         #bootstrap-slider a.right:before {
             content: '\e919';
         }
+
 
 
 /* ======================== Four Blocks ======================== */
@@ -612,6 +613,7 @@
                 -webkit-justify-content: center;
             }
         }
+
 
 
 /* ======================== Home Content Boxes ======================== */
@@ -715,7 +717,6 @@
                 clear: both;
             }
         }
-
 
 
 
@@ -932,9 +933,7 @@
 					span{
 						position: relative;
 						display: inline-block;
-						-webkit-transition: -webkit-transform 0.3s;
-						-moz-transition: -moz-transform 0.3s;
-						transition: transform 0.3s;
+						@include transition(-webkit-transform 0.3s);
 						&::before{
 							position: absolute;
 							top: 100%;
@@ -942,9 +941,7 @@
 							width: 110%;
 							content: attr(data-hover);
 							font-weight: 700;
-							-webkit-transform: translate3d(0, 0, 0);
-							-moz-transform: translate3d(0, 0, 0);
-							transform: translate3d(0, 0, 0);
+							@include transition(translate3d(0, 0, 0));
 						}
 					}
 		    	}
@@ -962,7 +959,6 @@
 		.no_thumbnail {
 		    display: none!important;
 		}
-
 
 
 
@@ -1043,6 +1039,8 @@
 		    }
 		}
 
+
+
 /* ======================== reCaptcha ======================== */
 	.recaptchatable * {
 	    font-size: 6pt;
@@ -1050,6 +1048,8 @@
 	#comment-recaptcha {
 	    margin-bottom: 20px;
 	}
+
+
 
 /* ======================== WPML Plugin style ======================== */
 		ul.nav-menu {
@@ -1082,6 +1082,8 @@
 				list-style-image: none;	
 			}
 		}
+
+
 
 
 /* ======================== Index number pagination ======================== */
@@ -1137,6 +1139,8 @@
 		    text-align: center;
 		}
 
+
+
 /* ======================== Links ======================== */
 		a,
 		.entry-content a:link,
@@ -1163,11 +1167,7 @@
 		    line-height: 180%;
 		    color: #666;
 		    padding: 3px 0;
-		    -webkit-transition: all 0.5s ease 0s;
-		    -o-transition: all 0.5s ease 0s;
-		    -moz-transition: all 0.5s ease 0s;
-		    transition: all 0.5s ease 0s;
-		    -transition: all 0.5s ease 0s;
+		    @include transition(all 0.5s ease 0s);
 		}
 
 		#secondary a:hover,
@@ -1202,6 +1202,7 @@
 		}
 
 
+
 /* ======================== Calendar ======================== */
 		#wp-calendar {
 		    margin-bottom: 0px;
@@ -1228,6 +1229,8 @@
 		        border-top: 1px solid #fff;
 		    }
 		}
+
+
 
 /* ======================== Back to Top Button ======================== */
 		#backtotop {
@@ -1273,135 +1276,173 @@
 
 
 /* ==========================================================================
-   TABS May Be Delete this Styles
+   TABS
    ========================================================================== */
+   		#secondary .tab-holder .tabs li a,
+   		#secondary-2 .tab-holder .tabs li a,
+   		.footer-widgets .tab-holder .tabs li a,
+   		.header-widgets .tab-holder .tabs li a{
+			line-height: 48px;
+			padding: 0px 10px 0px 10px;
+   		}
 		.tab-holder {
 			.tabs{
 				height: 49px;
 				list-style: none;
-				margin: 0 !important;
+				margin: 0;
 				padding: 0;
 				display: table;
 				overflow: hidden;
+				li{
+					margin: 0;
+					padding: 0;
+					display: table-cell;
+					width: 1%;
+					a{
+						line-height: 48px;
+						text-indent: 0;
+						color: #999;
+						background: rgba(255, 255, 255, .3);
+						padding: 0px 10px 0px 10px;
+						position: relative;
+						display: block;
+						text-align: center;
+						border: 1px solid rgba(0, 0, 0, .1);
+						border-right-color: transparent;
+						z-index: 2;
+						@include box-shadow(1px 1px 0 rgba(255, 255, 255, 0.9) inset);
+					}
+					&:last-child{
+						border-right: 1px solid #E0DDDD;
+					}
+				}
+				li.active{
+					a{
+						color: #51545C;
+						background: #f6f6f6;
+						border: 1px solid #E0DDDD;
+						border-right: 1px solid transparent;
+						border-bottom: 1px solid #f6f6f6;
+						font-weight: bold;
+						text-decoration: none;
+						top: 0px;
+						@include transition(none);
+					}
+				}
 			}
-		}
-		.tab-holder .tabs li {
-		    margin: 0;
-		    padding: 0;
-		    display: table-cell;
-		    width: 1%;
-		}
-		.tab-holder .tabs li a {
-		    line-height: 48px !important;
-		    text-indent: 0 !important;
-		    color: #999;
-		    background: rgba(255, 255, 255, .3);
-		    padding: 0px 10px 0px 10px!important;
-		    position: relative;
-		    display: block;
-		    text-align: center;
-		    border: 1px solid rgba(0, 0, 0, .1);
-		    border-right: 1px solid transparent!important;
-		    z-index: 2;
-		    @include box-shadow(1px 1px 0 rgba(255, 255, 255, 0.9) inset);
-		}
-		.tab-holder .tabs li.active a {
-		    color: #51545C!important;
-		    background: #f6f6f6;
-		    border: 1px solid #E0DDDD;
-		    border-right: 1px solid transparent;
-		    border-bottom: 1px solid #f6f6f6;
-		    font-weight: bold;
-		    text-decoration: none!important;
-		    top: 0px;
-		    @include transition(none);
 		}
 		.widget .tab-holder .tabs li.active a {
 		    bottom: -1px;
 		}
-		.tab-holder .tabs li:last-child a {
-		    border-right: 1px solid #E0DDDD!important;
-		}
-		.tab-holder .tabs-container {
-		    position: relative;
-		    z-index: 0;
-		    background: #f6f6f6;
-		    border: 1px solid #E0DDDD!important;
-		    border-top: 0!important;
-		}
-		.tab-holder .news-list img {
-		    margin: 0 0 0px 20px;
-		    background: none repeat scroll 0 0 #FFFFFF;
-		    border: 1px solid #F1F1F1;
-		    box-shadow: none;
-		    padding: 4px;
-		    width: 60px;
-		    height: auto;
-		}
-		.tab-holder .news-list {
-		    list-style: none;
-		    margin: 0;
-		    padding: 0;
-		    clear: both;
-		}
-		.tab-holder .news-list li {
-		    border-bottom: 1px solid #F0F0F0;
-		    padding: 15px 0 10px 0px !important;
-		    overflow: hidden;
-		    @include box-shadow(1px 1px 0 rgba(255, 255, 255, 0.9) inset);
+		.tab-holder {
+			.tabs-container{
+				position: relative;
+				z-index: 0;
+				background: #f6f6f6;
+				border: 1px solid #E0DDDD;
+				border-top: 0;	
+			}
+			.news-list{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				clear: both;
+				img{
+					margin: 0 0 0px 20px;
+					background: none repeat scroll 0 0 #FFFFFF;
+					border: 1px solid #F1F1F1;
+					@include box-shadow(none);
+					padding: 4px;
+					width: 60px;
+					height: auto;
+				}
+				li{
+					border-bottom: 1px solid #F0F0F0;
+					padding: 15px 0 10px 0px;
+					overflow: hidden;
+					@include box-shadow(1px 1px 0 rgba(255, 255, 255, 0.9) inset);
+				}
+			}
 		}
 		.tab-holder .news-list li:nth-child(even) {
 		    background: rgba(255, 255, 255, .6);
 		}
-		.tab-holder .news-list li a {
-		    background: none !important;
-		    padding: 0 !important;
-		}
-		.tab-holder .news-list li:last-child {
-		    border-bottom: 0;
-		}
-		.tab-holder .news-list .post-holder a {
-		    margin: 0;
+
+		.tab-holder .news-list li a,
+		#secondary .tab-holder .news-list li a,
+		#secondary-2 .tab-holder .news-list li a,
+		.footer-widgets .tab-holder .news-list li a,
+		.header-widgets .tab-holder .news-list li a {
+		    background: none;
 		    padding: 0;
-		    overflow: hidden;
-		    background: none !important;
-		    border: 0 !important;
-		    text-indent: 0 !important;
-		    height: auto !important;
-		    line-height: normal !important;
 		}
-		.tab-holder .news-list li .image {
-		    float: left;
+
+		.tab-holder {
+			.news-list {
+				li {
+					&:last-child {
+						border-bottom: 0;
+					}
+					.image{
+						float: left;
+					}
+					.post-holder{
+						float: left;
+						width: 60%;
+						margin-left: 20px;
+						p{
+							margin: 0;
+							margin-bottom: 5px;
+						}
+					}
+				}
+				.post-holder{
+					a{
+						margin: 0;
+						padding: 0;
+						overflow: hidden;
+						background: none;
+						border: 0;
+						text-indent: 0;
+						height: auto;
+						line-height: normal;
+					}
+				}
+			}
 		}
-		.tab-holder .news-list li .post-holder {
-		    float: left;
-		    width: 60%;
-		    margin-left: 20px;
-		}
+		#secondary .news-list li .post-holder a,
+		#secondary-2 .news-list li .post-holder a,
+		.footer-widgets .news-list li .post-holder a,
+		.header-widgets .news-list li .post-holder a,
 		.tab-holder .news-list li .post-holder a {
-		    color: #51545C !important;
-		    font-size: 14px !important;
-		    line-height: 17px !important;
+		    color: #51545C;
+		    font-size: 14px;
+		    line-height: 17px;
 		    font-weight: bold;
 		}
-		.tab-holder .news-list li .post-holder p {
-		    margin: 0;
-		    margin-bottom: 5px;
+		.tab-holder {
+			.news-list{
+				li{
+					.post-holder{
+						.meta{
+							margin: 0;
+							margin-top: 2px;
+							font-size: 12px;
+							color: #747474 !important;
+							em{
+								font-style: normal;
+								font-size: 12px;
+								color: #747474;
+							}
+						}
+						.comment-text-side{
+							line-height: 16px;
+						}
+					}
+				}
+			}
 		}
-		.tab-holder .news-list li .post-holder .meta {
-		    margin: 0;
-		    margin-top: 2px;
-		    font-size: 12px !important;
-		    color: #747474 !important;
-		}
-		.tab-holder .news-list li .post-holder .meta em {
-		    font-style: normal !important;
-		    font-size: 12px !important;
-		    color: #747474 !important;
-		}
-		.tab-holder .news-list li .post-holder .comment-text-side {
-		    line-height: 16px !important;
-		}
+
 
 /* ======================== Subscribe/Follow Buttons ======================== */
 		.sc {
@@ -1480,6 +1521,8 @@
 		    left: 8px;
 		}
 
+
+
 /* ======================== Animate ======================== */
 		.animated {
 			-webkit-animation-fill-mode: both;
@@ -1549,6 +1592,8 @@
 		    animation-name: pulse;
 		}
 
+
+
 /* ======================== Tipsy ======================== */
 		.tipsy {
 		    padding: 8px;
@@ -1595,6 +1640,8 @@
 		    width: 5px;
 		    height: 9px;
 		}
+
+
 
 /* ======================== Sticky header search box ======================== */
 		#comment-name_label,
@@ -1812,3 +1859,28 @@
 		.page-template-blog-page-php .formatted-single {
 		    margin-bottom: 20px;
 		}
+
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+        @media screen and (max-width: 782px) {
+            html #wpadminbar {
+                position: fixed!important;
+            }
+        }
+        @media screen and (max-width: 767px) {
+            .sc_menu li{
+                float: none;
+            }
+            #wrapper .primary-menu .link-effect a{
+                text-align: center;
+            }
+            .header_v0 .container,
+            .header_v0 .nacked-menu,
+            .header_v0 .container-menu{
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+        }

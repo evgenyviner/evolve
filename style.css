@@ -324,7 +324,7 @@ I. Evolve components
 }
 
 .t4p-icon-shopping-cart:before {
-  content: '\e90c' !important;
+  content: '\e90c';
 }
 
 .t4p-icon-menu:before {
@@ -2034,6 +2034,10 @@ p#copyright .credits a {
   height: 35px;
   position: relative;
   border-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
   box-shadow: none;
   background: none;
   background-color: transparent;
@@ -2147,7 +2151,7 @@ p#copyright .credits a {
 #stickysearch_label {
   position: relative;
   z-index: 12;
-  top: 6px;
+  top: 9px;
 }
 
 #stickysearch-text-box #stickysearch_label::after {
@@ -2225,6 +2229,10 @@ p#copyright .credits a {
 #bootstrap-slider .carousel-caption .bootstrap-button {
   background: rgba(0, 0, 0, 0.7);
   border: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
   box-shadow: none;
   bottom: -5px;
   position: relative;
@@ -2595,8 +2603,10 @@ p#copyright .credits a {
     position: relative;
     display: inline-block;
     -webkit-transition: -webkit-transform 0.3s;
-    -moz-transition: -moz-transform 0.3s;
-    transition: transform 0.3s;
+    -moz-transition: -webkit-transform 0.3s;
+    -ms-transition: -webkit-transform 0.3s;
+    -o-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
   }
   .link-effect a span::before {
     position: absolute;
@@ -2605,9 +2615,11 @@ p#copyright .credits a {
     width: 110%;
     content: attr(data-hover);
     font-weight: 700;
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transition: translate3d(0, 0, 0);
+    -moz-transition: translate3d(0, 0, 0);
+    -ms-transition: translate3d(0, 0, 0);
+    -o-transition: translate3d(0, 0, 0);
+    transition: translate3d(0, 0, 0);
   }
   .link-effect .sub-menu a,
   #wrapper .primary-menu .link-effect .sub-menu a {
@@ -2802,10 +2814,10 @@ a:hover {
   color: #666;
   padding: 3px 0;
   -webkit-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
   -moz-transition: all 0.5s ease 0s;
+  -ms-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
-  -transition: all 0.5s ease 0s;
 }
 
 #secondary a:hover,
@@ -2916,12 +2928,20 @@ a:hover {
 }
 
 /* ==========================================================================
-   TABS May Be Delete this Styles
+   TABS
    ========================================================================== */
+#secondary .tab-holder .tabs li a,
+#secondary-2 .tab-holder .tabs li a,
+.footer-widgets .tab-holder .tabs li a,
+.header-widgets .tab-holder .tabs li a {
+  line-height: 48px;
+  padding: 0px 10px 0px 10px;
+}
+
 .tab-holder .tabs {
   height: 49px;
   list-style: none;
-  margin: 0 !important;
+  margin: 0;
   padding: 0;
   display: table;
   overflow: hidden;
@@ -2935,16 +2955,16 @@ a:hover {
 }
 
 .tab-holder .tabs li a {
-  line-height: 48px !important;
-  text-indent: 0 !important;
+  line-height: 48px;
+  text-indent: 0;
   color: #999;
   background: rgba(255, 255, 255, 0.3);
-  padding: 0px 10px 0px 10px !important;
+  padding: 0px 10px 0px 10px;
   position: relative;
   display: block;
   text-align: center;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid transparent !important;
+  border-right-color: transparent;
   z-index: 2;
   -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
   -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
@@ -2953,14 +2973,18 @@ a:hover {
   box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
 
+.tab-holder .tabs li:last-child {
+  border-right: 1px solid #E0DDDD;
+}
+
 .tab-holder .tabs li.active a {
-  color: #51545C !important;
+  color: #51545C;
   background: #f6f6f6;
   border: 1px solid #E0DDDD;
   border-right: 1px solid transparent;
   border-bottom: 1px solid #f6f6f6;
   font-weight: bold;
-  text-decoration: none !important;
+  text-decoration: none;
   top: 0px;
   -webkit-transition: none;
   -moz-transition: none;
@@ -2973,26 +2997,12 @@ a:hover {
   bottom: -1px;
 }
 
-.tab-holder .tabs li:last-child a {
-  border-right: 1px solid #E0DDDD !important;
-}
-
 .tab-holder .tabs-container {
   position: relative;
   z-index: 0;
   background: #f6f6f6;
-  border: 1px solid #E0DDDD !important;
-  border-top: 0 !important;
-}
-
-.tab-holder .news-list img {
-  margin: 0 0 0px 20px;
-  background: none repeat scroll 0 0 #FFFFFF;
-  border: 1px solid #F1F1F1;
-  box-shadow: none;
-  padding: 4px;
-  width: 60px;
-  height: auto;
+  border: 1px solid #E0DDDD;
+  border-top: 0;
 }
 
 .tab-holder .news-list {
@@ -3002,9 +3012,23 @@ a:hover {
   clear: both;
 }
 
+.tab-holder .news-list img {
+  margin: 0 0 0px 20px;
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #F1F1F1;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  padding: 4px;
+  width: 60px;
+  height: auto;
+}
+
 .tab-holder .news-list li {
   border-bottom: 1px solid #F0F0F0;
-  padding: 15px 0 10px 0px !important;
+  padding: 15px 0 10px 0px;
   overflow: hidden;
   -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
   -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
@@ -3017,24 +3041,17 @@ a:hover {
   background: rgba(255, 255, 255, 0.6);
 }
 
-.tab-holder .news-list li a {
-  background: none !important;
-  padding: 0 !important;
+.tab-holder .news-list li a,
+#secondary .tab-holder .news-list li a,
+#secondary-2 .tab-holder .news-list li a,
+.footer-widgets .tab-holder .news-list li a,
+.header-widgets .tab-holder .news-list li a {
+  background: none;
+  padding: 0;
 }
 
 .tab-holder .news-list li:last-child {
   border-bottom: 0;
-}
-
-.tab-holder .news-list .post-holder a {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background: none !important;
-  border: 0 !important;
-  text-indent: 0 !important;
-  height: auto !important;
-  line-height: normal !important;
 }
 
 .tab-holder .news-list li .image {
@@ -3047,33 +3064,48 @@ a:hover {
   margin-left: 20px;
 }
 
-.tab-holder .news-list li .post-holder a {
-  color: #51545C !important;
-  font-size: 14px !important;
-  line-height: 17px !important;
-  font-weight: bold;
-}
-
 .tab-holder .news-list li .post-holder p {
   margin: 0;
   margin-bottom: 5px;
 }
 
+.tab-holder .news-list .post-holder a {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: none;
+  border: 0;
+  text-indent: 0;
+  height: auto;
+  line-height: normal;
+}
+
+#secondary .news-list li .post-holder a,
+#secondary-2 .news-list li .post-holder a,
+.footer-widgets .news-list li .post-holder a,
+.header-widgets .news-list li .post-holder a,
+.tab-holder .news-list li .post-holder a {
+  color: #51545C;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: bold;
+}
+
 .tab-holder .news-list li .post-holder .meta {
   margin: 0;
   margin-top: 2px;
-  font-size: 12px !important;
+  font-size: 12px;
   color: #747474 !important;
 }
 
 .tab-holder .news-list li .post-holder .meta em {
-  font-style: normal !important;
-  font-size: 12px !important;
-  color: #747474 !important;
+  font-style: normal;
+  font-size: 12px;
+  color: #747474;
 }
 
 .tab-holder .news-list li .post-holder .comment-text-side {
-  line-height: 16px !important;
+  line-height: 16px;
 }
 
 /* ======================== Subscribe/Follow Buttons ======================== */
@@ -3521,6 +3553,30 @@ a.post-edit-link:before {
 .home .formatted-single,
 .page-template-blog-page-php .formatted-single {
   margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media screen and (max-width: 782px) {
+  html #wpadminbar {
+    position: fixed !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sc_menu li {
+    float: none;
+  }
+  #wrapper .primary-menu .link-effect a {
+    text-align: center;
+  }
+  .header_v0 .container,
+  .header_v0 .nacked-menu,
+  .header_v0 .container-menu {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
 }
 
 /*!==========================================================================
@@ -5108,7 +5164,22 @@ ul#slides {
     width: 100%;
   }
   #header.sticky-header {
-    width: 102%;
+    max-width: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  body #header.sticky-header {
+    margin-left: auto !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .single-page-navigation .nav-previous,
+  .single-page-navigation .nav-next {
+    text-align: center;
   }
 }
 
