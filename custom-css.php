@@ -3893,5 +3893,27 @@ $evolve_css_data .= '
 ';
     }
 
+$evolve_css_data .= '
+    @media only screen and (max-width: 990px) {
+        .entry-content h1 { font-size: 30px; }
+        .entry-content h2 { font-size: 25px; }
+        .entry-content h3 { font-size: 22px; }
+        .entry-content h4 { font-size: 20px; }
+        .entry-content h5 { font-size: 18px; }
+        .entry-content h6 { font-size: 16px; }
+    }
+    @media only screen and (max-width: 768px) {
+        .entry-content h1,
+        .entry-title,
+        .entry-title a,
+        .page-title { font-size: 25px; line-height: 1.5; }
+        .entry-content h2 { font-size: 20px; }
+        .entry-content h3 { font-size: 18px; }
+        .entry-content h4 { font-size: 16px; }
+        .entry-content h5 { font-size: 14px; }
+        .entry-content h6 { font-size: 12px; }
+    }
+';
+
 $evolve_css_content = evolve_get_option('evl_css_content', '');
 $evolve_css_data .= $evolve_css_content;

@@ -127,14 +127,31 @@
                             margin-left: -25px;
                             top: -25px;
                             background: #444;
-                            @include border-radius(50%);
+                            @include border-radius(100%);
+                            text-align: center;
                             width: 50px;
                             height: 50px;
-                            text-align: center;
                             line-height: 50px;
                         }
                     }
                 }
+            }
+            #primary.col-md-8{
+               .post.col-md-4{
+                    .entry-content {
+                        .thumbnail-post{
+                            .icon{
+                                &::after{
+                                    width: 40px;
+                                    height: 40px;
+                                    line-height: 40px;
+                                    top: 50%;
+                                    @include transform(translateY(-50%));
+                                }
+                            }
+                        }
+                    }
+                } 
             }
 
 
@@ -258,6 +275,8 @@
             float: left;
             margin-right: 12px;
             letter-spacing: 0;
+            margin-top: 0;
+            padding-top: 0;
         }
 
         .pings-title {
@@ -285,11 +304,21 @@
             position: relative;
             top: 10px;
         }
-
+        #primary{
+            .post.col-md-4{
+                .comment-count{
+                    display: inline-block;
+                    float: none;
+                    margin-top: 10px;
+                    width: 100%;
+                }
+            }     
+        }
         .comment-count {
             float: right;
             font-weight: normal;
             padding: 0px 5px 0px 0px;
+            margin-top: 10px;
             &::before{
                 font-family: "IcoMoon";
                 content: '\e913';
@@ -422,7 +451,7 @@
             width: 19px;
             height: 19px;
             position: relative;
-            top: 14px;
+            top: 4px;
             color: #bbb;
             &:hover{
                 background-position: 0 -19px;    
@@ -1007,6 +1036,20 @@
             body #header.sticky-header{
                 margin-left: auto !important;
             }
+            #header.sticky-header > .container{
+                display: flex;
+                align-items: center;
+                display: -webkit-flex;
+                -webkit-align-items: center;
+                width: 100%;
+            }
+            .sticky-header #sticky-logo{
+                margin: 0!important;
+            }
+            .header > .container,
+            .new-top-menu > .container{
+                width: 100%;
+            }
         }
 
 
@@ -1015,6 +1058,59 @@
             .single-page-navigation .nav-next{
                 text-align: center;
             }
+
+            #slide_holder {
+                .featured-thumbnail{
+                    margin-right: 0;
+                    position: absolute;
+                    right: 0;
+                    left: auto;
+                    text-align: right;
+                    max-width: 100%;
+                    width: 100%;
+                    &::before{
+                        background-color: rgba(0, 0, 0, 0.5);
+                        content: "";
+                        display: inline-block;
+                        height: 100%;
+                        position: absolute;
+                        width: 100%; 
+                    }
+                    img{
+                        width: 100%;
+                        border: none;
+                    }
+                }
+                .post-more{
+                    bottom: 20px;
+                    left: 15px;
+                    margin: 0;
+                }
+            }
+            #slide_holder p,
+            #slide_holder .featured-title {
+                float: none;
+                left: 0;
+                width: 100%;
+                padding: 0 15px;
+            }
+
+            .widget-title{
+                margin: 0;
+                padding: 0;
+            }
         }
 
 
+        @media screen and (max-width: 540px) {
+            #slide_holder .featured-thumbnail img,
+            #slide_holder .featured-thumbnail{
+                height: 100%;
+            }
+            .slide-container{
+                height: 320px;
+            }
+            #slide_holder{
+                min-height: 320px;   
+            }
+        }
