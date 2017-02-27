@@ -51,7 +51,9 @@ class Evolve_Redux_Customizer_Section extends WP_Customize_Section {
             $this->section = $args['section'];
             $this->description = isset($this->section['desc']) ? $this->section['desc'] : '';
             $this->opt_name = isset($args['opt_name']) ? $args['opt_name'] : '';
+            $this->class_name = isset($this->section['class']) ? $this->section['class'] : '';
         }
+
     }
 
     /**
@@ -104,7 +106,7 @@ class Evolve_Redux_Customizer_Section extends WP_Customize_Section {
     protected function render_fallback() {
         $classes = 'accordion-section redux-section control-section control-section-' . $this->type;
         ?>
-        <li id="accordion-section-<?php echo esc_attr($this->id); ?>" class="<?php echo esc_attr($classes); ?>">
+        <li id="accordion-section-<?php echo esc_attr($this->id); ?>" class="<?php echo $this->class_name.' '.esc_attr($classes); ?>">
             <h3 class="accordion-section-title" tabindex="0">
                 <?php
                 echo wp_kses($this->title, array(
