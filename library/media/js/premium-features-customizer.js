@@ -1,15 +1,15 @@
 /*
- *	Force these elements to hide.
- *	Use [.] for classes and [#] for IDs:
+ *  Force these elements to hide.
+ *  Use [.] for classes and [#] for IDs:
  */
 var evl_SH_elements = [
     "#accordion-panel-evl-portfolio-main-tab"
 ];
 
 /*
- *	The following values depend on the html code,
- *	change here if future Redux or theme updates
- *	change the ids and/or classes:
+ *  The following values depend on the html code,
+ *  change here if future Redux or theme updates
+ *  change the ids and/or classes:
  */
 var evl_switchID = "evl_hiden_premium";
 var evl_selectedClass = "selected";
@@ -28,9 +28,9 @@ jQuery(document).ready(
         function ($) {
 
             /*
-             *	Add a "change event" listener for showing/hiding
-             *	premium options and sections when user activates
-             *	the switch.
+             *  Add a "change event" listener for showing/hiding
+             *  premium options and sections when user activates
+             *  the switch.
              */
             $('#' + evl_switchID).parent().change(
                     function () {
@@ -81,9 +81,10 @@ jQuery(document).ready(
 
 
 /*
- *	Show/Hide premium options and sections:
+ *  Show/Hide premium options and sections:
  */
 function evl_SH_premium_options(sh) {
+    //alert(jQuery("#" + evl_switchContainerTabID).children("ul").children("#" + evl_switchFieldID).length);
     evl_SH_reset_customizer(); // Customizer reset
     // Hide/Show premium options:
     jQuery("." + evl_lockedFieldClass).each(
@@ -103,7 +104,7 @@ function evl_SH_premium_options(sh) {
     jQuery("." + evl_lockedSectionClass).each(
             function () {
                 sh == "hide" ? jQuery(this).parent().addClass("redux-force-hide")
-                        : (sh == "show" ? jQuery(this).parent().removeClass("redux-force-hide") : null);
+                         : (sh == "show" ? jQuery(this).parent().removeClass("redux-force-hide") : null);
             }
     );
     // Hack for specific elements:
@@ -128,14 +129,14 @@ function evl_SH_reset_customizer() {
 
 
 /*
- *	Evaluate if the needed elements exist,
- *	in orther to show the switch on top of the Customizer:
+ *  Evaluate if the needed elements exist,
+ *  in orther to show the switch on top of the Customizer:
  */
 function evl_SH_evaluate() {
     if (
             (jQuery("#" + evl_referenceElement).length > 0) &&
             (jQuery("#" + evl_junkFieldID).length > 0) &&
-            (jQuery("#" + evl_switchContainerTabID).children("ul").children("#" + evl_switchFieldID).length > 0) &&
+            // (jQuery("#" + evl_switchContainerTabID).children("ul").children("#" + evl_switchFieldID).length > 0) &&
             (jQuery("#" + evl_switchContainerTabID).length > 0) &&
             (jQuery("#" + evl_switchFieldID).children("div").children("." + evl_descriptionClass).length > 0)
             ) {
@@ -146,11 +147,11 @@ function evl_SH_evaluate() {
 }
 
 /*
- *	Injects the switch code into the top of the Customizer:
+ *  Injects the switch code into the top of the Customizer:
  */
 function evl_SH_inject_switch() {
     // Override some Customizer classes for changing the layout:
-    var style = '<style>.wp-full-overlay-sidebar-content{top: 140px !important;}.accordion-section-content{padding: 95px 12px 12px 12px !important;}.current-panel .accordion-sub-container.control-panel-content{padding: 95px 0px 0px 0px;}.wp-customizer .redux-section-locked{top: 160px !important;}</style>';
+    var style = '<style>.wp-full-overlay-sidebar-content{top: 140px !important;}.accordion-section-content{padding: 0 12px 12px 12px !important;}.current-panel .accordion-sub-container.control-panel-content{padding: 95px 0px 0px 0px;}</style>';
     jQuery(style).insertBefore("#" + evl_referenceElement);
 
     // Inject the switch container into the Customizer top:
@@ -173,11 +174,11 @@ function evl_SH_inject_switch() {
     var loop = 1;
     var myVar = setInterval(function () {
         if (loop < 31) {
-            if (jQuery("#" + evl_switchContainerTabID).children("ul").children("#" + evl_switchFieldID).length > 0) {
+            // if (jQuery("#" + evl_switchContainerTabID).children("ul").children("#" + evl_switchFieldID).length > 0) {
                 jQuery("#evl-SH-container1").append(jQuery("#" + evl_switchFieldID));
                 jQuery("#" + evl_junkFieldID).click();
                 console.log("Loop " + loop);
-            }
+            // }
         } else {
             console.log("Loop finished");
             clearInterval(myVar);
