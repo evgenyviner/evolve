@@ -28,7 +28,7 @@ function evolve_media() {
         return;
 
     wp_enqueue_script('jquery');
-
+    
     if ($evolve_parallax_slider == "1") {
         wp_enqueue_script('parallax', EVOLVEJS . '/parallax/parallax.js');
         wp_enqueue_style('parallaxcss', EVOLVEJS . '/parallax/parallax.css');
@@ -38,29 +38,29 @@ function evolve_media() {
     if ($evolve_carousel_slider == "1") {
         wp_enqueue_script('carousel', EVOLVEJS . '/carousel.js');
     }
-    wp_enqueue_script('tipsy', EVOLVEJS . '/tipsy.js');
-    wp_enqueue_script('fields', EVOLVEJS . '/fields.js');
-    wp_enqueue_script('tabs', EVOLVEJS . '/tabs.js', array(), '', true);
+    wp_enqueue_script('tipsy', EVOLVEJS . '/tipsy.js', array('jquery'));
+    wp_enqueue_script('fields', EVOLVEJS . '/fields.js', array('jquery'));
+    wp_enqueue_script('tabs', EVOLVEJS . '/tabs.js', array('jquery'), '', true);
 
     //if ($evolve_pagination_type == "infinite") {
-    wp_enqueue_script('jscroll', EVOLVEJS . '/jquery.infinite-scroll.min.js');
+    wp_enqueue_script('jscroll', EVOLVEJS . '/jquery.infinite-scroll.min.js', array('jquery'));
     //}
 
     if ($evolve_pos_button == "disable" || $evolve_pos_button == "") {
         
     } else {
-        wp_enqueue_script('jquery_scroll', EVOLVEJS . '/jquery.scroll.pack.js');
+        wp_enqueue_script('jquery_scroll', EVOLVEJS . '/jquery.scroll.pack.js', array('jquery'));
     }
-    wp_enqueue_script('supersubs', EVOLVEJS . '/supersubs.js');
-    wp_enqueue_script('superfish', EVOLVEJS . '/superfish.js');
-    wp_enqueue_script('buttons', EVOLVEJS . '/buttons.js');
-    wp_enqueue_script('ddslick', EVOLVEJS . '/ddslick.js');
-    wp_enqueue_script('meanmenu', EVOLVEJS . '/jquery.meanmenu.js');
-    wp_enqueue_script('main', EVOLVEJS . '/main.js', array(), '', true);
+    wp_enqueue_script('supersubs', EVOLVEJS . '/supersubs.js', array('jquery'));
+    wp_enqueue_script('superfish', EVOLVEJS . '/superfish.js', array('jquery'));
+    wp_enqueue_script('buttons', EVOLVEJS . '/buttons.js', array('jquery'));
+    wp_enqueue_script('ddslick', EVOLVEJS . '/ddslick.js', array('jquery'));
+    wp_enqueue_script('meanmenu', EVOLVEJS . '/jquery.meanmenu.js', array('jquery'));
+    wp_enqueue_script('main', EVOLVEJS . '/main.js', array('jquery'), '', true);
 
     if ($evolve_status_gmap == "1") {
         wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?key=' . $evolve_google_map_api . '&amp;language=' . mb_substr(get_locale(), 0, 2));
-        wp_enqueue_script('gmap', EVOLVEJS . '/gmap.js', array(), '', true);
+        wp_enqueue_script('gmap', EVOLVEJS . '/gmap.js', array('jquery'), '', true);
     }
 
     if ($evolve_recaptcha_public && $evolve_recaptcha_private) {
@@ -71,7 +71,7 @@ function evolve_media() {
         // FontAwesome 
         wp_enqueue_style('fontawesomecss', get_template_directory_uri() . '/assets/fonts/fontawesome/css/font-awesome.css', false);
     }
-
+    
     // Main Stylesheet
     function evolve_styles() {
 
