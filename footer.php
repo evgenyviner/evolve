@@ -28,7 +28,7 @@
 
             $evolve_footer_css = '';
             if ($evolve_widgets_footer == "one") {
-                $evolve_footer_css = 'widget-one-column col-sm-6';
+                $evolve_footer_css = 'widget-one-column col-sm-12';
             }
             if ($evolve_widgets_footer == "two") {
                 $evolve_footer_css = 'col-sm-6 col-md-6';

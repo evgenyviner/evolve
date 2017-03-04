@@ -106,7 +106,7 @@
                                 } else {
                                     $evolve_header_css = '';
                                     if ($evolve_widgets_header == "one") {
-                                        $evolve_header_css = 'widget-one-column col-sm-6';
+                                        $evolve_header_css = 'widget-one-column col-sm-12';
                                     }
                                     if ($evolve_widgets_header == "two") {
                                         $evolve_header_css = 'col-sm-6 col-md-6';
