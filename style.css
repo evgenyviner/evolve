@@ -82,6 +82,10 @@ I. Evolve components
 /*!==========================================================================
    Vendor components
    ========================================================================== */
+
+.screen-reader-text,
+.bypostauthor {}
+
 /*!==========================================================================
    IcoMoon
    ========================================================================== */
@@ -1557,7 +1561,7 @@ input#submit:hover {
   font-weight: normal;
 }
 
-.icon-arrow-left:before::before {
+.icon-arrow-left:before {
   content: "\e918";
   font-family: "IcoMoon";
   font-size: 15px;
@@ -1643,11 +1647,20 @@ input#submit:hover {
 /*!==========================================================================
    Responsive
    ========================================================================== */
+
 @media (max-width: 1000px) {
   .container {
     width: 100%;
   }
 }
+
+@media (max-width: 767px) {
+    .widget-content {
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+}
+
 
 /*!==========================================================================
    Layout
@@ -1775,7 +1788,7 @@ input#submit:hover {
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  #wrapper .dd-container .dd-selected-text span::before {
+  #wrapper .dd-container .dd-selected-text span:before {
     position: relative;
     top: 0px;
     padding: 0px;
@@ -3558,11 +3571,6 @@ a.post-edit-link:before {
 /* ==========================================================================
    Responsive
    ========================================================================== */
-@media screen and (max-width: 782px) {
-  html #wpadminbar {
-    position: fixed !important;
-  }
-}
 
 @media screen and (max-width: 767px) {
   .sc_menu li {
