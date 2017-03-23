@@ -5077,13 +5077,11 @@ table#recaptcha_table::before {
   margin-right: 20px;
   position: absolute;
   left: 60%;
+  top: 0;
   width: calc(35% - 12px);
 }
 
 #slide_holder .featured-thumbnail img {
-  width: 100%;
-  height: auto;
-  border: 8px solid rgba(255, 255, 255, 0.3);
   -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.05);
   -ms-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.05);
@@ -5303,6 +5301,30 @@ ul#slides {
   .widget-title {
     margin: 0;
     padding: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #slide_holder .featured-thumbnail {
+    margin-right: 0;
+    left: auto;
+    right: 8%;
+    text-align: right;
+    width: auto;
+  }
+  #slide_holder .featured-thumbnail a {
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+  }
+  #slide_holder .featured-thumbnail a:before {
+    border: 8px solid #63686c;
+    content: "";
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
   }
 }
 
