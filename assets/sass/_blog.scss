@@ -869,7 +869,6 @@
                 top: 0;
                 width: calc(35% - 12px);
                 img{
-                    // border: 8px solid rgba(255, 255, 255, 0.3);
                     @include box-shadow(0 0px 3px rgba(0, 0, 0, 0.05));
                 }
             }
@@ -909,15 +908,13 @@
         }
 
 
-
-
-
-
-
         .slide-container {
-            height: 280px;
+            height: 284px;
             overflow: hidden;
             position: relative;
+            ul.thumbNav{
+                bottom: -40px;
+            }
         }
 
         ul#slides {

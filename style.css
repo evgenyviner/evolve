@@ -1,7 +1,7 @@
 /*
 Theme Name: evolve
 Theme URI: http://theme4press.com/evolve-multipurpose-wordpress-theme/
-Version: 3.6.8
+Version: 3.6.6
 Description: evolve is a multi-purpose WordPress theme that has recently been redesigned as a full responsive theme for all devices. evolve features 2 Header Layouts, a slick Bootstrap and Parallax slider with up to 5 slides on any page and a post slider for 10 posts per post category. There are a number of different slider and animated effects to move captions and images into position and then back out of frame again. Button and arrow navigation elements are shown on each slider, or slides can be automatically cycled through. Bootstrap construction makes it easy to change designs around because the theme is build on a grid-like system. Modify anything with the design, such as the logo, header, background, main colors used, and more. The FontAwesome icon pack provides Retina Ready icons that look terrific on an iPad or other HD device and at any resolution. Animate.css elements are included for slick CSS interactive effects which can be included on many different pages to create interesting animations. Infinite Scroll gives an unique loading of the blog posts. There are more than 500 Google web fonts which ensures almost infinite selection of just the right fonts selectable for headings, sub-headings and web copy in any size, color or style. Image thumbnails have attractive borders and an image zoom effect when hovered over. evolve is WPML, Polylang compatible and it's translation ready. Multiple blog layouts includes single column, two or 3 columns in a grid or a post with a featured image. There are 12 widget areas, four in the header, four in the footer and 2 in the sidebar. Add your own custom widgets to include new functionality into a page such as an improved opt-in box, featured posts, archives and more. Two widgets are included in the theme: Tabs (recent posts, popular posts and comments) and the Carousel slider. In order to get the word out, social media accounts are well promoted. Up to 11 networks are supported including Facebook, Twitter, LinkedIn, Pinterest, and Google+. Choose which logos to display at the bottom of each post and what size the social media icons should be. There are easy navigation elements like a revolving main menu where menu items rotate and highlight when hovered over, categories and tags are shown at the bottom of each post, a "back to top" navigation "up" arrow is shown on each page and breadcrumb navigation is also available to help visitors avoid getting lost in large sites. evolve also includes a contact page template with Google Map. evolve fully supports bbPress and BuddyPress. *** IMPORTANT: Please read the changelog.txt file for any important changes before you update the theme! ***
 Author: Theme4Press
 Author URI: http://theme4press.com
@@ -82,10 +82,6 @@ I. Evolve components
 /*!==========================================================================
    Vendor components
    ========================================================================== */
-
-.screen-reader-text,
-.bypostauthor {}
-
 /*!==========================================================================
    IcoMoon
    ========================================================================== */
@@ -1561,7 +1557,7 @@ input#submit:hover {
   font-weight: normal;
 }
 
-.icon-arrow-left:before {
+.icon-arrow-left:before::before {
   content: "\e918";
   font-family: "IcoMoon";
   font-size: 15px;
@@ -1647,20 +1643,11 @@ input#submit:hover {
 /*!==========================================================================
    Responsive
    ========================================================================== */
-
 @media (max-width: 1000px) {
   .container {
     width: 100%;
   }
 }
-
-@media (max-width: 767px) {
-    .widget-content {
-        margin-bottom: 10px;
-        padding: 5px;
-    }
-}
-
 
 /*!==========================================================================
    Layout
@@ -1764,6 +1751,11 @@ input#submit:hover {
 }
 
 /* ======================== DD Slick ======================== */
+#wrapper .dd-container .dd-select {
+  height: auto;
+  border: none;
+}
+
 #wrapper .dd-container .dd-selected {
   padding: 0 15px;
   background: none;
@@ -1772,9 +1764,10 @@ input#submit:hover {
 #wrapper .dd-container .dd-selected-text {
   background: rgba(255, 255, 255, 0.5);
   margin: 8px 0;
-  padding: 10px;
+  padding: 8px 12px;
   cursor: pointer;
-  line-height: 17px;
+  line-height: 1;
+  border-radius: 4px;
   -webkit-box-shadow: 3px;
   -moz-box-shadow: 3px;
   -ms-box-shadow: 3px;
@@ -1788,7 +1781,7 @@ input#submit:hover {
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  #wrapper .dd-container .dd-selected-text span:before {
+  #wrapper .dd-container .dd-selected-text span::before {
     position: relative;
     top: 0px;
     padding: 0px;
@@ -2478,23 +2471,24 @@ p#copyright .credits a {
 }
 
 @media only screen and (max-width: 540px) {
+  #bootstrap-slider .layout-right {
+    padding-bottom: 0px;
+  }
   #bootstrap-slider .carousel-caption {
     left: 20px;
     right: 20px;
   }
-  #bootstrap-slider .carousel-caption p,
-  #bootstrap-slider .carousel-caption .bootstrap-button,
-  #bootstrap-slider .carousel-control {
-    display: none;
+  #bootstrap-slider .carousel-caption .bootstrap-button {
+    padding: 0px 10px;
   }
   #bootstrap-slider .carousel-caption h2 {
     font-size: 100%;
   }
-  #bootstrap-slider .carousel-caption .bootstrap-button {
-    padding: 0px 10px;
+  #bootstrap-slider .carousel-caption p {
+    display: none;
   }
-  #bootstrap-slider .layout-right {
-    padding-bottom: 0px;
+  #bootstrap-slider .carousel-caption .bootstrap-button {
+    display: none;
   }
 }
 
@@ -2505,12 +2499,6 @@ p#copyright .credits a {
   .da-slider .da-link p {
     max-height: 100px;
     overflow: hidden;
-  }
-}
-
-@media (max-width: 768px) {
-  #bootstrap-slider .carousel-caption h2 {
-    padding: 15px;
   }
 }
 
@@ -2544,6 +2532,8 @@ p#copyright .credits a {
     margin-right: 0;
   }
   #search-text-box #search_label_top {
+    top: 0;
+    height: 36px;
     float: none;
     margin: 0 auto;
     display: block;
@@ -2595,12 +2585,6 @@ p#copyright .credits a {
   }
   .title-container #tagline {
     margin-top: -25px;
-  }
-  #search-text-box #search_label_top {
-    top: 18px;
-  }
-  .header_v0 #search-text-box #search_label_top {
-    top: 8px;
   }
 }
 
@@ -3577,6 +3561,21 @@ a.post-edit-link:before {
 /* ==========================================================================
    Responsive
    ========================================================================== */
+@media screen and (max-width: 782px) {
+  html #wpadminbar {
+    position: fixed !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #bootstrap-slider .carousel-caption {
+    bottom: auto !important;
+    top: 20px;
+  }
+  #bootstrap-slider .carousel-caption h2 {
+    padding: 15px;
+  }
+}
 
 @media screen and (max-width: 767px) {
   .sc_menu li {
@@ -3594,8 +3593,8 @@ a.post-edit-link:before {
   .header_v0 .container,
   .header_v0 .nacked-menu,
   .header_v0 .container-menu {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   .da-slide {
     padding: 20px;
@@ -3633,6 +3632,50 @@ a.post-edit-link:before {
   .entry-content a.t4p-button-default {
     line-height: 1;
     padding: 10px 16px;
+  }
+  #bootstrap-slider a.left::before {
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    width: 30px;
+  }
+  #bootstrap-slider a.right::before {
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    width: 30px;
+  }
+  #bootstrap-slider .carousel-caption p {
+    padding: 10px 15px;
+    margin-bottom: 0;
+  }
+  #bootstrap-slider .carousel-caption .bootstrap-button {
+    line-height: 34px;
+    padding: 0 20px;
+  }
+  #bootstrap-slider .right.carousel-control {
+    left: 50px;
+  }
+  #bootstrap-slider .carousel-control {
+    left: 20px;
+  }
+  .carousel-caption.layout-left {
+    left: auto !important;
+    right: auto !important;
+    margin: auto !important;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    /* 
+                    IMPORTANT REASON
+                    For custom-css.php
+                */
+  }
+}
+
+@media (max-width: 450px) {
+  #bootstrap-slider .carousel-caption p {
+    display: none;
   }
 }
 
@@ -5135,9 +5178,13 @@ table#recaptcha_table::before {
 }
 
 .slide-container {
-  height: 280px;
+  height: 284px;
   overflow: hidden;
   position: relative;
+}
+
+.slide-container ul.thumbNav {
+  bottom: -40px;
 }
 
 ul#slides {
