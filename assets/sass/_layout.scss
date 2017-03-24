@@ -93,6 +93,10 @@
 /* ======================== DD Slick ======================== */
             #wrapper {
                 .dd-container{
+                    .dd-select{
+                        height: auto;
+                        border: none;  
+                    }
                     .dd-selected{
                         padding: 0 15px;
                         background: none;        
@@ -100,9 +104,10 @@
                     .dd-selected-text{
                         background: rgba(255, 255, 255, 0.5);
                         margin: 8px 0;
-                        padding: 10px;
+                        padding: 8px 12px;
                         cursor: pointer;
-                        line-height: 17px;
+                        line-height: 1;
+                        border-radius: 4px;
                         @include box-shadow(3px);
                         @include box-shadow(1px 1px 0 rgba(255, 255, 255, 0.8) inset, 0 1px 2px rgba(0, 0, 0, 0.1));
                     }
@@ -192,16 +197,10 @@
                 display: none;
             }
 
-            @media only screen and (max-width: 768px) {
-                #wrapper .dd-options li + li {
-                    display: none;
-                }
-                #wrapper .dd-options li + li + li {
-                    display: block;
-                }
+            @media only screen and (max-width: 768px) {                
                 body #header.sticky-header,
                 body #header.sticky-header.sticky {
-                    display: none !important;
+                    display: none;
                 }
                 .padding-l {
                     padding: 0;
@@ -230,7 +229,7 @@
                 #wrapper {
                     .woocommerce-menu{
                         .dd-options{
-                            width: 100% !important;
+                            width: 100%;
                         }
                     }
                 }
@@ -770,28 +769,27 @@
 		}
 
 		@media only screen and (max-width: 540px) {
-		    #bootstrap-slider {
-		        .carousel-caption{
-		            left: 20px;
-		            right: 20px;
-		        }
-		    }
-		    #bootstrap-slider .carousel-caption p,
-		    #bootstrap-slider .carousel-caption .bootstrap-button,
-		    #bootstrap-slider .carousel-control {
-		        display: none
-		    }
-		    #bootstrap-slider {
-		        .carousel-caption{
-		            h2{ font-size: 100%; }
-		            .bootstrap-button{
-		                padding: 0px 10px;
-		            }
-		        }
-		        .layout-right{
-		            padding-bottom: 0px;
-		        }
-		    }
+		    #bootstrap-slider{
+                .layout-right{
+                    padding-bottom: 0px;
+                }
+                .carousel-caption{
+                    left: 20px;
+                    right: 20px;
+                    .bootstrap-button{
+                        padding: 0px 10px;
+                    }
+                    h2{
+                        font-size: 100%;
+                    }
+                    p{
+                        display: none;
+                    }
+                    .bootstrap-button{
+                        display: none;
+                    }
+                }
+            }
 		}
 
 		@media only screen and (max-width: 360px) {
@@ -809,19 +807,9 @@
 		}
 
 		@media (max-width: 768px) {
-		    #bootstrap-slider {
-		        .carousel-caption{
-		            h2{
-		                padding: 15px;        
-		            }
-		        }
-		    }
-		}
-
-		@media (max-width: 768px) {
-		    body #header.sticky-header,
+            body #header.sticky-header,
 		    body #header.sticky-header.sticky {
-		        display: none !important;
+		        display: none;
 		    }
 		    .padding-l {
 		        padding: 0;
@@ -836,7 +824,7 @@
 		    }
 		    .nav-holder {
 		        .dd-container{
-		            display: block !important;
+		            display: block;
 		            width: 100%;    
 		        }
 		    }
@@ -848,14 +836,16 @@
 		        }
 		    }
 		    #search-text-top {
-		        text-indent: 1px!important;
+		        text-indent: 1px;
 		        width: 170px;
 		        display: block;
 		        margin-right: 0;
 		    }
 		    #search-text-box {
 		        #search_label_top{
-		            float: none!important;
+                    top: 0;
+                    height: 36px;
+		            float: none;
 		            margin: 0 auto;
 		            display: block;
 		            width: 170px;
@@ -875,8 +865,8 @@
 		        margin: 0;
 		    }
 		    #logo-image {
-		        float: none!important;
-		        margin: 10px 0!important;
+		        float: none;
+		        margin: 10px 0;
 		        display: inline-block;
 		    }
 		    .sc_menu {
@@ -885,7 +875,7 @@
 		       }
 		    }
 		    .custom-header {
-		        width: 100% !important;
+		        width: 100%;
 		    }
 		    #secondary,
 		    #secondary-2 {
@@ -893,7 +883,7 @@
 		    }
 		    .header{
 		        #righttopcolumn{
-		            width:100% !important;
+		            width:100%;
 		            text-align:center;
 		            overflow: hidden;
 		            .sc_menu{
@@ -904,14 +894,14 @@
 		            }
 		        }
 		        #social{
-		            width:100% !important;
+		            width:100%;
 		            text-align:center;
 		            overflow: hidden;
 		        }        
 		    }
 		    .title-container{
 		        #tagline{
-		            margin-top:-25px !important;
+		            margin-top:-25px;
 		        }
 		    }
 		}
@@ -940,7 +930,6 @@
 							height: 100%;
 							width: 110%;
 							content: attr(data-hover);
-							font-weight: 700;
 							@include transition(translate3d(0, 0, 0));
 						}
 					}
@@ -986,11 +975,7 @@
 		}
 
 		.infinite-rotation-icon {
-		    animation: spin 1s infinite linear;
-		    -webkit-animation: spin 1s infinite linear; 
-		    -moz-animation: spin 1s infinite linear;
-		    -ms-animation: spin 1s infinite linear; 
-		    -o-animation: spin 1s infinite linear;  
+		    @include animation(spin 1s infinite linear);
 		    filter: blur(0);
 		}
 
@@ -1164,7 +1149,8 @@
 		#secondary-2 a,
 		.footer-widgets a,
 		.header-widgets a {
-		    line-height: 180%;
+            word-wrap: break-word;
+		    line-height: 1.8;
 		    color: #666;
 		    padding: 3px 0;
 		    @include transition(all 0.5s ease 0s);
@@ -1235,7 +1221,7 @@
 /* ======================== Back to Top Button ======================== */
 		#backtotop {
 		    display: none;
-		    z-index: 999;
+		    z-index: 9999;
 		    position: fixed;
 		    top: 100%;
 		    margin-top: -60px;
@@ -1449,10 +1435,10 @@
 		    margin: 15px 0 5px 0;
 		}
 		.nosl {
-		    float: none!important;
+		    float: none;
 		    display: inline-block;
 		    width: auto;
-		    padding-top: 10px!important;
+		    padding-top: 10px;
 		}
 		#rss,
 		#email-newsletter,
@@ -1597,7 +1583,7 @@
 /* ======================== Tipsy ======================== */
 		.tipsy {
 		    padding: 8px;
-		    line-height: 12px!important;
+		    line-height: 12px;
 		    font-size: 11px;
 		    position: absolute;
 		    z-index: 99999;
@@ -1693,7 +1679,7 @@
 		    }
 		    .title-container {
 		    	#tagline{
-		    		margin-top: 0 !important;	
+		    		margin-top: 0;
 		    	}
 		    }
 		}
@@ -1832,13 +1818,13 @@
 		.edit-post a.post-edit-link,
 		.edit-page a.post-edit-link {
 		    margin-left: 10px;
-		    font-size: 15px !important;
-		    color: #CCC !important;
+		    font-size: 12px;
+		    color: #CCC;
 		    text-transform: uppercase;
 		}
 
 		a.post-edit-link:before {
-		    font-family: IcoMoon;
+		    font-family: "IcoMoon";
 		    content: '\e902';
 		    margin-right: 5px;
 		}
@@ -1870,17 +1856,143 @@
                 position: fixed!important;
             }
         }
+        @media screen and (max-width: 768px) {
+            #bootstrap-slider {
+                .carousel-caption{
+                    bottom: auto !important;
+                    top: 20px;
+                    h2{
+                        padding: 15px;
+                    }
+                }
+            }
+        }
+            
         @media screen and (max-width: 767px) {
             .sc_menu li{
                 float: none;
             }
-            #wrapper .primary-menu .link-effect a{
-                text-align: center;
+            #wrapper{
+                .primary-menu{
+                    .link-effect{
+                        .dd-select{
+                            a{
+                                text-align: center;
+                            }
+                        }
+                    }
+                    label{
+                        margin: 0;
+                    }
+                }
+            }
+            .container-menu{
+                padding-bottom: 0;
             }
             .header_v0 .container,
             .header_v0 .nacked-menu,
             .header_v0 .container-menu{
-                padding-top: 15px;
-                padding-bottom: 15px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .da-slide {
+                padding: 20px;
+                h2{
+                    margin-bottom: 15px;
+                    padding: 0;
+                    width: calc(100% - 35%);
+                }
+                p{
+                    margin-bottom: 20px;
+                    width: calc(100% - 35%);
+                }
+                .da-link{
+                    top: auto;
+                    bottom: 0;
+                }
+                .da-img{
+                    height: auto;
+                    line-height: 1;
+                }
+            }
+            
+            .da-slide h2,
+            .da-slide p,
+            .da-slide .da-link{
+                position: static;
+            }
+                
+            input[type="submit"],
+            button,
+            .button,
+            .bootstrap-button,
+            input#submit,
+            .da-slide .da-link,
+            span.more a,
+            a.read-more,
+            .entry-content a.t4p-button-default {
+                line-height: 1;
+                padding: 10px 16px;
+            }
+
+
+            #bootstrap-slider{
+                a.left{
+                    &::before{
+                        font-size: 12px;
+                        height: 30px;
+                        line-height: 30px;
+                        width: 30px;
+                    }
+                }
+                a.right{
+                    &::before{
+                        font-size: 12px;
+                        height: 30px;
+                        line-height: 30px;
+                        width: 30px; 
+                    }
+                }
+                .carousel-caption{
+                    p{
+                        padding: 10px 15px;
+                        margin-bottom: 0;          
+                    }
+                    .bootstrap-button{
+                        line-height: 34px;
+                        padding: 0 20px;
+                    }
+                }
+                .right.carousel-control{
+                    left: 50px;
+                }
+                .carousel-control{
+                    left: 20px;
+                }
+            }
+            .carousel-caption.layout-left {
+                left: auto !important;
+                right: auto !important;
+                margin: auto !important;
+                padding-left: 20px;
+                padding-right: 20px;
+                width: 100%;
+
+                /* 
+                    IMPORTANT REASON
+                    For custom-css.php
+                */
+            }
+
+        }
+
+        @media (max-width: 450px) {
+            #bootstrap-slider {
+                .carousel-caption{
+                    p{
+                        display: none;        
+                    }
+                }
             }
         }

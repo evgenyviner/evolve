@@ -2912,6 +2912,11 @@ $evolve_css_data .= '
     #bootstrap-slider .carousel-caption p {
         font-size: 90%;
     }
+    
+    #wrapper .primary-menu .link-effect a.dd-selected{
+        display: inline-block !important;
+        padding: 0;
+    }
 }
 
 /* Small devices (tablets, 768px) */
@@ -3800,7 +3805,27 @@ $evolve_css_data .= '
 #bootstrap-slider .carousel-control {
     bottom: 46%;
 }
-
+@media only screen and (max-width: 768px) {
+    #bootstrap-slider .carousel-control {
+      bottom: 5%;
+    }
+    #bootstrap-slider .right.carousel-control {
+      left: calc(50% + 16px);
+      right: auto;
+      transform: translateX(-50%);
+    }
+    #bootstrap-slider .left.carousel-control {
+      left: calc(50% - 16px);
+      right: auto;
+      transform: translateX(-50%);
+    }
+}
+@media only screen and (max-width: 540px) {
+    #bootstrap-slider .layout-center{
+        background: none;
+        padding-bottom: 0;
+    }
+}
 ';
 
 } else {
@@ -3848,12 +3873,12 @@ $evolve_css_data .= '
     }
     
     #bootstrap-slider .carousel-control {
-        left: 200px;
-        bottom: 4%;
+        bottom: 9%;
+        left: 26px;
     }
 
     #bootstrap-slider .right.carousel-control {
-        left: 240px;
+        left: 56px;
     }
 }
 
@@ -3862,19 +3887,19 @@ $evolve_css_data .= '
         bottom: 5%;
     }
     
-    #bootstrap-slider .layout-left {
+    #bootstrap-slider .layout-right {
         left: 5%;
         right: 5%;
-        margin-left: 0px;
+        margin-right: 0px;
     }
     
     #bootstrap-slider .carousel-control {
-        left: 170px;
-        bottom: 5%;
+        bottom: 7%;
+        left: 20px;
     }
 
     #bootstrap-slider .right.carousel-control {
-        left: 210px;
+        left: 50px;
     }
 }
 ';
@@ -3892,6 +3917,28 @@ $evolve_css_data .= '
 }
 ';
     }
+
+$evolve_css_data .= '
+    @media only screen and (max-width: 990px) {
+        .entry-content h1 { font-size: 30px; }
+        .entry-content h2 { font-size: 25px; }
+        .entry-content h3 { font-size: 22px; }
+        .entry-content h4 { font-size: 20px; }
+        .entry-content h5 { font-size: 18px; }
+        .entry-content h6 { font-size: 16px; }
+    }
+    @media only screen and (max-width: 768px) {
+        .entry-content h1,
+        .entry-title,
+        .entry-title a,
+        .page-title { font-size: 25px; line-height: 1.5; }
+        .entry-content h2 { font-size: 20px; }
+        .entry-content h3 { font-size: 18px; }
+        .entry-content h4 { font-size: 16px; }
+        .entry-content h5 { font-size: 14px; }
+        .entry-content h6 { font-size: 12px; }
+    }
+';
 
 $evolve_css_content = evolve_get_option('evl_css_content', '');
 $evolve_css_data .= $evolve_css_content;

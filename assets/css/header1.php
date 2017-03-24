@@ -84,6 +84,9 @@ $evolve_css_data = '
         width: auto;
         display: block;
     }
+    #wrapper .dd-container{
+        text-align: center;
+    }
 }
 
 @media screen and (min-width: 1200px) {

@@ -316,8 +316,8 @@ body #header.sticky-header.sticky {
 
 body #header.sticky-header {
     img#logo-image{
-        margin-top: 15px;
-        margin-bottom: 15px;
+        margin-top: 8px;
+        margin-bottom: 8px;
         vertical-align: middle;
         height: auto;
         line-height: 65px;
@@ -330,7 +330,8 @@ body #header.sticky-header{
             ul{
                 li{
                     a{
-                       padding-bottom: 10px; 
+                       padding-top: 3px;
+                       padding-bottom: 3px;
                     }
                 }
             }
@@ -357,7 +358,7 @@ body #header.sticky-header{
 }
 
 .new-top-menu .top-menu .dd-container {
-    width: 100% !important;
+    width: 100%;
 }
 
 .top-menu-social {
