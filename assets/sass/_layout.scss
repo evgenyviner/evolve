@@ -924,6 +924,7 @@
 						position: relative;
 						display: inline-block;
 						@include transition(-webkit-transform 0.3s);
+                        @include transform(translate(0px, 0px));
 						&::before{
 							position: absolute;
 							top: 100%;
