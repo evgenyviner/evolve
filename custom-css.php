@@ -3866,10 +3866,10 @@ $evolve_css_data .= '
         bottom: 0;
     }
     
-    #bootstrap-slider .layout-left {
+    #bootstrap-slider .layout-right {
         left: 5%;
         right: 5%;
-        margin-left: 0px;
+        margin-right: 0px;
     }
     
     #bootstrap-slider .carousel-control {
