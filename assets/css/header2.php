@@ -99,7 +99,7 @@ div#search-text-box {
 }
 
 .top-menu-social {
-    margin: 15px 0 5px;
+    margin: 10px 0;
 }
 
 .header .woocommerce-menu li {

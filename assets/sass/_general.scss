@@ -479,9 +479,9 @@
             font-weight: normal;
             padding: 10px 0px;
             a{
-                color: #333 !important;
-                text-shadow: 1px 1px 0px $full-white-colour!important;
-                border-bottom: none !important;    
+                color: #333;
+                text-shadow: 1px 1px 0px $full-white-colour;
+                border-bottom: none;
             }
         }
 
@@ -534,7 +534,7 @@
         .product_list_widget li,
         .widget_layered_nav li {
             overflow: hidden;
-            padding: 15px 0 !important;
+            padding: 15px 0;
         }
 
         #wp-calendar {
@@ -567,7 +567,7 @@
         small { font-size: 12px; }
         del { text-decoration: line-through; }
         ins { text-decoration: underline; }
-        code, pre { line-height: 15px; color: #333 !important; @include border-radius(0); }
+        code, pre { line-height: 15px; color: #333; @include border-radius(0); }
         var, kbd, samp, code, pre { font: 14px/1.4 Consolas, "Andale Mono", Courier, "Courier New", monospace; background: $full-white-colour; }
         kbd { font-weight: bold; }
         samp, var { font-style: italic; }
@@ -684,7 +684,7 @@
             tr{
                 td{
                     border-bottom: 1px solid #dcdcdc;
-                    padding: 10px 11px; 
+                    padding: 10px 11px;
                 }
             }
         }
