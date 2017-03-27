@@ -2503,7 +2503,7 @@ p#copyright .credits a {
 @media (max-width: 768px) {
   body #header.sticky-header,
   body #header.sticky-header.sticky {
-    display: none;
+    display: none !important;
   }
   .padding-l {
     padding: 0;
@@ -3987,10 +3987,6 @@ body #header.sticky {
 
 body.admin-bar #header.sticky-header {
   top: 32px;
-}
-
-body #header.sticky-header.sticky {
-  display: block;
 }
 
 body #header.sticky-header img#logo-image {
