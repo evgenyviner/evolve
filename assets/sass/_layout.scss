@@ -200,7 +200,7 @@
             @media only screen and (max-width: 768px) {                
                 body #header.sticky-header,
                 body #header.sticky-header.sticky {
-                    display: none;
+                    display: none !important;
                 }
                 .padding-l {
                     padding: 0;
@@ -807,9 +807,9 @@
 		}
 
 		@media (max-width: 768px) {
-            body #header.sticky-header,
+                    body #header.sticky-header,
 		    body #header.sticky-header.sticky {
-		        display: none;
+		        display: none !important;
 		    }
 		    .padding-l {
 		        padding: 0;
