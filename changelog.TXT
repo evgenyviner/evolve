@@ -1,3 +1,10 @@
+Version:         3.6.9  
+Date:         27/3/17        
+
+- Fixed visual issue in Theme Options panel
+- Improved responsiveness of Bootstrap and Posts slider
+
+
 Version:         3.6.8  
 Date:         21/3/17        
 
