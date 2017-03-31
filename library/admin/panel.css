@@ -116,8 +116,14 @@
 }
 
 @media screen and (min-width: 600px) {
-    .redux-main {
-        margin-left: 249px !important;
+    .redux-container .redux-main {
+        margin-left: 250px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .redux-container .redux-main {
+        margin-left: 43px;
     }
 }
 
