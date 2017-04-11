@@ -2957,6 +2957,14 @@ $evolve_css_data .= '
 }
 ';
 
+$evolve_css_data .= '
+.woocommerce form.checkout .col-2, 
+.woocommerce form.checkout #order_review_heading, 
+.woocommerce form.checkout #order_review {
+    display: none;
+}
+';
+
 //mod by denzel, set #wrapper box shadow to none.  
 
 if ($evolve_shadow_effect == 'disable') {

@@ -76,6 +76,8 @@ function evolve_script() {
     wp_enqueue_style('bootstrapcss', get_template_directory_uri() . '/assets/css/bootstrap.css', array('maincss'));
     wp_enqueue_style('bootstrapcsstheme', get_template_directory_uri() . '/assets/css/bootstrap-theme.css', array('bootstrapcss'));
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js');
+    // Shortcode.css
+    wp_enqueue_style('shortcode', get_template_directory_uri() . '/assets/css/shortcode/shortcodes.css');
 }
 
 add_action('wp_enqueue_scripts', 'evolve_script');

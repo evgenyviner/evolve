@@ -4792,7 +4792,6 @@ Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-woocommerce-main-tab',
     'title' => __('WooCommerce', 'evolve'),
     'icon' => 't4p-icon-appbarcart',
-    'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
     'class' => $evolve_prem_class,
     'fields' => array(
         array(
