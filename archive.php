@@ -5,7 +5,7 @@
  *
  */
 get_header();
-$xyz = "";
+$xyz = 0;
 $evolve_layout = evolve_get_option('evl_layout', '2cl');
 $evolve_post_layout = evolve_get_option('evl_post_layout', 'two');
 $evolve_nav_links = evolve_get_option('evl_nav_links', 'after');
