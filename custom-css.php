@@ -1519,6 +1519,9 @@ body #header.sticky-header img#logo-image {
     //Main menu font
     $evolve_css_data .= evolve_print_fonts('evl_menu_font', 'ul.nav-menu a, .menu-header, #wrapper .dd-container label, #wrapper .dd-container a, #wrapper .dd-container a.mean-expand');
 
+    //Top menu font
+    $evolve_css_data .= evolve_print_fonts('evl_top_menu_font', '.new-top-menu ul.nav-menu a, .top-menu, #wrapper .new-top-menu .dd-container label, #wrapper .new-top-menu .dd-container a, .woocommerce-menu .cart > a, .woocommerce-menu .my-account > a');
+
     //Bootstrap Slider --> Slider Title font
     $evolve_css_data .= evolve_print_fonts('evl_bootstrap_slide_title_font', '#bootstrap-slider .carousel-caption h2 ', $additional_css = '');
 

@@ -1,3 +1,17 @@
+@media screen and (max-width: 782px) {
+    body.admin-bar #wrapper #slidingbar-area,
+    .admin-bar p.demo_store,
+    body.admin-bar #header.sticky-header {
+        top: 46px;
+    }
+    body.body_blank.admin-bar {
+        top: 45px;
+    }
+    html #wpadminbar {
+        z-index: 9999999;
+        position: fixed;
+    }    
+}
 
 .flex-container a:active,
 .flexslider a:active,

@@ -259,7 +259,7 @@ Redux::setField($evolve_opt_name, array(
     'type' => 'switch',
     'on' => __('Show', 'evolve'),
     'off' => __('Hide', 'evolve'),
-    'default' => 0,
+    'default' => 1,
     'title' => __('Premium features:', 'evolve'),
     'class' => $evolve_prem_class
         )
@@ -1154,9 +1154,7 @@ Redux::setSection($evolve_opt_name, array(
             'subtitle' => __('Select the typography you want for your top menu. * non web-safe font.', 'evolve'),
             'id' => 'evl_top_menu_font',
             'type' => 'typography',
-            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'text-align' => false,
-            'class' => $evolve_prem_class,
             'line-height' => false,
             'title' => __('Top menu font', 'evolve'),
             'default' => array(
@@ -4792,13 +4790,14 @@ Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-woocommerce-main-tab',
     'title' => __('WooCommerce', 'evolve'),
     'icon' => 't4p-icon-appbarcart',
-    'class' => $evolve_prem_class,
     'fields' => array(
         array(
             'subtitle' => __('Insert the number of posts to display per page.', 'evolve'),
             'id' => 'evl_woo_items',
             'type' => 'text',
+            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'title' => __('Number of Products per Page', 'evolve'),
+            'class' => $evolve_prem_class,
             'default' => '12',
         ),
         array(
@@ -4811,7 +4810,9 @@ Redux::setSection($evolve_opt_name, array(
             'subtitle' => __('Check the box to use evolve\'s one page checkout template.', 'evolve'),
             'id' => 'evl_woocommerce_one_page_checkout',
             'type' => 'checkbox',
+            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'title' => __('Use Woocommerce One Page Checkout', 'evolve'),
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Check the box to show the order notes on the checkout page.', 'evolve'),
@@ -4835,7 +4836,9 @@ Redux::setSection($evolve_opt_name, array(
             'subtitle' => __('Check the box to show the social icons on product pages, uncheck to disable.', 'evolve'),
             'id' => 'evl_woocommerce_social_links',
             'type' => 'checkbox',
+            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'title' => __('Show Woocommerce Social Icons', 'evolve'),
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Insert your text and it will appear in the first message box on the account page.', 'evolve'),
