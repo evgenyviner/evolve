@@ -1427,6 +1427,10 @@ textarea {
   background: #ffffff;
 }
 
+#change_address input[type="text"], #change_address input[type="tel"], #change_address input[type="password"], #change_address input[type="email"] {
+  width: 100%;
+}
+
 input[type="submit"],
 button,
 .button,
@@ -7213,6 +7217,7 @@ p.order-info mark {
   margin: 0;
   padding: 0;
   float: left;
+  background: url(assets/images/divider-menu.png) center left no-repeat;
 }
 
 .header .woocommerce-menu li li {
