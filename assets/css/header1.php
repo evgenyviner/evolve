@@ -69,6 +69,9 @@ $evolve_css_data = '
     .woocommerce-menu-holder {
         float: none;
     }
+    .header .woocommerce-menu li{
+        background-image: none;
+    }
     .header .woocommerce-menu {
         float: none;
         margin-right: 0;
@@ -86,6 +89,10 @@ $evolve_css_data = '
     }
     #wrapper .dd-container{
         text-align: center;
+    }
+    .woocommerce-menu .dd-select{
+        width: auto!important;
+        display: inline-block;
     }
 }
 
