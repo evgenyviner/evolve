@@ -32,7 +32,7 @@ global $post, $woocommerce, $product;
                     $gallery = '';
                 }
 
-                echo apply_filters('woocommerce_single_product_image_html', sprintf('<li><a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '">%s</a></li>', $image_link, $image_title, $image), $post->ID);
+                echo apply_filters('woocommerce_single_product_image_html', sprintf('<li><a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '" rel="prettyPhoto">%s</a></li>', $image_link, $image_title, $image), $post->ID);
 
 
                 /**
@@ -66,7 +66,7 @@ global $post, $woocommerce, $product;
                     $image_class = esc_attr(implode(' ', $classes));
                     $image_title = esc_attr(get_the_title($attachment_id));
 
-                    echo apply_filters('woocommerce_single_product_image_html', sprintf('<li><a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '">%s</a></li>', $image_link, $image_title, $image), $attachment_id, $post->ID, $image_class);
+                    echo apply_filters('woocommerce_single_product_image_html', sprintf('<li><a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '" rel="prettyPhoto">%s</a></li>', $image_link, $image_title, $image), $attachment_id, $post->ID, $image_class);
                     //echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', sprintf( '<a href="%s" class="%s" title="%s" data-rel="prettyPhoto[product-gallery]">%s</a>', $image_link, $image_class, $image_title, $image ), $attachment_id, $post->ID, $image_class );
 
                     $loop++;
