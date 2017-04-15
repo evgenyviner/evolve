@@ -3,7 +3,173 @@ global $evl_options;
 $options = $evl_options;
 
 $evolve_css_data = '
+.woocommerce-menu,
+.woocommerce-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 99998;
+}
 
+.woocommerce-menu {
+    margin-right: 0px;
+    float: left;
+}
+
+.woocommerce-menu li {
+    position: relative;
+    margin-left: 20px;
+    padding: 0;
+    float: left;
+}
+
+.my-account ul li {
+    margin-left: 0px;
+}
+
+.woocommerce-menu li li {
+    padding: 0 10px;
+    background-image: none;
+    position: relative;
+}
+
+.woocommerce-menu-holder {
+    float: right;
+    margin: 15px 0;
+}
+
+.fa.fa-user {
+    font-size: 18px;
+}
+
+.woocommerce-menu li:first-child {
+    background-image: none;
+}
+
+.woocommerce-menu li .sub-menu {
+    display: none;
+    width: 100px;
+    position: absolute;
+    right: 0px;
+}
+
+.woocommerce-menu li:hover > .sub-menu {
+    display: block;
+    position: absolute;
+    right: 0px;
+}
+
+.woocommerce-menu .sub-menu {
+    background: #ffffff;
+    border: 1px solid #e0dfdf;
+    line-height: normal;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    -box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+ul.woocommerce-menu a {
+    display: block;
+}
+
+ul.woocommerce-menu ul a {
+    padding: 7px 10px;
+}
+
+.woocommerce-menu .cart-content a .cart-desc {
+    display: inline-block;
+    width: 95px;
+    float: left;
+}
+
+.woocommerce-menu li .sub-menu ul {
+    top: -1px!important;
+}
+
+.woocommerce-menu .cart-content a img {
+    display: inline-block;
+    float: left;
+    margin-right: 8px;
+    max-width: 60px;
+}
+
+.woocommerce-menu .cart-contents {
+    background: #fff;
+    display: none;
+    position: absolute;
+    right: -1px;
+    top: auto;
+    z-index: 99999999;
+    font-size: 11px;
+    border: 1px solid #E0DFDF;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    -box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+.woocommerce-menu .cart-contents:last-child a {
+    border-bottom: 0;
+}
+
+.woocommerce-menu .cart:hover .cart-contents {
+    display: block;
+}
+
+.fa-shopping-cart {
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.woocommerce-menu .cart-content a .cart-title,
+.woocommerce-menu .cart-content a .quantity {
+    display: block;
+    font-size: 12px;
+}
+
+.woocommerce-menu .cart-content a .cart-title {
+    margin-bottom: 5px;
+}
+
+.woocommerce-menu .cart-checkout {
+    border-top: 1px solid #e0dfdf;
+    overflow: hidden;
+}
+
+.woocommerce-menu .cart-checkout a {
+    display: inline-block;
+    width: 50%;
+    float: left;
+    text-indent: 10px;
+    padding: 15px 0px;
+}
+
+.woocommerce-menu .cart-checkout .cart-link a:before {
+    font-family: icomoon;
+    content: "\e90c";
+    margin-right: 6px;
+}
+
+.woocommerce-menu .cart-checkout .checkout-link a:before {
+    font-family: icomoon;
+    content: "\e927";
+    margin-right: 6px;
+}
+
+.woocommerce-menu .cart-checkout .cart-link a {
+    text-indent: 13px;
+}
+
+.woocommerce-menu .cart-content a {
+    border-bottom: 1px solid;
+    display: block;
+    line-height: normal;
+    overflow: hidden;
+    padding: 15px 13px;
+    width: 190px;
+}
 #search-text-box #search_label_top .srch-btn {
     width: 182px;
 }
@@ -92,14 +258,6 @@ div#search-text-box {
 
 .title-container #logo a {
     padding: 0px;
-}
-
-.menu-header .menu-item {
-    text-transform: uppercase;
-}
-
-.top-menu-social {
-    margin: 10px 0;
 }
 
 .header .woocommerce-menu li {
@@ -211,3 +369,32 @@ ul.t4p-navbar-nav > li {
     float: none;
 }
 ';
+
+if ($options['evl_menu_font']['color'] != '') {
+   $color = $options['evl_menu_font']['color'];
+$evolve_css_data .= '
+.woocommerce-menu .my-cart-link:hover,
+.woocommerce-menu .empty-cart:hover,
+.woocommerce-menu .my-account-link:hover {
+    border: 1px solid '. $evolve_top_menu_hover_font_color .';
+    color: '. $evolve_top_menu_hover_font_color .' !important;
+}
+';
+}
+
+if ($options['evl_tagline_font']['color'] !='') {
+$color = $options['evl_tagline_font']['color'];
+$evolve_css_data .= '
+.woocommerce-menu .cart > a,
+.woocommerce-menu .my-account > a {
+    border: 1px solid '. $color .';
+    border-radius: 3px;
+    color: '. $color .' !important;
+    font-weight: 500 !important;
+    padding: 6px 15px;
+}
+.woocommerce-menu .my-account > a {
+    padding: 6.5px 15px;
+}
+';
+}

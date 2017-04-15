@@ -34,7 +34,55 @@
     }
 }
 
-
+@media only screen and (max-width: 768px) {
+    .header-logo-container .normal_logo,
+    .sticky-header .normal_logo {
+        display: inline-block;
+    }
+    .container-header {
+      display: table;
+      width: 100%;
+    }
+    .header{
+        #righttopcolumn{
+            display: table-footer-group;      
+        }
+        .woocommerce-menu{
+            li{
+                &:last-child{
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+    .title-container {
+      display: table-header-group;
+    }
+    .woocommerce-menu{
+        .dd-options{
+            li:last-child{
+                border-bottom: none;
+                border-color: transparent;
+                margin-bottom: 0;
+            }
+        }
+    }
+    #wrapper{
+        .primary-menu{
+            .mean-nav.link-effect{
+                > ul.nav-menu{
+                    margin-bottom: 20px;
+                }
+            }
+            .link-effect{
+                a{
+                    line-height: 1;
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+}
 
 #header.sticky-header {
     background: rgba(242, 242, 242, 0.97) none repeat scroll 0 0;
@@ -178,9 +226,10 @@ ul.nav-menu .sf-sub-indicator {
 ul.nav-menu a::after {
     content: ' ';
     font-family: IcoMoon;
-    font-size: 7px;
-    position: relative;
-    top: 20%;
+    font-size: 8px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 ul.nav-menu .sf-with-ul:after {
@@ -362,7 +411,7 @@ body #header.sticky-header{
 }
 
 .top-menu-social {
-    margin: 17px 0 5px;
+    margin: 15px 0 5px;
     overflow: hidden;
 }
 
@@ -428,7 +477,7 @@ ul.nav-menu li.nav-hover ul {
             a{
                 line-height: 2.5em;
                 overflow: hidden;
-                padding: 8px 10px;            
+                padding: 8px 12px 8px 10px;            
             }
             .sub-menu{
                 a{
@@ -446,7 +495,7 @@ ul.nav-menu li.nav-hover ul {
         a{
             line-height: 2.5em;
             overflow: hidden;
-            padding: 8px 10px;  
+            padding: 8px 12px;  
         }
     }
 }
