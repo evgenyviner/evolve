@@ -60,13 +60,8 @@ if (js_responsive_menu.responsive_menu_layout == 'dropdown') {
 }
 
 //
-//
-// 
 // Responsive WooCommerce Menu
-//
-//
 //   
-
 
 // Create the dropdown base
 jQuery('<select />').appendTo('.woocommerce-menu-holder .woocommerce-menu');
@@ -110,23 +105,14 @@ jQuery('.woocommerce-menu-holder .woocommerce-menu select').ddslick({
 });
 
 //
-//
-// 
 // Responsive Images
-//
-//
 //
 
 var $addmenueffect = jQuery.noConflict();
 $addmenueffect("#primary img").addClass("img-responsive");
 
-
 //
-//
-// 
 // Carousel Slider Arrows
-//
-//
 //
 
 var $jx = jQuery.noConflict();
@@ -138,15 +124,9 @@ $jx(document).ready(function () {
     });
 });
 
-
-//
-//
 // 
 // Tipsy
 //
-//
-//
-
 
 var $j = jQuery.noConflict();
 $j(document).ready(function () {
@@ -154,11 +134,7 @@ $j(document).ready(function () {
 });
 
 //
-//
-// 
 // Sticky Header Logo Margin
-//
-//
 //   
 
 /*! Copyright 2012, Ben Lin (http://dreamerslab.com/)
@@ -358,17 +334,13 @@ jQuery(document).ready(function ($) {
     jQuery('.woocommerce .images #carousel a').click(function (e) {
         e.preventDefault();
     });
-
-    jQuery(window).load(function ($) {
-        if (jQuery('.woocommerce-menu .cart').width() > 190) {
-            jQuery('.woocommerce-menu .cart-contents').css("width", jQuery('.woocommerce-menu .cart').width());
-            jQuery('.woocommerce-menu .cart-content a').css("width", jQuery('.woocommerce-menu .cart').width() - 26);
-            jQuery('.woocommerce-menu .cart-content a .cart-desc').css("width", jQuery('.woocommerce-menu .cart').width() - 82);
-        }
-        ;
-
-    });
-
+    
+    if (jQuery('.woocommerce-menu .cart').width() > 190) {
+        jQuery('.woocommerce-menu .cart-contents').css("width", jQuery('.woocommerce-menu .cart').width());
+        jQuery('.woocommerce-menu .cart-content a').css("width", jQuery('.woocommerce-menu .cart').width() - 26);
+        jQuery('.woocommerce-menu .cart-content a .cart-desc').css("width", jQuery('.woocommerce-menu .cart').width() - 82);
+    }
+    
     // Woocommerce
 
     jQuery('.catalog-ordering .orderby .current-li a').html(jQuery('.catalog-ordering .orderby ul li.current a').html());
@@ -679,4 +651,3 @@ jQuery(window).load(function () {
         sync: '.woocommerce .images #carousel'
     });
 });
-

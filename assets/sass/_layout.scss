@@ -23,7 +23,7 @@
         }
         .nacked-menu {
             padding: 0 15px;
-            margin-bottom: -1px;
+            margin-bottom: 0px;
         }
         .container-center {
             margin: 0px auto;
@@ -229,7 +229,7 @@
                 #wrapper {
                     .woocommerce-menu{
                         .dd-options{
-                            width: 100%;
+                            width: 100% !important;
                         }
                     }
                 }
@@ -310,7 +310,7 @@
             clear: right;
             position: relative;
             z-index: 0;
-            margin: 2px 0 0;
+            margin: 3px 0 0;
         }
         #search-text-box {
             top: 3px;
@@ -1886,17 +1886,7 @@
                         margin: 0;
                     }
                 }
-            }
-            .container-menu{
-                padding-bottom: 0;
-            }
-            .header_v0 .container,
-            .header_v0 .nacked-menu,
-            .header_v0 .container-menu{
-                padding-top: 20px;
-                padding-bottom: 20px;
-            }
-
+            }                       
             .da-slide {
                 padding: 20px;
                 h2{
@@ -1936,7 +1926,6 @@
                 line-height: 1;
                 padding: 10px 16px;
             }
-
 
             #bootstrap-slider{
                 a.left{
