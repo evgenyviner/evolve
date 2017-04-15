@@ -254,7 +254,7 @@
 })(jQuery);
 
 jQuery(document).ready(function ($) {
-    $('ul.nav-menu').supersubs({
+    $('ul.nav-menu, ul.woocommerce-menu').supersubs({
         maxWidth: 25, // requires em unit.
         extraWidth: 0						// extra width can ensure lines don't sometimes turn over due to slight browser differences in how they round-off values
     }).superfish({
