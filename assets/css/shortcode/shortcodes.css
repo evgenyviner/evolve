@@ -18,10 +18,6 @@ Button Shortcode
     body.body_blank.admin-bar {
         top: 45px;
     }
-    html #wpadminbar {
-        z-index: 9999999;
-        position: fixed;
-    }    
 }
 
 .flex-container a:active,
