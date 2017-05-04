@@ -2311,26 +2311,35 @@ p#copyright .credits a {
 .home-content-boxes .content-box i {
   font-size: 50px;
   text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.05);
+  z-index: 99;
+  position: relative;
 }
 
 .home-content-boxes .content-box h2 {
   padding: 5px 0;
+  z-index: 99;
+  position: relative;
+}
+
+.home-content-boxes .content-box p {
+  z-index: 99;
+  position: relative;
 }
 
 .home-content-boxes .cntbox_btn {
-  height: 100%;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-  text-align: center;
-  top: -30px;
-  width: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   display: -webkit-flex;
   -webkit-align-items: flex-end;
   -webkit-justify-content: center;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: -30px;
 }
 
 /* ======================== Home Content Boxes ======================== */
