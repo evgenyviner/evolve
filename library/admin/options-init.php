@@ -3718,6 +3718,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 1 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-cube',
+            'class' => 'iconpicker-box iconpicker-icon',
         ),
         array(
             'id' => 'evl_content_box1_icon_color',
@@ -3775,6 +3776,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 2 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-circle-o-notch',
+            'class' => 'iconpicker-box iconpicker-icon',
         ),
         array(
             'id' => 'evl_content_box2_icon_color',
@@ -3832,6 +3834,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 3 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-send',
+            'class' => 'iconpicker-box iconpicker-icon',
         ),
         array(
             'id' => 'evl_content_box3_icon_color',
@@ -3889,6 +3892,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 4 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-tablet',
+            'class' => 'iconpicker-box iconpicker-icon',
         ),
         array(
             'id' => 'evl_content_box4_icon_color',
