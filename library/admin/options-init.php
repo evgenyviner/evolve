@@ -172,6 +172,14 @@ function evolve_headerdefault() {
 
 add_action("redux/page/{$evolve_opt_name}/enqueue", "evolve_headerdefault");
 
+function evolve_iconpicker() {
+    wp_enqueue_style('fontawesomecss', get_template_directory_uri() . '/assets/fonts/fontawesome/css/font-awesome.css', false);
+    wp_enqueue_script('iconpicker', get_template_directory_uri() . '/library/admin/iconpicker/fontawesome-iconpicker.js', array(), '', true, 'all');
+    wp_enqueue_style('iconpickercss', get_template_directory_uri() . '/library/admin/iconpicker/fontawesome-iconpicker.css', array(), '', 'all');
+}
+
+add_action("redux/page/{$evolve_opt_name}/enqueue", "evolve_iconpicker");
+
 Redux::setArgs($evolve_opt_name, array(
     'display_name' => __('evolve', 'evolve'),
     'display_name' => '<img width="135" height="28" src="' . get_template_directory_uri() . '/assets/images/functions/logo.png" alt="evolve">',
