@@ -37,6 +37,9 @@
     background: #fff;
     border: 1px solid #ddd;
 }
+.wp-customizer .iconpicker-popover.popover {
+    width: 250px;
+}
 .iconpicker-popover.popover.top,
 .iconpicker-popover.popover.topLeftCorner,
 .iconpicker-popover.popover.topLeft,
