@@ -172,6 +172,14 @@ function evolve_headerdefault() {
 
 add_action("redux/page/{$evolve_opt_name}/enqueue", "evolve_headerdefault");
 
+function evolve_iconpicker() {
+    wp_enqueue_style('fontawesomecss', get_template_directory_uri() . '/assets/fonts/fontawesome/css/font-awesome.css', false);
+    wp_enqueue_script('iconpicker', get_template_directory_uri() . '/library/admin/iconpicker/fontawesome-iconpicker.js', array(), '', true, 'all');
+    wp_enqueue_style('iconpickercss', get_template_directory_uri() . '/library/admin/iconpicker/fontawesome-iconpicker.css', array(), '', 'all');
+}
+
+add_action("redux/page/{$evolve_opt_name}/enqueue", "evolve_iconpicker");
+
 Redux::setArgs($evolve_opt_name, array(
     'display_name' => __('evolve', 'evolve'),
     'display_name' => '<img width="135" height="28" src="' . get_template_directory_uri() . '/assets/images/functions/logo.png" alt="evolve">',
@@ -3718,6 +3726,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 1 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-cube',
+            'class' => 'iconpicker-box iconpicker-icon',
         ),
         array(
             'id' => 'evl_content_box1_icon_color',
@@ -3775,6 +3784,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 2 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-circle-o-notch',
+            'class' => 'iconpicker-box iconpicker-icon',
         ),
         array(
             'id' => 'evl_content_box2_icon_color',
@@ -3832,6 +3842,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 3 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-send',
+            'class' => 'iconpicker-box iconpicker-icon',
         ),
         array(
             'id' => 'evl_content_box3_icon_color',
@@ -3889,6 +3900,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 4 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-tablet',
+            'class' => 'iconpicker-box iconpicker-icon',
         ),
         array(
             'id' => 'evl_content_box4_icon_color',
@@ -4975,7 +4987,7 @@ if (!function_exists('evolve_redux_header_html')) {
         $url = esc_url("http://theme4press.com/evolve-multipurpose-wordpress-theme/");
         ?>
         <a href="<?php echo $url ?>" target="_blank">
-            <img class="evolve-logo" style="margin-bottom:20px;float:left;position:relative;top:10px;" width="1117" height="133" border="0" alt="evolve - Multipurpose WordPress Theme" src="<?php echo get_template_directory_uri(); ?>/assets/images/functions/evolve.jpg">
+            <img class="evolve-logo" style="margin-bottom:20px;float:left;position:relative;top:10px;" width="1117" height="311" border="0" alt="evolve - Multipurpose WordPress Theme" src="<?php echo get_template_directory_uri(); ?>/assets/images/functions/evolve.jpg">
         </a><div style="clear:both;"></div>
         <div class="updated">
             <p>Happy with this theme? Please rate it <i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i> on <strong><a href="http://wordpress.org/themes/evolve" target="_blank">wordpress.org</a></strong></p>

@@ -32,16 +32,14 @@
 
                         <!--BEGIN #Woocommerce-->
                         <?php
+                        $woocommerce_acc_link_main_nav = evolve_get_option('evl_woocommerce_acc_link_main_nav', '0');
                         $woocommerce_cart_link_main_nav = evolve_get_option('evl_woocommerce_cart_link_main_nav', '0');
-                        if (class_exists('Woocommerce') && $woocommerce_cart_link_main_nav) {
+                        if (class_exists('Woocommerce') && ($woocommerce_acc_link_main_nav || $woocommerce_cart_link_main_nav)) {
                             global $woocommerce;
                             ?>
                             <div class="woocommerce-menu-holder">
                                 <ul class="woocommerce-menu">
-                                    <?php
-                                    $woocommerce_acc_link_main_nav = evolve_get_option('evl_woocommerce_acc_link_main_nav', '0');
-                                    if ($woocommerce_acc_link_main_nav):
-                                        ?>
+                                    <?php if ($woocommerce_acc_link_main_nav): ?>
                                         <li class="my-account">
                                             <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>" class="my-account-link"><?php _e('My Account', 'evolve'); ?></a>
                                             <?php if (!is_user_logged_in()): ?>
@@ -63,7 +61,7 @@
                                                         </p>
                                                         <div class="clear"></div>
                                                     </form>
-                    </div>
+                                                </div>
                                             <?php else: ?>
                                                 <ul class="sub-menu">
                                                     <li><a href="<?php echo wp_logout_url(get_permalink()); ?>"><?php _e('Logout', 'evolve'); ?></a></li>
@@ -71,8 +69,8 @@
                                             <?php endif; ?>
                                         </li><!-- /li.my-account -->
                                         <?php
-                                    endif; //if($woocommerce_acc_link_main_nav):  
-                                    $woocommerce_cart_link_main_nav = evolve_get_option('evl_woocommerce_cart_link_main_nav', '0');
+                                    endif;
+                                    
                                     if ($woocommerce_cart_link_main_nav):
                                         ?>
                                         <li class="cart">
@@ -130,7 +128,7 @@
                         <!--END #Woocommerce-->
                     </div>
                     <!--END #righttopcolumn-->
-
+                    <div class="logo-and-tagline-wrapper">
                     <?php
                     $evolve_pos_logo = evolve_get_option('evl_pos_logo', 'left');
                     if ($evolve_pos_logo == "disable") {
@@ -174,6 +172,7 @@
                         }
                         ?>                        
                     </div>
+                     </div>
                     <!--END .title-container-->
                 </div>
                 <!--END .container-header-->

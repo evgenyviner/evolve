@@ -142,6 +142,10 @@ $evolve_css_data .= '
     margin-left: 25px;
 }
 
+ul.nav-menu li.current-menu-item > a,
+ul.nav-menu li.current-menu-ancestor > a,
+ul.nav-menu li.current-menu-ancestor > a span,
+ul.nav-menu li.current-menu-item > a span,
 ul.nav-menu li a:active,
 ul.nav-menu li:active > a,
 ul.nav-menu li a:focus,
@@ -1013,12 +1017,12 @@ ul.nav-menu li {
 
 .menu-header,
 body #header.sticky-header.sticky {
-    background: #' . $evolve_menu_back_color . ';
-    background: url(' . $evolve_template_url . '/assets/images/dark/trans.png) 0px -10px repeat-x, -moz-linear-gradient(center top, #' . $evolve_menu_back_color . ' 20%, #' . evolve_hexDarker($evolve_menu_back_color) . ' 100%);
-    background: url(' . $evolve_template_url . '/assets/images/dark/trans.png) 0px -10px repeat-x, -webkit-gradient(linear, left top, left bottom, color-stop(.2, #' . $evolve_menu_back_color . '), color-stop(1, #' . evolve_hexDarker($evolve_menu_back_color) . '));
-    background: url(' . $evolve_template_url . '/assets/images/dark/trans.png) 0px -10px repeat-x, -o-linear-gradient(top, #' . $evolve_menu_back_color . ', #' . evolve_hexDarker($evolve_menu_back_color) . ');
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'#' . $evolve_menu_back_color . '\', endColorstr=\'#' . evolve_hexDarker($evolve_menu_back_color) . '\');
-    border-color: #' . evolve_hexDarker($evolve_menu_back_color) . ';
+        background: #' . $evolve_menu_back_color . ';
+        background: -moz-linear-gradient(top, #'. $evolve_menu_back_color . ' 50%, #' . evolve_hexDarker($evolve_menu_back_color) .' 100%);
+        background: -webkit-linear-gradient(top, #'. $evolve_menu_back_color . ' 50%, #' . evolve_hexDarker($evolve_menu_back_color) .' 100%);
+        background: linear-gradient(to bottom, #'. $evolve_menu_back_color . ' 50%, #' . evolve_hexDarker($evolve_menu_back_color) .' 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'#' . $evolve_menu_back_color . '\', endColorstr=\'#' . evolve_hexDarker($evolve_menu_back_color) . '\');
+        border-color: #' . evolve_hexDarker($evolve_menu_back_color) . ';
 }
 
 #wrapper .dd-options,
@@ -1459,10 +1463,16 @@ if (( $evolve_tagline_pos !== "disable" ) && ( $evolve_tagline_pos == "next" )) 
 $evolve_css_data .= '
 .title-container #logo {
     float: left;
+    padding-right: 10px;
 }
 
 .title-container #tagline {
     padding-top: 20px;
+}
+@media only screen and (max-width: 768px) {
+    .title-container #tagline {
+        padding-top: 10px;
+    }
 }
 
 .title-container #logo a {
@@ -3821,20 +3831,26 @@ $evolve_css_data .= '
       bottom: 5%;
     }
     #bootstrap-slider .right.carousel-control {
-      left: calc(50% + 16px);
+      left: calc(50% + 20px);
       right: auto;
       transform: translateX(-50%);
     }
     #bootstrap-slider .left.carousel-control {
-      left: calc(50% - 16px);
+      left: calc(50% - 20px);
       right: auto;
       transform: translateX(-50%);
     }
 }
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 640px) {
     #bootstrap-slider .layout-center{
         background: none;
         padding-bottom: 0;
+    }
+    #bootstrap-slider .right.carousel-control {
+      left: calc(50% + 15px);      
+    }
+    #bootstrap-slider .left.carousel-control {
+      left: calc(50% - 15px);
     }
 }
 ';
@@ -3868,8 +3884,7 @@ $evolve_css_data .= '
     #bootstrap-slider .carousel-caption h2,
     #bootstrap-slider .carousel-caption p {
         padding: 10px 25px;
-    }
-    
+    }    
 }
 
 @media only screen and (max-width: 768px) {
@@ -3877,23 +3892,23 @@ $evolve_css_data .= '
         bottom: 0;
     }
     
-    #bootstrap-slider .layout-right {
+    #bootstrap-slider .layout-left {
         left: 5%;
         right: 5%;
-        margin-right: 0px;
+        margin-left: 0px;
     }
     
     #bootstrap-slider .carousel-control {
         bottom: 9%;
-        left: 26px;
+        left: 40px;
     }
 
     #bootstrap-slider .right.carousel-control {
-        left: 56px;
+        left: 80px;
     }
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 640px) {
     #bootstrap-slider .carousel-caption {
         bottom: 5%;
     }
