@@ -336,3 +336,9 @@
     content: "\e900";
     color: #aaa;
 }
+
+.redux-section .accordion-section-title i, .redux-field .accordion-field-title i, .redux-panel .accordion-section-title i {
+    position: relative;
+    font-size: 20px;
+    top: 3px;
+}

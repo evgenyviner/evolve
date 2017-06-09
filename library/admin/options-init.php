@@ -5137,7 +5137,11 @@ if (isset($evolve_options[$evolve_prem_inpt_name]) && ($evolve_options[$evolve_p
         }
     }
 }
-/* * *********************************************************************************************************** */
+
+/* * ************************************************************************************************************
+ * Register theme options section in Customizer 
+ * 
+ * ************************************************************************************************************ */
 
 function evolve_register_custom_section($wp_customize) {
     if (!class_exists('Evolve_Redux_Customizer_Section')) {
@@ -5147,11 +5151,29 @@ function evolve_register_custom_section($wp_customize) {
         $wp_customize->register_section_type('Evolve_Redux_Customizer_Section');
     }
 }
-
 add_action('customize_register', 'evolve_register_custom_section');
 
 function evolve_get_custom_redux_section_class() {
     return 'Evolve_Redux_Customizer_Section';
 }
-
 add_filter('redux/customizer/section/class_name', 'evolve_get_custom_redux_section_class');
+
+/* * ************************************************************************************************************
+ * Register theme options panel in Customizer 
+ * 
+ * ************************************************************************************************************ */
+
+function evolve_register_custom_panel($wp_customize) {
+    if (!class_exists('Evolve_Redux_Customizer_Panel')) {
+        include_once dirname(__FILE__) . '/evolve-exts/class-evolve-redux-customizer-panel.php';
+    }
+    if (method_exists($wp_customize, 'register_section_type')) {
+        $wp_customize->register_panel_type('Evolve_Redux_Customizer_Panel');
+    }
+}
+add_action('customize_register', 'evolve_register_custom_panel');
+
+function evolve_get_custom_redux_panel_class() {
+    return 'Evolve_Redux_Customizer_Panel';
+}
+add_filter('redux/customizer/panel/class_name', 'evolve_get_custom_redux_panel_class');

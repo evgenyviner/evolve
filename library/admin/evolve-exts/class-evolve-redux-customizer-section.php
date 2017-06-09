@@ -109,6 +109,9 @@ class Evolve_Redux_Customizer_Section extends WP_Customize_Section {
         <li id="accordion-section-<?php echo esc_attr($this->id); ?>" class="<?php echo $this->class_name.' '.esc_attr($classes); ?>">
             <h3 class="accordion-section-title" tabindex="0">
                 <?php
+                if(isset($this->section['icon'])){
+                    echo '<i class="'. $this->section['icon'] .'"></i>';
+                }
                 echo wp_kses($this->title, array(
                     'em' => array(),
                     'i' => array(),
