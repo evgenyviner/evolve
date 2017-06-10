@@ -172,6 +172,14 @@ function evolve_headerdefault() {
 
 add_action("redux/page/{$evolve_opt_name}/enqueue", "evolve_headerdefault");
 
+function evolve_iconpicker() {
+    wp_enqueue_style('fontawesomecss', get_template_directory_uri() . '/assets/fonts/fontawesome/css/font-awesome.css', false);
+    wp_enqueue_script('iconpicker', get_template_directory_uri() . '/library/admin/iconpicker/fontawesome-iconpicker.js', array(), '', true, 'all');
+    wp_enqueue_style('iconpickercss', get_template_directory_uri() . '/library/admin/iconpicker/fontawesome-iconpicker.css', array(), '', 'all');
+}
+
+add_action("redux/page/{$evolve_opt_name}/enqueue", "evolve_iconpicker");
+
 Redux::setArgs($evolve_opt_name, array(
     'display_name' => __('evolve', 'evolve'),
     'display_name' => '<img width="135" height="28" src="' . get_template_directory_uri() . '/assets/images/functions/logo.png" alt="evolve">',
@@ -259,7 +267,7 @@ Redux::setField($evolve_opt_name, array(
     'type' => 'switch',
     'on' => __('Show', 'evolve'),
     'off' => __('Hide', 'evolve'),
-    'default' => 0,
+    'default' => 1,
     'title' => __('Premium features:', 'evolve'),
     'class' => $evolve_prem_class
         )
@@ -1154,9 +1162,7 @@ Redux::setSection($evolve_opt_name, array(
             'subtitle' => __('Select the typography you want for your top menu. * non web-safe font.', 'evolve'),
             'id' => 'evl_top_menu_font',
             'type' => 'typography',
-            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'text-align' => false,
-            'class' => $evolve_prem_class,
             'line-height' => false,
             'title' => __('Top menu font', 'evolve'),
             'default' => array(
@@ -3720,6 +3726,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 1 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-cube',
+            'class' => 'iconpicker-box iconpicker-icon',
         ),
         array(
             'id' => 'evl_content_box1_icon_color',
@@ -3777,6 +3784,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 2 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-circle-o-notch',
+            'class' => 'iconpicker-box iconpicker-icon',
         ),
         array(
             'id' => 'evl_content_box2_icon_color',
@@ -3834,6 +3842,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 3 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-send',
+            'class' => 'iconpicker-box iconpicker-icon',
         ),
         array(
             'id' => 'evl_content_box3_icon_color',
@@ -3891,6 +3900,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 4 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-tablet',
+            'class' => 'iconpicker-box iconpicker-icon',
         ),
         array(
             'id' => 'evl_content_box4_icon_color',
@@ -4792,14 +4802,14 @@ Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-woocommerce-main-tab',
     'title' => __('WooCommerce', 'evolve'),
     'icon' => 't4p-icon-appbarcart',
-    'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-    'class' => $evolve_prem_class,
     'fields' => array(
         array(
             'subtitle' => __('Insert the number of posts to display per page.', 'evolve'),
             'id' => 'evl_woo_items',
             'type' => 'text',
+            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'title' => __('Number of Products per Page', 'evolve'),
+            'class' => $evolve_prem_class,
             'default' => '12',
         ),
         array(
@@ -4812,7 +4822,9 @@ Redux::setSection($evolve_opt_name, array(
             'subtitle' => __('Check the box to use evolve\'s one page checkout template.', 'evolve'),
             'id' => 'evl_woocommerce_one_page_checkout',
             'type' => 'checkbox',
+            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'title' => __('Use Woocommerce One Page Checkout', 'evolve'),
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Check the box to show the order notes on the checkout page.', 'evolve'),
@@ -4836,7 +4848,9 @@ Redux::setSection($evolve_opt_name, array(
             'subtitle' => __('Check the box to show the social icons on product pages, uncheck to disable.', 'evolve'),
             'id' => 'evl_woocommerce_social_links',
             'type' => 'checkbox',
+            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
             'title' => __('Show Woocommerce Social Icons', 'evolve'),
+            'class' => $evolve_prem_class,
         ),
         array(
             'subtitle' => __('Insert your text and it will appear in the first message box on the account page.', 'evolve'),
@@ -4973,7 +4987,7 @@ if (!function_exists('evolve_redux_header_html')) {
         $url = esc_url("http://theme4press.com/evolve-multipurpose-wordpress-theme/");
         ?>
         <a href="<?php echo $url ?>" target="_blank">
-            <img class="evolve-logo" style="margin-bottom:20px;float:left;position:relative;top:10px;" width="1117" height="133" border="0" alt="evolve - Multipurpose WordPress Theme" src="<?php echo get_template_directory_uri(); ?>/assets/images/functions/evolve.jpg">
+            <img class="evolve-logo" style="margin-bottom:20px;float:left;position:relative;top:10px;" width="1117" height="311" border="0" alt="evolve - Multipurpose WordPress Theme" src="<?php echo get_template_directory_uri(); ?>/assets/images/functions/evolve.jpg">
         </a><div style="clear:both;"></div>
         <div class="updated">
             <p>Happy with this theme? Please rate it <i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i> on <strong><a href="http://wordpress.org/themes/evolve" target="_blank">wordpress.org</a></strong></p>
@@ -5123,7 +5137,11 @@ if (isset($evolve_options[$evolve_prem_inpt_name]) && ($evolve_options[$evolve_p
         }
     }
 }
-/* * *********************************************************************************************************** */
+
+/* * ************************************************************************************************************
+ * Register theme options section in Customizer 
+ * 
+ * ************************************************************************************************************ */
 
 function evolve_register_custom_section($wp_customize) {
     if (!class_exists('Evolve_Redux_Customizer_Section')) {
@@ -5133,11 +5151,29 @@ function evolve_register_custom_section($wp_customize) {
         $wp_customize->register_section_type('Evolve_Redux_Customizer_Section');
     }
 }
-
 add_action('customize_register', 'evolve_register_custom_section');
 
 function evolve_get_custom_redux_section_class() {
     return 'Evolve_Redux_Customizer_Section';
 }
-
 add_filter('redux/customizer/section/class_name', 'evolve_get_custom_redux_section_class');
+
+/* * ************************************************************************************************************
+ * Register theme options panel in Customizer 
+ * 
+ * ************************************************************************************************************ */
+
+function evolve_register_custom_panel($wp_customize) {
+    if (!class_exists('Evolve_Redux_Customizer_Panel')) {
+        include_once dirname(__FILE__) . '/evolve-exts/class-evolve-redux-customizer-panel.php';
+    }
+    if (method_exists($wp_customize, 'register_section_type')) {
+        $wp_customize->register_panel_type('Evolve_Redux_Customizer_Panel');
+    }
+}
+add_action('customize_register', 'evolve_register_custom_panel');
+
+function evolve_get_custom_redux_panel_class() {
+    return 'Evolve_Redux_Customizer_Panel';
+}
+add_filter('redux/customizer/panel/class_name', 'evolve_get_custom_redux_panel_class');

@@ -47,6 +47,30 @@ $evolve_css_data = '
     padding: 5px;
 }
 
+@media (min-width: 767px) and (max-width: 1200px) {
+	.sticky-header.sticky > .container{
+		width: 100%;
+	}
+}
+
+@media (max-width: 1023px) {
+    .header #righttopcolumn {
+        display: inline-block;
+        float: none;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .header-logo-container{
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+    }
+    #logo-image {
+        float: none;
+        margin: auto;
+    }
+}
+
 @media (max-width: 768px) {
     .header_v0 .title-container #logo a {
         padding: 0px;
@@ -69,6 +93,9 @@ $evolve_css_data = '
     .woocommerce-menu-holder {
         float: none;
     }
+    .header .woocommerce-menu li{
+        background-image: none;
+    }
     .header .woocommerce-menu {
         float: none;
         margin-right: 0;
@@ -84,8 +111,32 @@ $evolve_css_data = '
         width: auto;
         display: block;
     }
-    #wrapper .dd-container{
+    .header .woocommerce-menu li{
+        background-image: none;
+    }
+    .header {
+      padding-bottom: 10px;
+      padding-top: 10px;
+    }
+    .header #righttopcolumn {
+      margin-bottom: 0;
+    }
+    #wrapper .dd-container {
         text-align: center;
+    }
+    .title-container{
+        display: block;
+    }
+    .woocommerce-menu .dd-select{
+        width: auto!important;
+        display: inline-block;
+    }
+    .menu-header { padding: 20px 0; }
+    #wrapper .dd-options{
+        margin-top: 10px;
+}
+    #wrapper .primary-menu .mean-nav.link-effect > ul.nav-menu{
+        margin-top: 8px;
     }
 }
 

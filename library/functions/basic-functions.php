@@ -1213,6 +1213,23 @@ function evolve_bootstrap() {
         <?php
     }
 
+    // Woocommerce Support
+    add_theme_support('woocommerce');
+    add_filter('woocommerce_enqueue_styles', '__return_false');
+
+    /**
+     * Remove Double Cart Totals
+     * =========================
+     *
+     * @woocommerce
+     * @bugfix
+     * @jerry
+     */
+    if (class_exists('Woocommerce')) {
+        remove_action('woocommerce_cart_collaterals', 'woocommerce_cart_totals', 10); // Remove Duplicated Cart Totals
+        remove_action('woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 20); // Remove Duplicated Checkout Button
+    }
+
 // Register default function when plugin not activated
     add_action('wp_head', 'evolve_plugins_loaded');
 
@@ -1247,6 +1264,130 @@ function evolve_bootstrap() {
         }
     }
 
+    /**
+     * Woo Config
+     */
+    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+    if (is_plugin_active('woocommerce/woocommerce.php')) {
+
+        include_once( get_template_directory() . '/library/woo-config.php' );
+    }
+
+    if (!function_exists('t4p_addURLParameter')) {
+
+        function t4p_addURLParameter($url, $paramName, $paramValue) {
+            $url_data = parse_url($url);
+            if (!isset($url_data["query"])) {
+                $url_data["query"] = "";
+            }
+
+            $params = array();
+            parse_str($url_data['query'], $params);
+            $params[$paramName] = $paramValue;
+
+            if ($paramName == 'product_count') {
+                $params['paged'] = '1';
+            }
+            $url_data['query'] = http_build_query($params);
+
+            return t4p_build_url($url_data);
+        }
+
+    }
+
+    function t4p_build_url($url_data) {
+        $url = "";
+        if (isset($url_data['host'])) {
+            $url .= $url_data['scheme'] . '://';
+            if (isset($url_data['user'])) {
+                $url .= $url_data['user'];
+                if (isset($url_data['pass'])) {
+                    $url .= ':' . $url_data['pass'];
+                }
+                $url .= '@';
+            }
+            $url .= $url_data['host'];
+            if (isset($url_data['port'])) {
+                $url .= ':' . $url_data['port'];
+            }
+        }
+        if (isset($url_data['path'])) {
+            $url .= $url_data['path'];
+        }
+        if (isset($url_data['query'])) {
+            $url .= '?' . $url_data['query'];
+        }
+        if (isset($url_data['fragment'])) {
+            $url .= '#' . $url_data['fragment'];
+        }
+
+        return $url;
+    }
+
+//////////////////////////////////////////////////////////////////
+// Woo Products Shortcode Recode
+//////////////////////////////////////////////////////////////////
+    function evolve_woo_product($atts, $content = null) {
+        global $woocommerce_loop;
+
+        if (empty($atts)) {
+            return;
+        }
+
+        $args = array(
+            'post_type' => 'product',
+            'posts_per_page' => 1,
+            'no_found_rows' => 1,
+            'post_status' => 'publish',
+            'meta_query' => array(
+                array(
+                    'key' => '_visibility',
+                    'value' => array('catalog', 'visible'),
+                    'compare' => 'IN'
+                )
+            ),
+            'columns' => 1
+        );
+
+        if (isset($atts['sku'])) {
+            $args['meta_query'][] = array(
+                'key' => '_sku',
+                'value' => $atts['sku'],
+                'compare' => '='
+            );
+        }
+
+        if (isset($atts['id'])) {
+            $args['p'] = $atts['id'];
+        }
+
+        ob_start();
+
+        if (isset($columns)) {
+            $woocommerce_loop['columns'] = $columns;
+        }
+
+        $products = new WP_Query($args);
+
+        if ($products->have_posts()) :
+
+            woocommerce_product_loop_start();
+
+            while ($products->have_posts()) : $products->the_post();
+
+                woocommerce_get_template_part('content', 'product');
+
+            endwhile; // end of the loop. 
+
+            woocommerce_product_loop_end();
+
+        endif;
+
+        wp_reset_postdata();
+
+        return '<div class="woocommerce">' . ob_get_clean() . '</div>';
+    }
 
     /**
      * Infinite Scroll
@@ -1372,6 +1513,16 @@ function evolve_bootstrap() {
             if (is_single() || is_page() || is_404() || is_search()) {
                 $layout_css.= ' col-single';
             }
+        }
+        
+        if ($type == 1) {
+
+
+            if (class_exists('Woocommerce')):
+                if (is_cart() || is_checkout() || is_account_page() || (get_option('woocommerce_thanks_page_id') && is_page(get_option('woocommerce_thanks_page_id')))) {
+                    $layout_css .= ' full-width';
+                }
+            endif;
         }
 
         if (is_single() || is_page() || $wp_query->is_posts_page || is_buddypress() || is_bbpress()):

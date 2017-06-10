@@ -29,9 +29,106 @@
                             </div>
                             <!--END #subscribe-follow-->
                         <?php } ?>
+
+                        <!--BEGIN #Woocommerce-->
+                        <?php
+                        $woocommerce_acc_link_main_nav = evolve_get_option('evl_woocommerce_acc_link_main_nav', '0');
+                        $woocommerce_cart_link_main_nav = evolve_get_option('evl_woocommerce_cart_link_main_nav', '0');
+                        if (class_exists('Woocommerce') && ($woocommerce_acc_link_main_nav || $woocommerce_cart_link_main_nav)) {
+                            global $woocommerce;
+                            ?>
+                            <div class="woocommerce-menu-holder">
+                                <ul class="woocommerce-menu">
+                                    <?php if ($woocommerce_acc_link_main_nav): ?>
+                                        <li class="my-account">
+                                            <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>" class="my-account-link"><?php _e('My Account', 'evolve'); ?></a>
+                                            <?php if (!is_user_logged_in()): ?>
+                                                <div class="login-box">
+                                                    <form action="<?php echo wp_login_url(); ?>" name="loginform" method="post">
+                                                        <p>
+                                                            <input type="text" class="input-text" name="log" id="username" value="" placeholder="<?php echo __('Username', 'evolve'); ?>" />
+                                                        </p>
+                                                        <p>
+                                                            <input type="password" class="input-text" name="pwd" id="pasword" value="" placeholder="<?php echo __('Password', 'evolve'); ?>" />
+                                                        </p>
+                                                        <p class="forgetmenot">
+                                                            <label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"> <?php _e('Remember Me', 'evolve'); ?></label>
+                                                        </p>
+                                                        <p class="submit">
+                                                            <input type="submit" name="wp-submit" id="wp-submit" class="button small default comment-submit" value="<?php _e('Log In', 'evolve'); ?>">
+                                                            <input type="hidden" name="redirect_to" value="<?php if (isset($_SERVER['HTTP_REFERER'])) echo $_SERVER['HTTP_REFERER']; ?>">
+                                                            <input type="hidden" name="testcookie" value="1">
+                                                        </p>
+                                                        <div class="clear"></div>
+                                                    </form>
+                                                </div>
+                                            <?php else: ?>
+                                                <ul class="sub-menu">
+                                                    <li><a href="<?php echo wp_logout_url(get_permalink()); ?>"><?php _e('Logout', 'evolve'); ?></a></li>
+                                                </ul>
+                                            <?php endif; ?>
+                                        </li><!-- /li.my-account -->
+                                        <?php
+                                    endif;
+                                    
+                                    if ($woocommerce_cart_link_main_nav):
+                                        ?>
+                                        <li class="cart">
+                                            <?php if (!$woocommerce->cart->cart_contents_count): ?>
+                                                <a class="empty-cart" href="<?php echo get_permalink(get_option('woocommerce_cart_page_id')); ?>">
+                                                    <?php echo wc_price($woocommerce->cart->cart_contents_total); ?>
+                                                </a>
+                                                <ul class="sub-menu">
+                                                    <li>
+                                                        <div class="cart-contents">
+                                                            <div class="cart-content">
+                                                                <strong style="padding:7px 10px;line-height:35px;">
+                                                                    <?php _e('Your cart is currently empty.', 'evolve'); ?>
+                                                                </strong>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            <?php else: ?>
+                                                <a class="my-cart-link my-cart-link-active" href="<?php echo get_permalink(get_option('woocommerce_cart_page_id')); ?>">
+                                                    <?php echo wc_price($woocommerce->cart->cart_contents_total); ?>
+                                                </a>
+                                                <div class="cart-contents">
+                                                    <?php foreach ($woocommerce->cart->cart_contents as $cart_item): //var_dump($cart_item);   ?>
+                                                        <div class="cart-content">
+                                                            <a href="<?php echo get_permalink($cart_item['product_id']); ?>">
+                                                                <?php
+                                                                $thumbnail_id = ($cart_item['variation_id']) ? $cart_item['variation_id'] : $cart_item['product_id'];
+                                                                echo get_the_post_thumbnail($thumbnail_id, 'recent-works-thumbnail');
+                                                                ?>
+                                                                <div class="cart-desc">
+                                                                    <span class="cart-title"><?php echo $cart_item['data']->get_name(); ?></span>
+                                                                    <span class="product-quantity">
+                                                                        <?php echo $cart_item['quantity']; ?> x <?php echo $woocommerce->cart->get_product_subtotal($cart_item['data'], $cart_item['quantity']); ?>
+                                                                    </span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    <?php endforeach; ?>
+                                                    <div class="cart-checkout">
+                                                        <div class="cart-link">
+                                                            <a href="<?php echo get_permalink(get_option('woocommerce_cart_page_id')); ?>"><?php _e('View Cart', 'evolve'); ?></a>
+                                                        </div>
+                                                        <div class="checkout-link">
+                                                            <a href="<?php echo get_permalink(get_option('woocommerce_checkout_page_id')); ?>"><?php _e('Checkout', 'evolve'); ?></a>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- /.cart-contents -->
+                                            <?php endif; //if(!$woocommerce->cart->cart_contents_count):     ?>
+                                        </li><!-- /li.cart -->
+                                    <?php endif; //if($woocommerce_cart_link_main_nav):      ?>
+                                </ul><!-- /ul.woocommerce-menu -->
+                            </div><!-- /span .woocommerce-menu-holder -->
+                        <?php } ?>
+                        <!--END #Woocommerce-->
                     </div>
                     <!--END #righttopcolumn-->
-
+                    <div class="logo-and-tagline-wrapper">
                     <?php
                     $evolve_pos_logo = evolve_get_option('evl_pos_logo', 'left');
                     if ($evolve_pos_logo == "disable") {
@@ -75,6 +172,7 @@
                         }
                         ?>                        
                     </div>
+                     </div>
                     <!--END .title-container-->
                 </div>
                 <!--END .container-header-->

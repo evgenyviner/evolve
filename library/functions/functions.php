@@ -56,6 +56,8 @@ function evolve_media() {
     wp_enqueue_script('buttons', EVOLVEJS . '/buttons.js', array('jquery'));
     wp_enqueue_script('ddslick', EVOLVEJS . '/ddslick.js', array('jquery'));
     wp_enqueue_script('meanmenu', EVOLVEJS . '/jquery.meanmenu.js', array('jquery'));
+    wp_enqueue_script('flexslider', EVOLVEJS . '/jquery.flexslider.js');
+    wp_enqueue_script('flexslidermin', EVOLVEJS . '/jquery.flexslider-min.js');
     wp_enqueue_script('main', EVOLVEJS . '/main.js', array('jquery'), '', true);
 
     if ($evolve_status_gmap == "1") {
@@ -109,14 +111,23 @@ function evolve_media() {
     } else {
         $evolve_responsive_menu = '';
     }
-
+    
     //$evl_portfolio_pagination_type = isset($evl_options['evl_portfolio_pagination_type']) ? $evl_options['evl_portfolio_pagination_type'] : '';
     $local_variables = array(
         'language_flag' => $language_code,
         'infinite_blog_finished_msg' => '<em>' . __('All posts displayed', 'evolve') . '</em>',
         'infinite_blog_text' => '<em>' . __('Loading the next set of posts...', 'evolve') . '</em>',
         'theme_url' => get_template_directory_uri(),
+        'order_actions' => __('Details', 'evolve'),
     );
+
+    global $woocommerce;
+
+    if (class_exists('Woocommerce')) {
+        if (version_compare($woocommerce->version, '2.3', '>=')) {
+            $local_variables['woocommerce_23'] = true;
+        }
+    }
 
     wp_localize_script('main', 'js_local_vars', $local_variables);
 
