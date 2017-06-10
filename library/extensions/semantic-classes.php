@@ -49,7 +49,7 @@ function semantic_body($classes = array()) {
     // Special classes for BODY element when a single post
     if (is_single()) {
         $postID = $wp_query->post->ID;
-        the_post();
+        //the_post();
 
         // Adds 'single' class and class with the post ID
         $sc[] = 'single postid-' . $postID;

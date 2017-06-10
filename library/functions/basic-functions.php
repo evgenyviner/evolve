@@ -586,12 +586,12 @@ function evolve_sharethis() {
     }
     ?>
     <div class="share-this">
-        <a rel="nofollow" class="tipsytext" title="<?php _e('Share on Twitter', 'evolve'); ?>" target="_blank" href="http://twitter.com/intent/tweet?status=<?php the_title(); ?>+&raquo;+<?php echo esc_url(evolve_tinyurl(get_permalink())); ?>"><i class="t4p-icon-social-twitter"></i></a>
-        <a rel="nofollow" class="tipsytext" title="<?php _e('Share on Facebook', 'evolve'); ?>" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&amp;t=<?php the_title(); ?>"><i class="t4p-icon-social-facebook"></i></a>
+        <a rel="nofollow" class="tipsytext" title="<?php _e('Share on Twitter', 'evolve'); ?>" target="_blank" href="http://twitter.com/intent/tweet?status=<?php echo $post->post_title; ?>+&raquo;+<?php echo esc_url(evolve_tinyurl(get_permalink())); ?>"><i class="t4p-icon-social-twitter"></i></a>
+        <a rel="nofollow" class="tipsytext" title="<?php _e('Share on Facebook', 'evolve'); ?>" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&amp;t=<?php echo $post->post_title; ?>"><i class="t4p-icon-social-facebook"></i></a>
         <a rel="nofollow" class="tipsytext" title="<?php _e('Share on Google Plus', 'evolve'); ?>" target="_blank" href="https://plus.google.com/share?url=<?php the_permalink(); ?>"><i class="t4p-icon-social-google-plus"></i></a>
-        <a rel="nofollow" class="tipsytext" title="<?php _e('Share on Pinterest', 'evolve'); ?>" target="_blank" href="http://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $image_url; ?>&description=<?php the_title(); ?>"><i class="t4p-icon-social-pinterest"></i></a>			
-        <a rel="nofollow" class="tipsytext" title="<?php _e('Share by Email', 'evolve'); ?>" target="_blank" href="http://www.addtoany.com/email?linkurl=<?php the_permalink(); ?>&linkname=<?php the_title(); ?>"><i class="t4p-icon-social-envelope-o"></i></a>
-        <a rel="nofollow" class="tipsytext" title="<?php _e('More options', 'evolve'); ?>" target="_blank" href="http://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php the_title(); ?>"><i class="t4p-icon-redo"></i></a>
+        <a rel="nofollow" class="tipsytext" title="<?php _e('Share on Pinterest', 'evolve'); ?>" target="_blank" href="http://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $image_url; ?>&description=<?php echo $post->post_title; ?>"><i class="t4p-icon-social-pinterest"></i></a>			
+        <a rel="nofollow" class="tipsytext" title="<?php _e('Share by Email', 'evolve'); ?>" target="_blank" href="http://www.addtoany.com/email?linkurl=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>"><i class="t4p-icon-social-envelope-o"></i></a>
+        <a rel="nofollow" class="tipsytext" title="<?php _e('More options', 'evolve'); ?>" target="_blank" href="http://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>"><i class="t4p-icon-redo"></i></a>
     </div>
     <?php
 }
