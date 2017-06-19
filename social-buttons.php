@@ -15,7 +15,7 @@ $evolve_tumblr = evolve_get_option('evl_tumblr', '');
 
 <ul class="sc_menu">
     <?php 
-    if (!empty($evolve_rss_feed != "")) { ?>   
+    if (!empty($evolve_rss_feed)) { ?>   
         <li><a target="_blank" href="<?php echo $evolve_rss_feed;?>" class="tipsytext" id="rss" title="<?php _e('RSS Feed', 'evolve'); ?>"><i class="t4p-icon-social-rss"></i></a></li>
         <?php
     }
