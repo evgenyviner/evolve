@@ -94,3 +94,32 @@ function evolve_admin_scripts($hook) {
 }
 
 add_action('admin_enqueue_scripts', 'evolve_admin_scripts');
+
+
+/*
+ * 
+ * Migrate Custom CSS Code From Theme options To Additional CSS
+ * 
+ */
+add_action( 'upgrader_process_complete', 'evolve_custom_css_migrate',10, 2);
+
+function evolve_custom_css_migrate( $upgrader_object, $options ) {
+        if ( $options['action'] == 'update' && $options['type'] == 'theme' ) {
+                foreach( $options['themes'] as $theme ) {
+                        if ( $theme == 'evolve' ) {
+                                if ( function_exists( 'wp_update_custom_css_post' ) ) {
+                                        $custom_css = evolve_get_option ('evl_css_content');
+                                        if ( $custom_css ) {
+                                                $additional_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
+                                                $return = wp_update_custom_css_post( $additional_css . $custom_css );
+                                                if ( ! is_wp_error( $return ) ) {
+                                                        $data = get_option( 'evl_options' );
+                                                        $data['evl_css_content'] = '';
+                                                        update_option( 'evl_options', $data );
+                                                }
+                                        }
+                                }
+                        }
+                }
+        }
+}

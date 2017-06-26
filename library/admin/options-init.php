@@ -4871,20 +4871,21 @@ Redux::setSection($evolve_opt_name, array(
 );
 
 
-Redux::setSection($evolve_opt_name, array(
-    'id' => 'evl-custom-css-main-tab',
-    'title' => __('Custom CSS', 'evolve'),
-    'icon' => 't4p-icon-appbarsymbolbraces',
-    'fields' => array(
-        array(
-            'subtitle' => __('Paste your CSS code, do not include any tags or HTML in this field. Any custom CSS entered here will override the theme CSS. In some cases, the !important tag may be needed.', 'evolve'),
-            'id' => 'evl_css_content',
-            'type' => 'textarea',
-            'title' => __('Custom CSS', 'evolve'),
-        ),
-    ),
-        )
-);
+//Redux::setSection($evolve_opt_name, array(
+//    'id' => 'evl-custom-css-main-tab',
+//    'title' => __('Custom CSS', 'evolve'),
+//    'icon' => 't4p-icon-appbarsymbolbraces',
+//    'customizer' => false,
+//    'fields' => array(
+//        array(
+//            'subtitle' => __('Paste your CSS code, do not include any tags or HTML in this field. Any custom CSS entered here will override the theme CSS. In some cases, the !important tag may be needed.', 'evolve'),
+//            'id' => 'evl_css_content',
+//            'type' => 'textarea',
+//            'title' => __('Custom CSS', 'evolve'),
+//        ),
+//    ),
+//        )
+//);
 
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-import-export-main-tab',
