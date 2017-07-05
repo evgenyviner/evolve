@@ -5151,6 +5151,13 @@ function evolve_register_custom_section($wp_customize) {
     if (method_exists($wp_customize, 'register_section_type')) {
         $wp_customize->register_section_type('Evolve_Redux_Customizer_Section');
     }
+    
+    /* wordpress default section reorder to bottom */
+    $wp_customize->get_section('title_tagline')->priority = 101;
+    $wp_customize->get_section('colors')->priority = 102;
+    $wp_customize->get_section('header_image')->priority = 103;
+    $wp_customize->get_section('background_image')->priority = 104;
+    $wp_customize->get_section('static_front_page')->priority = 105;    
 }
 add_action('customize_register', 'evolve_register_custom_section');
 

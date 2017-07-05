@@ -342,3 +342,59 @@
     font-size: 25px;
     top: 6px;
 }
+
+li#accordion-section-colors > h3.accordion-section-title:before {
+    content: "\f309";
+}
+li#accordion-section-header_image > h3.accordion-section-title:before {
+    content: "\f128";
+}
+li#accordion-section-background_image > h3.accordion-section-title:before {
+    content: "\f161";
+}
+li#accordion-section-static_front_page > h3.accordion-section-title:before {
+    content: "\f119";
+}
+li#accordion-section-custom_css > h3.accordion-section-title:before {
+    content: "\f464";
+}
+li#accordion-panel-widgets > h3.accordion-section-title:before {
+    content: "\f116";
+}
+li#accordion-section-title_tagline > h3.accordion-section-title:before {
+    content: "\f122";
+}
+li#accordion-panel-nav_menus > h3.accordion-section-title:before {
+    content: "\f333";
+}
+
+li#accordion-section-colors > h3.accordion-section-title:before,
+li#accordion-section-header_image > h3.accordion-section-title:before,
+li#accordion-section-background_image > h3.accordion-section-title:before,
+li#accordion-section-static_front_page > h3.accordion-section-title:before,
+li#accordion-section-custom_css > h3.accordion-section-title:before,
+li#accordion-panel-widgets > h3.accordion-section-title:before,
+li#accordion-section-title_tagline > h3.accordion-section-title:before,
+li#accordion-panel-nav_menus > h3.accordion-section-title:before {
+    font-family: dashicons;
+    padding: 6px;
+    font-weight: normal;
+}
+
+#customize-theme-controls .accordion-section-title {
+  background: #505050 none repeat scroll 0 0;
+  border-bottom : 0;
+  color: #ffffff; 
+  text-transform: uppercase;
+}
+
+.redux-container-image_select ul.redux-image-select li {
+  margin: 0 10px 3px !important;
+}
+
+#customize-controls .description {  
+  display: block;
+}
+#customize-theme-controls .customize-pane-child h3.accordion-section-title {
+  background: #23282d none repeat scroll 0 0;  
+}
