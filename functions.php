@@ -99,27 +99,23 @@ add_action('admin_enqueue_scripts', 'evolve_admin_scripts');
 /*
  * 
  * Migrate Custom CSS Code From Theme options To Additional CSS
+ * wp_update_custom_css_post work only wordpress 4.7.0 above version 
  * 
  */
-add_action( 'upgrader_process_complete', 'evolve_custom_css_migrate',10, 2);
+if ( function_exists( 'wp_update_custom_css_post' ) && ! defined( 'DOING_AJAX' ) ) {
+        $custom_css = '';
+        $data = get_option( 'evl_options' );
+        if ( isset( $data['evl_css_content'] ) ) {
+                $custom_css = $data['evl_css_content'];
+        }
 
-function evolve_custom_css_migrate( $upgrader_object, $options ) {
-        if ( $options['action'] == 'update' && $options['type'] == 'theme' ) {
-                foreach( $options['themes'] as $theme ) {
-                        if ( $theme == 'evolve' ) {
-                                if ( function_exists( 'wp_update_custom_css_post' ) ) {
-                                        $custom_css = evolve_get_option ('evl_css_content');
-                                        if ( $custom_css ) {
-                                                $additional_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
-                                                $return = wp_update_custom_css_post( $additional_css . $custom_css );
-                                                if ( ! is_wp_error( $return ) ) {
-                                                        $data = get_option( 'evl_options' );
-                                                        $data['evl_css_content'] = '';
-                                                        update_option( 'evl_options', $data );
-                                                }
-                                        }
-                                }
-                        }
+        if ( $custom_css ) {
+                $additional_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
+                $return = wp_update_custom_css_post( $additional_css . $custom_css );
+                if ( ! is_wp_error( $return ) ) {
+                        $data = get_option( 'evl_options' );
+                        $data['evl_css_content'] = '';
+                        update_option( 'evl_options', $data );
                 }
         }
 }

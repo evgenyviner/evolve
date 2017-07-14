@@ -3965,6 +3965,3 @@ $evolve_css_data .= '
         .entry-content h6 { font-size: 12px; }
     }
 ';
-
-$evolve_css_content = evolve_get_option('evl_css_content', '');
-$evolve_css_data .= $evolve_css_content;
