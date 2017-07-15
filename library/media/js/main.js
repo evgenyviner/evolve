@@ -651,3 +651,15 @@ jQuery(window).load(function () {
         sync: '.woocommerce .images #carousel'
     });
 });
+
+
+// Change lightbox img when change variation img in woocommece product description page
+
+jQuery(document).ready(function ($) {
+
+        jQuery('.attachment-shop_single').on('load', function () {
+                var img_src = jQuery(".woocommerce-product-gallery__image .attachment-shop_single").attr('src');
+                jQuery(".woocommerce-product-gallery__image").attr("href",img_src);
+        });
+
+});

@@ -27,7 +27,7 @@ $attachment_ids = $product->get_gallery_image_ids();
 if ($attachment_ids) {
     ?>
     <div id="carousel" class="thumbnails flexslider">
-        <ul class="slides">
+        <ul class="slides flex-control-nav">
             <?php
             // From product-image.php
             if (has_post_thumbnail()) {

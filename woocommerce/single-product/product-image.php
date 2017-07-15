@@ -41,7 +41,7 @@ global $post, $product;
                     $gallery = '';
                 }
 
-                echo apply_filters('woocommerce_single_product_image_html', sprintf('<li><a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '" rel="prettyPhoto">%s</a></li>', $image_link, $image_title, $image), $post->ID);
+                echo apply_filters('woocommerce_single_product_image_html', sprintf('<li><a href="%s" itemprop="image" class="woocommerce-product-gallery__image woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '" rel="prettyPhoto">%s</a></li>', $image_link, $image_title, $image), $post->ID);
 
                 /**
                  * From product-thumbnails.php

@@ -303,3 +303,9 @@ html[xmlns] .flexslider .slides {
         right: 0;
     }
 }
+
+
+/** add class for product-image slider in product description page */
+.flexslider .flex-viewport .flex-control-nav {
+    position: relative;
+}
