@@ -593,6 +593,348 @@ Redux::setSection($evolve_opt_name, array(
 );
 
 Redux::setSection($evolve_opt_name, array(
+    'id' => 'evl-frontpage-subsec-frontpage-tab',
+    'title' => __('Custom Home/Front Page Builder', 'evolve'),
+    'icon' => 't4p-icon-appbartools',
+        )
+);
+
+Redux::setSection($evolve_opt_name, array(
+    'id' => 'evl-frontpage-subsec-general-tab',
+    'title' => __('General Layout & Settings', 'evolve'),
+    'subsection' => true,
+    'fields' => array(
+        array(
+            'subtitle' => __('Select main content and sidebar alignment.', 'evolve'),
+            'id' => 'evl_frontpage_layout',
+            'type' => 'image_select',
+            'compiler' => true,
+            'options' => array(
+                '1c' => $evolve_imagepath . '1c.png',
+                '2cl' => $evolve_imagepath . '2cl.png',
+                '2cr' => $evolve_imagepath . '2cr.png',
+                '3cm' => $evolve_imagepath . '3cm.png',
+                '3cr' => $evolve_imagepath . '3cr.png',
+                '3cl' => $evolve_imagepath . '3cl.png',
+            ),
+            'title' => __('Select a layout for home/front page', 'evolve'),
+            'default' => '2cl',
+        ),
+        array(
+            'subtitle' => __('<strong>Boxed version</strong> automatically enables custom background', 'evolve'),
+            'id' => 'evl_frontpage_width_layout',
+            'type' => 'select',
+            'compiler' => true,
+            'options' => array(
+                'fixed' => __('Boxed', 'evolve'),
+                'fluid' => __('Wide', 'evolve'),
+            ),
+            'title' => __('Layout Style of home/front page', 'evolve'),
+            'default' => 'fixed',
+        ),		
+		array(
+            'subtitle' => __('Select which page to show on home/front page', 'evolve'),
+            'id' => 'evl_frontpage_page',
+            'type' => 'select',
+            'compiler' => true,
+            'data' => 'pages',
+            'title' => __('Select home/front page', 'evolve'),
+        ),		
+	    array(
+            'title' => __('Home/Front Page Elements Display and Order', 'evolve'),
+            'id' => 'evl_frontpage_display',
+            'type' => 'sortable',
+			'mode'     => 'checkbox',
+			'options'  => array(
+				'1'     => __('Content Boxes', 'evolve'),
+				'2'     => __('Testimonials', 'evolve'),
+				'3'     => __('Blog Posts', 'evolve'),
+				'4'     => __('Google Maps', 'evolve'),
+				'5'     => __('WooCommerce Products', 'evolve'),
+				'6'     => __('Counter Boxes', 'evolve'),	
+				'7'     => __('Custom Content',	 'evolve'),				
+            ),
+        ),
+
+    ),
+        )
+);
+
+Redux::setSection($evolve_opt_name, array(
+    'id' => 'evl-front-page-main-tab',
+    'title' => __('Front Page Content Boxes', 'evolve'),
+    'icon' => 't4p-icon-appbarimagebacklight',
+	    'subsection' => true,
+    'fields' => array(
+        array(
+            'subtitle' => __('Check this box to enable Front Page Content Boxes', 'evolve'),
+            'id' => 'evl_content_boxes',
+            'type' => 'switch',
+            'on' => __('Enabled', 'evolve'),
+            'off' => __('Disabled', 'evolve'),
+            'default' => 1,
+            'title' => __('Enable Front Page Content Boxes', 'evolve'),
+        ),
+        array(
+            'id' => 'evl_content_box_background_color',
+            'compiler' => true,
+            'type' => 'color',
+            'title' => __('Content Boxes Background Color', 'evolve'),
+            'default' => '#efefef',
+        ),
+        array(
+            'subtitle' => __('Enter the content boxes padding.', 'evolve'),
+            'id' => 'evl_content_boxes_padding',
+            'type' => 'spacing',
+            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+            'units' => array('px', 'em'),
+            'class' => $evolve_prem_class,
+            'title' => __('Content Boxes Padding', 'evolve'),
+            'default' => array(
+                'padding-top' => '40px',
+                'padding-right' => '30px',
+                'padding-bottom' => '40px',
+                'padding-left' => '30px',
+                'units' => 'px',
+            ),
+        ),
+    ),
+        )
+);
+
+Redux::setSection($evolve_opt_name, array(
+    'id' => 'evl-front-page-subsec-box1-tab',
+    'title' => __('Content Box 1', 'evolve'),
+    'subsection' => true,
+    'fields' => array(
+        array(
+            'id' => 'evl_content_box1_enable',
+            'title' => __('Enable Content Box 1 ?', 'evolve'),
+            'type' => 'switch',
+            'on' => __('Enabled', 'evolve'),
+            'off' => __('Disabled', 'evolve'),
+            'default' => 1,
+        ),
+        array(
+            'id' => 'evl_content_box1_title',
+            'type' => 'text',
+            'title' => __('Content Box 1 Title', 'evolve'),
+            'default' => 'Beautifully Simple',
+        ),
+        array(
+            'id' => 'evl_content_box1_icon',
+            'type' => 'text',
+            'title' => __('Content Box 1 Icon (FontAwesome)', 'evolve'),
+            'default' => 'fa-cube',
+            'class' => 'iconpicker-box iconpicker-icon',
+        ),
+        array(
+            'id' => 'evl_content_box1_icon_color',
+            'compiler' => true,
+            'type' => 'color',
+            'title' => __('Content Box 1 Icon Color', 'evolve'),
+            'default' => '#afbbc1',
+        ),
+        array(
+            'subtitle' => __('Upload an image as your icon, or specify an image URL directly. <br/> This overwrites the Content Box 1 Icon (FontAwesome) setting', 'evolve'),
+            'id' => 'evl_content_box1_icon_upload',
+            'type' => 'media',
+            'title' => __('Content Box 1 Custom Icon', 'evolve'),
+            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+            'url' => true,
+            'class' => $evolve_prem_class,
+        ),
+        array(
+            'id' => 'evl_content_box1_desc',
+            'type' => 'textarea',
+            'title' => __('Content Box 1 description', 'evolve'),
+            'default' => 'Clean modern theme with smooth and pixel perfect design focused on details',
+        ),
+        array(
+            'id' => 'evl_content_box1_button',
+            'type' => 'textarea',
+            'title' => __('Content Box 1 Button', 'evolve'),
+            'default' => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
+        ),
+    ),
+        )
+);
+
+Redux::setSection($evolve_opt_name, array(
+    'id' => 'evl-front-page-subsec-box2-tab',
+    'title' => __('Content Box 2', 'evolve'),
+    'subsection' => true,
+    'fields' => array(
+        array(
+            'id' => 'evl_content_box2_enable',
+            'type' => 'switch',
+            'on' => __('Enabled', 'evolve'),
+            'off' => __('Disabled', 'evolve'),
+            'default' => 1,
+            'title' => __('Enable Content Box 2 ?', 'evolve'),
+        ),
+        array(
+            'id' => 'evl_content_box2_title',
+            'type' => 'text',
+            'title' => __('Content Box 2 Title', 'evolve'),
+            'default' => 'Easy Customizable',
+        ),
+        array(
+            'id' => 'evl_content_box2_icon',
+            'type' => 'text',
+            'title' => __('Content Box 2 Icon (FontAwesome)', 'evolve'),
+            'default' => 'fa-circle-o-notch',
+            'class' => 'iconpicker-box iconpicker-icon',
+        ),
+        array(
+            'id' => 'evl_content_box2_icon_color',
+            'compiler' => true,
+            'type' => 'color',
+            'title' => __('Content Box 2 Icon Color', 'evolve'),
+            'default' => '#afbbc1',
+        ),
+        array(
+            'subtitle' => __('Upload an image as your icon, or specify an image URL directly. <br/> This overwrites the Content Box 2 Icon (FontAwesome) setting', 'evolve'),
+            'id' => 'evl_content_box2_icon_upload',
+            'type' => 'media',
+            'title' => __('Content Box 2 Custom Icon', 'evolve'),
+            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+            'url' => true,
+            'class' => $evolve_prem_class,
+        ),
+        array(
+            'id' => 'evl_content_box2_desc',
+            'type' => 'textarea',
+            'title' => __('Content Box 2 description', 'evolve'),
+            'default' => 'Over a hundred theme options ready to make your website unique',
+        ),
+        array(
+            'id' => 'evl_content_box2_button',
+            'type' => 'textarea',
+            'title' => __('Content Box 2 Button', 'evolve'),
+            'default' => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
+        ),
+    ),
+        )
+);
+
+Redux::setSection($evolve_opt_name, array(
+    'id' => 'evl-front-page-subsec-box3-tab',
+    'title' => __('Content Box 3', 'evolve'),
+    'subsection' => true,
+    'fields' => array(
+        array(
+            'id' => 'evl_content_box3_enable',
+            'type' => 'switch',
+            'on' => __('Enabled', 'evolve'),
+            'off' => __('Disabled', 'evolve'),
+            'default' => 1,
+            'title' => __('Enable Content Box 3 ?', 'evolve'),
+        ),
+        array(
+            'id' => 'evl_content_box3_title',
+            'type' => 'text',
+            'title' => __('Content Box 3 Title', 'evolve'),
+            'default' => 'Contact Form Ready',
+        ),
+        array(
+            'id' => 'evl_content_box3_icon',
+            'type' => 'text',
+            'title' => __('Content Box 3 Icon (FontAwesome)', 'evolve'),
+            'default' => 'fa-send',
+            'class' => 'iconpicker-box iconpicker-icon',
+        ),
+        array(
+            'id' => 'evl_content_box3_icon_color',
+            'type' => 'color',
+            'compiler' => true,
+            'title' => __('Content Box 3 Icon Color', 'evolve'),
+            'default' => '#afbbc1',
+        ),
+        array(
+            'subtitle' => __('Upload an image as your icon, or specify an image URL directly. <br/> This overwrites the Content Box 3 Icon (FontAwesome) setting', 'evolve'),
+            'id' => 'evl_content_box3_icon_upload',
+            'type' => 'media',
+            'title' => __('Content Box 3 Custom Icon', 'evolve'),
+            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+            'url' => true,
+            'class' => $evolve_prem_class,
+        ),
+        array(
+            'id' => 'evl_content_box3_desc',
+            'type' => 'textarea',
+            'title' => __('Content Box 3 description', 'evolve'),
+            'default' => 'Built-In Contact Page with Google Maps is a standard for this theme',
+        ),
+        array(
+            'id' => 'evl_content_box3_button',
+            'type' => 'textarea',
+            'title' => __('Content Box 3 Button', 'evolve'),
+            'default' => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
+        ),
+    ),
+        )
+);
+
+Redux::setSection($evolve_opt_name, array(
+    'id' => 'evl-front-page-subsec-box4-tab',
+    'title' => __('Content Box 4', 'evolve'),
+    'subsection' => true,
+    'fields' => array(
+        array(
+            'id' => 'evl_content_box4_enable',
+            'type' => 'switch',
+            'on' => __('Enabled', 'evolve'),
+            'off' => __('Disabled', 'evolve'),
+            'default' => 1,
+            'title' => __('Enable Content Box 4 ?', 'evolve'),
+        ),
+        array(
+            'id' => 'evl_content_box4_title',
+            'type' => 'text',
+            'title' => __('Content Box 4 Title', 'evolve'),
+            'default' => 'Modern Blog Layouts',
+        ),
+        array(
+            'id' => 'evl_content_box4_icon',
+            'type' => 'text',
+            'title' => __('Content Box 4 Icon (FontAwesome)', 'evolve'),
+            'default' => 'fa-tablet',
+            'class' => 'iconpicker-box iconpicker-icon',
+        ),
+        array(
+            'id' => 'evl_content_box4_icon_color',
+            'type' => 'color',
+            'compiler' => true,
+            'title' => __('Content Box 4 Icon Color', 'evolve'),
+            'default' => '#afbbc1',
+        ),
+        array(
+            'subtitle' => __('Upload an image as your icon, or specify an image URL directly. <br/> This overwrites the Content Box 4 Icon (FontAwesome) setting', 'evolve'),
+            'id' => 'evl_content_box4_icon_upload',
+            'type' => 'media',
+            'title' => __('Content Box 4 Custom Icon', 'evolve'),
+            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+            'url' => true,
+            'class' => $evolve_prem_class,
+        ),
+        array(
+            'id' => 'evl_content_box4_desc',
+            'type' => 'textarea',
+            'title' => __('Content Box 4 description', 'evolve'),
+            'default' => 'Up to 3 Blog Layouts, responsive on all media devices',
+        ),
+        array(
+            'id' => 'evl_content_box4_button',
+            'type' => 'textarea',
+            'title' => __('Content Box 4 Button', 'evolve'),
+            'default' => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
+        ),
+    ),
+        )
+);
+
+Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-header-main-tab',
     'title' => __('Header', 'evolve'),
     'icon' => 't4p-icon-file3',
@@ -3653,287 +3995,6 @@ Redux::setSection($evolve_opt_name, array(
         ),
     )
 ));
-
-Redux::setSection($evolve_opt_name, array(
-    'id' => 'evl-front-page-main-tab',
-    'title' => __('Front Page Content Boxes', 'evolve'),
-    'icon' => 't4p-icon-appbarimagebacklight',
-        )
-);
-
-Redux::setSection($evolve_opt_name, array(
-    'id' => 'evl-front-page-subsec-general-tab',
-    'title' => __('General', 'evolve'),
-    'subsection' => true,
-    'fields' => array(
-        array(
-            'subtitle' => __('Check this box to enable Front Page Content Boxes', 'evolve'),
-            'id' => 'evl_content_boxes',
-            'type' => 'switch',
-            'on' => __('Enabled', 'evolve'),
-            'off' => __('Disabled', 'evolve'),
-            'default' => 1,
-            'title' => __('Enable Front Page Content Boxes', 'evolve'),
-        ),
-        array(
-            'id' => 'evl_content_box_background_color',
-            'compiler' => true,
-            'type' => 'color',
-            'title' => __('Content Boxes Background Color', 'evolve'),
-            'default' => '#efefef',
-        ),
-        array(
-            'subtitle' => __('Enter the content boxes padding.', 'evolve'),
-            'id' => 'evl_content_boxes_padding',
-            'type' => 'spacing',
-            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'units' => array('px', 'em'),
-            'class' => $evolve_prem_class,
-            'title' => __('Content Boxes Padding', 'evolve'),
-            'default' => array(
-                'padding-top' => '40px',
-                'padding-right' => '30px',
-                'padding-bottom' => '40px',
-                'padding-left' => '30px',
-                'units' => 'px',
-            ),
-        ),
-    ),
-        )
-);
-
-Redux::setSection($evolve_opt_name, array(
-    'id' => 'evl-front-page-subsec-box1-tab',
-    'title' => __('Content Box 1', 'evolve'),
-    'subsection' => true,
-    'fields' => array(
-        array(
-            'id' => 'evl_content_box1_enable',
-            'title' => __('Enable Content Box 1 ?', 'evolve'),
-            'type' => 'switch',
-            'on' => __('Enabled', 'evolve'),
-            'off' => __('Disabled', 'evolve'),
-            'default' => 1,
-        ),
-        array(
-            'id' => 'evl_content_box1_title',
-            'type' => 'text',
-            'title' => __('Content Box 1 Title', 'evolve'),
-            'default' => 'Beautifully Simple',
-        ),
-        array(
-            'id' => 'evl_content_box1_icon',
-            'type' => 'text',
-            'title' => __('Content Box 1 Icon (FontAwesome)', 'evolve'),
-            'default' => 'fa-cube',
-            'class' => 'iconpicker-box iconpicker-icon',
-        ),
-        array(
-            'id' => 'evl_content_box1_icon_color',
-            'compiler' => true,
-            'type' => 'color',
-            'title' => __('Content Box 1 Icon Color', 'evolve'),
-            'default' => '#afbbc1',
-        ),
-        array(
-            'subtitle' => __('Upload an image as your icon, or specify an image URL directly. <br/> This overwrites the Content Box 1 Icon (FontAwesome) setting', 'evolve'),
-            'id' => 'evl_content_box1_icon_upload',
-            'type' => 'media',
-            'title' => __('Content Box 1 Custom Icon', 'evolve'),
-            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'url' => true,
-            'class' => $evolve_prem_class,
-        ),
-        array(
-            'id' => 'evl_content_box1_desc',
-            'type' => 'textarea',
-            'title' => __('Content Box 1 description', 'evolve'),
-            'default' => 'Clean modern theme with smooth and pixel perfect design focused on details',
-        ),
-        array(
-            'id' => 'evl_content_box1_button',
-            'type' => 'textarea',
-            'title' => __('Content Box 1 Button', 'evolve'),
-            'default' => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
-        ),
-    ),
-        )
-);
-
-Redux::setSection($evolve_opt_name, array(
-    'id' => 'evl-front-page-subsec-box2-tab',
-    'title' => __('Content Box 2', 'evolve'),
-    'subsection' => true,
-    'fields' => array(
-        array(
-            'id' => 'evl_content_box2_enable',
-            'type' => 'switch',
-            'on' => __('Enabled', 'evolve'),
-            'off' => __('Disabled', 'evolve'),
-            'default' => 1,
-            'title' => __('Enable Content Box 2 ?', 'evolve'),
-        ),
-        array(
-            'id' => 'evl_content_box2_title',
-            'type' => 'text',
-            'title' => __('Content Box 2 Title', 'evolve'),
-            'default' => 'Easy Customizable',
-        ),
-        array(
-            'id' => 'evl_content_box2_icon',
-            'type' => 'text',
-            'title' => __('Content Box 2 Icon (FontAwesome)', 'evolve'),
-            'default' => 'fa-circle-o-notch',
-            'class' => 'iconpicker-box iconpicker-icon',
-        ),
-        array(
-            'id' => 'evl_content_box2_icon_color',
-            'compiler' => true,
-            'type' => 'color',
-            'title' => __('Content Box 2 Icon Color', 'evolve'),
-            'default' => '#afbbc1',
-        ),
-        array(
-            'subtitle' => __('Upload an image as your icon, or specify an image URL directly. <br/> This overwrites the Content Box 2 Icon (FontAwesome) setting', 'evolve'),
-            'id' => 'evl_content_box2_icon_upload',
-            'type' => 'media',
-            'title' => __('Content Box 2 Custom Icon', 'evolve'),
-            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'url' => true,
-            'class' => $evolve_prem_class,
-        ),
-        array(
-            'id' => 'evl_content_box2_desc',
-            'type' => 'textarea',
-            'title' => __('Content Box 2 description', 'evolve'),
-            'default' => 'Over a hundred theme options ready to make your website unique',
-        ),
-        array(
-            'id' => 'evl_content_box2_button',
-            'type' => 'textarea',
-            'title' => __('Content Box 2 Button', 'evolve'),
-            'default' => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
-        ),
-    ),
-        )
-);
-
-Redux::setSection($evolve_opt_name, array(
-    'id' => 'evl-front-page-subsec-box3-tab',
-    'title' => __('Content Box 3', 'evolve'),
-    'subsection' => true,
-    'fields' => array(
-        array(
-            'id' => 'evl_content_box3_enable',
-            'type' => 'switch',
-            'on' => __('Enabled', 'evolve'),
-            'off' => __('Disabled', 'evolve'),
-            'default' => 1,
-            'title' => __('Enable Content Box 3 ?', 'evolve'),
-        ),
-        array(
-            'id' => 'evl_content_box3_title',
-            'type' => 'text',
-            'title' => __('Content Box 3 Title', 'evolve'),
-            'default' => 'Contact Form Ready',
-        ),
-        array(
-            'id' => 'evl_content_box3_icon',
-            'type' => 'text',
-            'title' => __('Content Box 3 Icon (FontAwesome)', 'evolve'),
-            'default' => 'fa-send',
-            'class' => 'iconpicker-box iconpicker-icon',
-        ),
-        array(
-            'id' => 'evl_content_box3_icon_color',
-            'type' => 'color',
-            'compiler' => true,
-            'title' => __('Content Box 3 Icon Color', 'evolve'),
-            'default' => '#afbbc1',
-        ),
-        array(
-            'subtitle' => __('Upload an image as your icon, or specify an image URL directly. <br/> This overwrites the Content Box 3 Icon (FontAwesome) setting', 'evolve'),
-            'id' => 'evl_content_box3_icon_upload',
-            'type' => 'media',
-            'title' => __('Content Box 3 Custom Icon', 'evolve'),
-            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'url' => true,
-            'class' => $evolve_prem_class,
-        ),
-        array(
-            'id' => 'evl_content_box3_desc',
-            'type' => 'textarea',
-            'title' => __('Content Box 3 description', 'evolve'),
-            'default' => 'Built-In Contact Page with Google Maps is a standard for this theme',
-        ),
-        array(
-            'id' => 'evl_content_box3_button',
-            'type' => 'textarea',
-            'title' => __('Content Box 3 Button', 'evolve'),
-            'default' => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
-        ),
-    ),
-        )
-);
-
-Redux::setSection($evolve_opt_name, array(
-    'id' => 'evl-front-page-subsec-box4-tab',
-    'title' => __('Content Box 4', 'evolve'),
-    'subsection' => true,
-    'fields' => array(
-        array(
-            'id' => 'evl_content_box4_enable',
-            'type' => 'switch',
-            'on' => __('Enabled', 'evolve'),
-            'off' => __('Disabled', 'evolve'),
-            'default' => 1,
-            'title' => __('Enable Content Box 4 ?', 'evolve'),
-        ),
-        array(
-            'id' => 'evl_content_box4_title',
-            'type' => 'text',
-            'title' => __('Content Box 4 Title', 'evolve'),
-            'default' => 'Modern Blog Layouts',
-        ),
-        array(
-            'id' => 'evl_content_box4_icon',
-            'type' => 'text',
-            'title' => __('Content Box 4 Icon (FontAwesome)', 'evolve'),
-            'default' => 'fa-tablet',
-            'class' => 'iconpicker-box iconpicker-icon',
-        ),
-        array(
-            'id' => 'evl_content_box4_icon_color',
-            'type' => 'color',
-            'compiler' => true,
-            'title' => __('Content Box 4 Icon Color', 'evolve'),
-            'default' => '#afbbc1',
-        ),
-        array(
-            'subtitle' => __('Upload an image as your icon, or specify an image URL directly. <br/> This overwrites the Content Box 4 Icon (FontAwesome) setting', 'evolve'),
-            'id' => 'evl_content_box4_icon_upload',
-            'type' => 'media',
-            'title' => __('Content Box 4 Custom Icon', 'evolve'),
-            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'url' => true,
-            'class' => $evolve_prem_class,
-        ),
-        array(
-            'id' => 'evl_content_box4_desc',
-            'type' => 'textarea',
-            'title' => __('Content Box 4 description', 'evolve'),
-            'default' => 'Up to 3 Blog Layouts, responsive on all media devices',
-        ),
-        array(
-            'id' => 'evl_content_box4_button',
-            'type' => 'textarea',
-            'title' => __('Content Box 4 Button', 'evolve'),
-            'default' => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
-        ),
-    ),
-        )
-);
-
 
 // Dynamic section generation, less human error.  ;)
 $slide_defaults = array(
