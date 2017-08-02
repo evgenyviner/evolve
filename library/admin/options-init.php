@@ -596,13 +596,6 @@ Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-frontpage-subsec-frontpage-tab',
     'title' => __('Custom Home/Front Page Builder', 'evolve'),
     'icon' => 't4p-icon-appbartools',
-        )
-);
-
-Redux::setSection($evolve_opt_name, array(
-    'id' => 'evl-frontpage-subsec-general-tab',
-    'title' => __('General Layout & Settings', 'evolve'),
-    'subsection' => true,
     'fields' => array(
         array(
             'subtitle' => __('Select main content and sidebar alignment.', 'evolve'),
@@ -631,40 +624,38 @@ Redux::setSection($evolve_opt_name, array(
             ),
             'title' => __('Layout Style of home/front page', 'evolve'),
             'default' => 'fixed',
-        ),		
-		array(
-            'subtitle' => __('Select which page to show on home/front page', 'evolve'),
-            'id' => 'evl_frontpage_page',
-            'type' => 'select',
-            'compiler' => true,
-            'data' => 'pages',
-            'title' => __('Select home/front page', 'evolve'),
-        ),		
-	    array(
+        ),				
+        array(
             'title' => __('Home/Front Page Elements Display and Order', 'evolve'),
-            'id' => 'evl_frontpage_display',
+            'id' => 'evl_frontpage_elements',
             'type' => 'sortable',
-			'mode'     => 'checkbox',
-			'options'  => array(
-				'1'     => __('Content Boxes', 'evolve'),
-				'2'     => __('Testimonials', 'evolve'),
-				'3'     => __('Blog Posts', 'evolve'),
-				'4'     => __('Google Maps', 'evolve'),
-				'5'     => __('WooCommerce Products', 'evolve'),
-				'6'     => __('Counter Boxes', 'evolve'),	
-				'7'     => __('Custom Content',	 'evolve'),				
+            'mode'     => 'checkbox',
+            'options'  => array(
+                'content_boxes'     => __('Content Boxes', 'evolve'),
+                'testimonials'     => __('Testimonials', 'evolve'),
+                'blog_posts'     => __('Blog Posts', 'evolve'),
+                'google_maps'     => __('Google Maps', 'evolve'),
+                'wooCommerce_products'     => __('WooCommerce Products', 'evolve'),
+                'counter_boxes'     => __('Counter Boxes', 'evolve'),	
+                'custom_content'     => __('Custom Content',	 'evolve'),				
             ),
         ),
 
     ),
+    )
+);
+
+Redux::setSection($evolve_opt_name, array(
+    'id' => 'evl-front-page-content-boxes-main-tab',
+    'title' => __('Front Page Content Boxes', 'evolve'),
+    'icon' => 't4p-icon-appbarimagebacklight',
         )
 );
 
 Redux::setSection($evolve_opt_name, array(
-    'id' => 'evl-front-page-main-tab',
+    'id' => 'evl-front-page-content-boxes-tab',
     'title' => __('Front Page Content Boxes', 'evolve'),
-    'icon' => 't4p-icon-appbarimagebacklight',
-	    'subsection' => true,
+    'subsection' => true,
     'fields' => array(
         array(
             'subtitle' => __('Check this box to enable Front Page Content Boxes', 'evolve'),
@@ -931,6 +922,97 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
         ),
     ),
+        )
+);
+
+// Front Page Testimonials
+$testimonialfields = array();
+
+$slide_defaults = array(
+    array(
+        'image' => "{$evolve_imagepathfolder}frontpage-builder/team-1.jpg",
+        'title' => __(' Jane Doe', 'evolve'),
+        'description' => __('Quisque pulvinar sed orci at viverra. Sed iaculis ipsum sed facilisis lobortis. Phasellus eu luctus orci. Pellentesque blandit mauris eget elit egestas convallis.', 'evolve'),
+    ),
+    array(
+        'image' => "{$evolve_imagepathfolder}frontpage-builder/team-2.jpg",
+        'title' => __('Doe John', 'evolve'),
+        'description' => __('Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed lacinia risus accumsa scelerisque hendrerit. Quisque ac sodales erat.', 'evolve'),
+    ),
+);
+
+for ($i = 1; $i <= 2; $i ++) {
+    $testimonialfields[] = array(
+        "title" => sprintf(__('Testimonial %d Avatar', 'evolve'), $i),
+        "subtitle" => sprintf(__('Upload an image for the Testimonial %d, or specify an image URL directly', 'evolve'), $i),
+        "id" => "{$evolve_shortname}_fp_testimonial{$i}_avatar",
+        "type" => "media",
+        'url' => true,
+        'readonly' => false,
+        "default" => array('url' => $slide_defaults[( $i - 1 )]['image'])
+    );
+
+    $testimonialfields[] = array(
+        "title" => sprintf(__('Testimonial %d Name', 'evolve'), $i),
+        "id" => "{$evolve_shortname}_fp_testimonial{$i}_name",
+        "type" => "text",
+        "default" => $slide_defaults[( $i - 1 )]['title']
+    );
+
+    $testimonialfields[] = array(
+        "title" => sprintf(__('Testimonial %d Content', 'evolve'), $i),
+        "id" => "{$evolve_shortname}_fp_testimonial{$i}_content",
+        "type" => "textarea",
+        "rows" => 5,
+        "default" => $slide_defaults[( $i - 1 )]['description']
+    );
+
+    $testimonialfields[] = array(
+        'id' => 'add_another_fp_testimonial',
+        'type' => 'raw',
+        'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+        'class' => $evolve_prem_class,
+        'title' => __('Add Another Testimonial', 'evolve'),
+        'content' => __('<a class="button button-primary" href="">Add Testimonial</a>', 'evolve'),
+        'full_width' => false,
+    );
+}
+
+Redux::setSection($evolve_opt_name, array(
+    'id' => 'evl-front-page-testimonials-main-tab',
+    'title' => __('Front Page Testimonials', 'evolve'),
+    'icon' => 't4p-icon-appbarimageselect',
+        )
+);
+
+Redux::setSection($evolve_opt_name, array(
+    'id' => 'evl-fp-testimonials-general-tab',
+    'title' => __('General', 'evolve'),
+    'subsection' => true,
+    'fields' => array(
+        array(
+            'id' => 'evl_fp_testimonials_bg_color',
+            'compiler' => true,
+            'type' => 'color',
+            'title' => __('Background Color', 'evolve'),
+            'default' => '',
+        ),
+        array(
+            'id' => 'evl_fp_testimonials_text_color',
+            'compiler' => true,
+            'type' => 'color',
+            'title' => __('Text Color', 'evolve'),
+            'default' => '',
+        ),
+    ),
+        )
+);
+
+Redux::setSection($evolve_opt_name, array(
+    'id' => 'evl-fp-testimonial-slides-tab',
+    'title' => __('Add Testimonial', 'evolve'),
+    'subsection' => true,
+    'fields' => $testimonialfields
         )
 );
 
@@ -4503,7 +4585,6 @@ Redux::setSection($evolve_opt_name, array(
     'title' => __('Lightbox', 'evolve'),
     'icon' => 't4p-icon-appbarwindowmaximize',
     'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-    'class' => $evolve_prem_class,
     'class' => $evolve_prem_class,
     'fields' => array(
         array(

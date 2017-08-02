@@ -309,3 +309,95 @@ html[xmlns] .flexslider .slides {
 .flexslider .flex-viewport .flex-control-nav {
     position: relative;
 }
+
+/*
+Testimonials Shortcode
+-----------------------------------------------------------------------------*/
+.t4p-testimonials {
+    margin-bottom: 30px;
+}
+
+.t4p-testimonials .review {
+    display: none;
+}
+
+.t4p-testimonials .review:first-child {
+    display: block;
+}
+
+.t4p-testimonials blockquote {
+    margin-bottom: 0;
+    /* border: none; */
+    background-color: #f6f6f6;
+    border-left: 0px;
+    border-radius: 4px;
+    padding: 0px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.t4p-testimonials blockquote q {
+    display: block;
+    padding: 25px;
+    font-style: italic;
+    line-height: normal;
+}
+
+.t4p-testimonials .img-responsive {
+    display: inline;
+}
+
+.t4p-testimonials blockquote q:before,
+.t4p-testimonials blockquote q:after {
+    content: "";
+}
+
+.t4p-testimonials .author {
+    position: relative;
+    padding: 12px 0 0 2px;
+}
+
+.t4p-testimonials .author:after {
+    position: absolute;
+    right: 35px;
+    top: 0;
+    content: " ";
+    height: 0;
+    width: 0;
+    pointer-events: none;
+    border: solid transparent;
+    border-right: 0;
+    border-top-color: #f6f6f6;
+    border-width: 30px;
+}
+
+.t4p-testimonials .author a:hover {
+    text-decoration: none;
+}
+
+.t4p-testimonials .no-avatar .author {
+    padding-left: 0;
+}
+
+.t4p-testimonials .company-name {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 20px;
+    float: right;
+    font-size: 95%;
+}
+
+.t4p-testimonials .testimonial-thumbnail {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 30px;
+    height: 40px;
+}
+
+.t4p-testimonials .testimonial-image {
+    max-width: 40px;
+    padding: 0px;
+}
+
+.t4p-testimonials blockquote {
+    border-bottom: 0px;
+}

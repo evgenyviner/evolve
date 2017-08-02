@@ -177,5 +177,5 @@
                         <div id="content">
                             <?php
                             if (is_front_page()) {
-                                evolve_content_boxes();
+                                get_template_part('frontpagebuilder');
                             }

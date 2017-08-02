@@ -62,6 +62,7 @@ function evolve_get_option($name, $default = false) {
 }
 
 get_template_part('library/functions/basic-functions');
+get_template_part('library/functions/frontpage-functions');
 get_template_part('library/admin/admin-init');
 
 // Metaboxes
