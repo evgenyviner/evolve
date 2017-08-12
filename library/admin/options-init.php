@@ -663,9 +663,9 @@ Redux::setSection($evolve_opt_name, array(
         // Front Page Content Boxes
         array(
             'id'        => 'evl-front-page-content-boxes-start',
-            'type'      => 'accordion',
-            'title'     => 'Front Page Content Boxes',
-            'position'  => 'start',
+            'type'      => 'section',
+            'title'     => 'General',
+            'indent' => true 
         ),
                 array(
                     'subtitle' => __('Check this box to enable Front Page Content Boxes', 'evolve'),
@@ -701,16 +701,16 @@ Redux::setSection($evolve_opt_name, array(
                 ),        
         array(
             'id'        => 'evl-front-page-content-boxes-end',
-            'type'      => 'accordion',
-            'position'  => 'end'
+            'type'      => 'section',
+            'indent' => false,
         ),
 
         // Content Box 1
         array(
             'id'       => 'evl-front-page-subsec-box1-start',
-            'type'     => 'accordion',
+            'type'     => 'section',
             'title'    => 'Content Box 1',
-            'position'  => 'start',
+            'indent' => true 
         ),
                 array(
                     'id' => 'evl_content_box1_enable',
@@ -763,16 +763,16 @@ Redux::setSection($evolve_opt_name, array(
                 ),        
         array(
             'id'        => 'evl-front-page-subsec-box1-end',
-            'type'      => 'accordion',
-            'position'  => 'end'
+            'type'      => 'section',
+            'indent' => false,
         ),
 
         // Content Box 2
         array(
             'id'       => 'evl-front-page-subsec-box2-start',
-            'type'     => 'accordion',
+            'type'     => 'section',
             'title'    => 'Content Box 2',
-            'position'  => 'start',
+            'indent' => true 
         ),
                 array(
                     'id' => 'evl_content_box2_enable',
@@ -825,16 +825,16 @@ Redux::setSection($evolve_opt_name, array(
                 ),
         array(
             'id'        => 'evl-front-page-subsec-box2-end',
-            'type'      => 'accordion',
-            'position'  => 'end'
+            'type'      => 'section',
+            'indent' => false,
         ),
 
         // Content Box 3
         array(
             'id'       => 'evl-front-page-subsec-box3-start',
-            'type'     => 'accordion',
+            'type'     => 'section',
             'title'    => 'Content Box 3',
-            'position'  => 'start',
+            'indent' => true 
         ),
                 array(
                     'id' => 'evl_content_box3_enable',
@@ -887,16 +887,16 @@ Redux::setSection($evolve_opt_name, array(
                 ),    
         array(
             'id'        => 'evl-front-page-subsec-box3-end',
-            'type'      => 'accordion',
-            'position'  => 'end'
+            'type'      => 'section',
+            'indent' => false,
         ),
 
         // Content Box 4
         array(
             'id'       => 'evl-front-page-subsec-box4-start',
-            'type'     => 'accordion',
+            'type'     => 'section',
             'title'    => 'Content Box 4',
-            'position'  => 'start',
+            'indent' => true 
         ),
                 array(
                     'id' => 'evl_content_box4_enable',
@@ -949,8 +949,8 @@ Redux::setSection($evolve_opt_name, array(
                 ),    
         array(
             'id'        => 'evl-front-page-subsec-box4-end',
-            'type'      => 'accordion',
-            'position'  => 'end'
+            'type'      => 'section',
+            'indent' => false,
         ),
     ),
         )
@@ -1017,9 +1017,9 @@ Redux::setSection($evolve_opt_name, array(
         // Testimonials General
         array(
             'id'        => 'evl-fp-testimonials-general-start',
-            'type'      => 'accordion',
+            'type'      => 'section',
             'title'     => 'General',
-            'position'  => 'start',
+            'indent' => true 
         ),
                 array(
                     'id' => 'evl_fp_testimonials_bg_color',
@@ -1037,16 +1037,16 @@ Redux::setSection($evolve_opt_name, array(
                 ),      
         array(
             'id'        => 'evl-fp-testimonials-general-end',
-            'type'      => 'accordion',
-            'position'  => 'end'
+            'type'      => 'section',
+            'indent' => false,
         ),
 
         // Add Testimonial
         array(
             'id'       => 'evl-fp-testimonial-slides-start',
-            'type'     => 'accordion',
+            'type'     => 'section',
             'title'    => 'Add Testimonial',
-            'position'  => 'start',
+            'indent' => true 
         ),
                 $testimonialfields[0],
                 $testimonialfields[1],
@@ -1057,8 +1057,8 @@ Redux::setSection($evolve_opt_name, array(
                 $testimonialfields[6],
         array(
             'id'        => 'evl-fp-testimonial-slides-end',
-            'type'      => 'accordion',
-            'position'  => 'end'
+            'type'      => 'section',
+            'indent' => false,
         ),
     ),
         )
@@ -2396,7 +2396,7 @@ Redux::setSection($evolve_opt_name, array(
 );
 
 Redux::setSection($evolve_opt_name, array(
-    'id' => 'evl-shortcode-subsec-shortcodes-accordion-tab',
+    'id' => 'evl-shortcode-subsec-shortcodes-section-tab',
     'title' => __('Accordion', 'evolve'),
     'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
     'subsection' => true,    
@@ -2404,7 +2404,7 @@ Redux::setSection($evolve_opt_name, array(
     'fields' => array(
         array(
             'subtitle' => __('Controls the color of the inactive boxes behind the \'+\' icons.', 'evolve'),
-            'id' => 'evl_shortcode_accordion_inactive_box_color',
+            'id' => 'evl_shortcode_section_inactive_box_color',
             'compiler' => true,
             'type' => 'color',
             'title' => __('Accordion Inactive Box Color', 'evolve'),
@@ -3107,7 +3107,7 @@ Redux::setSection($evolve_opt_name, array(
     'class' => $evolve_prem_class,
     'fields' => array(
         array(
-            'subtitle' => __('Controls the color of all separators, divider lines and borders for meta, previous & next, filters, category page, boxes around number pagination, sidebar widgets, accordion divider lines, counter boxes and more.', 'evolve'),
+            'subtitle' => __('Controls the color of all separators, divider lines and borders for meta, previous & next, filters, category page, boxes around number pagination, sidebar widgets, section divider lines, counter boxes and more.', 'evolve'),
             'id' => 'evl_shortcode_separator_color',
             'compiler' => true,
             'type' => 'color',
