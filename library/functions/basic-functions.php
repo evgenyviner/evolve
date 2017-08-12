@@ -1271,16 +1271,21 @@ function evolve_bootstrap() {
     /*
      * function to print out css class according to layout or post meta
      * used in content-blog.php, index.php, buddypress.php, bbpress.php
+     * 
      * @since 3.3.0
-     *
+     * 
+     * @param   $type = 1 is for content-blog.php and index.php, which includes the get_post_meta($post->ID, 'evolve_full_width', true)..
+     *          $type = 2 is for buddypress.php and bbpress.php, which EXCLUDES the get_post_meta($post->ID, 'evolve_full_width', true)..  
+     * 
+     * @return  void
+     * 
      * added by Denzel
+     * 
      */
 
     function evolve_layout_class($type = 1) {
-//$type = 1 is for content-blog.php and index.php, which includes the get_post_meta($post->ID, 'evolve_full_width', true)..
-//$type = 2 is for buddypress.php and bbpress.php, which EXCLUDES the get_post_meta($post->ID, 'evolve_full_width', true)..  
-        global $post;
-        global $wp_query;
+        global $post, $wp_query;
+
         $evolve_layout = evolve_get_option('evl_layout', '2cl');
         $evolve_post_layout = evolve_get_option('evl_post_layout', 'two');
 
@@ -1294,31 +1299,59 @@ function evolve_bootstrap() {
         }
 
         $layout_css = '';
+        switch ($evolve_layout):
+            case "1c":
+                $layout_css = ' full-width';
+                break;
+            case "2cl":
+                $layout_css = 'col-xs-12 col-sm-6 col-md-8 col-md-8 float-left';
+                break;
+            case "2cr":
+                $layout_css = 'col-xs-12 col-sm-6 col-md-8 col-md-8 float-right';
+                break;
+            case "3cm":
+                $layout_css = 'col-xs-12 col-sm-6 col-md-6 float-left';
+                break;
+            case "3cr":
+                $layout_css = 'col-xs-12 col-sm-6 col-md-6 float-right';
+                break;
+            case "3cl":
+                $layout_css = 'col-xs-12 col-sm-6 col-md-6 float-left';
+                break;
+        endswitch;
 
-        if ($evolve_layout == "1c") {
-            $layout_css.= ' col-md-12';
-        } else {
+        if (is_single() || is_page() || $wp_query->is_posts_page || is_buddypress() || is_bbpress()):
+            $evolve_sidebar_position = get_post_meta($post_id, 'evolve_sidebar_position', true);
 
-            $layout_css.= ' col-xs-12 col-sm-6';
-
-            if (($evolve_layout == "2cr" && ($evolve_post_layout == "two") || $evolve_layout == "2cl" && ($evolve_post_layout == "two"))) {
-                $layout_css.= ' col-md-8';
+            if (($type == 1 && $evolve_sidebar_position == 'default') || ($type == 2 && $evolve_sidebar_position == 'default')) {
+                if (get_post_meta($post_id, 'evolve_full_width', true) == 'yes') {
+                    $layout_css = ' full-width';
+                }
             }
 
-            if (($evolve_layout == "3cm" || $evolve_layout == "3cl" || $evolve_layout == "3cr")) {
-                $layout_css.= ' col-md-6';
-            } else {
-                $layout_css.= ' col-md-8';
-            }
+            switch ($evolve_sidebar_position):
+                case "default":
+                    //do nothing
+                    break;
+                case "2cl":
+                    $layout_css = 'col-xs-12 col-sm-6 col-md-8 col-md-8 float-left';
+                    break;
+                case "2cr":
+                    $layout_css = 'col-xs-12 col-sm-6 col-md-8 col-md-8 float-right';
+                    break;
+                case "3cm":
+                    $layout_css = 'col-xs-12 col-sm-6 col-md-6 float-left';
+                    break;
+                case "3cr":
+                    $layout_css = 'col-xs-12 col-sm-6 col-md-6 float-right';
+                    break;
+                case "3cl":
+                    $layout_css = 'col-xs-12 col-sm-6 col-md-6 float-left';
+                    break;
+            endswitch;
+        endif;
 
-            if (is_single() || is_page() || is_404() || is_search()) {
-                $layout_css.= ' col-single';
-            }
-        }
-        
         if ($type == 1) {
-
-
             if (class_exists('Woocommerce')):
                 if (is_cart() || is_checkout() || is_account_page() || (get_option('woocommerce_thanks_page_id') && is_page(get_option('woocommerce_thanks_page_id')))) {
                     $layout_css .= ' full-width';
@@ -1326,41 +1359,9 @@ function evolve_bootstrap() {
             endif;
         }
 
-        if (is_single() || is_page() || $wp_query->is_posts_page || is_buddypress() || is_bbpress()):
-
-            $evolve_sidebar_position = get_post_meta($post_id, 'evolve_sidebar_position', true);
-
-            if (($type == 1 && $evolve_sidebar_position == 'default') || ($type == 2 && $evolve_sidebar_position == 'default')) {
-                if (get_post_meta($post_id, 'evolve_full_width', true) == 'yes') {
-                    $layout_css .= ' full-width';
-                }
-            }
-
-            if ($evolve_sidebar_position == '2cl') {
-                $layout_css = 'col-xs-12 col-sm-6 col-md-8 col-md-8 float-left';
-            }
-
-            if ($evolve_sidebar_position == '2cr') {
-                $layout_css = 'col-xs-12 col-sm-6 col-md-8 col-md-8 float-right';
-            }
-
-            if ($evolve_sidebar_position == "3cm") {
-                $layout_css = 'col-xs-12 col-sm-6 col-md-6 float-left';
-            }
-
-            if ($evolve_sidebar_position == "3cr") {
-                $layout_css = 'col-xs-12 col-sm-6 col-md-6 float-right';
-            }
-
-            if ($evolve_sidebar_position == "3cl") {
-                $layout_css = 'col-xs-12 col-sm-6 col-md-6 float-left';
-            }
-
-            if (is_single() || is_page() || $wp_query->is_posts_page) {
-                $layout_css.= ' col-single';
-            }
-
-        endif;
+        if (is_single() || is_page() || $wp_query->is_posts_page || is_buddypress() || is_bbpress()) {
+            $layout_css .= ' col-single';
+        }
 
         echo $layout_css;
     }
@@ -1460,10 +1461,10 @@ function evolve_bootstrap() {
                 $sidebar_css = 'col-xs-12 col-sm-6 col-md-3';
                 break;
             case "3cl":
-                $sidebar_css = 'col-xs-12 col-sm-6 col-md-3';
+                $sidebar_css = 'col-xs-12 col-sm-6 col-md-3 float-right';
                 break;
             case "3cr":
-                $sidebar_css = 'col-xs-12 col-sm-6 col-md-3';
+                $sidebar_css = 'col-xs-12 col-sm-6 col-md-3 float-left';
                 break;
         endswitch;
 

@@ -295,65 +295,15 @@ $evolve_css_data .= '
 ';
     }
 
-if ($evolve_layout == "2cr") {
 $evolve_css_data .= '
-/**
- * 2 column (aside)(content) fixed layout
- */
-
-@media (min-width: 768px) {
-    #primary {
-	float: right;
-    }  
-}
-';
+    .float-right {
+        float: right;
     }
 
-if ($evolve_layout == "3cr") {
-$evolve_css_data .= '
-/**
- * 3 column (aside)(aside)(content) fixed layout
- */
-
-#secondary, 
-#secondary-2 { 
-    float: left; 
-}
-
-#primary {
-    float: right;
-}
-';
+    .float-left {
+        float: left;
     }
-
-if ($evolve_layout == "3cl") {
-$evolve_css_data .= '
-/**
- * 3 column (aside)(aside)(content) fixed layout
- */      
-
-#secondary, 
-#secondary-2 { 
-    float: right; 
-}
 ';
-    }
-
-if ($evolve_layout == "3cm") {
-$evolve_css_data .= '
-/**
- *  3 columns (aside)(content)(aside) fixed layout
- */  
-
-#secondary { 
-    float: right; 
-}
-
-#secondary-2 { 
-    float: left; 
-}
-';
-    }
 
 if ($evolve_width_layout == "fluid") {
 $evolve_css_data .= '
@@ -369,18 +319,6 @@ $evolve_css_data .= '
     margin: 0;
     width: 100%;
 }
-';
-    }
-
-if ($evolve_layout == "1c") {
-$evolve_css_data .= '
-/**
- * 1 column (content) fixed layout
- * 
- * @package WPEvoLve
- * @subpackage Layouts
- * @beta
- */
 ';
     }
 
