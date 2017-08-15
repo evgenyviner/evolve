@@ -594,16 +594,30 @@ Redux::setSection($evolve_opt_name, array(
 
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-frontpage-main-tab',
-    'title' => __('Custom Frontpage Builder', 'evolve'),
-    'icon' => 't4p-icon-appbartools',
+    'title' => __('Custom Home/Front Page Builder', 'evolve'),
+    'icon' => 't4p-icon-hammer',
         )
 );
 
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-frontpage-general-tab',
-    'title' => __('General', 'evolve'),
+    'title' => __('General & Layout Settings', 'evolve'),
     'subsection' => true,
     'fields' => array(
+       array(
+            'subtitle' => __('Select the type of prebuilt demo layout for the home/front page.', 'evolve'),
+            'id' => 'evl_frontpage_prebuilt_demo',
+            'type' => 'image_select',
+            'compiler' => true,
+            'options' => array(
+                'default' => $evolve_imagepath . 'demo-default.jpg',
+                'blog' => $evolve_imagepath . 'demo-blog.jpg',
+                'woocommerce' => $evolve_imagepath . 'demo-woocommerce.jpg',
+                'corporate' => $evolve_imagepath . 'demo-corporate.jpg',
+            ),
+            'title' => __('Select the prebuilt demo for home/front page', 'evolve'),
+            'default' => 'default',
+        ),	
         array(
             'subtitle' => __('Select main content and sidebar alignment.', 'evolve'),
             'id' => 'evl_frontpage_layout',
@@ -657,7 +671,7 @@ Redux::setSection($evolve_opt_name, array(
 
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-frontpage-content-boxes-tab',
-    'title' => __('Front Page Content Boxes', 'evolve'),
+    'title' => __('Content Boxes', 'evolve'),
     'subsection' => true,
     'fields' => array(
         // Front Page Content Boxes
@@ -1011,7 +1025,7 @@ $testimonialfields[] = array(
 
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-front-page-testimonials-tab',
-    'title' => __('Front Page Testimonials', 'evolve'),
+    'title' => __('Testimonials', 'evolve'),
     'subsection' => true,
     'fields' => array(
         // Testimonials General
