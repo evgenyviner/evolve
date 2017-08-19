@@ -1029,6 +1029,11 @@ h6 {
   padding: 5px 0px;
 }
 
+h2.section_title {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
 /*!==========================================================================
    Widgets
    ========================================================================== */
@@ -2294,7 +2299,6 @@ p#copyright .credits a {
 
 /* ======================== Four Blocks ======================== */
 .home-content-boxes {
-  margin: 0 0 25px;
   overflow: hidden;
 }
 
@@ -2346,8 +2350,6 @@ p#copyright .credits a {
 .home-content-boxes {
   width: 100%;
   clear: both;
-  margin: 0 0 25px;
-  float: left;
 }
 
 .home-content-boxes .row {

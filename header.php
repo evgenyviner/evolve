@@ -166,16 +166,18 @@
                     </div><!-- /.fluid-width -->
                 <?php } ?>
 
+                <?php
+                if (is_front_page()) {
+                    get_template_part('frontpagebuilder');
+                }
+                ?>				
+
                 <!--BEGIN .content-->
                 <div class="content <?php semantic_body(); ?>">
                     <?php if (is_page_template('contact.php')): ?>
                         <div class="gmap" id="gmap"></div>
                     <?php endif; ?>
-                    <!--BEGIN .container-->
-                    <div class="container container-center row">
-                        <!--BEGIN #content-->
-                        <div id="content">
-                            <?php
-                            if (is_front_page()) {
-                                get_template_part('frontpagebuilder');
-                            }
+                    <!--BEGIN #content-->
+                    <div id="content">                            								
+                        <!--BEGIN .container-->
+                        <div class="container container-center row">

@@ -1317,7 +1317,7 @@ function evolve_bootstrap() {
         $layout_css = '';
         switch ($evolve_layout):
             case "1c":
-                $layout_css = ' full-width';
+                $layout_css = ' full-width container container-center';
                 break;
             case "2cl":
                 $layout_css = 'col-xs-12 col-sm-6 col-md-8 col-md-8 float-left';
@@ -1341,7 +1341,7 @@ function evolve_bootstrap() {
 
             if (($type == 1 && $evolve_sidebar_position == 'default') || ($type == 2 && $evolve_sidebar_position == 'default')) {
                 if (get_post_meta($post_id, 'evolve_full_width', true) == 'yes') {
-                    $layout_css = ' full-width';
+                    $layout_css = ' full-width container container-center';
                 }
             }
 
@@ -1370,7 +1370,7 @@ function evolve_bootstrap() {
         if ($type == 1) {
             if (class_exists('Woocommerce')):
                 if (is_cart() || is_checkout() || is_account_page() || (get_option('woocommerce_thanks_page_id') && is_page(get_option('woocommerce_thanks_page_id')))) {
-                    $layout_css .= ' full-width';
+                    $layout_css .= ' full-width container container-center';
                 }
             endif;
         }
@@ -1618,6 +1618,7 @@ function evolve_bootstrap() {
         $font_family = '';
         $font_style = '';
         $font_weight = '';
+		$font_align = '';
         $color = '';
         if ($options[$name]['font-size'] != '') {
             $font_size = $options[$name]['font-size'];
@@ -1629,12 +1630,16 @@ function evolve_bootstrap() {
         }
         if (isset($options[$name]['font-style']) && $options[$name]['font-style'] != '') {
             $font_style = $options[$name]['font-style'];
-            $css .= "$css_class{font-style:" . $font_style . ";}";
+            $css .= "$css_class{font-weight:" . $font_style . ";}";
         }
         if (isset($options[$name]['font-weight']) && $options[$name]['font-weight'] != '') {
             $font_weight = $options[$name]['font-weight'];
             $css .= "$css_class{font-weight:" . $font_weight . ";}";
         }
+        if (isset($options[$name]['text-align']) && $options[$name]['text-align'] != '') {
+            $font_align = $options[$name]['text-align'];
+            $css .= "$css_class{text-align:" . $font_align . ";}";
+        }		
         if (isset($options[$name]['color']) && $options[$name]['color'] != '') {
             $color = $options[$name]['color'];
             $css .= "$css_class{color:" . $color . ";}";

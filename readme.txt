@@ -26,6 +26,7 @@ Ben Moore - http://twitter.com/benmooredaily
 Vee-O - http://dribbble.com/veeo
 Wolfgang Moritzer - http://500px.com/wmoritzer
 Lukas Schweizer - http://www.lukas-schweizer.ch/
+Jordan Grimmer - http://www.jordangrimmer.co.uk
 
 Additional photos - CC0 1.0 Universal:
 Philipp Reiner - http://www.philippreiner.de/

@@ -21,11 +21,15 @@ function evolve_content_boxes() {
     if ($evolve_content_box4_enable === false) {
         $evolve_content_box4_enable = '';
     }
+	$evolve_content_box_section_title = '<h2 class="content_box_section_title section_title">'.evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind').'</h2><div class="clearfix"></div>';
+        if ($evolve_content_box_section_title === false) {
+            $evolve_content_box_section_title = '';
+        }
     if ($evolve_content_boxes == "1") {
 
-        echo "<div class='home-content-boxes'><div class='row'>";
+        echo "<div class='home-content-boxes'><div class='container container-center'><div class='row'>".$evolve_content_box_section_title;
 
-        $evolve_content_box1_title = evolve_get_option('evl_content_box1_title', 'Beautifully Simple');
+        $evolve_content_box1_title = evolve_get_option('evl_content_box1_title', 'Flat & Beautiful');
         if ($evolve_content_box1_title === false) {
             $evolve_content_box1_title = '';
         }
@@ -132,11 +136,11 @@ function evolve_content_boxes() {
         }
 
 
-        $evolve_content_box3_title = evolve_get_option('evl_content_box3_title', 'Contact Form Ready');
+        $evolve_content_box3_title = evolve_get_option('evl_content_box3_title', 'WooCommerce Ready');
         if ($evolve_content_box3_title === false) {
             $evolve_content_box3_title = '';
         }
-        $evolve_content_box3_desc = evolve_get_option('evl_content_box3_desc', 'Built-In Contact Page with Google Maps is a standard for this theme');
+        $evolve_content_box3_desc = evolve_get_option('evl_content_box3_desc', 'Start selling your products within few minutes using the WooCommerce feature');
         if ($evolve_content_box3_desc === false) {
             $evolve_content_box3_desc = '';
         }
@@ -144,7 +148,7 @@ function evolve_content_boxes() {
         if ($evolve_content_box3_button === false) {
             $evolve_content_box3_button = '';
         }
-        $evolve_content_box3_icon = evolve_get_option('evl_content_box3_icon', 'fa-send');
+        $evolve_content_box3_icon = evolve_get_option('evl_content_box3_icon', 'fa-shopping-basket');
         if ($evolve_content_box3_icon === false) {
             $evolve_content_box3_icon = '';
         }
@@ -164,11 +168,11 @@ function evolve_content_boxes() {
             echo "</div>";
         }
 
-        $evolve_content_box4_title = evolve_get_option('evl_content_box4_title', 'Modern Blog Layouts');
+        $evolve_content_box4_title = evolve_get_option('evl_content_box4_title', 'Prebuilt Demos');
         if ($evolve_content_box4_title === false) {
             $evolve_content_box4_title = '';
         }
-        $evolve_content_box4_desc = evolve_get_option('evl_content_box4_desc', 'Up to 3 Blog Layouts, responsive on all media devices');
+        $evolve_content_box4_desc = evolve_get_option('evl_content_box4_desc', 'Drag & Drop front page builder with many demos just perfect to start your new project');
         if ($evolve_content_box4_desc === false) {
             $evolve_content_box4_desc = '';
         }
@@ -176,7 +180,7 @@ function evolve_content_boxes() {
         if ($evolve_content_box4_button === false) {
             $evolve_content_box4_button = '';
         }
-        $evolve_content_box4_icon = evolve_get_option('evl_content_box4_icon', 'fa-tablet');
+        $evolve_content_box4_icon = evolve_get_option('evl_content_box4_icon', 'fa-object-ungroup');
         if ($evolve_content_box4_icon === false) {
             $evolve_content_box4_icon = '';
         }
@@ -195,7 +199,7 @@ function evolve_content_boxes() {
 
             echo "</div>";
         }
-        echo "</div></div><div class='clearfix'></div>";
+        echo "</div></div></div><div class='clearfix'></div>";
     }
 }
 
@@ -213,8 +217,13 @@ function evolve_testimonials() {
     .t4p-testimonials.t4p-testimonials-{$testimonials_counter}  blockquote { background-color:{$backgroundcolor}; color:{$textcolor}; }
     </style>
     ";
+	
+	$evolve_testimonials_section_title = '<h2 class="testimonials_section_title section_title">'.evolve_get_option('evl_testimonials_title', 'Why people love our themes').'</h2><div class="clearfix"></div>';
+        if ($evolve_testimonials_section_title === false) {
+            $evolve_testimonials_section_title = '';
+        }	
 
-    $html = "<div class='t4p-testimonials t4p-testimonials-$testimonials_counter'>$styles<div class='reviews'>";
+    $html = "<div class='t4p-testimonials t4p-testimonials-$testimonials_counter'>$styles<div class='container container-center'><div class='row'>".$evolve_testimonials_section_title."<div class='reviews'>";
 
     for ($i = 1; $i <= 2; $i ++) {
 
@@ -288,7 +297,7 @@ function evolve_testimonials() {
             $html .= "<div class='$review_class' ><blockquote><q>".do_shortcode( $content )."</q></blockquote>$inner_content</div>";
     }
 
-    $html .= "</div></div>";
+    $html .= "</div></div></div></div>";
     
     echo $html;
 

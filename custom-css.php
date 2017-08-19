@@ -53,6 +53,8 @@ $evolve_form_text_color               = evolve_get_option( 'evl_form_text_color'
 $evolve_form_border_color             = evolve_get_option( 'evl_form_border_color', '#E0E0E0' );
 $evolve_header_logo                   = evolve_get_option( 'evl_header_logo', '' );
 $evolve_bootstrap_layout              = evolve_get_option( 'evl_bootstrap_layout', 'bootstrap_left' );
+$evolve_content_boxes_section_back_color            = evolve_get_option( 'evl_content_boxes_section_back_color', '' );
+$evolve_testimonials_section_back_color            = evolve_get_option( 'evl_testimonials_section_back_color', '' );
 
 $evolve_css_data .= ' 
 body {
@@ -76,7 +78,7 @@ $evolve_css_data .= '
 }
 
 .content-box p {
-    margin: 25px 0 50px 0;
+    margin: 25px 0 80px 0;
 }
 
 @media (min-width: 768px) {
@@ -1497,6 +1499,12 @@ body #header.sticky-header img#logo-image {
     //Front Page Content Boxes typography style
     $evolve_css_data .= evolve_print_fonts('evl_content_boxes_title_font', '.content-box h2', '', '', '');
     $evolve_css_data .= evolve_print_fonts('evl_content_boxes_description_font', '.content-box p', '', '', '');
+	
+    //Content Boxes Title Section
+    $evolve_css_data .= evolve_print_fonts('evl_content_boxes_title_alignment', 'h2.content_box_section_title', $additional_css = '');	
+	
+    //Testimonials Title Section
+    $evolve_css_data .= evolve_print_fonts('evl_testimonials_title_alignment', 'h2.testimonials_section_title', $additional_css = '');		
 
     //H1 font, H2 font, H3 font, H4 font, H5 font and H6 font
     for ($i = 1; $i < 7; $i ++) {
@@ -1890,6 +1898,29 @@ body #header.sticky-header {
 }
 ';
     }
+	
+$options = get_option('evl_options');
+$evolve_content_top_padding = $options['evl_content_top_bottom_padding']['padding-top'];
+$evolve_content_bottom_padding = $options['evl_content_top_bottom_padding']['padding-bottom'];
+
+if (!empty($evolve_content_top_padding)) {
+    $evolve_content_top_padding = $evolve_content_top_padding;
+} else {
+    $evolve_content_top_padding = '35px';
+}
+
+if (!empty($evolve_content_bottom_padding)) {
+    $evolve_content_bottom_padding = $evolve_content_bottom_padding;
+} else {
+    $evolve_content_bottom_padding = '0px';
+}
+
+$evolve_css_data .= '
+.content {
+	padding-top: ' . $evolve_content_top_padding . ';
+	padding-bottom: ' . $evolve_content_bottom_padding . ';
+}
+';
 
 if (!empty($evolve_social_color)) {
 $evolve_css_data .= '
@@ -3664,6 +3695,121 @@ $evolve_css_data .= '
 ';
 
 endif;
+
+/* Content Boxes */
+
+$options = get_option('evl_options');
+$evolve_content_boxes_section_padding_top = $options['evl_content_boxes_section_padding']['padding-top'];
+$evolve_content_boxes_section_padding_bottom = $options['evl_content_boxes_section_padding']['padding-bottom'];
+$evolve_content_boxes_section_padding_left = $options['evl_content_boxes_section_padding']['padding-left'];
+$evolve_content_boxes_section_padding_right = $options['evl_content_boxes_section_padding']['padding-right'];
+$evolve_content_boxes_section_padding_background_repeat = evolve_get_option('evl_content_boxes_section_image_background_repeat', 'no-repeat');
+$evolve_content_boxes_section_padding_background_position = evolve_get_option('evl_content_boxes_section_image_background_position', 'center top');
+
+if (!empty($evolve_content_boxes_section_padding_top)) {
+    $evolve_content_boxes_section_padding_top = $evolve_content_boxes_section_padding_top;
+} else {
+    $evolve_content_boxes_section_padding_top = '25px';
+}
+
+if (!empty($evolve_content_boxes_section_padding_bottom)) {
+    $evolve_content_boxes_section_padding_bottom = $evolve_content_boxes_section_padding_bottom;
+} else {
+    $evolve_content_boxes_section_padding_bottom = '25px';
+}
+
+$evolve_css_data .= '
+.home-content-boxes .row {
+	padding-top: ' . $evolve_content_boxes_section_padding_top . ';
+	padding-bottom: ' . $evolve_content_boxes_section_padding_bottom . ';
+}
+@media (min-width: 768px) {
+	.home-content-boxes .row {
+		padding-left: ' . $evolve_content_boxes_section_padding_left . ';
+		padding-right: ' . $evolve_content_boxes_section_padding_right . ';	
+	}
+}	
+';
+
+$evolve_content_boxes_section_image_src           = evolve_get_option('evl_content_boxes_section_background_image');
+$evolve_content_boxes_section_image               = evolve_get_option('evl_content_boxes_section_image', 'cover');
+$evolve_content_boxes_section_background_repeat   = evolve_get_option('evl_content_boxes_section_image_background_repeat', 'no-repeat');
+$evolve_content_boxes_section_background_position = evolve_get_option('evl_content_boxes_section_image_background_position', 'center top');
+
+if (!empty($evolve_content_boxes_section_back_color)) {
+$evolve_css_data .= '
+.home-content-boxes {
+    background-color: ' . $evolve_content_boxes_section_back_color . ';
+}	
+';
+    }	
+
+if ($evolve_content_boxes_section_image_src) {
+$evolve_css_data .= '
+.home-content-boxes {
+    background: url(' . esc_url($evolve_content_boxes_section_image_src) . ') ' . $evolve_content_boxes_section_background_position . ' ' . $evolve_content_boxes_section_background_repeat . ';
+    background-size: ' . $evolve_content_boxes_section_image . ';
+}
+';
+    }
+	
+
+/* Testimonials */
+
+$options = get_option('evl_options');
+$evolve_testimonials_section_padding_top = $options['evl_testimonials_section_padding']['padding-top'];
+$evolve_testimonials_section_padding_bottom = $options['evl_testimonials_section_padding']['padding-bottom'];
+$evolve_testimonials_section_padding_left = $options['evl_testimonials_section_padding']['padding-left'];
+$evolve_testimonials_section_padding_right = $options['evl_testimonials_section_padding']['padding-right'];
+$evolve_testimonials_section_padding_background_repeat = evolve_get_option('evl_testimonials_section_image_background_repeat', 'no-repeat');
+$evolve_testimonials_section_padding_background_position = evolve_get_option('evl_testimonials_section_image_background_position', 'center top');
+
+if (!empty($evolve_testimonials_section_padding_top)) {
+    $evolve_testimonials_section_padding_top = $evolve_testimonials_section_padding_top;
+} else {
+    $evolve_testimonials_section_padding_top = '40px';
+}
+
+if (!empty($evolve_testimonials_section_padding_bottom)) {
+    $evolve_testimonials_section_padding_bottom = $evolve_testimonials_section_padding_bottom;
+} else {
+    $evolve_testimonials_section_padding_bottom = '40px';
+}
+
+$evolve_css_data .= '
+.t4p-testimonials .row {
+	padding-top: ' . $evolve_testimonials_section_padding_top . ';
+	padding-bottom: ' . $evolve_testimonials_section_padding_bottom . ';
+}
+@media (min-width: 768px) {
+	.t4p-testimonials .row {
+		padding-left: ' . $evolve_testimonials_section_padding_left . ';
+		padding-right: ' . $evolve_testimonials_section_padding_right . ';	
+	}
+}	
+';
+
+$evolve_testimonials_section_image_src           = evolve_get_option('evl_testimonials_section_background_image');
+$evolve_testimonials_section_image               = evolve_get_option('evl_testimonials_section_image', 'cover');
+$evolve_testimonials_section_background_repeat   = evolve_get_option('evl_testimonials_section_image_background_repeat', 'no-repeat');
+$evolve_testimonials_section_background_position = evolve_get_option('evl_testimonials_section_image_background_position', 'center top');
+
+if (!empty($evolve_testimonials_section_back_color)) {
+$evolve_css_data .= '
+.t4p-testimonials {
+    background-color: ' . $evolve_testimonials_section_back_color . ';
+}	
+';
+    }	
+
+if ($evolve_testimonials_section_image_src) {
+$evolve_css_data .= '
+.t4p-testimonials {
+    background: url(' . esc_url($evolve_testimonials_section_image_src) . ') ' . $evolve_testimonials_section_background_position . ' ' . $evolve_testimonials_section_background_repeat . ';
+    background-size: ' . $evolve_testimonials_section_image . ';
+}
+';
+    }
 
 $evolve_css_data .= '
 ul.nav-menu li {
