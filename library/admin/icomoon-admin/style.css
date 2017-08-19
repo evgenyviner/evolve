@@ -1,17 +1,15 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('icomoon.eot?1bn9yo');
-    src:    url('icomoon.eot?1bn9yo#iefix') format('embedded-opentype'),
-        url('icomoon.ttf?1bn9yo') format('truetype'),
-        url('icomoon.woff?1bn9yo') format('woff'),
-        url('icomoon.svg?1bn9yo#icomoon') format('svg');
+    src: url('icomoon.eot?utvetp');
+    src: url('icomoon.eot?utvetp#iefix') format('embedded-opentype'), url('icomoon.ttf?utvetp') format('truetype'), url('icomoon.woff?utvetp') format('woff'), url('icomoon.svg?utvetp#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 [class^="t4p-icon-"],
 [class*=" t4p-icon-"] {
-    font-family: 'icomoon';
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -21,6 +19,10 @@
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.t4p-icon-hammer:before {
+    content: "\e900";
 }
 
 .t4p-icon-file:before {
@@ -37,6 +39,14 @@
 
 .t4p-icon-file4:before {
     content: "\e603";
+}
+
+.t4p-icon-appbarsocialfacebook:before {
+    content: "\e604";
+}
+
+.t4p-icon-appbarimagebacklight:before {
+    content: "\e605";
 }
 
 .t4p-icon-appbarcart:before {
@@ -75,24 +85,12 @@
     content: "\e60e";
 }
 
-.t4p-icon-appbarimagebacklight:before {
-    content: "\e605";
-}
-
 .t4p-icon-appbarimagemultiple:before {
     content: "\e60f";
 }
 
-.t4p-icon-appbarimageselect:before {
-    content: "\e620";
-}
-
 .t4p-icon-appbarinbox:before {
     content: "\e610";
-}
-
-.t4p-icon-appbarlayer:before {
-    content: "\e621";
 }
 
 .t4p-icon-appbarlifesaver:before {
@@ -131,10 +129,6 @@
     content: "\e619";
 }
 
-.t4p-icon-appbarsocialfacebook:before {
-    content: "\e604";
-}
-
 .t4p-icon-appbarsocialtwitter:before {
     content: "\e61a";
 }
@@ -157,6 +151,18 @@
 
 .t4p-icon-appbarwindowmaximize:before {
     content: "\e61f";
+}
+
+.t4p-icon-appbarimageselect:before {
+    content: "\e620";
+}
+
+.t4p-icon-appbarlayer:before {
+    content: "\e621";
+}
+
+.t4p-icon-star-full:before {
+    content: "\e901";
 }
 
 .t4p-icon-titlebar:before {
