@@ -853,9 +853,16 @@ function evolve_bootstrap() {
         $separator = '';
 
         if (is_category()) {
-            $category = get_the_category();
-            $ID = $category[0]->cat_ID;
-            echo is_wp_error($cat_parents = get_category_parents($ID, TRUE, '', FALSE)) ? '' : '<li>' . $cat_parents . '</li>';
+            $thisCat = get_category( get_query_var('cat'), false );
+            if ( $thisCat->parent != 0 ) {
+                $cats = get_category_parents( $thisCat->parent, TRUE );
+                $cats = explode( '</a>/', $cats );
+                foreach ( $cats as $key => $cat ) {
+                    if ( $cat )
+                        echo '<li>' . $cat . '</a></li>';
+                }
+            }
+            echo '<li>' . $thisCat->name . '</li>';
         }
 
         if (is_tax()) {
@@ -912,7 +919,16 @@ function evolve_bootstrap() {
         if (is_search()) {
             echo '<li>' . __("Search", 'evolve') . '</li>';
         }
-        if (is_year()) {
+        if ( is_day() ) {
+            echo '<li><a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . "</a></li>";
+            echo '<li><a href="' . get_month_link(get_the_time('Y'),get_the_time('m')) . '">' . get_the_time('F') . "</a></li>";
+            echo '<li>' . get_the_time('d') . '</li>';
+        }
+        if ( is_month() ) {
+            echo '<li><a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . "</a></li>";
+            echo '<li>' . get_the_time('F') . '</li>';
+        }
+        if ( is_year() ) {
             echo '<li>' . get_the_time('Y') . '</li>';
         }
         if (is_attachment()) {
