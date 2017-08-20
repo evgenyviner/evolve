@@ -21,10 +21,12 @@ function evolve_content_boxes() {
     if ($evolve_content_box4_enable === false) {
         $evolve_content_box4_enable = '';
     }
-	$evolve_content_box_section_title = '<h2 class="content_box_section_title section_title">'.evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind').'</h2><div class="clearfix"></div>';
-        if ($evolve_content_box_section_title === false) {
+	$evolve_content_box_section_title = evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind');
+        if ($evolve_content_box_section_title == false) {
             $evolve_content_box_section_title = '';
-        }
+        } else {
+			$evolve_content_box_section_title = '<h2 class="content_box_section_title section_title">'.evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind').'</h2><div class="clearfix"></div>';
+		}
     if ($evolve_content_boxes == "1") {
 
         echo "<div class='home-content-boxes'><div class='container container-center'><div class='row'>".$evolve_content_box_section_title;
@@ -218,10 +220,13 @@ function evolve_testimonials() {
     </style>
     ";
 	
-	$evolve_testimonials_section_title = '<h2 class="testimonials_section_title section_title">'.evolve_get_option('evl_testimonials_title', 'Why people love our themes').'</h2><div class="clearfix"></div>';
-        if ($evolve_testimonials_section_title === false) {
+	$evolve_testimonials_section_title = evolve_get_option('evl_testimonials_title', 'Why people love our themes');
+        if ($evolve_testimonials_section_title == false) {
             $evolve_testimonials_section_title = '';
-        }	
+        } else {
+			$evolve_testimonials_section_title = '<h2 class="testimonials_section_title section_title">'.evolve_get_option('evl_testimonials_title', 'Why people love our themes').'</h2><div class="clearfix"></div>';
+
+		}
 
     $html = "<div class='t4p-testimonials t4p-testimonials-$testimonials_counter'>$styles<div class='container container-center'><div class='row'>".$evolve_testimonials_section_title."<div class='reviews'>";
 
