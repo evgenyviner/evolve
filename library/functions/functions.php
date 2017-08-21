@@ -177,12 +177,12 @@ function evolve_get_terms($term = NULL, $glue = ', ') {
         return;
 
     $thing = explode($separator, $terms);
-    foreach ($thing as $i => $str) {
-        if (strstr($str, ">$current<")) {
-            unset($thing[$i]);
-            break;
-        }
-    }
+//    foreach ($thing as $i => $str) {
+//        if (strstr($str, ">$current<")) {
+//            unset($thing[$i]);
+//            break;
+//        }
+//    }
     if (empty($thing))
         return false;
 
