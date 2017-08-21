@@ -231,7 +231,8 @@ function evolve_testimonials() {
     $html = "<div class='t4p-testimonials t4p-testimonials-$testimonials_counter'>$styles<div class='container container-center'><div class='row'>".$evolve_testimonials_section_title."<div class='reviews'>";
 
     for ($i = 1; $i <= 2; $i ++) {
-
+        $enabled = $evl_options["evl_fp_testimonial{$i}"];
+        if ($enabled == 1) {
             $name  = $evl_options["evl_fp_testimonial{$i}_name"];
             $avatar = 'image';
             $image = $evl_options["evl_fp_testimonial{$i}_avatar"]['url'];
@@ -300,6 +301,7 @@ function evolve_testimonials() {
             }
 
             $html .= "<div class='$review_class' ><blockquote><q>".do_shortcode( $content )."</q></blockquote>$inner_content</div>";
+        }
     }
 
     $html .= "</div></div></div></div>";

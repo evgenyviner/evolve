@@ -1188,6 +1188,16 @@ $slide_defaults = array(
 );
 
 for ($i = 1; $i <= 2; $i++) {
+
+    $testimonialfields[] = array(
+        'id' => "{$evolve_shortname}_fp_testimonial{$i}",
+        'title' => sprintf(__('Enable Testimonial %d ?', 'evolve'), $i),
+        'type' => 'switch',
+        'on' => __('Enabled', 'evolve'),
+        'off' => __('Disabled', 'evolve'),
+        'default' => 1,
+    );
+
     $testimonialfields[] = array(
         "title" => sprintf(__('Testimonial %d Avatar', 'evolve'), $i),
         "subtitle" => sprintf(__('Upload an image for the Testimonial %d, or specify an image URL directly', 'evolve'), $i),
@@ -1270,6 +1280,8 @@ Redux::setSection($evolve_opt_name, array(
                 $testimonialfields[4],
                 $testimonialfields[5],
                 $testimonialfields[6],
+                $testimonialfields[7],
+                $testimonialfields[8],
         array(
             'id'        => 'evl-fp-testimonial-slides-end',
             'type'      => 'section',
