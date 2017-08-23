@@ -711,6 +711,34 @@ Redux::setSection($evolve_opt_name, array(
                 )
             ),
         ),
+        // Settings of import shortcode in pages
+        array(
+            'id'       => 'evl-front-page-import-start',
+            'type'     => 'section',
+            'title'    => 'Import Shortcode',
+            'indent' => true
+        ),
+                array(
+                    'subtitle' => __('Choose the page when you add shortcode content', 'evolve'),
+                    'id' => 'evl-front-page-add-page',
+                    'compiler' => true,
+                    'type' => 'select',
+                    'options' => $page_title,
+                    'title' => __('Pages', 'evolve'),
+                    'default' => 'center',
+                ),
+                array(
+                    'id' => 'evl-front-page-shortcode',
+                    'type' => 'raw',
+                    'title' => __('Add Content Boxes Shortcode', 'evolve'),
+                    'content' => __('<a class="button button-primary" href="">Add Shortcode</a>', 'evolve'),
+                    'full_width' => false,
+                ),
+        array(
+            'id'       => 'evl-front-page-import-end',
+            'type'     => 'section',
+            'indent' => false
+        ),
     ),
         )
 );
@@ -1192,34 +1220,6 @@ Redux::setSection($evolve_opt_name, array(
             'type'   => 'section',
             'indent' => false,
         ),
-        // Settings of content boxes import shortcode in pages
-        array(
-            'id'       => 'evl-front-page-content-boxes-import-start',
-            'type'     => 'section',
-            'title'    => 'Import Shortcode',
-            'indent' => true 
-        ),
-                array(
-                    'subtitle' => __('Choose the page when you add shortcode content', 'evolve'),
-                    'id' => 'evl-front-page-content-boxes-add-page',
-                    'compiler' => true,
-                    'type' => 'select',
-                    'options' => $page_title,
-                    'title' => __('Pages', 'evolve'),
-                    'default' => 'center',
-                ),
-                array(
-                    'id' => 'evl-front-page-content-boxes-shortcode',
-                    'type' => 'raw',
-                    'title' => __('Add Content Boxes Shortcode', 'evolve'),
-                    'content' => __('<a class="button button-primary" href="">Add Shortcode</a>', 'evolve'),
-                    'full_width' => false,
-                ),
-        array(
-            'id'       => 'evl-front-page-content-boxes-import-end',
-            'type'     => 'section',
-            'indent' => false 
-        ),
     ),
         )
 );
@@ -1452,34 +1452,6 @@ Redux::setSection($evolve_opt_name, array(
             'id'     => 'evl-front-page-subsec-testimonials-section-end',
             'type'   => 'section',
             'indent' => false,
-        ),
-        // Settings of testimonial import shortcode in pages
-        array(
-            'id'       => 'evl-front-page-testimonials-import-start',
-            'type'     => 'section',
-            'title'    => 'Import Shortcode',
-            'indent' => true 
-        ),
-                array(
-                    'subtitle' => __('Choose the page when you add shortcode content', 'evolve'),
-                    'id' => 'evl-front-page-testimonials-add-page',
-                    'compiler' => true,
-                    'type' => 'select',
-                    'options' => $page_title,
-                    'title' => __('Pages', 'evolve'),
-                    'default' => 'center',
-                ),
-                array(
-                    'id' => 'evl-front-page-testimonials-shortcode',
-                    'type' => 'raw',
-                    'title' => __('Add Testimonial Shortcode', 'evolve'),
-                    'content' => __('<a class="button button-primary" href="">Add Shortcode</a>', 'evolve'),
-                    'full_width' => false,
-                ),
-        array(
-            'id'       => 'evl-front-page-testimonials-import-end',
-            'type'     => 'section',
-            'indent' => false 
         ),
     ),
         )
