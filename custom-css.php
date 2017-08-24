@@ -895,8 +895,7 @@ ul.nav-menu li.current-menu-ancestor li.current-menu-item > a {
     border-bottom: 1px solid #404040;
 }
 
-#wrapper .dd-options li,
-.mean-container .mean-nav ul a {
+#wrapper .dd-options li {
     border-bottom: 1px solid #404040;
 }
 
@@ -1863,7 +1862,7 @@ $evolve_css_data .= '
 ';
     }
 
-if ($evolve_width_layout == "fluid") {
+if ($evolve_width_layout == "fluid" || is_page_template('100-width.php')) {
 $evolve_css_data .= '
 .custom-header {
     position: relative;
@@ -1873,7 +1872,7 @@ $evolve_css_data .= '
 ';
     }
 
-if ($evolve_width_layout == "fluid") {
+if ($evolve_width_layout == "fluid" || is_page_template('100-width.php')) {
 $evolve_css_data .= '
 body #header.sticky-header {
     margin: 0px;
@@ -1883,7 +1882,7 @@ body #header.sticky-header {
 ';
     }
 
-if ($evolve_width_layout == "fixed") {
+if ($evolve_width_layout == "fixed" && !is_page_template('100-width.php')) {
 $evolve_css_data .= '
 body #header.sticky-header {
     margin-left: -16px;
@@ -1891,7 +1890,7 @@ body #header.sticky-header {
 ';
     }
 
-if ($evolve_width_layout == "fixed" && $evolve_menu_background == "1") {
+if ($evolve_width_layout == "fixed" && $evolve_menu_background == "1" && !is_page_template('100-width.php')) {
 $evolve_css_data .= '
 body #header.sticky-header {
     margin-left: -15px;
@@ -2894,10 +2893,15 @@ $evolve_css_data .= '
     #bootstrap-slider .carousel-caption p {
         font-size: 90%;
     }
-    
+
     #wrapper .primary-menu .link-effect a.dd-selected{
         display: inline-block !important;
         padding: 0;
+    }
+
+    #wrapper .primary-menu .link-effect a {
+        line-height: normal;
+        padding: 10px;
     }
 }
 

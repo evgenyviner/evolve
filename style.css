@@ -6224,6 +6224,12 @@ ol.commentlist {
   line-height: 35px;
 }
 
+.bbp-topic-form .select-arrow {
+    height: 36px;
+    top: 2px;
+    right: 0px;  
+}
+
 .product .select-arrow {
   top: 11px;
   right: 12px;

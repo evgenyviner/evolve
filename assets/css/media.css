@@ -482,6 +482,10 @@
     body.body_blank.admin-bar {
         top: 45px;
     }
+    html #wpadminbar {
+        z-index: 9999999;
+        position: fixed;
+    }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
@@ -1016,5 +1020,17 @@
     .content .image .image-extras .image-extras-content h3,
     .content .image .image-extras .image-extras-content h3 a{
         font-size: 14px;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .link-effect .dd-container .dd-select,
+    .link-effect .dd-selected {
+        pointer-events: none;
+    }
+    .link-effect .dd-selected .dd-selected-text {
+        pointer-events: all;
+        cursor: pointer;
     }
 }

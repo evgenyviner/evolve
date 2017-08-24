@@ -511,6 +511,14 @@ ol.commentlist {
     width: 100%;
 }
 
+.bbp-topic-form {
+    .select-arrow{
+        height: 36px;
+        top: 2px;
+        right: 0px;    
+    }
+}
+
 .select-arrow {
     background: $full-white-color;
     width: 35px;
