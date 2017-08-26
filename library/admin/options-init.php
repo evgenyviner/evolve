@@ -701,7 +701,7 @@ Redux::setSection($evolve_opt_name, array(
                     'blog_posts'            => __('Blog Posts', 'evolve'),
                     'google_maps'           => __('Google Maps', 'evolve'),
                     'wooCommerce_products'  => __('WooCommerce Products', 'evolve'),
-                    'counter_boxes'         => __('Counter Boxes', 'evolve'),
+                    'counter_circles'         => __('Counter Circles', 'evolve'),
                     'custom_content'        => __('Custom Content',	 'evolve'),
                 ),
                 'disabled' => array(
