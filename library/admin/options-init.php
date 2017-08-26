@@ -696,17 +696,12 @@ Redux::setSection($evolve_opt_name, array(
             'options' => array(
                 'enabled'  => array(
 				    'page_content_sidebar'  => __('Page Content & Sidebar', 'evolve'),
-                    'content_boxes'         => __('Content Boxes', 'evolve'),
-                    'testimonials'          => __('Testimonials', 'evolve'),
-                    'blog_posts'            => __('Blog Posts', 'evolve'),
-                    'google_maps'           => __('Google Maps', 'evolve'),
-<<<<<<< .mine
-                    'woocommerce_products'  => __('WooCommerce Products', 'evolve'),
-                    'counter_boxes'         => __('Counter Circlees', 'evolve'),
-=======
-                    'wooCommerce_products'  => __('WooCommerce Products', 'evolve'),
-                    'counter_circles'         => __('Counter Circles', 'evolve'),
->>>>>>> .theirs
+                    'content_box'         => __('Content Box', 'evolve'),
+                    'testimonial'          => __('Testimonial', 'evolve'),
+                    'blog_post'            => __('Blog Post', 'evolve'),
+                    'google_map'           => __('Google Map', 'evolve'),
+                    'woocommerce_product'  => __('WooCommerce Product', 'evolve'),
+                    'counter_circle'         => __('Counter Circle', 'evolve'),
                     'custom_content'        => __('Custom Content',	 'evolve'),
                 ),
                 'disabled' => array(
