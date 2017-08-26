@@ -700,8 +700,13 @@ Redux::setSection($evolve_opt_name, array(
                     'testimonials'          => __('Testimonials', 'evolve'),
                     'blog_posts'            => __('Blog Posts', 'evolve'),
                     'google_maps'           => __('Google Maps', 'evolve'),
+<<<<<<< .mine
                     'woocommerce_products'  => __('WooCommerce Products', 'evolve'),
                     'counter_boxes'         => __('Counter Circlees', 'evolve'),
+=======
+                    'wooCommerce_products'  => __('WooCommerce Products', 'evolve'),
+                    'counter_circles'         => __('Counter Circles', 'evolve'),
+>>>>>>> .theirs
                     'custom_content'        => __('Custom Content',	 'evolve'),
                 ),
                 'disabled' => array(
