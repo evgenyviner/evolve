@@ -1,7 +1,6 @@
 <?php
 
 /* Front Page Content Boxes */
-
 function evolve_content_boxes() {
 
     $evolve_content_boxes = evolve_get_option('evl_content_boxes', '1');
@@ -206,7 +205,6 @@ function evolve_content_boxes() {
 }
 
 /* Front Page Testimonials */
-
 function evolve_testimonials() {
     global $evl_options;
     $testimonials_counter = 1;
@@ -219,14 +217,14 @@ function evolve_testimonials() {
     .t4p-testimonials.t4p-testimonials-{$testimonials_counter}  blockquote { background-color:{$backgroundcolor}; color:{$textcolor}; }
     </style>
     ";
-	
-	$evolve_testimonials_section_title = evolve_get_option('evl_testimonials_title', 'Why people love our themes');
-        if ($evolve_testimonials_section_title == false) {
-            $evolve_testimonials_section_title = '';
-        } else {
-			$evolve_testimonials_section_title = '<h2 class="testimonials_section_title section_title">'.evolve_get_option('evl_testimonials_title', 'Why people love our themes').'</h2><div class="clearfix"></div>';
 
-		}
+    $evolve_testimonials_section_title = evolve_get_option('evl_testimonials_title', 'Why people love our themes');
+    if ($evolve_testimonials_section_title == false) {
+        $evolve_testimonials_section_title = '';
+    } else {
+        $evolve_testimonials_section_title = '<h2 class="testimonials_section_title section_title">'.evolve_get_option('evl_testimonials_title', 'Why people love our themes').'</h2><div class="clearfix"></div>';
+
+    }
 
     $html = "<div class='t4p-testimonials t4p-testimonials-$testimonials_counter'>$styles<div class='container container-center'><div class='row'>".$evolve_testimonials_section_title."<div class='reviews'>";
 
@@ -334,4 +332,100 @@ function evolve_get_attachment_id_from_url( $attachment_url = '' ) {
                 $attachment_id = $wpdb->get_var( $wpdb->prepare( "SELECT wposts.ID FROM $wpdb->posts wposts, $wpdb->postmeta wpostmeta WHERE wposts.ID = wpostmeta.post_id AND wpostmeta.meta_key = '_wp_attached_file' AND wpostmeta.meta_value = '%s' AND wposts.post_type = 'attachment'", $attachment_url ) );
         }
         return $attachment_id;
+}
+
+/* Front Page Counter Box */
+function evolve_counter_box() {
+    global $evl_options;
+
+    $evolve_counterbox_section_title = evolve_get_option('evl_counterbox_title', 'Our Active User');
+    if ($evolve_counterbox_section_title == false) {
+        $evolve_counterbox_section_title = '';
+    } else {
+        $evolve_counterbox_section_title = '<h2 class="counterbox_section_title section_title">'.evolve_get_option('evl_counterbox_title', 'Our Active User').'</h2><div class="clearfix"></div>';
+    }
+
+    $columns = $evl_options["evl_fp_counterbox_column"];
+
+    $parent_attr_class = sprintf( 't4p-counters-box counters-box row t4p-clearfix t4p-columns-%s',  $columns );
+
+    $html   =   "<div class='$parent_attr_class'>";
+    $html   .=  "<div class='container container-center'><div class='row'>".$evolve_counterbox_section_title;
+
+    for ($i = 1; $i <= 3; $i ++) {
+        $enabled = $evl_options["evl_fp_counterbox{$i}"];
+        if ($enabled == 1) {
+
+            $value      = $evl_options["evl_fp_counterbox{$i}_value"];
+            $unit       = '';
+            $unit_pos   = 'suffix';
+            $icon       = $evl_options["evl_fp_counterbox{$i}_icon"];
+            $border     = 'no';
+            $color      = $evl_options["evl_fp_counterbox{$i}_textcolor"];
+            $direction  = 'up';
+            $bgcolor    = $evl_options["evl_fp_counterbox{$i}_bgcolor"];
+            $content    = $evl_options["evl_fp_counterbox{$i}_text"];
+
+            $value = intval( $value );
+
+            $unit_output = '';
+            if( $unit ) {
+                    $unit_output = "<span class='unit'>$unit</span>";
+            }
+
+            if( $direction == 'up' ) {
+                    $init_value = 0;
+            } else {
+                    $init_value = $value;
+            }
+
+            $counter = "<span class='display-counter' data-value='$value' data-direction='$direction'>$init_value</span>";
+
+            $icon_output = '';
+            if( $icon ) {
+                    $icon_output = "<i class='counter-box-icon fa fontawesome-icon $icon size-large'></i>";
+            }
+
+            if( $unit_pos == 'prefix' ) {
+                    $counter = $icon_output . $unit_output . $counter;
+            } else {
+                    $counter = $icon_output . $counter . $unit_output;
+            }
+
+            $counter_container_class = 'content-box-percentage content-box-counter';
+            $counter_container_style = '';
+
+            if( $color ) {
+                    $counter_container_style = sprintf( 'color:%s;', $color );
+            }
+
+            $counter_wrapper = "<div class='$counter_container_class' style='$counter_container_style'>$counter</div>";
+
+            $content_output = "<div class='counter-box-content' style='$counter_container_style'>". $content ."</div>";
+
+            $border_class = '';
+            if( $border == 'yes' ) {
+                    $border_class .= ' counter-box-border';
+            }
+
+            $box_bgcolor = '';
+            if( $bgcolor ) {
+                    $box_bgcolor = sprintf( 'background-color:%s;', $bgcolor );
+            }
+
+            if( $columns ) {
+                    $columns = 12 / $columns;
+            } else {
+                    $columns = 4;
+            }
+            $child_attr_class = 't4p-counter-box t4p-column col-counter-box counter-box-wrapper col-lg-' . $columns . ' col-md-' . $columns . ' col-sm-' . $columns;
+
+            $html .= "<div class='$child_attr_class'><div class='counter-box-container $border_class' style='$box_bgcolor'>$counter_wrapper $content_output</div></div>";
+        }
+    }
+
+    $html .= "</div></div>";
+    $html .= "</div><div class='clearfix'></div>";
+
+    echo $html;
 }
