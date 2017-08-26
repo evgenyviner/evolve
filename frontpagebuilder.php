@@ -21,27 +21,27 @@ if ($evl_frontpage_elements):
                                 break;
                         case 'blog_posts':
                                 if ($elementval) {
-
+//                                        evolve_blog_posts();
                                 }
                                 break;
                         case 'google_maps':
                                 if ($elementval) {
-
+//                                        evolve_google_maps();
                                 }
                                 break;
-                        case 'wooCommerce_products':
+                        case 'woocommerce_products':
                                 if ($elementval) {
-
+//                                        evolve_woocommerce_products();
                                 }
                                 break;
                         case 'counter_boxes':
                                 if ($elementval) {
-
+//                                        evolve_counter_box();
                                 }
                                 break;
                         case 'custom_content':
                                 if ($elementval) {
-
+//                                        evolve_custom_content();
                                 }
                                 break;
                 }

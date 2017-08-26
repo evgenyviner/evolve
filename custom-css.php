@@ -54,7 +54,8 @@ $evolve_form_border_color             = evolve_get_option( 'evl_form_border_colo
 $evolve_header_logo                   = evolve_get_option( 'evl_header_logo', '' );
 $evolve_bootstrap_layout              = evolve_get_option( 'evl_bootstrap_layout', 'bootstrap_left' );
 $evolve_content_boxes_section_back_color            = evolve_get_option( 'evl_content_boxes_section_back_color', '' );
-$evolve_testimonials_section_back_color            = evolve_get_option( 'evl_testimonials_section_back_color', '' );
+$evolve_testimonials_section_back_color             = evolve_get_option( 'evl_testimonials_section_back_color', '' );
+$evolve_counterbox_section_back_color               = evolve_get_option( 'evl_counterbox_section_back_color', '' );
 
 $evolve_css_data .= ' 
 body {
