@@ -715,28 +715,39 @@ Redux::setSection($evolve_opt_name, array(
                 )
             ),
         ),
+        array(
+            'subtitle' => sprintf(__('Unlock <strong>50+ new elements</strong> with Drag & Drop Composer for your current layout by converting it to a page with shortcodes.', 'evolve')),
+            'id' => 'evl_convert_info',
+            'style' => 'warning',
+            'type' => 'info',
+            'notice' => false,
+        ),		
         // Settings of import shortcode in pages
         array(
             'id'       => 'evl-front-page-import-start',
             'type'     => 'section',
-            'title'    => 'Import Shortcode',
+            'title'    => 'Extend layout elements by converting them into shortcodes and modify them with Theme4Press Composer (drag & drop builder)',
             'indent' => true
         ),
                 array(
-                    'subtitle' => __('Choose the page when you add shortcode content', 'evolve'),
+                    'subtitle' => __('Choose the page where selected layout will be converted to shortcodes', 'evolve'),
                     'id' => 'evl-front-page-add-page',
                     'compiler' => true,
                     'type' => 'select',
                     'options' => $page_title,
-                    'title' => __('Pages', 'evolve'),
+                    'title' => __('Select a page', 'evolve'),
                     'default' => 'center',
+					'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+					'class' => $evolve_prem_class,						
                 ),
                 array(
                     'id' => 'evl-front-page-shortcode',
                     'type' => 'raw',
-                    'title' => __('Add Shortcode In Page', 'evolve'),
-                    'content' => __('<a class="button button-primary" href="">Add Shortcode</a>', 'evolve'),
+                    'title' => __('Convert elements', 'evolve'),
+                    'content' => __('<a class="button button-primary" href="">Convert and Edit with Theme4Press Composer</a>', 'evolve'),
                     'full_width' => false,
+					'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+					'class' => $evolve_prem_class,						
                 ),
         array(
             'id'       => 'evl-front-page-import-end',
