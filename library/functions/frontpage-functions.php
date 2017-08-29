@@ -334,98 +334,61 @@ function evolve_get_attachment_id_from_url( $attachment_url = '' ) {
         return $attachment_id;
 }
 
-/* Front Page Counter Box */
-function evolve_counter_box() {
+/* Front Page Counter Circle */
+function evolve_counter_circle() {
     global $evl_options;
 
-    $evolve_counterbox_section_title = evolve_get_option('evl_counterbox_title', 'Our Active User');
-    if ($evolve_counterbox_section_title == false) {
-        $evolve_counterbox_section_title = '';
+    $evolve_counter_circle_section_title = evolve_get_option('evl_counter_circle_title', 'Our Active User');
+    if ($evolve_counter_circle_section_title == false) {
+        $evolve_counter_circle_section_title = '';
     } else {
-        $evolve_counterbox_section_title = '<h2 class="counterbox_section_title section_title">'.evolve_get_option('evl_counterbox_title', 'Our Active User').'</h2><div class="clearfix"></div>';
+        $evolve_counter_circle_section_title = '<h2 class="counter_circle_section_title section_title">'.evolve_get_option('evl_counter_circle_title', 'Our Active User').'</h2><div class="clearfix"></div>';
     }
 
-    $columns = $evl_options["evl_fp_counterbox_column"];
-
-    $parent_attr_class = sprintf( 't4p-counters-box counters-box row t4p-clearfix t4p-columns-%s',  $columns );
-
-    $html   =   "<div class='$parent_attr_class'>";
-    $html   .=  "<div class='container container-center'><div class='row'>".$evolve_counterbox_section_title;
+    $html   =   "<div class='t4p-counters-circle counters-circle'>";
+    $html   .=  "<div class='container container-center'><div class='row'>".$evolve_counter_circle_section_title;
 
     for ($i = 1; $i <= 3; $i ++) {
-        $enabled = $evl_options["evl_fp_counterbox{$i}"];
+        $enabled = $evl_options["evl_fp_counter_circle{$i}"];
         if ($enabled == 1) {
+                        $description = '';
+                        $title = $evl_options["evl_fp_counter_circle{$i}_text"];
+                        $value = $evl_options["evl_fp_counter_circle{$i}_percentage"];
+                        $filledcolor = $evl_options["evl_fp_counter_circle{$i}_filledcolor"];
+                        $unfilledcolor = $evl_options["evl_fp_counter_circle{$i}_unfilledcolor"];
+                        $size = '220';
+                        $font_size = '30';
+                        $icon = "<i class='fa {$evl_options["evl_fp_counter_circle{$i}_icon"]}'></i>";
+                        $scales = 'no';
+                        $countdown = 'no';
+                        $speed = '1500';
+                        $multiplicator = $size / 220;
+                        $stroke_size = 11 * $multiplicator;
+                        //$font_size = 50 * $multiplicator;
+                        $content_line_height = $size+($size*25/100);
 
-            $value      = $evl_options["evl_fp_counterbox{$i}_value"];
-            $unit       = '';
-            $unit_pos   = 'suffix';
-            $icon       = $evl_options["evl_fp_counterbox{$i}_icon"];
-            $border     = 'no';
-            $color      = $evl_options["evl_fp_counterbox{$i}_textcolor"];
-            $direction  = 'up';
-            $bgcolor    = $evl_options["evl_fp_counterbox{$i}_bgcolor"];
-            $content    = $evl_options["evl_fp_counterbox{$i}_text"];
+                        $circle_title = "<span class='t4p-counters-circle-text' style='line-height: {$size}px; font-size: {$font_size}px;'>{$icon}".$title."</span>";
+                        $description = "<span class='t4p-counters-circle-info' style='line-height: {$content_line_height}px;'>{$description}</span>";
+                        $data_percent = $value;
+                        $data_countdown = ( $countdown == 'no' ) ? '' : 1 ;
+                        $data_filledcolor = $filledcolor;
+                        $data_unfilledcolor = $unfilledcolor;
+                        $data_scale = ( $scales == 'no' ) ? '' : 1 ;
+                        $data_size = $size;
+                        $data_speed = $speed;
+                        $data_strokesize = $stroke_size;
 
-            $value = intval( $value );
+                        $child_wrapper_style = sprintf( 'height:%spx;width:%spx;line-height:%spx;', $size, $size, $size );
 
-            $unit_output = '';
-            if( $unit ) {
-                    $unit_output = "<span class='unit'>$unit</span>";
-            }
+                        $output = "<div data-percent='{$data_percent}' data-countdown='{$data_countdown}' data-filledcolor='{$data_filledcolor}' data-unfilledcolor='{$data_unfilledcolor}' data-scale='{$data_scale}' data-size='{$data_size}' data-speed='{$data_speed}' data-strokesize='{$data_strokesize}' class='t4p-counter-circle counter-circle counter-circle-content' style='{$child_wrapper_style}'>{$circle_title}{$description}</div>";
 
-            if( $direction == 'up' ) {
-                    $init_value = 0;
-            } else {
-                    $init_value = $value;
-            }
+                        $html .= "<div class='counter-circle-wrapper' style='{$child_wrapper_style}'>{$output}</div>";
 
-            $counter = "<span class='display-counter' data-value='$value' data-direction='$direction'>$init_value</span>";
-
-            $icon_output = '';
-            if( $icon ) {
-                    $icon_output = "<i class='counter-box-icon fa fontawesome-icon $icon size-large'></i>";
-            }
-
-            if( $unit_pos == 'prefix' ) {
-                    $counter = $icon_output . $unit_output . $counter;
-            } else {
-                    $counter = $icon_output . $counter . $unit_output;
-            }
-
-            $counter_container_class = 'content-box-percentage content-box-counter';
-            $counter_container_style = '';
-
-            if( $color ) {
-                    $counter_container_style = sprintf( 'color:%s;', $color );
-            }
-
-            $counter_wrapper = "<div class='$counter_container_class' style='$counter_container_style'>$counter</div>";
-
-            $content_output = "<div class='counter-box-content' style='$counter_container_style'>". $content ."</div>";
-
-            $border_class = '';
-            if( $border == 'yes' ) {
-                    $border_class .= ' counter-box-border';
-            }
-
-            $box_bgcolor = '';
-            if( $bgcolor ) {
-                    $box_bgcolor = sprintf( 'background-color:%s;', $bgcolor );
-            }
-
-            if( $columns ) {
-                    $columns = 12 / $columns;
-            } else {
-                    $columns = 4;
-            }
-            $child_attr_class = 't4p-counter-box t4p-column col-counter-box counter-box-wrapper col-lg-' . $columns . ' col-md-' . $columns . ' col-sm-' . $columns;
-
-            $html .= "<div class='$child_attr_class'><div class='counter-box-container $border_class' style='$box_bgcolor'>$counter_wrapper $content_output</div></div>";
         }
     }
 
+    $html .= "</div>";
     $html .= "</div></div>";
-    $html .= "</div><div class='clearfix'></div>";
 
     echo $html;
 }

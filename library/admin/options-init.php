@@ -727,7 +727,7 @@ Redux::setSection($evolve_opt_name, array(
                     'google_map' => __('Google Map', 'evolve'),
                     'woocommerce_product' => __('WooCommerce Products', 'evolve'),
                     'counter_circle' => __('Counter Circles', 'evolve'),
-					'custom_content' => __('Custom Content', 'evolve'),
+                    'custom_content' => __('Custom Content', 'evolve'),
                 ),
                 'disabled' => array(
                 )
@@ -747,7 +747,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => 'Extend layout elements by converting them into shortcodes and modify them with Theme4Press Composer (drag & drop builder)',
             'indent' => true
         ),
-        array(
+                array(
             'subtitle' => __('Choose the page where selected layout will be converted to shortcodes', 'evolve'),
             'id' => 'evl-front-page-add-page',
             'compiler' => true,
@@ -6084,6 +6084,15 @@ function evolve_extend_customizer() {
         class Redux_Customizer_Control_typography extends Redux_Customizer_Control {
 
             public $type = "redux-typography";
+
+        }
+
+    }
+    if (!class_exists('Redux_Customizer_Control_sorter')) {
+
+        class Redux_Customizer_Control_sorter extends Redux_Customizer_Control {
+
+            public $type = "redux-sorter";
 
         }
 
