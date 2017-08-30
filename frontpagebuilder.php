@@ -26,7 +26,7 @@ if ($evl_frontpage_elements):
                                 break;
                         case 'google_map':
                                 if ($elementval) {
-//                                        evolve_google_maps();
+                                        evolve_google_map();
                                 }
                                 break;
                         case 'woocommerce_product':
@@ -41,7 +41,7 @@ if ($evl_frontpage_elements):
                                 break;
                         case 'custom_content':
                                 if ($elementval) {
-//                                        evolve_custom_content();
+                                        evolve_custom_content();
                                 }
                                 break;
                 }

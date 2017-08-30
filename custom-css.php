@@ -1492,16 +1492,25 @@ body #header.sticky-header img#logo-image {
 
     //Widget content font
     $evolve_css_data .= evolve_print_fonts('evl_widget_content_font', '.widget-content, .aside, .aside a', $additional_css = '', $additional_color_css_class = '.widget-content, .widget-content a, .widget-content .tab-holder .news-list li .post-holder a, .widget-content .tab-holder .news-list li .post-holder .meta');
-    
+
     //Front Page Content Boxes typography style
     $evolve_css_data .= evolve_print_fonts('evl_content_boxes_title_font', '.content-box h2', '', '', '');
     $evolve_css_data .= evolve_print_fonts('evl_content_boxes_description_font', '.content-box p', '', '', '');
-	
+
     //Content Boxes Title Section
-    $evolve_css_data .= evolve_print_fonts('evl_content_boxes_title_alignment', 'h2.content_box_section_title', $additional_css = '');	
-	
+    $evolve_css_data .= evolve_print_fonts('evl_content_boxes_title_alignment', 'h2.content_box_section_title', $additional_css = '');
+
     //Testimonials Title Section
-    $evolve_css_data .= evolve_print_fonts('evl_testimonials_title_alignment', 'h2.testimonials_section_title', $additional_css = '');		
+    $evolve_css_data .= evolve_print_fonts('evl_testimonials_title_alignment', 'h2.testimonials_section_title', $additional_css = '');
+
+    //Counter Circle Title Section
+    $evolve_css_data .= evolve_print_fonts('evl_counter_circle_title_alignment', 'h2.counter_circle_section_title', $additional_css = '');
+    
+    //Google Map Title Section
+    $evolve_css_data .= evolve_print_fonts('evl_googlemap_title_alignment', 'h2.googlemap_section_title', $additional_css = '');
+    
+    //Custom Content Title Section
+    $evolve_css_data .= evolve_print_fonts('evl_custom_content_title_alignment', 'h2.custom_content_section_title', $additional_css = '');
 
     //H1 font, H2 font, H3 font, H4 font, H5 font and H6 font
     for ($i = 1; $i < 7; $i ++) {
@@ -3859,6 +3868,116 @@ $evolve_css_data .= '
 .t4p-counters-circle {
     background: url(' . esc_url($evolve_counter_circle_section_image_src['url']) . ') ' . $evolve_counter_circle_section_background_position . ' ' . $evolve_counter_circle_section_background_repeat . ';
     background-size: ' . $evolve_counter_circle_section_image . ';
+}
+';
+}
+
+/* Google Map */
+
+$options = get_option('evl_options');
+$evolve_googlemap_section_padding_top          = $options['evl_googlemap_section_padding']['padding-top'];
+$evolve_googlemap_section_padding_bottom       = $options['evl_googlemap_section_padding']['padding-bottom'];
+$evolve_googlemap_section_padding_left         = $options['evl_googlemap_section_padding']['padding-left'];
+$evolve_googlemap_section_padding_right        = $options['evl_googlemap_section_padding']['padding-right'];
+$evolve_googlemap_section_back_color           = evolve_get_option( 'evl_googlemap_section_back_color', '' );
+$evolve_googlemap_section_image_src            = evolve_get_option('evl_googlemap_section_background_image');
+$evolve_googlemap_section_image                = evolve_get_option('evl_googlemap_section_image', 'cover');
+$evolve_googlemap_section_background_repeat    = evolve_get_option('evl_googlemap_section_image_background_repeat', 'no-repeat');
+$evolve_googlemap_section_background_position  = evolve_get_option('evl_googlemap_section_image_background_position', 'center top');
+
+if (!empty($evolve_googlemap_section_padding_top)) {
+    $evolve_googlemap_section_padding_top = $evolve_googlemap_section_padding_top;
+} else {
+    $evolve_googlemap_section_padding_top = '40px';
+}
+
+if (!empty($evolve_googlemap_section_padding_bottom)) {
+    $evolve_googlemap_section_padding_bottom = $evolve_googlemap_section_padding_bottom;
+} else {
+    $evolve_googlemap_section_padding_bottom = '40px';
+}
+
+$evolve_css_data .= '
+.t4p-googlemap .row {
+	padding-top: ' . $evolve_googlemap_section_padding_top . ';
+	padding-bottom: ' . $evolve_googlemap_section_padding_bottom . ';
+}
+@media (min-width: 768px) {
+	.t4p-googlemap .row {
+		padding-left: ' . $evolve_googlemap_section_padding_left . ';
+		padding-right: ' . $evolve_googlemap_section_padding_right . ';	
+	}
+}
+';
+
+if (!empty($evolve_googlemap_section_back_color)) {
+$evolve_css_data .= '
+.t4p-googlemap {
+    background-color: ' . $evolve_googlemap_section_back_color . ';
+}
+';
+}
+
+if ($evolve_googlemap_section_image_src['url']) {
+$evolve_css_data .= '
+.t4p-googlemap {
+    background: url(' . esc_url($evolve_googlemap_section_image_src['url']) . ') ' . $evolve_googlemap_section_background_position . ' ' . $evolve_googlemap_section_background_repeat . ';
+    background-size: ' . $evolve_googlemap_section_image . ';
+}
+';
+}
+
+/* Custom Content */
+
+$options = get_option('evl_options');
+$evolve_custom_content_section_padding_top          = $options['evl_custom_content_section_padding']['padding-top'];
+$evolve_custom_content_section_padding_bottom       = $options['evl_custom_content_section_padding']['padding-bottom'];
+$evolve_custom_content_section_padding_left         = $options['evl_custom_content_section_padding']['padding-left'];
+$evolve_custom_content_section_padding_right        = $options['evl_custom_content_section_padding']['padding-right'];
+$evolve_custom_content_section_back_color           = evolve_get_option( 'evl_custom_content_section_back_color', '' );
+$evolve_custom_content_section_image_src            = evolve_get_option('evl_custom_content_section_background_image');
+$evolve_custom_content_section_image                = evolve_get_option('evl_custom_content_section_image', 'cover');
+$evolve_custom_content_section_background_repeat    = evolve_get_option('evl_custom_content_section_image_background_repeat', 'no-repeat');
+$evolve_custom_content_section_background_position  = evolve_get_option('evl_custom_content_section_image_background_position', 'center top');
+
+if (!empty($evolve_custom_content_section_padding_top)) {
+    $evolve_custom_content_section_padding_top = $evolve_custom_content_section_padding_top;
+} else {
+    $evolve_custom_content_section_padding_top = '40px';
+}
+
+if (!empty($evolve_custom_content_section_padding_bottom)) {
+    $evolve_custom_content_section_padding_bottom = $evolve_custom_content_section_padding_bottom;
+} else {
+    $evolve_custom_content_section_padding_bottom = '40px';
+}
+
+$evolve_css_data .= '
+.t4p-text .row {
+	padding-top: ' . $evolve_custom_content_section_padding_top . ';
+	padding-bottom: ' . $evolve_custom_content_section_padding_bottom . ';
+}
+@media (min-width: 768px) {
+	.t4p-text .row {
+		padding-left: ' . $evolve_custom_content_section_padding_left . ';
+		padding-right: ' . $evolve_custom_content_section_padding_right . ';	
+	}
+}
+';
+
+if (!empty($evolve_custom_content_section_back_color)) {
+$evolve_css_data .= '
+.t4p-text {
+    background-color: ' . $evolve_custom_content_section_back_color . ';
+}
+';
+}
+
+if ($evolve_custom_content_section_image_src['url']) {
+$evolve_css_data .= '
+.t4p-text {
+    background: url(' . esc_url($evolve_custom_content_section_image_src['url']) . ') ' . $evolve_custom_content_section_background_position . ' ' . $evolve_custom_content_section_background_repeat . ';
+    background-size: ' . $evolve_custom_content_section_image . ';
 }
 ';
 }

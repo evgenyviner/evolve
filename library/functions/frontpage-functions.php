@@ -392,3 +392,219 @@ function evolve_counter_circle() {
 
     echo $html;
 }
+
+/* Front Page Google Map */
+function evolve_google_map() {
+    global $evl_options;
+
+    $address  = $evl_options["evl_fp_googlemap_address"];
+    $gmap_alignment = 'center';
+    $map_style  = 'default';
+    $type = $evl_options["evl_fp_googlemap_type"];
+    $width = $evl_options["evl_fp_googlemap_width"];
+    $height = $evl_options["evl_fp_googlemap_height"];
+    $zoom = $evl_options["evl_fp_googlemap_zoom_level"];
+    $scrollwheel = $evl_options["evl_fp_googlemap_scrollwheel"];
+    $scale = $evl_options["evl_fp_googlemap_scale"];
+    $zoom_pancontrol = $evl_options["evl_fp_googlemap_zoomcontrol"];
+    $popup = 'yes';
+
+    $evolve_googlemap_section_title = evolve_get_option('evl_googlemap_title', 'Our Active User');
+    if ($evolve_googlemap_section_title == false) {
+        $evolve_googlemap_section_title = '';
+    } else {
+        $evolve_googlemap_section_title = '<h2 class="googlemap_section_title section_title">'.evolve_get_option('evl_googlemap_title', 'Our Active User').'</h2><div class="clearfix"></div>';
+    }
+
+    $html   =   "<div class='t4p-googlemap'>";
+    $html   .=  "<div class='container container-center'><div class='row'>".$evolve_googlemap_section_title;
+
+    if ( $gmap_alignment === 'right' ) {
+            $alignment = 'float: right';
+    } else if ( $gmap_alignment === 'center' ) {
+            $alignment = 'margin: 0 auto; display: block;';
+    } else if ( $gmap_alignment === 'left' ) {
+            $alignment = 'float: left';
+    }
+
+    if( $address ) {
+            $addresses = explode( '|', $address );
+
+            if( $addresses ) {
+                    $address = $addresses;
+            }
+
+            $num_of_addresses = count( $addresses );
+            
+            $infobox_content = $address;
+
+            wp_print_scripts( 'google-maps-api' );
+            wp_print_scripts( 'google-maps-infobox' );
+
+            foreach( $address as $add ) {
+                    $coordinates[] = get_coordinates( $add );
+            }
+
+            if( ! is_array( $coordinates ) ) {
+                    return;
+            }
+
+            $map_id = uniqid( 't4p_map_' ); // generate a unique ID for this map
+
+            ob_start(); ?>
+            <script type="text/javascript">
+                    var map_<?php echo $map_id; ?>;
+                    var markers = [];
+                    var counter = 0;
+                    function t4p_run_map_<?php echo $map_id ; ?>() {
+                            var location = new google.maps.LatLng(<?php echo $coordinates[0]['lat']; ?>, <?php echo $coordinates[0]['lng']; ?>);
+                            var map_options = {
+                                    zoom: <?php echo $zoom; ?>,
+                                    center: location,
+                                    mapTypeId: google.maps.MapTypeId.<?php echo strtoupper($type); ?>,
+                                    scrollwheel: <?php echo ($scrollwheel == 'yes') ? 'true' : 'false'; ?>,
+                                    scaleControl: <?php echo ($scale == 'yes') ? 'true' : 'false'; ?>,
+                                    panControl: <?php echo ($zoom_pancontrol == 'yes') ? 'true' : 'false'; ?>,
+                                    zoomControl: <?php echo ($zoom_pancontrol == 'yes') ? 'true' : 'false'; ?>						
+                            };
+                            map_<?php echo $map_id ; ?> = new google.maps.Map(document.getElementById("<?php echo esc_attr( $map_id ); ?>"), map_options);
+                            <?php $i = 0; ?>
+                            <?php foreach( $coordinates as $key => $coordinate ): ?>
+
+                                    var content_string = "<div class='info-window'><?php echo $infobox_content[$key]; ?></div>";
+
+                                    map_<?php echo $map_id ; ?>_args = {
+                                            position: new google.maps.LatLng("<?php echo $coordinate['lat']; ?>", "<?php echo $coordinate['lng']; ?>"),
+                                            map: map_<?php echo $map_id ; ?>
+                                    };
+
+                                    <?php $i++; ?>
+
+                                    markers[counter] = new google.maps.Marker(map_<?php echo $map_id ; ?>_args);
+
+                                    markers[counter]['infowindow'] = new google.maps.InfoWindow({
+                                            content: content_string
+                                    });					
+
+                                    <?php if( $popup == 'yes' ) { ?>
+                                            markers[counter]['infowindow'].show = true;
+                                            markers[counter]['infowindow'].open(map_<?php echo $map_id ; ?>, markers[counter]);
+                                    <?php } ?>						
+
+                                    google.maps.event.addListener(markers[counter], 'click', function() {
+                                            if(this['infowindow'].show) {
+                                                    this['infowindow'].close(map_<?php echo $map_id ; ?>, this);
+                                                    this['infowindow'].show = false;
+                                            } else {
+                                                    this['infowindow'].open(map_<?php echo $map_id ; ?>, this);
+                                                    this['infowindow'].show = true;
+                                            }
+                                    });
+
+                                    counter++;
+                            <?php endforeach; ?>
+
+                    }
+
+                    google.maps.event.addDomListener(window, 'load', t4p_run_map_<?php echo $map_id ; ?>);
+
+            </script>
+            <style scoped >
+                .t4p-google-map {
+                    <?php echo sprintf('height:%s;width:%s;%s',  $height, $width, $alignment ); ?>
+                }
+            </style>
+            <?php
+            //html_attr
+            $class = 'shortcode-map t4p-google-map';
+            $id = $map_id;
+
+            $html .= ob_get_clean() . "<div class='$class' id='$id' ></div>";
+    }
+
+    $html .= "</div>";
+    $html .= "</div></div>";
+
+    echo $html;
+}
+
+function get_coordinates( $address, $force_refresh = false ) {
+
+    $address_hash = md5( $address );
+
+    $coordinates = get_transient( $address_hash );
+
+    if ( $force_refresh || $coordinates === false ) {
+
+        $args       = array( 'address' => urlencode( $address ), 'sensor' => 'false' );
+        $url        = add_query_arg( $args, 'http://maps.googleapis.com/maps/api/geocode/json' );
+        $response   = wp_remote_get( $url );
+
+        if( is_wp_error( $response ) )
+                return;
+
+        $data = wp_remote_retrieve_body( $response );
+
+        if( is_wp_error( $data ) )
+                return;
+
+                if ( $response['response']['code'] == 200 ) {
+
+                        $data = json_decode( $data );
+
+                        if ( $data->status === 'OK' ) {
+
+                                $coordinates = $data->results[0]->geometry->location;
+
+                                $cache_value['lat'] 	= $coordinates->lat;
+                                $cache_value['lng'] 	= $coordinates->lng;
+                                $cache_value['address'] = (string) $data->results[0]->formatted_address;
+
+                                // cache coordinates for 3 months
+                                set_transient($address_hash, $cache_value, 3600*24*30*3);
+                                $data = $cache_value;
+
+                        } elseif ( $data->status === 'ZERO_RESULTS' ) {
+                                return __( 'No location found for the entered address.', 't4p-core' );
+                        } elseif( $data->status === 'INVALID_REQUEST' ) {
+                                return __( 'Invalid request. Did you enter an address?', 't4p-core' );
+                        } else {
+                                return __( 'Something went wrong while retrieving your map, please ensure you have entered the short code correctly.', 't4p-core' );
+                        }
+
+                } else {
+                        return __( 'Unable to contact Google API service.', 't4p-core' );
+                }
+
+    } else {
+       // return cached results
+       $data = $coordinates;
+    }
+
+    return $data;
+
+}
+
+/* Front Page Custom Content */
+function evolve_custom_content() {
+    global $evl_options;
+
+    $content = $evl_options["evl_fp_custom_content_editor"];
+
+    $evolve_custom_content_section_title = evolve_get_option('evl_custom_content_title', 'Our Active User');
+    if ($evolve_custom_content_section_title == false) {
+        $evolve_custom_content_section_title = '';
+    } else {
+        $evolve_custom_content_section_title = '<h2 class="custom_content_section_title section_title">'.evolve_get_option('evl_custom_content_title', 'Our Active User').'</h2><div class="clearfix"></div>';
+    }
+
+    $html  = "<div class='t4p-text' >";
+    $html .= "<div class='container container-center'><div class='row'>".$evolve_custom_content_section_title;
+
+    $html .= $content;
+
+    $html .= "</div>";
+    $html .= "</div></div>";
+
+    echo $html;
+}
