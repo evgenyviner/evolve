@@ -1618,7 +1618,7 @@ function evolve_bootstrap() {
         $font_family = '';
         $font_style = '';
         $font_weight = '';
-		$font_align = '';
+        $font_align = '';
         $color = '';
         if ($options[$name]['font-size'] != '') {
             $font_size = $options[$name]['font-size'];

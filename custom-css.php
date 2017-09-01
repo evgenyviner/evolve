@@ -1512,6 +1512,9 @@ body #header.sticky-header img#logo-image {
     //Custom Content Title Section
     $evolve_css_data .= evolve_print_fonts('evl_custom_content_title_alignment', 'h2.custom_content_section_title', $additional_css = '');
 
+    //WooCommerce Product Section
+    $evolve_css_data .= evolve_print_fonts('evl_woo_product_title_alignment', 'h2.woo_product_section_title', $additional_css = '');
+
     //H1 font, H2 font, H3 font, H4 font, H5 font and H6 font
     for ($i = 1; $i < 7; $i ++) {
         //we get all h1 to h6 fonts, evl_content_h1_font ... to evl_content_h6_font values.
@@ -3978,6 +3981,61 @@ $evolve_css_data .= '
 .t4p-text {
     background: url(' . esc_url($evolve_custom_content_section_image_src['url']) . ') ' . $evolve_custom_content_section_background_position . ' ' . $evolve_custom_content_section_background_repeat . ';
     background-size: ' . $evolve_custom_content_section_image . ';
+}
+';
+}
+
+/* WooCommerce Product */
+
+$options = get_option('evl_options');
+$evolve_woo_product_section_padding_top          = $options['evl_woo_product_section_padding']['padding-top'];
+$evolve_woo_product_section_padding_bottom       = $options['evl_woo_product_section_padding']['padding-bottom'];
+$evolve_woo_product_section_padding_left         = $options['evl_woo_product_section_padding']['padding-left'];
+$evolve_woo_product_section_padding_right        = $options['evl_woo_product_section_padding']['padding-right'];
+$evolve_woo_product_section_back_color           = evolve_get_option( 'evl_woo_product_section_back_color', '' );
+$evolve_woo_product_section_image_src            = evolve_get_option('evl_woo_product_section_background_image');
+$evolve_woo_product_section_image                = evolve_get_option('evl_woo_product_section_image', 'cover');
+$evolve_woo_product_section_background_repeat    = evolve_get_option('evl_woo_product_section_image_background_repeat', 'no-repeat');
+$evolve_woo_product_section_background_position  = evolve_get_option('evl_woo_product_section_image_background_position', 'center top');
+
+if (!empty($evolve_woo_product_section_padding_top)) {
+    $evolve_woo_product_section_padding_top = $evolve_woo_product_section_padding_top;
+} else {
+    $evolve_woo_product_section_padding_top = '40px';
+}
+
+if (!empty($evolve_woo_product_section_padding_bottom)) {
+    $evolve_woo_product_section_padding_bottom = $evolve_woo_product_section_padding_bottom;
+} else {
+    $evolve_woo_product_section_padding_bottom = '40px';
+}
+
+$evolve_css_data .= '
+.t4p-woo-product .row {
+	padding-top: ' . $evolve_woo_product_section_padding_top . ';
+	padding-bottom: ' . $evolve_woo_product_section_padding_bottom . ';
+}
+@media (min-width: 768px) {
+	.t4p-woo-product .row {
+		padding-left: ' . $evolve_woo_product_section_padding_left . ';
+		padding-right: ' . $evolve_woo_product_section_padding_right . ';	
+	}
+}
+';
+
+if (!empty($evolve_woo_product_section_back_color)) {
+$evolve_css_data .= '
+.t4p-woo-product {
+    background-color: ' . $evolve_woo_product_section_back_color . ';
+}
+';
+}
+
+if ($evolve_woo_product_section_image_src['url']) {
+$evolve_css_data .= '
+.t4p-woo-product {
+    background: url(' . esc_url($evolve_woo_product_section_image_src['url']) . ') ' . $evolve_woo_product_section_background_position . ' ' . $evolve_woo_product_section_background_repeat . ';
+    background-size: ' . $evolve_woo_product_section_image . ';
 }
 ';
 }

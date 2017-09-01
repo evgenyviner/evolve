@@ -101,21 +101,14 @@ if (!class_exists('Redux')) {
     return;
 }
 
-//Get page title
+//Get Page Title List
 $page_title = array();
 $args = array(
     'sort_order' => 'asc',
     'sort_column' => 'post_title',
     'hierarchical' => 1,
-    'exclude' => '',
-    'include' => '',
-    'meta_key' => '',
-    'meta_value' => '',
-    'authors' => '',
     'child_of' => 0,
     'parent' => -1,
-    'exclude_tree' => '',
-    'number' => '',
     'offset' => 0,
     'post_type' => 'page',
     'post_status' => 'publish'
@@ -123,6 +116,17 @@ $args = array(
 $pages = get_pages($args);
 foreach ($pages as $key => $page_instance) {
     $page_title[$page_instance->ID] = $page_instance->post_title;
+}
+
+if ( is_plugin_active('woocommerce/woocommerce.php') ) {
+        //Get Product Category List
+        global $wpdb;
+        $term_query = "SELECT * from ".$wpdb->prefix."terms as wpt, ".$wpdb->prefix."term_taxonomy as wptt where wpt.term_id = wptt.term_id AND wptt.taxonomy = 'product_cat'";
+        $terms = $wpdb->get_results($term_query);
+        $product_texonomy = array();
+        foreach ($terms as $term) {
+            $product_texonomy[$term->slug] = $term->name;
+        }
 }
 
 // Upgrade from version 3.3 and below
@@ -2198,6 +2202,7 @@ Redux::setSection($evolve_opt_name, array(
 
 
 // Front Page WooCommerce Products Sections
+if ( is_plugin_active('woocommerce/woocommerce.php') ) :
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-fp-woo-product-general-tab',
     'title' => __('WooCommerce Products', 'evolve'),
@@ -2210,9 +2215,9 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'image_select',
             'compiler' => true,
             'options' => array(
-                'one' => $evolve_imagepath . 'one-post.png',
-                'two' => $evolve_imagepath . 'two-posts.png',
-                'three' => $evolve_imagepath . 'three-posts.png',
+                '1' => $evolve_imagepath . 'one-post.png',
+                '2' => $evolve_imagepath . 'two-posts.png',
+                '3' => $evolve_imagepath . 'three-posts.png',
             ),
             'default' => 'three',
         ),
@@ -2221,7 +2226,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Product Category', 'evolve'),
             'subtitle' => __('Select Product Category', 'evolve'),
             'type' => 'select',
-            'options' => array()
+            'options' => $product_texonomy
         ),
         // Section settings
         array(
@@ -2339,6 +2344,7 @@ Redux::setSection($evolve_opt_name, array(
     ),
         )
 );
+endif;
 
 
 // Front Page Custom Content Sections

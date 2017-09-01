@@ -608,3 +608,28 @@ function evolve_custom_content() {
 
     echo $html;
 }
+
+/* Front Page WooCommerce Product */
+function evolve_woocommerce_products() {
+    global $evl_options;
+
+    $product_cat = $evl_options["evl_fp_woo_product"];
+    $column = $evl_options["evl_fp_woo_product_layout"];
+
+    $evolve_woo_product_section_title = evolve_get_option('evl_woo_product_title', 'Our Active User');
+    if ($evolve_woo_product_section_title == false) {
+        $evolve_woo_product_section_title = '';
+    } else {
+        $evolve_woo_product_section_title = '<h2 class="woo_product_section_title section_title">'.evolve_get_option('evl_woo_product_title', 'Our Active User').'</h2><div class="clearfix"></div>';
+    }
+
+    $html  = "<div class='t4p-woo-product' >";
+    $html .= "<div class='container container-center'><div class='row'>".$evolve_woo_product_section_title;
+
+    $html .= do_shortcode( '[product_category category="'.$product_cat.'" columns="'.$column.'" per_page="12" orderby="title" order="asc"]' );
+
+    $html .= "</div>";
+    $html .= "</div></div>";
+
+    echo $html;
+}

@@ -31,7 +31,9 @@ if ($evl_frontpage_elements):
                                 break;
                         case 'woocommerce_product':
                                 if ($elementval) {
-//                                        evolve_woocommerce_products();
+                                    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+                                    if ( is_plugin_active('woocommerce/woocommerce.php') )
+                                        evolve_woocommerce_products();
                                 }
                                 break;
                         case 'counter_circle':
