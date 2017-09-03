@@ -27,10 +27,12 @@ Vee-O - http://dribbble.com/veeo
 Wolfgang Moritzer - http://500px.com/wmoritzer
 Lukas Schweizer - http://www.lukas-schweizer.ch/
 Jordan Grimmer - http://www.jordangrimmer.co.uk
+Helloquence - https://unsplash.com/@helloquence
 
 Additional photos - CC0 1.0 Universal:
 Philipp Reiner - http://www.philippreiner.de/
 Vee-O - http://dribbble.com/veeo
+PublicDomainPictures - http://www.publicdomainpictures.net
 
 Other images (icons, theme images, background images, etc.) are licensed under GPL v2.0.
 
