@@ -5673,6 +5673,16 @@ Redux::setSection($evolve_opt_name, array(
             ),
         ),
         array(
+            'subtitle' => __('Select the background color for the slide title.', 'evolve'),
+            'id' => 'evl_bootstrap_slide_title_font_rgba',
+            'type' => 'color_rgba',
+            'title' => __('Slider Title Font Background Color', 'evolve'),
+            'default'   => array(
+				'color'     => '#000000',
+				'alpha'     => 0.7
+			),
+        ),
+        array(
             'subtitle' => __('Select the typography you want for the slide description. * non web-safe font.', 'evolve'),
             'id' => 'evl_bootstrap_slide_subtitle_font',
             'type' => 'typography',
@@ -5686,6 +5696,16 @@ Redux::setSection($evolve_opt_name, array(
                 'color' => '',
                 'font-style' => '',
             ),
+        ),
+        array(
+            'subtitle' => __('Select the background color for the slide description.', 'evolve'),
+            'id' => 'evl_bootstrap_slide_subtitle_font_rgba',
+            'type' => 'color_rgba',
+            'title' => __('Slider Description Font Background Color', 'evolve'),
+            'default'   => array(
+				'color'     => '#000000',
+				'alpha'     => 0.7
+			),
         ),
         array(
             'subtitle' => __('Choose your Bootstrap Slider layout style', 'evolve'),
