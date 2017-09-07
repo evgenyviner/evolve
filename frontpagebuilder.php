@@ -21,7 +21,7 @@ if ($evl_frontpage_elements):
                                 break;
                         case 'blog_post':
                                 if ($elementval) {
-//                                        evolve_blog_posts();
+                                        evolve_blog_posts();
                                 }
                                 break;
                         case 'google_map':

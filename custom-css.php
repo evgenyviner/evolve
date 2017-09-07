@@ -1505,15 +1505,15 @@ body #header.sticky-header img#logo-image {
 
     //Counter Circle Title Section
     $evolve_css_data .= evolve_print_fonts('evl_counter_circle_title_alignment', 'h2.counter_circle_section_title', $additional_css = '');
-    
+
     //Google Map Title Section
     $evolve_css_data .= evolve_print_fonts('evl_googlemap_title_alignment', 'h2.googlemap_section_title', $additional_css = '');
-    
+
     //Custom Content Title Section
     $evolve_css_data .= evolve_print_fonts('evl_custom_content_title_alignment', 'h2.custom_content_section_title', $additional_css = '');
 
-    //WooCommerce Product Section
-    $evolve_css_data .= evolve_print_fonts('evl_woo_product_title_alignment', 'h2.woo_product_section_title', $additional_css = '');
+    //Blog Title Section
+    $evolve_css_data .= evolve_print_fonts('evl_blog_section_title_alignment', 'h2.fp_blog_section_title', $additional_css = '');
 
     //H1 font, H2 font, H3 font, H4 font, H5 font and H6 font
     for ($i = 1; $i < 7; $i ++) {
@@ -3987,6 +3987,11 @@ $evolve_css_data .= '
 
 /* WooCommerce Product */
 
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+if ( is_plugin_active('woocommerce/woocommerce.php') ) :
+
+$evolve_css_data .= evolve_print_fonts('evl_woo_product_title_alignment', 'h2.woo_product_section_title', $additional_css = '');
+
 $options = get_option('evl_options');
 $evolve_woo_product_section_padding_top          = $options['evl_woo_product_section_padding']['padding-top'];
 $evolve_woo_product_section_padding_bottom       = $options['evl_woo_product_section_padding']['padding-bottom'];
@@ -4036,6 +4041,63 @@ $evolve_css_data .= '
 .t4p-woo-product {
     background: url(' . esc_url($evolve_woo_product_section_image_src['url']) . ') ' . $evolve_woo_product_section_background_position . ' ' . $evolve_woo_product_section_background_repeat . ';
     background-size: ' . $evolve_woo_product_section_image . ';
+}
+';
+}
+
+endif;
+
+/* Front Page Blog Content */
+
+$options = get_option('evl_options');
+$evolve_blog_section_padding_top          = $options['evl_blog_section_padding']['padding-top'];
+$evolve_blog_section_padding_bottom       = $options['evl_blog_section_padding']['padding-bottom'];
+$evolve_blog_section_padding_left         = $options['evl_blog_section_padding']['padding-left'];
+$evolve_blog_section_padding_right        = $options['evl_blog_section_padding']['padding-right'];
+$evolve_blog_section_back_color           = evolve_get_option( 'evl_blog_section_back_color', '' );
+$evolve_blog_section_image_src            = evolve_get_option('evl_blog_section_background_image');
+$evolve_blog_section_image                = evolve_get_option('evl_blog_section_image', 'cover');
+$evolve_blog_section_background_repeat    = evolve_get_option('evl_blog_section_image_background_repeat', 'no-repeat');
+$evolve_blog_section_background_position  = evolve_get_option('evl_blog_section_image_background_position', 'center top');
+
+if (!empty($evolve_blog_section_padding_top)) {
+    $evolve_blog_section_padding_top = $evolve_blog_section_padding_top;
+} else {
+    $evolve_blog_section_padding_top = '40px';
+}
+
+if (!empty($evolve_blog_section_padding_bottom)) {
+    $evolve_blog_section_padding_bottom = $evolve_blog_section_padding_bottom;
+} else {
+    $evolve_blog_section_padding_bottom = '40px';
+}
+
+$evolve_css_data .= '
+.t4p-fp-blog .row {
+	padding-top: ' . $evolve_blog_section_padding_top . ';
+	padding-bottom: ' . $evolve_blog_section_padding_bottom . ';
+}
+@media (min-width: 768px) {
+	.t4p-fp-blog .row {
+		padding-left: ' . $evolve_blog_section_padding_left . ';
+		padding-right: ' . $evolve_blog_section_padding_right . ';	
+	}
+}
+';
+
+if (!empty($evolve_blog_section_back_color)) {
+$evolve_css_data .= '
+.t4p-fp-blog {
+    background-color: ' . $evolve_blog_section_back_color . ';
+}
+';
+}
+
+if ($evolve_blog_section_image_src['url']) {
+$evolve_css_data .= '
+.t4p-fp-blog {
+    background: url(' . esc_url($evolve_blog_section_image_src['url']) . ') ' . $evolve_blog_section_background_position . ' ' . $evolve_blog_section_background_repeat . ';
+    background-size: ' . $evolve_blog_section_image . ';
 }
 ';
 }

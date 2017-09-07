@@ -123,10 +123,42 @@ if ( is_plugin_active('woocommerce/woocommerce.php') ) {
         global $wpdb;
         $term_query = "SELECT * from ".$wpdb->prefix."terms as wpt, ".$wpdb->prefix."term_taxonomy as wptt where wpt.term_id = wptt.term_id AND wptt.taxonomy = 'product_cat'";
         $terms = $wpdb->get_results($term_query);
-        $product_texonomy = array();
-        foreach ($terms as $term) {
-            $product_texonomy[$term->slug] = $term->name;
+        if ( $terms ) {
+            foreach ($terms as $term) {
+                $product_texonomy[$term->slug] = $term->name;
+            }
+        } else {
+            $product_texonomy = array( 'none' => 'No categories found' );
         }
+
+        //Content Area Options
+        $content_area = array(
+                'enabled' => array(
+                    'content_box' => __('Content Boxes', 'evolve'),
+                    'testimonial' => __('Testimonials', 'evolve'),
+                    'blog_post' => __('Blog Posts', 'evolve'),
+                    'google_map' => __('Google Map', 'evolve'),
+                    'woocommerce_product' => __('WooCommerce Products', 'evolve'),
+                    'counter_circle' => __('Counter Circles', 'evolve'),
+                    'custom_content' => __('Custom Content', 'evolve'),
+                ),
+                'disabled' => array(
+                )
+        );
+} else {
+        //Content Area Options
+        $content_area = array(
+                'enabled' => array(
+                    'content_box' => __('Content Boxes', 'evolve'),
+                    'testimonial' => __('Testimonials', 'evolve'),
+                    'blog_post' => __('Blog Posts', 'evolve'),
+                    'google_map' => __('Google Map', 'evolve'),
+                    'counter_circle' => __('Counter Circles', 'evolve'),
+                    'custom_content' => __('Custom Content', 'evolve'),
+                ),
+                'disabled' => array(
+                )
+        );
 }
 
 // Upgrade from version 3.3 and below
@@ -721,19 +753,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'sorter',
             'compiler' => true,
             'title' => __('Content Area', 'evolve'),
-            'options' => array(
-                'enabled' => array(
-                    'content_box' => __('Content Boxes', 'evolve'),
-                    'testimonial' => __('Testimonials', 'evolve'),
-                    'blog_post' => __('Blog Posts', 'evolve'),
-                    'google_map' => __('Google Map', 'evolve'),
-                    'woocommerce_product' => __('WooCommerce Products', 'evolve'),
-                    'counter_circle' => __('Counter Circles', 'evolve'),
-                    'custom_content' => __('Custom Content', 'evolve'),
-                ),
-                'disabled' => array(
-                )
-            ),
+            'options' => $content_area
         ),
         array(
             'subtitle' => sprintf(__('Unlock <strong>50+ new elements</strong> with Drag & Drop Composer for your current layout by converting it to a page with shortcodes.', 'evolve')),
@@ -749,7 +769,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => 'Extend layout elements by converting them into shortcodes and modify them with Theme4Press Composer (drag & drop builder)',
             'indent' => true
         ),
-                array(
+        array(
             'subtitle' => __('Choose the page where selected layout will be converted to shortcodes', 'evolve'),
             'id' => 'evl-front-page-add-page',
             'compiler' => true,
@@ -1498,22 +1518,17 @@ Redux::setSection($evolve_opt_name, array(
     'fields' => array(
         array(
             'title' => __('Blog Layout', 'evolve'),
-            'id' => 'layout',
+            'id' => 'evl_fp_blog_layout',
             'type' => 'select',
-            'default' => 'large',
+            'default' => 'grid',
             'options' => array(
-                'large' => __('Large', 'evolve'),
-                'medium' => __('Medium', 'evolve'),
-                'large alternate' => __('Large Alternate', 'evolve'),
-                'medium alternate' => __('Medium Alternate', 'evolve'),
                 'grid' => __('Grid', 'evolve'),
-                'timeline' => __('Timeline', 'evolve'),
             ),
             'subtitle' => __('Select the layout for the blog shortcode', 'evolve')
         ),
         array(
             'title' => __('Show Title', 'evolve'),
-            'id' => 'show_title',
+            'id' => 'evl_fp_blog_show_title',
             'type' => 'radio',
             'default' => 'yes',
             'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
@@ -1521,7 +1536,7 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'title' => __('Link Title To Post', 'evolve'),
-            'id' => 'title_link',
+            'id' => 'evl_fp_blog_title_link',
             'type' => 'radio',
             'default' => 'yes',
             'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
@@ -1529,7 +1544,7 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'title' => __('Show Thumbnail', 'evolve'),
-            'id' => 'thumbnail',
+            'id' => 'evl_fp_blog_thumbnail',
             'type' => 'radio',
             'default' => 'yes',
             'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
@@ -1537,7 +1552,7 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'title' => __('Show Excerpt', 'evolve'),
-            'id' => 'excerpt',
+            'id' => 'evl_fp_blog_excerpt',
             'type' => 'radio',
             'default' => 'yes',
             'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
@@ -1545,7 +1560,7 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'title' => __('Number of words/characters in Excerpt', 'evolve'),
-            'id' => 'excerpt_length',
+            'id' => 'evl_fp_blog_excerpt_length',
             'type' => 'spinner',
             'class' => 'input-sm',
             'default' => '35',
@@ -1553,7 +1568,7 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'title' => __('Show Meta Info', 'evolve'),
-            'id' => 'meta_all',
+            'id' => 'evl_fp_blog_meta_all',
             'type' => 'radio',
             'default' => 'yes',
             'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
@@ -1561,7 +1576,7 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'title' => __('Show Author Name', 'evolve'),
-            'id' => 'meta_author',
+            'id' => 'evl_fp_blog_meta_author',
             'type' => 'radio',
             'default' => 'yes',
             'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
@@ -1569,7 +1584,7 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'title' => __('Show Categories', 'evolve'),
-            'id' => 'meta_categories',
+            'id' => 'evl_fp_blog_meta_categories',
             'type' => 'radio',
             'default' => 'yes',
             'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
@@ -1577,7 +1592,7 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'title' => __('Show Comment Count', 'evolve'),
-            'id' => 'meta_comments',
+            'id' => 'evl_fp_blog_meta_comments',
             'type' => 'radio',
             'default' => 'yes',
             'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
@@ -1585,7 +1600,7 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'title' => __('Show Date', 'evolve'),
-            'id' => 'meta_date',
+            'id' => 'evl_fp_blog_meta_date',
             'type' => 'radio',
             'default' => 'yes',
             'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
@@ -1593,7 +1608,7 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'title' => __('Show Read More Link', 'evolve'),
-            'id' => 'meta_link',
+            'id' => 'evl_fp_blog_meta_link',
             'type' => 'radio',
             'default' => 'yes',
             'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
@@ -1601,35 +1616,15 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'title' => __('Show Tags', 'evolve'),
-            'id' => 'meta_tags',
+            'id' => 'evl_fp_blog_meta_tags',
             'type' => 'radio',
             'default' => 'yes',
             'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
             'subtitle' => __('Choose to show the tags', 'evolve'),
         ),
         array(
-            'title' => __('Show Pagination', 'evolve'),
-            'id' => 'paging',
-            'type' => 'radio',
-            'default' => 'yes',
-            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
-            'subtitle' => __('Show numerical pagination boxes', 'evolve'),
-        ),
-        array(
-            'title' => __('Infinite Scrolling', 'evolve'),
-            'id' => 'scrolling',
-            'type' => 'select',
-            'class' => 'input-sm',
-            'default' => 'pagination',
-            'options' => array(
-                'pagination' => __('pagination', 'evolve'),
-                'infinite' => __('Infinite Scrolling', 'evolve')
-            ),
-            'subtitle' => __('Choose the type of scrolling', 'evolve')
-        ),
-        array(
             'title' => __('Grid Layout # of Columns', 'evolve'),
-            'id' => 'blog_grid_columns',
+            'id' => 'evl_fp_blog_blog_grid_columns',
             'type' => 'select',
             'class' => 'input-sm',
             'default' => '2',
@@ -1642,7 +1637,7 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'title' => __('Strip HTML from Posts Content', 'evolve'),
-            'id' => 'strip_html',
+            'id' => 'evl_fp_blog_strip_html',
             'type' => 'radio',
             'default' => 'yes',
             'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
@@ -1656,14 +1651,14 @@ Redux::setSection($evolve_opt_name, array(
             'indent' => true
         ),
         array(
-            'id' => 'evl_blog_title',
+            'id' => 'evl_blog_section_title',
             'type' => 'text',
             'title' => __('Title of Blog Section', 'evolve'),
-            'default' => 'Why people love our themes',
+            'default' => 'Read New Story Here',
         ),
         array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
-            'id' => 'evl_blog_title_alignment',
+            'id' => 'evl_blog_section_title_alignment',
             'type' => 'typography',
             'title' => __('Title Font, Alignment and Color', 'evolve'),
             'text-align' => true,
@@ -1684,9 +1679,9 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Section Padding', 'evolve'),
             'default' => array(
                 'padding-top' => '40px',
-                'padding-right' => '200px',
+                'padding-right' => '0px',
                 'padding-bottom' => '40px',
-                'padding-left' => '200px',
+                'padding-left' => '0px',
                 'units' => 'px',
             ),
         ),
@@ -1754,7 +1749,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'color',
             'compiler' => true,
             'title' => __('Section Background Color', 'evolve'),
-            'default' => '#8bb9c1',
+            'default' => '#94ce98',
         ),
         array(
             'id' => 'evl-front-page-subsec-blog-section-end',
@@ -1853,7 +1848,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_googlemap_title',
             'type' => 'text',
             'title' => __('Title of Google Map Section', 'evolve'),
-            'default' => 'Why people love our themes',
+            'default' => 'Our Contact Place',
         ),
         array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
@@ -1878,9 +1873,9 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Section Padding', 'evolve'),
             'default' => array(
                 'padding-top' => '40px',
-                'padding-right' => '200px',
+                'padding-right' => '0px',
                 'padding-bottom' => '40px',
-                'padding-left' => '200px',
+                'padding-left' => '0px',
                 'units' => 'px',
             ),
         ),
@@ -1948,7 +1943,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'color',
             'compiler' => true,
             'title' => __('Section Background Color', 'evolve'),
-            'default' => '#8bb9c1',
+            'default' => '#8997bf',
         ),
         array(
             'id' => 'evl-front-page-subsec-googlemap-section-end',
@@ -2119,9 +2114,9 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Section Padding', 'evolve'),
             'default' => array(
                 'padding-top' => '40px',
-                'padding-right' => '200px',
+                'padding-right' => '0px',
                 'padding-bottom' => '40px',
-                'padding-left' => '200px',
+                'padding-left' => '0px',
                 'units' => 'px',
             ),
         ),
@@ -2189,7 +2184,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'color',
             'compiler' => true,
             'title' => __('Section Background Color', 'evolve'),
-            'default' => '#8bb9c1',
+            'default' => '#9ba372',
         ),
         array(
             'id' => 'evl-front-page-subsec-counter-circle-section-end',
@@ -2219,14 +2214,15 @@ Redux::setSection($evolve_opt_name, array(
                 '2' => $evolve_imagepath . 'two-posts.png',
                 '3' => $evolve_imagepath . 'three-posts.png',
             ),
-            'default' => 'three',
+            'default' => '3',
         ),
         array(
             'id' => 'evl_fp_woo_product',
             'title' => __('Product Category', 'evolve'),
             'subtitle' => __('Select Product Category', 'evolve'),
             'type' => 'select',
-            'options' => $product_texonomy
+            'options' => $product_texonomy,
+            'default' => 'none',
         ),
         // Section settings
         array(
@@ -2239,7 +2235,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_woo_product_title',
             'type' => 'text',
             'title' => __('Title of WooCommerce Product Section', 'evolve'),
-            'default' => 'Why people love our themes',
+            'default' => 'New Arrival Product',
         ),
         array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
@@ -2264,9 +2260,9 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Section Padding', 'evolve'),
             'default' => array(
                 'padding-top' => '40px',
-                'padding-right' => '200px',
+                'padding-right' => '0px',
                 'padding-bottom' => '40px',
-                'padding-left' => '200px',
+                'padding-left' => '0px',
                 'units' => 'px',
             ),
         ),
@@ -2334,7 +2330,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'color',
             'compiler' => true,
             'title' => __('Section Background Color', 'evolve'),
-            'default' => '#8bb9c1',
+            'default' => '#e0caa1',
         ),
         array(
             'id' => 'evl-front-page-subsec-woo-product-section-end',
@@ -2370,7 +2366,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_custom_content_title',
             'type' => 'text',
             'title' => __('Title of Custom Content Section', 'evolve'),
-            'default' => 'Why people love our themes',
+            'default' => 'Your Custom Content Here',
         ),
         array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
@@ -2395,9 +2391,9 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Section Padding', 'evolve'),
             'default' => array(
                 'padding-top' => '40px',
-                'padding-right' => '200px',
+                'padding-right' => '0px',
                 'padding-bottom' => '40px',
-                'padding-left' => '200px',
+                'padding-left' => '0px',
                 'units' => 'px',
             ),
         ),
@@ -2465,7 +2461,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'color',
             'compiler' => true,
             'title' => __('Section Background Color', 'evolve'),
-            'default' => '#8bb9c1',
+            'default' => '#93f2d7',
         ),
         array(
             'id' => 'evl-front-page-subsec-custom-content-section-end',
