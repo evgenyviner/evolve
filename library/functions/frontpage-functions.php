@@ -664,7 +664,7 @@ function evolve_blog_posts() {
         $evolve_fp_blog_section_title = '<h2 class="fp_blog_section_title section_title">'.evolve_get_option('evl_blog_section_title', 'Read New Story Here').'</h2><div class="clearfix"></div>';
     }
 
-    $html  = "<div class='t4p-fp-blog' >";
+    $html  = "<div class='t4p-fp-blog content' >";
     $html .= "<div class='container container-center'><div class='row'>".$evolve_fp_blog_section_title;
 
             if ( is_front_page() || is_home() ) {
@@ -1065,8 +1065,8 @@ function loop_header($header) {
 function loop_footer() {
     global $evl_options;
 
-
-    if ($evl_options['evl_fp_blog_meta_all'] == 'yes' && ($evl_options['evl_fp_blog_layout'] == 'grid')) {
+    if ($evl_options['evl_fp_blog_meta_all'] == 'yes' && $evl_options['evl_fp_blog_layout'] == 'grid') {
+        echo read_more();
         echo grid_timeline_comments();
         echo '<div class="t4p-clearfix"></div>';
     }
@@ -1231,7 +1231,6 @@ function post_meta_data($return_all_meta = false) {
 
         $meta_author = get_the_author_meta('display_name');
 
-    if ('evolve Plus' == $theme->name || 'evolve Plus' == $theme->parent_theme) {
         if ($evl_options['evl_fp_blog_meta_date'] == 'yes') {
             $inner_content .= "<span class='entry-time'><span class='updated' style='display:none;'>$meta_time</span><time class='$meta_date_class'>$meta_date</time></span><span class='meta-separator'>|</span>";
         }
@@ -1240,59 +1239,32 @@ function post_meta_data($return_all_meta = false) {
             $inner_content .= "<span class='$meta_author_class' itemprop='$meta_author_itemprop' itemscope='$meta_author_itemscope' itemtype='$meta_author_itemtype'>" . __('Written By', 't4p-core') . " <a href='$meta_author_link_href' itemprop='$meta_author_link_itemprop' rel='$meta_author_link_rel'>$meta_author</a>" . "</span><span class='meta-separator'>|</span>";
         }
 
-    } else {
-        if ($evl_options['evl_fp_blog_meta_author'] == 'yes') {
-            $inner_content .= "<span class='$meta_author_class' itemprop='$meta_author_itemprop' itemscope='$meta_author_itemscope' itemtype='$meta_author_itemtype'>" . __('By', 't4p-core') . " <a href='$meta_author_link_href' itemprop='$meta_author_link_itemprop' rel='$meta_author_link_rel'>$meta_author</a>" . "</span><span class='meta-separator'>|</span>";
-        }
+        if ($return_all_meta) {
 
-        if ($evl_options['evl_fp_blog_meta_date'] == 'yes') {
-            $inner_content .= "<span class='entry-time'><span class='updated' style='display:none;'>$meta_time</span><time class='$meta_date_class'>".get_the_time($smof_data['date_format'])."</time></span><span class='meta-separator'>|</span>";
-        }
-    }
+                if ($evl_options['evl_fp_blog_layout'] == 'medium') {
+                    if ($evl_options['evl_fp_blog_meta_categories'] == 'yes') {
 
-    if ($return_all_meta) {
-        $theme = wp_get_theme(); // gets the current theme
+                        $categories = get_the_category();
+                        $no_of_categories = count($categories);
+                        $separator = ', ';
+                        $output = __('Categories:', 't4p-core') . ' ';
+                        $count = 1;
 
+                        foreach ($categories as $category) {
 
-            if ($evl_options['evl_fp_blog_meta_categories'] == 'yes') {
+                            $output .= '<a href="' . get_category_link($category->term_id) . '" title="' . esc_attr(sprintf(__("View all posts in %s"), $category->name)) . '">' . $category->cat_name . '</a>';
 
-                $categories = get_the_category();
-                $no_of_categories = count($categories);
-                $separator = ', ';
-                $output = __('Categories:', 't4p-core') . ' ';
-                $count = 1;
+                            if ($count < $no_of_categories) {
+                                $output .= $separator;
+                            }
 
-                foreach ($categories as $category) {
+                            $count++;
+                        }
 
-                    $output .= '<a href="' . get_category_link($category->term_id) . '" title="' . esc_attr(sprintf(__("View all posts in %s"), $category->name)) . '">' . $category->cat_name . '</a>';
+                        $inner_content .= "<span class='entry-categories'>$output</span><span class='meta-separator'>|</span>";
 
-                    if ($count < $no_of_categories) {
-                        $output .= $separator;
                     }
-
-                    $count++;
                 }
-
-                $inner_content .= "<span class='entry-categories'>$output</span><span class='meta-separator'>|</span>";
-            }
-        }
-
-        $theme = wp_get_theme(); // gets the current theme
-        if ('evolve Plus' == $theme->name || 'evolve Plus' == $theme->parent_theme) {
-
-        } else {
-            if ($evl_options['evl_fp_blog_meta_tags'] == 'yes') {
-                $inner_content .= sprintf('%s<span class="meta-separator">|</span>', post_meta_tags());
-            }
-            if ($evl_options['evl_fp_blog_meta_comments'] == 'yes') {
-
-                ob_start();
-                comments_popup_link(__('0 Comments', 't4p-core'), __('1 Comment', 't4p-core'), __('% Comments', 't4p-core'));
-                $comments = ob_get_contents();
-                ob_get_clean();
-
-                $inner_content .= sprintf('<span class="entry-comments">%s</span><span class="meta-separator">|</span>', $comments);
-            }
         }
 
     $inner_content .= '</p>';
@@ -1320,8 +1292,7 @@ function grid_timeline_comments() {
 
 function post_meta_tags() {
     global $evl_options;
-    $theme = wp_get_theme(); // gets the current theme
-    if ('evolve Plus' == $theme->name || 'evolve Plus' == $theme->parent_theme) {
+
             if( has_tag() ) {
                     $inner_content = '';			
                     if ($evl_options['evl_fp_blog_meta_tags'] == 'yes') {
@@ -1334,20 +1305,7 @@ function post_meta_tags() {
                     }
                     return $inner_content;
             }
-    } else {
-    $inner_content = '';			
-            if ($evl_options['evl_fp_blog_meta_tags'] == 'yes') {
-
-                ob_start();
-                echo __('Tags:', 't4p-core') . ' ';
-                the_tags('');
-                $tags = ob_get_contents();
-                ob_get_clean();
-
-                $inner_content = sprintf('<span class="meta-tags">%s</span>', $tags);
-            }
-            return $inner_content;
-    }
+  
 }
 // end post_meta_tags()	
 

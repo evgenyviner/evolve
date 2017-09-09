@@ -60,7 +60,7 @@ if (has_post_thumbnail() ||
             <?php endif; ?>      
             <ul class="slides">
                 <?php if (get_post_meta(get_the_ID(), 'evolve_video', true)): ?>
-                    <li>
+                    <li class="flex-active-slide">
                         <div class="full-video">
                             <?php echo get_post_meta(get_the_ID(), 'evolve_video', true); ?>
                         </div>
@@ -71,7 +71,7 @@ if (has_post_thumbnail() ||
                     $full_image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
                     $attachment_data = wp_get_attachment_metadata(get_post_thumbnail_id());
                     ?>
-                    <li>
+                    <li class="flex-active-slide"> 
                         <div class="image" aria-haspopup="true">
                             <?php
                             if ($smof_data['image_rollover']):

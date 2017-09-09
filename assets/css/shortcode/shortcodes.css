@@ -1,4 +1,44 @@
 /*
+Column Shortcode
+-----------------------------------------------------------------------------*/
+
+.t4p-clearfix {
+    clear: both;
+    zoom: 1;
+}
+
+.t4p-clearfix:before,
+.t4p-clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.t4p-clearfix:after {
+    clear: both;
+}
+
+.t4p-column {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.t4p-column-last {
+    clear: right;
+    zoom: 1;
+}
+
+.t4p-column-last:before,
+.t4p-column-last:after {
+    content: " ";
+    display: table;
+}
+
+.t4p-column-last:after {
+    clear: both;
+}
+
+
+/*
 Button Shortcode
 -----------------------------------------------------------------------------*/
 .button-small,
@@ -48,6 +88,16 @@ Button Shortcode
 .flexslider .slides li {
     display: none;
     -webkit-backface-visibility: hidden;
+}
+
+.flexslider .slides li.flex-active-slide {
+    width: 100%;
+    float: left;
+    margin-right: -100%;
+    position: relative;
+    opacity: 1;
+    display: block;
+    z-index: 2;
 }
 
 .flexslider .slides img {
@@ -487,6 +537,9 @@ Google Map Shortcode
 /*
 Blog Shortcode
 -----------------------------------------------------------------------------*/
+.t4p-blog-shortcode .t4p-flexslider{
+    margin-bottom: 20px;
+}
 
 .t4p-blog-shortcode .entry-meta .entry-author {
     float: left;

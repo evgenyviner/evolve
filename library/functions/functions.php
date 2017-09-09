@@ -58,6 +58,7 @@ function evolve_media() {
     wp_enqueue_script('meanmenu', EVOLVEJS . '/jquery.meanmenu.js', array('jquery'));
     wp_enqueue_script('flexslider', EVOLVEJS . '/jquery.flexslider.js');
     wp_enqueue_script('flexslidermin', EVOLVEJS . '/jquery.flexslider-min.js');
+    wp_enqueue_script('prettyphoto', EVOLVEJS . '/jquery.prettyPhoto.js');
     wp_enqueue_script('main', EVOLVEJS . '/main.js', array('jquery'), '', true);
     wp_enqueue_script('main_backend', EVOLVEJS . '/main_backend.js', array('jquery'), '', true);
 
