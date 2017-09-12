@@ -118,47 +118,47 @@ foreach ($pages as $key => $page_instance) {
     $page_title[$page_instance->ID] = $page_instance->post_title;
 }
 
-if ( is_plugin_active('woocommerce/woocommerce.php') ) {
-        //Get Product Category List
-        global $wpdb;
-        $term_query = "SELECT * from ".$wpdb->prefix."terms as wpt, ".$wpdb->prefix."term_taxonomy as wptt where wpt.term_id = wptt.term_id AND wptt.taxonomy = 'product_cat'";
-        $terms = $wpdb->get_results($term_query);
-        if ( $terms ) {
-            foreach ($terms as $term) {
-                $product_texonomy[$term->slug] = $term->name;
-            }
-        } else {
-            $product_texonomy = array( 'none' => 'No categories found' );
+if (is_plugin_active('woocommerce/woocommerce.php')) {
+    //Get Product Category List
+    global $wpdb;
+    $term_query = "SELECT * from " . $wpdb->prefix . "terms as wpt, " . $wpdb->prefix . "term_taxonomy as wptt where wpt.term_id = wptt.term_id AND wptt.taxonomy = 'product_cat'";
+    $terms = $wpdb->get_results($term_query);
+    if ($terms) {
+        foreach ($terms as $term) {
+            $product_texonomy[$term->slug] = $term->name;
         }
+    } else {
+        $product_texonomy = array('none' => 'No categories found');
+    }
 
-        //Content Area Options
-        $content_area = array(
-                'enabled' => array(
-                    'content_box' => __('Content Boxes', 'evolve'),
-                    'testimonial' => __('Testimonials', 'evolve'),
-                    'blog_post' => __('Blog Posts', 'evolve'),
-                    'google_map' => __('Google Map', 'evolve'),
-                    'woocommerce_product' => __('WooCommerce Products', 'evolve'),
-                    'counter_circle' => __('Counter Circles', 'evolve'),
-                    'custom_content' => __('Custom Content', 'evolve'),
-                ),
-                'disabled' => array(
-                )
-        );
+    //Content Area Options
+    $content_area = array(
+        'enabled' => array(
+            'content_box' => __('Content Boxes', 'evolve'),
+            'testimonial' => __('Testimonials', 'evolve'),
+            'blog_post' => __('Blog Posts', 'evolve'),
+            'google_map' => __('Google Map', 'evolve'),
+            'woocommerce_product' => __('WooCommerce Products', 'evolve'),
+            'counter_circle' => __('Counter Circles', 'evolve'),
+            'custom_content' => __('Custom Content', 'evolve'),
+        ),
+        'disabled' => array(
+        )
+    );
 } else {
-        //Content Area Options
-        $content_area = array(
-                'enabled' => array(
-                    'content_box' => __('Content Boxes', 'evolve'),
-                    'testimonial' => __('Testimonials', 'evolve'),
-                    'blog_post' => __('Blog Posts', 'evolve'),
-                    'google_map' => __('Google Map', 'evolve'),
-                    'counter_circle' => __('Counter Circles', 'evolve'),
-                    'custom_content' => __('Custom Content', 'evolve'),
-                ),
-                'disabled' => array(
-                )
-        );
+    //Content Area Options
+    $content_area = array(
+        'enabled' => array(
+            'content_box' => __('Content Boxes', 'evolve'),
+            'testimonial' => __('Testimonials', 'evolve'),
+            'blog_post' => __('Blog Posts', 'evolve'),
+            'google_map' => __('Google Map', 'evolve'),
+            'counter_circle' => __('Counter Circles', 'evolve'),
+            'custom_content' => __('Custom Content', 'evolve'),
+        ),
+        'disabled' => array(
+        )
+    );
 }
 
 // Upgrade from version 3.3 and below
@@ -232,6 +232,12 @@ function evolve_headerdefault() {
 }
 
 add_action("redux/page/{$evolve_opt_name}/enqueue", "evolve_headerdefault");
+
+function evolve_colorpalettes() {
+    wp_enqueue_script('evolve-colorpalettes', get_template_directory_uri() . '/library/admin/colorpalettes/colorpalettes.js', array(), '', true);
+}
+
+add_action("redux/page/{$evolve_opt_name}/enqueue", "evolve_colorpalettes");
 
 function evolve_iconpicker() {
     wp_enqueue_style('fontawesomecss', get_template_directory_uri() . '/assets/fonts/fontawesome/css/font-awesome.css', false);
@@ -798,12 +804,262 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
+// Front Page Blog Sections
+Redux::setSection($evolve_opt_name, array(
+    'id' => 'evl-fp-blog-general-tab',
+    'title' => __('Blog', 'evolve'),
+    'subsection' => true,
+    'fields' => array(
+        array(
+            'title' => __('Blog Layout', 'evolve'),
+            'id' => 'evl_fp_blog_layout',
+            'type' => 'select',
+            'default' => 'grid',
+            'options' => array(
+                'grid' => __('Grid', 'evolve'),
+            ),
+            'subtitle' => __('Select the layout for the blog shortcode', 'evolve')
+        ),
+        array(
+            'title' => __('Show Title', 'evolve'),
+            'id' => 'evl_fp_blog_show_title',
+            'type' => 'radio',
+            'default' => 'yes',
+            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
+            'subtitle' => __('Display the post title below the featured image', 'evolve'),
+        ),
+        array(
+            'title' => __('Link Title To Post', 'evolve'),
+            'id' => 'evl_fp_blog_title_link',
+            'type' => 'radio',
+            'default' => 'yes',
+            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
+            'subtitle' => __('Choose if the title should be a link to the single post page.', 'evolve'),
+        ),
+        array(
+            'title' => __('Show Thumbnail', 'evolve'),
+            'id' => 'evl_fp_blog_thumbnail',
+            'type' => 'radio',
+            'default' => 'yes',
+            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
+            'subtitle' => __('Display the post featured image', 'evolve'),
+        ),
+        array(
+            'title' => __('Show Excerpt', 'evolve'),
+            'id' => 'evl_fp_blog_excerpt',
+            'type' => 'radio',
+            'default' => 'yes',
+            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
+            'subtitle' => __('Choose to display the post excerpt', 'evolve'),
+        ),
+        array(
+            'title' => __('Number of words/characters in Excerpt', 'evolve'),
+            'id' => 'evl_fp_blog_excerpt_length',
+            'type' => 'spinner',
+            'class' => 'input-sm',
+            'default' => '35',
+            'subtitle' => __('Controls the excerpt length based on words or characters that is set in Theme Options > Extra.', 'evolve')
+        ),
+        array(
+            'title' => __('Show Meta Info', 'evolve'),
+            'id' => 'evl_fp_blog_meta_all',
+            'type' => 'radio',
+            'default' => 'yes',
+            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
+            'subtitle' => __('Choose to show all meta data', 'evolve'),
+        ),
+        array(
+            'title' => __('Show Author Name', 'evolve'),
+            'id' => 'evl_fp_blog_meta_author',
+            'type' => 'radio',
+            'default' => 'yes',
+            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
+            'subtitle' => __('Choose to show the author', 'evolve'),
+        ),
+        array(
+            'title' => __('Show Categories', 'evolve'),
+            'id' => 'evl_fp_blog_meta_categories',
+            'type' => 'radio',
+            'default' => 'yes',
+            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
+            'subtitle' => __('Choose to show the categories', 'evolve'),
+        ),
+        array(
+            'title' => __('Show Comment Count', 'evolve'),
+            'id' => 'evl_fp_blog_meta_comments',
+            'type' => 'radio',
+            'default' => 'yes',
+            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
+            'subtitle' => __('Choose to show the comments', 'evolve'),
+        ),
+        array(
+            'title' => __('Show Date', 'evolve'),
+            'id' => 'evl_fp_blog_meta_date',
+            'type' => 'radio',
+            'default' => 'yes',
+            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
+            'subtitle' => __('Choose to show the date', 'evolve'),
+        ),
+        array(
+            'title' => __('Show Read More Link', 'evolve'),
+            'id' => 'evl_fp_blog_meta_link',
+            'type' => 'radio',
+            'default' => 'yes',
+            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
+            'subtitle' => __('Choose to show the link', 'evolve'),
+        ),
+        array(
+            'title' => __('Show Tags', 'evolve'),
+            'id' => 'evl_fp_blog_meta_tags',
+            'type' => 'radio',
+            'default' => 'yes',
+            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
+            'subtitle' => __('Choose to show the tags', 'evolve'),
+        ),
+        array(
+            'title' => __('Grid Layout # of Columns', 'evolve'),
+            'id' => 'evl_fp_blog_blog_grid_columns',
+            'type' => 'select',
+            'class' => 'input-sm',
+            'default' => '2',
+            'options' => array(
+                '2' => __('2', 'evolve'),
+                '3' => __('3', 'evolve'),
+                '4' => __('4', 'evolve')
+            ),
+            'subtitle' => __('Select whether to display the grid layout in 2, 3 or 4 column.', 'evolve')
+        ),
+        array(
+            'title' => __('Strip HTML from Posts Content', 'evolve'),
+            'id' => 'evl_fp_blog_strip_html',
+            'type' => 'radio',
+            'default' => 'yes',
+            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
+            'subtitle' => __('Strip HTML from the post excerpt', 'evolve'),
+        ),
+        // Section settings
+        array(
+            'id' => 'evl-front-page-subsec-blog-section-start',
+            'type' => 'section',
+            'title' => 'Section Settings',
+            'indent' => true
+        ),
+        array(
+            'id' => 'evl_blog_section_title',
+            'type' => 'text',
+            'title' => __('Title of Blog Section', 'evolve'),
+            'default' => __('Latest News From The Blog', 'evolve'),
+        ),
+        array(
+            'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
+            'id' => 'evl_blog_section_title_alignment',
+            'type' => 'typography',
+            'title' => __('Title Font, Alignment and Color', 'evolve'),
+            'text-align' => true,
+            'line-height' => false,
+            'default' => array(
+                'font-size' => '30px',
+                'color' => '#444444',
+                'font-family' => 'Roboto',
+                'font-style' => '700',
+                'text-align' => 'center',
+            ),
+        ),
+        array(
+            'subtitle' => __('Enter the section padding.', 'evolve'),
+            'id' => 'evl_blog_section_padding',
+            'type' => 'spacing',
+            'units' => array('px', 'em'),
+            'title' => __('Section Padding', 'evolve'),
+            'default' => array(
+                'padding-top' => '40px',
+                'padding-right' => '0px',
+                'padding-bottom' => '40px',
+                'padding-left' => '0px',
+                'units' => 'px',
+            ),
+        ),
+        array(
+            'subtitle' => __('Upload a section background image for your theme, or specify an image URL directly.', 'evolve'),
+            'id' => 'evl_blog_section_background_image',
+            'type' => 'media',
+            'title' => __('Section Image', 'evolve'),
+            'url' => true,
+        ),
+        array(
+            'subtitle' => __('Select if the section background image should be displayed in cover or contain size.', 'evolve'),
+            'id' => 'evl_blog_section_image',
+            'type' => 'select',
+            'options' => array(
+                'cover' => __('Cover', 'evolve'),
+                'contain' => __('Contain', 'evolve'),
+                'none' => __('None', 'evolve'),
+            ),
+            'title' => __('Section Image Background Responsiveness Style', 'evolve'),
+            'default' => 'cover',
+        ),
+        array(
+            'id' => 'evl_blog_section_image_background_repeat',
+            'type' => 'select',
+            'options' => array(
+                'no-repeat' => __('no-repeat', 'evolve'),
+                'repeat' => __('repeat', 'evolve'),
+                'repeat-x' => __('repeat-x', 'evolve'),
+                'repeat-y' => __('repeat-y', 'evolve'),
+            ),
+            'title' => __('Background Repeat', 'evolve'),
+            'default' => 'no-repeat',
+        ),
+        array(
+            'id' => 'evl_blog_section_image_background_position',
+            'type' => 'select',
+            'options' => array(
+                'center top' => __('center top', 'evolve'),
+                'center center' => __('center center', 'evolve'),
+                'center bottom' => __('center bottom', 'evolve'),
+                'left top' => __('left top', 'evolve'),
+                'left center' => __('left center', 'evolve'),
+                'left bottom' => __('left bottom', 'evolve'),
+                'right top' => __('right top', 'evolve'),
+                'right center' => __('right center', 'evolve'),
+                'right bottom' => __('right bottom', 'evolve'),
+            ),
+            'title' => __('Background Position', 'evolve'),
+            'default' => 'center top',
+        ),
+        array(
+            'subtitle' => __('Check to enable parallax background image when scrolling.', 'evolve'),
+            'id' => 'evl_blog_section_background_parallax',
+            'compiler' => true,
+            'type' => 'checkbox',
+            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+            'class' => $evolve_prem_class,
+            'title' => __('Parallax Background Image', 'evolve'),
+            'default' => '0',
+        ),
+        array(
+            'subtitle' => __('Custom background color of section', 'evolve'),
+            'id' => 'evl_blog_section_back_color',
+            'type' => 'color',
+            'compiler' => true,
+            'title' => __('Section Background Color', 'evolve'),
+            'default' => '#ffffff',
+        ),
+        array(
+            'id' => 'evl-front-page-subsec-blog-section-end',
+            'type' => 'section',
+            'indent' => false,
+        ),
+    ),
+        )
+);
+
+// Front Page Content Boxes		
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-frontpage-content-boxes-tab',
     'title' => __('Content Boxes', 'evolve'),
     'subsection' => true,
     'fields' => array(
-        // Front Page Content Boxes
         array(
             'id' => 'evl-front-page-content-boxes-start',
             'type' => 'section',
@@ -1274,687 +1530,6 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-// Testimonials Dynamic Fields
-$testimonialfields = array();
-
-$slide_defaults = array(
-    array(
-        'image' => "{$evolve_imagepathfolder}frontpage-builder/team-1.png",
-        'title' => __(' Blunderdog', 'evolve'),
-        'description' => __('This is a great theme! Extremely versatile, easy to style, functional; I couldn’t be happier with a theme.', 'evolve'),
-    ),
-    array(
-        'image' => "{$evolve_imagepathfolder}frontpage-builder/team-2.png",
-        'title' => __('Marco', 'evolve'),
-        'description' => __('evolve lite is a really good and free theme. Really responsive.', 'evolve'),
-    ),
-);
-
-for ($i = 1; $i <= 2; $i++) {
-
-    $testimonialfields[] = array(
-        'id' => "{$evolve_shortname}_fp_testimonial{$i}",
-        'title' => sprintf(__('Enable Testimonial %d ?', 'evolve'), $i),
-        'type' => 'switch',
-        'on' => __('Enabled', 'evolve'),
-        'off' => __('Disabled', 'evolve'),
-        'default' => 1,
-    );
-
-    $testimonialfields[] = array(
-        "title" => sprintf(__('Testimonial %d Avatar', 'evolve'), $i),
-        "subtitle" => sprintf(__('Upload an image for the Testimonial %d, or specify an image URL directly', 'evolve'), $i),
-        "id" => "{$evolve_shortname}_fp_testimonial{$i}_avatar",
-        "type" => "media",
-        'url' => true,
-        'readonly' => false,
-        "default" => array('url' => $slide_defaults[( $i - 1 )]['image']),
-        'required' => array(array("{$evolve_shortname}_fp_testimonial{$i}", '=', '1'))
-    );
-
-    $testimonialfields[] = array(
-        "title" => sprintf(__('Testimonial %d Name', 'evolve'), $i),
-        "id" => "{$evolve_shortname}_fp_testimonial{$i}_name",
-        "type" => "text",
-        "default" => $slide_defaults[( $i - 1 )]['title'],
-        'required' => array(array("{$evolve_shortname}_fp_testimonial{$i}", '=', '1'))
-    );
-
-    $testimonialfields[] = array(
-        "title" => sprintf(__('Testimonial %d Content', 'evolve'), $i),
-        "id" => "{$evolve_shortname}_fp_testimonial{$i}_content",
-        "type" => "textarea",
-        "rows" => 5,
-        "default" => $slide_defaults[( $i - 1 )]['description'],
-        'required' => array(array("{$evolve_shortname}_fp_testimonial{$i}", '=', '1'))
-    );
-}
-
-$testimonialfields[] = array(
-    'id' => 'add_another_fp_testimonial',
-    'type' => 'raw',
-    'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-    'class' => $evolve_prem_class,
-    'title' => __('Add Another Testimonial', 'evolve'),
-    'content' => __('<a class="button button-primary" href="">Add Testimonial</a>', 'evolve'),
-    'full_width' => false,
-);
-
-Redux::setSection($evolve_opt_name, array(
-    'id' => 'evl-front-page-testimonials-tab',
-    'title' => __('Testimonials', 'evolve'),
-    'subsection' => true,
-    'fields' => array(
-        // Testimonials General
-        array(
-            'id' => 'evl-fp-testimonials-general-start',
-            'type' => 'section',
-            'title' => 'General',
-            'indent' => true
-        ),
-        array(
-            'id' => 'evl_fp_testimonials_bg_color',
-            'compiler' => true,
-            'type' => 'color',
-            'title' => __('Background Color', 'evolve'),
-            'default' => '#71989e',
-        ),
-        array(
-            'id' => 'evl_fp_testimonials_text_color',
-            'compiler' => true,
-            'type' => 'color',
-            'title' => __('Text Color', 'evolve'),
-            'default' => '#ffffff',
-        ),
-        array(
-            'id' => 'evl-fp-testimonials-general-end',
-            'type' => 'section',
-            'indent' => false,
-        ),
-        // Add Testimonial
-        array(
-            'id' => 'evl-fp-testimonial-slides-start',
-            'type' => 'section',
-            'title' => 'Add Testimonial',
-            'indent' => true
-        ),
-        $testimonialfields[0],
-        $testimonialfields[1],
-        $testimonialfields[2],
-        $testimonialfields[3],
-        $testimonialfields[4],
-        $testimonialfields[5],
-        $testimonialfields[6],
-        $testimonialfields[7],
-        $testimonialfields[8],
-        array(
-            'id' => 'evl-fp-testimonial-slides-end',
-            'type' => 'section',
-            'indent' => false,
-        ),
-        // Section settings
-        array(
-            'id' => 'evl-front-page-subsec-testimonials-section-start',
-            'type' => 'section',
-            'title' => 'Section Settings',
-            'indent' => true
-        ),
-        array(
-            'id' => 'evl_testimonials_title',
-            'type' => 'text',
-            'title' => __('Title of Testimonials Section', 'evolve'),
-            'default' => 'Why people love our themes',
-        ),
-        array(
-            'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
-            'id' => 'evl_testimonials_title_alignment',
-            'type' => 'typography',
-            'title' => __('Title Font, Alignment and Color', 'evolve'),
-            'text-align' => true,
-            'line-height' => false,
-            'default' => array(
-                'font-size' => '30px',
-                'color' => '#ffffff',
-                'font-family' => 'Roboto',
-                'font-style' => '700',
-                'text-align' => 'center',
-            ),
-        ),
-        array(
-            'subtitle' => __('Enter the section padding.', 'evolve'),
-            'id' => 'evl_testimonials_section_padding',
-            'type' => 'spacing',
-            'units' => array('px', 'em'),
-            'title' => __('Section Padding', 'evolve'),
-            'default' => array(
-                'padding-top' => '40px',
-                'padding-right' => '200px',
-                'padding-bottom' => '40px',
-                'padding-left' => '200px',
-                'units' => 'px',
-            ),
-        ),
-        array(
-            'subtitle' => __('Upload a section background image for your theme, or specify an image URL directly.', 'evolve'),
-            'id' => 'evl_testimonials_section_background_image',
-            'type' => 'media',
-            'title' => __('Section Image', 'evolve'),
-            'url' => true,
-        ),
-        array(
-            'subtitle' => __('Select if the section background image should be displayed in cover or contain size.', 'evolve'),
-            'id' => 'evl_testimonials_section_image',
-            'type' => 'select',
-            'options' => array(
-                'cover' => __('Cover', 'evolve'),
-                'contain' => __('Contain', 'evolve'),
-                'none' => __('None', 'evolve'),
-            ),
-            'title' => __('Section Image Background Responsiveness Style', 'evolve'),
-            'default' => 'cover',
-        ),
-        array(
-            'id' => 'evl_testimonials_section_image_background_repeat',
-            'type' => 'select',
-            'options' => array(
-                'no-repeat' => __('no-repeat', 'evolve'),
-                'repeat' => __('repeat', 'evolve'),
-                'repeat-x' => __('repeat-x', 'evolve'),
-                'repeat-y' => __('repeat-y', 'evolve'),
-            ),
-            'title' => __('Background Repeat', 'evolve'),
-            'default' => 'no-repeat',
-        ),
-        array(
-            'id' => 'evl_testimonials_section_image_background_position',
-            'type' => 'select',
-            'options' => array(
-                'center top' => __('center top', 'evolve'),
-                'center center' => __('center center', 'evolve'),
-                'center bottom' => __('center bottom', 'evolve'),
-                'left top' => __('left top', 'evolve'),
-                'left center' => __('left center', 'evolve'),
-                'left bottom' => __('left bottom', 'evolve'),
-                'right top' => __('right top', 'evolve'),
-                'right center' => __('right center', 'evolve'),
-                'right bottom' => __('right bottom', 'evolve'),
-            ),
-            'title' => __('Background Position', 'evolve'),
-            'default' => 'center top',
-        ),
-        array(
-            'subtitle' => __('Check to enable parallax background image when scrolling.', 'evolve'),
-            'id' => 'evl_testimonials_section_background_parallax',
-            'compiler' => true,
-            'type' => 'checkbox',
-            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'class' => $evolve_prem_class,
-            'title' => __('Parallax Background Image', 'evolve'),
-            'default' => '0',
-        ),
-        array(
-            'subtitle' => __('Custom background color of section', 'evolve'),
-            'id' => 'evl_testimonials_section_back_color',
-            'type' => 'color',
-            'compiler' => true,
-            'title' => __('Section Background Color', 'evolve'),
-            'default' => '#8bb9c1',
-        ),
-        array(
-            'id' => 'evl-front-page-subsec-testimonials-section-end',
-            'type' => 'section',
-            'indent' => false,
-        ),
-    ),
-        )
-);
-
-
-// Front Page Blog Sections
-Redux::setSection($evolve_opt_name, array(
-    'id' => 'evl-fp-blog-general-tab',
-    'title' => __('Blog', 'evolve'),
-    'subsection' => true,
-    'fields' => array(
-        array(
-            'title' => __('Blog Layout', 'evolve'),
-            'id' => 'evl_fp_blog_layout',
-            'type' => 'select',
-            'default' => 'grid',
-            'options' => array(
-                'grid' => __('Grid', 'evolve'),
-            ),
-            'subtitle' => __('Select the layout for the blog shortcode', 'evolve')
-        ),
-        array(
-            'title' => __('Show Title', 'evolve'),
-            'id' => 'evl_fp_blog_show_title',
-            'type' => 'radio',
-            'default' => 'yes',
-            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
-            'subtitle' => __('Display the post title below the featured image', 'evolve'),
-        ),
-        array(
-            'title' => __('Link Title To Post', 'evolve'),
-            'id' => 'evl_fp_blog_title_link',
-            'type' => 'radio',
-            'default' => 'yes',
-            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
-            'subtitle' => __('Choose if the title should be a link to the single post page.', 'evolve'),
-        ),
-        array(
-            'title' => __('Show Thumbnail', 'evolve'),
-            'id' => 'evl_fp_blog_thumbnail',
-            'type' => 'radio',
-            'default' => 'yes',
-            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
-            'subtitle' => __('Display the post featured image', 'evolve'),
-        ),
-        array(
-            'title' => __('Show Excerpt', 'evolve'),
-            'id' => 'evl_fp_blog_excerpt',
-            'type' => 'radio',
-            'default' => 'yes',
-            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
-            'subtitle' => __('Choose to display the post excerpt', 'evolve'),
-        ),
-        array(
-            'title' => __('Number of words/characters in Excerpt', 'evolve'),
-            'id' => 'evl_fp_blog_excerpt_length',
-            'type' => 'spinner',
-            'class' => 'input-sm',
-            'default' => '35',
-            'subtitle' => __('Controls the excerpt length based on words or characters that is set in Theme Options > Extra.', 'evolve')
-        ),
-        array(
-            'title' => __('Show Meta Info', 'evolve'),
-            'id' => 'evl_fp_blog_meta_all',
-            'type' => 'radio',
-            'default' => 'yes',
-            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
-            'subtitle' => __('Choose to show all meta data', 'evolve'),
-        ),
-        array(
-            'title' => __('Show Author Name', 'evolve'),
-            'id' => 'evl_fp_blog_meta_author',
-            'type' => 'radio',
-            'default' => 'yes',
-            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
-            'subtitle' => __('Choose to show the author', 'evolve'),
-        ),
-        array(
-            'title' => __('Show Categories', 'evolve'),
-            'id' => 'evl_fp_blog_meta_categories',
-            'type' => 'radio',
-            'default' => 'yes',
-            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
-            'subtitle' => __('Choose to show the categories', 'evolve'),
-        ),
-        array(
-            'title' => __('Show Comment Count', 'evolve'),
-            'id' => 'evl_fp_blog_meta_comments',
-            'type' => 'radio',
-            'default' => 'yes',
-            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
-            'subtitle' => __('Choose to show the comments', 'evolve'),
-        ),
-        array(
-            'title' => __('Show Date', 'evolve'),
-            'id' => 'evl_fp_blog_meta_date',
-            'type' => 'radio',
-            'default' => 'yes',
-            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
-            'subtitle' => __('Choose to show the date', 'evolve'),
-        ),
-        array(
-            'title' => __('Show Read More Link', 'evolve'),
-            'id' => 'evl_fp_blog_meta_link',
-            'type' => 'radio',
-            'default' => 'yes',
-            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
-            'subtitle' => __('Choose to show the link', 'evolve'),
-        ),
-        array(
-            'title' => __('Show Tags', 'evolve'),
-            'id' => 'evl_fp_blog_meta_tags',
-            'type' => 'radio',
-            'default' => 'yes',
-            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
-            'subtitle' => __('Choose to show the tags', 'evolve'),
-        ),
-        array(
-            'title' => __('Grid Layout # of Columns', 'evolve'),
-            'id' => 'evl_fp_blog_blog_grid_columns',
-            'type' => 'select',
-            'class' => 'input-sm',
-            'default' => '2',
-            'options' => array(
-                '2' => __('2', 'evolve'),
-                '3' => __('3', 'evolve'),
-                '4' => __('4', 'evolve')
-            ),
-            'subtitle' => __('Select whether to display the grid layout in 2, 3 or 4 column.', 'evolve')
-        ),
-        array(
-            'title' => __('Strip HTML from Posts Content', 'evolve'),
-            'id' => 'evl_fp_blog_strip_html',
-            'type' => 'radio',
-            'default' => 'yes',
-            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
-            'subtitle' => __('Strip HTML from the post excerpt', 'evolve'),
-        ),
-        // Section settings
-        array(
-            'id' => 'evl-front-page-subsec-blog-section-start',
-            'type' => 'section',
-            'title' => 'Section Settings',
-            'indent' => true
-        ),
-        array(
-            'id' => 'evl_blog_section_title',
-            'type' => 'text',
-            'title' => __('Title of Blog Section', 'evolve'),
-            'default' => 'Read New Story Here',
-        ),
-        array(
-            'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
-            'id' => 'evl_blog_section_title_alignment',
-            'type' => 'typography',
-            'title' => __('Title Font, Alignment and Color', 'evolve'),
-            'text-align' => true,
-            'line-height' => false,
-            'default' => array(
-                'font-size' => '30px',
-                'color' => '#ffffff',
-                'font-family' => 'Roboto',
-                'font-style' => '700',
-                'text-align' => 'center',
-            ),
-        ),
-        array(
-            'subtitle' => __('Enter the section padding.', 'evolve'),
-            'id' => 'evl_blog_section_padding',
-            'type' => 'spacing',
-            'units' => array('px', 'em'),
-            'title' => __('Section Padding', 'evolve'),
-            'default' => array(
-                'padding-top' => '40px',
-                'padding-right' => '0px',
-                'padding-bottom' => '40px',
-                'padding-left' => '0px',
-                'units' => 'px',
-            ),
-        ),
-        array(
-            'subtitle' => __('Upload a section background image for your theme, or specify an image URL directly.', 'evolve'),
-            'id' => 'evl_blog_section_background_image',
-            'type' => 'media',
-            'title' => __('Section Image', 'evolve'),
-            'url' => true,
-        ),
-        array(
-            'subtitle' => __('Select if the section background image should be displayed in cover or contain size.', 'evolve'),
-            'id' => 'evl_blog_section_image',
-            'type' => 'select',
-            'options' => array(
-                'cover' => __('Cover', 'evolve'),
-                'contain' => __('Contain', 'evolve'),
-                'none' => __('None', 'evolve'),
-            ),
-            'title' => __('Section Image Background Responsiveness Style', 'evolve'),
-            'default' => 'cover',
-        ),
-        array(
-            'id' => 'evl_blog_section_image_background_repeat',
-            'type' => 'select',
-            'options' => array(
-                'no-repeat' => __('no-repeat', 'evolve'),
-                'repeat' => __('repeat', 'evolve'),
-                'repeat-x' => __('repeat-x', 'evolve'),
-                'repeat-y' => __('repeat-y', 'evolve'),
-            ),
-            'title' => __('Background Repeat', 'evolve'),
-            'default' => 'no-repeat',
-        ),
-        array(
-            'id' => 'evl_blog_section_image_background_position',
-            'type' => 'select',
-            'options' => array(
-                'center top' => __('center top', 'evolve'),
-                'center center' => __('center center', 'evolve'),
-                'center bottom' => __('center bottom', 'evolve'),
-                'left top' => __('left top', 'evolve'),
-                'left center' => __('left center', 'evolve'),
-                'left bottom' => __('left bottom', 'evolve'),
-                'right top' => __('right top', 'evolve'),
-                'right center' => __('right center', 'evolve'),
-                'right bottom' => __('right bottom', 'evolve'),
-            ),
-            'title' => __('Background Position', 'evolve'),
-            'default' => 'center top',
-        ),
-        array(
-            'subtitle' => __('Check to enable parallax background image when scrolling.', 'evolve'),
-            'id' => 'evl_blog_section_background_parallax',
-            'compiler' => true,
-            'type' => 'checkbox',
-            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'class' => $evolve_prem_class,
-            'title' => __('Parallax Background Image', 'evolve'),
-            'default' => '0',
-        ),
-        array(
-            'subtitle' => __('Custom background color of section', 'evolve'),
-            'id' => 'evl_blog_section_back_color',
-            'type' => 'color',
-            'compiler' => true,
-            'title' => __('Section Background Color', 'evolve'),
-            'default' => '#94ce98',
-        ),
-        array(
-            'id' => 'evl-front-page-subsec-blog-section-end',
-            'type' => 'section',
-            'indent' => false,
-        ),
-    ),
-        )
-);
-
-
-// Front Page Google Map Sections
-Redux::setSection($evolve_opt_name, array(
-    'id' => 'evl-fp-googlemap-general-tab',
-    'title' => __('Google Map', 'evolve'),
-    'subsection' => true,
-    'fields' => array(
-        array(
-            'subtitle' => __('Example: 775 New York Ave, Brooklyn, Kings, New York 11203.<br /> For multiple markers, separate the addresses with the | symbol. ex: Address 1|Address 2|Address 3.', 'evolve'),
-            'id' => 'evl_fp_googlemap_address',
-            'compiler' => true,
-            'type' => 'text',
-            'title' => __('Google Map Address', 'evolve'),
-            'default' => 'Via dei Fori Imperiali',
-        ),
-        array(
-            'subtitle' => __('Select the type of google map to show on the contact page.', 'evolve'),
-            'id' => 'evl_fp_googlemap_type',
-            'type' => 'select',
-            'options' => array(
-                'roadmap' => __('roadmap', 'evolve'),
-                'satellite' => __('satellite', 'evolve'),
-                'hybrid' => __('hybrid (default)', 'evolve'),
-                'terrain' => __('terrain', 'evolve'),
-            ),
-            'title' => __('Google Map Type', 'evolve'),
-            'default' => 'hybrid',
-        ),
-        array(
-            'subtitle' => __('(in pixels or percentage, e.g.:100% or 100px)', 'evolve'),
-            'id' => 'evl_fp_googlemap_width',
-            'compiler' => true,
-            'type' => 'text',
-            'title' => __('Google Map Width', 'evolve'),
-            'default' => '100%',
-        ),
-        array(
-            'subtitle' => __('(in pixels, e.g.: 100px)', 'evolve'),
-            'id' => 'evl_fp_googlemap_height',
-            'compiler' => true,
-            'type' => 'text',
-            'title' => __('Google Map Height', 'evolve'),
-            'default' => '415px',
-        ),
-        array(
-            'subtitle' => __('Higher number will be more zoomed in.', 'evolve'),
-            'id' => 'evl_fp_googlemap_zoom_level',
-            'type' => 'slider',
-            'min' => 0,
-            'max' => 25,
-            'title' => __('Map Zoom Level', 'evolve'),
-            'default' => '18',
-        ),
-        array(
-            'subtitle' => __('Disable scrollwheel on google maps.', 'evolve'),
-            'id' => 'evl_fp_googlemap_scrollwheel',
-            'on' => __('Disabled', 'evolve'),
-            'off' => __('Enabled', 'evolve'),
-            'type' => 'switch',
-            'title' => __('Disable Map Scrollwheel', 'evolve'),
-        ),
-        array(
-            'subtitle' => __('Disable scale on google maps.', 'evolve'),
-            'id' => 'evl_fp_googlemap_scale',
-            'type' => 'switch',
-            'on' => __('Disabled', 'evolve'),
-            'off' => __('Enabled', 'evolve'),
-            'title' => __('Disable Map Scale', 'evolve'),
-        ),
-        array(
-            'subtitle' => __('Check the box to disable zoom control icon and pan control icon on google maps.', 'evolve'),
-            'id' => 'evl_fp_googlemap_zoomcontrol',
-            'type' => 'switch',
-            'on' => __('Disabled', 'evolve'),
-            'off' => __('Enabled', 'evolve'),
-            'title' => __('Disable Map Zoom & Pan Control Icons', 'evolve'),
-        ),
-        // Section settings
-        array(
-            'id' => 'evl-front-page-subsec-googlemap-section-start',
-            'type' => 'section',
-            'title' => 'Section Settings',
-            'indent' => true
-        ),
-        array(
-            'id' => 'evl_googlemap_title',
-            'type' => 'text',
-            'title' => __('Title of Google Map Section', 'evolve'),
-            'default' => 'Our Contact Place',
-        ),
-        array(
-            'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
-            'id' => 'evl_googlemap_title_alignment',
-            'type' => 'typography',
-            'title' => __('Title Font, Alignment and Color', 'evolve'),
-            'text-align' => true,
-            'line-height' => false,
-            'default' => array(
-                'font-size' => '30px',
-                'color' => '#ffffff',
-                'font-family' => 'Roboto',
-                'font-style' => '700',
-                'text-align' => 'center',
-            ),
-        ),
-        array(
-            'subtitle' => __('Enter the section padding.', 'evolve'),
-            'id' => 'evl_googlemap_section_padding',
-            'type' => 'spacing',
-            'units' => array('px', 'em'),
-            'title' => __('Section Padding', 'evolve'),
-            'default' => array(
-                'padding-top' => '40px',
-                'padding-right' => '0px',
-                'padding-bottom' => '40px',
-                'padding-left' => '0px',
-                'units' => 'px',
-            ),
-        ),
-        array(
-            'subtitle' => __('Upload a section background image for your theme, or specify an image URL directly.', 'evolve'),
-            'id' => 'evl_googlemap_section_background_image',
-            'type' => 'media',
-            'title' => __('Section Image', 'evolve'),
-            'url' => true,
-        ),
-        array(
-            'subtitle' => __('Select if the section background image should be displayed in cover or contain size.', 'evolve'),
-            'id' => 'evl_googlemap_section_image',
-            'type' => 'select',
-            'options' => array(
-                'cover' => __('Cover', 'evolve'),
-                'contain' => __('Contain', 'evolve'),
-                'none' => __('None', 'evolve'),
-            ),
-            'title' => __('Section Image Background Responsiveness Style', 'evolve'),
-            'default' => 'cover',
-        ),
-        array(
-            'id' => 'evl_googlemap_section_image_background_repeat',
-            'type' => 'select',
-            'options' => array(
-                'no-repeat' => __('no-repeat', 'evolve'),
-                'repeat' => __('repeat', 'evolve'),
-                'repeat-x' => __('repeat-x', 'evolve'),
-                'repeat-y' => __('repeat-y', 'evolve'),
-            ),
-            'title' => __('Background Repeat', 'evolve'),
-            'default' => 'no-repeat',
-        ),
-        array(
-            'id' => 'evl_googlemap_section_image_background_position',
-            'type' => 'select',
-            'options' => array(
-                'center top' => __('center top', 'evolve'),
-                'center center' => __('center center', 'evolve'),
-                'center bottom' => __('center bottom', 'evolve'),
-                'left top' => __('left top', 'evolve'),
-                'left center' => __('left center', 'evolve'),
-                'left bottom' => __('left bottom', 'evolve'),
-                'right top' => __('right top', 'evolve'),
-                'right center' => __('right center', 'evolve'),
-                'right bottom' => __('right bottom', 'evolve'),
-            ),
-            'title' => __('Background Position', 'evolve'),
-            'default' => 'center top',
-        ),
-        array(
-            'subtitle' => __('Check to enable parallax background image when scrolling.', 'evolve'),
-            'id' => 'evl_googlemap_section_background_parallax',
-            'compiler' => true,
-            'type' => 'checkbox',
-            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-            'class' => $evolve_prem_class,
-            'title' => __('Parallax Background Image', 'evolve'),
-            'default' => '0',
-        ),
-        array(
-            'subtitle' => __('Custom background color of section', 'evolve'),
-            'id' => 'evl_googlemap_section_back_color',
-            'type' => 'color',
-            'compiler' => true,
-            'title' => __('Section Background Color', 'evolve'),
-            'default' => '#8997bf',
-        ),
-        array(
-            'id' => 'evl-front-page-subsec-googlemap-section-end',
-            'type' => 'section',
-            'indent' => false,
-        ),
-    ),
-        )
-);
-
-
 // Front Page Counter Circle Dynamic Fields
 $counter_circle_fields = array();
 
@@ -2195,51 +1770,98 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-
-// Front Page WooCommerce Products Sections
-if ( is_plugin_active('woocommerce/woocommerce.php') ) :
+// Front Page Google Map Sections
 Redux::setSection($evolve_opt_name, array(
-    'id' => 'evl-fp-woo-product-general-tab',
-    'title' => __('WooCommerce Products', 'evolve'),
+    'id' => 'evl-fp-googlemap-general-tab',
+    'title' => __('Google Map', 'evolve'),
     'subsection' => true,
     'fields' => array(
         array(
-            'id' => 'evl_fp_woo_product_layout',
-            'title' => __('Product layout', 'evolve'),
-            'subtitle' => __('Product layout with <strong>3</strong> Product per row is recommended to use with disabled <strong>Sidebar(s)</strong>', 'evolve'),
-            'type' => 'image_select',
+            'subtitle' => __('Example: 775 New York Ave, Brooklyn, Kings, New York 11203.<br /> For multiple markers, separate the addresses with the | symbol. ex: Address 1|Address 2|Address 3.', 'evolve'),
+            'id' => 'evl_fp_googlemap_address',
             'compiler' => true,
-            'options' => array(
-                '1' => $evolve_imagepath . 'one-post.png',
-                '2' => $evolve_imagepath . 'two-posts.png',
-                '3' => $evolve_imagepath . 'three-posts.png',
-            ),
-            'default' => '3',
+            'type' => 'text',
+            'title' => __('Google Map Address', 'evolve'),
+            'default' => 'Via dei Fori Imperiali',
         ),
         array(
-            'id' => 'evl_fp_woo_product',
-            'title' => __('Product Category', 'evolve'),
-            'subtitle' => __('Select Product Category', 'evolve'),
+            'subtitle' => __('Select the type of google map to show on the contact page.', 'evolve'),
+            'id' => 'evl_fp_googlemap_type',
             'type' => 'select',
-            'options' => $product_texonomy,
-            'default' => 'none',
+            'options' => array(
+                'roadmap' => __('roadmap', 'evolve'),
+                'satellite' => __('satellite', 'evolve'),
+                'hybrid' => __('hybrid (default)', 'evolve'),
+                'terrain' => __('terrain', 'evolve'),
+            ),
+            'title' => __('Google Map Type', 'evolve'),
+            'default' => 'hybrid',
+        ),
+        array(
+            'subtitle' => __('(in pixels or percentage, e.g.:100% or 100px)', 'evolve'),
+            'id' => 'evl_fp_googlemap_width',
+            'compiler' => true,
+            'type' => 'text',
+            'title' => __('Google Map Width', 'evolve'),
+            'default' => '100%',
+        ),
+        array(
+            'subtitle' => __('(in pixels, e.g.: 100px)', 'evolve'),
+            'id' => 'evl_fp_googlemap_height',
+            'compiler' => true,
+            'type' => 'text',
+            'title' => __('Google Map Height', 'evolve'),
+            'default' => '415px',
+        ),
+        array(
+            'subtitle' => __('Higher number will be more zoomed in.', 'evolve'),
+            'id' => 'evl_fp_googlemap_zoom_level',
+            'type' => 'slider',
+            'min' => 0,
+            'max' => 25,
+            'title' => __('Map Zoom Level', 'evolve'),
+            'default' => '18',
+        ),
+        array(
+            'subtitle' => __('Disable scrollwheel on google maps.', 'evolve'),
+            'id' => 'evl_fp_googlemap_scrollwheel',
+            'on' => __('Disabled', 'evolve'),
+            'off' => __('Enabled', 'evolve'),
+            'type' => 'switch',
+            'title' => __('Disable Map Scrollwheel', 'evolve'),
+        ),
+        array(
+            'subtitle' => __('Disable scale on google maps.', 'evolve'),
+            'id' => 'evl_fp_googlemap_scale',
+            'type' => 'switch',
+            'on' => __('Disabled', 'evolve'),
+            'off' => __('Enabled', 'evolve'),
+            'title' => __('Disable Map Scale', 'evolve'),
+        ),
+        array(
+            'subtitle' => __('Check the box to disable zoom control icon and pan control icon on google maps.', 'evolve'),
+            'id' => 'evl_fp_googlemap_zoomcontrol',
+            'type' => 'switch',
+            'on' => __('Disabled', 'evolve'),
+            'off' => __('Enabled', 'evolve'),
+            'title' => __('Disable Map Zoom & Pan Control Icons', 'evolve'),
         ),
         // Section settings
         array(
-            'id' => 'evl-front-page-subsec-woo-product-section-start',
+            'id' => 'evl-front-page-subsec-googlemap-section-start',
             'type' => 'section',
             'title' => 'Section Settings',
             'indent' => true
         ),
         array(
-            'id' => 'evl_woo_product_title',
+            'id' => 'evl_googlemap_title',
             'type' => 'text',
-            'title' => __('Title of WooCommerce Product Section', 'evolve'),
-            'default' => 'New Arrival Product',
+            'title' => __('Title of Google Map Section', 'evolve'),
+            'default' => 'Our Contact Place',
         ),
         array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
-            'id' => 'evl_woo_product_title_alignment',
+            'id' => 'evl_googlemap_title_alignment',
             'type' => 'typography',
             'title' => __('Title Font, Alignment and Color', 'evolve'),
             'text-align' => true,
@@ -2254,7 +1876,7 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'subtitle' => __('Enter the section padding.', 'evolve'),
-            'id' => 'evl_woo_product_section_padding',
+            'id' => 'evl_googlemap_section_padding',
             'type' => 'spacing',
             'units' => array('px', 'em'),
             'title' => __('Section Padding', 'evolve'),
@@ -2268,14 +1890,14 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'subtitle' => __('Upload a section background image for your theme, or specify an image URL directly.', 'evolve'),
-            'id' => 'evl_woo_product_section_background_image',
+            'id' => 'evl_googlemap_section_background_image',
             'type' => 'media',
             'title' => __('Section Image', 'evolve'),
             'url' => true,
         ),
         array(
             'subtitle' => __('Select if the section background image should be displayed in cover or contain size.', 'evolve'),
-            'id' => 'evl_woo_product_section_image',
+            'id' => 'evl_googlemap_section_image',
             'type' => 'select',
             'options' => array(
                 'cover' => __('Cover', 'evolve'),
@@ -2286,7 +1908,7 @@ Redux::setSection($evolve_opt_name, array(
             'default' => 'cover',
         ),
         array(
-            'id' => 'evl_woo_product_section_image_background_repeat',
+            'id' => 'evl_googlemap_section_image_background_repeat',
             'type' => 'select',
             'options' => array(
                 'no-repeat' => __('no-repeat', 'evolve'),
@@ -2298,7 +1920,7 @@ Redux::setSection($evolve_opt_name, array(
             'default' => 'no-repeat',
         ),
         array(
-            'id' => 'evl_woo_product_section_image_background_position',
+            'id' => 'evl_googlemap_section_image_background_position',
             'type' => 'select',
             'options' => array(
                 'center top' => __('center top', 'evolve'),
@@ -2316,7 +1938,7 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'subtitle' => __('Check to enable parallax background image when scrolling.', 'evolve'),
-            'id' => 'evl_woo_product_section_background_parallax',
+            'id' => 'evl_googlemap_section_background_parallax',
             'compiler' => true,
             'type' => 'checkbox',
             'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -2326,20 +1948,400 @@ Redux::setSection($evolve_opt_name, array(
         ),
         array(
             'subtitle' => __('Custom background color of section', 'evolve'),
-            'id' => 'evl_woo_product_section_back_color',
+            'id' => 'evl_googlemap_section_back_color',
             'type' => 'color',
             'compiler' => true,
             'title' => __('Section Background Color', 'evolve'),
-            'default' => '#e0caa1',
+            'default' => '#8997bf',
         ),
         array(
-            'id' => 'evl-front-page-subsec-woo-product-section-end',
+            'id' => 'evl-front-page-subsec-googlemap-section-end',
             'type' => 'section',
             'indent' => false,
         ),
     ),
         )
 );
+
+// Testimonials Dynamic Fields
+$testimonialfields = array();
+
+$slide_defaults = array(
+    array(
+        'image' => "{$evolve_imagepathfolder}frontpage-builder/team-1.png",
+        'title' => __(' Blunderdog', 'evolve'),
+        'description' => __('This is a great theme! Extremely versatile, easy to style, functional; I couldn’t be happier with a theme.', 'evolve'),
+    ),
+    array(
+        'image' => "{$evolve_imagepathfolder}frontpage-builder/team-2.png",
+        'title' => __('Marco', 'evolve'),
+        'description' => __('evolve lite is a really good and free theme. Really responsive.', 'evolve'),
+    ),
+);
+
+for ($i = 1; $i <= 2; $i++) {
+
+    $testimonialfields[] = array(
+        'id' => "{$evolve_shortname}_fp_testimonial{$i}",
+        'title' => sprintf(__('Enable Testimonial %d ?', 'evolve'), $i),
+        'type' => 'switch',
+        'on' => __('Enabled', 'evolve'),
+        'off' => __('Disabled', 'evolve'),
+        'default' => 1,
+    );
+
+    $testimonialfields[] = array(
+        "title" => sprintf(__('Testimonial %d Avatar', 'evolve'), $i),
+        "subtitle" => sprintf(__('Upload an image for the Testimonial %d, or specify an image URL directly', 'evolve'), $i),
+        "id" => "{$evolve_shortname}_fp_testimonial{$i}_avatar",
+        "type" => "media",
+        'url' => true,
+        'readonly' => false,
+        "default" => array('url' => $slide_defaults[( $i - 1 )]['image']),
+        'required' => array(array("{$evolve_shortname}_fp_testimonial{$i}", '=', '1'))
+    );
+
+    $testimonialfields[] = array(
+        "title" => sprintf(__('Testimonial %d Name', 'evolve'), $i),
+        "id" => "{$evolve_shortname}_fp_testimonial{$i}_name",
+        "type" => "text",
+        "default" => $slide_defaults[( $i - 1 )]['title'],
+        'required' => array(array("{$evolve_shortname}_fp_testimonial{$i}", '=', '1'))
+    );
+
+    $testimonialfields[] = array(
+        "title" => sprintf(__('Testimonial %d Content', 'evolve'), $i),
+        "id" => "{$evolve_shortname}_fp_testimonial{$i}_content",
+        "type" => "textarea",
+        "rows" => 5,
+        "default" => $slide_defaults[( $i - 1 )]['description'],
+        'required' => array(array("{$evolve_shortname}_fp_testimonial{$i}", '=', '1'))
+    );
+}
+
+$testimonialfields[] = array(
+    'id' => 'add_another_fp_testimonial',
+    'type' => 'raw',
+    'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+    'class' => $evolve_prem_class,
+    'title' => __('Add Another Testimonial', 'evolve'),
+    'content' => __('<a class="button button-primary" href="">Add Testimonial</a>', 'evolve'),
+    'full_width' => false,
+);
+
+Redux::setSection($evolve_opt_name, array(
+    'id' => 'evl-front-page-testimonials-tab',
+    'title' => __('Testimonials', 'evolve'),
+    'subsection' => true,
+    'fields' => array(
+        // Testimonials General
+        array(
+            'id' => 'evl-fp-testimonials-general-start',
+            'type' => 'section',
+            'title' => 'General',
+            'indent' => true
+        ),
+        array(
+            'id' => 'evl_fp_testimonials_bg_color',
+            'compiler' => true,
+            'type' => 'color',
+            'title' => __('Background Color', 'evolve'),
+            'default' => '#71989e',
+        ),
+        array(
+            'id' => 'evl_fp_testimonials_text_color',
+            'compiler' => true,
+            'type' => 'color',
+            'title' => __('Text Color', 'evolve'),
+            'default' => '#ffffff',
+        ),
+        array(
+            'id' => 'evl-fp-testimonials-general-end',
+            'type' => 'section',
+            'indent' => false,
+        ),
+        // Add Testimonial
+        array(
+            'id' => 'evl-fp-testimonial-slides-start',
+            'type' => 'section',
+            'title' => 'Add Testimonial',
+            'indent' => true
+        ),
+        $testimonialfields[0],
+        $testimonialfields[1],
+        $testimonialfields[2],
+        $testimonialfields[3],
+        $testimonialfields[4],
+        $testimonialfields[5],
+        $testimonialfields[6],
+        $testimonialfields[7],
+        $testimonialfields[8],
+        array(
+            'id' => 'evl-fp-testimonial-slides-end',
+            'type' => 'section',
+            'indent' => false,
+        ),
+        // Section settings
+        array(
+            'id' => 'evl-front-page-subsec-testimonials-section-start',
+            'type' => 'section',
+            'title' => 'Section Settings',
+            'indent' => true
+        ),
+        array(
+            'id' => 'evl_testimonials_title',
+            'type' => 'text',
+            'title' => __('Title of Testimonials Section', 'evolve'),
+            'default' => 'Why people love our themes',
+        ),
+        array(
+            'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
+            'id' => 'evl_testimonials_title_alignment',
+            'type' => 'typography',
+            'title' => __('Title Font, Alignment and Color', 'evolve'),
+            'text-align' => true,
+            'line-height' => false,
+            'default' => array(
+                'font-size' => '30px',
+                'color' => '#ffffff',
+                'font-family' => 'Roboto',
+                'font-style' => '700',
+                'text-align' => 'center',
+            ),
+        ),
+        array(
+            'subtitle' => __('Enter the section padding.', 'evolve'),
+            'id' => 'evl_testimonials_section_padding',
+            'type' => 'spacing',
+            'units' => array('px', 'em'),
+            'title' => __('Section Padding', 'evolve'),
+            'default' => array(
+                'padding-top' => '40px',
+                'padding-right' => '200px',
+                'padding-bottom' => '40px',
+                'padding-left' => '200px',
+                'units' => 'px',
+            ),
+        ),
+        array(
+            'subtitle' => __('Upload a section background image for your theme, or specify an image URL directly.', 'evolve'),
+            'id' => 'evl_testimonials_section_background_image',
+            'type' => 'media',
+            'title' => __('Section Image', 'evolve'),
+            'url' => true,
+        ),
+        array(
+            'subtitle' => __('Select if the section background image should be displayed in cover or contain size.', 'evolve'),
+            'id' => 'evl_testimonials_section_image',
+            'type' => 'select',
+            'options' => array(
+                'cover' => __('Cover', 'evolve'),
+                'contain' => __('Contain', 'evolve'),
+                'none' => __('None', 'evolve'),
+            ),
+            'title' => __('Section Image Background Responsiveness Style', 'evolve'),
+            'default' => 'cover',
+        ),
+        array(
+            'id' => 'evl_testimonials_section_image_background_repeat',
+            'type' => 'select',
+            'options' => array(
+                'no-repeat' => __('no-repeat', 'evolve'),
+                'repeat' => __('repeat', 'evolve'),
+                'repeat-x' => __('repeat-x', 'evolve'),
+                'repeat-y' => __('repeat-y', 'evolve'),
+            ),
+            'title' => __('Background Repeat', 'evolve'),
+            'default' => 'no-repeat',
+        ),
+        array(
+            'id' => 'evl_testimonials_section_image_background_position',
+            'type' => 'select',
+            'options' => array(
+                'center top' => __('center top', 'evolve'),
+                'center center' => __('center center', 'evolve'),
+                'center bottom' => __('center bottom', 'evolve'),
+                'left top' => __('left top', 'evolve'),
+                'left center' => __('left center', 'evolve'),
+                'left bottom' => __('left bottom', 'evolve'),
+                'right top' => __('right top', 'evolve'),
+                'right center' => __('right center', 'evolve'),
+                'right bottom' => __('right bottom', 'evolve'),
+            ),
+            'title' => __('Background Position', 'evolve'),
+            'default' => 'center top',
+        ),
+        array(
+            'subtitle' => __('Check to enable parallax background image when scrolling.', 'evolve'),
+            'id' => 'evl_testimonials_section_background_parallax',
+            'compiler' => true,
+            'type' => 'checkbox',
+            'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+            'class' => $evolve_prem_class,
+            'title' => __('Parallax Background Image', 'evolve'),
+            'default' => '0',
+        ),
+        array(
+            'subtitle' => __('Custom background color of section', 'evolve'),
+            'id' => 'evl_testimonials_section_back_color',
+            'type' => 'color',
+            'compiler' => true,
+            'title' => __('Section Background Color', 'evolve'),
+            'default' => '#8bb9c1',
+        ),
+        array(
+            'id' => 'evl-front-page-subsec-testimonials-section-end',
+            'type' => 'section',
+            'indent' => false,
+        ),
+    ),
+        )
+);
+
+// Front Page WooCommerce Products Sections
+if (is_plugin_active('woocommerce/woocommerce.php')) :
+    Redux::setSection($evolve_opt_name, array(
+        'id' => 'evl-fp-woo-product-general-tab',
+        'title' => __('WooCommerce Products', 'evolve'),
+        'subsection' => true,
+        'fields' => array(
+            array(
+                'id' => 'evl_fp_woo_product_layout',
+                'title' => __('Product layout', 'evolve'),
+                'subtitle' => __('Product layout with <strong>3</strong> Product per row is recommended to use with disabled <strong>Sidebar(s)</strong>', 'evolve'),
+                'type' => 'image_select',
+                'compiler' => true,
+                'options' => array(
+                    '1' => $evolve_imagepath . 'one-post.png',
+                    '2' => $evolve_imagepath . 'two-posts.png',
+                    '3' => $evolve_imagepath . 'three-posts.png',
+                ),
+                'default' => '3',
+            ),
+            array(
+                'id' => 'evl_fp_woo_product',
+                'title' => __('Product Category', 'evolve'),
+                'subtitle' => __('Select Product Category', 'evolve'),
+                'type' => 'select',
+                'options' => $product_texonomy,
+                'default' => 'none',
+            ),
+            // Section settings
+            array(
+                'id' => 'evl-front-page-subsec-woo-product-section-start',
+                'type' => 'section',
+                'title' => 'Section Settings',
+                'indent' => true
+            ),
+            array(
+                'id' => 'evl_woo_product_title',
+                'type' => 'text',
+                'title' => __('Title of WooCommerce Product Section', 'evolve'),
+                'default' => __('Trending Products In Our Store', 'evolve'),
+            ),
+            array(
+                'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
+                'id' => 'evl_woo_product_title_alignment',
+                'type' => 'typography',
+                'title' => __('Title Font, Alignment and Color', 'evolve'),
+                'text-align' => true,
+                'line-height' => false,
+                'default' => array(
+                    'font-size' => '30px',
+                    'color' => '#111111',
+                    'font-family' => 'Roboto',
+                    'font-style' => '700',
+                    'text-align' => 'center',
+                ),
+            ),
+            array(
+                'subtitle' => __('Enter the section padding.', 'evolve'),
+                'id' => 'evl_woo_product_section_padding',
+                'type' => 'spacing',
+                'units' => array('px', 'em'),
+                'title' => __('Section Padding', 'evolve'),
+                'default' => array(
+                    'padding-top' => '40px',
+                    'padding-right' => '0px',
+                    'padding-bottom' => '40px',
+                    'padding-left' => '0px',
+                    'units' => 'px',
+                ),
+            ),
+            array(
+                'subtitle' => __('Upload a section background image for your theme, or specify an image URL directly.', 'evolve'),
+                'id' => 'evl_woo_product_section_background_image',
+                'type' => 'media',
+                'title' => __('Section Image', 'evolve'),
+                'url' => true,
+            ),
+            array(
+                'subtitle' => __('Select if the section background image should be displayed in cover or contain size.', 'evolve'),
+                'id' => 'evl_woo_product_section_image',
+                'type' => 'select',
+                'options' => array(
+                    'cover' => __('Cover', 'evolve'),
+                    'contain' => __('Contain', 'evolve'),
+                    'none' => __('None', 'evolve'),
+                ),
+                'title' => __('Section Image Background Responsiveness Style', 'evolve'),
+                'default' => 'cover',
+            ),
+            array(
+                'id' => 'evl_woo_product_section_image_background_repeat',
+                'type' => 'select',
+                'options' => array(
+                    'no-repeat' => __('no-repeat', 'evolve'),
+                    'repeat' => __('repeat', 'evolve'),
+                    'repeat-x' => __('repeat-x', 'evolve'),
+                    'repeat-y' => __('repeat-y', 'evolve'),
+                ),
+                'title' => __('Background Repeat', 'evolve'),
+                'default' => 'no-repeat',
+            ),
+            array(
+                'id' => 'evl_woo_product_section_image_background_position',
+                'type' => 'select',
+                'options' => array(
+                    'center top' => __('center top', 'evolve'),
+                    'center center' => __('center center', 'evolve'),
+                    'center bottom' => __('center bottom', 'evolve'),
+                    'left top' => __('left top', 'evolve'),
+                    'left center' => __('left center', 'evolve'),
+                    'left bottom' => __('left bottom', 'evolve'),
+                    'right top' => __('right top', 'evolve'),
+                    'right center' => __('right center', 'evolve'),
+                    'right bottom' => __('right bottom', 'evolve'),
+                ),
+                'title' => __('Background Position', 'evolve'),
+                'default' => 'center top',
+            ),
+            array(
+                'subtitle' => __('Check to enable parallax background image when scrolling.', 'evolve'),
+                'id' => 'evl_woo_product_section_background_parallax',
+                'compiler' => true,
+                'type' => 'checkbox',
+                'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+                'class' => $evolve_prem_class,
+                'title' => __('Parallax Background Image', 'evolve'),
+                'default' => '0',
+            ),
+            array(
+                'subtitle' => __('Custom background color of section', 'evolve'),
+                'id' => 'evl_woo_product_section_back_color',
+                'type' => 'color',
+                'compiler' => true,
+                'title' => __('Section Background Color', 'evolve'),
+                'default' => '#fafafa',
+            ),
+            array(
+                'id' => 'evl-front-page-subsec-woo-product-section-end',
+                'type' => 'section',
+                'indent' => false,
+            ),
+        ),
+            )
+    );
 endif;
 
 
@@ -3390,6 +3392,78 @@ Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-styling-main-tab',
     'title' => __('Styling', 'evolve'),
     'icon' => 't4p-icon-appbardrawpaintbrush',
+        )
+);
+
+Redux::setSection($evolve_opt_name, array(
+    'id' => 'evl-styling-subsec-main-scheme-tab',
+    'title' => __('Main Color Scheme', 'evolve'),
+    'subsection' => true,
+    'fields' => array(
+        array(
+            'id' => 'evl_color_palettes',
+            'type' => 'palette',
+            'title' => __('Main Color Scheme', 'evolve'),
+            'subtitle' => __('Please select the predefined color scheme of your website', 'evolve'),
+            'default' => 'color_palette_1',
+            'palettes' => array(
+                'color_palette_1' => array(
+                    '#313a43',
+                    '#273039',
+                    '#0bb697',
+                    '#999999',
+                ),
+                'color_palette_2' => array(
+                    '#f9f9f9',
+                    '#ffffff',
+                    '#000000',
+                    '#727272',
+                ),
+                'color_palette_3' => array(
+                    '#a2c43c',
+                    '#3d3d3d',
+                    '#a2c43c',
+                    '#ffffff',
+                ),
+                'color_palette_4' => array(
+                    '#ffffff',
+                    '#f7505a',
+                    '#282c59',
+                    '#ffffff',
+                ),
+                'color_palette_5' => array(
+                    '#ffffff',
+                    '#ffffff',
+                    '#d4c081',
+                    '#000000',
+                ),
+                'color_palette_6' => array(
+                    '#ffffff',
+                    '#ffffff',
+                    '#000000',
+                    '#666666',
+                ),
+                'color_palette_7' => array(
+                    '#ffffff',
+                    '#f0f0f0',
+                    '#000000',
+                    '#3c4d56',
+                ),
+                'color_palette_8' => array(
+                    '#ffffff',
+                    '#09589e',
+                    '#c1c1c1',
+                    '#ffffff',
+                ),
+                'color_palette_9' => array(
+                    '#ffffff',
+                    '#f0f0f0',
+                    '#22b5ce',
+                    '#444444',
+                ),
+            ),
+        ),
+    ),
         )
 );
 
@@ -5632,22 +5706,30 @@ Redux::setSection($evolve_opt_name, array(
     'subsection' => true,
     'fields' => array(
         array(
-            'subtitle' => __('Display Bootstrap Slider on the homepage, all pages or select the slider in the post/page edit mode.', 'evolve'),
+            'subtitle' => __('Check this box if you want to enable Bootstrap Slider', 'evolve'),
+            'id' => 'evl_bootstrap_slider_support',
+            'type' => 'checkbox',
+            'title' => __('Enable Bootstrap Slider', 'evolve'),
+            'default' => '1',
+        ),
+        array(
+            'subtitle' => __('Display Bootstrap Slider on all pages?', 'evolve'),
             'id' => 'evl_bootstrap_slider',
-            'type' => 'select',
-            'options' => array(
-                'homepage' => __('Homepage only', 'evolve'),
-                'post' => __('Manually select in a Post/Page edit mode', 'evolve'),
-                'all' => __('All pages', 'evolve'),
+            'type' => 'checkbox',
+            'title' => __('Bootstrap Slider on all pages', 'evolve'),
+            'default' => '1',
+            'required' => array(
+                array('evl_bootstrap_slider_support', '=', '1')
             ),
-            'title' => __('Bootstrap Slider placement', 'evolve'),
-            'default' => 'homepage',
         ),
         array(
             'subtitle' => __('Check this box to disable Bootstrap Slides 100% Background', 'evolve'),
             'id' => 'evl_bootstrap_100',
             'type' => 'checkbox',
             'title' => __('Disable Bootstrap Slides 100% Background', 'evolve'),
+            'required' => array(
+                array('evl_bootstrap_slider_support', '=', '1')
+            ),
         ),
         array(
             'subtitle' => __('Input the time between transitions (Default: 7000);', 'evolve'),
@@ -5656,6 +5738,9 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Speed', 'evolve'),
             'step' => 100,
             'default' => '7000',
+            'required' => array(
+                array('evl_bootstrap_slider_support', '=', '1')
+            ),
         ),
         array(
             'subtitle' => __('Select the typography you want for the slide title. * non web-safe font.', 'evolve'),
@@ -5671,16 +5756,22 @@ Redux::setSection($evolve_opt_name, array(
                 'color' => '',
                 'font-style' => '',
             ),
+            'required' => array(
+                array('evl_bootstrap_slider_support', '=', '1')
+            ),
         ),
         array(
             'subtitle' => __('Select the background color for the slide title.', 'evolve'),
             'id' => 'evl_bootstrap_slide_title_font_rgba',
             'type' => 'color_rgba',
             'title' => __('Slider Title Font Background Color', 'evolve'),
-            'default'   => array(
-				'color'     => '#000000',
-				'alpha'     => 0.7
-			),
+            'default' => array(
+                'color' => '#000000',
+                'alpha' => 0.7
+            ),
+            'required' => array(
+                array('evl_bootstrap_slider_support', '=', '1')
+            ),
         ),
         array(
             'subtitle' => __('Select the typography you want for the slide description. * non web-safe font.', 'evolve'),
@@ -5696,16 +5787,22 @@ Redux::setSection($evolve_opt_name, array(
                 'color' => '',
                 'font-style' => '',
             ),
+            'required' => array(
+                array('evl_bootstrap_slider_support', '=', '1')
+            ),
         ),
         array(
             'subtitle' => __('Select the background color for the slide description.', 'evolve'),
             'id' => 'evl_bootstrap_slide_subtitle_font_rgba',
             'type' => 'color_rgba',
             'title' => __('Slider Description Font Background Color', 'evolve'),
-            'default'   => array(
-				'color'     => '#000000',
-				'alpha'     => 0.7
-			),
+            'default' => array(
+                'color' => '#000000',
+                'alpha' => 0.7
+            ),
+            'required' => array(
+                array('evl_bootstrap_slider_support', '=', '1')
+            ),
         ),
         array(
             'subtitle' => __('Choose your Bootstrap Slider layout style', 'evolve'),
@@ -5718,6 +5815,9 @@ Redux::setSection($evolve_opt_name, array(
                 'bootstrap_center' => $evolve_imagepathfolder . 'bootstrap-slider/bootstrap_2.jpg',
             ),
             'default' => 'bootstrap_left',
+            'required' => array(
+                array('evl_bootstrap_slider_support', '=', '1')
+            ),
         ),
         array(
             'subtitle' => '',
@@ -5731,6 +5831,9 @@ Redux::setSection($evolve_opt_name, array(
             'title' => '',
             'default' => '',
             'class' => $evolve_prem_class,
+            'required' => array(
+                array('evl_bootstrap_slider_support', '=', '1')
+            ),
         ),
     ),
         )
@@ -5854,19 +5957,11 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '1',
         ),
         array(
-            'subtitle' => __('Display Parallax Slider on the homepage, all pages or select the slider in the post/page edit mode.', 'evolve'),
+            'subtitle' => __('Display Parallax Slider on all pages?', 'evolve'),
             'id' => 'evl_parallax_slider',
-            'type' => 'select',
-            'options' => array(
-                'homepage' => __('Homepage only', 'evolve'),
-                'post' => __('Manually select in a Post/Page edit mode', 'evolve'),
-                'all' => __('All pages', 'evolve'),
-            ),
-            'title' => __('Parallax Slider placement', 'evolve'),
-            'default' => 'post',
-            'required' => array(
-                array('evl_parallax_slider_support', '=', '1')
-            ),
+            'type' => 'checkbox',
+            'title' => __('Parallax Slider on all pages', 'evolve'),
+            'default' => '0',
         ),
         array(
             'subtitle' => __('Input the time between transitions (Default: 4000);', 'evolve'),
@@ -5939,16 +6034,11 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '1',
         ),
         array(
-            'subtitle' => __('Display Posts Slider on the homepage, all pages or select the slider in the post/page edit mode.', 'evolve'),
+            'subtitle' => __('Display Posts Slider on all pages?', 'evolve'),
             'id' => 'evl_posts_slider',
-            'type' => 'select',
-            'options' => array(
-                'homepage' => __('Homepage only', 'evolve'),
-                'post' => __('Manually select in a Post/Page edit mode', 'evolve'),
-                'all' => __('All pages', 'evolve'),
-            ),
-            'title' => __('Posts Slider placement', 'evolve'),
-            'default' => 'post',
+            'type' => 'checkbox',
+            'title' => __('Posts Slider on all pages', 'evolve'),
+            'default' => '0',
             'required' => array(
                 array('evl_carousel_slider', '=', '1')
             ),

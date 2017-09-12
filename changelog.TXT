@@ -3,6 +3,7 @@ Date:         8/7/17
 
 - Added Custom Home/Front Page Builder with prebuilt demos
 - Added 6 new elements for the home/front page area
+- Added new predefined color schemes
 - Updated WooCommerce templates
 - Minor visual and function fixes
 
