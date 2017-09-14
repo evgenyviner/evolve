@@ -1055,3 +1055,11 @@ Blog Shortcode
     }
 
 }
+
+.home .t4p-blog-shortcode .type-post {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}

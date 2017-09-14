@@ -3866,7 +3866,7 @@ $evolve_css_data .= '
 ';
 }
 
-if ($evolve_counter_circle_section_image_src['url']) {
+if ( isset($evolve_counter_circle_section_image_src['url']) && $evolve_counter_circle_section_image_src['url'] ) {
 $evolve_css_data .= '
 .t4p-counters-circle {
     background: url(' . esc_url($evolve_counter_circle_section_image_src['url']) . ') ' . $evolve_counter_circle_section_background_position . ' ' . $evolve_counter_circle_section_background_repeat . ';
@@ -3921,7 +3921,7 @@ $evolve_css_data .= '
 ';
 }
 
-if ($evolve_googlemap_section_image_src['url']) {
+if ( isset($evolve_googlemap_section_image_src['url']) && $evolve_googlemap_section_image_src['url'] ) {
 $evolve_css_data .= '
 .t4p-googlemap {
     background: url(' . esc_url($evolve_googlemap_section_image_src['url']) . ') ' . $evolve_googlemap_section_background_position . ' ' . $evolve_googlemap_section_background_repeat . ';
@@ -3976,7 +3976,7 @@ $evolve_css_data .= '
 ';
 }
 
-if ($evolve_custom_content_section_image_src['url']) {
+if ( isset($evolve_custom_content_section_image_src['url']) && $evolve_custom_content_section_image_src['url'] ) {
 $evolve_css_data .= '
 .t4p-text {
     background: url(' . esc_url($evolve_custom_content_section_image_src['url']) . ') ' . $evolve_custom_content_section_background_position . ' ' . $evolve_custom_content_section_background_repeat . ';
@@ -4036,7 +4036,7 @@ $evolve_css_data .= '
 ';
 }
 
-if ($evolve_woo_product_section_image_src['url']) {
+if ( isset($evolve_woo_product_section_image_src['url']) && $evolve_woo_product_section_image_src['url'] ) {
 $evolve_css_data .= '
 .t4p-woo-product {
     background: url(' . esc_url($evolve_woo_product_section_image_src['url']) . ') ' . $evolve_woo_product_section_background_position . ' ' . $evolve_woo_product_section_background_repeat . ';
@@ -4093,7 +4093,7 @@ $evolve_css_data .= '
 ';
 }
 
-if ($evolve_blog_section_image_src['url']) {
+if ( isset($evolve_blog_section_image_src['url']) && $evolve_blog_section_image_src['url'] ) {
 $evolve_css_data .= '
 .t4p-fp-blog {
     background: url(' . esc_url($evolve_blog_section_image_src['url']) . ') ' . $evolve_blog_section_background_position . ' ' . $evolve_blog_section_background_repeat . ';
@@ -4307,24 +4307,27 @@ $evolve_css_data .= '
 }
 ';
 }
-
-$evolve_bootstrap_slide_title_font_rgba = $options['evl_bootstrap_slide_title_font_rgba']['rgba'];
+if ( isset($options['evl_bootstrap_slide_title_font_rgba']['rgba']) && $options['evl_bootstrap_slide_title_font_rgba']['rgba'] ) {
+        $evolve_bootstrap_slide_title_font_rgba = $options['evl_bootstrap_slide_title_font_rgba']['rgba'];
+}
 if (!empty($evolve_bootstrap_slide_title_font_rgba)) {
 $evolve_css_data .= '
 #bootstrap-slider .carousel-caption h2 {
 	background: ' . $evolve_bootstrap_slide_title_font_rgba . ';
 }
 ';
-	}
-	
-$evolve_bootstrap_slide_subtitle_font_rgba = $options['evl_bootstrap_slide_subtitle_font_rgba']['rgba'];
+}
+
+if ( isset($options['evl_bootstrap_slide_subtitle_font_rgba']['rgba']) && $options['evl_bootstrap_slide_subtitle_font_rgba']['rgba'] ) {
+        $evolve_bootstrap_slide_subtitle_font_rgba = $options['evl_bootstrap_slide_subtitle_font_rgba']['rgba'];
+}
 if (!empty($evolve_bootstrap_slide_subtitle_font_rgba)) {
 $evolve_css_data .= '
 #bootstrap-slider .carousel-caption p {
 	background: ' . $evolve_bootstrap_slide_subtitle_font_rgba . ';
 }
 ';
-	}	
+}	
 
 if ($evolve_header_image_src) {
 $evolve_css_data .= '

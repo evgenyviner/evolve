@@ -759,8 +759,6 @@ function evolve_blog_posts() {
             $attr_class = sprintf('t4p-blog-shortcode t4p-blog-%s', $blog_layout );
             $html .= "<div class='$attr_class'>";
 
-
-
             //do the loop
             if ($t4p_query->have_posts()) : while ($t4p_query->have_posts()) : $t4p_query->the_post();
 
@@ -819,14 +817,10 @@ function evolve_blog_posts() {
     echo $html;
 }
 
-// end wrap_loop_open()
-
 function wrap_loop_close() {
     global $evl_options;
 
     $wrapper = '';
-
-
 
     if ( $evl_options['evl_fp_blog_layout'] == 'grid' ) {
         $wrapper .= '<div class="t4p-clearfix"></div>';
@@ -834,7 +828,6 @@ function wrap_loop_close() {
 
     echo $wrapper;
 }
-// end wrap_loop_close()
 
 function before_loop($post_id) {
     global $evl_options;
@@ -859,7 +852,9 @@ function before_loop($post_id) {
 
     $extra_classes = array();
 
-
+    if ($evl_options['evl_fp_blog_layout'] == 'large') {
+        $extra_classes[] = 'blog-large';
+    }
 
     if ($evl_options['evl_fp_blog_layout'] == 'grid') {
 
@@ -868,8 +863,6 @@ function before_loop($post_id) {
         $extra_classes[] = 'blog-grid';
         $extra_classes[] = sprintf('col-lg-%s col-md-%s col-sm-%s', $column_width, $column_width, $column_width);
     }
-
-
 
     $post_class = get_post_class($extra_classes, $post_id);
 
@@ -888,7 +881,6 @@ function before_loop($post_id) {
 
     echo "<div id='$loop_attr_id' class='$loop_attr_class' itemtype='$loop_attr_itemtype' itemprop='$loop_attr_itemprop'> \n";
 }
-// end before_loop()
 
 function before_loop_timeline($args) {
     global $evl_options;
@@ -913,7 +905,9 @@ function before_loop_timeline($args) {
 
     $extra_classes = array();
 
-
+    if ($evl_options['evl_fp_blog_layout'] == 'large') {
+        $extra_classes[] = 'blog-large';
+    }
 
     if ($evl_options['evl_fp_blog_layout'] == 'grid') {
 
@@ -941,13 +935,10 @@ function before_loop_timeline($args) {
     echo "<div id='$loop_attr_id' class='$loop_attr_class' itemtype='$loop_attr_itemtype' itemprop='$loop_attr_itemprop'> \n";
 
 }
-// end before_loop_timeline()
 
 function after_loop() {
-
     echo '</div>' . "\n";
 }
-// end after_loop()
 
 function get_slideshow() {
     global $smof_data, $theme_prefix;
@@ -973,11 +964,9 @@ function get_slideshow() {
         ob_get_clean();
 
         $html .= $post_slideshow_action;
-    
 
     return $html;
 }
-// end get_slideshow()
 
 function get_post_thumbnails($post_id, $count = '') {
     global $smof_data;
@@ -1006,7 +995,6 @@ function get_post_thumbnails($post_id, $count = '') {
 
     return $attachment_ids;
 }
-// end get_post_thumbnails()
 
 function loop_header($header) {
     global $evl_options;
@@ -1023,6 +1011,13 @@ function loop_header($header) {
 
     if ($evl_options['evl_fp_blog_thumbnail'] == 'yes') {
         $pre_title_content = get_slideshow();
+    }
+    
+    if ($evl_options['evl_fp_blog_layout'] == 'large') {
+        ob_start();
+        entry_meta_alternate();
+        $meta_data = ob_get_contents();
+        ob_get_clean();
     }
 
     if ($evl_options['evl_fp_blog_layout'] == 'grid') {
@@ -1060,10 +1055,13 @@ function loop_header($header) {
 
     echo $html;
 }
-// end loop_header()
 
 function loop_footer() {
     global $evl_options;
+    
+    if ($evl_options['evl_fp_blog_meta_all'] == 'yes' && $evl_options['evl_fp_blog_layout'] == 'large') {
+       entry_meta_default();
+    }
 
     if ($evl_options['evl_fp_blog_meta_all'] == 'yes' && $evl_options['evl_fp_blog_layout'] == 'grid') {
         echo read_more();
@@ -1073,9 +1071,7 @@ function loop_footer() {
 
     echo '</div>';
     echo '<div class="t4p-clearfix"></div>';
-
 }
-// end loop_footer()
 
 function date_and_format() {
     global $smof_data;
@@ -1117,7 +1113,6 @@ function date_and_format() {
 
     echo $inner_content;
 }
-// end add_date_and_format()
 
 function timeline_date($date_params) {
     global $smof_data;
@@ -1136,7 +1131,6 @@ function timeline_date($date_params) {
 
     echo $inner_content;
 }
-// end timeline_date()
 
 function entry_meta_default() {
     global $evl_options;
@@ -1144,8 +1138,32 @@ function entry_meta_default() {
     $inner_content = '';
     $inner_content .= read_more();
 
-    $theme = wp_get_theme(); // gets the current theme
+    if ($evl_options['evl_fp_blog_layout'] == 'large') {
+        if ($evl_options['evl_fp_blog_meta_categories'] == 'yes') {
 
+            $categories = get_the_category();
+            $no_of_categories = count($categories);
+            $separator = ', ';
+            $output = ' ';
+            $count = 1;
+
+            foreach ($categories as $category) {
+
+                $output .= '<a href="' . get_category_link($category->term_id) . '" title="' . esc_attr(sprintf(__("View all posts in %s"), $category->name)) . '">' . $category->cat_name . '</a>';
+
+                if ($count < $no_of_categories) {
+                    $output .= $separator;
+                }
+
+                $count++;
+            }
+
+            $inner_content .= sprintf('<span class="entry-categories">%s</span><span class="meta-separator">|</span>', $output);
+        }
+        if ($evl_options['evl_fp_blog_meta_tags'] == 'yes') {
+            $inner_content .= sprintf('%s<span class="meta-separator">|</span>', post_meta_tags());
+        }
+    }
 
     //blog-shortcode-entry-meta    
     if ($evl_options['evl_fp_blog_layout'] == 'grid' ) {
@@ -1157,13 +1175,12 @@ function entry_meta_default() {
 
     echo $entry_meta;
 }
-// end entry_meta_default()
 
 function entry_meta_alternate() {
     global $evl_options;
     $inner_content = post_meta_data(true);
 
-    //blog-shortcode-entry-meta    
+    //blog-shortcode-entry-meta
     if ($evl_options['evl_fp_blog_layout'] == 'grid') {
         $blog_shortcode_entry_meta = 'entry-meta-single';
     } else {
@@ -1173,7 +1190,6 @@ function entry_meta_alternate() {
 
     echo $entry_meta;
 }
-// end entry_meta_alternate()
 
 function entry_meta_grid_timeline() {
     global $evl_options;
@@ -1189,14 +1205,11 @@ function entry_meta_grid_timeline() {
 
     echo $entry_meta;
 }
-// end entry_meta_grid_timeline()
 
 function post_meta_data($return_all_meta = false) {
     global $evl_options, $smof_data;
 
     $inner_content = "<p class='entry-meta-details'>";
-
-    $theme = wp_get_theme(); // gets the current theme
 
         $meta_time = get_the_modified_time('c');
 
@@ -1239,39 +1252,22 @@ function post_meta_data($return_all_meta = false) {
             $inner_content .= "<span class='$meta_author_class' itemprop='$meta_author_itemprop' itemscope='$meta_author_itemscope' itemtype='$meta_author_itemtype'>" . __('Written By', 't4p-core') . " <a href='$meta_author_link_href' itemprop='$meta_author_link_itemprop' rel='$meta_author_link_rel'>$meta_author</a>" . "</span><span class='meta-separator'>|</span>";
         }
 
-        if ($return_all_meta) {
+        if ($evl_options['evl_fp_blog_layout'] != 'grid' && $evl_options['evl_fp_blog_layout'] != 'timeline') {
+            if ($evl_options['evl_fp_blog_meta_comments'] == 'yes') {
 
-                if ($evl_options['evl_fp_blog_layout'] == 'medium') {
-                    if ($evl_options['evl_fp_blog_meta_categories'] == 'yes') {
+                    ob_start();
+                    comments_popup_link(__('0 Comments', 't4p-core'), __('1 Comment', 't4p-core'), __('% Comments', 't4p-core'));
+                    $comments = ob_get_contents();
+                    ob_get_clean();
 
-                        $categories = get_the_category();
-                        $no_of_categories = count($categories);
-                        $separator = ', ';
-                        $output = __('Categories:', 't4p-core') . ' ';
-                        $count = 1;
-
-                        foreach ($categories as $category) {
-
-                            $output .= '<a href="' . get_category_link($category->term_id) . '" title="' . esc_attr(sprintf(__("View all posts in %s"), $category->name)) . '">' . $category->cat_name . '</a>';
-
-                            if ($count < $no_of_categories) {
-                                $output .= $separator;
-                            }
-
-                            $count++;
-                        }
-
-                        $inner_content .= "<span class='entry-categories'>$output</span><span class='meta-separator'>|</span>";
-
-                    }
-                }
+                    $inner_content .= sprintf('<span class="entry-comments">%s</span><span class="meta-separator">|</span>', $comments);
+            }
         }
 
     $inner_content .= '</p>';
 
     return $inner_content;
 }
-// end post_meta_data()
 
 function grid_timeline_comments() {
     global $evl_options;
@@ -1288,26 +1284,23 @@ function grid_timeline_comments() {
         return $inner_content;
     }
 }
-// end grid_timeline_comments()
 
 function post_meta_tags() {
     global $evl_options;
 
-            if( has_tag() ) {
-                    $inner_content = '';			
-                    if ($evl_options['evl_fp_blog_meta_tags'] == 'yes') {
-                            ob_start();
-                            echo ' ';
-                            the_tags('');
-                            $tags = ob_get_contents();
-                            ob_get_clean();
-                            $inner_content = sprintf('<span class="meta-tags">%s</span>', $tags);
-                    }
-                    return $inner_content;
+    if( has_tag() ) {
+            $inner_content = '';			
+            if ($evl_options['evl_fp_blog_meta_tags'] == 'yes') {
+                    ob_start();
+                    echo ' ';
+                    the_tags('');
+                    $tags = ob_get_contents();
+                    ob_get_clean();
+                    $inner_content = sprintf('<span class="meta-tags">%s</span>', $tags);
             }
-  
+            return $inner_content;
+    }
 }
-// end post_meta_tags()	
 
 function read_more() {
     global $evl_options;
@@ -1323,7 +1316,6 @@ function read_more() {
         return $inner_content;
     }
 }
-// end read_more()
 
 function loop_content() {
     global $evl_options;
@@ -1338,12 +1330,9 @@ function loop_content() {
 
     echo $content;
 }
-// end loop_content()
 
 function page_links() {
-
     wp_link_pages(array('before' => '<div id="page-links"><p>' . __('<strong>Pages:</strong>', 't4p-core'), 'after' => '</p></div>'));
-
 }
 
 if( ! function_exists('t4p_content') ) {
