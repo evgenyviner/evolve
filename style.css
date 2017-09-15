@@ -4231,7 +4231,9 @@ ul.nav-menu li.nav-hover ul {
   z-index: 0;
 }
 
-#primary .formatted-post {
+#primary .formatted-post,
+.t4p-blog-shortcode.t4p-blog-grid .formatted-post,
+.t4p-blog-shortcode.t4p-blog-large .formatted-post {
   padding: 15px 15px 25px;
   position: relative;
 }
@@ -4254,7 +4256,11 @@ ul.nav-menu li.nav-hover ul {
   margin: 0 5px;
 }
 
-.hentry .entry-header {
+.hentry .entry-header,
+.home .entry-meta-single span,
+.home .entry-meta-single a,
+.home .comment-number,
+.home .comment-number a {
   color: #ccc;
 }
 
@@ -4444,7 +4450,15 @@ ul.nav-menu li.nav-hover ul {
 .page-template-blog-page-php .formatted-post .entry-header a,
 .page-template-blog-page-php .formatted-post .entry-meta,
 .page-template-blog-page-php .type-post.sticky .entry-footer a,
-.page-template-blog-page-php .formatted-post .entry-footer a {
+.page-template-blog-page-php .formatted-post .entry-footer a,
+.home .type-post.sticky .entry-meta-single span,
+.home .formatted-post .entry-meta-single span,
+.home .type-post.sticky .entry-meta-single a,
+.home .formatted-post .entry-meta-single a,
+.home .type-post.sticky .comment-number,
+.home .formatted-post .comment-number,
+.home .type-post.sticky .comment-number a,
+.home .formatted-post .comment-number a {
   color: #ffffff !important;
 }
 

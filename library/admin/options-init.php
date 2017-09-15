@@ -97,6 +97,31 @@ function evolve_migrate_options() {
     }
 }
 
+/**
+ * Get Taxonomies options
+ *
+ * @return array
+ */
+function t4p_shortcodes_categories ( $taxonomy, $empty_choice = false ) {
+        if( $empty_choice == true ) {
+                $post_categories[''] = 'Default';
+        }
+
+        $get_categories = get_categories('hide_empty=0&taxonomy=' . $taxonomy);
+
+        if( ! array_key_exists('errors', $get_categories) ) {
+                if( $get_categories && is_array($get_categories) ) {
+                        foreach ( $get_categories as $cat ) {
+                                $post_categories[$cat->slug] = $cat->name;
+                        }
+                }
+
+                if( isset( $post_categories ) ) {
+                        return $post_categories;
+                }
+        }
+}
+
 if (!class_exists('Redux')) {
     return;
 }
@@ -822,8 +847,34 @@ Redux::setSection($evolve_opt_name, array(
             'default' => 'grid',
             'options' => array(
                 'grid' => __('Grid', 'evolve'),
+                'large' => __('Large', 'evolve'),
             ),
             'subtitle' => __('Select the layout for the blog shortcode', 'evolve')
+        ),
+        array(
+                'title'       => __( 'Posts Per Page', 'evolve' ),
+                'id'         => 'evl_fp_blog_number_posts',
+                'type'      => 'spinner',
+                'default'        => '4',
+                'subtitle'    => __( 'Select number of posts per page', 'evolve' ),
+        ),
+        array(
+                'title'       => __( 'Categories', 'evolve' ),
+                'id'         => 'evl_fp_blog_cat_slug',
+                'type'       => 'select',
+                'default'        => '',
+                'multi'     => true,
+                'options'    => t4p_shortcodes_categories( 'category' ),
+                'subtitle'    => __( 'Select a category or leave blank for all', 'evolve' )
+        ),
+        array(
+                'title'       => __( 'Exclude Categories', 'evolve' ),
+                'id'         => 'evl_fp_blog_exclude_cats',
+                'type'       => 'select',
+                'default'        => '',
+                'multi'     => true,
+                'options'    => t4p_shortcodes_categories( 'category' ),
+                'subtitle'    => __( 'Select a category to exclude', 'evolve' )
         ),
         array(
             'title' => __('Show Title', 'evolve'),
@@ -861,7 +912,6 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Number of words/characters in Excerpt', 'evolve'),
             'id' => 'evl_fp_blog_excerpt_length',
             'type' => 'spinner',
-            'class' => 'input-sm',
             'default' => '35',
             'subtitle' => __('Controls the excerpt length based on words or characters that is set in Theme Options > Extra.', 'evolve')
         ),
@@ -920,6 +970,25 @@ Redux::setSection($evolve_opt_name, array(
             'default' => 'yes',
             'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
             'subtitle' => __('Choose to show the tags', 'evolve'),
+        ),
+        array(
+                'title'     => __( 'Show Pagination', 'evolve' ),
+                'id'       => 'evl_fp_blog_paging',
+                'type'     => 'radio',
+                'default'    => 'yes',
+                'options'  => array( 'yes' => __( 'Yes', 'evolve' ), 'no' => __( 'No', 'evolve' ) ),
+                'subtitle'	=> __( 'Show numerical pagination boxes', 'evolve' ),
+        ),
+        array(
+                'title'       => __( 'Infinite Scrolling', 'evolve' ),
+                'id'         => 'evl_fp_blog_scrolling',
+                'type'       => 'select',
+                'default'      => 'pagination',
+                'options'    => array(
+                                        'pagination'   => __( 'pagination', 'evolve' ),
+                                        'infinite'    => __( 'Infinite Scrolling', 'evolve' )
+                                ),
+                'subtitle'    => __( 'Choose the type of scrolling', 'evolve' )
         ),
         array(
             'title' => __('Grid Layout # of Columns', 'evolve'),
@@ -6929,7 +6998,7 @@ function evolve_import_demo_content($wp_customize) {
         $newvalue = evolve_get_option('evl_frontpage_prebuilt_demo', '');
         $oldvalue = $_SESSION["oldvalue"];
 
-        if ( $newvalue != $oldvalue ) :
+        if ( $newvalue != $oldvalue ) {
 
                 switch($newvalue) {
                     case 'default':
@@ -6980,8 +7049,15 @@ function evolve_import_demo_content($wp_customize) {
                 }
 
                 $_SESSION["oldvalue"] = $newvalue;
-
-        endif;
+                
+?>
+                <script type='text/javascript'>
+                        jQuery(document).ready( function($) {
+                                window.location.href = window.location.href;
+                        } );
+                </script>
+<?php
+        }
 }
 
 add_action('redux/options/' . $evolve_opt_name . '/saved', 'evolve_import_demo_content');

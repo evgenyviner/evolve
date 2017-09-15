@@ -639,9 +639,9 @@ function evolve_blog_posts() {
     global $evl_options;
 
     $layout = $evl_options["evl_fp_blog_layout"];
-    $number_posts = '-1';
-    $cat_slug = '';
-    $exclude_cats = '';
+    $number_posts = $evl_options["evl_fp_blog_number_posts"];
+    $cat_slug = ( !isset($evl_options["evl_fp_blog_cat_slug"]) ) ? '' : $evl_options["evl_fp_blog_cat_slug"];
+    $exclude_cats = ( !isset($evl_options["evl_fp_blog_exclude_cats"]) ) ? '' : $evl_options["evl_fp_blog_exclude_cats"];
     $show_title = $evl_options["evl_fp_blog_show_title"];
     $title_link = $evl_options["evl_fp_blog_title_link"];
     $thumbnail = $evl_options["evl_fp_blog_thumbnail"];
@@ -654,6 +654,8 @@ function evolve_blog_posts() {
     $meta_date = $evl_options["evl_fp_blog_meta_date"];
     $meta_link = $evl_options["evl_fp_blog_meta_link"];
     $meta_tags = $evl_options["evl_fp_blog_meta_tags"];
+    $paging = $evl_options["evl_fp_blog_paging"];
+    $scrolling = $evl_options["evl_fp_blog_scrolling"];
     $blog_grid_columns = $evl_options["evl_fp_blog_blog_grid_columns"];
     $strip_html = $evl_options["evl_fp_blog_strip_html"];
 
@@ -689,6 +691,8 @@ function evolve_blog_posts() {
             ( $meta_date == "yes" ) ? ( $meta_date = true ) : ( $meta_date = false );
             ( $meta_link == "yes" ) ? ( $meta_link = true ) : ( $meta_link = false );
             ( $meta_tags == "yes" ) ? ( $meta_tags = true ) : ( $meta_tags = false );
+            ( $paging == "yes" ) ? ( $paging = true ) : ( $paging = false );
+            ( $scrolling == "infinite" ) ? ( $paging = true ) : ( $paging = $paging );
             ( $strip_html == "yes" ) ? ( $strip_html = true ) : ( $strip_html = false );
             ( $thumbnail == "yes" ) ? ( $thumbnail = true ) : ( $thumbnail = false );
             ( $show_title == "yes" ) ? ( $show_title = true ) : ( $show_title = false );
@@ -696,7 +700,7 @@ function evolve_blog_posts() {
 
             //check for cats to exclude; needs to be checked via exclude_cats param and '-' prefixed cats on cats param
             //exclution via exclude_cats param 
-            $cats_to_exclude = explode(',', $exclude_cats);
+            $cats_to_exclude = $exclude_cats;
             $cats_id_to_exclude = $category__not_in = array();
             if ($cats_to_exclude) {
                 foreach ($cats_to_exclude as $cat_to_exclude) {
@@ -712,7 +716,7 @@ function evolve_blog_posts() {
 
             //setting up cats to be used and exclution using '-' prefix on cats param; transform slugs to ids
             $cat_ids = '';
-            $categories = explode(',', $cat_slug);
+            $categories = $cat_slug;
             if ( isset($categories) && $categories ) {
                 foreach ($categories as $category) {
 
@@ -743,6 +747,8 @@ function evolve_blog_posts() {
                     'meta_date' => $meta_date,
                     'meta_link' => $meta_link,
                     'meta_tags' => $meta_tags,
+                    'paging' => $paging,
+                    'scrolling' => $scrolling,
                     'strip_html' => $strip_html,
                     'thumbnail' => $thumbnail,
                     'show_title' => $show_title,
@@ -755,9 +761,22 @@ function evolve_blog_posts() {
 
             //blog-shortcode-attr
             $blog_layout = $layout;
-
-            $attr_class = sprintf('t4p-blog-shortcode t4p-blog-%s', $blog_layout );
+            $attr_class = sprintf('t4p-blog-shortcode t4p-blog-%s t4p-blog-%s', $blog_layout, $scrolling);
             $html .= "<div class='$attr_class'>";
+
+            //blog-shortcode-posts-container
+            $post_container_class = sprintf('t4p-posts-container posts-container-%s', $scrolling);
+            if ($layout == 'grid') {
+                $post_container_class .= sprintf(' grid-layout grid-layout-%s', $blog_grid_columns);
+            }
+            $html .= "<div class='$post_container_class'>";
+
+            ob_start();
+            wrap_loop_open();
+            $wrap_loop_open = ob_get_contents();
+            ob_get_clean();
+
+            $html .= $wrap_loop_open;
 
             //do the loop
             if ($t4p_query->have_posts()) : while ($t4p_query->have_posts()) : $t4p_query->the_post();
@@ -815,6 +834,12 @@ function evolve_blog_posts() {
     $html .= "</div></div>";
 
     echo $html;
+}
+
+function wrap_loop_open() {
+    $wrapper = '';
+
+    echo $wrapper;
 }
 
 function wrap_loop_close() {
@@ -879,7 +904,22 @@ function before_loop($post_id) {
         $loop_attr_itemprop = 'blogPost';
     }
 
-    echo "<div id='$loop_attr_id' class='$loop_attr_class' itemtype='$loop_attr_itemtype' itemprop='$loop_attr_itemprop'> \n";
+    $formatted_class = '';
+    if (has_post_format(array(
+            'aside',
+            'audio',
+            'chat',
+            'gallery',
+            'image',
+            'link',
+            'quote',
+            'status',
+            'video'
+                ), '')) {
+    $formatted_class = ' formatted-post';
+    }
+
+    echo "<div id='$loop_attr_id' class='$loop_attr_class $formatted_class' itemtype='$loop_attr_itemtype' itemprop='$loop_attr_itemprop'> \n";
 }
 
 function before_loop_timeline($args) {
