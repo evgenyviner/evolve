@@ -1734,3 +1734,58 @@ function evolve_bootstrap() {
 
     //filter added for buddypress-docs comment show
     add_filter( 'bp_docs_allow_comment_section', '__return_true', 100 );
+
+// Blog Pagination
+if (!function_exists('t4p_pagination')):
+
+    function t4p_pagination($pages = '', $range = 2, $current_query = '') {
+        global $smof_data, $evl_options;
+        $showitems = ( $range * 2 ) + 1;
+
+        if ($current_query == '') {
+            global $paged;
+            if (empty($paged)) {
+                $paged = 1;
+            }
+        } else {
+            $paged = $current_query->query_vars['paged'];
+        }
+
+        if ($pages == '') {
+            if ($current_query == '') {
+                global $wp_query;
+                $pages = $wp_query->max_num_pages;
+                if (!$pages) {
+                    $pages = 1;
+                }
+            } else {
+                $pages = $current_query->max_num_pages;
+            }
+        }
+
+        if (1 != $pages) {
+            if (( $evl_options['evl_portfolio_pagination_type'] == 'infinite' && is_home() ) || ( $evl_options['evl_portfolio_pagination_type'] == 'infinite' && is_page_template('portfolio-grid.php') )) {
+                echo "<div class='pagination infinite-scroll clearfix'>";
+            } else {
+                echo "<div class='pagination clearfix'>";
+            }
+            //if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'><span class='arrows'>&laquo;</span> First</a>";
+            if ($paged > 1) {
+                echo "<a class='pagination-prev' href='" . get_pagenum_link($paged - 1) . "'><span class='page-prev'></span>" . __('Previous', 'evolve') . "</a>";
+            }
+
+            for ($i = 1; $i <= $pages; $i ++) {
+                if (1 != $pages && (!( $i >= $paged + $range + 1 || $i <= $paged - $range - 1 ) || $pages <= $showitems )) {
+                    echo ( $paged == $i ) ? "<span class='current'>" . $i . "</span>" : "<a href='" . get_pagenum_link($i) . "' class='inactive' >" . $i . "</a>";
+                }
+            }
+
+            if ($paged < $pages) {
+                echo "<a class='pagination-next' href='" . get_pagenum_link($paged + 1) . "'>" . __('Next', 'evolve') . "<span class='page-next'></span></a>";
+            }
+            //if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>Last <span class='arrows'>&raquo;</span></a>";
+            echo "</div>\n";
+        }
+    }
+
+endif;

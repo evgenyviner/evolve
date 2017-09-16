@@ -828,6 +828,15 @@ function evolve_blog_posts() {
 
             $html .= '</div>';
 
+            if ($paging == 'yes') {
+                ob_start();
+                t4p_pagination($query->max_num_pages, $range = 2, $query);
+                $pagination = ob_get_contents();
+                ob_get_clean();
+
+                $html .= $pagination;
+            }
+
             $html .= '</div>';
 
     $html .= "</div>";

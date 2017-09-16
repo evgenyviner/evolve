@@ -2280,19 +2280,6 @@ if (is_plugin_active('woocommerce/woocommerce.php')) :
         'subsection' => true,
         'fields' => array(
             array(
-                'id' => 'evl_fp_woo_product_layout',
-                'title' => __('Product layout', 'evolve'),
-                'subtitle' => __('Product layout with <strong>3</strong> Product per row is recommended to use with disabled <strong>Sidebar(s)</strong>', 'evolve'),
-                'type' => 'image_select',
-                'compiler' => true,
-                'options' => array(
-                    '1' => $evolve_imagepath . 'one-post.png',
-                    '2' => $evolve_imagepath . 'two-posts.png',
-                    '3' => $evolve_imagepath . 'three-posts.png',
-                ),
-                'default' => '3',
-            ),
-            array(
                 'id' => 'evl_fp_woo_product',
                 'title' => __('Product Category', 'evolve'),
                 'subtitle' => __('Select Product Category', 'evolve'),

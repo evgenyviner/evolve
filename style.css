@@ -4257,9 +4257,10 @@ ul.nav-menu li.nav-hover ul {
 }
 
 .hentry .entry-header,
-.home .entry-meta-single span,
-.home .entry-meta-single a,
+.home .entry-meta-details span,
+.home .entry-meta-details a,
 .home .comment-number,
+.home .entry-categories a,
 .home .comment-number a {
   color: #ccc;
 }
