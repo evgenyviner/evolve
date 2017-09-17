@@ -707,8 +707,8 @@ Redux::setSection($evolve_opt_name, array(
 
 //Check status of parallax and post slider
 $theme_options = get_option('evl_options', false);
-( $theme_options['evl_parallax_slider_support'] == '1' ) ? $parallaxslider_status = '(Active)' : $parallaxslider_status = '(Inactive)' ;
-( $theme_options['evl_carousel_slider'] == '1' ) ? $postslider_status = '(Active)' : $postslider_status = '(Inactive)' ;
+( $theme_options['evl_parallax_slider_support'] == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)' ;
+( $theme_options['evl_carousel_slider'] == '1' ) ? $postslider_status = ' (ACTIVE)' : $postslider_status = ' (INACTIVE)' ;
 
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-frontpage-general-tab',
@@ -775,7 +775,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Header Area', 'evolve'),
             'options' => array(
                 'enabled' => array(
-                    'header' => __('Header (only reorder)', 'evolve'),
+                    'header' => __('Header (ONLY REORDER)', 'evolve'),
                 ),
                 'disabled' => array(
                     'bootstrap_slider' => __('Bootstrap Slider', 'evolve'),
