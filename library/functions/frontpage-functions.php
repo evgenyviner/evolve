@@ -565,15 +565,15 @@ function get_coordinates( $address, $force_refresh = false ) {
                                 $data = $cache_value;
 
                         } elseif ( $data->status === 'ZERO_RESULTS' ) {
-                                return __( 'No location found for the entered address.', 't4p-core' );
+                                return __( 'No location found for the entered address.', 'evolve' );
                         } elseif( $data->status === 'INVALID_REQUEST' ) {
-                                return __( 'Invalid request. Did you enter an address?', 't4p-core' );
+                                return __( 'Invalid request. Did you enter an address?', 'evolve' );
                         } else {
-                                return __( 'Something went wrong while retrieving your map, please ensure you have entered the short code correctly.', 't4p-core' );
+                                return __( 'Something went wrong while retrieving your map, please ensure you have entered the short code correctly.', 'evolve' );
                         }
 
                 } else {
-                        return __( 'Unable to contact Google API service.', 't4p-core' );
+                        return __( 'Unable to contact Google API service.', 'evolve' );
                 }
 
     } else {
@@ -1298,14 +1298,14 @@ function post_meta_data($return_all_meta = false) {
         }
 
         if ($evl_options['evl_fp_blog_meta_author'] == 'yes') {
-            $inner_content .= "<span class='$meta_author_class' itemprop='$meta_author_itemprop' itemscope='$meta_author_itemscope' itemtype='$meta_author_itemtype'>" . __('Written By', 't4p-core') . " <a href='$meta_author_link_href' itemprop='$meta_author_link_itemprop' rel='$meta_author_link_rel'>$meta_author</a>" . "</span><span class='meta-separator'>|</span>";
+            $inner_content .= "<span class='$meta_author_class' itemprop='$meta_author_itemprop' itemscope='$meta_author_itemscope' itemtype='$meta_author_itemtype'>" . __('Written By', 'evolve') . " <a href='$meta_author_link_href' itemprop='$meta_author_link_itemprop' rel='$meta_author_link_rel'>$meta_author</a>" . "</span><span class='meta-separator'>|</span>";
         }
 
         if ($evl_options['evl_fp_blog_layout'] != 'grid' && $evl_options['evl_fp_blog_layout'] != 'timeline') {
             if ($evl_options['evl_fp_blog_meta_comments'] == 'yes') {
 
                     ob_start();
-                    comments_popup_link(__('0 Comments', 't4p-core'), __('1 Comment', 't4p-core'), __('% Comments', 't4p-core'));
+                    comments_popup_link(__('0 Comments', 'evolve'), __('1 Comment', 'evolve'), __('% Comments', 'evolve'));
                     $comments = ob_get_contents();
                     ob_get_clean();
 
@@ -1324,7 +1324,7 @@ function grid_timeline_comments() {
 
         $comments_icon = "<i class='t4p-icon-comment'></i>&nbsp";
         ob_start();
-        comments_popup_link($comments_icon . __('0', 't4p-core'), $comments_icon . __('1', 't4p-core'), $comments_icon . __('%', 't4p-core'));
+        comments_popup_link($comments_icon . __('0', 'evolve'), $comments_icon . __('1', 'evolve'), $comments_icon . __('%', 'evolve'));
         $comments = ob_get_contents();
         ob_get_clean();
 
@@ -1357,7 +1357,7 @@ function read_more() {
         $inner_content = '';
 
             $inner_content .= "<p class='entry-read-more'>";
-            $btn_text = __('Read More', 't4p-core');
+            $btn_text = __('Read More', 'evolve');
             $link = get_permalink();
             $inner_content .= "<a class='read-more btn t4p-button-default' href='$link'>$btn_text</a>";
             $inner_content .= '</p>';
@@ -1381,7 +1381,7 @@ function loop_content() {
 }
 
 function page_links() {
-    wp_link_pages(array('before' => '<div id="page-links"><p>' . __('<strong>Pages:</strong>', 't4p-core'), 'after' => '</p></div>'));
+    wp_link_pages(array('before' => '<div id="page-links"><p>' . __('<strong>Pages:</strong>', 'evolve'), 'after' => '</p></div>'));
 }
 
 if( ! function_exists('t4p_content') ) {

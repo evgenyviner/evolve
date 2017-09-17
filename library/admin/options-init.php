@@ -716,6 +716,15 @@ Redux::setSection($evolve_opt_name, array(
     'subsection' => true,
     'fields' => array(
         array(
+            
+			'subtitle' => sprintf(__('The options below will overwrite many existing option values, please proceed with caution!', 'evolve')),
+            'id' => 'evl_demo_warning',
+            'style' => 'critical',
+			'title' => 'WARNING',
+            'type' => 'info',
+            'notice' => false,
+        ),	
+        array(
             'subtitle' => __('Select the type of prebuilt demo layout for the home/front page.', 'evolve'),
             'id' => 'evl_frontpage_prebuilt_demo',
             'type' => 'image_select',
