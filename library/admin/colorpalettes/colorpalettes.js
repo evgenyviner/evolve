@@ -378,42 +378,7 @@ var ColorPalettes = {
                 //console.log('do changes');
                 var cgs = t.colorpalettesValue[currentValue];
                 jQuery.each(cgs, function (i, v) {
-                    switch (v.fieldType) {
-                        case 'select':
-                            jQuery('#' + v.fieldName + '-select').val(v.fieldValue).trigger('change');
-                            break;
-                        case 'font-family':
-                            jQuery('#' + v.fieldName + ' .redux-typography-google').val(v.isGoogle);
-
-                            jQuery('#' + v.fieldName + ' .redux-typography-font-family').val(v.fieldValue);  //c
-                            jQuery('#' + v.fieldName + ' .redux-typography-family:first').data('value', v.fieldValue).val(v.fieldValue);
-
-                            if (jQuery('#' + v.fieldName + ' .redux-typography-family').length > 1) {
-                                jQuery('#' + v.fieldName + ' .redux-typography-family:last').select2('val', v.fieldValue);
-                            }
-
-                            jQuery('#' + v.fieldName + ' .redux-typography ').trigger('change');
-                            break;
-                        case 'color':
-                            //jQuery('input.redux-customizer-input[data-id="'+ t.baseName+ '[' + v.fieldName + ']"]').val(v.fieldValue).trigger('change'); //c
-                            jQuery('#' + v.fieldName + '-color').val(v.fieldValue).trigger('change');
-                            break;
-                        case 'switch':
-
-                            if (v.fieldValue == '1') {
-                                jQuery('#' + v.fieldName).val(1).trigger('change');
-                                jQuery('#' + v.fieldName).parents('fieldset').find('.cb-enable').addClass('selected').trigger('click');
-                                jQuery('#' + v.fieldName).parents('fieldset').find('.cb-disable').removeClass('selected');
-                            } else {
-                                jQuery('#' + v.fieldName).val(0).trigger('change')
-                                jQuery('#' + v.fieldName).parents('fieldset').find('.cb-enable').removeClass('selected');
-                                jQuery('#' + v.fieldName).parents('fieldset').find('.cb-disable').addClass('selected').trigger('click');
-                            }
-                            break;
-                        default:
-                            //
-                            break;
-                    }
+                        jQuery('#' + v.fieldName + '-color').val(v.fieldValue).trigger('change');
                 })
             }
         });

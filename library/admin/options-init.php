@@ -1,7 +1,4 @@
 <?php
-// If using image radio buttons, define a directory path
-$evolve_imagepath = get_template_directory_uri() . '/assets/images/functions/';
-$evolve_imagepathfolder = get_template_directory_uri() . '/assets/images/';
 global $evolve_shortname, $evolve_opt_name, $evolve_prem_inpt_name;
 $evolve_prem_inpt_name = "evl_hiden_premium"; // Switch control's id and name [Show/Hide premium options control]
 $evolve_prem_class = "evl_premium_feature";
@@ -14,6 +11,10 @@ $evolve_theme = wp_get_theme();
 
 $evolve_t4p_url = esc_url("http://theme4press.com/");
 $evolve_fb_url = esc_url("https://www.facebook.com/Theme4Press");
+
+// If using image radio buttons, define a directory path
+$evolve_imagepath = get_template_directory_uri() . '/assets/images/functions/';
+$evolve_imagepathfolder = get_template_directory_uri() . '/assets/images/';
 
 // OLD DATA MIGRATION
 add_action('after_setup_theme', 'evolve_migrate_options');
@@ -716,14 +717,13 @@ Redux::setSection($evolve_opt_name, array(
     'subsection' => true,
     'fields' => array(
         array(
-            
-			'subtitle' => sprintf(__('The options below will overwrite many existing option values, please proceed with caution!', 'evolve')),
+            'subtitle' => sprintf(__('The options below will overwrite many existing option values, please proceed with caution!', 'evolve')),
             'id' => 'evl_demo_warning',
             'style' => 'critical',
-			'title' => 'WARNING',
+            'title' => 'WARNING',
             'type' => 'info',
             'notice' => false,
-        ),	
+        ),
         array(
             'subtitle' => __('Select the type of prebuilt demo layout for the home/front page.', 'evolve'),
             'id' => 'evl_frontpage_prebuilt_demo',
