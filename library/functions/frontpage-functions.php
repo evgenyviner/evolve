@@ -614,7 +614,6 @@ function evolve_woocommerce_products() {
     global $evl_options;
 
     $product_cat = $evl_options["evl_fp_woo_product"];
-    $column = $evl_options["evl_fp_woo_product_layout"];
 
     $evolve_woo_product_section_title = evolve_get_option('evl_woo_product_title', 'New Arrival Product');
     if ($evolve_woo_product_section_title == false) {
@@ -626,7 +625,7 @@ function evolve_woocommerce_products() {
     $html  = "<div class='t4p-woo-product' >";
     $html .= "<div class='container container-center'><div class='row'>".$evolve_woo_product_section_title;
 
-    $html .= do_shortcode( '[product_category category="'.$product_cat.'" columns="'.$column.'" per_page="12" orderby="title" order="asc"]' );
+    $html .= do_shortcode( '[product_category category="'.$product_cat.'"  per_page="12" orderby="title" order="asc"]' );
 
     $html .= "</div>";
     $html .= "</div></div>";
@@ -639,7 +638,7 @@ function evolve_blog_posts() {
     global $evl_options;
 
     $layout = $evl_options["evl_fp_blog_layout"];
-    $number_posts = $evl_options["evl_fp_blog_number_posts"];
+    $number_posts = ( ! $evl_options["evl_fp_blog_number_posts"] ) ? '-1' : $evl_options["evl_fp_blog_number_posts"];
     $cat_slug = ( !isset($evl_options["evl_fp_blog_cat_slug"]) ) ? '' : $evl_options["evl_fp_blog_cat_slug"];
     $exclude_cats = ( !isset($evl_options["evl_fp_blog_exclude_cats"]) ) ? '' : $evl_options["evl_fp_blog_exclude_cats"];
     $show_title = $evl_options["evl_fp_blog_show_title"];
@@ -1502,4 +1501,76 @@ if( ! function_exists('t4p_content') ) {
 
 		return $content;
 	}
+}
+
+/* Front Page Bootstrap Slider */
+function fp_bootstrap_slider() {
+    // Bootstrap Slider
+    $evolve_slider_page_id = '';
+    $evolve_bootstrap = evolve_get_option('evl_bootstrap_slider', '1');
+    if (!empty($post->ID)) {
+        if (!is_home() && !is_front_page() && !is_archive()) {
+            $evolve_slider_page_id = $post->ID;
+        }
+        if (!is_home() && is_front_page()) {
+            $evolve_slider_page_id = $post->ID;
+        }
+    }
+    if (is_home() && !is_front_page()) {
+        $evolve_slider_page_id = get_option('page_for_posts');
+    }
+    if (get_post_meta($evolve_slider_page_id, 'evolve_slider_type', true) == 'bootstrap' || ($evolve_bootstrap == "1" && is_front_page()) || $evolve_bootstrap == "1"):
+	$evolve_bootstrap_slider = evolve_get_option('evl_bootstrap_slider_support', '1');
+		if ($evolve_bootstrap_slider == "1"):
+			evolve_bootstrap();
+        endif;		
+    endif;
+}
+
+/* Front Page Parallax Slider */
+function fp_parallax_slider() {
+    // Parallax Slider
+    $evolve_slider_page_id = '';
+    $evolve_parallax = evolve_get_option('evl_parallax_slider', '1');
+    if (!empty($post->ID)) {
+        if (!is_home() && !is_front_page() && !is_archive()) {
+            $evolve_slider_page_id = $post->ID;
+        }
+        if (!is_home() && is_front_page()) {
+            $evolve_slider_page_id = $post->ID;
+        }
+    }
+    if (is_home() && !is_front_page()) {
+        $evolve_slider_page_id = get_option('page_for_posts');
+    }
+    if (get_post_meta($evolve_slider_page_id, 'evolve_slider_type', true) == 'parallax' || ($evolve_parallax == "1" && is_front_page()) || $evolve_parallax == "1"):
+        $evolve_parallax_slider = evolve_get_option('evl_parallax_slider_support', '1');
+        if ($evolve_parallax_slider == "1"):
+            evolve_parallax();
+        endif;
+    endif;
+}
+
+/* Front Page Posts Slider */
+function fp_post_slider() {
+    // Posts Slider
+    $evolve_slider_page_id = '';
+    $evolve_posts_slider = evolve_get_option('evl_posts_slider', '1');
+    if (!empty($post->ID)) {
+        if (!is_home() && !is_front_page() && !is_archive()) {
+            $evolve_slider_page_id = $post->ID;
+        }
+        if (!is_home() && is_front_page()) {
+            $evolve_slider_page_id = $post->ID;
+        }
+    }
+    if (is_home() && !is_front_page()) {
+        $evolve_slider_page_id = get_option('page_for_posts');
+    }
+    if (get_post_meta($evolve_slider_page_id, 'evolve_slider_type', true) == 'posts' || ($evolve_posts_slider == "1" && is_front_page()) || $evolve_posts_slider == "1"):
+        $evolve_carousel_slider = evolve_get_option('evl_carousel_slider', '1');
+        if ($evolve_carousel_slider == "1"):
+            evolve_posts_slider();
+        endif;
+    endif;
 }

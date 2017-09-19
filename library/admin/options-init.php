@@ -123,6 +123,27 @@ function t4p_shortcodes_categories ( $taxonomy, $empty_choice = false ) {
         }
 }
 
+/**
+ * Get Number of posts options
+ *
+ * @return array
+ */
+function t4p_shortcodes_range ( $range, $all = true, $default = false, $range_start = 1 ) {
+        if( $all ) {
+                $number_of_posts['-1'] = 'All';
+        }
+
+        if( $default ) {
+                $number_of_posts[''] = 'Default';
+        }
+
+        foreach( range( $range_start, $range ) as $number ) {
+                $number_of_posts[$number] = $number;
+        }
+
+        return $number_of_posts;
+}
+
 if (!class_exists('Redux')) {
     return;
 }
@@ -863,8 +884,9 @@ Redux::setSection($evolve_opt_name, array(
         array(
                 'title'       => __( 'Posts Per Page', 'evolve' ),
                 'id'         => 'evl_fp_blog_number_posts',
-                'type'      => 'spinner',
-                'default'        => '4',
+                'type'       => 'select',
+                'default'    => '4',
+                'options'    => t4p_shortcodes_range( 25, true, true ),
                 'subtitle'    => __( 'Select number of posts per page', 'evolve' ),
         ),
         array(

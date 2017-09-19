@@ -1,8 +1,15 @@
 <?php
+/*
+ *
+ * Template: frontpagebuilder.php
+ *
+ */
+
 global $evl_options;
 $evl_frontpage_layout = $evl_options['evl_frontpage_layout'];
 $evl_frontpage_width_layout = $evl_options['evl_frontpage_width_layout'];
-$evl_frontpage_elements = $evl_options['evl_front_elements_content_area']['enabled'];
+if ( isset($evl_options['evl_front_elements_content_area']['enabled']) )
+    $evl_frontpage_elements = $evl_options['evl_front_elements_content_area']['enabled'];
 
 if ($evl_frontpage_elements):
         foreach ($evl_frontpage_elements as $elementkey => $elementval) {
