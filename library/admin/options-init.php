@@ -3516,7 +3516,7 @@ Redux::setSection($evolve_opt_name, array(
                 'color_palette_7' => array(
                     '#ffffff',
                     '#f0f0f0',
-                    '#000000',
+                    '#ff8d52',
                     '#3c4d56',
                 ),
                 'color_palette_8' => array(
