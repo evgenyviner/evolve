@@ -50,10 +50,18 @@
 
             <div class="menu-back">
                 <?php
+                global $evl_options;
+                $header_pos = '';
+                if ( isset($evl_options['evl_front_elements_header_area']['enabled']) ) {
+                        $evl_frontpage_slider = array_keys($evl_options['evl_front_elements_header_area']['enabled']);
+                        $header_pos = array_search("header", $evl_frontpage_slider);
+                }
+
                 $evolve_current_post_slider_position = get_post_meta($evolve_page_ID, 'evolve_slider_position', true);
                 $evolve_current_post_slider_position = empty($evolve_current_post_slider_position) ? 'default' : $evolve_current_post_slider_position;
-                if ($evolve_current_post_slider_position == 'above' || ($evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'above') || (is_home() && $evolve_slider_position == 'above')):
-                    get_template_part('allslider');
+                
+                if ( $evolve_current_post_slider_position == 'above' || ($evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'above') || (is_home() && $evolve_slider_position == 'above') || ($header_pos != 1 && $header_pos != false) ):
+                    get_template_part('allslider_above');
                 endif;
                 ?>
                 <div class="clearfix"></div>
@@ -84,7 +92,7 @@
                         $evolve_current_post_slider_position = get_post_meta($evolve_page_ID, 'evolve_slider_position', true);
                         $evolve_current_post_slider_position = empty($evolve_current_post_slider_position) ? 'default' : $evolve_current_post_slider_position;
                         if ($evolve_current_post_slider_position == 'below' || ($evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'below') || (is_home() && $evolve_slider_position == 'below')):
-                            get_template_part('allslider');
+                            get_template_part('allslider_below');
                         endif;
                         ?>
                         <div style="clear:both;"></div> 
