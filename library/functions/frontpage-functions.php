@@ -1508,6 +1508,7 @@ function fp_bootstrap_slider() {
     // Bootstrap Slider
     $evolve_slider_page_id = '';
     $evolve_bootstrap = evolve_get_option('evl_bootstrap_slider', '1');
+    $evolve_bootstrap_on = evolve_get_option('evl_bootstrap_slider_support', '1');
     if (!empty($post->ID)) {
         if (!is_home() && !is_front_page() && !is_archive()) {
             $evolve_slider_page_id = $post->ID;
@@ -1519,7 +1520,7 @@ function fp_bootstrap_slider() {
     if (is_home() && !is_front_page()) {
         $evolve_slider_page_id = get_option('page_for_posts');
     }
-    if (get_post_meta($evolve_slider_page_id, 'evolve_slider_type', true) == 'bootstrap' || ($evolve_bootstrap == "1" && is_front_page()) || $evolve_bootstrap == "1"):
+    if ((get_post_meta($evolve_slider_page_id, 'evolve_slider_type', true) == 'bootstrap' && $evolve_bootstrap_on == "1") || ($evolve_bootstrap_on == "1" && is_front_page()) || ($evolve_bootstrap_on == "1" && is_home()) || $evolve_bootstrap == "1"):
 	$evolve_bootstrap_slider = evolve_get_option('evl_bootstrap_slider_support', '1');
 		if ($evolve_bootstrap_slider == "1"):
 			evolve_bootstrap();
@@ -1532,6 +1533,7 @@ function fp_parallax_slider() {
     // Parallax Slider
     $evolve_slider_page_id = '';
     $evolve_parallax = evolve_get_option('evl_parallax_slider', '1');
+    $evolve_parallax_on = evolve_get_option('evl_parallax_slider_support', '1');
     if (!empty($post->ID)) {
         if (!is_home() && !is_front_page() && !is_archive()) {
             $evolve_slider_page_id = $post->ID;
@@ -1543,7 +1545,7 @@ function fp_parallax_slider() {
     if (is_home() && !is_front_page()) {
         $evolve_slider_page_id = get_option('page_for_posts');
     }
-    if (get_post_meta($evolve_slider_page_id, 'evolve_slider_type', true) == 'parallax' || ($evolve_parallax == "1" && is_front_page()) || $evolve_parallax == "1"):
+    if ((get_post_meta($evolve_slider_page_id, 'evolve_slider_type', true) == 'parallax' && $evolve_parallax_on == "1") || ($evolve_parallax_on == "1" && is_front_page()) || ($evolve_parallax_on == "1" && is_home()) || $evolve_parallax == "1"):
         $evolve_parallax_slider = evolve_get_option('evl_parallax_slider_support', '1');
         if ($evolve_parallax_slider == "1"):
             evolve_parallax();
@@ -1556,6 +1558,7 @@ function fp_post_slider() {
     // Posts Slider
     $evolve_slider_page_id = '';
     $evolve_posts_slider = evolve_get_option('evl_posts_slider', '1');
+    $evolve_post_on = evolve_get_option('evl_carousel_slider', '1');
     if (!empty($post->ID)) {
         if (!is_home() && !is_front_page() && !is_archive()) {
             $evolve_slider_page_id = $post->ID;
@@ -1567,44 +1570,10 @@ function fp_post_slider() {
     if (is_home() && !is_front_page()) {
         $evolve_slider_page_id = get_option('page_for_posts');
     }
-    if (get_post_meta($evolve_slider_page_id, 'evolve_slider_type', true) == 'posts' || ($evolve_posts_slider == "1" && is_front_page()) || $evolve_posts_slider == "1"):
+    if ((get_post_meta($evolve_slider_page_id, 'evolve_slider_type', true) == 'posts' && $evolve_post_on == "1") || ($evolve_post_on == "1" && is_front_page()) || ($evolve_post_on == "1" && is_home()) || $evolve_posts_slider == "1"):
         $evolve_carousel_slider = evolve_get_option('evl_carousel_slider', '1');
         if ($evolve_carousel_slider == "1"):
             evolve_posts_slider();
         endif;
     endif;
-}
-
-/* Check Slider Postion */
-function fp_slider_pos() {
-        global $evl_options;
-        if ( isset($evl_options['evl_front_elements_header_area']['enabled']) )
-            $evl_frontpage_slider = $evl_options['evl_front_elements_header_area']['enabled'];
-
-        if ($evl_frontpage_slider):
-                foreach ($evl_frontpage_slider as $sliderkey => $sliderval) {
-                        switch ($sliderkey) {
-                                case 'bootstrap_slider':
-                                        if ($sliderval) {
-                                                fp_bootstrap_slider();
-                                        }
-                                break;
-                                case 'parallax_slider':
-                                        if ($sliderval) {
-                                                fp_parallax_slider();
-                                        }
-                                break;
-                                case 'posts_slider':
-                                        if ($sliderval) {
-                                                fp_post_slider();
-                                        }
-                                break;
-                                case 'header':
-                                        if ($sliderval) {
-                                                break;
-                                        }
-                                break;
-                        }
-                }
-        endif;
 }

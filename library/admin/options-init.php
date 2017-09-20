@@ -729,6 +729,7 @@ Redux::setSection($evolve_opt_name, array(
 
 //Check status of parallax and post slider
 $theme_options = get_option('evl_options', false);
+( $theme_options['evl_bootstrap_slider_support'] == '1' ) ? $bootstrapslider_status = ' (ACTIVE)' : $bootstrapslider_status = ' (INACTIVE)' ;
 ( $theme_options['evl_parallax_slider_support'] == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)' ;
 ( $theme_options['evl_carousel_slider'] == '1' ) ? $postslider_status = ' (ACTIVE)' : $postslider_status = ' (INACTIVE)' ;
 
@@ -808,7 +809,7 @@ Redux::setSection($evolve_opt_name, array(
                     'header' => __('Header (ONLY REORDER)', 'evolve'),
                 ),
                 'disabled' => array(
-                    'bootstrap_slider' => __('Bootstrap Slider', 'evolve'),
+                    'bootstrap_slider' => __('Bootstrap Slider'. $bootstrapslider_status, 'evolve'),
                     'parallax_slider' => __('Parallax Slider'. $parallaxslider_status, 'evolve'),
                     'posts_slider' => __('Posts Slider'. $postslider_status, 'evolve'),
                 )
