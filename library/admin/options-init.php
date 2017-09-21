@@ -16,6 +16,13 @@ $evolve_fb_url = esc_url("https://www.facebook.com/Theme4Press");
 $evolve_imagepath = get_template_directory_uri() . '/assets/images/functions/';
 $evolve_imagepathfolder = get_template_directory_uri() . '/assets/images/';
 
+//Check Redux Framework is active or not
+if ( !is_plugin_active('redux-framework/redux-framework.php') ) {
+    $redux_info_box = 'info';
+} else {
+    $redux_info_box = '';
+}
+
 // OLD DATA MIGRATION
 add_action('after_setup_theme', 'evolve_migrate_options');
 
@@ -3025,6 +3032,14 @@ Redux::setSection($evolve_opt_name, array(
     'class' => $evolve_prem_class,
     'fields' => array(
         array(
+            'id'     => 'evl_reduxinfo_1',
+            'type'   => $redux_info_box,
+            'notice' => false,
+            'style'  => 'critical',
+            'icon'   => 'el el-info-circle',
+            'desc'   => __('The following recommended plugin is currently inactive <b>Redux Framework</b>', 'evolve')
+        ),
+        array(
             'raw' => __('<h3 style=\'margin: 0;\'>Custom fonts for all elements.</h3><p style="margin-bottom:0;">This will override the Google / standard font options. All 4 files are required.</h3>', 'evolve'),
             'id' => 'evl_custom_fonts',
             'type' => 'info',
@@ -3070,6 +3085,14 @@ Redux::setSection($evolve_opt_name, array(
     'title' => __('Title & Tagline', 'evolve'),
     'subsection' => true,
     'fields' => array(
+        array(
+            'id'     => 'evl_reduxinfo_2',
+            'type'   => $redux_info_box,
+            'notice' => false,
+            'style'  => 'critical',
+            'icon'   => 'el el-info-circle',
+            'desc'   => __('The following recommended plugin is currently inactive <b>Redux Framework</b>', 'evolve')
+        ),
         array(
             'subtitle' => __('Select the typography you want for your blog title. * non web-safe font.', 'evolve'),
             'id' => 'evl_title_font',
