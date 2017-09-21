@@ -813,12 +813,12 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Header Area', 'evolve'),
             'options' => array(
                 'enabled' => array(
-                    'header' => __('Header (ONLY REORDER)', 'evolve'),
+                    'header' => __('Header (REORDER ONLY)', 'evolve'),
                 ),
                 'disabled' => array(
-                    'bootstrap_slider' => __('Bootstrap Slider'. $bootstrapslider_status, 'evolve'),
-                    'parallax_slider' => __('Parallax Slider'. $parallaxslider_status, 'evolve'),
-                    'posts_slider' => __('Posts Slider'. $postslider_status, 'evolve'),
+                    'bootstrap_slider' => __('Bootstrap Slider', 'evolve'). $bootstrapslider_status,
+                    'parallax_slider' => __('Parallax Slider', 'evolve'). $parallaxslider_status,
+                    'posts_slider' => __('Posts Slider', 'evolve'). $postslider_status,
                 )
             ),
         ),
@@ -2083,7 +2083,7 @@ $slide_defaults = array(
     array(
         'image' => "{$evolve_imagepathfolder}frontpage-builder/team-1.png",
         'title' => __(' Blunderdog', 'evolve'),
-        'description' => __('This is a great theme! Extremely versatile, easy to style, functional; I couldn’t be happier with a theme.', 'evolve'),
+        'description' => __('This is a great theme! Extremely versatile, easy to style, functional; I couldn\'t be happier with a theme.', 'evolve'),
     ),
     array(
         'image' => "{$evolve_imagepathfolder}frontpage-builder/team-2.png",
@@ -6078,6 +6078,9 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'checkbox',
             'title' => __('Parallax Slider on all pages', 'evolve'),
             'default' => '0',
+            'required' => array(
+                array('evl_parallax_slider_support', '=', '1')
+            ),			
         ),
         array(
             'subtitle' => __('Input the time between transitions (Default: 4000);', 'evolve'),
