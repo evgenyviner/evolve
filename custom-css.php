@@ -261,8 +261,8 @@ $evolve_css_data .= '
     .link-effect a:focus span {
         -webkit-transform: translateY(-100%);
         -moz-transform: translateY(-100%);
-        transform: translateY(-100%); 
-    } 
+        transform: translateY(-100%);
+    }
 }
 
 .entry-content .thumbnail-post:hover img {

@@ -1506,21 +1506,8 @@ if( ! function_exists('t4p_content') ) {
 /* Front Page Bootstrap Slider */
 function fp_bootstrap_slider() {
     // Bootstrap Slider
-    $evolve_slider_page_id = '';
-    $evolve_bootstrap = evolve_get_option('evl_bootstrap_slider', '1');
     $evolve_bootstrap_on = evolve_get_option('evl_bootstrap_slider_support', '1');
-    if (!empty($post->ID)) {
-        if (!is_home() && !is_front_page() && !is_archive()) {
-            $evolve_slider_page_id = $post->ID;
-        }
-        if (!is_home() && is_front_page()) {
-            $evolve_slider_page_id = $post->ID;
-        }
-    }
-    if (is_home() && !is_front_page()) {
-        $evolve_slider_page_id = get_option('page_for_posts');
-    }
-    if ((get_post_meta($evolve_slider_page_id, 'evolve_slider_type', true) == 'bootstrap' && $evolve_bootstrap_on == "1") || ($evolve_bootstrap_on == "1" && is_front_page()) || ($evolve_bootstrap_on == "1" && is_home()) || $evolve_bootstrap == "1"):
+    if ( ($evolve_bootstrap_on == "1" && is_front_page()) || ($evolve_bootstrap_on == "1" && is_home()) ):
 	$evolve_bootstrap_slider = evolve_get_option('evl_bootstrap_slider_support', '1');
 		if ($evolve_bootstrap_slider == "1"):
 			evolve_bootstrap();
@@ -1531,21 +1518,8 @@ function fp_bootstrap_slider() {
 /* Front Page Parallax Slider */
 function fp_parallax_slider() {
     // Parallax Slider
-    $evolve_slider_page_id = '';
-    $evolve_parallax = evolve_get_option('evl_parallax_slider', '1');
     $evolve_parallax_on = evolve_get_option('evl_parallax_slider_support', '1');
-    if (!empty($post->ID)) {
-        if (!is_home() && !is_front_page() && !is_archive()) {
-            $evolve_slider_page_id = $post->ID;
-        }
-        if (!is_home() && is_front_page()) {
-            $evolve_slider_page_id = $post->ID;
-        }
-    }
-    if (is_home() && !is_front_page()) {
-        $evolve_slider_page_id = get_option('page_for_posts');
-    }
-    if ((get_post_meta($evolve_slider_page_id, 'evolve_slider_type', true) == 'parallax' && $evolve_parallax_on == "1") || ($evolve_parallax_on == "1" && is_front_page()) || ($evolve_parallax_on == "1" && is_home()) || $evolve_parallax == "1"):
+    if ( ($evolve_parallax_on == "1" && is_front_page()) || ($evolve_parallax_on == "1" && is_home()) ):
         $evolve_parallax_slider = evolve_get_option('evl_parallax_slider_support', '1');
         if ($evolve_parallax_slider == "1"):
             evolve_parallax();
@@ -1556,21 +1530,8 @@ function fp_parallax_slider() {
 /* Front Page Posts Slider */
 function fp_post_slider() {
     // Posts Slider
-    $evolve_slider_page_id = '';
-    $evolve_posts_slider = evolve_get_option('evl_posts_slider', '1');
     $evolve_post_on = evolve_get_option('evl_carousel_slider', '1');
-    if (!empty($post->ID)) {
-        if (!is_home() && !is_front_page() && !is_archive()) {
-            $evolve_slider_page_id = $post->ID;
-        }
-        if (!is_home() && is_front_page()) {
-            $evolve_slider_page_id = $post->ID;
-        }
-    }
-    if (is_home() && !is_front_page()) {
-        $evolve_slider_page_id = get_option('page_for_posts');
-    }
-    if ((get_post_meta($evolve_slider_page_id, 'evolve_slider_type', true) == 'posts' && $evolve_post_on == "1") || ($evolve_post_on == "1" && is_front_page()) || ($evolve_post_on == "1" && is_home()) || $evolve_posts_slider == "1"):
+    if ( ($evolve_post_on == "1" && is_front_page()) || ($evolve_post_on == "1" && is_home()) ):
         $evolve_carousel_slider = evolve_get_option('evl_carousel_slider', '1');
         if ($evolve_carousel_slider == "1"):
             evolve_posts_slider();

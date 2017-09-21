@@ -6,8 +6,7 @@
  */
 
 global $evl_options;
-$evl_frontpage_layout = $evl_options['evl_frontpage_layout'];
-$evl_frontpage_width_layout = $evl_options['evl_frontpage_width_layout'];
+
 if ( isset($evl_options['evl_front_elements_content_area']['enabled']) )
     $evl_frontpage_elements = $evl_options['evl_front_elements_content_area']['enabled'];
 
@@ -20,39 +19,39 @@ if ($evl_frontpage_elements):
                                 if ($elementval) {
                                         evolve_content_boxes();
                                 }
-                                break;
+                        break;
                         case 'testimonial':
                                 if ($elementval) {
                                         evolve_testimonials();
                                 }
-                                break;
+                        break;
                         case 'blog_post':
                                 if ($elementval) {
                                         evolve_blog_posts();
                                 }
-                                break;
+                        break;
                         case 'google_map':
                                 if ($elementval) {
                                         evolve_google_map();
                                 }
-                                break;
+                        break;
                         case 'woocommerce_product':
                                 if ($elementval) {
                                     include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
                                     if ( is_plugin_active('woocommerce/woocommerce.php') )
                                         evolve_woocommerce_products();
                                 }
-                                break;
+                        break;
                         case 'counter_circle':
                                 if ($elementval) {
                                         evolve_counter_circle();
                                 }
-                                break;
+                        break;
                         case 'custom_content':
                                 if ($elementval) {
                                         evolve_custom_content();
                                 }
-                                break;
+                        break;
                 }
 
         }
