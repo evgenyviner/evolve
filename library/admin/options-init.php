@@ -746,7 +746,7 @@ Redux::setSection($evolve_opt_name, array(
     'subsection' => true,
     'fields' => array(
         array(
-            'subtitle' => sprintf(__('The options below will overwrite many existing option values, please proceed with caution!', 'evolve')),
+            'subtitle' => sprintf(__('The options below will overwrite many existing option values (colors, text fields, slides etc.), please proceed with caution! It\'s highly recommended to use these options for a new website.', 'evolve')),
             'id' => 'evl_demo_warning',
             'style' => 'critical',
             'title' => 'WARNING',
