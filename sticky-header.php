@@ -1,8 +1,13 @@
 <header id="header" class="sticky-header 
 <?php
 $evolve_width_layout = evolve_get_option('evl_width_layout', 'fixed');
-if ($evolve_width_layout == "fixed") {
-    echo "container row";
+$evolve_frontpage_width_layout = evolve_get_option('evl_frontpage_width_layout', 'fixed');
+if ( is_home() || is_front_page() ) {
+    if ( $evolve_frontpage_width_layout == "fixed" ) {
+        echo "container row";
+    }  
+} elseif ( $evolve_width_layout == "fixed"  ) {
+     echo "container row";
 }
 ?>">
     <div class="container">

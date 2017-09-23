@@ -85,10 +85,14 @@
                 <?php
                 $evolve_menu_background = evolve_get_option('evl_disable_menu_back', '1');
                 $evolve_width_layout = evolve_get_option('evl_width_layout', 'fixed');
-                if ($evolve_width_layout == "fluid" && $evolve_menu_background == "1") {
-                    ?>
-                    <div class="fluid-width">
-                    <?php }
+                $evolve_frontpage_width_layout = evolve_get_option('evl_frontpage_width_layout', 'fixed');
+                if ( is_home() || is_front_page() ) {
+                    if ($evolve_frontpage_width_layout == "fluid" && $evolve_menu_background == "1") {
+                        echo '<div class="fluid-width">';
+                    }  
+                } elseif ($evolve_width_layout == "fluid" && $evolve_menu_background == "1") {
+                     echo '<div class="fluid-width">';
+                }
                     ?>
                     <div class="menu-back">
                         <?php
@@ -105,10 +109,12 @@
                         <div style="clear:both;"></div> 
 
                         <?php
-                        if ($evolve_width_layout == "fluid") {
-                            ?>
-                            <div class="container">
-                                <?php
+                            if ( is_home() || is_front_page() ) {
+                                if ($evolve_frontpage_width_layout == "fluid") {
+                                    echo '<div class="container">';
+                                }  
+                            } elseif ($evolve_width_layout == "fluid") {
+                                 echo '<div class="container">';
                             }
 
                             $evolve_header_widgets_placement = evolve_get_option('evl_header_widgets_placement', 'home');
@@ -170,16 +176,24 @@
                             }
                             ?>
                             <?php
-                            if ($evolve_width_layout == "fluid") {
-                                ?>
-                            </div><!-- /.container -->
-                        <?php } ?>                    
+                            if ( is_home() || is_front_page() ) {
+                                if ($evolve_frontpage_width_layout == "fluid") {
+                                    echo '</div><!-- /.container -->';
+                                }  
+                            } elseif ($evolve_width_layout == "fluid") {
+                                 echo '</div><!-- /.container -->';
+                            }
+                    ?>                    
                     </div><!--/.menu-back-->
                     <?php
-                    if ($evolve_width_layout == "fluid") {
-                        ?>
-                    </div><!-- /.fluid-width -->
-                <?php } ?>
+                            if ( is_home() || is_front_page() ) {
+                                if ($evolve_frontpage_width_layout == "fluid") {
+                                    echo '</div><!-- /.fluid-width -->';
+                                }  
+                            } elseif ($evolve_width_layout == "fluid") {
+                                 echo '</div><!-- /.fluid-width -->';
+                            }
+                    ?>
 
                 <?php
                 if (is_front_page()) {

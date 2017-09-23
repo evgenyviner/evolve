@@ -1603,7 +1603,7 @@ function evolve_bootstrap() {
         }
 
         $evolve_frontpage_layout = evolve_get_option('evl_frontpage_layout', '1c');
-        if ($evolve_frontpage_layout != "1c") {
+        if ( ( is_home() || is_front_page() ) && $evolve_frontpage_layout != "1c" ) {
             $get_sidebar = true;
         }
 
@@ -1656,7 +1656,7 @@ function evolve_bootstrap() {
         }
 
         $evolve_frontpage_layout = evolve_get_option('evl_frontpage_layout', '1c');
-        if ($evolve_frontpage_layout == "3cm" || $evolve_frontpage_layout == "3cl" || $evolve_frontpage_layout == "3cr") {
+        if ( ( is_home() || is_front_page() ) && ($evolve_frontpage_layout == "3cm" || $evolve_frontpage_layout == "3cl" || $evolve_frontpage_layout == "3cr") ) {
             $get_sidebar = true;
         }
 
