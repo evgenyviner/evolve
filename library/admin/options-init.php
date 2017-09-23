@@ -17,7 +17,7 @@ $evolve_imagepath = get_template_directory_uri() . '/assets/images/functions/';
 $evolve_imagepathfolder = get_template_directory_uri() . '/assets/images/';
 
 //Check Redux Framework is active or not
-if ( !is_plugin_active('redux-framework/redux-framework.php') ) {
+if (!is_plugin_active('redux-framework/redux-framework.php')) {
     $redux_info_box = 'info';
 } else {
     $redux_info_box = '';
@@ -110,24 +110,24 @@ function evolve_migrate_options() {
  *
  * @return array
  */
-function t4p_shortcodes_categories ( $taxonomy, $empty_choice = false ) {
-        if( $empty_choice == true ) {
-                $post_categories[''] = 'Default';
+function t4p_shortcodes_categories($taxonomy, $empty_choice = false) {
+    if ($empty_choice == true) {
+        $post_categories[''] = 'Default';
+    }
+
+    $get_categories = get_categories('hide_empty=0&taxonomy=' . $taxonomy);
+
+    if (!array_key_exists('errors', $get_categories)) {
+        if ($get_categories && is_array($get_categories)) {
+            foreach ($get_categories as $cat) {
+                $post_categories[$cat->slug] = $cat->name;
+            }
         }
 
-        $get_categories = get_categories('hide_empty=0&taxonomy=' . $taxonomy);
-
-        if( ! array_key_exists('errors', $get_categories) ) {
-                if( $get_categories && is_array($get_categories) ) {
-                        foreach ( $get_categories as $cat ) {
-                                $post_categories[$cat->slug] = $cat->name;
-                        }
-                }
-
-                if( isset( $post_categories ) ) {
-                        return $post_categories;
-                }
+        if (isset($post_categories)) {
+            return $post_categories;
         }
+    }
 }
 
 /**
@@ -135,20 +135,20 @@ function t4p_shortcodes_categories ( $taxonomy, $empty_choice = false ) {
  *
  * @return array
  */
-function t4p_shortcodes_range ( $range, $all = true, $default = false, $range_start = 1 ) {
-        if( $all ) {
-                $number_of_posts['-1'] = 'All';
-        }
+function t4p_shortcodes_range($range, $all = true, $default = false, $range_start = 1) {
+    if ($all) {
+        $number_of_posts['-1'] = 'All';
+    }
 
-        if( $default ) {
-                $number_of_posts[''] = 'Default';
-        }
+    if ($default) {
+        $number_of_posts[''] = 'Default';
+    }
 
-        foreach( range( $range_start, $range ) as $number ) {
-                $number_of_posts[$number] = $number;
-        }
+    foreach (range($range_start, $range) as $number) {
+        $number_of_posts[$number] = $number;
+    }
 
-        return $number_of_posts;
+    return $number_of_posts;
 }
 
 if (!class_exists('Redux')) {
@@ -736,15 +736,23 @@ Redux::setSection($evolve_opt_name, array(
 
 //Check status of parallax and post slider
 $theme_options = get_option('evl_options', false);
-( isset($theme_options['evl_bootstrap_slider_support']) && $theme_options['evl_bootstrap_slider_support'] == '1' ) ? $bootstrapslider_status = ' (ACTIVE)' : $bootstrapslider_status = ' (INACTIVE)' ;
-( $theme_options['evl_parallax_slider_support'] == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)' ;
-( $theme_options['evl_carousel_slider'] == '1' ) ? $postslider_status = ' (ACTIVE)' : $postslider_status = ' (INACTIVE)' ;
+( isset($theme_options['evl_bootstrap_slider_support']) && $theme_options['evl_bootstrap_slider_support'] == '1' ) ? $bootstrapslider_status = ' (ACTIVE)' : $bootstrapslider_status = ' (INACTIVE)';
+( $theme_options['evl_parallax_slider_support'] == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)';
+( $theme_options['evl_carousel_slider'] == '1' ) ? $postslider_status = ' (ACTIVE)' : $postslider_status = ' (INACTIVE)';
 
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-frontpage-general-tab',
     'title' => __('General & Layout Settings', 'evolve'),
     'subsection' => true,
     'fields' => array(
+        array(
+            'id' => 'evl_reduxinfo_1',
+            'type' => $redux_info_box,
+            'notice' => false,
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the prebuilt layout options is currently inactive: <b>Redux Framework</b>', 'evolve')
+        ),
         array(
             'subtitle' => sprintf(__('The options below will overwrite many existing option values (colors, text fields, slides etc.), please proceed with caution! It\'s highly recommended to use these options for a new website.', 'evolve')),
             'id' => 'evl_demo_warning',
@@ -816,9 +824,9 @@ Redux::setSection($evolve_opt_name, array(
                     'header' => __('Header (REORDER ONLY)', 'evolve'),
                 ),
                 'disabled' => array(
-                    'bootstrap_slider' => __('Bootstrap Slider', 'evolve'). $bootstrapslider_status,
-                    'parallax_slider' => __('Parallax Slider', 'evolve'). $parallaxslider_status,
-                    'posts_slider' => __('Posts Slider', 'evolve'). $postslider_status,
+                    'bootstrap_slider' => __('Bootstrap Slider', 'evolve') . $bootstrapslider_status,
+                    'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
+                    'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
                 )
             ),
         ),
@@ -890,30 +898,30 @@ Redux::setSection($evolve_opt_name, array(
             'subtitle' => __('Select the layout for the blog shortcode', 'evolve')
         ),
         array(
-                'title'       => __( 'Posts Per Page', 'evolve' ),
-                'id'         => 'evl_fp_blog_number_posts',
-                'type'       => 'select',
-                'default'    => '4',
-                'options'    => t4p_shortcodes_range( 25, true, true ),
-                'subtitle'    => __( 'Select number of posts per page', 'evolve' ),
+            'title' => __('Posts Per Page', 'evolve'),
+            'id' => 'evl_fp_blog_number_posts',
+            'type' => 'select',
+            'default' => '4',
+            'options' => t4p_shortcodes_range(25, true, true),
+            'subtitle' => __('Select number of posts per page', 'evolve'),
         ),
         array(
-                'title'       => __( 'Categories', 'evolve' ),
-                'id'         => 'evl_fp_blog_cat_slug',
-                'type'       => 'select',
-                'default'        => '',
-                'multi'     => true,
-                'options'    => t4p_shortcodes_categories( 'category' ),
-                'subtitle'    => __( 'Select a category or leave blank for all', 'evolve' )
+            'title' => __('Categories', 'evolve'),
+            'id' => 'evl_fp_blog_cat_slug',
+            'type' => 'select',
+            'default' => '',
+            'multi' => true,
+            'options' => t4p_shortcodes_categories('category'),
+            'subtitle' => __('Select a category or leave blank for all', 'evolve')
         ),
         array(
-                'title'       => __( 'Exclude Categories', 'evolve' ),
-                'id'         => 'evl_fp_blog_exclude_cats',
-                'type'       => 'select',
-                'default'        => '',
-                'multi'     => true,
-                'options'    => t4p_shortcodes_categories( 'category' ),
-                'subtitle'    => __( 'Select a category to exclude', 'evolve' )
+            'title' => __('Exclude Categories', 'evolve'),
+            'id' => 'evl_fp_blog_exclude_cats',
+            'type' => 'select',
+            'default' => '',
+            'multi' => true,
+            'options' => t4p_shortcodes_categories('category'),
+            'subtitle' => __('Select a category to exclude', 'evolve')
         ),
         array(
             'title' => __('Show Title', 'evolve'),
@@ -1011,23 +1019,23 @@ Redux::setSection($evolve_opt_name, array(
             'subtitle' => __('Choose to show the tags', 'evolve'),
         ),
         array(
-                'title'     => __( 'Show Pagination', 'evolve' ),
-                'id'       => 'evl_fp_blog_paging',
-                'type'     => 'radio',
-                'default'    => 'yes',
-                'options'  => array( 'yes' => __( 'Yes', 'evolve' ), 'no' => __( 'No', 'evolve' ) ),
-                'subtitle'	=> __( 'Show numerical pagination boxes', 'evolve' ),
+            'title' => __('Show Pagination', 'evolve'),
+            'id' => 'evl_fp_blog_paging',
+            'type' => 'radio',
+            'default' => 'yes',
+            'options' => array('yes' => __('Yes', 'evolve'), 'no' => __('No', 'evolve')),
+            'subtitle' => __('Show numerical pagination boxes', 'evolve'),
         ),
         array(
-                'title'       => __( 'Infinite Scrolling', 'evolve' ),
-                'id'         => 'evl_fp_blog_scrolling',
-                'type'       => 'select',
-                'default'      => 'pagination',
-                'options'    => array(
-                                        'pagination'   => __( 'pagination', 'evolve' ),
-                                        'infinite'    => __( 'Infinite Scrolling', 'evolve' )
-                                ),
-                'subtitle'    => __( 'Choose the type of scrolling', 'evolve' )
+            'title' => __('Infinite Scrolling', 'evolve'),
+            'id' => 'evl_fp_blog_scrolling',
+            'type' => 'select',
+            'default' => 'pagination',
+            'options' => array(
+                'pagination' => __('pagination', 'evolve'),
+                'infinite' => __('Infinite Scrolling', 'evolve')
+            ),
+            'subtitle' => __('Choose the type of scrolling', 'evolve')
         ),
         array(
             'title' => __('Grid Layout # of Columns', 'evolve'),
@@ -1062,6 +1070,14 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Title of Blog Section', 'evolve'),
             'default' => __('Latest News From The Blog', 'evolve'),
+        ),
+        array(
+            'id' => 'evl_reduxinfo_2',
+            'type' => $redux_info_box,
+            'notice' => false,
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
@@ -1541,6 +1557,14 @@ Redux::setSection($evolve_opt_name, array(
             'default' => 'evolve comes with amazing features which will blow your mind',
         ),
         array(
+            'id' => 'evl_reduxinfo_3',
+            'type' => $redux_info_box,
+            'notice' => false,
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+        ),
+        array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
             'id' => 'evl_content_boxes_title_alignment',
             'type' => 'typography',
@@ -1781,6 +1805,14 @@ Redux::setSection($evolve_opt_name, array(
             'default' => 'How many people love our themes',
         ),
         array(
+            'id' => 'evl_reduxinfo_4',
+            'type' => $redux_info_box,
+            'notice' => false,
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+        ),
+        array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
             'id' => 'evl_counter_circle_title_alignment',
             'type' => 'typography',
@@ -1975,6 +2007,14 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Title of Google Map Section', 'evolve'),
             'default' => 'Our Contact Place',
+        ),
+        array(
+            'id' => 'evl_reduxinfo_5',
+            'type' => $redux_info_box,
+            'notice' => false,
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
@@ -2212,6 +2252,14 @@ Redux::setSection($evolve_opt_name, array(
             'default' => 'Why people love our themes',
         ),
         array(
+            'id' => 'evl_reduxinfo_6',
+            'type' => $redux_info_box,
+            'notice' => false,
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+        ),
+        array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
             'id' => 'evl_testimonials_title_alignment',
             'type' => 'typography',
@@ -2344,6 +2392,14 @@ if (is_plugin_active('woocommerce/woocommerce.php')) :
                 'default' => __('Trending Products In Our Store', 'evolve'),
             ),
             array(
+                'id' => 'evl_reduxinfo_7',
+                'type' => $redux_info_box,
+                'notice' => false,
+                'style' => 'warning',
+                'icon' => 'el el-info-circle',
+                'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            ),
+            array(
                 'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
                 'id' => 'evl_woo_product_title_alignment',
                 'type' => 'typography',
@@ -2474,6 +2530,14 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Title of Custom Content Section', 'evolve'),
             'default' => 'Your Custom Content Here',
+        ),
+        array(
+            'id' => 'evl_reduxinfo_8',
+            'type' => $redux_info_box,
+            'notice' => false,
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
@@ -3037,12 +3101,12 @@ Redux::setSection($evolve_opt_name, array(
     'class' => $evolve_prem_class,
     'fields' => array(
         array(
-            'id'     => 'evl_reduxinfo_1',
-            'type'   => $redux_info_box,
+            'id' => 'evl_reduxinfo_9',
+            'type' => $redux_info_box,
             'notice' => false,
-            'style'  => 'critical',
-            'icon'   => 'el el-info-circle',
-            'desc'   => __('The following recommended plugin is currently inactive <b>Redux Framework</b>', 'evolve')
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
         ),
         array(
             'raw' => __('<h3 style=\'margin: 0;\'>Custom fonts for all elements.</h3><p style="margin-bottom:0;">This will override the Google / standard font options. All 4 files are required.</h3>', 'evolve'),
@@ -3091,12 +3155,12 @@ Redux::setSection($evolve_opt_name, array(
     'subsection' => true,
     'fields' => array(
         array(
-            'id'     => 'evl_reduxinfo_2',
-            'type'   => $redux_info_box,
+            'id' => 'evl_reduxinfo_10',
+            'type' => $redux_info_box,
             'notice' => false,
-            'style'  => 'critical',
-            'icon'   => 'el el-info-circle',
-            'desc'   => __('The following recommended plugin is currently inactive <b>Redux Framework</b>', 'evolve')
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the typography you want for your blog title. * non web-safe font.', 'evolve'),
@@ -3150,6 +3214,14 @@ Redux::setSection($evolve_opt_name, array(
     'subsection' => true,
     'fields' => array(
         array(
+            'id' => 'evl_reduxinfo_11',
+            'type' => $redux_info_box,
+            'notice' => false,
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+        ),
+        array(
             'subtitle' => __('Select the typography you want for your main menu. * non web-safe font.', 'evolve'),
             'id' => 'evl_menu_font',
             'type' => 'typography',
@@ -3196,6 +3268,14 @@ Redux::setSection($evolve_opt_name, array(
     'subsection' => true,
     'fields' => array(
         array(
+            'id' => 'evl_reduxinfo_12',
+            'type' => $redux_info_box,
+            'notice' => false,
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+        ),
+        array(
             'subtitle' => __('Select the typography you want for your widget title. * non web-safe font.', 'evolve'),
             'id' => 'evl_widget_title_font',
             'type' => 'typography',
@@ -3231,6 +3311,14 @@ Redux::setSection($evolve_opt_name, array(
     'title' => __('Post Title & Content', 'evolve'),
     'subsection' => true,
     'fields' => array(
+        array(
+            'id' => 'evl_reduxinfo_13',
+            'type' => $redux_info_box,
+            'notice' => false,
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+        ),
         array(
             'subtitle' => __('Select the typography you want for your post titles. * non web-safe font.', 'evolve'),
             'id' => 'evl_post_font',
@@ -3269,6 +3357,14 @@ Redux::setSection($evolve_opt_name, array(
     'subsection' => true,
     'fields' => array(
         array(
+            'id' => 'evl_reduxinfo_14',
+            'type' => $redux_info_box,
+            'notice' => false,
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+        ),
+        array(
             'subtitle' => __('Select the typography you want for your content boxes titles. * non web-safe font.', 'evolve'),
             'id' => 'evl_content_boxes_title_font',
             'type' => 'typography',
@@ -3305,6 +3401,14 @@ Redux::setSection($evolve_opt_name, array(
     'title' => __('Headings', 'evolve'),
     'subsection' => true,
     'fields' => array(
+        array(
+            'id' => 'evl_reduxinfo_15',
+            'type' => $redux_info_box,
+            'notice' => false,
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+        ),
         array(
             'subtitle' => __('Select the typography you want for your H1 tag in blog content. * non web-safe font.', 'evolve'),
             'id' => 'evl_content_h1_font',
@@ -5864,6 +5968,14 @@ Redux::setSection($evolve_opt_name, array(
             ),
         ),
         array(
+            'id' => 'evl_reduxinfo_16',
+            'type' => $redux_info_box,
+            'notice' => false,
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+        ),
+        array(
             'subtitle' => __('Select the typography you want for the slide title. * non web-safe font.', 'evolve'),
             'id' => 'evl_bootstrap_slide_title_font',
             'type' => 'typography',
@@ -6085,7 +6197,7 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '0',
             'required' => array(
                 array('evl_parallax_slider_support', '=', '1')
-            ),			
+            ),
         ),
         array(
             'subtitle' => __('Input the time between transitions (Default: 4000);', 'evolve'),
@@ -6097,6 +6209,14 @@ Redux::setSection($evolve_opt_name, array(
             'required' => array(
                 array('evl_parallax_slider_support', '=', '1')
             ),
+        ),
+        array(
+            'id' => 'evl_reduxinfo_17',
+            'type' => $redux_info_box,
+            'notice' => false,
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the typography you want for the slide title. * non web-safe font.', 'evolve'),
@@ -6233,6 +6353,14 @@ Redux::setSection($evolve_opt_name, array(
             'required' => array(
                 array('evl_carousel_slider', '=', '1')
             ),
+        ),
+        array(
+            'id' => 'evl_reduxinfo_18',
+            'type' => $redux_info_box,
+            'notice' => false,
+            'style' => 'warning',
+            'icon' => 'el el-info-circle',
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the typography you want for the slide title. * non web-safe font.', 'evolve'),
@@ -7041,73 +7169,71 @@ add_filter('redux/customizer/panel/class_name', 'evolve_get_custom_redux_panel_c
  * ************************************************************************************************************ */
 
 function evolve_import_demo_content($wp_customize) {
-        session_start();
+    session_start();
 
-        $evolve_opt_name = "evl_options";
-        $plugin_options = get_option('evl_options', false);
-        $newvalue = evolve_get_option('evl_frontpage_prebuilt_demo', '');
-        $oldvalue = $_SESSION["oldvalue"];
+    $evolve_opt_name = "evl_options";
+    $plugin_options = get_option('evl_options', false);
+    $newvalue = evolve_get_option('evl_frontpage_prebuilt_demo', '');
+    $oldvalue = $_SESSION["oldvalue"];
 
-        if ( $newvalue != $oldvalue ) {
+    if ($newvalue != $oldvalue) {
 
-                switch($newvalue) {
-                    case 'default':
-                            $theme_options_txt = get_template_directory_uri() . '/library/importer/data/default.json';
-                            break;
-                    case 'blog':
-                            $theme_options_txt = get_template_directory_uri() . '/library/importer/data/blog.json';
-                            break;
-                    case 'woocommerce':
-                            $theme_options_txt = get_template_directory_uri() . '/library/importer/data/woocommerce.json';
-                            break;
-                    case 'blog-2':
-                            $theme_options_txt = get_template_directory_uri() . '/library/importer/data/blog_2.json';
-                            break;
-                    case 'corporate':
-                            $theme_options_txt = get_template_directory_uri() . '/library/importer/data/corporate.json';
-                            break;
-                    case 'magazine':
-                            $theme_options_txt = get_template_directory_uri() . '/library/importer/data/magazine.json';
-                            break;
-                    case 'business':
-                            $theme_options_txt = get_template_directory_uri() . '/library/importer/data/business.json';
-                            break;
-                    case 'woocommerce-2':
-                            $theme_options_txt = get_template_directory_uri() . '/library/importer/data/woocommerce_2.json';
-                            break;
-                    case 'bbpress-buddypress':
-                            $theme_options_txt = get_template_directory_uri() . '/library/importer/data/bbpress_buddypress.json';
-                            break;
-                }
-
-                $theme_options_txt = wp_remote_get($theme_options_txt);
-                $imported_options = json_decode(( $theme_options_txt['body']), true);
-
-                if ( ! empty ( $imported_options ) && is_array( $imported_options ) && isset ( $imported_options['redux-backup'] ) && $imported_options['redux-backup'] == '1' ) {
-
-                        $changed_values = array();
-
-                        foreach ( $imported_options as $key => $value ) {
-                                if ( isset ( $plugin_options[ $key ] ) && $plugin_options[ $key ] != $value ) {
-                                        $changed_values[ $key ] = $value;
-                                        $plugin_options[ $key ] = $value;
-                                }
-                        }
-
-                        update_option('evl_options', $plugin_options);
-
-                }
-
-                $_SESSION["oldvalue"] = $newvalue;
-                
-?>
-                <script type='text/javascript'>
-                        jQuery(document).ready( function($) {
-                                window.location.href = window.location.href;
-                        } );
-                </script>
-<?php
+        switch ($newvalue) {
+            case 'default':
+                $theme_options_txt = get_template_directory_uri() . '/library/importer/data/default.json';
+                break;
+            case 'blog':
+                $theme_options_txt = get_template_directory_uri() . '/library/importer/data/blog.json';
+                break;
+            case 'woocommerce':
+                $theme_options_txt = get_template_directory_uri() . '/library/importer/data/woocommerce.json';
+                break;
+            case 'blog-2':
+                $theme_options_txt = get_template_directory_uri() . '/library/importer/data/blog_2.json';
+                break;
+            case 'corporate':
+                $theme_options_txt = get_template_directory_uri() . '/library/importer/data/corporate.json';
+                break;
+            case 'magazine':
+                $theme_options_txt = get_template_directory_uri() . '/library/importer/data/magazine.json';
+                break;
+            case 'business':
+                $theme_options_txt = get_template_directory_uri() . '/library/importer/data/business.json';
+                break;
+            case 'woocommerce-2':
+                $theme_options_txt = get_template_directory_uri() . '/library/importer/data/woocommerce_2.json';
+                break;
+            case 'bbpress-buddypress':
+                $theme_options_txt = get_template_directory_uri() . '/library/importer/data/bbpress_buddypress.json';
+                break;
         }
+
+        $theme_options_txt = wp_remote_get($theme_options_txt);
+        $imported_options = json_decode(( $theme_options_txt['body']), true);
+
+        if (!empty($imported_options) && is_array($imported_options) && isset($imported_options['redux-backup']) && $imported_options['redux-backup'] == '1') {
+
+            $changed_values = array();
+
+            foreach ($imported_options as $key => $value) {
+                if (isset($plugin_options[$key]) && $plugin_options[$key] != $value) {
+                    $changed_values[$key] = $value;
+                    $plugin_options[$key] = $value;
+                }
+            }
+
+            update_option('evl_options', $plugin_options);
+        }
+
+        $_SESSION["oldvalue"] = $newvalue;
+        ?>
+        <script type='text/javascript'>
+            jQuery(document).ready(function ($) {
+                window.location.href = window.location.href;
+            });
+        </script>
+        <?php
+    }
 }
 
 add_action('redux/options/' . $evolve_opt_name . '/saved', 'evolve_import_demo_content');
