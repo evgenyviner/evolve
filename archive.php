@@ -40,33 +40,34 @@ endif;
 
     <!-- 2 or 3 columns begin -->
 
-    <?php
+<?php
     if (is_date()) {
-        /* If this is a daily archive */ if (is_day()) {
+        /* If this is a daily archive */ 
+        if (is_day()) {
             ?>
             <h2 class="page-title archive-title"><?php _e('Daily archives for', 'evolve'); ?> <span class="daily-title updated"><?php printf(__('%s', 'evolve'), get_the_date(_x('F jS, Y', 'daily archives date format', 'evolve'))); ?></span></h2>
             <?php
-            /* If this is a monthly archive */
+        /* If this is a monthly archive */
         } elseif (is_month()) {
             ?>
             <h2 class="page-title archive-title"><?php _e('Monthly archives for', 'evolve'); ?> <span class="monthly-title updated"><?php printf(__('%s', 'evolve'), get_the_date(_x('F, Y', 'monthly archives date format', 'evolve'))); ?></span></h2>
             <?php
-            /* If this is a yearly archive */
+        /* If this is a yearly archive */
         } elseif (is_year()) {
             ?>
             <h2 class="page-title archive-title"><?php _e('Yearly archives for', 'evolve'); ?> <span class="yearly-title updated"><?php printf(__('%s', 'evolve'), get_the_date(_x('Y', 'yearly archives date format', 'evolve'))); ?></span></h2>
             <?php
         }
     } elseif (is_category() && $evolve_category_page_title) {
-        ?>
-
+?>
         <h2 class="page-title archive-title"><?php _e('Posts in category', 'evolve'); ?> <span id="category-title"><?php single_cat_title(); ?></span></h2>
-
-    <?php } elseif (is_tag()) { ?>
-
+<?php   
+        the_archive_description( '<div class="taxonomy-description">', '</div>' ); 
+    } elseif (is_tag()) {
+?>
         <h2 class="page-title archive-title"><?php _e('Posts tagged', 'evolve'); ?> <span id="tag-title"><?php single_tag_title(); ?></span></h2>
-
-        <?php
+<?php
+        the_archive_description( '<div class="tag-description">', '</div>' );
     }
 
     if ($evolve_post_layout == "two" || $evolve_post_layout == "three") {

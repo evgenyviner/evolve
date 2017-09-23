@@ -7,6 +7,7 @@
 ?>
 <div class="sliderblock">
 <?php
+    $evolve_slider_page_id = '';
     if (!empty($post->ID)) {
         if (!is_home() && !is_front_page() && !is_archive()) {
             $evolve_slider_page_id = $post->ID;

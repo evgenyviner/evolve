@@ -736,7 +736,7 @@ Redux::setSection($evolve_opt_name, array(
 
 //Check status of parallax and post slider
 $theme_options = get_option('evl_options', false);
-( $theme_options['evl_bootstrap_slider_support'] == '1' ) ? $bootstrapslider_status = ' (ACTIVE)' : $bootstrapslider_status = ' (INACTIVE)' ;
+( isset($theme_options['evl_bootstrap_slider_support']) && $theme_options['evl_bootstrap_slider_support'] == '1' ) ? $bootstrapslider_status = ' (ACTIVE)' : $bootstrapslider_status = ' (INACTIVE)' ;
 ( $theme_options['evl_parallax_slider_support'] == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)' ;
 ( $theme_options['evl_carousel_slider'] == '1' ) ? $postslider_status = ' (ACTIVE)' : $postslider_status = ' (INACTIVE)' ;
 
@@ -786,7 +786,7 @@ Redux::setSection($evolve_opt_name, array(
                 '3cl' => $evolve_imagepath . '3cl.png',
             ),
             'title' => __('Select a layout for home/front page', 'evolve'),
-            'default' => '2cl',
+            'default' => '1c',
         ),
         array(
             'subtitle' => __('<strong>Boxed version</strong> automatically enables custom background', 'evolve'),
@@ -1678,6 +1678,7 @@ for ($i = 1; $i <= 3; $i++) {
         'title' => sprintf(__('Counter Circle %d Icon', 'evolve'), $i),
         'subtitle' => __('Click an icon to select.', 'evolve'),
         'class' => 'iconpicker-box iconpicker-icon',
+        'default' => '',
         'required' => array(array("{$evolve_shortname}_fp_counter_circle{$i}", '=', '1'))
     );
 
@@ -1705,7 +1706,7 @@ for ($i = 1; $i <= 3; $i++) {
         'type' => 'color',
         'title' => sprintf(__('Counter Circle %d Filled Color', 'evolve'), $i),
         'subtitle' => __('Controls the color of the filled in area.', 'evolve'),
-        'default' => '##000000',
+        'default' => '#000000',
         'required' => array(array("{$evolve_shortname}_fp_counter_circle{$i}", '=', '1'))
     );
 
@@ -1942,6 +1943,7 @@ Redux::setSection($evolve_opt_name, array(
             'off' => __('Enabled', 'evolve'),
             'type' => 'switch',
             'title' => __('Disable Map Scrollwheel', 'evolve'),
+            'default' => false,
         ),
         array(
             'subtitle' => __('Disable scale on google maps.', 'evolve'),
@@ -1950,6 +1952,7 @@ Redux::setSection($evolve_opt_name, array(
             'on' => __('Disabled', 'evolve'),
             'off' => __('Enabled', 'evolve'),
             'title' => __('Disable Map Scale', 'evolve'),
+            'default' => false,
         ),
         array(
             'subtitle' => __('Check the box to disable zoom control icon and pan control icon on google maps.', 'evolve'),
@@ -1958,6 +1961,7 @@ Redux::setSection($evolve_opt_name, array(
             'on' => __('Disabled', 'evolve'),
             'off' => __('Enabled', 'evolve'),
             'title' => __('Disable Map Zoom & Pan Control Icons', 'evolve'),
+            'default' => false,
         ),
         // Section settings
         array(
@@ -2456,6 +2460,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'editor',
             'title' => __('Editor', 'evolve'),
             'subtitle' => __('Add Costome Content in your Front Page', 'evolve'),
+            'default' => '',
         ),
         // Section settings
         array(

@@ -1759,7 +1759,7 @@ $evolve_css_data .= '
 ';
     }
 
-if ($evolve_layout == "2cr" && ( $evolve_post_layout == "one" ) || $evolve_layout == "2cl" && ( $evolve_post_layout == "one" )) {
+if ( $evolve_layout == "2cr" && ( $evolve_post_layout == "one" ) || $evolve_layout == "2cl" && ( $evolve_post_layout == "one" ) ) {
 $evolve_css_data .= '
 .col-md-8 {
     padding-left: 15px;
