@@ -354,7 +354,7 @@ function evolve_footer_hooks() {
     $evolve_sticky_header = evolve_get_option('evl_sticky_header', '1');
     $page_ID = get_queried_object_id();
     $evolve_slider_position = evolve_get_option('evl_slider_position', 'below');
-    if ($evolve_sticky_header == "1" && get_post_meta($page_ID, 'evolve_slider_position', true) == 'above' || (get_post_meta($page_ID, 'evolve_slider_position', true) == 'default' && $evolve_slider_position == 'above') || (is_home() && $evolve_slider_position == 'above')) {
+    if ( $evolve_sticky_header == "1" && get_post_meta($page_ID, 'evolve_slider_position', true) == 'above' || (get_post_meta($page_ID, 'evolve_slider_position', true) == 'default' && $evolve_slider_position == 'above') || (is_home() || is_front_page()) ) {
         ?>
 
         <script type="text/javascript">

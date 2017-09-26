@@ -7041,7 +7041,9 @@ add_filter('redux/customizer/panel/class_name', 'evolve_get_custom_redux_panel_c
  * ************************************************************************************************************ */
 
 function evolve_import_demo_content($wp_customize) {
-        session_start();
+        if(session_id() == '') {
+            session_start();
+        }
 
         $evolve_opt_name = "evl_options";
         $plugin_options = get_option('evl_options', false);
