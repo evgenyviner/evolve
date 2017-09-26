@@ -1842,26 +1842,3 @@ if (!function_exists('t4p_pagination')):
     }
 
 endif;
-
-/**
- * 
- * Add Plugin Require Message in 
- * Theme Customizer
- * 
- * 
- */
-
-function prefix_customizer_register() {
-    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-    if ( !is_plugin_active('redux-framework/redux-framework.php') ) {
-?>
-                <script type='text/javascript'>
-                jQuery(document).ready(
-                        function($) {
-                             $( '#customize-theme-controls ul' ).first().prepend( '<li id="accordion-section-themes" class="accordion-section control-section control-section-themes" aria-owns="sub-accordion-section-themes" style="display: list-item;"><h3 class="accordion-section-title"><span class="customize-action">The following recommended plugin is currently inactive</span>Redux Framework</h3></li>' );
-                        }
-                );</script>
-<?php
-    }
-}
-add_action('customize_controls_print_scripts', 'prefix_customizer_register');
