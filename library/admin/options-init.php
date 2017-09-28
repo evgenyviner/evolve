@@ -173,7 +173,7 @@ foreach ($pages as $key => $page_instance) {
 }
 
 if (is_plugin_active('woocommerce/woocommerce.php')) {
-    //Get Product Category List
+    //Get Product Categories List
     global $wpdb;
     $term_query = "SELECT * from " . $wpdb->prefix . "terms as wpt, " . $wpdb->prefix . "term_taxonomy as wptt where wpt.term_id = wptt.term_id AND wptt.taxonomy = 'product_cat'";
     $terms = $wpdb->get_results($term_query);
@@ -2372,8 +2372,8 @@ if (is_plugin_active('woocommerce/woocommerce.php')) :
         'fields' => array(
             array(
                 'id' => 'evl_fp_woo_product',
-                'title' => __('Product Category', 'evolve'),
-                'subtitle' => __('Select Product Category', 'evolve'),
+                'title' => __('Product Categories', 'evolve'),
+                'subtitle' => __('Select Product Categories <br> (If you have not select any Categories, Product will not display in frontside)', 'evolve'),
                 'type' => 'select',
                 'options' => $product_texonomy,
                 'default' => 'none',
