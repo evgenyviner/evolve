@@ -3801,12 +3801,12 @@ if (!empty($evolve_content_boxes_section_padding_bottom)) {
 }
 
 $evolve_css_data .= '
-.home-content-boxes .row {
+.home-content-boxes {
 	padding-top: ' . $evolve_content_boxes_section_padding_top . ';
 	padding-bottom: ' . $evolve_content_boxes_section_padding_bottom . ';
 }
 @media (min-width: 768px) {
-	.home-content-boxes .row {
+	.home-content-boxes {
 		padding-left: ' . $evolve_content_boxes_section_padding_left . ';
 		padding-right: ' . $evolve_content_boxes_section_padding_right . ';	
 	}
@@ -3856,12 +3856,12 @@ if (!empty($evolve_testimonials_section_padding_bottom)) {
 }
 
 $evolve_css_data .= '
-.t4p-testimonials .row {
+.t4p-testimonials {
 	padding-top: ' . $evolve_testimonials_section_padding_top . ';
 	padding-bottom: ' . $evolve_testimonials_section_padding_bottom . ';
 }
 @media (min-width: 768px) {
-	.t4p-testimonials .row {
+	.t4p-testimonials {
 		padding-left: ' . $evolve_testimonials_section_padding_left . ';
 		padding-right: ' . $evolve_testimonials_section_padding_right . ';	
 	}
@@ -3911,12 +3911,12 @@ if (!empty($evolve_counter_circle_section_padding_bottom)) {
 }
 
 $evolve_css_data .= '
-.t4p-counters-circle .row {
+.t4p-counters-circle {
 	padding-top: ' . $evolve_counter_circle_section_padding_top . ';
 	padding-bottom: ' . $evolve_counter_circle_section_padding_bottom . ';
 }
 @media (min-width: 768px) {
-	.t4p-counters-circle .row {
+	.t4p-counters-circle {
 		padding-left: ' . $evolve_counter_circle_section_padding_left . ';
 		padding-right: ' . $evolve_counter_circle_section_padding_right . ';	
 	}
@@ -3966,12 +3966,12 @@ if (!empty($evolve_googlemap_section_padding_bottom)) {
 }
 
 $evolve_css_data .= '
-.t4p-googlemap .row {
+.t4p-googlemap {
 	padding-top: ' . $evolve_googlemap_section_padding_top . ';
 	padding-bottom: ' . $evolve_googlemap_section_padding_bottom . ';
 }
 @media (min-width: 768px) {
-	.t4p-googlemap .row {
+	.t4p-googlemap {
 		padding-left: ' . $evolve_googlemap_section_padding_left . ';
 		padding-right: ' . $evolve_googlemap_section_padding_right . ';	
 	}
@@ -4021,12 +4021,12 @@ if (!empty($evolve_custom_content_section_padding_bottom)) {
 }
 
 $evolve_css_data .= '
-.t4p-text .row {
+.t4p-text {
 	padding-top: ' . $evolve_custom_content_section_padding_top . ';
 	padding-bottom: ' . $evolve_custom_content_section_padding_bottom . ';
 }
 @media (min-width: 768px) {
-	.t4p-text .row {
+	.t4p-text {
 		padding-left: ' . $evolve_custom_content_section_padding_left . ';
 		padding-right: ' . $evolve_custom_content_section_padding_right . ';	
 	}

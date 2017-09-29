@@ -24,11 +24,11 @@ function evolve_content_boxes() {
         if ($evolve_content_box_section_title == false) {
             $evolve_content_box_section_title = '';
         } else {
-			$evolve_content_box_section_title = '<h2 class="content_box_section_title section_title">'.evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind').'</h2><div class="clearfix"></div>';
+			$evolve_content_box_section_title = '<h2 class="content_box_section_title section_title">'.evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind').'</h2>';
 		}
     if ($evolve_content_boxes == "1") {
 
-        echo "<div class='home-content-boxes'><div class='container container-center'><div class='row'>".$evolve_content_box_section_title;
+        echo "<div class='home-content-boxes'>".$evolve_content_box_section_title;
 
         $evolve_content_box1_title = evolve_get_option('evl_content_box1_title', 'Flat & Beautiful');
         if ($evolve_content_box1_title === false) {
@@ -200,7 +200,7 @@ function evolve_content_boxes() {
 
             echo "</div>";
         }
-        echo "</div></div></div><div class='clearfix'></div>";
+        echo "</div><div class='clearfix'></div>";
     }
 }
 
@@ -222,11 +222,11 @@ function evolve_testimonials() {
     if ($evolve_testimonials_section_title == false) {
         $evolve_testimonials_section_title = '';
     } else {
-        $evolve_testimonials_section_title = '<h2 class="testimonials_section_title section_title">'.evolve_get_option('evl_testimonials_title', 'Why people love our themes').'</h2><div class="clearfix"></div>';
+        $evolve_testimonials_section_title = '<h2 class="testimonials_section_title section_title">'.evolve_get_option('evl_testimonials_title', 'Why people love our themes').'</h2>';
 
     }
 
-    $html = "<div class='t4p-testimonials t4p-testimonials-$testimonials_counter'>$styles<div class='container container-center'><div class='row'>".$evolve_testimonials_section_title."<div class='reviews'>";
+    $html = "<div class='t4p-testimonials t4p-testimonials-$testimonials_counter'>$styles".$evolve_testimonials_section_title."<div class='reviews'>";
 
     for ($i = 1; $i <= 2; $i ++) {
         $enabled = $evl_options["evl_fp_testimonial{$i}"];
@@ -302,7 +302,7 @@ function evolve_testimonials() {
         }
     }
 
-    $html .= "</div></div></div></div>";
+    $html .= "</div></div>";
     
     echo $html;
 
@@ -342,11 +342,10 @@ function evolve_counter_circle() {
     if ($evolve_counter_circle_section_title == false) {
         $evolve_counter_circle_section_title = '';
     } else {
-        $evolve_counter_circle_section_title = '<h2 class="counter_circle_section_title section_title">'.evolve_get_option('evl_counter_circle_title', 'How many people love our themes').'</h2><div class="clearfix"></div>';
+        $evolve_counter_circle_section_title = '<h2 class="counter_circle_section_title section_title">'.evolve_get_option('evl_counter_circle_title', 'How many people love our themes').'</h2>';
     }
 
-    $html   =   "<div class='t4p-counters-circle counters-circle'>";
-    $html   .=  "<div class='container container-center'><div class='row'>".$evolve_counter_circle_section_title;
+    $html   =   "<div class='t4p-counters-circle counters-circle'>".$evolve_counter_circle_section_title;
 
     for ($i = 1; $i <= 3; $i ++) {
         $enabled = $evl_options["evl_fp_counter_circle{$i}"];
@@ -388,7 +387,6 @@ function evolve_counter_circle() {
     }
 
     $html .= "</div>";
-    $html .= "</div></div>";
 
     echo $html;
 }
@@ -413,11 +411,10 @@ function evolve_google_map() {
     if ($evolve_googlemap_section_title == false) {
         $evolve_googlemap_section_title = '';
     } else {
-        $evolve_googlemap_section_title = '<h2 class="googlemap_section_title section_title">'.evolve_get_option('evl_googlemap_title', 'Our Contact Place').'</h2><div class="clearfix"></div>';
+        $evolve_googlemap_section_title = '<h2 class="googlemap_section_title section_title">'.evolve_get_option('evl_googlemap_title', 'Our Contact Place').'</h2>';
     }
 
-    $html   =   "<div class='t4p-googlemap'>";
-    $html   .=  "<div class='container container-center'><div class='row'>".$evolve_googlemap_section_title;
+    $html   =   "<div class='t4p-googlemap'>".$evolve_googlemap_section_title;
 
     if ( $gmap_alignment === 'right' ) {
             $alignment = 'float: right';
@@ -523,7 +520,6 @@ function evolve_google_map() {
     }
 
     $html .= "</div>";
-    $html .= "</div></div>";
 
     echo $html;
 }
@@ -595,16 +591,14 @@ function evolve_custom_content() {
     if ($evolve_custom_content_section_title == false) {
         $evolve_custom_content_section_title = '';
     } else {
-        $evolve_custom_content_section_title = '<h2 class="custom_content_section_title section_title">'.evolve_get_option('evl_custom_content_title', 'Your Custom Content Here').'</h2><div class="clearfix"></div>';
+        $evolve_custom_content_section_title = '<h2 class="custom_content_section_title section_title">'.evolve_get_option('evl_custom_content_title', 'Your Custom Content Here').'</h2>';
     }
 
-    $html  = "<div class='t4p-text' >";
-    $html .= "<div class='container container-center'><div class='row'>".$evolve_custom_content_section_title;
+    $html  = "<div class='t4p-text' >".$evolve_custom_content_section_title;
 
     $html .= $content;
 
     $html .= "</div>";
-    $html .= "</div></div>";
 
     echo $html;
 }
@@ -619,16 +613,14 @@ function evolve_woocommerce_products() {
     if ($evolve_woo_product_section_title == false) {
         $evolve_woo_product_section_title = '';
     } else {
-        $evolve_woo_product_section_title = '<h2 class="woo_product_section_title section_title">'.evolve_get_option('evl_woo_product_title', 'New Arrival Product').'</h2><div class="clearfix"></div>';
+        $evolve_woo_product_section_title = '<h2 class="woo_product_section_title section_title">'.evolve_get_option('evl_woo_product_title', 'New Arrival Product').'</h2>';
     }
 
-    $html  = "<div class='t4p-woo-product' >";
-    $html .= "<div class='container container-center'><div class='row'>".$evolve_woo_product_section_title;
+    $html  = "<div class='t4p-woo-product' >".$evolve_woo_product_section_title;
 
     $html .= do_shortcode( '[product_category category="'.$product_cat.'"  per_page="12" orderby="title" order="asc"]' );
 
     $html .= "</div>";
-    $html .= "</div></div>";
 
     echo $html;
 }
@@ -662,11 +654,10 @@ function evolve_blog_posts() {
     if ($evolve_fp_blog_section_title == false) {
         $evolve_fp_blog_section_title = '';
     } else {
-        $evolve_fp_blog_section_title = '<h2 class="fp_blog_section_title section_title">'.evolve_get_option('evl_blog_section_title', 'Read New Story Here').'</h2><div class="clearfix"></div>';
+        $evolve_fp_blog_section_title = '<h2 class="fp_blog_section_title section_title">'.evolve_get_option('evl_blog_section_title', 'Read New Story Here').'</h2>';
     }
 
-    $html  = "<div class='t4p-fp-blog content' >";
-    $html .= "<div class='container container-center'><div class='row'>".$evolve_fp_blog_section_title;
+    $html  = "<div class='t4p-fp-blog content' >".$evolve_fp_blog_section_title;
 
             if ( is_front_page() || is_home() ) {
                 $paged = ( get_query_var('paged') ) ? get_query_var('paged') : ( ( get_query_var('page') ) ? get_query_var('page') : 1 );
@@ -839,7 +830,6 @@ function evolve_blog_posts() {
             $html .= '</div>';
 
     $html .= "</div>";
-    $html .= "</div></div>";
 
     echo $html;
 }

@@ -195,12 +195,6 @@
                             }
                     ?>
 
-                <?php
-                if (is_front_page()) {
-                    get_template_part('frontpagebuilder');
-                }
-                ?>				
-
                 <!--BEGIN .content-->
                 <div class="content <?php semantic_body(); ?>">
                     <?php if (is_page_template('contact.php')): ?>
@@ -210,3 +204,9 @@
                     <div id="content">                            								
                         <!--BEGIN .container-->
                         <div class="container container-center row">
+
+                            <?php
+                            if (is_front_page()) {
+                                get_template_part('frontpagebuilder');
+                            }
+                            ?>	
