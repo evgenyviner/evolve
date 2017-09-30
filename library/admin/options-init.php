@@ -7169,18 +7169,14 @@ add_filter('redux/customizer/panel/class_name', 'evolve_get_custom_redux_panel_c
  * ************************************************************************************************************ */
 
 function evolve_import_demo_content($wp_customize) {
-        if(session_id() == '') {
-            session_start();
-        }
-
         $evolve_opt_name = "evl_options";
         $plugin_options = get_option('evl_options', false);
-        $newvalue = evolve_get_option('evl_frontpage_prebuilt_demo', '');
-        $oldvalue = $_SESSION["oldvalue"];
+        $frontpage_prebuilt_new_demo = evolve_get_option('evl_frontpage_prebuilt_demo', 'default');
+        $frontpage_prebuilt_old_demo = get_option('frontpage_prebuilt_old_demo', 'default');
 
-        if ( $newvalue != $oldvalue ) {
+        if ( $frontpage_prebuilt_new_demo != $frontpage_prebuilt_old_demo ) {
 
-                switch($newvalue) {
+                switch($frontpage_prebuilt_new_demo) {
                     case 'default':
                             $theme_options_txt = get_template_directory_uri() . '/library/importer/data/default.json';
                             break;
@@ -7227,7 +7223,7 @@ function evolve_import_demo_content($wp_customize) {
                     update_option('evl_options', $plugin_options);
                 }
 
-                $_SESSION["oldvalue"] = $newvalue;
+                update_option('frontpage_prebuilt_old_demo', $frontpage_prebuilt_new_demo);
 ?>
                 <script type='text/javascript'>
                     jQuery(document).ready(function ($) {

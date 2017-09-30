@@ -20,6 +20,12 @@ $evolve_posts_excerpt_title_length = intval(evolve_get_option('evl_posts_excerpt
 <div id="primary" class="<?php evolve_layout_class($type = 1); ?>">
 
     <?php
+    if (is_front_page()) {
+        get_template_part('frontpagebuilder');
+    }
+    ?>
+
+    <?php
     if ($evolve_breadcrumbs == "1"):
         if (!is_home() || !is_front_page()):
             evolve_breadcrumb();

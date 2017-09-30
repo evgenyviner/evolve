@@ -204,9 +204,3 @@
                     <div id="content">                            								
                         <!--BEGIN .container-->
                         <div class="container container-center row">
-
-                            <?php
-                            if (is_front_page()) {
-                                get_template_part('frontpagebuilder');
-                            }
-                            ?>	

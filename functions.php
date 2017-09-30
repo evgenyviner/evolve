@@ -126,3 +126,273 @@ if ( function_exists( 'wp_update_custom_css_post' ) && ! defined( 'DOING_AJAX' )
 
 // Override the calculated image sources
 add_filter( 'wp_calculate_image_srcset', '__return_false', PHP_INT_MAX );
+
+
+/*
+ * 
+ * Update existing slider options with new options
+ * 
+ */
+add_action( 'upgrader_process_complete', 'evolve_update_slider_options',10, 2);
+
+function evolve_update_slider_options( $upgrader_object, $options ) {
+    if ( $options['action'] == 'update' && $options['type'] == 'theme' ) {
+        foreach( $options['themes'] as $theme ) {
+            if ( $theme == 'evolve' ) {
+                if ( get_option('upgrade_sliderchanges', 'false') == 'false' ) {
+                    //homepage and fronpage conditions and get frontpage ID
+                    $is_homepage = get_option( 'show_on_front' );
+                    $frontpage_id = get_option( 'page_on_front' );
+                    $postspage_id = get_option( 'page_for_posts' );
+                    //get all theme options
+                    $evl_options = get_option('evl_options');
+
+                    //get old theme options
+                    $evl_bootstrap_slider = isset($evl_options['evl_bootstrap_slider']) ? $evl_options['evl_bootstrap_slider'] : '';
+                    $evl_parallax_slider_support = isset($evl_options['evl_parallax_slider_support']) ?  $evl_options['evl_parallax_slider_support'] : '';
+                    $evl_parallax_slider = isset($evl_options['evl_parallax_slider']) ? $evl_options['evl_parallax_slider'] : '';
+                    $evl_carousel_slider = isset($evl_options['evl_carousel_slider']) ? $evl_options['evl_carousel_slider'] : '';
+                    $evl_posts_slider = isset($evl_options['evl_posts_slider']) ? $evl_options['evl_posts_slider'] : '';
+
+                    //for bootstrap slider
+                     switch ($evl_bootstrap_slider) {
+                            case 'homepage':
+                                    $evl_options['evl_bootstrap_slider_support'] = '1';
+                            break;
+                            case 'post':
+                                    $evl_options['evl_bootstrap_slider_support'] = '1';
+                            break;
+                            case 'all':
+                                    $evl_options['evl_bootstrap_slider_support'] = '1';
+                                    $evl_options['evl_bootstrap_slider'] = '1';
+                            break;
+                    }
+
+                    //for parallax slider
+                    if ($evl_parallax_slider_support == '1' && $evl_parallax_slider == 'all') {
+                            $evl_options['evl_parallax_slider'] = '1';
+                    }
+
+                    //for post slider
+                    if ($evl_carousel_slider == '1' && $evl_posts_slider == 'all') {
+                            $evl_options['evl_posts_slider'] = '1';
+                    }
+
+                    //set slider on homepage/frontpage
+                    ( $evl_options['evl_parallax_slider_support'] == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)';
+                    ( $evl_options['evl_carousel_slider'] == '1' ) ? $postslider_status = ' (ACTIVE)' : $postslider_status = ' (INACTIVE)';
+
+                    $evolve_current_post_slider_position = get_post_meta($postspage_id, 'evolve_slider_position', true);
+                    $evolve_current_post_slider_position = get_post_meta($frontpage_id, 'evolve_slider_position', true);
+                    $evolve_current_post_slider_position = empty($evolve_current_post_slider_position) ? 'default' : $evolve_current_post_slider_position;
+
+                    if ( $is_homepage == 'posts' || ( $is_homepage == 'page' && $evolve_current_post_slider_position != 'above' ) ) {
+                            if ( $evl_bootstrap_slider == 'homepage' && $evl_parallax_slider != 'homepage' && $evl_posts_slider != 'homepage' ) {
+                            $evl_options['evl_front_elements_header_area'] = array(
+                                                                                        'enabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'header' => __('Header (REORDER ONLY)', 'evolve'),
+                                                                                            'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
+                                                                                        ),
+                                                                                        'disabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
+                                                                                            'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
+                                                                                        )
+                                                                                    );
+                            }
+                            if ( $evl_bootstrap_slider != 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider != 'homepage' ) {
+                            $evl_options['evl_front_elements_header_area'] = array(
+                                                                                        'enabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'header' => __('Header (REORDER ONLY)', 'evolve'),
+                                                                                            'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
+                                                                                        ),
+                                                                                        'disabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
+                                                                                            'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
+                                                                                        )
+                                                                                    );
+                            }
+                            if ( $evl_bootstrap_slider != 'homepage' && $evl_parallax_slider != 'homepage' && $evl_posts_slider == 'homepage' ) {
+                            $evl_options['evl_front_elements_header_area'] = array(
+                                                                                        'enabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'header' => __('Header (REORDER ONLY)', 'evolve'),
+                                                                                            'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
+                                                                                        ),
+                                                                                        'disabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
+                                                                                            'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
+                                                                                        )
+                                                                                    );
+                            }
+                            if ( $evl_bootstrap_slider == 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider != 'homepage' ) {
+                            $evl_options['evl_front_elements_header_area'] = array(
+                                                                                        'enabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'header' => __('Header (REORDER ONLY)', 'evolve'),
+                                                                                            'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
+                                                                                            'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
+                                                                                        ),
+                                                                                        'disabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
+                                                                                        )
+                                                                                    );
+                            }
+                            if ( $evl_bootstrap_slider == 'homepage' && $evl_parallax_slider != 'homepage' && $evl_posts_slider == 'homepage' ) {
+                            $evl_options['evl_front_elements_header_area'] = array(
+                                                                                        'enabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'header' => __('Header (REORDER ONLY)', 'evolve'),
+                                                                                            'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
+                                                                                            'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
+                                                                                        ),
+                                                                                        'disabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
+                                                                                        )
+                                                                                    );
+                            }
+                            if ( $evl_bootstrap_slider != 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider == 'homepage' ) {
+                            $evl_options['evl_front_elements_header_area'] = array(
+                                                                                        'enabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'header' => __('Header (REORDER ONLY)', 'evolve'),
+                                                                                            'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
+                                                                                            'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
+                                                                                        ),
+                                                                                        'disabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
+                                                                                        )
+                                                                                    );
+                            }
+                            if ( $evl_bootstrap_slider == 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider == 'homepage' ) {
+                            $evl_options['evl_front_elements_header_area'] = array(
+                                                                                        'enabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'header' => __('Header (REORDER ONLY)', 'evolve'),
+                                                                                            'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
+                                                                                            'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
+                                                                                            'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
+                                                                                        ),
+                                                                                        'disabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                        )
+                                                                                    );
+                            }
+                    }
+
+                    if ( $is_homepage == 'page' && $evolve_current_post_slider_position == 'above' ) {
+                            if ( $evl_bootstrap_slider == 'homepage' && $evl_parallax_slider != 'homepage' && $evl_posts_slider != 'homepage' ) {
+                            $evl_options['evl_front_elements_header_area'] = array(
+                                                                                        'enabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
+                                                                                            'header' => __('Header (REORDER ONLY)', 'evolve'),
+                                                                                        ),
+                                                                                        'disabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
+                                                                                            'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
+                                                                                        )
+                                                                                    );
+                            }
+                            if ( $evl_bootstrap_slider != 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider != 'homepage' ) {
+                            $evl_options['evl_front_elements_header_area'] = array(
+                                                                                        'enabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
+                                                                                            'header' => __('Header (REORDER ONLY)', 'evolve'),
+                                                                                        ),
+                                                                                        'disabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
+                                                                                            'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
+                                                                                        )
+                                                                                    );
+                            }
+                            if ( $evl_bootstrap_slider != 'homepage' && $evl_parallax_slider != 'homepage' && $evl_posts_slider == 'homepage' ) {
+                            $evl_options['evl_front_elements_header_area'] = array(
+                                                                                        'enabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
+                                                                                            'header' => __('Header (REORDER ONLY)', 'evolve'),
+                                                                                        ),
+                                                                                        'disabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
+                                                                                            'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
+                                                                                        )
+                                                                                    );
+                            }
+                            if ( $evl_bootstrap_slider == 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider != 'homepage' ) {
+                            $evl_options['evl_front_elements_header_area'] = array(
+                                                                                        'enabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
+                                                                                            'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
+                                                                                            'header' => __('Header (REORDER ONLY)', 'evolve'),
+                                                                                        ),
+                                                                                        'disabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
+                                                                                        )
+                                                                                    );
+                            }
+                            if ( $evl_bootstrap_slider == 'homepage' && $evl_parallax_slider != 'homepage' && $evl_posts_slider == 'homepage' ) {
+                            $evl_options['evl_front_elements_header_area'] = array(
+                                                                                        'enabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
+                                                                                            'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
+                                                                                            'header' => __('Header (REORDER ONLY)', 'evolve'),
+                                                                                        ),
+                                                                                        'disabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
+                                                                                        )
+                                                                                    );
+                            }
+                            if ( $evl_bootstrap_slider != 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider == 'homepage' ) {
+                            $evl_options['evl_front_elements_header_area'] = array(
+                                                                                        'enabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
+                                                                                            'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
+                                                                                            'header' => __('Header (REORDER ONLY)', 'evolve'),
+                                                                                        ),
+                                                                                        'disabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
+                                                                                        )
+                                                                                    );
+                            }
+                            if ( $evl_bootstrap_slider == 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider == 'homepage' ) {
+                            $evl_options['evl_front_elements_header_area'] = array(
+                                                                                        'enabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                            'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
+                                                                                            'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
+                                                                                            'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
+                                                                                            'header' => __('Header (REORDER ONLY)', 'evolve'),
+                                                                                        ),
+                                                                                        'disabled' => array(
+                                                                                            'placebo' => 'placebo',
+                                                                                        )
+                                                                                    );
+                            }
+                    }
+
+                    update_option( 'evl_options', $evl_options );
+
+                    update_option('upgrade_sliderchanges', 'true');
+                }
+            }
+        }
+    }
+}

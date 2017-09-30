@@ -30,6 +30,12 @@ endif;
 <div id="primary" class="<?php evolve_layout_class($type = 1); ?>">
 
     <?php
+    if (is_front_page()) {
+        get_template_part('frontpagebuilder');
+    }
+    ?>
+
+    <?php
     $evolve_breadcrumbs = evolve_get_option('evl_breadcrumbs', '1');
     if ($evolve_breadcrumbs == "1"):
         if (is_home() || is_front_page()):
