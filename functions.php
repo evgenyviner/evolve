@@ -45,8 +45,8 @@ function evolve_get_option($name, $default = false) {
             'evl_slide3_img',
             'evl_slide4_img',
             'evl_slide5_img',
-			'evl_content_boxes_section_background_image',
-			'evl_testimonials_section_background_image',
+            'evl_content_boxes_section_background_image',
+            'evl_testimonials_section_background_image',
         );
         // Media SHIM
         if (in_array($name, $mediaKeys)) {

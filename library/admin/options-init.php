@@ -5942,7 +5942,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_bootstrap_slider',
             'type' => 'checkbox',
             'title' => __('Bootstrap Slider on all pages', 'evolve'),
-            'default' => '1',
+            'default' => '0',
             'required' => array(
                 array('evl_bootstrap_slider_support', '=', '1')
             ),

@@ -432,7 +432,7 @@ function evolve_google_map() {
             }
 
             $num_of_addresses = count( $addresses );
-            
+
             $infobox_content = $address;
 
             wp_print_scripts( 'google-maps-api' );
