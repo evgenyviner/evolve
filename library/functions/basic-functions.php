@@ -1538,7 +1538,7 @@ function evolve_bootstrap() {
 
             switch ($evolve_frontpage_layout):
                 case "1c":
-                    //do nothing
+                    $sidebar_css = '';
                     break;
                 case "2cl":
                     $sidebar_css = 'col-sm-6 col-md-4';
@@ -1603,8 +1603,12 @@ function evolve_bootstrap() {
         }
 
         $evolve_frontpage_layout = evolve_get_option('evl_frontpage_layout', '1c');
-        if ( ( is_home() || is_front_page() ) && $evolve_frontpage_layout != "1c" ) {
-            $get_sidebar = true;
+        if ( is_home() || is_front_page() ) {
+            if ($evolve_frontpage_layout != "1c" ) {
+                $get_sidebar = true;
+            } else {
+                $get_sidebar = false;
+            }
         }
 
         return $get_sidebar;
@@ -1656,8 +1660,12 @@ function evolve_bootstrap() {
         }
 
         $evolve_frontpage_layout = evolve_get_option('evl_frontpage_layout', '1c');
-        if ( ( is_home() || is_front_page() ) && ($evolve_frontpage_layout == "3cm" || $evolve_frontpage_layout == "3cl" || $evolve_frontpage_layout == "3cr") ) {
-            $get_sidebar = true;
+        if ( is_home() || is_front_page() ) {
+            if ( $evolve_frontpage_layout == "3cm" || $evolve_frontpage_layout == "3cl" || $evolve_frontpage_layout == "3cr" ) {
+                $get_sidebar = true;
+            } else {
+                $get_sidebar = false;
+            }
         }
 
         return $get_sidebar;
