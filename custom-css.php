@@ -4312,12 +4312,20 @@ $evolve_css_data .= '
 
 #bootstrap-slider .carousel-caption {
     bottom: 12%;
-}
+}';
 
+if ( isset($options['evl_bootstrap_slide_subtitle_font_rgba']['rgba']) && $options['evl_bootstrap_slide_subtitle_font_rgba']['rgba'] ) {
+        $evolve_bootstrap_slide_subtitle_font_rgba = $options['evl_bootstrap_slide_subtitle_font_rgba']['rgba'];
+}
+if (!empty($evolve_bootstrap_slide_subtitle_font_rgba)) {
+$evolve_css_data .= '
 #bootstrap-slider .carousel-caption p {
-    background: rgba(0, 0, 0, .7);
+	background: ' . $evolve_bootstrap_slide_subtitle_font_rgba . ';
+}
+';
 }
 
+$evolve_css_data .= '
 #bootstrap-slider .carousel-control {
     left: 60px;
     bottom: 6%;
@@ -4377,6 +4385,7 @@ $evolve_css_data .= '
 }
 ';
 }
+
 if ( isset($options['evl_bootstrap_slide_title_font_rgba']['rgba']) && $options['evl_bootstrap_slide_title_font_rgba']['rgba'] ) {
         $evolve_bootstrap_slide_title_font_rgba = $options['evl_bootstrap_slide_title_font_rgba']['rgba'];
 }
@@ -4387,17 +4396,6 @@ $evolve_css_data .= '
 }
 ';
 }
-
-if ( isset($options['evl_bootstrap_slide_subtitle_font_rgba']['rgba']) && $options['evl_bootstrap_slide_subtitle_font_rgba']['rgba'] ) {
-        $evolve_bootstrap_slide_subtitle_font_rgba = $options['evl_bootstrap_slide_subtitle_font_rgba']['rgba'];
-}
-if (!empty($evolve_bootstrap_slide_subtitle_font_rgba)) {
-$evolve_css_data .= '
-#bootstrap-slider .carousel-caption p {
-	background: ' . $evolve_bootstrap_slide_subtitle_font_rgba . ';
-}
-';
-}	
 
 if ($evolve_header_image_src) {
 $evolve_css_data .= '

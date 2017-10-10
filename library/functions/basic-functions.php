@@ -351,10 +351,39 @@ function evolve_footer_hooks() {
         );</script>
 
     <?php
+    global $evl_options;
+    $header_pos = '';
+    if ( isset($evl_options['evl_front_elements_header_area']['enabled']) ) {
+            $evl_frontpage_slider = array_keys($evl_options['evl_front_elements_header_area']['enabled']);
+            $header_pos = array_search("header", $evl_frontpage_slider);
+    }
     $evolve_sticky_header = evolve_get_option('evl_sticky_header', '1');
     $page_ID = get_queried_object_id();
     $evolve_slider_position = evolve_get_option('evl_slider_position', 'below');
-    if ( $evolve_sticky_header == "1" && get_post_meta($page_ID, 'evolve_slider_position', true) == 'above' || (get_post_meta($page_ID, 'evolve_slider_position', true) == 'default' && $evolve_slider_position == 'above') || (is_home() || is_front_page()) ) {
+    if ( $evolve_sticky_header == "1" && (is_home() || is_front_page()) && ($header_pos != 1 && $header_pos != false) ) {
+        ?>
+
+        <script type="text/javascript">
+            jQuery(document).ready(
+                    function ($) {
+                        if (jQuery('.sticky-header').length >= 1) {
+                            jQuery(window).scroll(function () {
+                                var header = jQuery(document).scrollTop();
+                                var headerHeight = jQuery('.sliderblock').height() + jQuery('.new-top-menu').height() + jQuery('.menu-header').height() + jQuery('.header-pattern').height();
+                                if (header > headerHeight) {
+                                    jQuery('.sticky-header').addClass('sticky');
+                                    jQuery('.sticky-header').show();
+                                } else {
+                                    jQuery('.sticky-header').removeClass('sticky');
+                                    jQuery('.sticky-header').hide();
+                                }
+                            });
+                        }
+                    }
+            );</script>
+
+        <?php
+    } elseif ( $evolve_sticky_header == "1" && !is_front_page() && get_post_meta($page_ID, 'evolve_slider_position', true) == 'above' || (get_post_meta($page_ID, 'evolve_slider_position', true) == 'default' && $evolve_slider_position == 'above') ) {
         ?>
 
         <script type="text/javascript">
@@ -608,16 +637,15 @@ function evolve_bootstrap() {
             if (!$wrap) {
                 $wrap = true;
                 echo "<div id='bootstrap-slider' class='carousel slide' data-ride='carousel'>";
-                echo "<div class='carousel-inner'>";
+                    echo "<div class='carousel-inner'>";
                 $active = " active";
             }
 
             echo "<div class='item" . $active . "'>";
             echo "<img class='img-responsive' src='" . $evl_options["evl_bootstrap_slide{$i}_img"]['url'] . "' alt='" . $evl_options["evl_bootstrap_slide{$i}_title"] . "' />";
-            if (( strlen($evl_options["evl_bootstrap_slide{$i}_title"]) > 0 ) || ( strlen($evl_options["evl_bootstrap_slide{$i}_desc"]) > 0 )) {
-                ?>    
-                <div class="carousel-caption <?php echo evolve_bootstrap_layout_class(); ?>" >
-                    <?php
+
+                echo '<div class="carousel-caption ' . evolve_bootstrap_layout_class() . '">';
+
                     if (strlen($evl_options["evl_bootstrap_slide{$i}_title"]) > 0) {
                         echo "<h2>" . esc_attr($evl_options["evl_bootstrap_slide{$i}_title"]) . "</h2>";
                     }
@@ -628,17 +656,18 @@ function evolve_bootstrap() {
 
                     echo do_shortcode($evl_options["evl_bootstrap_slide{$i}_button"]);
 
-                    echo "</div>";
-                }
                 echo "</div>";
-            }
-        }
 
-        if ($wrap) {
-            echo "</div>
-            <a class='left carousel-control' href='#bootstrap-slider' data-slide='prev'></a><a class='right carousel-control' href='#bootstrap-slider' data-slide='next'></a></div>";
+            echo "</div>";
         }
     }
+
+        if ($wrap) {
+                    echo "</div>
+                <a class='left carousel-control' href='#bootstrap-slider' data-slide='prev'></a><a class='right carousel-control' href='#bootstrap-slider' data-slide='next'></a>
+                </div>";
+        }
+}
 
     /* Function use for add css class in Bootstrap Slider */
 
