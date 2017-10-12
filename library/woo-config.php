@@ -888,7 +888,7 @@ function cart_shipping_calc() {
     do_action('woocommerce_before_shipping_calculator');
     ?>
 
-    <div class="shipping_calculator" action="<?php echo esc_url(WC()->cart->get_cart_url()); ?>" method="post">
+    <div class="shipping_calculator" action="<?php echo esc_url(wc_get_cart_url()); ?>" method="post">
 
         <h2><?php _e('Calculate Shipping', 'evolve'); ?></h2>
 
@@ -995,7 +995,7 @@ function evolve_woocommerce_before_cart_totals($args) {
     global $woocommerce;
     ?>
 
-    <form action="<?php echo esc_url(WC()->cart->get_cart_url()); ?>" method="post">
+    <form action="<?php echo esc_url(wc_get_cart_url()); ?>" method="post">
 
         <?php
     }

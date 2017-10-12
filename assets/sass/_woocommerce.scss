@@ -518,11 +518,19 @@ ol.commentlist {
         right: 0px;    
     }
 }
-
+.evolve-checkout {
+    .select2-selection {
+        padding: 6px 15px;
+        display: block;
+        height: 42px;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.15) inset;
+        border-color: #E0E0E0;
+    }
+}
 .select-arrow {
-    background: $full-white-color;
+    background: #fff;
     width: 35px;
-    height: 34px;
+    height: 40px;
     border-left: 1px solid #dadada;
     position: absolute;
     top: 1px;
@@ -531,7 +539,8 @@ ol.commentlist {
     z-index: 10;
     font-family: IcoMoon;
     text-align: center;
-    line-height: 35px;
+    line-height: 40px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.15) inset;
 }
 
 .product {
@@ -991,11 +1000,6 @@ form.checkout {
             font-size: 18px;
         }
     }
-}
-
-.product-info {
-    margin-left: 115px;
-    margin-top: 20px;
 }
 
 .checkout .shop_table .product-quantity {
@@ -1494,7 +1498,8 @@ p.order-info {
 
 
 @media (min-width: 1025px) and (max-width: 1199px) {
-    .woocommerce-content-box {
+    .woocommerce-content-box,
+    .woocommerce-side-nav {
         width: 670px;
     }
 }

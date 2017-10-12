@@ -6225,19 +6225,28 @@ ol.commentlist {
   width: 100%;
 }
 
+.evolve-checkout .select2-selection {
+	padding: 6px 15px;
+	display: block;
+	height: 42px;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.15) inset;
+	border-color: #E0E0E0;
+}
+
 .select-arrow {
-  background: #ffffff;
-  width: 35px;
-  height: 34px;
-  border-left: 1px solid #dadada;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  z-index: 10;
-  font-family: IcoMoon;
-  text-align: center;
-  line-height: 35px;
+    background: #fff;
+    width: 35px;
+    height: 40px;
+    border-left: 1px solid #dadada;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    pointer-events: none;
+    z-index: 10;
+    font-family: IcoMoon;
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.15) inset;
 }
 
 .bbp-topic-form .select-arrow {
@@ -6692,11 +6701,6 @@ form.checkout .payment_methods .payment_box {
   font-size: 18px;
 }
 
-.product-info {
-  margin-left: 115px;
-  margin-top: 20px;
-}
-
 .checkout .shop_table .product-quantity .shop_table .product-quantity {
   text-align: initial;
 }
@@ -6807,14 +6811,6 @@ form.checkout .payment_methods .payment_box {
 .checkout .order-total {
   border: none;
   height: auto;
-}
-
-.checkout .order-total th {
-  padding-top: 0;
-}
-
-.checkout .order-total td {
-  padding-top: 0;
 }
 
 .cart_totals .order-total .amount {
@@ -7031,9 +7027,13 @@ form.checkout .shop_table tfoot tr:first-child td {
 }
 
 form.checkout .shop_table tfoot th {
-  text-align: right;
+  text-align: left;
   padding-right: 100px;
   padding-bottom: 20px;
+}
+
+form.checkout .cart_item td.product-name {
+  width: 60%;
 }
 
 form.checkout .shop_table tfoot td {
@@ -7209,7 +7209,8 @@ p.order-info mark {
 }
 
 @media (min-width: 1025px) and (max-width: 1199px) {
-  .woocommerce-content-box {
+  .woocommerce-content-box,
+  .woocommerce-side-nav {
     width: 670px;
   }
 }
@@ -7217,6 +7218,7 @@ p.order-info mark {
 @media (max-width: 1024px) {
   .woocommerce-side-nav {
     margin-bottom: 25px !important;
+    margin-left: 0px !important;
     width: 100%;
   }
   .woocommerce-content-box {
@@ -7228,13 +7230,13 @@ p.order-info mark {
 
 @media screen and (max-width: 320px) {
   .shop_table th {
-    float: left;
+    float: none;
     width: 100%;
     text-align: left;
   }
   .cart_item td {
     width: 100%;
-    float: left;
+    float: none;
     text-align: left;
   }
   .cart_totals table th table th {
@@ -7242,7 +7244,7 @@ p.order-info mark {
   }
   .cart_totals table th table td {
     width: 100%;
-    float: left;
+    float: none;
   }
   .shipping_calculator,
   .coupon,
