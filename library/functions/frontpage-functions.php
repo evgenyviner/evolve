@@ -2,31 +2,88 @@
 
 /* Front Page Content Boxes */
 function evolve_content_boxes() {
-
     $evolve_content_boxes = evolve_get_option('evl_content_boxes', '1');
-    $evolve_content_box1_enable = evolve_get_option('evl_content_box1_enable', '1');
-    if ($evolve_content_box1_enable === false) {
-        $evolve_content_box1_enable = '';
-    }
-    $evolve_content_box2_enable = evolve_get_option('evl_content_box2_enable', '1');
-    if ($evolve_content_box2_enable === false) {
-        $evolve_content_box2_enable = '';
-    }
-    $evolve_content_box3_enable = evolve_get_option('evl_content_box3_enable', '1');
-    if ($evolve_content_box3_enable === false) {
-        $evolve_content_box3_enable = '';
-    }
-    $evolve_content_box4_enable = evolve_get_option('evl_content_box4_enable', '1');
-    if ($evolve_content_box4_enable === false) {
-        $evolve_content_box4_enable = '';
-    }
-	$evolve_content_box_section_title = evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind');
+    if ($evolve_content_boxes == "1") {
+        global $evl_options;
+        
+        $evolve_content_box1_enable = evolve_get_option('evl_content_box1_enable', '1');
+        if ($evolve_content_box1_enable === false) {
+            $evolve_content_box1_enable = '';
+        }
+        $evolve_content_box2_enable = evolve_get_option('evl_content_box2_enable', '1');
+        if ($evolve_content_box2_enable === false) {
+            $evolve_content_box2_enable = '';
+        }
+        $evolve_content_box3_enable = evolve_get_option('evl_content_box3_enable', '1');
+        if ($evolve_content_box3_enable === false) {
+            $evolve_content_box3_enable = '';
+        }
+        $evolve_content_box4_enable = evolve_get_option('evl_content_box4_enable', '1');
+        if ($evolve_content_box4_enable === false) {
+            $evolve_content_box4_enable = '';
+        }
+
+        $evolve_content_boxes_section_padding_top         = $evl_options['evl_content_boxes_section_padding']['padding-top'];
+        $evolve_content_boxes_section_padding_bottom      = $evl_options['evl_content_boxes_section_padding']['padding-bottom'];
+        $evolve_content_boxes_section_padding_left        = $evl_options['evl_content_boxes_section_padding']['padding-left'];
+        $evolve_content_boxes_section_padding_right       = $evl_options['evl_content_boxes_section_padding']['padding-right'];
+        $evolve_content_boxes_section_back_color          = evolve_get_option( 'evl_content_boxes_section_back_color', '' );
+        $evolve_content_boxes_section_image_src           = evolve_get_option('evl_content_boxes_section_background_image');
+        $evolve_content_boxes_section_image               = evolve_get_option('evl_content_boxes_section_image', 'cover');
+        $evolve_content_boxes_section_background_repeat   = evolve_get_option('evl_content_boxes_section_image_background_repeat', 'no-repeat');
+        $evolve_content_boxes_section_background_position = evolve_get_option('evl_content_boxes_section_image_background_position', 'center top');
+
+        $evolve_content_box_section_title = evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind');
         if ($evolve_content_box_section_title == false) {
             $evolve_content_box_section_title = '';
         } else {
-			$evolve_content_box_section_title = '<h2 class="content_box_section_title section_title">'.evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind').'</h2>';
-		}
-    if ($evolve_content_boxes == "1") {
+            $evolve_content_box_section_title = '<h2 class="content_box_section_title section_title">'.evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind').'</h2>';
+        }
+
+        //html_attr
+        $html_class = 't4p-fullwidth fullwidth-box hentry';
+        $html_style = '';
+
+        if( $evolve_content_boxes_section_back_color ) {
+                $html_style .= sprintf( 'background-color:%s;', $evolve_content_boxes_section_back_color );
+        }
+
+        if( $evolve_content_boxes_section_image_src ) {
+                $html_style .= sprintf( 'background-image: url(%s);', $evolve_content_boxes_section_image_src );
+        }
+
+        if( $evolve_content_boxes_section_image ) {
+                $html_style .= sprintf( 'background-size:%s;', $evolve_content_boxes_section_image );
+                $html_style .= sprintf( '-webkit-background-size:%s;', $evolve_content_boxes_section_image );
+                $html_style .= sprintf( '-moz-background-size:%s;', $evolve_content_boxes_section_image );
+                $html_style .= sprintf( '-o-background-size:%s;', $evolve_content_boxes_section_image );
+        }
+
+        if( $evolve_content_boxes_section_background_position ) {
+                $html_style .= sprintf( 'background-position:%s;', $evolve_content_boxes_section_background_position );
+        }
+
+        if( $evolve_content_boxes_section_background_repeat ) {
+                $html_style .= sprintf( 'background-repeat:%s;', $evolve_content_boxes_section_background_repeat );
+        }
+
+        if( $evolve_content_boxes_section_padding_top ) {
+                $html_style .= sprintf( 'padding-bottom:%s;', $evolve_content_boxes_section_padding_top );
+        }
+
+        if( $evolve_content_boxes_section_padding_bottom ) {
+                $html_style .= sprintf( 'padding-top:%s;', $evolve_content_boxes_section_padding_bottom );
+        }
+
+        if( $evolve_content_boxes_section_padding_left ) {
+                $html_style .= sprintf( 'padding-left:%s;', $evolve_content_boxes_section_padding_left );
+        }
+
+        if( $evolve_content_boxes_section_padding_right ) {
+                $html_style .= sprintf( 'padding-right:%s;', $evolve_content_boxes_section_padding_right );
+        }
+
+        echo "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
 
         echo "<div class='home-content-boxes'>".$evolve_content_box_section_title;
 
@@ -200,7 +257,7 @@ function evolve_content_boxes() {
 
             echo "</div>";
         }
-        echo "</div><div class='clearfix'></div>";
+        echo "</div><div class='clearfix'></div></div></div>";
     }
 }
 
@@ -211,6 +268,60 @@ function evolve_testimonials() {
 
     $backgroundcolor = $evl_options["evl_fp_testimonials_bg_color"];
     $textcolor = $evl_options["evl_fp_testimonials_text_color"];
+    $evolve_testimonials_section_back_color             = evolve_get_option( 'evl_testimonials_section_back_color', '' );
+    $evolve_testimonials_section_image_src              = evolve_get_option('evl_testimonials_section_background_image');
+    $evolve_testimonials_section_image                  = evolve_get_option('evl_testimonials_section_image', 'cover');
+    $evolve_testimonials_section_background_position    = evolve_get_option('evl_testimonials_section_image_background_position', 'center top');
+    $evolve_testimonials_section_background_repeat      = evolve_get_option('evl_testimonials_section_image_background_repeat', 'no-repeat');
+    $evolve_testimonials_section_padding_top            = $evl_options['evl_testimonials_section_padding']['padding-top'];
+    $evolve_testimonials_section_padding_bottom         = $evl_options['evl_testimonials_section_padding']['padding-bottom'];
+    $evolve_testimonials_section_padding_left           = $evl_options['evl_testimonials_section_padding']['padding-left'];
+    $evolve_testimonials_section_padding_right          = $evl_options['evl_testimonials_section_padding']['padding-right'];
+
+    //html_attr
+    $html_class = 't4p-fullwidth fullwidth-box hentry';
+    $html_style = '';
+
+    if( $evolve_testimonials_section_back_color ) {
+            $html_style .= sprintf( 'background-color:%s;', $evolve_testimonials_section_back_color );
+    }
+
+    if( $evolve_testimonials_section_image_src ) {
+            $html_style .= sprintf( 'background-image: url(%s);', $evolve_testimonials_section_image_src );
+    }
+
+    if( $evolve_testimonials_section_image ) {
+            $html_style .= sprintf( 'background-size:%s;', $evolve_testimonials_section_image );
+            $html_style .= sprintf( '-webkit-background-size:%s;', $evolve_testimonials_section_image );
+            $html_style .= sprintf( '-moz-background-size:%s;', $evolve_testimonials_section_image );
+            $html_style .= sprintf( '-o-background-size:%s;', $evolve_testimonials_section_image );
+    }
+
+    if( $evolve_testimonials_section_background_position ) {
+            $html_style .= sprintf( 'background-position:%s;', $evolve_testimonials_section_background_position );
+    }
+
+    if( $evolve_testimonials_section_background_repeat ) {
+            $html_style .= sprintf( 'background-repeat:%s;', $evolve_testimonials_section_background_repeat );
+    }
+
+    if( $evolve_testimonials_section_padding_top ) {
+            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_testimonials_section_padding_top );
+    }
+
+    if( $evolve_testimonials_section_padding_bottom ) {
+            $html_style .= sprintf( 'padding-top:%s;', $evolve_testimonials_section_padding_bottom );
+    }
+
+    if( $evolve_testimonials_section_padding_left ) {
+            $html_style .= sprintf( 'padding-left:%s;', $evolve_testimonials_section_padding_left );
+    }
+
+    if( $evolve_testimonials_section_padding_right ) {
+            $html_style .= sprintf( 'padding-right:%s;', $evolve_testimonials_section_padding_right );
+    }
+
+    $html = "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
 
     $styles = "<style type='text/css'>
     .t4p-testimonials.t4p-testimonials-{$testimonials_counter} .author:after{border-top-color:{$backgroundcolor} !important;}
@@ -223,10 +334,9 @@ function evolve_testimonials() {
         $evolve_testimonials_section_title = '';
     } else {
         $evolve_testimonials_section_title = '<h2 class="testimonials_section_title section_title">'.evolve_get_option('evl_testimonials_title', 'Why people love our themes').'</h2>';
-
     }
 
-    $html = "<div class='t4p-testimonials t4p-testimonials-$testimonials_counter'>$styles".$evolve_testimonials_section_title."<div class='reviews'>";
+    $html .= "<div class='t4p-testimonials t4p-testimonials-$testimonials_counter'>$styles".$evolve_testimonials_section_title."<div class='reviews'>";
 
     for ($i = 1; $i <= 2; $i ++) {
         $enabled = $evl_options["evl_fp_testimonial{$i}"];
@@ -302,8 +412,8 @@ function evolve_testimonials() {
         }
     }
 
-    $html .= "</div></div>";
-    
+    $html .= "</div></div></div></div>";
+
     echo $html;
 
     $testimonials_counter++;
@@ -338,6 +448,61 @@ function evolve_get_attachment_id_from_url( $attachment_url = '' ) {
 function evolve_counter_circle() {
     global $evl_options;
 
+    $evolve_counter_circle_section_padding_top          = $evl_options['evl_counter_circle_section_padding']['padding-top'];
+    $evolve_counter_circle_section_padding_bottom       = $evl_options['evl_counter_circle_section_padding']['padding-bottom'];
+    $evolve_counter_circle_section_padding_left         = $evl_options['evl_counter_circle_section_padding']['padding-left'];
+    $evolve_counter_circle_section_padding_right        = $evl_options['evl_counter_circle_section_padding']['padding-right'];
+    $evolve_counter_circle_section_back_color           = evolve_get_option( 'evl_counter_circle_section_back_color', '' );
+    $evolve_counter_circle_section_image_src            = evolve_get_option('evl_counter_circle_section_background_image');
+    $evolve_counter_circle_section_image                = evolve_get_option('evl_counter_circle_section_image', 'cover');
+    $evolve_counter_circle_section_background_repeat    = evolve_get_option('evl_counter_circle_section_image_background_repeat', 'no-repeat');
+    $evolve_counter_circle_section_background_position  = evolve_get_option('evl_counter_circle_section_image_background_position', 'center top');
+    
+    //html_attr
+    $html_class = 't4p-fullwidth fullwidth-box hentry';
+    $html_style = '';
+
+    if( $evolve_counter_circle_section_back_color ) {
+            $html_style .= sprintf( 'background-color:%s;', $evolve_counter_circle_section_back_color );
+    }
+
+    if ( isset($evolve_counter_circle_section_image_src['url']) && $evolve_counter_circle_section_image_src['url'] ) {
+            $html_style .= sprintf( 'background-image: url(%s);', $evolve_counter_circle_section_image_src['url'] );
+    }
+
+    if( $evolve_counter_circle_section_image ) {
+            $html_style .= sprintf( 'background-size:%s;', $evolve_counter_circle_section_image );
+            $html_style .= sprintf( '-webkit-background-size:%s;', $evolve_counter_circle_section_image );
+            $html_style .= sprintf( '-moz-background-size:%s;', $evolve_counter_circle_section_image );
+            $html_style .= sprintf( '-o-background-size:%s;', $evolve_counter_circle_section_image );
+    }
+
+    if( $evolve_counter_circle_section_background_position ) {
+            $html_style .= sprintf( 'background-position:%s;', $evolve_counter_circle_section_background_position );
+    }
+
+    if( $evolve_counter_circle_section_background_repeat ) {
+            $html_style .= sprintf( 'background-repeat:%s;', $evolve_counter_circle_section_background_repeat );
+    }
+
+    if( $evolve_counter_circle_section_padding_top ) {
+            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_counter_circle_section_padding_top );
+    }
+
+    if( $evolve_counter_circle_section_padding_bottom ) {
+            $html_style .= sprintf( 'padding-top:%s;', $evolve_counter_circle_section_padding_bottom );
+    }
+
+    if( $evolve_counter_circle_section_padding_left ) {
+            $html_style .= sprintf( 'padding-left:%s;', $evolve_counter_circle_section_padding_left );
+    }
+
+    if( $evolve_counter_circle_section_padding_right ) {
+            $html_style .= sprintf( 'padding-right:%s;', $evolve_counter_circle_section_padding_right );
+    }
+
+    $html = "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
+
     $evolve_counter_circle_section_title = evolve_get_option('evl_counter_circle_title', 'How many people love our themes');
     if ($evolve_counter_circle_section_title == false) {
         $evolve_counter_circle_section_title = '';
@@ -345,7 +510,7 @@ function evolve_counter_circle() {
         $evolve_counter_circle_section_title = '<h2 class="counter_circle_section_title section_title">'.evolve_get_option('evl_counter_circle_title', 'How many people love our themes').'</h2>';
     }
 
-    $html   =   "<div class='t4p-counters-circle counters-circle'>".$evolve_counter_circle_section_title;
+    $html   .=   "<div class='t4p-counters-circle counters-circle'>".$evolve_counter_circle_section_title;
 
     for ($i = 1; $i <= 3; $i ++) {
         $enabled = $evl_options["evl_fp_counter_circle{$i}"];
@@ -386,7 +551,7 @@ function evolve_counter_circle() {
         }
     }
 
-    $html .= "</div>";
+    $html .= "</div></div></div>";
 
     echo $html;
 }
@@ -407,6 +572,61 @@ function evolve_google_map() {
     $zoom_pancontrol = $evl_options["evl_fp_googlemap_zoomcontrol"];
     $popup = 'yes';
 
+    $evolve_googlemap_section_padding_top          = $evl_options['evl_googlemap_section_padding']['padding-top'];
+    $evolve_googlemap_section_padding_bottom       = $evl_options['evl_googlemap_section_padding']['padding-bottom'];
+    $evolve_googlemap_section_padding_left         = $evl_options['evl_googlemap_section_padding']['padding-left'];
+    $evolve_googlemap_section_padding_right        = $evl_options['evl_googlemap_section_padding']['padding-right'];
+    $evolve_googlemap_section_back_color           = evolve_get_option( 'evl_googlemap_section_back_color', '' );
+    $evolve_googlemap_section_image_src            = evolve_get_option('evl_googlemap_section_background_image');
+    $evolve_googlemap_section_image                = evolve_get_option('evl_googlemap_section_image', 'cover');
+    $evolve_googlemap_section_background_repeat    = evolve_get_option('evl_googlemap_section_image_background_repeat', 'no-repeat');
+    $evolve_googlemap_section_background_position  = evolve_get_option('evl_googlemap_section_image_background_position', 'center top');
+
+    //html_attr
+    $html_class = 't4p-fullwidth fullwidth-box hentry';
+    $html_style = '';
+
+    if( $evolve_googlemap_section_back_color ) {
+            $html_style .= sprintf( 'background-color:%s;', $evolve_googlemap_section_back_color );
+    }
+
+    if ( isset($evolve_googlemap_section_image_src['url']) && $evolve_googlemap_section_image_src['url'] ) {
+            $html_style .= sprintf( 'background-image: url(%s);', $evolve_googlemap_section_image_src['url'] );
+    }
+
+    if( $evolve_googlemap_section_image ) {
+            $html_style .= sprintf( 'background-size:%s;', $evolve_googlemap_section_image );
+            $html_style .= sprintf( '-webkit-background-size:%s;', $evolve_googlemap_section_image );
+            $html_style .= sprintf( '-moz-background-size:%s;', $evolve_googlemap_section_image );
+            $html_style .= sprintf( '-o-background-size:%s;', $evolve_googlemap_section_image );
+    }
+
+    if( $evolve_googlemap_section_background_position ) {
+            $html_style .= sprintf( 'background-position:%s;', $evolve_googlemap_section_background_position );
+    }
+
+    if( $evolve_googlemap_section_background_repeat ) {
+            $html_style .= sprintf( 'background-repeat:%s;', $evolve_googlemap_section_background_repeat );
+    }
+
+    if( $evolve_googlemap_section_padding_top ) {
+            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_googlemap_section_padding_top );
+    }
+
+    if( $evolve_googlemap_section_padding_bottom ) {
+            $html_style .= sprintf( 'padding-top:%s;', $evolve_googlemap_section_padding_bottom );
+    }
+
+    if( $evolve_googlemap_section_padding_left ) {
+            $html_style .= sprintf( 'padding-left:%s;', $evolve_googlemap_section_padding_left );
+    }
+
+    if( $evolve_googlemap_section_padding_right ) {
+            $html_style .= sprintf( 'padding-right:%s;', $evolve_googlemap_section_padding_right );
+    }
+
+    $html = "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
+    
     $evolve_googlemap_section_title = evolve_get_option('evl_googlemap_title', 'Our Contact Place');
     if ($evolve_googlemap_section_title == false) {
         $evolve_googlemap_section_title = '';
@@ -414,7 +634,7 @@ function evolve_google_map() {
         $evolve_googlemap_section_title = '<h2 class="googlemap_section_title section_title">'.evolve_get_option('evl_googlemap_title', 'Our Contact Place').'</h2>';
     }
 
-    $html   =   "<div class='t4p-googlemap'>".$evolve_googlemap_section_title;
+    $html   .=   "<div class='t4p-googlemap'>".$evolve_googlemap_section_title;
 
     if ( $gmap_alignment === 'right' ) {
             $alignment = 'float: right';
@@ -519,7 +739,7 @@ function evolve_google_map() {
             $html .= ob_get_clean() . "<div class='$class' id='$id' ></div>";
     }
 
-    $html .= "</div>";
+    $html .= "</div></div></div>";
 
     echo $html;
 }
@@ -587,6 +807,61 @@ function evolve_custom_content() {
 
     $content = $evl_options["evl_fp_custom_content_editor"];
 
+    $evolve_custom_content_section_padding_top          = $evl_options['evl_custom_content_section_padding']['padding-top'];
+    $evolve_custom_content_section_padding_bottom       = $evl_options['evl_custom_content_section_padding']['padding-bottom'];
+    $evolve_custom_content_section_padding_left         = $evl_options['evl_custom_content_section_padding']['padding-left'];
+    $evolve_custom_content_section_padding_right        = $evl_options['evl_custom_content_section_padding']['padding-right'];
+    $evolve_custom_content_section_back_color           = evolve_get_option( 'evl_custom_content_section_back_color', '' );
+    $evolve_custom_content_section_image_src            = evolve_get_option('evl_custom_content_section_background_image');
+    $evolve_custom_content_section_image                = evolve_get_option('evl_custom_content_section_image', 'cover');
+    $evolve_custom_content_section_background_repeat    = evolve_get_option('evl_custom_content_section_image_background_repeat', 'no-repeat');
+    $evolve_custom_content_section_background_position  = evolve_get_option('evl_custom_content_section_image_background_position', 'center top');
+
+    //html_attr
+    $html_class = 't4p-fullwidth fullwidth-box hentry';
+    $html_style = '';
+
+    if( $evolve_custom_content_section_back_color ) {
+            $html_style .= sprintf( 'background-color:%s;', $evolve_custom_content_section_back_color );
+    }
+
+    if ( isset($evolve_custom_content_section_image_src['url']) && $evolve_custom_content_section_image_src['url'] ) {
+            $html_style .= sprintf( 'background-image: url(%s);', $evolve_custom_content_section_image_src['url'] );
+    }
+
+    if( $evolve_custom_content_section_image ) {
+            $html_style .= sprintf( 'background-size:%s;', $evolve_custom_content_section_image );
+            $html_style .= sprintf( '-webkit-background-size:%s;', $evolve_custom_content_section_image );
+            $html_style .= sprintf( '-moz-background-size:%s;', $evolve_custom_content_section_image );
+            $html_style .= sprintf( '-o-background-size:%s;', $evolve_custom_content_section_image );
+    }
+
+    if( $evolve_custom_content_section_background_position ) {
+            $html_style .= sprintf( 'background-position:%s;', $evolve_custom_content_section_background_position );
+    }
+
+    if( $evolve_custom_content_section_background_repeat ) {
+            $html_style .= sprintf( 'background-repeat:%s;', $evolve_custom_content_section_background_repeat );
+    }
+
+    if( $evolve_custom_content_section_padding_top ) {
+            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_custom_content_section_padding_top );
+    }
+
+    if( $evolve_custom_content_section_padding_bottom ) {
+            $html_style .= sprintf( 'padding-top:%s;', $evolve_custom_content_section_padding_bottom );
+    }
+
+    if( $evolve_custom_content_section_padding_left ) {
+            $html_style .= sprintf( 'padding-left:%s;', $evolve_custom_content_section_padding_left );
+    }
+
+    if( $evolve_custom_content_section_padding_right ) {
+            $html_style .= sprintf( 'padding-right:%s;', $evolve_custom_content_section_padding_right );
+    }
+
+    $html = "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
+    
     $evolve_custom_content_section_title = evolve_get_option('evl_custom_content_title', 'Your Custom Content Here');
     if ($evolve_custom_content_section_title == false) {
         $evolve_custom_content_section_title = '';
@@ -594,11 +869,11 @@ function evolve_custom_content() {
         $evolve_custom_content_section_title = '<h2 class="custom_content_section_title section_title">'.evolve_get_option('evl_custom_content_title', 'Your Custom Content Here').'</h2>';
     }
 
-    $html  = "<div class='t4p-text' >".$evolve_custom_content_section_title;
+    $html  .= "<div class='t4p-text' >".$evolve_custom_content_section_title;
 
     $html .= $content;
 
-    $html .= "</div>";
+    $html .= "</div></div></div>";
 
     echo $html;
 }
@@ -609,6 +884,61 @@ function evolve_woocommerce_products() {
 
     $product_cat = $evl_options["evl_fp_woo_product"];
 
+    $evolve_woo_product_section_padding_top          = $evl_options['evl_woo_product_section_padding']['padding-top'];
+    $evolve_woo_product_section_padding_bottom       = $evl_options['evl_woo_product_section_padding']['padding-bottom'];
+    $evolve_woo_product_section_padding_left         = $evl_options['evl_woo_product_section_padding']['padding-left'];
+    $evolve_woo_product_section_padding_right        = $evl_options['evl_woo_product_section_padding']['padding-right'];
+    $evolve_woo_product_section_back_color           = evolve_get_option( 'evl_woo_product_section_back_color', '' );
+    $evolve_woo_product_section_image_src            = evolve_get_option('evl_woo_product_section_background_image');
+    $evolve_woo_product_section_image                = evolve_get_option('evl_woo_product_section_image', 'cover');
+    $evolve_woo_product_section_background_repeat    = evolve_get_option('evl_woo_product_section_image_background_repeat', 'no-repeat');
+    $evolve_woo_product_section_background_position  = evolve_get_option('evl_woo_product_section_image_background_position', 'center top');
+
+    //html_attr
+    $html_class = 't4p-fullwidth fullwidth-box hentry';
+    $html_style = '';
+
+    if( $evolve_woo_product_section_back_color ) {
+            $html_style .= sprintf( 'background-color:%s;', $evolve_woo_product_section_back_color );
+    }
+
+    if ( isset($evolve_woo_product_section_image_src['url']) && $evolve_woo_product_section_image_src['url'] ) {
+            $html_style .= sprintf( 'background-image: url(%s);', $evolve_woo_product_section_image_src['url'] );
+    }
+
+    if( $evolve_woo_product_section_image ) {
+            $html_style .= sprintf( 'background-size:%s;', $evolve_woo_product_section_image );
+            $html_style .= sprintf( '-webkit-background-size:%s;', $evolve_woo_product_section_image );
+            $html_style .= sprintf( '-moz-background-size:%s;', $evolve_woo_product_section_image );
+            $html_style .= sprintf( '-o-background-size:%s;', $evolve_woo_product_section_image );
+    }
+
+    if( $evolve_woo_product_section_background_position ) {
+            $html_style .= sprintf( 'background-position:%s;', $evolve_woo_product_section_background_position );
+    }
+
+    if( $evolve_woo_product_section_background_repeat ) {
+            $html_style .= sprintf( 'background-repeat:%s;', $evolve_woo_product_section_background_repeat );
+    }
+
+    if( $evolve_woo_product_section_padding_top ) {
+            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_woo_product_section_padding_top );
+    }
+
+    if( $evolve_woo_product_section_padding_bottom ) {
+            $html_style .= sprintf( 'padding-top:%s;', $evolve_woo_product_section_padding_bottom );
+    }
+
+    if( $evolve_woo_product_section_padding_left ) {
+            $html_style .= sprintf( 'padding-left:%s;', $evolve_woo_product_section_padding_left );
+    }
+
+    if( $evolve_woo_product_section_padding_right ) {
+            $html_style .= sprintf( 'padding-right:%s;', $evolve_woo_product_section_padding_right );
+    }
+
+    $html = "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
+    
     $evolve_woo_product_section_title = evolve_get_option('evl_woo_product_title', 'New Arrival Product');
     if ($evolve_woo_product_section_title == false) {
         $evolve_woo_product_section_title = '';
@@ -616,11 +946,11 @@ function evolve_woocommerce_products() {
         $evolve_woo_product_section_title = '<h2 class="woo_product_section_title section_title">'.evolve_get_option('evl_woo_product_title', 'New Arrival Product').'</h2>';
     }
 
-    $html  = "<div class='t4p-woo-product' >".$evolve_woo_product_section_title;
+    $html  .= "<div class='t4p-woo-product' >".$evolve_woo_product_section_title;
 
     $html .= do_shortcode( '[product_category category="'.$product_cat.'"  per_page="12" orderby="title" order="asc"]' );
 
-    $html .= "</div>";
+    $html .= "</div></div></div>";
 
     echo $html;
 }
@@ -649,7 +979,62 @@ function evolve_blog_posts() {
     $scrolling = $evl_options["evl_fp_blog_scrolling"];
     $blog_grid_columns = $evl_options["evl_fp_blog_blog_grid_columns"];
     $strip_html = $evl_options["evl_fp_blog_strip_html"];
+    
+    $evolve_blog_section_padding_top          = $evl_options['evl_blog_section_padding']['padding-top'];
+    $evolve_blog_section_padding_bottom       = $evl_options['evl_blog_section_padding']['padding-bottom'];
+    $evolve_blog_section_padding_left         = $evl_options['evl_blog_section_padding']['padding-left'];
+    $evolve_blog_section_padding_right        = $evl_options['evl_blog_section_padding']['padding-right'];
+    $evolve_blog_section_back_color           = evolve_get_option( 'evl_blog_section_back_color', '' );
+    $evolve_blog_section_image_src            = evolve_get_option('evl_blog_section_background_image');
+    $evolve_blog_section_image                = evolve_get_option('evl_blog_section_image', 'cover');
+    $evolve_blog_section_background_repeat    = evolve_get_option('evl_blog_section_image_background_repeat', 'no-repeat');
+    $evolve_blog_section_background_position  = evolve_get_option('evl_blog_section_image_background_position', 'center top');
 
+    //html_attr
+    $html_class = 't4p-fullwidth fullwidth-box hentry';
+    $html_style = '';
+
+    if( $evolve_blog_section_back_color ) {
+            $html_style .= sprintf( 'background-color:%s;', $evolve_blog_section_back_color );
+    }
+
+    if ( isset($evolve_blog_section_image_src['url']) && $evolve_blog_section_image_src['url'] ) {
+            $html_style .= sprintf( 'background-image: url(%s);', $evolve_blog_section_image_src['url'] );
+    }
+
+    if( $evolve_blog_section_image ) {
+            $html_style .= sprintf( 'background-size:%s;', $evolve_blog_section_image );
+            $html_style .= sprintf( '-webkit-background-size:%s;', $evolve_blog_section_image );
+            $html_style .= sprintf( '-moz-background-size:%s;', $evolve_blog_section_image );
+            $html_style .= sprintf( '-o-background-size:%s;', $evolve_blog_section_image );
+    }
+
+    if( $evolve_blog_section_background_position ) {
+            $html_style .= sprintf( 'background-position:%s;', $evolve_blog_section_background_position );
+    }
+
+    if( $evolve_blog_section_background_repeat ) {
+            $html_style .= sprintf( 'background-repeat:%s;', $evolve_blog_section_background_repeat );
+    }
+
+    if( $evolve_blog_section_padding_top ) {
+            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_blog_section_padding_top );
+    }
+
+    if( $evolve_blog_section_padding_bottom ) {
+            $html_style .= sprintf( 'padding-top:%s;', $evolve_blog_section_padding_bottom );
+    }
+
+    if( $evolve_blog_section_padding_left ) {
+            $html_style .= sprintf( 'padding-left:%s;', $evolve_blog_section_padding_left );
+    }
+
+    if( $evolve_blog_section_padding_right ) {
+            $html_style .= sprintf( 'padding-right:%s;', $evolve_blog_section_padding_right );
+    }
+
+    $html = "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
+    
     $evolve_fp_blog_section_title = evolve_get_option('evl_blog_section_title', 'Read New Story Here');
     if ($evolve_fp_blog_section_title == false) {
         $evolve_fp_blog_section_title = '';
@@ -657,7 +1042,7 @@ function evolve_blog_posts() {
         $evolve_fp_blog_section_title = '<h2 class="fp_blog_section_title section_title">'.evolve_get_option('evl_blog_section_title', 'Read New Story Here').'</h2>';
     }
 
-    $html  = "<div class='t4p-fp-blog content' >".$evolve_fp_blog_section_title;
+    $html  .= "<div class='t4p-fp-blog' >".$evolve_fp_blog_section_title;
 
             if ( is_front_page() || is_home() ) {
                 $paged = ( get_query_var('paged') ) ? get_query_var('paged') : ( ( get_query_var('page') ) ? get_query_var('page') : 1 );
@@ -829,7 +1214,7 @@ function evolve_blog_posts() {
 
             $html .= '</div>';
 
-    $html .= "</div>";
+    $html .= "</div></div></div>";
 
     echo $html;
 }

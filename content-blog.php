@@ -20,7 +20,7 @@ $evolve_posts_excerpt_title_length = intval(evolve_get_option('evl_posts_excerpt
 <div id="primary" class="<?php evolve_layout_class($type = 1); ?>">
 
     <?php
-    if (is_front_page()) {
+    if (is_home() || is_front_page()) {
         get_template_part('frontpagebuilder');
     }
     ?>
@@ -30,6 +30,13 @@ $evolve_posts_excerpt_title_length = intval(evolve_get_option('evl_posts_excerpt
         if (!is_home() || !is_front_page()):
             evolve_breadcrumb();
         endif;
+    endif;
+
+    if (is_home() || is_front_page()) :
+    ?>
+            <div class="t4p-fullwidth homepage-content" >
+                <div class="t4p-row">
+    <?php
     endif;
     ?>
 
@@ -398,6 +405,15 @@ $evolve_posts_excerpt_title_length = intval(evolve_get_option('evl_posts_excerpt
     ?>
 
     <!-- 1 column end -->
+
+    <?php
+    if (is_home() || is_front_page()) :
+    ?>
+                </div><!--END .t4p-row-->
+            </div><!--END .t4p-fullwidth-->
+    <?php
+    endif;
+    ?>
 
     <!--END #primary .hfeed-->
 </div>

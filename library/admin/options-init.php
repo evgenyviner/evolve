@@ -110,7 +110,7 @@ function evolve_migrate_options() {
  *
  * @return array
  */
-function t4p_shortcodes_categories($taxonomy, $empty_choice = false) {
+function evolve_shortcodes_categories($taxonomy, $empty_choice = false) {
     if ($empty_choice == true) {
         $post_categories[''] = 'Default';
     }
@@ -135,7 +135,7 @@ function t4p_shortcodes_categories($taxonomy, $empty_choice = false) {
  *
  * @return array
  */
-function t4p_shortcodes_range($range, $all = true, $default = false, $range_start = 1) {
+function evolve_shortcodes_range($range, $all = true, $default = false, $range_start = 1) {
     if ($all) {
         $number_of_posts['-1'] = 'All';
     }
@@ -902,7 +902,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_fp_blog_number_posts',
             'type' => 'select',
             'default' => '4',
-            'options' => t4p_shortcodes_range(25, true, true),
+            'options' => evolve_shortcodes_range(25, true, true),
             'subtitle' => __('Select number of posts per page', 'evolve'),
         ),
         array(
@@ -911,7 +911,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'select',
             'default' => '',
             'multi' => true,
-            'options' => t4p_shortcodes_categories('category'),
+            'options' => evolve_shortcodes_categories('category'),
             'subtitle' => __('Select a category or leave blank for all', 'evolve')
         ),
         array(
@@ -920,7 +920,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'select',
             'default' => '',
             'multi' => true,
-            'options' => t4p_shortcodes_categories('category'),
+            'options' => evolve_shortcodes_categories('category'),
             'subtitle' => __('Select a category to exclude', 'evolve')
         ),
         array(

@@ -30,7 +30,7 @@ endif;
 <div id="primary" class="<?php evolve_layout_class($type = 1); ?>">
 
     <?php
-    if (is_front_page()) {
+    if (is_home() || is_front_page()) {
         get_template_part('frontpagebuilder');
     }
     ?>
@@ -44,8 +44,17 @@ endif;
         endif;
     endif;
 
-    if (have_posts()) : while (have_posts()) : the_post();
-            ?>
+    if (have_posts()) : 
+
+        if (is_home() || is_front_page()) :
+        ?>
+                <div class="t4p-fullwidth homepage-content" >
+                    <div class="t4p-row">
+        <?php
+        endif;
+
+        while (have_posts()) : the_post();
+        ?>
 
             <!--BEGIN .hentry-->
             <div id="post-<?php the_ID(); ?>" class="<?php semantic_entries(); ?>">
@@ -102,6 +111,14 @@ endif;
             } //hide from static homepage, allowed in all normal pages.  
 
         endwhile;
+
+        if (is_home() || is_front_page()) :
+        ?>
+                    </div><!--END .t4p-row-->
+                </div><!--END .t4p-fullwidth-->
+        <?php
+        endif;
+
     endif;
     ?>
 

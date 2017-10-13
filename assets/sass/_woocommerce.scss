@@ -522,7 +522,7 @@ ol.commentlist {
     .select2-selection {
         padding: 6px 15px;
         display: block;
-        height: 42px;
+        height: 38px;
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.15) inset;
         border-color: #E0E0E0;
     }
@@ -530,7 +530,7 @@ ol.commentlist {
 .select-arrow {
     background: #fff;
     width: 35px;
-    height: 40px;
+    height: 36px;
     border-left: 1px solid #dadada;
     position: absolute;
     top: 1px;
@@ -539,7 +539,7 @@ ol.commentlist {
     z-index: 10;
     font-family: IcoMoon;
     text-align: center;
-    line-height: 40px;
+    line-height: 36px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.15) inset;
 }
 
@@ -1000,6 +1000,10 @@ form.checkout {
             font-size: 18px;
         }
     }
+}
+
+.product-info {
+    margin-top: 20px;
 }
 
 .checkout .shop_table .product-quantity {
