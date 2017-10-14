@@ -27,9 +27,11 @@ $evolve_posts_excerpt_title_length = intval(evolve_get_option('evl_posts_excerpt
 
     <?php
     if ($evolve_breadcrumbs == "1"):
-        if (!is_home() || !is_front_page()):
+        if (is_home() || is_front_page()) {
+            
+        } else {
             evolve_breadcrumb();
-        endif;
+        }
     endif;
 
     if (is_home() || is_front_page()) :

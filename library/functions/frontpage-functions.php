@@ -33,13 +33,6 @@ function evolve_content_boxes() {
         $evolve_content_boxes_section_background_repeat   = evolve_get_option('evl_content_boxes_section_image_background_repeat', 'no-repeat');
         $evolve_content_boxes_section_background_position = evolve_get_option('evl_content_boxes_section_image_background_position', 'center top');
 
-        $evolve_content_box_section_title = evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind');
-        if ($evolve_content_box_section_title == false) {
-            $evolve_content_box_section_title = '';
-        } else {
-            $evolve_content_box_section_title = '<h2 class="content_box_section_title section_title">'.evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind').'</h2>';
-        }
-
         //html_attr
         $html_class = 't4p-fullwidth fullwidth-box hentry';
         $html_style = '';
@@ -84,6 +77,13 @@ function evolve_content_boxes() {
         }
 
         echo "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
+
+        $evolve_content_box_section_title = evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind');
+        if ($evolve_content_box_section_title == false) {
+            $evolve_content_box_section_title = '';
+        } else {
+            $evolve_content_box_section_title = '<h2 class="content_box_section_title section_title">'.evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind').'</h2>';
+        }
 
         echo "<div class='home-content-boxes'>".$evolve_content_box_section_title;
 
