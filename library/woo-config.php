@@ -586,7 +586,7 @@ function evolve_woocommerce_thumbnail() {
     echo '</span>';
 }
 
-add_filter('add_to_cart_fragments', 'evolve_woocommerce_header_add_to_cart_fragment');
+add_filter('woocommerce_add_to_cart_fragments', 'evolve_woocommerce_header_add_to_cart_fragment');
 
 function evolve_woocommerce_header_add_to_cart_fragment($fragments) {
     global $woocommerce;
