@@ -1585,6 +1585,8 @@ function evolve_bootstrap() {
                     $sidebar_css = 'col-xs-12 col-sm-6 col-md-3 float-left';
                     break;
             endswitch;
+
+            $sidebar_css .= ' homepage-sidebar';
         }
 
         echo $sidebar_css;

@@ -1983,9 +1983,13 @@ $evolve_content_bottom_padding = $options['evl_content_top_bottom_padding']['pad
 
 if ( is_home() || is_front_page() ) {
     $evolve_css_data .= '
-    .content .homepage-content{
+    .content .homepage-content {
             padding-top: ' . $evolve_content_top_padding .';
             padding-bottom: ' . $evolve_content_bottom_padding .';
+    }
+    .content .homepage-sidebar {
+            padding-top: ' . $evolve_content_top_padding .'!important;
+            padding-bottom: ' . $evolve_content_bottom_padding .'!important;
     }
     .content {
             padding-top: 0px;
@@ -4041,7 +4045,8 @@ $evolve_css_data .= '
 ';
 
 // Homepage and Frontpage 100% template style
-if (is_home() || is_front_page()) {
+$evolve_frontpage_layout = evolve_get_option('evl_frontpage_layout', '1c');
+if ((is_home() || is_front_page()) && $evolve_frontpage_layout == "1c") {
     $evolve_css_data .= '
     .content .container {
         width: 100%;
