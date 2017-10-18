@@ -1539,8 +1539,11 @@ body #header.sticky-header img#logo-image {
     //Google Map Title Section
     $evolve_css_data .= evolve_print_fonts('evl_googlemap_title_alignment', 'h2.googlemap_section_title', $additional_css = '');
 
-    // Woocommerce Product Title Section
-    $evolve_css_data .= evolve_print_fonts('evl_woo_product_title_alignment', 'h2.woo_product_section_title', $additional_css = '');
+    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+    if ( is_plugin_active('woocommerce/woocommerce.php') ) :
+        // Woocommerce Product Title Section
+        $evolve_css_data .= evolve_print_fonts('evl_woo_product_title_alignment', 'h2.woo_product_section_title', $additional_css = '');
+    endif;
 
     //Custom Content Title Section
     $evolve_css_data .= evolve_print_fonts('evl_custom_content_title_alignment', 'h2.custom_content_section_title', $additional_css = '');
