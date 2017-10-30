@@ -1984,30 +1984,6 @@ $options = get_option('evl_options');
 $evolve_content_top_padding = $options['evl_content_top_bottom_padding']['padding-top'];
 $evolve_content_bottom_padding = $options['evl_content_top_bottom_padding']['padding-bottom'];
 
-if ( is_home() || is_front_page() ) {
-    $evolve_css_data .= '
-    .content .homepage-content {
-            padding-top: ' . $evolve_content_top_padding .';
-            padding-bottom: ' . $evolve_content_bottom_padding .';
-    }
-    .content .homepage-sidebar {
-            padding-top: ' . $evolve_content_top_padding .'!important;
-            padding-bottom: ' . $evolve_content_bottom_padding .'!important;
-    }
-    .content {
-            padding-top: 0px;
-            padding-bottom: 0px;
-    }
-    ';
-} else {
-$evolve_css_data .= '
-    .content {
-            padding-top: ' . $evolve_content_top_padding .';
-            padding-bottom: ' . $evolve_content_bottom_padding .';
-    }
-    ';
-}
-
 if (!empty($evolve_social_color)) {
 $evolve_css_data .= '
 #rss, 
@@ -4049,7 +4025,7 @@ $evolve_css_data .= '
 
 // Homepage and Frontpage 100% template style
 $evolve_frontpage_layout = evolve_get_option('evl_frontpage_layout', '1c');
-if ((is_home() || is_front_page()) && $evolve_frontpage_layout == "1c") {
+if ((is_home() || is_front_page()) && $evolve_frontpage_layout == "1c" && $evolve_frontpage_width_layout == "fluid") {
     $evolve_css_data .= '
     .content .container {
         width: 100%;
@@ -4067,6 +4043,22 @@ if ((is_home() || is_front_page()) && $evolve_frontpage_layout == "1c") {
     .contact-page {
         padding-left: 0px;
         padding-right: 0px;
+    }
+    
+    .content .homepage-content {
+            padding-top: ' . $evolve_content_top_padding .';
+            padding-bottom: ' . $evolve_content_bottom_padding .';
+    }
+    .content {
+            padding-top: 0px;
+            padding-bottom: 0px;
+    }
+    ';
+} else {
+$evolve_css_data .= '
+    .content {
+            padding-top: ' . $evolve_content_top_padding .';
+            padding-bottom: ' . $evolve_content_bottom_padding .';
     }
     ';
 }

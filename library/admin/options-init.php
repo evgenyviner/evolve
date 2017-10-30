@@ -7173,6 +7173,7 @@ function evolve_import_demo_content($wp_customize) {
         $plugin_options = get_option('evl_options', false);
         $frontpage_prebuilt_new_demo = evolve_get_option('evl_frontpage_prebuilt_demo', 'default');
         $frontpage_prebuilt_old_demo = get_option('frontpage_prebuilt_old_demo', 'default');
+        $evolve_imagepathfolder = get_template_directory_uri() . '/assets/images/';
 
         if ( $frontpage_prebuilt_new_demo != $frontpage_prebuilt_old_demo ) {
 
@@ -7208,15 +7209,30 @@ function evolve_import_demo_content($wp_customize) {
 
                 $theme_options_txt = wp_remote_get($theme_options_txt);
                 $imported_options = json_decode(( $theme_options_txt['body']), true);
-
+                
                 if (!empty($imported_options) && is_array($imported_options) && isset($imported_options['redux-backup']) && $imported_options['redux-backup'] == '1') {
 
                     $changed_values = array();
 
                     foreach ($imported_options as $key => $value) {
-                        if (isset($plugin_options[$key]) && $plugin_options[$key] != $value) {
-                            $changed_values[$key] = $value;
-                            $plugin_options[$key] = $value;
+                        $sliderKeys = array(
+                            'evl_bootstrap_slide1_img',
+                            'evl_bootstrap_slide2_img',
+                            'evl_bootstrap_slide3_img',
+                            'evl_bootstrap_slide4_img',
+                            'evl_bootstrap_slide5_img',
+                        );
+
+                        if (in_array($key, $sliderKeys)) {
+                            if (!$plugin_options[$key]['url']) {
+                                $img_name = basename($value['url']);
+                                $plugin_options[$key] = array('url' => "{$evolve_imagepathfolder}bootstrap-slider/{$img_name}");
+                            }
+                        } else {
+                            if (isset($plugin_options[$key]) && $plugin_options[$key] != $value) {
+                                $changed_values[$key] = $value;
+                                $plugin_options[$key] = $value;
+                            }
                         }
                     }
 

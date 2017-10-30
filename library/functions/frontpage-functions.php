@@ -948,7 +948,11 @@ function evolve_woocommerce_products() {
 
     $html  .= "<div class='t4p-woo-product' >".$evolve_woo_product_section_title;
 
-    $html .= do_shortcode( '[product_category category="'.$product_cat.'"  per_page="12" orderby="title" order="asc"]' );
+    if ($product_cat) {
+        $html .= do_shortcode( '[product_category category="'.$product_cat.'"  per_page="12" orderby="title" order="asc"]' );
+    } else {
+        $html .= do_shortcode( '[products limit="12" columns="4" category="" cat_operator="AND"]' );
+    }
 
     $html .= "</div></div></div>";
 
