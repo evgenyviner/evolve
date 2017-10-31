@@ -61,11 +61,11 @@ function evolve_content_boxes() {
         }
 
         if( $evolve_content_boxes_section_padding_top ) {
-                $html_style .= sprintf( 'padding-bottom:%s;', $evolve_content_boxes_section_padding_top );
+                $html_style .= sprintf( 'padding-top:%s;', $evolve_content_boxes_section_padding_top );
         }
 
         if( $evolve_content_boxes_section_padding_bottom ) {
-                $html_style .= sprintf( 'padding-top:%s;', $evolve_content_boxes_section_padding_bottom );
+                $html_style .= sprintf( 'padding-bottom:%s;', $evolve_content_boxes_section_padding_bottom );
         }
 
         if( $evolve_content_boxes_section_padding_left ) {
@@ -306,11 +306,11 @@ function evolve_testimonials() {
     }
 
     if( $evolve_testimonials_section_padding_top ) {
-            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_testimonials_section_padding_top );
+            $html_style .= sprintf( 'padding-top:%s;', $evolve_testimonials_section_padding_top );
     }
 
     if( $evolve_testimonials_section_padding_bottom ) {
-            $html_style .= sprintf( 'padding-top:%s;', $evolve_testimonials_section_padding_bottom );
+            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_testimonials_section_padding_bottom );
     }
 
     if( $evolve_testimonials_section_padding_left ) {
@@ -486,11 +486,11 @@ function evolve_counter_circle() {
     }
 
     if( $evolve_counter_circle_section_padding_top ) {
-            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_counter_circle_section_padding_top );
+            $html_style .= sprintf( 'padding-top:%s;', $evolve_counter_circle_section_padding_top );
     }
 
     if( $evolve_counter_circle_section_padding_bottom ) {
-            $html_style .= sprintf( 'padding-top:%s;', $evolve_counter_circle_section_padding_bottom );
+            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_counter_circle_section_padding_bottom );
     }
 
     if( $evolve_counter_circle_section_padding_left ) {
@@ -610,11 +610,11 @@ function evolve_google_map() {
     }
 
     if( $evolve_googlemap_section_padding_top ) {
-            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_googlemap_section_padding_top );
+            $html_style .= sprintf( 'padding-top:%s;', $evolve_googlemap_section_padding_top );
     }
 
     if( $evolve_googlemap_section_padding_bottom ) {
-            $html_style .= sprintf( 'padding-top:%s;', $evolve_googlemap_section_padding_bottom );
+            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_googlemap_section_padding_bottom );
     }
 
     if( $evolve_googlemap_section_padding_left ) {
@@ -845,11 +845,11 @@ function evolve_custom_content() {
     }
 
     if( $evolve_custom_content_section_padding_top ) {
-            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_custom_content_section_padding_top );
+            $html_style .= sprintf( 'padding-top:%s;', $evolve_custom_content_section_padding_top );
     }
 
     if( $evolve_custom_content_section_padding_bottom ) {
-            $html_style .= sprintf( 'padding-top:%s;', $evolve_custom_content_section_padding_bottom );
+            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_custom_content_section_padding_bottom );
     }
 
     if( $evolve_custom_content_section_padding_left ) {
@@ -922,11 +922,11 @@ function evolve_woocommerce_products() {
     }
 
     if( $evolve_woo_product_section_padding_top ) {
-            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_woo_product_section_padding_top );
+            $html_style .= sprintf( 'padding-top:%s;', $evolve_woo_product_section_padding_top );
     }
 
     if( $evolve_woo_product_section_padding_bottom ) {
-            $html_style .= sprintf( 'padding-top:%s;', $evolve_woo_product_section_padding_bottom );
+            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_woo_product_section_padding_bottom );
     }
 
     if( $evolve_woo_product_section_padding_left ) {
@@ -1022,11 +1022,11 @@ function evolve_blog_posts() {
     }
 
     if( $evolve_blog_section_padding_top ) {
-            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_blog_section_padding_top );
+            $html_style .= sprintf( 'padding-top:%s;', $evolve_blog_section_padding_top );
     }
 
     if( $evolve_blog_section_padding_bottom ) {
-            $html_style .= sprintf( 'padding-top:%s;', $evolve_blog_section_padding_bottom );
+            $html_style .= sprintf( 'padding-bottom:%s;', $evolve_blog_section_padding_bottom );
     }
 
     if( $evolve_blog_section_padding_left ) {

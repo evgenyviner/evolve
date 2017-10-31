@@ -7209,7 +7209,7 @@ function evolve_import_demo_content($wp_customize) {
 
                 $theme_options_txt = wp_remote_get($theme_options_txt);
                 $imported_options = json_decode(( $theme_options_txt['body']), true);
-                
+
                 if (!empty($imported_options) && is_array($imported_options) && isset($imported_options['redux-backup']) && $imported_options['redux-backup'] == '1') {
 
                     $changed_values = array();
