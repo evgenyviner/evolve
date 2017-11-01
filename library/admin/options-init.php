@@ -7224,10 +7224,8 @@ function evolve_import_demo_content($wp_customize) {
                         );
 
                         if (in_array($key, $sliderKeys)) {
-                            if (!$plugin_options[$key]['url']) {
                                 $img_name = basename($value['url']);
                                 $plugin_options[$key] = array('url' => "{$evolve_imagepathfolder}bootstrap-slider/{$img_name}");
-                            }
                         } else {
                             if (isset($plugin_options[$key]) && $plugin_options[$key] != $value) {
                                 $changed_values[$key] = $value;
