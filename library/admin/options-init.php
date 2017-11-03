@@ -2282,9 +2282,9 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Section Padding', 'evolve'),
             'default' => array(
                 'padding-top' => '40px',
-                'padding-right' => '200px',
+                'padding-right' => '40px',
                 'padding-bottom' => '40px',
-                'padding-left' => '200px',
+                'padding-left' => '40px',
                 'units' => 'px',
             ),
         ),
@@ -7215,17 +7215,27 @@ function evolve_import_demo_content($wp_customize) {
                     $changed_values = array();
 
                     foreach ($imported_options as $key => $value) {
-                        $sliderKeys = array(
+                        $bootstrapsliderKeys = array(
                             'evl_bootstrap_slide1_img',
                             'evl_bootstrap_slide2_img',
                             'evl_bootstrap_slide3_img',
                             'evl_bootstrap_slide4_img',
                             'evl_bootstrap_slide5_img',
                         );
+                        $parallaxsliderKeys = array(
+                            'evl_slide1_img',
+                            'evl_slide2_img',
+                            'evl_slide3_img',
+                            'evl_slide4_img',
+                            'evl_slide5_img',
+                        );
 
-                        if (in_array($key, $sliderKeys)) {
+                        if (in_array($key, $bootstrapsliderKeys)) {
                                 $img_name = basename($value['url']);
                                 $plugin_options[$key] = array('url' => "{$evolve_imagepathfolder}bootstrap-slider/{$img_name}");
+                        } elseif (in_array($key, $parallaxsliderKeys)) {
+                                $img_name = basename($value['url']);
+                                $plugin_options[$key] = array('url' => "{$evolve_imagepathfolder}parallax/{$img_name}");
                         } else {
                             if (isset($plugin_options[$key]) && $plugin_options[$key] != $value) {
                                 $changed_values[$key] = $value;

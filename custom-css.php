@@ -1539,9 +1539,9 @@ body #header.sticky-header img#logo-image {
     //Google Map Title Section
     $evolve_css_data .= evolve_print_fonts('evl_googlemap_title_alignment', 'h2.googlemap_section_title', $additional_css = '');
 
+    // Woocommerce Product Title Section
     include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
     if ( is_plugin_active('woocommerce/woocommerce.php') ) :
-        // Woocommerce Product Title Section
         $evolve_css_data .= evolve_print_fonts('evl_woo_product_title_alignment', 'h2.woo_product_section_title', $additional_css = '');
     endif;
 
@@ -1978,11 +1978,7 @@ body #header.sticky-header {
     margin-left: -15px;
 }
 ';
-    }
-	
-$options = get_option('evl_options');
-$evolve_content_top_padding = $options['evl_content_top_bottom_padding']['padding-top'];
-$evolve_content_bottom_padding = $options['evl_content_top_bottom_padding']['padding-bottom'];
+}
 
 if (!empty($evolve_social_color)) {
 $evolve_css_data .= '
@@ -4025,6 +4021,10 @@ $evolve_css_data .= '
 
 // Homepage and Frontpage 100% template style
 $evolve_frontpage_layout = evolve_get_option('evl_frontpage_layout', '1c');
+$options = get_option('evl_options');
+$evolve_content_top_padding = $options['evl_content_top_bottom_padding']['padding-top'];
+$evolve_content_bottom_padding = $options['evl_content_top_bottom_padding']['padding-bottom'];
+
 if ((is_home() || is_front_page()) && $evolve_frontpage_layout == "1c" && $evolve_frontpage_width_layout == "fluid") {
     $evolve_css_data .= '
     .content .container {
