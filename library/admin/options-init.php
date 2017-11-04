@@ -2373,10 +2373,18 @@ if (is_plugin_active('woocommerce/woocommerce.php')) :
             array(
                 'id' => 'evl_fp_woo_product',
                 'title' => __('Product Categories', 'evolve'),
-                'subtitle' => __('Select Product Categories <br> (If you have not select any Categories, Product will not display in frontside)', 'evolve'),
+                'subtitle' => __('Select Product Category <br> (If you have not select any Category, Category product will not display in frontside)', 'evolve'),
                 'type' => 'select',
                 'options' => $product_texonomy,
                 'default' => 'none',
+            ),
+            array(
+                'title' => __('Products Per Page', 'evolve'),
+                'id' => 'evl_fp_woo_product_number',
+                'type' => 'select',
+                'default' => '12',
+                'options' => evolve_shortcodes_range(36, true, true),
+                'subtitle' => __('Select number of Products per page', 'evolve'),
             ),
             // Section settings
             array(
@@ -7205,6 +7213,12 @@ function evolve_import_demo_content($wp_customize) {
                     case 'bbpress-buddypress':
                             $theme_options_txt = get_template_directory_uri() . '/library/importer/data/bbpress_buddypress.json';
                             break;
+                }
+
+                if ( $frontpage_prebuilt_new_demo == 'woocommerce' ) {
+                        $custom_css = 'body { background-color: #ecebe9; }';
+                        $additional_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
+                        wp_update_custom_css_post( $additional_css . $custom_css );
                 }
 
                 $theme_options_txt = wp_remote_get($theme_options_txt);

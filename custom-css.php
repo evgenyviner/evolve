@@ -4062,3 +4062,11 @@ $evolve_css_data .= '
     }
     ';
 }
+
+if ( is_home() || is_front_page() ) {
+    $evolve_css_data .= '
+    .home .t4p-testimonials .reviews .image {
+            width: 100%;
+    }
+    ';
+}

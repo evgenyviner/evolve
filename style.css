@@ -4427,7 +4427,6 @@ ul.nav-menu li.nav-hover ul {
   -ms-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) inset;
   -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) inset;
-  color: #ffffff;
 }
 
 .home .type-post.sticky .entry-title a,
@@ -4461,7 +4460,7 @@ ul.nav-menu li.nav-hover ul {
 .home .formatted-post .comment-number,
 .home .type-post.sticky .comment-number a,
 .home .formatted-post .comment-number a {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 .home .type-post h1.entry-title, .page-template-blog-page-php .type-post h1.entry-title {
@@ -4518,6 +4517,7 @@ ul.nav-menu li.nav-hover ul {
   position: absolute;
   top: 0;
   right: 0;
+  color: #ffffff;
 }
 
 .t4p-icon-youtube-play::before {

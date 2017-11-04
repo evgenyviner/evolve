@@ -883,6 +883,7 @@ function evolve_woocommerce_products() {
     global $evl_options;
 
     $product_cat = $evl_options["evl_fp_woo_product"];
+    $product_number = $evl_options["evl_fp_woo_product_number"];
 
     $evolve_woo_product_section_padding_top          = $evl_options['evl_woo_product_section_padding']['padding-top'];
     $evolve_woo_product_section_padding_bottom       = $evl_options['evl_woo_product_section_padding']['padding-bottom'];
@@ -949,9 +950,9 @@ function evolve_woocommerce_products() {
     $html  .= "<div class='t4p-woo-product' >".$evolve_woo_product_section_title;
 
     if ($product_cat) {
-        $html .= do_shortcode( '[product_category category="'.$product_cat.'"  per_page="12" orderby="title" order="asc"]' );
+        $html .= do_shortcode( '[product_category category="'.$product_cat.'"  per_page="'. $product_number .'" orderby="title" order="asc"]' );
     } else {
-        $html .= do_shortcode( '[products limit="12" columns="4" category="" cat_operator="AND"]' );
+        $html .= do_shortcode( '[products limit="'. $product_number .'" columns="4" category="" cat_operator="AND"]' );
     }
 
     $html .= "</div></div></div>";
