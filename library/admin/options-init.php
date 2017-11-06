@@ -7216,9 +7216,27 @@ function evolve_import_demo_content($wp_customize) {
                 }
 
                 if ( $frontpage_prebuilt_new_demo == 'woocommerce' ) {
-                        $custom_css = 'body { background-color: #ecebe9; }';
-                        $additional_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
-                        wp_update_custom_css_post( $additional_css . $custom_css );
+                        $theme_name = basename ( get_stylesheet_directory() );
+
+                        $theme_mods = get_option('theme_mods_'.$theme_name, false);
+                        $theme_mods['background_color'] = "ecebe9";
+                        update_option('theme_mods_'.$theme_name, $theme_mods);
+
+                        $color = '{
+                            "'.$theme_name.'"::background_color": {
+                                "value": "#ecebe9",
+                                "type": "theme_mod",
+                                "user_id": 1
+                            }
+                        }';
+                        $defaults = array(
+                            'post_content' => $color,
+                            'post_status' => 'trash',
+                            'post_type' => 'customize_changeset',
+                            'comment_status' => 'closed',
+                            'ping_status' => 'closed',
+                        );
+                        wp_insert_post( $defaults, false );
                 }
 
                 $theme_options_txt = wp_remote_get($theme_options_txt);
