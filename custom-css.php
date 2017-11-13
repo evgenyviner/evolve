@@ -4034,24 +4034,25 @@ if ((is_home() || is_front_page()) && $evolve_frontpage_layout == "1c" && $evolv
     }
 
     @media (min-width: ' . $evolve_min_width_px . 'px) {
-    .content .container .t4p-fullwidth .t4p-row {
-        width: ' . $evolve_min_width_100_px . 'px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+        .content .container .t4p-fullwidth .t4p-row {
+            width: ' . $evolve_min_width_100_px . 'px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    .contact-page {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-    
-    .content .homepage-content {
-            padding-top: ' . $evolve_content_top_padding .';
-            padding-bottom: ' . $evolve_content_bottom_padding .';
-    }
-    .content {
-            padding-top: 0px;
-            padding-bottom: 0px;
+        .contact-page {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .content .homepage-content {
+                padding-top: ' . $evolve_content_top_padding .';
+                padding-bottom: ' . $evolve_content_bottom_padding .';
+        }
+        .content {
+                padding-top: 0px;
+                padding-bottom: 0px;
+        }
     }
     ';
 } else {
