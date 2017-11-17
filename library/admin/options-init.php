@@ -7240,6 +7240,30 @@ function evolve_import_demo_content($wp_customize) {
                         );
                         wp_insert_post( $defaults, false );
                 }
+				
+                if ( $frontpage_prebuilt_new_demo == 'woocommerce-2' ) {
+                        $theme_name = basename ( get_stylesheet_directory() );
+
+                        $theme_mods = get_option('theme_mods_'.$theme_name, false);
+                        $theme_mods['background_color'] = "ffffff";
+                        update_option('theme_mods_'.$theme_name, $theme_mods);
+
+                        $color = '{
+                            "'.$theme_name.'"::background_color": {
+                                "value": "#ffffff",
+                                "type": "theme_mod",
+                                "user_id": 1
+                            }
+                        }';
+                        $defaults = array(
+                            'post_content' => $color,
+                            'post_status' => 'trash',
+                            'post_type' => 'customize_changeset',
+                            'comment_status' => 'closed',
+                            'ping_status' => 'closed',
+                        );
+                        wp_insert_post( $defaults, false );
+                }				
 
                 $theme_options_txt = wp_remote_get($theme_options_txt);
                 $imported_options = json_decode(( $theme_options_txt['body']), true);
