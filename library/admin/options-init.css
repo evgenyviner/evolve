@@ -415,3 +415,38 @@ li#accordion-panel-nav_menus > h3.accordion-section-title:before {
 #customize-theme-controls .customize-pane-child h3.accordion-section-title {
     background: #23282d none repeat scroll 0 0;
 }
+
+
+/* For Front/Home Page Demo Image Hover Overlay*/
+
+#evl_options-evl_frontpage_prebuilt_demo ul li .redux-image-select {
+    position: relative;
+}
+
+#evl_options-evl_frontpage_prebuilt_demo .hover_opacity {
+    opacity: 1;
+}
+
+.fp_demooverlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+}
+
+.fp_demoname {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-transform: capitalize;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}

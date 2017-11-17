@@ -223,8 +223,22 @@ if ( is_home() || is_front_page() ) {
             }
         }
         ';
-    }  
-} elseif ($evolve_width_px && ( $evolve_width_layout == "fixed" )) {
+    }  else {
+        $evolve_css_data .= '
+        @media (min-width: ' . $evolve_min_width_px . 'px) {
+            .container {
+                width: ' . $evolve_width_px . 'px;
+            }
+            .menu-back .container:first-child {
+                width: 100%;
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+        }
+        ';
+    }
+} else {
+    if ($evolve_width_px && ( $evolve_width_layout == "fixed" )) {
 $evolve_css_data .= '
 @media (min-width: ' . $evolve_min_width_px . 'px) {
     .container,
@@ -247,6 +261,7 @@ $evolve_css_data .= '
 }
 ';
     }
+}
 
 if ($evolve_gmap_address && $evolve_status_gmap):
 $evolve_css_data .= '

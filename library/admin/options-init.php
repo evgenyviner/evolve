@@ -259,17 +259,19 @@ foreach ($options_pages_obj as $page) {
     $options_pages[$page->ID] = $page->post_title;
 }
 
-function evolve_addPanelCSS() {
+function evolve_options_media() {
     wp_register_style(
-            'evolve-redux-custom-css', get_template_directory_uri() . '/library/admin/panel.css', array('redux-admin-css'), // Be sure to include redux-admin-css so it's appended after the core css is applied
+            'evolve-redux-custom-css', get_template_directory_uri() . '/library/admin/options-init.css', array('redux-admin-css'), // Be sure to include redux-admin-css so it's appended after the core css is applied
             time(), //$evolve_theme->get( 'Version' )
             'all'
     );
     wp_enqueue_style('evolve-redux-custom-css');
+
+    wp_enqueue_script('evolve-redux-custom-js', get_template_directory_uri() . '/library/admin/options-init.js', array(), '', true);
 }
 
 // This example assumes your opt_name is set to redux_demo, replace with your opt_name value
-add_action("redux/page/{$evolve_opt_name}/enqueue", 'evolve_addPanelCSS');
+add_action("redux/page/{$evolve_opt_name}/enqueue", 'evolve_options_media');
 
 function evolve_newIconFont() {
     wp_register_style(
