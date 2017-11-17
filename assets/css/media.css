@@ -482,10 +482,11 @@
     body.body_blank.admin-bar {
         top: 45px;
     }
-    html #wpadminbar {
+    /* in the Theme Check we cannot use this as it fails, find better solution
+	html #wp_adminbar {
         z-index: 9999999;
         position: fixed;
-    }
+    } */
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 640px) {

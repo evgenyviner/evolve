@@ -87,7 +87,7 @@ endif;
                             }
 
                             _e('Written by', 'evolve');
-                            ?> <strong><?php printf('<a class="url fn" href="' . get_author_posts_url($authordata->ID, $authordata->user_nicename) . '" title="' . esc_attr(sprintf(__('View all posts by %s'), $authordata->display_name)) . '">' . get_the_author() . '</a>') ?></strong>
+                            ?> <strong><?php printf('<a class="url fn" href="' . get_author_posts_url($authordata->ID, $authordata->user_nicename) . '" title="' . esc_attr(sprintf(__('View all posts by %s', 'evolve'), $authordata->display_name)) . '">' . get_the_author() . '</a>') ?></strong>
                         </span>
                         <?php
                         if ($evolve_edit_post == "1") {

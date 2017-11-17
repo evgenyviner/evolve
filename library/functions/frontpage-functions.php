@@ -1577,7 +1577,7 @@ function entry_meta_default() {
 
             foreach ($categories as $category) {
 
-                $output .= '<a href="' . get_category_link($category->term_id) . '" title="' . esc_attr(sprintf(__("View all posts in %s"), $category->name)) . '">' . $category->cat_name . '</a>';
+                $output .= '<a href="' . get_category_link($category->term_id) . '" title="' . esc_attr(sprintf(__("View all posts in %s", 'evolve'), $category->name)) . '">' . $category->cat_name . '</a>';
 
                 if ($count < $no_of_categories) {
                     $output .= $separator;

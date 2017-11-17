@@ -1,5 +1,5 @@
 Version:         3.8.0  
-Date:         8/7/17        
+Date:         17/11/17        
 
 - Added Custom Home/Front Page Builder with prebuilt demos
 - Added 6 new elements for the home/front page area
