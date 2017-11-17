@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: evolve\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-23 18:41+0100\n"
-"PO-Revision-Date: 2017-09-23 18:41+0100\n"
+"POT-Creation-Date: 2017-11-17 12:12+0100\n"
+"PO-Revision-Date: 2017-11-17 12:12+0100\n"
 "Last-Translator: admin <senditme@centrum.sk>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -69,7 +69,7 @@ msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: archive.php:63 library/admin/options-init.php:6307
+#: archive.php:63 library/admin/options-init.php:6315
 msgid "Posts in category"
 msgstr ""
 
@@ -78,64 +78,64 @@ msgid "Posts tagged"
 msgstr ""
 
 #: archive.php:113 archive.php:278 author.php:91 author.php:256
-#: content-blog.php:76 content-blog.php:245 index.php:89 index.php:265
+#: content-blog.php:91 content-blog.php:260 index.php:104 index.php:294
 #: search.php:84 search.php:289 single.php:89
 msgid "Written by"
 msgstr ""
 
 #: archive.php:113 archive.php:279 attachment.php:76 author.php:91
-#: author.php:257 content-blog.php:76 content-blog.php:246 index.php:89
-#: index.php:266 search.php:84 search.php:290 single.php:90
+#: author.php:257 content-blog.php:91 content-blog.php:261 index.php:104
+#: index.php:295 search.php:84 search.php:290 single.php:90
 #, php-format
 msgid "View all posts by %s"
 msgstr ""
 
 #: archive.php:118 archive.php:140 archive.php:284 archive.php:305
 #: attachment.php:81 attachment.php:95 author.php:96 author.php:118
-#: author.php:262 author.php:283 contact.php:130 content-blog.php:81
-#: content-blog.php:251 content-blog.php:272 index.php:94 index.php:114
-#: index.php:270 index.php:288 page.php:58 search.php:89 search.php:111
+#: author.php:262 author.php:283 contact.php:145 content-blog.php:96
+#: content-blog.php:266 content-blog.php:287 index.php:109 index.php:129
+#: index.php:299 index.php:317 page.php:73 search.php:89 search.php:111
 #: search.php:295 search.php:317 single.php:64 single.php:95 single.php:113
 #: library/functions/pluggable.php:104
 msgid "EDIT"
 msgstr ""
 
 #: archive.php:195 archive.php:359 author.php:173 author.php:337
-#: content-blog.php:159 content-blog.php:332 index.php:180 index.php:347
-#: search.php:167 search.php:371 library/functions/basic-functions.php:1013
-#: library/functions/frontpage-functions.php:1359
+#: content-blog.php:174 content-blog.php:347 index.php:195 index.php:376
+#: search.php:167 search.php:371 library/functions/basic-functions.php:1042
+#: library/functions/frontpage-functions.php:1739
 msgid "Read More"
 msgstr ""
 
 #: archive.php:198 archive.php:265 attachment.php:62 author.php:176
-#: author.php:243 content-blog.php:162 content-blog.php:234 index.php:183
-#: index.php:250 search.php:171 search.php:276 single.php:76
+#: author.php:243 content-blog.php:177 content-blog.php:249 index.php:198
+#: index.php:279 search.php:171 search.php:276 single.php:76
 msgid "Leave a Comment"
 msgstr ""
 
 #: archive.php:198 archive.php:265 attachment.php:62 author.php:176
-#: author.php:243 content-blog.php:162 content-blog.php:234 index.php:183
-#: index.php:250 search.php:171 search.php:276 single.php:76
+#: author.php:243 content-blog.php:177 content-blog.php:249 index.php:198
+#: index.php:279 search.php:171 search.php:276 single.php:76
 #: library/functions/comments.php:30
-#: library/functions/frontpage-functions.php:1307
+#: library/functions/frontpage-functions.php:1687
 msgid "1 Comment"
 msgstr ""
 
 #: archive.php:198 archive.php:265 attachment.php:62 author.php:176
-#: author.php:243 content-blog.php:162 content-blog.php:234 index.php:183
-#: index.php:250 search.php:171 search.php:276 single.php:76
+#: author.php:243 content-blog.php:177 content-blog.php:249 index.php:198
+#: index.php:279 search.php:171 search.php:276 single.php:76
 #: library/functions/comments.php:28
-#: library/functions/frontpage-functions.php:1307
+#: library/functions/frontpage-functions.php:1687
 msgid "% Comments"
 msgstr ""
 
-#: archive.php:364 author.php:342 content-blog.php:337 index.php:352
+#: archive.php:364 author.php:342 content-blog.php:352 index.php:381
 #: search.php:376 single.php:132
 msgid "Read More &raquo;"
 msgstr ""
 
-#: archive.php:366 author.php:344 index.php:354 search.php:378 single.php:134
-#: library/functions/frontpage-functions.php:1383
+#: archive.php:366 author.php:344 index.php:383 search.php:378 single.php:134
+#: library/functions/frontpage-functions.php:1763
 msgid "<strong>Pages:</strong>"
 msgstr ""
 
@@ -147,8 +147,8 @@ msgstr ""
 msgid "Posts by"
 msgstr ""
 
-#: bbpress.php:20 buddypress.php:20 content-blog.php:339
-#: library/admin/options-init.php:3031
+#: bbpress.php:20 buddypress.php:20 content-blog.php:354
+#: library/admin/options-init.php:3039
 msgid "Pages"
 msgstr ""
 
@@ -176,47 +176,79 @@ msgstr ""
 msgid "Comments:"
 msgstr ""
 
-#: contact.php:142
+#: contact.php:157
 msgid ""
 "Please check if you've filled all the fields with valid information. Thank "
 "you."
 msgstr ""
 
-#: contact.php:149
+#: contact.php:164
 msgid "Thank you"
 msgstr ""
 
-#: contact.php:149
+#: contact.php:164
 msgid "for using my contact form! Your email was successfully sent!"
 msgstr ""
 
-#: contact.php:162
+#: contact.php:177
 msgid "Name (required)"
 msgstr ""
 
-#: contact.php:170
+#: contact.php:185
 msgid "Email (required)"
 msgstr ""
 
-#: contact.php:178
+#: contact.php:193
 msgid "Subject"
 msgstr ""
 
-#: contact.php:186
+#: contact.php:201
 msgid "Message"
 msgstr ""
 
-#: contact.php:202
+#: contact.php:217
 msgid "Send Message"
 msgstr ""
 
-#: content-blog.php:62
+#: content-blog.php:77
 msgid "Permanent Link to "
 msgstr ""
 
-#: content-blog.php:92 content-blog.php:219 content-blog.php:261
+#: content-blog.php:107 content-blog.php:234 content-blog.php:276
 #: library/functions/basic-functions.php:236
 msgid "Permanent Link to"
+msgstr ""
+
+#: functions.php:194 functions.php:208 functions.php:222 functions.php:236
+#: functions.php:250 functions.php:264 functions.php:278 functions.php:296
+#: functions.php:310 functions.php:324 functions.php:339 functions.php:353
+#: functions.php:367 functions.php:382 library/admin/options-init.php:824
+msgid "Header (REORDER ONLY)"
+msgstr ""
+
+#: functions.php:195 functions.php:213 functions.php:227 functions.php:237
+#: functions.php:251 functions.php:270 functions.php:279 functions.php:295
+#: functions.php:314 functions.php:328 functions.php:337 functions.php:351
+#: functions.php:371 functions.php:379
+msgid "Bootstrap Slider (ACTIVE)"
+msgstr ""
+
+#: functions.php:199 functions.php:209 functions.php:228 functions.php:238
+#: functions.php:256 functions.php:265 functions.php:280 functions.php:300
+#: functions.php:309 functions.php:329 functions.php:338 functions.php:357
+#: functions.php:365 functions.php:380 library/admin/options-init.php:828
+#: library/admin/options-init.php:6183
+#: library/views/metaboxes/page_tabs/tab_slider.php:12
+msgid "Parallax Slider"
+msgstr ""
+
+#: functions.php:200 functions.php:214 functions.php:223 functions.php:242
+#: functions.php:252 functions.php:266 functions.php:281 functions.php:301
+#: functions.php:315 functions.php:323 functions.php:343 functions.php:352
+#: functions.php:366 functions.php:381 library/admin/options-init.php:829
+#: library/admin/options-init.php:6278
+#: library/views/metaboxes/page_tabs/tab_slider.php:13
+msgid "Posts Slider"
 msgstr ""
 
 #: navigation.php:30
@@ -260,34 +292,34 @@ msgstr ""
 msgid "Type your search"
 msgstr ""
 
-#: social-buttons.php:19 library/admin/options-init.php:5728
+#: social-buttons.php:19 library/admin/options-init.php:5736
 msgid "RSS Feed"
 msgstr ""
 
-#: social-buttons.php:25 library/admin/options-init.php:5735
+#: social-buttons.php:25 library/admin/options-init.php:5743
 msgid "Newsletter"
 msgstr ""
 
 #: social-buttons.php:31 library/admin/options-init.php:336
-#: library/admin/options-init.php:5584 library/admin/options-init.php:5741
+#: library/admin/options-init.php:5592 library/admin/options-init.php:5749
 msgid "Facebook"
 msgstr ""
 
-#: social-buttons.php:36 library/admin/options-init.php:5593
-#: library/admin/options-init.php:5747
+#: social-buttons.php:36 library/admin/options-init.php:5601
+#: library/admin/options-init.php:5755
 msgid "Twitter"
 msgstr ""
 
-#: social-buttons.php:41 library/admin/options-init.php:5620
-#: library/admin/options-init.php:5783
+#: social-buttons.php:41 library/admin/options-init.php:5628
+#: library/admin/options-init.php:5791
 msgid "Google Plus"
 msgstr ""
 
-#: social-buttons.php:46 library/admin/options-init.php:5753
+#: social-buttons.php:46 library/admin/options-init.php:5761
 msgid "Instagram"
 msgstr ""
 
-#: social-buttons.php:51 library/admin/options-init.php:5759
+#: social-buttons.php:51 library/admin/options-init.php:5767
 msgid "Skype"
 msgstr ""
 
@@ -295,21 +327,21 @@ msgstr ""
 msgid "YouTube"
 msgstr ""
 
-#: social-buttons.php:61 library/admin/options-init.php:5771
+#: social-buttons.php:61 library/admin/options-init.php:5779
 msgid "Flickr"
 msgstr ""
 
-#: social-buttons.php:66 library/admin/options-init.php:5611
+#: social-buttons.php:66 library/admin/options-init.php:5619
 msgid "LinkedIn"
 msgstr ""
 
-#: social-buttons.php:71 library/admin/options-init.php:5638
-#: library/admin/options-init.php:5789
+#: social-buttons.php:71 library/admin/options-init.php:5646
+#: library/admin/options-init.php:5797
 msgid "Pinterest"
 msgstr ""
 
-#: social-buttons.php:76 library/admin/options-init.php:5629
-#: library/admin/options-init.php:5795
+#: social-buttons.php:76 library/admin/options-init.php:5637
+#: library/admin/options-init.php:5803
 msgid "Tumblr"
 msgstr ""
 
@@ -727,7 +759,7 @@ msgid "Replies"
 msgstr ""
 
 #: bbpress/loop-forums.php:18 bbpress/loop-topics.php:18
-#: library/admin/options-init.php:5143
+#: library/admin/options-init.php:5151
 msgid "Posts"
 msgstr ""
 
@@ -888,7 +920,7 @@ msgstr ""
 #: library/woo-config.php:407 library/woo-config.php:409
 #: library/woo-config.php:410 library/woo-config.php:411
 #: library/admin/options-init.php:389 library/admin/options-init.php:409
-#: library/admin/options-init.php:6558
+#: library/admin/options-init.php:6566
 #: library/views/metaboxes/page_tabs/tab_pagetitlebar.php:4
 #: library/views/metaboxes/page_tabs/tab_pagetitlebar.php:10
 msgid "Show"
@@ -1208,7 +1240,7 @@ msgid "Content Boxes"
 msgstr ""
 
 #: library/admin/options-init.php:192 library/admin/options-init.php:207
-#: library/admin/options-init.php:2191 library/admin/options-init.php:5007
+#: library/admin/options-init.php:2191 library/admin/options-init.php:5015
 msgid "Testimonials"
 msgstr ""
 
@@ -1230,7 +1262,7 @@ msgid "Counter Circles"
 msgstr ""
 
 #: library/admin/options-init.php:197 library/admin/options-init.php:211
-#: library/admin/options-init.php:2511
+#: library/admin/options-init.php:2519
 msgid "Custom Content"
 msgstr ""
 
@@ -1269,7 +1301,7 @@ msgid "Switch if you want to display/hide premium features by default"
 msgstr ""
 
 #: library/admin/options-init.php:390 library/admin/options-init.php:410
-#: library/admin/options-init.php:6557
+#: library/admin/options-init.php:6565
 #: library/views/metaboxes/page_tabs/tab_pagetitlebar.php:5
 #: library/views/metaboxes/page_tabs/tab_pagetitlebar.php:11
 msgid "Hide"
@@ -1280,8 +1312,8 @@ msgid "Premium features:"
 msgstr ""
 
 #: library/admin/options-init.php:419 library/admin/options-init.php:426
-#: library/admin/options-init.php:5067 library/admin/options-init.php:5350
-#: library/admin/options-init.php:5930 library/admin/options-init.php:6182
+#: library/admin/options-init.php:5075 library/admin/options-init.php:5358
+#: library/admin/options-init.php:5938 library/admin/options-init.php:6190
 msgid "General"
 msgstr ""
 
@@ -1311,31 +1343,31 @@ msgstr ""
 #: library/admin/options-init.php:1649 library/admin/options-init.php:1751
 #: library/admin/options-init.php:1897 library/admin/options-init.php:2101
 #: library/admin/options-init.php:2182 library/admin/options-init.php:2344
-#: library/admin/options-init.php:2484 library/admin/options-init.php:2624
-#: library/admin/options-init.php:2686 library/admin/options-init.php:2758
-#: library/admin/options-init.php:2778 library/admin/options-init.php:2803
-#: library/admin/options-init.php:2812 library/admin/options-init.php:2820
-#: library/admin/options-init.php:2829 library/admin/options-init.php:2837
-#: library/admin/options-init.php:2846 library/admin/options-init.php:2854
-#: library/admin/options-init.php:2940 library/admin/options-init.php:2956
-#: library/admin/options-init.php:2969 library/admin/options-init.php:2984
-#: library/admin/options-init.php:3256 library/admin/options-init.php:3516
-#: library/admin/options-init.php:3533 library/admin/options-init.php:3545
-#: library/admin/options-init.php:3559 library/admin/options-init.php:3568
-#: library/admin/options-init.php:3578 library/admin/options-init.php:3587
-#: library/admin/options-init.php:3597 library/admin/options-init.php:3607
-#: library/admin/options-init.php:3888 library/admin/options-init.php:4109
-#: library/admin/options-init.php:4128 library/admin/options-init.php:4161
-#: library/admin/options-init.php:4390 library/admin/options-init.php:4813
-#: library/admin/options-init.php:5042 library/admin/options-init.php:5076
-#: library/admin/options-init.php:5911 library/admin/options-init.php:6059
-#: library/admin/options-init.php:6164 library/admin/options-init.php:6623
-#: library/admin/options-init.php:6633 library/admin/options-init.php:6671
-#: library/admin/options-init.php:6681 library/admin/options-init.php:6700
-#: library/admin/options-init.php:6708 library/admin/options-init.php:6718
-#: library/admin/options-init.php:6742 library/admin/options-init.php:6750
-#: library/admin/options-init.php:6774 library/admin/options-init.php:6789
-#: library/admin/options-init.php:6815
+#: library/admin/options-init.php:2492 library/admin/options-init.php:2632
+#: library/admin/options-init.php:2694 library/admin/options-init.php:2766
+#: library/admin/options-init.php:2786 library/admin/options-init.php:2811
+#: library/admin/options-init.php:2820 library/admin/options-init.php:2828
+#: library/admin/options-init.php:2837 library/admin/options-init.php:2845
+#: library/admin/options-init.php:2854 library/admin/options-init.php:2862
+#: library/admin/options-init.php:2948 library/admin/options-init.php:2964
+#: library/admin/options-init.php:2977 library/admin/options-init.php:2992
+#: library/admin/options-init.php:3264 library/admin/options-init.php:3524
+#: library/admin/options-init.php:3541 library/admin/options-init.php:3553
+#: library/admin/options-init.php:3567 library/admin/options-init.php:3576
+#: library/admin/options-init.php:3586 library/admin/options-init.php:3595
+#: library/admin/options-init.php:3605 library/admin/options-init.php:3615
+#: library/admin/options-init.php:3896 library/admin/options-init.php:4117
+#: library/admin/options-init.php:4136 library/admin/options-init.php:4169
+#: library/admin/options-init.php:4398 library/admin/options-init.php:4821
+#: library/admin/options-init.php:5050 library/admin/options-init.php:5084
+#: library/admin/options-init.php:5919 library/admin/options-init.php:6067
+#: library/admin/options-init.php:6172 library/admin/options-init.php:6631
+#: library/admin/options-init.php:6641 library/admin/options-init.php:6679
+#: library/admin/options-init.php:6689 library/admin/options-init.php:6708
+#: library/admin/options-init.php:6716 library/admin/options-init.php:6726
+#: library/admin/options-init.php:6750 library/admin/options-init.php:6758
+#: library/admin/options-init.php:6782 library/admin/options-init.php:6797
+#: library/admin/options-init.php:6823
 #, php-format
 msgid ""
 "This option is only available with the <a href=\"%s\" target=\"_blank"
@@ -1543,23 +1575,9 @@ msgstr ""
 msgid "Header Area"
 msgstr ""
 
-#: library/admin/options-init.php:824
-msgid "Header (REORDER ONLY)"
-msgstr ""
-
-#: library/admin/options-init.php:827 library/admin/options-init.php:5923
+#: library/admin/options-init.php:827 library/admin/options-init.php:5931
 #: library/views/metaboxes/page_tabs/tab_slider.php:14
 msgid "Bootstrap Slider"
-msgstr ""
-
-#: library/admin/options-init.php:828 library/admin/options-init.php:6175
-#: library/views/metaboxes/page_tabs/tab_slider.php:12
-msgid "Parallax Slider"
-msgstr ""
-
-#: library/admin/options-init.php:829 library/admin/options-init.php:6270
-#: library/views/metaboxes/page_tabs/tab_slider.php:13
-msgid "Posts Slider"
 msgstr ""
 
 #: library/admin/options-init.php:837
@@ -1590,9 +1608,9 @@ msgid ""
 "Theme4Press Composer</a>"
 msgstr ""
 
-#: library/admin/options-init.php:886 library/admin/options-init.php:4127
-#: library/admin/options-init.php:5060
-#: library/functions/basic-functions.php:874
+#: library/admin/options-init.php:886 library/admin/options-init.php:4135
+#: library/admin/options-init.php:5068
+#: library/functions/basic-functions.php:903
 msgid "Blog"
 msgstr ""
 
@@ -1604,8 +1622,8 @@ msgstr ""
 msgid "Grid"
 msgstr ""
 
-#: library/admin/options-init.php:896 library/admin/options-init.php:4157
-#: library/admin/options-init.php:5683
+#: library/admin/options-init.php:896 library/admin/options-init.php:4165
+#: library/admin/options-init.php:5691
 msgid "Large"
 msgstr ""
 
@@ -1647,8 +1665,8 @@ msgstr ""
 #: library/admin/options-init.php:986 library/admin/options-init.php:994
 #: library/admin/options-init.php:1002 library/admin/options-init.php:1010
 #: library/admin/options-init.php:1018 library/admin/options-init.php:1026
-#: library/admin/options-init.php:1058 library/admin/options-init.php:4912
-#: library/admin/options-init.php:5543
+#: library/admin/options-init.php:1058 library/admin/options-init.php:4920
+#: library/admin/options-init.php:5551
 #: library/views/metaboxes/page_tabs/tab_layout.php:20
 #: library/views/metaboxes/page_tabs/tab_widget.php:5
 msgid "Yes"
@@ -1660,8 +1678,8 @@ msgstr ""
 #: library/admin/options-init.php:986 library/admin/options-init.php:994
 #: library/admin/options-init.php:1002 library/admin/options-init.php:1010
 #: library/admin/options-init.php:1018 library/admin/options-init.php:1026
-#: library/admin/options-init.php:1058 library/admin/options-init.php:4911
-#: library/admin/options-init.php:5542
+#: library/admin/options-init.php:1058 library/admin/options-init.php:4919
+#: library/admin/options-init.php:5550
 #: library/views/metaboxes/page_tabs/tab_layout.php:19
 #: library/views/metaboxes/page_tabs/tab_widget.php:4
 msgid "No"
@@ -1785,15 +1803,15 @@ msgstr ""
 msgid "Grid Layout # of Columns"
 msgstr ""
 
-#: library/admin/options-init.php:1047 library/admin/options-init.php:5698
+#: library/admin/options-init.php:1047 library/admin/options-init.php:5706
 msgid "2"
 msgstr ""
 
-#: library/admin/options-init.php:1048 library/admin/options-init.php:5699
+#: library/admin/options-init.php:1048 library/admin/options-init.php:5707
 msgid "3"
 msgstr ""
 
-#: library/admin/options-init.php:1049 library/admin/options-init.php:5700
+#: library/admin/options-init.php:1049 library/admin/options-init.php:5708
 msgid "4"
 msgstr ""
 
@@ -1819,13 +1837,13 @@ msgstr ""
 
 #: library/admin/options-init.php:1080 library/admin/options-init.php:1565
 #: library/admin/options-init.php:1813 library/admin/options-init.php:2017
-#: library/admin/options-init.php:2260 library/admin/options-init.php:2400
-#: library/admin/options-init.php:2540 library/admin/options-init.php:3109
-#: library/admin/options-init.php:3163 library/admin/options-init.php:3222
-#: library/admin/options-init.php:3276 library/admin/options-init.php:3320
-#: library/admin/options-init.php:3365 library/admin/options-init.php:3410
-#: library/admin/options-init.php:5976 library/admin/options-init.php:6219
-#: library/admin/options-init.php:6363
+#: library/admin/options-init.php:2260 library/admin/options-init.php:2408
+#: library/admin/options-init.php:2548 library/admin/options-init.php:3117
+#: library/admin/options-init.php:3171 library/admin/options-init.php:3230
+#: library/admin/options-init.php:3284 library/admin/options-init.php:3328
+#: library/admin/options-init.php:3373 library/admin/options-init.php:3418
+#: library/admin/options-init.php:5984 library/admin/options-init.php:6227
+#: library/admin/options-init.php:6371
 msgid ""
 "The following required plugin for the font options is currently inactive: "
 "<b>Redux Framework</b>"
@@ -1833,8 +1851,8 @@ msgstr ""
 
 #: library/admin/options-init.php:1083 library/admin/options-init.php:1568
 #: library/admin/options-init.php:1816 library/admin/options-init.php:2020
-#: library/admin/options-init.php:2263 library/admin/options-init.php:2403
-#: library/admin/options-init.php:2543
+#: library/admin/options-init.php:2263 library/admin/options-init.php:2411
+#: library/admin/options-init.php:2551
 msgid ""
 "Select the font, alignment and color of the section title. * non web-safe "
 "font."
@@ -1842,43 +1860,43 @@ msgstr ""
 
 #: library/admin/options-init.php:1086 library/admin/options-init.php:1571
 #: library/admin/options-init.php:1819 library/admin/options-init.php:2023
-#: library/admin/options-init.php:2266 library/admin/options-init.php:2406
-#: library/admin/options-init.php:2546
+#: library/admin/options-init.php:2266 library/admin/options-init.php:2414
+#: library/admin/options-init.php:2554
 msgid "Title Font, Alignment and Color"
 msgstr ""
 
 #: library/admin/options-init.php:1098 library/admin/options-init.php:1583
 #: library/admin/options-init.php:1831 library/admin/options-init.php:2035
-#: library/admin/options-init.php:2278 library/admin/options-init.php:2418
-#: library/admin/options-init.php:2558
+#: library/admin/options-init.php:2278 library/admin/options-init.php:2426
+#: library/admin/options-init.php:2566
 msgid "Enter the section padding."
 msgstr ""
 
 #: library/admin/options-init.php:1102 library/admin/options-init.php:1587
 #: library/admin/options-init.php:1835 library/admin/options-init.php:2039
-#: library/admin/options-init.php:2282 library/admin/options-init.php:2422
-#: library/admin/options-init.php:2562
+#: library/admin/options-init.php:2282 library/admin/options-init.php:2430
+#: library/admin/options-init.php:2570
 msgid "Section Padding"
 msgstr ""
 
 #: library/admin/options-init.php:1112 library/admin/options-init.php:1597
 #: library/admin/options-init.php:2049 library/admin/options-init.php:2292
-#: library/admin/options-init.php:2432 library/admin/options-init.php:2572
+#: library/admin/options-init.php:2440 library/admin/options-init.php:2580
 msgid ""
 "Upload a section background image for your theme, or specify an image URL "
 "directly."
 msgstr ""
 
 #: library/admin/options-init.php:1115 library/admin/options-init.php:2052
-#: library/admin/options-init.php:2295 library/admin/options-init.php:2435
-#: library/admin/options-init.php:2575
+#: library/admin/options-init.php:2295 library/admin/options-init.php:2443
+#: library/admin/options-init.php:2583
 msgid "Section Image"
 msgstr ""
 
 #: library/admin/options-init.php:1119 library/admin/options-init.php:1604
 #: library/admin/options-init.php:1852 library/admin/options-init.php:2056
-#: library/admin/options-init.php:2299 library/admin/options-init.php:2439
-#: library/admin/options-init.php:2579
+#: library/admin/options-init.php:2299 library/admin/options-init.php:2447
+#: library/admin/options-init.php:2587
 msgid ""
 "Select if the section background image should be displayed in cover or "
 "contain size."
@@ -1886,182 +1904,182 @@ msgstr ""
 
 #: library/admin/options-init.php:1123 library/admin/options-init.php:1608
 #: library/admin/options-init.php:1856 library/admin/options-init.php:2060
-#: library/admin/options-init.php:2303 library/admin/options-init.php:2443
-#: library/admin/options-init.php:2583 library/admin/options-init.php:3711
-#: library/admin/options-init.php:3772 library/admin/options-init.php:4002
+#: library/admin/options-init.php:2303 library/admin/options-init.php:2451
+#: library/admin/options-init.php:2591 library/admin/options-init.php:3719
+#: library/admin/options-init.php:3780 library/admin/options-init.php:4010
 msgid "Cover"
 msgstr ""
 
 #: library/admin/options-init.php:1124 library/admin/options-init.php:1609
 #: library/admin/options-init.php:1857 library/admin/options-init.php:2061
-#: library/admin/options-init.php:2304 library/admin/options-init.php:2444
-#: library/admin/options-init.php:2584 library/admin/options-init.php:3712
-#: library/admin/options-init.php:3773 library/admin/options-init.php:4003
+#: library/admin/options-init.php:2304 library/admin/options-init.php:2452
+#: library/admin/options-init.php:2592 library/admin/options-init.php:3720
+#: library/admin/options-init.php:3781 library/admin/options-init.php:4011
 msgid "Contain"
 msgstr ""
 
 #: library/admin/options-init.php:1125 library/admin/options-init.php:1610
 #: library/admin/options-init.php:1858 library/admin/options-init.php:2062
-#: library/admin/options-init.php:2305 library/admin/options-init.php:2445
-#: library/admin/options-init.php:2585 library/admin/options-init.php:3523
-#: library/admin/options-init.php:3713 library/admin/options-init.php:3774
-#: library/admin/options-init.php:4942 library/admin/options-init.php:5572
+#: library/admin/options-init.php:2305 library/admin/options-init.php:2453
+#: library/admin/options-init.php:2593 library/admin/options-init.php:3531
+#: library/admin/options-init.php:3721 library/admin/options-init.php:3782
+#: library/admin/options-init.php:4950 library/admin/options-init.php:5580
 msgid "None"
 msgstr ""
 
 #: library/admin/options-init.php:1127 library/admin/options-init.php:1860
 #: library/admin/options-init.php:2064 library/admin/options-init.php:2307
-#: library/admin/options-init.php:2447 library/admin/options-init.php:2587
+#: library/admin/options-init.php:2455 library/admin/options-init.php:2595
 msgid "Section Image Background Responsiveness Style"
 msgstr ""
 
 #: library/admin/options-init.php:1134 library/admin/options-init.php:1619
 #: library/admin/options-init.php:1867 library/admin/options-init.php:2071
-#: library/admin/options-init.php:2314 library/admin/options-init.php:2454
-#: library/admin/options-init.php:2594 library/admin/options-init.php:3722
-#: library/admin/options-init.php:3783 library/admin/options-init.php:3945
+#: library/admin/options-init.php:2314 library/admin/options-init.php:2462
+#: library/admin/options-init.php:2602 library/admin/options-init.php:3730
+#: library/admin/options-init.php:3791 library/admin/options-init.php:3953
 msgid "no-repeat"
 msgstr ""
 
 #: library/admin/options-init.php:1135 library/admin/options-init.php:1620
 #: library/admin/options-init.php:1868 library/admin/options-init.php:2072
-#: library/admin/options-init.php:2315 library/admin/options-init.php:2455
-#: library/admin/options-init.php:2595 library/admin/options-init.php:3723
-#: library/admin/options-init.php:3784 library/admin/options-init.php:3942
+#: library/admin/options-init.php:2315 library/admin/options-init.php:2463
+#: library/admin/options-init.php:2603 library/admin/options-init.php:3731
+#: library/admin/options-init.php:3792 library/admin/options-init.php:3950
 msgid "repeat"
 msgstr ""
 
 #: library/admin/options-init.php:1136 library/admin/options-init.php:1621
 #: library/admin/options-init.php:1869 library/admin/options-init.php:2073
-#: library/admin/options-init.php:2316 library/admin/options-init.php:2456
-#: library/admin/options-init.php:2596 library/admin/options-init.php:3724
-#: library/admin/options-init.php:3785 library/admin/options-init.php:3943
+#: library/admin/options-init.php:2316 library/admin/options-init.php:2464
+#: library/admin/options-init.php:2604 library/admin/options-init.php:3732
+#: library/admin/options-init.php:3793 library/admin/options-init.php:3951
 msgid "repeat-x"
 msgstr ""
 
 #: library/admin/options-init.php:1137 library/admin/options-init.php:1622
 #: library/admin/options-init.php:1870 library/admin/options-init.php:2074
-#: library/admin/options-init.php:2317 library/admin/options-init.php:2457
-#: library/admin/options-init.php:2597 library/admin/options-init.php:3725
-#: library/admin/options-init.php:3786 library/admin/options-init.php:3944
+#: library/admin/options-init.php:2317 library/admin/options-init.php:2465
+#: library/admin/options-init.php:2605 library/admin/options-init.php:3733
+#: library/admin/options-init.php:3794 library/admin/options-init.php:3952
 msgid "repeat-y"
 msgstr ""
 
 #: library/admin/options-init.php:1139 library/admin/options-init.php:1624
 #: library/admin/options-init.php:1872 library/admin/options-init.php:2076
-#: library/admin/options-init.php:2319 library/admin/options-init.php:2459
-#: library/admin/options-init.php:2599 library/admin/options-init.php:3727
-#: library/admin/options-init.php:3788 library/admin/options-init.php:3947
+#: library/admin/options-init.php:2319 library/admin/options-init.php:2467
+#: library/admin/options-init.php:2607 library/admin/options-init.php:3735
+#: library/admin/options-init.php:3796 library/admin/options-init.php:3955
 #: library/admin/redux-framework/inc/fields/background/field_background.php:141
 msgid "Background Repeat"
 msgstr ""
 
 #: library/admin/options-init.php:1146 library/admin/options-init.php:1631
 #: library/admin/options-init.php:1879 library/admin/options-init.php:2083
-#: library/admin/options-init.php:2326 library/admin/options-init.php:2466
-#: library/admin/options-init.php:2606 library/admin/options-init.php:3734
-#: library/admin/options-init.php:3795
+#: library/admin/options-init.php:2326 library/admin/options-init.php:2474
+#: library/admin/options-init.php:2614 library/admin/options-init.php:3742
+#: library/admin/options-init.php:3803
 msgid "center top"
 msgstr ""
 
 #: library/admin/options-init.php:1147 library/admin/options-init.php:1632
 #: library/admin/options-init.php:1880 library/admin/options-init.php:2084
-#: library/admin/options-init.php:2327 library/admin/options-init.php:2467
-#: library/admin/options-init.php:2607 library/admin/options-init.php:3735
-#: library/admin/options-init.php:3796
+#: library/admin/options-init.php:2327 library/admin/options-init.php:2475
+#: library/admin/options-init.php:2615 library/admin/options-init.php:3743
+#: library/admin/options-init.php:3804
 msgid "center center"
 msgstr ""
 
 #: library/admin/options-init.php:1148 library/admin/options-init.php:1633
 #: library/admin/options-init.php:1881 library/admin/options-init.php:2085
-#: library/admin/options-init.php:2328 library/admin/options-init.php:2468
-#: library/admin/options-init.php:2608 library/admin/options-init.php:3736
-#: library/admin/options-init.php:3797
+#: library/admin/options-init.php:2328 library/admin/options-init.php:2476
+#: library/admin/options-init.php:2616 library/admin/options-init.php:3744
+#: library/admin/options-init.php:3805
 msgid "center bottom"
 msgstr ""
 
 #: library/admin/options-init.php:1149 library/admin/options-init.php:1634
 #: library/admin/options-init.php:1882 library/admin/options-init.php:2086
-#: library/admin/options-init.php:2329 library/admin/options-init.php:2469
-#: library/admin/options-init.php:2609 library/admin/options-init.php:3737
-#: library/admin/options-init.php:3798
+#: library/admin/options-init.php:2329 library/admin/options-init.php:2477
+#: library/admin/options-init.php:2617 library/admin/options-init.php:3745
+#: library/admin/options-init.php:3806
 msgid "left top"
 msgstr ""
 
 #: library/admin/options-init.php:1150 library/admin/options-init.php:1635
 #: library/admin/options-init.php:1883 library/admin/options-init.php:2087
-#: library/admin/options-init.php:2330 library/admin/options-init.php:2470
-#: library/admin/options-init.php:2610 library/admin/options-init.php:3738
-#: library/admin/options-init.php:3799
+#: library/admin/options-init.php:2330 library/admin/options-init.php:2478
+#: library/admin/options-init.php:2618 library/admin/options-init.php:3746
+#: library/admin/options-init.php:3807
 msgid "left center"
 msgstr ""
 
 #: library/admin/options-init.php:1151 library/admin/options-init.php:1636
 #: library/admin/options-init.php:1884 library/admin/options-init.php:2088
-#: library/admin/options-init.php:2331 library/admin/options-init.php:2471
-#: library/admin/options-init.php:2611 library/admin/options-init.php:3739
-#: library/admin/options-init.php:3800
+#: library/admin/options-init.php:2331 library/admin/options-init.php:2479
+#: library/admin/options-init.php:2619 library/admin/options-init.php:3747
+#: library/admin/options-init.php:3808
 msgid "left bottom"
 msgstr ""
 
 #: library/admin/options-init.php:1152 library/admin/options-init.php:1637
 #: library/admin/options-init.php:1885 library/admin/options-init.php:2089
-#: library/admin/options-init.php:2332 library/admin/options-init.php:2472
-#: library/admin/options-init.php:2612 library/admin/options-init.php:3740
-#: library/admin/options-init.php:3801
+#: library/admin/options-init.php:2332 library/admin/options-init.php:2480
+#: library/admin/options-init.php:2620 library/admin/options-init.php:3748
+#: library/admin/options-init.php:3809
 msgid "right top"
 msgstr ""
 
 #: library/admin/options-init.php:1153 library/admin/options-init.php:1638
 #: library/admin/options-init.php:1886 library/admin/options-init.php:2090
-#: library/admin/options-init.php:2333 library/admin/options-init.php:2473
-#: library/admin/options-init.php:2613 library/admin/options-init.php:3741
-#: library/admin/options-init.php:3802
+#: library/admin/options-init.php:2333 library/admin/options-init.php:2481
+#: library/admin/options-init.php:2621 library/admin/options-init.php:3749
+#: library/admin/options-init.php:3810
 msgid "right center"
 msgstr ""
 
 #: library/admin/options-init.php:1154 library/admin/options-init.php:1639
 #: library/admin/options-init.php:1887 library/admin/options-init.php:2091
-#: library/admin/options-init.php:2334 library/admin/options-init.php:2474
-#: library/admin/options-init.php:2614 library/admin/options-init.php:3742
-#: library/admin/options-init.php:3803
+#: library/admin/options-init.php:2334 library/admin/options-init.php:2482
+#: library/admin/options-init.php:2622 library/admin/options-init.php:3750
+#: library/admin/options-init.php:3811
 msgid "right bottom"
 msgstr ""
 
 #: library/admin/options-init.php:1156 library/admin/options-init.php:1641
 #: library/admin/options-init.php:1889 library/admin/options-init.php:2093
-#: library/admin/options-init.php:2336 library/admin/options-init.php:2476
-#: library/admin/options-init.php:2616 library/admin/options-init.php:3744
-#: library/admin/options-init.php:3805
+#: library/admin/options-init.php:2336 library/admin/options-init.php:2484
+#: library/admin/options-init.php:2624 library/admin/options-init.php:3752
+#: library/admin/options-init.php:3813
 #: library/admin/redux-framework/inc/fields/background/field_background.php:223
 msgid "Background Position"
 msgstr ""
 
 #: library/admin/options-init.php:1160 library/admin/options-init.php:1645
 #: library/admin/options-init.php:1893 library/admin/options-init.php:2097
-#: library/admin/options-init.php:2340 library/admin/options-init.php:2480
-#: library/admin/options-init.php:2620 library/admin/options-init.php:3603
+#: library/admin/options-init.php:2340 library/admin/options-init.php:2488
+#: library/admin/options-init.php:2628 library/admin/options-init.php:3611
 msgid "Check to enable parallax background image when scrolling."
 msgstr ""
 
 #: library/admin/options-init.php:1166 library/admin/options-init.php:1651
 #: library/admin/options-init.php:1899 library/admin/options-init.php:2103
-#: library/admin/options-init.php:2346 library/admin/options-init.php:2486
-#: library/admin/options-init.php:2626 library/admin/options-init.php:3609
+#: library/admin/options-init.php:2346 library/admin/options-init.php:2494
+#: library/admin/options-init.php:2634 library/admin/options-init.php:3617
 msgid "Parallax Background Image"
 msgstr ""
 
 #: library/admin/options-init.php:1170 library/admin/options-init.php:1655
 #: library/admin/options-init.php:1903 library/admin/options-init.php:2107
-#: library/admin/options-init.php:2350 library/admin/options-init.php:2490
-#: library/admin/options-init.php:2630
+#: library/admin/options-init.php:2350 library/admin/options-init.php:2498
+#: library/admin/options-init.php:2638
 msgid "Custom background color of section"
 msgstr ""
 
 #: library/admin/options-init.php:1174 library/admin/options-init.php:1659
 #: library/admin/options-init.php:1907 library/admin/options-init.php:2111
-#: library/admin/options-init.php:2354 library/admin/options-init.php:2494
-#: library/admin/options-init.php:2634
+#: library/admin/options-init.php:2354 library/admin/options-init.php:2502
+#: library/admin/options-init.php:2642
 msgid "Section Background Color"
 msgstr ""
 
@@ -2074,23 +2092,23 @@ msgstr ""
 #: library/admin/options-init.php:1482 library/admin/options-init.php:1694
 #: library/admin/options-init.php:1975 library/admin/options-init.php:1985
 #: library/admin/options-init.php:1994 library/admin/options-init.php:2145
-#: library/admin/options-init.php:2678 library/admin/options-init.php:2750
-#: library/admin/options-init.php:2761 library/admin/options-init.php:2770
-#: library/admin/options-init.php:3534 library/admin/options-init.php:3932
-#: library/admin/options-init.php:3955 library/admin/options-init.php:4059
-#: library/admin/options-init.php:5157 library/admin/options-init.php:5166
-#: library/admin/options-init.php:5226 library/admin/options-init.php:5250
-#: library/admin/options-init.php:5259 library/admin/options-init.php:5268
-#: library/admin/options-init.php:5277 library/admin/options-init.php:5286
-#: library/admin/options-init.php:5295 library/admin/options-init.php:5304
-#: library/admin/options-init.php:5313 library/admin/options-init.php:5322
-#: library/admin/options-init.php:5331 library/admin/options-init.php:5581
-#: library/admin/options-init.php:5590 library/admin/options-init.php:5599
-#: library/admin/options-init.php:5608 library/admin/options-init.php:5617
-#: library/admin/options-init.php:5626 library/admin/options-init.php:5635
-#: library/admin/options-init.php:5644 library/admin/options-init.php:5662
-#: library/admin/options-init.php:6571 library/admin/options-init.php:6580
-#: library/admin/options-init.php:6588
+#: library/admin/options-init.php:2686 library/admin/options-init.php:2758
+#: library/admin/options-init.php:2769 library/admin/options-init.php:2778
+#: library/admin/options-init.php:3542 library/admin/options-init.php:3940
+#: library/admin/options-init.php:3963 library/admin/options-init.php:4067
+#: library/admin/options-init.php:5165 library/admin/options-init.php:5174
+#: library/admin/options-init.php:5234 library/admin/options-init.php:5258
+#: library/admin/options-init.php:5267 library/admin/options-init.php:5276
+#: library/admin/options-init.php:5285 library/admin/options-init.php:5294
+#: library/admin/options-init.php:5303 library/admin/options-init.php:5312
+#: library/admin/options-init.php:5321 library/admin/options-init.php:5330
+#: library/admin/options-init.php:5339 library/admin/options-init.php:5589
+#: library/admin/options-init.php:5598 library/admin/options-init.php:5607
+#: library/admin/options-init.php:5616 library/admin/options-init.php:5625
+#: library/admin/options-init.php:5634 library/admin/options-init.php:5643
+#: library/admin/options-init.php:5652 library/admin/options-init.php:5670
+#: library/admin/options-init.php:6579 library/admin/options-init.php:6588
+#: library/admin/options-init.php:6596
 msgid "Enabled"
 msgstr ""
 
@@ -2099,23 +2117,23 @@ msgstr ""
 #: library/admin/options-init.php:1483 library/admin/options-init.php:1695
 #: library/admin/options-init.php:1974 library/admin/options-init.php:1984
 #: library/admin/options-init.php:1993 library/admin/options-init.php:2146
-#: library/admin/options-init.php:2679 library/admin/options-init.php:2751
-#: library/admin/options-init.php:2762 library/admin/options-init.php:2771
-#: library/admin/options-init.php:2924 library/admin/options-init.php:3536
-#: library/admin/options-init.php:3933 library/admin/options-init.php:3956
-#: library/admin/options-init.php:5158 library/admin/options-init.php:5167
-#: library/admin/options-init.php:5227 library/admin/options-init.php:5251
-#: library/admin/options-init.php:5260 library/admin/options-init.php:5269
-#: library/admin/options-init.php:5278 library/admin/options-init.php:5287
-#: library/admin/options-init.php:5296 library/admin/options-init.php:5305
-#: library/admin/options-init.php:5314 library/admin/options-init.php:5323
-#: library/admin/options-init.php:5332 library/admin/options-init.php:5582
-#: library/admin/options-init.php:5591 library/admin/options-init.php:5600
-#: library/admin/options-init.php:5609 library/admin/options-init.php:5618
-#: library/admin/options-init.php:5627 library/admin/options-init.php:5636
-#: library/admin/options-init.php:5645 library/admin/options-init.php:5663
-#: library/admin/options-init.php:5695 library/admin/options-init.php:6570
-#: library/admin/options-init.php:6579 library/admin/options-init.php:6587
+#: library/admin/options-init.php:2687 library/admin/options-init.php:2759
+#: library/admin/options-init.php:2770 library/admin/options-init.php:2779
+#: library/admin/options-init.php:2932 library/admin/options-init.php:3544
+#: library/admin/options-init.php:3941 library/admin/options-init.php:3964
+#: library/admin/options-init.php:5166 library/admin/options-init.php:5175
+#: library/admin/options-init.php:5235 library/admin/options-init.php:5259
+#: library/admin/options-init.php:5268 library/admin/options-init.php:5277
+#: library/admin/options-init.php:5286 library/admin/options-init.php:5295
+#: library/admin/options-init.php:5304 library/admin/options-init.php:5313
+#: library/admin/options-init.php:5322 library/admin/options-init.php:5331
+#: library/admin/options-init.php:5340 library/admin/options-init.php:5590
+#: library/admin/options-init.php:5599 library/admin/options-init.php:5608
+#: library/admin/options-init.php:5617 library/admin/options-init.php:5626
+#: library/admin/options-init.php:5635 library/admin/options-init.php:5644
+#: library/admin/options-init.php:5653 library/admin/options-init.php:5671
+#: library/admin/options-init.php:5703 library/admin/options-init.php:6578
+#: library/admin/options-init.php:6587 library/admin/options-init.php:6595
 msgid "Disabled"
 msgstr ""
 
@@ -2353,7 +2371,7 @@ msgstr ""
 msgid "<a class=\"button button-primary\" href=\"\">Add Counter Circle</a>"
 msgstr ""
 
-#: library/admin/options-init.php:1760 library/admin/options-init.php:4362
+#: library/admin/options-init.php:1760 library/admin/options-init.php:4370
 msgid "Counter Circle"
 msgstr ""
 
@@ -2371,89 +2389,89 @@ msgstr ""
 msgid "section Image"
 msgstr ""
 
-#: library/admin/options-init.php:1926 library/admin/options-init.php:6524
+#: library/admin/options-init.php:1926 library/admin/options-init.php:6532
 msgid ""
 "Example: 775 New York Ave, Brooklyn, Kings, New York 11203.<br /> For "
 "multiple markers, separate the addresses with the | symbol. ex: Address 1|"
 "Address 2|Address 3."
 msgstr ""
 
-#: library/admin/options-init.php:1930 library/admin/options-init.php:6528
+#: library/admin/options-init.php:1930 library/admin/options-init.php:6536
 msgid "Google Map Address"
 msgstr ""
 
-#: library/admin/options-init.php:1934 library/admin/options-init.php:6495
+#: library/admin/options-init.php:1934 library/admin/options-init.php:6503
 msgid "Select the type of google map to show on the contact page."
 msgstr ""
 
-#: library/admin/options-init.php:1938 library/admin/options-init.php:6499
+#: library/admin/options-init.php:1938 library/admin/options-init.php:6507
 msgid "roadmap"
 msgstr ""
 
-#: library/admin/options-init.php:1939 library/admin/options-init.php:6500
+#: library/admin/options-init.php:1939 library/admin/options-init.php:6508
 msgid "satellite"
 msgstr ""
 
-#: library/admin/options-init.php:1940 library/admin/options-init.php:6501
+#: library/admin/options-init.php:1940 library/admin/options-init.php:6509
 msgid "hybrid (default)"
 msgstr ""
 
-#: library/admin/options-init.php:1941 library/admin/options-init.php:6502
+#: library/admin/options-init.php:1941 library/admin/options-init.php:6510
 msgid "terrain"
 msgstr ""
 
-#: library/admin/options-init.php:1943 library/admin/options-init.php:6504
+#: library/admin/options-init.php:1943 library/admin/options-init.php:6512
 msgid "Google Map Type"
 msgstr ""
 
-#: library/admin/options-init.php:1947 library/admin/options-init.php:6508
+#: library/admin/options-init.php:1947 library/admin/options-init.php:6516
 #, php-format
 msgid "(in pixels or percentage, e.g.:100% or 100px)"
 msgstr ""
 
-#: library/admin/options-init.php:1951 library/admin/options-init.php:6512
+#: library/admin/options-init.php:1951 library/admin/options-init.php:6520
 msgid "Google Map Width"
 msgstr ""
 
-#: library/admin/options-init.php:1955 library/admin/options-init.php:6516
+#: library/admin/options-init.php:1955 library/admin/options-init.php:6524
 msgid "(in pixels, e.g.: 100px)"
 msgstr ""
 
-#: library/admin/options-init.php:1959 library/admin/options-init.php:6520
+#: library/admin/options-init.php:1959 library/admin/options-init.php:6528
 msgid "Google Map Height"
 msgstr ""
 
-#: library/admin/options-init.php:1963 library/admin/options-init.php:6545
+#: library/admin/options-init.php:1963 library/admin/options-init.php:6553
 msgid "Higher number will be more zoomed in."
 msgstr ""
 
-#: library/admin/options-init.php:1968 library/admin/options-init.php:6550
+#: library/admin/options-init.php:1968 library/admin/options-init.php:6558
 msgid "Map Zoom Level"
 msgstr ""
 
-#: library/admin/options-init.php:1972 library/admin/options-init.php:6568
+#: library/admin/options-init.php:1972 library/admin/options-init.php:6576
 msgid "Disable scrollwheel on google maps."
 msgstr ""
 
-#: library/admin/options-init.php:1977 library/admin/options-init.php:6573
+#: library/admin/options-init.php:1977 library/admin/options-init.php:6581
 msgid "Disable Map Scrollwheel"
 msgstr ""
 
-#: library/admin/options-init.php:1981 library/admin/options-init.php:6576
+#: library/admin/options-init.php:1981 library/admin/options-init.php:6584
 msgid "Disable scale on google maps."
 msgstr ""
 
-#: library/admin/options-init.php:1986 library/admin/options-init.php:6581
+#: library/admin/options-init.php:1986 library/admin/options-init.php:6589
 msgid "Disable Map Scale"
 msgstr ""
 
-#: library/admin/options-init.php:1990 library/admin/options-init.php:6584
+#: library/admin/options-init.php:1990 library/admin/options-init.php:6592
 msgid ""
 "Check the box to disable zoom control icon and pan control icon on google "
 "maps."
 msgstr ""
 
-#: library/admin/options-init.php:1995 library/admin/options-init.php:6589
+#: library/admin/options-init.php:1995 library/admin/options-init.php:6597
 msgid "Disable Map Zoom & Pan Control Icons"
 msgstr ""
 
@@ -2526,463 +2544,473 @@ msgid "Title of Testimonials Section"
 msgstr ""
 
 #: library/admin/options-init.php:2375
-msgid "Product Category"
+msgid "Product Categories"
 msgstr ""
 
 #: library/admin/options-init.php:2376
-msgid "Select Product Category"
+msgid ""
+"Select Product Category <br> (If you have not select any Category, Category "
+"product will not display in frontside)"
 msgstr ""
 
-#: library/admin/options-init.php:2391
+#: library/admin/options-init.php:2382
+msgid "Products Per Page"
+msgstr ""
+
+#: library/admin/options-init.php:2387
+msgid "Select number of Products per page"
+msgstr ""
+
+#: library/admin/options-init.php:2399
 msgid "Title of WooCommerce Product Section"
 msgstr ""
 
-#: library/admin/options-init.php:2392
+#: library/admin/options-init.php:2400
 msgid "Trending Products In Our Store"
 msgstr ""
 
-#: library/admin/options-init.php:2517
+#: library/admin/options-init.php:2525
 msgid "Editor"
 msgstr ""
 
-#: library/admin/options-init.php:2518
+#: library/admin/options-init.php:2526
 msgid "Add Costome Content in your Front Page"
 msgstr ""
 
-#: library/admin/options-init.php:2531
+#: library/admin/options-init.php:2539
 msgid "Title of Custom Content Section"
 msgstr ""
 
-#: library/admin/options-init.php:2650 library/admin/options-init.php:2657
+#: library/admin/options-init.php:2658 library/admin/options-init.php:2665
 msgid "Header"
 msgstr ""
 
-#: library/admin/options-init.php:2661
+#: library/admin/options-init.php:2669
 msgid "Enter the header padding."
 msgstr ""
 
-#: library/admin/options-init.php:2665
+#: library/admin/options-init.php:2673
 msgid "Header Padding"
 msgstr ""
 
-#: library/admin/options-init.php:2675
+#: library/admin/options-init.php:2683
 msgid "Check this box if you want to display searchbox in Header #1 and #3"
 msgstr ""
 
-#: library/admin/options-init.php:2681 library/admin/options-init.php:2773
+#: library/admin/options-init.php:2689 library/admin/options-init.php:2781
 msgid "Enable Searchbox"
 msgstr ""
 
-#: library/admin/options-init.php:2684
+#: library/admin/options-init.php:2692
 msgid ""
 "Set the opacity of header menu background for Front Page, <br />0.1 (lowest) "
 "to 1 (highest) only for Header #4 and #5."
 msgstr ""
 
-#: library/admin/options-init.php:2693
+#: library/admin/options-init.php:2701
 msgid "Header Menu Background Opacity"
 msgstr ""
 
-#: library/admin/options-init.php:2697
+#: library/admin/options-init.php:2705
 #: library/views/metaboxes/page_tabs/tab_slider.php:7
 msgid ""
 "Select if the slider shows below or above the header. This only works for "
 "the slider assigned in page options, not with shortcodes."
 msgstr ""
 
-#: library/admin/options-init.php:2702
+#: library/admin/options-init.php:2710
 #: library/views/metaboxes/page_tabs/tab_slider.php:5
 msgid "Below"
 msgstr ""
 
-#: library/admin/options-init.php:2703
+#: library/admin/options-init.php:2711
 #: library/views/metaboxes/page_tabs/tab_slider.php:6
 msgid "Above"
 msgstr ""
 
-#: library/admin/options-init.php:2705
+#: library/admin/options-init.php:2713
 #: library/views/metaboxes/page_tabs/tab_slider.php:3
 msgid "Slider Position"
 msgstr ""
 
-#: library/admin/options-init.php:2709
+#: library/admin/options-init.php:2717
 msgid "Choose your Header Type"
 msgstr ""
 
-#: library/admin/options-init.php:2717
+#: library/admin/options-init.php:2725
 msgid "Choose Header Type"
 msgstr ""
 
-#: library/admin/options-init.php:2724 library/admin/options-init.php:3100
-#: library/admin/options-init.php:4283 library/admin/options-init.php:4302
-#: library/admin/options-init.php:4336 library/admin/options-init.php:4363
-#: library/admin/options-init.php:4409 library/admin/options-init.php:4490
-#: library/admin/options-init.php:4524 library/admin/options-init.php:4567
-#: library/admin/options-init.php:4601 library/admin/options-init.php:4628
-#: library/admin/options-init.php:4662 library/admin/options-init.php:4719
-#: library/admin/options-init.php:4778 library/admin/options-init.php:4832
-#: library/admin/options-init.php:4866 library/admin/options-init.php:4893
-#: library/admin/options-init.php:4954 library/admin/options-init.php:4981
-#: library/admin/options-init.php:5008 library/admin/options-init.php:5351
-#: library/admin/options-init.php:5457 library/admin/options-init.php:5517
-#: library/admin/options-init.php:5802 library/admin/options-init.php:6409
+#: library/admin/options-init.php:2732 library/admin/options-init.php:3108
+#: library/admin/options-init.php:4291 library/admin/options-init.php:4310
+#: library/admin/options-init.php:4344 library/admin/options-init.php:4371
+#: library/admin/options-init.php:4417 library/admin/options-init.php:4498
+#: library/admin/options-init.php:4532 library/admin/options-init.php:4575
+#: library/admin/options-init.php:4609 library/admin/options-init.php:4636
+#: library/admin/options-init.php:4670 library/admin/options-init.php:4727
+#: library/admin/options-init.php:4786 library/admin/options-init.php:4840
+#: library/admin/options-init.php:4874 library/admin/options-init.php:4901
+#: library/admin/options-init.php:4962 library/admin/options-init.php:4989
+#: library/admin/options-init.php:5016 library/admin/options-init.php:5359
+#: library/admin/options-init.php:5465 library/admin/options-init.php:5525
+#: library/admin/options-init.php:5810 library/admin/options-init.php:6417
 #, php-format
 msgid ""
 "These options are only available with the <a href=\"%s\" target=\"_blank"
 "\">evolve+ Premium</a> version."
 msgstr ""
 
-#: library/admin/options-init.php:2743
+#: library/admin/options-init.php:2751
 msgid "Sticky Header"
 msgstr ""
 
-#: library/admin/options-init.php:2747
+#: library/admin/options-init.php:2755
 msgid "Check this box if you want to display sticky header"
 msgstr ""
 
-#: library/admin/options-init.php:2753
+#: library/admin/options-init.php:2761
 msgid "Enable sticky header"
 msgstr ""
 
-#: library/admin/options-init.php:2756
+#: library/admin/options-init.php:2764
 msgid "Check this box if you want to display sticky header logo"
 msgstr ""
 
-#: library/admin/options-init.php:2764
+#: library/admin/options-init.php:2772
 msgid "Enable sticky header logo"
 msgstr ""
 
-#: library/admin/options-init.php:2767
+#: library/admin/options-init.php:2775
 msgid "Check this box if you want to display searchbox in sticky header"
 msgstr ""
 
-#: library/admin/options-init.php:2776
+#: library/admin/options-init.php:2784
 msgid "Adjust sticky header logo size"
 msgstr ""
 
-#: library/admin/options-init.php:2780
+#: library/admin/options-init.php:2788
 msgid "Sticky header logo size in height"
 msgstr ""
 
-#: library/admin/options-init.php:2790
+#: library/admin/options-init.php:2798
 msgid "Logo"
 msgstr ""
 
-#: library/admin/options-init.php:2794
+#: library/admin/options-init.php:2802
 msgid "Upload a logo for your theme, or specify an image URL directly."
 msgstr ""
 
-#: library/admin/options-init.php:2797
+#: library/admin/options-init.php:2805
 msgid "Custom logo"
 msgstr ""
 
-#: library/admin/options-init.php:2801
+#: library/admin/options-init.php:2809
 msgid ""
 "Select an image file for the retina version of the custom logo. It should be "
 "exactly 2x the size of main logo."
 msgstr ""
 
-#: library/admin/options-init.php:2805
+#: library/admin/options-init.php:2813
 msgid "Custom logo (Retina Version @2x)"
 msgstr ""
 
-#: library/admin/options-init.php:2810
+#: library/admin/options-init.php:2818
 msgid ""
 "If retina logo is uploaded, enter the standard logo (1x) version width, do "
 "not enter the retina logo width."
 msgstr ""
 
-#: library/admin/options-init.php:2814
+#: library/admin/options-init.php:2822
 msgid "Standard Logo Width for Retina Logo"
 msgstr ""
 
-#: library/admin/options-init.php:2818
+#: library/admin/options-init.php:2826
 msgid ""
 "If retina logo is uploaded, enter the standard logo (1x) version height, do "
 "not enter the retina logo height."
 msgstr ""
 
-#: library/admin/options-init.php:2822
+#: library/admin/options-init.php:2830
 msgid "Standard Logo Height for Retina Logo"
 msgstr ""
 
-#: library/admin/options-init.php:2826
+#: library/admin/options-init.php:2834
 msgid "Upload a logo for your sticky header, or specify an image URL directly."
 msgstr ""
 
-#: library/admin/options-init.php:2830
+#: library/admin/options-init.php:2838
 msgid "Sticky header logo"
 msgstr ""
 
-#: library/admin/options-init.php:2835
+#: library/admin/options-init.php:2843
 msgid ""
 "Select an image file for the retina version of the sticky header logo. It "
 "should be exactly 2x the size of sticky header logo."
 msgstr ""
 
-#: library/admin/options-init.php:2839
+#: library/admin/options-init.php:2847
 msgid "Sticky header logo (Retina Version @2x)"
-msgstr ""
-
-#: library/admin/options-init.php:2844
-msgid ""
-"If retina logo is uploaded, enter the standard sticky header logo (1x) "
-"version width, do not enter the retina logo width."
-msgstr ""
-
-#: library/admin/options-init.php:2848
-msgid "Standard Sticky Header Logo Width for Retina Logo"
 msgstr ""
 
 #: library/admin/options-init.php:2852
 msgid ""
 "If retina logo is uploaded, enter the standard sticky header logo (1x) "
-"version height, do not enter the retina logo height."
+"version width, do not enter the retina logo width."
 msgstr ""
 
 #: library/admin/options-init.php:2856
-msgid "Standard Sticky Header Logo Height for Retina Logo"
+msgid "Standard Sticky Header Logo Width for Retina Logo"
 msgstr ""
 
 #: library/admin/options-init.php:2860
+msgid ""
+"If retina logo is uploaded, enter the standard sticky header logo (1x) "
+"version height, do not enter the retina logo height."
+msgstr ""
+
+#: library/admin/options-init.php:2864
+msgid "Standard Sticky Header Logo Height for Retina Logo"
+msgstr ""
+
+#: library/admin/options-init.php:2868
 msgid "Choose the position of your custom logo for Header #1"
 msgstr ""
 
-#: library/admin/options-init.php:2865 library/admin/options-init.php:4707
-#: library/admin/options-init.php:4941 library/admin/options-init.php:5393
-#: library/admin/options-init.php:5571 library/admin/options-init.php:6655
+#: library/admin/options-init.php:2873 library/admin/options-init.php:4715
+#: library/admin/options-init.php:4949 library/admin/options-init.php:5401
+#: library/admin/options-init.php:5579 library/admin/options-init.php:6663
 #: library/admin/redux-framework/inc/fields/border/field_border.php:159
 #: library/admin/redux-framework/inc/fields/spacing/field_spacing.php:236
 msgid "Left"
 msgstr ""
 
-#: library/admin/options-init.php:2866
+#: library/admin/options-init.php:2874
 msgid "Center"
 msgstr ""
 
-#: library/admin/options-init.php:2867 library/admin/options-init.php:4705
-#: library/admin/options-init.php:4939 library/admin/options-init.php:5394
-#: library/admin/options-init.php:5569 library/admin/options-init.php:6656
+#: library/admin/options-init.php:2875 library/admin/options-init.php:4713
+#: library/admin/options-init.php:4947 library/admin/options-init.php:5402
+#: library/admin/options-init.php:5577 library/admin/options-init.php:6664
 #: library/admin/redux-framework/inc/fields/border/field_border.php:145
 #: library/admin/redux-framework/inc/fields/spacing/field_spacing.php:222
 msgid "Right"
 msgstr ""
 
-#: library/admin/options-init.php:2868 library/admin/options-init.php:2898
-#: library/admin/options-init.php:2974 library/admin/options-init.php:4060
-#: library/admin/options-init.php:5099 library/admin/options-init.php:5112
-#: library/admin/options-init.php:5178 library/admin/options-init.php:5200
-#: library/admin/options-init.php:6654
+#: library/admin/options-init.php:2876 library/admin/options-init.php:2906
+#: library/admin/options-init.php:2982 library/admin/options-init.php:4068
+#: library/admin/options-init.php:5107 library/admin/options-init.php:5120
+#: library/admin/options-init.php:5186 library/admin/options-init.php:5208
+#: library/admin/options-init.php:6662
 #: library/admin/redux-framework/framework.php:1693
 msgid "Disable"
 msgstr ""
 
-#: library/admin/options-init.php:2870
+#: library/admin/options-init.php:2878
 msgid "Logo position"
 msgstr ""
 
-#: library/admin/options-init.php:2879 library/admin/options-init.php:3154
+#: library/admin/options-init.php:2887 library/admin/options-init.php:3162
 msgid "Title & Tagline"
 msgstr ""
 
-#: library/admin/options-init.php:2883
+#: library/admin/options-init.php:2891
 msgid "Check this box if you don't want to display title of your blog"
 msgstr ""
 
-#: library/admin/options-init.php:2886
+#: library/admin/options-init.php:2894
 msgid "Disable Blog Title"
 msgstr ""
 
-#: library/admin/options-init.php:2890
+#: library/admin/options-init.php:2898
 msgid "Choose the position of blog tagline"
 msgstr ""
 
-#: library/admin/options-init.php:2895
+#: library/admin/options-init.php:2903
 msgid "Next to blog title"
 msgstr ""
 
-#: library/admin/options-init.php:2896
+#: library/admin/options-init.php:2904
 msgid "Above blog title"
 msgstr ""
 
-#: library/admin/options-init.php:2897
+#: library/admin/options-init.php:2905
 msgid "Under blog title"
 msgstr ""
 
-#: library/admin/options-init.php:2900
+#: library/admin/options-init.php:2908
 msgid "Blog Tagline position"
 msgstr ""
 
-#: library/admin/options-init.php:2909 library/admin/options-init.php:3213
-#: library/admin/options-init.php:3845
+#: library/admin/options-init.php:2917 library/admin/options-init.php:3221
+#: library/admin/options-init.php:3853
 msgid "Menu"
 msgstr ""
 
-#: library/admin/options-init.php:2913
+#: library/admin/options-init.php:2921
 msgid "Check this box if you don't want to display main menu"
 msgstr ""
 
-#: library/admin/options-init.php:2916
+#: library/admin/options-init.php:2924
 msgid "Disable main menu"
 msgstr ""
 
-#: library/admin/options-init.php:2919
+#: library/admin/options-init.php:2927
 msgid "Select the main menu hover effect."
 msgstr ""
 
-#: library/admin/options-init.php:2923
+#: library/admin/options-init.php:2931
 msgid "Rollover"
 msgstr ""
 
-#: library/admin/options-init.php:2926
+#: library/admin/options-init.php:2934
 msgid "Choose menu item hover effect"
 msgstr ""
 
-#: library/admin/options-init.php:2930
+#: library/admin/options-init.php:2938
 msgid "Padding between menu items."
 msgstr ""
 
-#: library/admin/options-init.php:2933
+#: library/admin/options-init.php:2941
 msgid "Padding Between Menu Items"
 msgstr ""
 
-#: library/admin/options-init.php:2937
+#: library/admin/options-init.php:2945
 msgid "Main menu text transform"
 msgstr ""
 
-#: library/admin/options-init.php:2943
+#: library/admin/options-init.php:2951
 msgid "none"
 msgstr ""
 
-#: library/admin/options-init.php:2944
+#: library/admin/options-init.php:2952
 msgid "lowercase"
 msgstr ""
 
-#: library/admin/options-init.php:2945
+#: library/admin/options-init.php:2953
 msgid "Capitalize"
 msgstr ""
 
-#: library/admin/options-init.php:2946
+#: library/admin/options-init.php:2954
 msgid "UPPERCASE"
 msgstr ""
 
-#: library/admin/options-init.php:2948
+#: library/admin/options-init.php:2956
 msgid "Set the main menu text transform"
 msgstr ""
 
-#: library/admin/options-init.php:2953
+#: library/admin/options-init.php:2961
 msgid "Menu dropdown icon style"
 msgstr ""
 
-#: library/admin/options-init.php:2959
+#: library/admin/options-init.php:2967
 msgid "Arrow"
 msgstr ""
 
-#: library/admin/options-init.php:2960
+#: library/admin/options-init.php:2968
 msgid "Plus"
 msgstr ""
 
-#: library/admin/options-init.php:2962
+#: library/admin/options-init.php:2970
 msgid "Select the menu dropdown icon style"
 msgstr ""
 
-#: library/admin/options-init.php:2967
+#: library/admin/options-init.php:2975
 msgid "Choose the style of responsive menu on smaller screen sizes"
 msgstr ""
 
-#: library/admin/options-init.php:2972 library/admin/options-init.php:4523
+#: library/admin/options-init.php:2980 library/admin/options-init.php:4531
 msgid "Icon"
 msgstr ""
 
-#: library/admin/options-init.php:2973
+#: library/admin/options-init.php:2981
 msgid "Text"
 msgstr ""
 
-#: library/admin/options-init.php:2976
+#: library/admin/options-init.php:2984
 msgid "Responsive Menu"
 msgstr ""
 
-#: library/admin/options-init.php:2981
+#: library/admin/options-init.php:2989
 msgid "Responsive Menu Text"
 msgstr ""
 
-#: library/admin/options-init.php:2982
+#: library/admin/options-init.php:2990
 msgid "Type the text for the responsive menu"
 msgstr ""
 
-#: library/admin/options-init.php:2991
+#: library/admin/options-init.php:2999
 msgid "Choose the layout of responsive menu on smaller screen sizes"
 msgstr ""
 
-#: library/admin/options-init.php:2995
+#: library/admin/options-init.php:3003
 msgid "Basic Responsive Menu"
 msgstr ""
 
-#: library/admin/options-init.php:2996
+#: library/admin/options-init.php:3004
 msgid "Clean Dropdown Menu"
 msgstr ""
 
-#: library/admin/options-init.php:2998
+#: library/admin/options-init.php:3006
 msgid "Responsive Menu Layout"
 msgstr ""
 
-#: library/admin/options-init.php:3007
+#: library/admin/options-init.php:3015
 msgid "Header Widgets"
 msgstr ""
 
-#: library/admin/options-init.php:3011
+#: library/admin/options-init.php:3019
 msgid "Select how many header widget areas you want to display."
 msgstr ""
 
-#: library/admin/options-init.php:3021
+#: library/admin/options-init.php:3029
 msgid "Number of widget cols in header"
 msgstr ""
 
-#: library/admin/options-init.php:3025
+#: library/admin/options-init.php:3033
 msgid "Choose where to display header widgets"
 msgstr ""
 
-#: library/admin/options-init.php:3029
+#: library/admin/options-init.php:3037
 msgid "Home page"
 msgstr ""
 
-#: library/admin/options-init.php:3030
+#: library/admin/options-init.php:3038
 msgid "Single Post"
 msgstr ""
 
-#: library/admin/options-init.php:3032 library/admin/options-init.php:5111
+#: library/admin/options-init.php:3040 library/admin/options-init.php:5119
 msgid "All pages"
 msgstr ""
 
-#: library/admin/options-init.php:3033
+#: library/admin/options-init.php:3041
 msgid "Select Per Post/Page"
 msgstr ""
 
-#: library/admin/options-init.php:3035
+#: library/admin/options-init.php:3043
 msgid "Header widgets placement"
 msgstr ""
 
-#: library/admin/options-init.php:3044
+#: library/admin/options-init.php:3052
 msgid "Footer"
 msgstr ""
 
-#: library/admin/options-init.php:3051
+#: library/admin/options-init.php:3059
 msgid "Footer Widgets"
 msgstr ""
 
-#: library/admin/options-init.php:3055
+#: library/admin/options-init.php:3063
 msgid "Select how many footer widget areas you want to display."
 msgstr ""
 
-#: library/admin/options-init.php:3065
+#: library/admin/options-init.php:3073
 msgid "Number of widget cols in footer"
 msgstr ""
 
-#: library/admin/options-init.php:3074
+#: library/admin/options-init.php:3082
 msgid "Custom Footer"
 msgstr ""
 
-#: library/admin/options-init.php:3078
+#: library/admin/options-init.php:3086
 msgid ""
 "Available <strong>HTML</strong> tags and attributes:<br /><br /> <code> &lt;"
 "b&gt; &lt;i&gt; &lt;a href=\"\" title=\"\"&gt; &lt;blockquote&gt; &lt;del "
@@ -2993,2815 +3021,2815 @@ msgid ""
 "&lt;td&gt; &lt;br /&gt; &lt;hr /&gt;</code>"
 msgstr ""
 
-#: library/admin/options-init.php:3081
+#: library/admin/options-init.php:3089
 msgid "Custom footer"
 msgstr ""
 
-#: library/admin/options-init.php:3082
+#: library/admin/options-init.php:3090
 #, php-format
 msgid ""
 "<a href=\"%s\">evolve</a> theme by Theme4Press&nbsp;&nbsp;&bull;&nbsp;&nbsp;"
 "Powered by <a href=\"http://wordpress.org\">WordPress</a>"
 msgstr ""
 
-#: library/admin/options-init.php:3090
+#: library/admin/options-init.php:3098
 msgid "Typography"
 msgstr ""
 
-#: library/admin/options-init.php:3097
+#: library/admin/options-init.php:3105
 msgid "Custom Fonts"
 msgstr ""
 
-#: library/admin/options-init.php:3112
+#: library/admin/options-init.php:3120
 msgid ""
 "<h3 style='margin: 0;'>Custom fonts for all elements.</h3><p style=\"margin-"
 "bottom:0;\">This will override the Google / standard font options. All 4 "
 "files are required.</h3>"
 msgstr ""
 
-#: library/admin/options-init.php:3117
+#: library/admin/options-init.php:3125
 msgid "Upload the .woff font file."
 msgstr ""
 
-#: library/admin/options-init.php:3121
+#: library/admin/options-init.php:3129
 msgid "Custom Font .woff"
 msgstr ""
 
-#: library/admin/options-init.php:3125
+#: library/admin/options-init.php:3133
 msgid "Upload the .ttf font file."
 msgstr ""
 
-#: library/admin/options-init.php:3129
+#: library/admin/options-init.php:3137
 msgid "Custom Font .ttf"
 msgstr ""
 
-#: library/admin/options-init.php:3133
+#: library/admin/options-init.php:3141
 msgid "Upload the .svg font file."
 msgstr ""
 
-#: library/admin/options-init.php:3137
+#: library/admin/options-init.php:3145
 msgid "Custom Font .svg"
 msgstr ""
 
-#: library/admin/options-init.php:3141
+#: library/admin/options-init.php:3149
 msgid "Upload the .eot font file."
 msgstr ""
 
-#: library/admin/options-init.php:3145
+#: library/admin/options-init.php:3153
 msgid "Custom Font .eot"
 msgstr ""
 
-#: library/admin/options-init.php:3166
+#: library/admin/options-init.php:3174
 msgid ""
 "Select the typography you want for your blog title. * non web-safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3169
+#: library/admin/options-init.php:3177
 msgid "Blog Title font"
 msgstr ""
 
-#: library/admin/options-init.php:3180
+#: library/admin/options-init.php:3188
 msgid ""
 "Select the typography you want for your blog tagline. * non web-safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3185
+#: library/admin/options-init.php:3193
 msgid "Blog tagline font"
 msgstr ""
 
-#: library/admin/options-init.php:3194
+#: library/admin/options-init.php:3202
 msgid ""
 "Select the typography you want for your sticky header blog title. * non web-"
 "safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3199
+#: library/admin/options-init.php:3207
 msgid "Sticky header blog title font"
 msgstr ""
 
-#: library/admin/options-init.php:3225
+#: library/admin/options-init.php:3233
 msgid "Select the typography you want for your main menu. * non web-safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3230
+#: library/admin/options-init.php:3238
 msgid "Main menu font"
 msgstr ""
 
-#: library/admin/options-init.php:3239
+#: library/admin/options-init.php:3247
 msgid "Select the typography you want for your top menu. * non web-safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3244
+#: library/admin/options-init.php:3252
 msgid "Top menu font"
 msgstr ""
 
-#: library/admin/options-init.php:3253
+#: library/admin/options-init.php:3261
 msgid ""
 "Set the font size for mega menu column titles (menu 2nd level labels). In "
 "pixels, ex: 15px"
 msgstr ""
 
-#: library/admin/options-init.php:3257
+#: library/admin/options-init.php:3265
 msgid "Mega Menu Column Title Size"
 msgstr ""
 
-#: library/admin/options-init.php:3267
+#: library/admin/options-init.php:3275
 msgid "Widget"
 msgstr ""
 
-#: library/admin/options-init.php:3279
+#: library/admin/options-init.php:3287
 msgid ""
 "Select the typography you want for your widget title. * non web-safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3284
+#: library/admin/options-init.php:3292
 msgid "Widget title font"
 msgstr ""
 
-#: library/admin/options-init.php:3293
+#: library/admin/options-init.php:3301
 msgid ""
 "Select the typography you want for your widget content. * non web-safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3298
+#: library/admin/options-init.php:3306
 msgid "Widget content font"
 msgstr ""
 
-#: library/admin/options-init.php:3311
+#: library/admin/options-init.php:3319
 msgid "Post Title & Content"
 msgstr ""
 
-#: library/admin/options-init.php:3323
+#: library/admin/options-init.php:3331
 msgid ""
 "Select the typography you want for your post titles. * non web-safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3328
+#: library/admin/options-init.php:3336
 msgid "Post title font"
 msgstr ""
 
-#: library/admin/options-init.php:3337
+#: library/admin/options-init.php:3345
 msgid ""
 "Select the typography you want for your blog content. * non web-safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3342
+#: library/admin/options-init.php:3350
 msgid "Content font"
 msgstr ""
 
-#: library/admin/options-init.php:3356
+#: library/admin/options-init.php:3364
 msgid "Front Page Content Boxes"
 msgstr ""
 
-#: library/admin/options-init.php:3368
+#: library/admin/options-init.php:3376
 msgid ""
 "Select the typography you want for your content boxes titles. * non web-safe "
 "font."
 msgstr ""
 
-#: library/admin/options-init.php:3373
+#: library/admin/options-init.php:3381
 msgid "Content boxes title font"
 msgstr ""
 
-#: library/admin/options-init.php:3382
+#: library/admin/options-init.php:3390
 msgid ""
 "Select the typography you want for your content boxes description. * non web-"
 "safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3387
+#: library/admin/options-init.php:3395
 msgid "Content boxes description font"
 msgstr ""
 
-#: library/admin/options-init.php:3401
+#: library/admin/options-init.php:3409
 msgid "Headings"
 msgstr ""
 
-#: library/admin/options-init.php:3413
+#: library/admin/options-init.php:3421
 msgid ""
 "Select the typography you want for your H1 tag in blog content. * non web-"
 "safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3418
+#: library/admin/options-init.php:3426
 msgid "H1 font"
 msgstr ""
 
-#: library/admin/options-init.php:3427
+#: library/admin/options-init.php:3435
 msgid ""
 "Select the typography you want for your H2 tag in blog content. * non web-"
 "safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3432
+#: library/admin/options-init.php:3440
 msgid "H2 font"
 msgstr ""
 
-#: library/admin/options-init.php:3441
+#: library/admin/options-init.php:3449
 msgid ""
 "Select the typography you want for your H3 tag in blog content. * non web-"
 "safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3446
+#: library/admin/options-init.php:3454
 msgid "H3 font"
 msgstr ""
 
-#: library/admin/options-init.php:3455
+#: library/admin/options-init.php:3463
 msgid ""
 "Select the typography you want for your H4 tag in blog content. * non web-"
 "safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3458
+#: library/admin/options-init.php:3466
 msgid "H4 font"
 msgstr ""
 
-#: library/admin/options-init.php:3469
+#: library/admin/options-init.php:3477
 msgid ""
 "Select the typography you want for your H5 tag in blog content. * non web-"
 "safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3472
+#: library/admin/options-init.php:3480
 msgid "H5 font"
 msgstr ""
 
-#: library/admin/options-init.php:3483
+#: library/admin/options-init.php:3491
 msgid ""
 "Select the typography you want for your H6 tag in blog content. * non web-"
 "safe font."
 msgstr ""
 
-#: library/admin/options-init.php:3488
+#: library/admin/options-init.php:3496
 msgid "H6 font"
 msgstr ""
 
-#: library/admin/options-init.php:3502
+#: library/admin/options-init.php:3510
 #: library/views/metaboxes/metaboxes.php:258
 msgid "Page Title / Breadcrumbs / Page Title Bar"
 msgstr ""
 
-#: library/admin/options-init.php:3506
+#: library/admin/options-init.php:3514
 msgid "Check this box if you want to enable breadcrumbs navigation"
 msgstr ""
 
-#: library/admin/options-init.php:3509
+#: library/admin/options-init.php:3517
 msgid "Enable Breadcrumbs Navigation"
 msgstr ""
 
-#: library/admin/options-init.php:3513
+#: library/admin/options-init.php:3521
 msgid "Choose the display option to show the page title"
 msgstr ""
 
-#: library/admin/options-init.php:3520
+#: library/admin/options-init.php:3528
 msgid "Title + Breadcrumb"
 msgstr ""
 
-#: library/admin/options-init.php:3521
+#: library/admin/options-init.php:3529
 msgid "Only Title"
 msgstr ""
 
-#: library/admin/options-init.php:3522
+#: library/admin/options-init.php:3530
 msgid "Only Breadcrumb"
 msgstr ""
 
-#: library/admin/options-init.php:3525
+#: library/admin/options-init.php:3533
 msgid "Page Title & Breadcrumbs"
 msgstr ""
 
-#: library/admin/options-init.php:3529
+#: library/admin/options-init.php:3537
 msgid ""
 "Check this box if you want to display page titlebar above the content and "
 "sidebar area"
 msgstr ""
 
-#: library/admin/options-init.php:3538
+#: library/admin/options-init.php:3546
 msgid "Page Title Bar"
 msgstr ""
 
-#: library/admin/options-init.php:3541
+#: library/admin/options-init.php:3549
 msgid "Choose your page titlebar layout"
 msgstr ""
 
-#: library/admin/options-init.php:3547
+#: library/admin/options-init.php:3555
 msgid "Page Title Bar Layout Type"
 msgstr ""
 
-#: library/admin/options-init.php:3556
+#: library/admin/options-init.php:3564
 msgid "Title bar padding for top and bottom"
 msgstr ""
 
-#: library/admin/options-init.php:3561
+#: library/admin/options-init.php:3569
 msgid "Page Title Bar Padding"
 msgstr ""
 
-#: library/admin/options-init.php:3565
+#: library/admin/options-init.php:3573
 msgid "Custom background color of page title bar"
 msgstr ""
 
-#: library/admin/options-init.php:3571
+#: library/admin/options-init.php:3579
 msgid "Page Title Bar Background Color"
 msgstr ""
 
-#: library/admin/options-init.php:3575
+#: library/admin/options-init.php:3583
 msgid ""
 "Select an image or insert an image url to use for the page title bar "
 "background."
 msgstr ""
 
-#: library/admin/options-init.php:3580
+#: library/admin/options-init.php:3588
 msgid "Page Title Bar Background"
 msgstr ""
 
-#: library/admin/options-init.php:3584
+#: library/admin/options-init.php:3592
 msgid ""
 "Select an image or insert an image url to use for the retina page title bar "
 "background."
 msgstr ""
 
-#: library/admin/options-init.php:3589
+#: library/admin/options-init.php:3597
 msgid "Page Title Bar Background (Retina Version @2x)"
 msgstr ""
 
-#: library/admin/options-init.php:3593
+#: library/admin/options-init.php:3601
 msgid ""
 "Check this box to have the page title bar background image display at 100% "
 "in width and height and scale according to the browser size."
 msgstr ""
 
-#: library/admin/options-init.php:3599 library/admin/options-init.php:3935
+#: library/admin/options-init.php:3607 library/admin/options-init.php:3943
 msgid "100% Background Image"
 msgstr ""
 
-#: library/admin/options-init.php:3618
+#: library/admin/options-init.php:3626
 msgid "Styling"
 msgstr ""
 
-#: library/admin/options-init.php:3625 library/admin/options-init.php:3631
+#: library/admin/options-init.php:3633 library/admin/options-init.php:3639
 msgid "Main Color Scheme"
 msgstr ""
 
-#: library/admin/options-init.php:3632
+#: library/admin/options-init.php:3640
 msgid "Please select the predefined color scheme of your website"
 msgstr ""
 
-#: library/admin/options-init.php:3697
+#: library/admin/options-init.php:3705
 msgid "Header & Footer"
 msgstr ""
 
-#: library/admin/options-init.php:3701
+#: library/admin/options-init.php:3709
 msgid "<h3 style='margin: 0;'>Header Styling</h3>"
 msgstr ""
 
-#: library/admin/options-init.php:3706
+#: library/admin/options-init.php:3714
 msgid ""
 "Select if the header background image should be displayed in cover or "
 "contain size. Change "
 msgstr ""
 
-#: library/admin/options-init.php:3715
+#: library/admin/options-init.php:3723
 msgid "Header Image Background Responsiveness Style"
 msgstr ""
 
-#: library/admin/options-init.php:3748
+#: library/admin/options-init.php:3756
 msgid "Custom background color of header"
 msgstr ""
 
-#: library/admin/options-init.php:3752
+#: library/admin/options-init.php:3760
 msgid "Header color"
 msgstr ""
 
-#: library/admin/options-init.php:3756
+#: library/admin/options-init.php:3764
 msgid "<h3 style='margin: 0;'>Footer Styling</h3>"
 msgstr ""
 
-#: library/admin/options-init.php:3761
+#: library/admin/options-init.php:3769
 msgid ""
 "Upload a footer background image for your theme, or specify an image URL "
 "directly."
 msgstr ""
 
-#: library/admin/options-init.php:3764
+#: library/admin/options-init.php:3772
 msgid "Footer Image"
 msgstr ""
 
-#: library/admin/options-init.php:3768
+#: library/admin/options-init.php:3776
 msgid ""
 "Select if the footer background image should be displayed in cover or "
 "contain size."
 msgstr ""
 
-#: library/admin/options-init.php:3776
+#: library/admin/options-init.php:3784
 msgid "Footer Image Background Responsiveness Style"
 msgstr ""
 
-#: library/admin/options-init.php:3809
+#: library/admin/options-init.php:3817
 msgid "Custom background color of footer"
 msgstr ""
 
-#: library/admin/options-init.php:3813
+#: library/admin/options-init.php:3821
 msgid "Footer color"
 msgstr ""
 
-#: library/admin/options-init.php:3816
+#: library/admin/options-init.php:3824
 msgid "<h3 style='margin: 0;'>Header & Footer Default Pattern</h3>"
 msgstr ""
 
-#: library/admin/options-init.php:3821
+#: library/admin/options-init.php:3829
 msgid "Choose the pattern for header and footer background"
 msgstr ""
 
-#: library/admin/options-init.php:3836
+#: library/admin/options-init.php:3844
 msgid "Header and Footer pattern"
 msgstr ""
 
-#: library/admin/options-init.php:3849
+#: library/admin/options-init.php:3857
 msgid "Background color of main menu. Only Header #1 and #6 are supported."
 msgstr ""
 
-#: library/admin/options-init.php:3854 library/admin/options-init.php:4013
+#: library/admin/options-init.php:3862 library/admin/options-init.php:4021
 msgid "Light"
 msgstr ""
 
-#: library/admin/options-init.php:3855 library/admin/options-init.php:4014
+#: library/admin/options-init.php:3863 library/admin/options-init.php:4022
 msgid "Dark"
 msgstr ""
 
-#: library/admin/options-init.php:3857
+#: library/admin/options-init.php:3865
 msgid "Main menu color"
 msgstr ""
 
-#: library/admin/options-init.php:3861
+#: library/admin/options-init.php:3869
 msgid "Custom background color of main menu."
 msgstr ""
 
-#: library/admin/options-init.php:3865
+#: library/admin/options-init.php:3873
 msgid "Or custom main menu color"
 msgstr ""
 
-#: library/admin/options-init.php:3869
+#: library/admin/options-init.php:3877
 msgid ""
 "Check this box if you want to disable main menu background gradient, shadow "
 "effect and borders"
 msgstr ""
 
-#: library/admin/options-init.php:3873
+#: library/admin/options-init.php:3881
 msgid "Disable main menu background gradient, shadow and borders"
 msgstr ""
 
-#: library/admin/options-init.php:3877
+#: library/admin/options-init.php:3885
 msgid "Background color of top menu for Header #2, #3, #4 and #6"
 msgstr ""
 
-#: library/admin/options-init.php:3881
+#: library/admin/options-init.php:3889
 msgid "Top menu color"
 msgstr ""
 
-#: library/admin/options-init.php:3885
+#: library/admin/options-init.php:3893
 msgid "Smooth hover effect must be enabled. Works only for Header #1 and #6"
 msgstr ""
 
-#: library/admin/options-init.php:3890
+#: library/admin/options-init.php:3898
 msgid "Custom menu hover background color"
 msgstr ""
 
-#: library/admin/options-init.php:3895 library/admin/options-init.php:3899
+#: library/admin/options-init.php:3903 library/admin/options-init.php:3907
 msgid "Menu hover font color"
 msgstr ""
 
-#: library/admin/options-init.php:3908
+#: library/admin/options-init.php:3916
 msgid "Slideshow & Widgets Area"
 msgstr ""
 
-#: library/admin/options-init.php:3912
+#: library/admin/options-init.php:3920
 msgid "Choose the color scheme for the area below header menu"
 msgstr ""
 
-#: library/admin/options-init.php:3916
+#: library/admin/options-init.php:3924
 msgid "Color scheme of the slideshow and widgets area"
 msgstr ""
 
-#: library/admin/options-init.php:3920
+#: library/admin/options-init.php:3928
 msgid "Upload an image for the area below header menu"
 msgstr ""
 
-#: library/admin/options-init.php:3924
+#: library/admin/options-init.php:3932
 msgid "Background Image of the slideshow and widgets area"
 msgstr ""
 
-#: library/admin/options-init.php:3928
+#: library/admin/options-init.php:3936
 msgid ""
 "Have background image always at 100% in width and height and scale according "
 "to the browser size."
 msgstr ""
 
-#: library/admin/options-init.php:3951
+#: library/admin/options-init.php:3959
 msgid ""
 "Check this box if you want to enable custom background for widget titles"
 msgstr ""
 
-#: library/admin/options-init.php:3957
+#: library/admin/options-init.php:3965
 msgid "Enable Widget Title Custom Background"
 msgstr ""
 
-#: library/admin/options-init.php:3961
+#: library/admin/options-init.php:3969
 msgid "Choose the color scheme for widgets background"
 msgstr ""
 
-#: library/admin/options-init.php:3965
+#: library/admin/options-init.php:3973
 msgid "Widget Title Custom Background"
 msgstr ""
 
-#: library/admin/options-init.php:3972
+#: library/admin/options-init.php:3980
 msgid "Check this box if you want to disable widget content boxed background"
 msgstr ""
 
-#: library/admin/options-init.php:3976
+#: library/admin/options-init.php:3984
 msgid "Disable Widget Content Boxed Background"
 msgstr ""
 
-#: library/admin/options-init.php:3985
+#: library/admin/options-init.php:3993
 msgid "Content"
 msgstr ""
 
-#: library/admin/options-init.php:3989
+#: library/admin/options-init.php:3997
 msgid ""
 "Upload a content background image for your theme, or specify an image URL "
 "directly."
 msgstr ""
 
-#: library/admin/options-init.php:3993
+#: library/admin/options-init.php:4001
 msgid "Content Image"
 msgstr ""
 
-#: library/admin/options-init.php:3997
+#: library/admin/options-init.php:4005
 msgid ""
 "Select if the content background image should be displayed in cover or "
 "contain size."
 msgstr ""
 
-#: library/admin/options-init.php:4005
+#: library/admin/options-init.php:4013
 msgid "Content Image Background Responsiveness Style"
 msgstr ""
 
-#: library/admin/options-init.php:4009
+#: library/admin/options-init.php:4017
 msgid "Background color of content"
 msgstr ""
 
-#: library/admin/options-init.php:4016
+#: library/admin/options-init.php:4024
 msgid "Content color"
 msgstr ""
 
-#: library/admin/options-init.php:4020
+#: library/admin/options-init.php:4028
 msgid "Custom background color of content area"
 msgstr ""
 
-#: library/admin/options-init.php:4024
+#: library/admin/options-init.php:4032
 msgid "Or Custom content color"
 msgstr ""
 
-#: library/admin/options-init.php:4033
+#: library/admin/options-init.php:4041
 msgid "Links"
 msgstr ""
 
-#: library/admin/options-init.php:4037
+#: library/admin/options-init.php:4045
 msgid "Custom color for content links"
 msgstr ""
 
-#: library/admin/options-init.php:4041
+#: library/admin/options-init.php:4049
 msgid "General Link Color"
 msgstr ""
 
-#: library/admin/options-init.php:4050
+#: library/admin/options-init.php:4058
 msgid "Shadows"
 msgstr ""
 
-#: library/admin/options-init.php:4054
+#: library/admin/options-init.php:4062
 msgid "Enables the shadow effect on the elements, enables text shadows"
 msgstr ""
 
-#: library/admin/options-init.php:4062
+#: library/admin/options-init.php:4070
 msgid "Shadow Effect"
 msgstr ""
 
-#: library/admin/options-init.php:4071
+#: library/admin/options-init.php:4079
 msgid "Element Colors"
 msgstr ""
 
-#: library/admin/options-init.php:4075
+#: library/admin/options-init.php:4083
 msgid "Controls the background color of form fields."
 msgstr ""
 
-#: library/admin/options-init.php:4078
+#: library/admin/options-init.php:4086
 msgid "Form Background Color"
 msgstr ""
 
-#: library/admin/options-init.php:4082
+#: library/admin/options-init.php:4090
 msgid "Controls the text color for forms."
 msgstr ""
 
-#: library/admin/options-init.php:4085
+#: library/admin/options-init.php:4093
 msgid "Form Text Color"
 msgstr ""
 
-#: library/admin/options-init.php:4089
+#: library/admin/options-init.php:4097
 msgid "Controls the border color of form fields."
 msgstr ""
 
-#: library/admin/options-init.php:4092
+#: library/admin/options-init.php:4100
 msgid "Form Border Color"
 msgstr ""
 
-#: library/admin/options-init.php:4101
+#: library/admin/options-init.php:4109
 msgid "Shortcodes"
 msgstr ""
 
-#: library/admin/options-init.php:4108
+#: library/admin/options-init.php:4116
 msgid "Accordion"
 msgstr ""
 
-#: library/admin/options-init.php:4114
+#: library/admin/options-init.php:4122
 msgid "Controls the color of the inactive boxes behind the '+' icons."
 msgstr ""
 
-#: library/admin/options-init.php:4118
+#: library/admin/options-init.php:4126
 msgid "Accordion Inactive Box Color"
 msgstr ""
 
-#: library/admin/options-init.php:4133
+#: library/admin/options-init.php:4141
 msgid ""
 "Controls the color of the icon circle in blog alternate and recent posts "
 "layouts."
 msgstr ""
 
-#: library/admin/options-init.php:4137
+#: library/admin/options-init.php:4145
 msgid "Blog Icon Circle Color"
 msgstr ""
 
-#: library/admin/options-init.php:4146
+#: library/admin/options-init.php:4154
 msgid "Button"
 msgstr ""
 
-#: library/admin/options-init.php:4150
+#: library/admin/options-init.php:4158
 msgid "Select the default button size."
 msgstr ""
 
-#: library/admin/options-init.php:4155 library/admin/options-init.php:5682
+#: library/admin/options-init.php:4163 library/admin/options-init.php:5690
 msgid "Small"
 msgstr ""
 
-#: library/admin/options-init.php:4156
+#: library/admin/options-init.php:4164
 msgid "Medium"
 msgstr ""
 
-#: library/admin/options-init.php:4158
+#: library/admin/options-init.php:4166
 msgid "XLarge"
 msgstr ""
 
-#: library/admin/options-init.php:4160
+#: library/admin/options-init.php:4168
 msgid "Button Size"
 msgstr ""
 
-#: library/admin/options-init.php:4166
+#: library/admin/options-init.php:4174
 msgid "Select the default shape for buttons."
 msgstr ""
 
-#: library/admin/options-init.php:4171
+#: library/admin/options-init.php:4179
 msgid "Square"
 msgstr ""
 
-#: library/admin/options-init.php:4172
+#: library/admin/options-init.php:4180
 msgid "Round"
 msgstr ""
 
-#: library/admin/options-init.php:4173
+#: library/admin/options-init.php:4181
 msgid "Pill"
 msgstr ""
 
-#: library/admin/options-init.php:4175
+#: library/admin/options-init.php:4183
 msgid "Button Shape"
 msgstr ""
 
-#: library/admin/options-init.php:4179
+#: library/admin/options-init.php:4187
 msgid "Select the default button type."
 msgstr ""
 
-#: library/admin/options-init.php:4184
+#: library/admin/options-init.php:4192
 msgid "Flat"
 msgstr ""
 
-#: library/admin/options-init.php:4185
+#: library/admin/options-init.php:4193
 msgid "3d"
 msgstr ""
 
-#: library/admin/options-init.php:4187
+#: library/admin/options-init.php:4195
 msgid "Button Type"
 msgstr ""
 
-#: library/admin/options-init.php:4191
+#: library/admin/options-init.php:4199
 msgid "Controls the top color of the button gradients."
 msgstr ""
 
-#: library/admin/options-init.php:4195
+#: library/admin/options-init.php:4203
 msgid "Button Gradient Top Color"
 msgstr ""
 
-#: library/admin/options-init.php:4199
+#: library/admin/options-init.php:4207
 msgid "Controls the bottom color of the button gradients."
 msgstr ""
 
-#: library/admin/options-init.php:4203
+#: library/admin/options-init.php:4211
 msgid "Button Gradient Bottom Color"
 msgstr ""
 
-#: library/admin/options-init.php:4207
+#: library/admin/options-init.php:4215
 msgid "Controls the top hover color of the button gradients."
 msgstr ""
 
-#: library/admin/options-init.php:4211
+#: library/admin/options-init.php:4219
 msgid "Button Gradient Top Hover Color"
 msgstr ""
 
-#: library/admin/options-init.php:4215
+#: library/admin/options-init.php:4223
 msgid "Controls the bottom hover color of the button gradients."
 msgstr ""
 
-#: library/admin/options-init.php:4219
+#: library/admin/options-init.php:4227
 msgid "Button Gradient Bottom Hover Color"
 msgstr ""
 
-#: library/admin/options-init.php:4223
+#: library/admin/options-init.php:4231
 msgid "This option controls the color of the button text and icon."
 msgstr ""
 
-#: library/admin/options-init.php:4227
+#: library/admin/options-init.php:4235
 msgid "Button Accent Color"
 msgstr ""
 
-#: library/admin/options-init.php:4231
+#: library/admin/options-init.php:4239
 msgid "This option controls the hover color of the button text and icon."
 msgstr ""
 
-#: library/admin/options-init.php:4235
+#: library/admin/options-init.php:4243
 msgid "Button Accent Hover Color"
 msgstr ""
 
-#: library/admin/options-init.php:4239
+#: library/admin/options-init.php:4247
 msgid "Controls the default bevel color of the buttons."
 msgstr ""
 
-#: library/admin/options-init.php:4243
+#: library/admin/options-init.php:4251
 msgid "Button Bevel Color (3D Mode only)"
 msgstr ""
 
-#: library/admin/options-init.php:4247
+#: library/admin/options-init.php:4255
 msgid "Controls the border color of the buttons."
 msgstr ""
 
-#: library/admin/options-init.php:4251
+#: library/admin/options-init.php:4259
 msgid "Button Border Color"
 msgstr ""
 
-#: library/admin/options-init.php:4255
+#: library/admin/options-init.php:4263
 msgid "Controls the border hover color of the buttons."
 msgstr ""
 
-#: library/admin/options-init.php:4259
+#: library/admin/options-init.php:4267
 msgid "Button Border Hover Color"
 msgstr ""
 
-#: library/admin/options-init.php:4263
+#: library/admin/options-init.php:4271
 msgid "Select the border width for buttons. Enter value in px. ex: 1px"
 msgstr ""
 
-#: library/admin/options-init.php:4266
+#: library/admin/options-init.php:4274
 msgid "Button Border Width"
 msgstr ""
 
-#: library/admin/options-init.php:4270
+#: library/admin/options-init.php:4278
 msgid ""
 "Select the box to disable the inset shadow and text shadow on the flat "
 "button type."
 msgstr ""
 
-#: library/admin/options-init.php:4273
+#: library/admin/options-init.php:4281
 msgid "Disable Flat Button Shadow"
 msgstr ""
 
-#: library/admin/options-init.php:4282
+#: library/admin/options-init.php:4290
 msgid "Content Box"
 msgstr ""
 
-#: library/admin/options-init.php:4288
+#: library/admin/options-init.php:4296
 msgid ""
 "Controls the color of the background for content boxes. Only use for 'icon-"
 "boxed' style. Leave transparent for other styles."
 msgstr ""
 
-#: library/admin/options-init.php:4292
+#: library/admin/options-init.php:4300
 msgid "Content Box Background Color"
 msgstr ""
 
-#: library/admin/options-init.php:4301
+#: library/admin/options-init.php:4309
 msgid "Checklist"
 msgstr ""
 
-#: library/admin/options-init.php:4307
+#: library/admin/options-init.php:4315
 msgid "Check the box if you want to use circles on checklists."
 msgstr ""
 
-#: library/admin/options-init.php:4310
+#: library/admin/options-init.php:4318
 msgid "Checklist Circle"
 msgstr ""
 
-#: library/admin/options-init.php:4314
+#: library/admin/options-init.php:4322
 msgid "Controls the color of the checklist circle."
 msgstr ""
 
-#: library/admin/options-init.php:4318
+#: library/admin/options-init.php:4326
 msgid "Checklist Circle Color"
 msgstr ""
 
-#: library/admin/options-init.php:4322
+#: library/admin/options-init.php:4330
 msgid "Controls the color of the checklist icon."
 msgstr ""
 
-#: library/admin/options-init.php:4326
+#: library/admin/options-init.php:4334
 msgid "Checklist Icon Color"
 msgstr ""
 
-#: library/admin/options-init.php:4335
+#: library/admin/options-init.php:4343
 msgid "Counter Boxes"
 msgstr ""
 
-#: library/admin/options-init.php:4341
+#: library/admin/options-init.php:4349
 msgid "Check the box if you want to display counter box shadow."
 msgstr ""
 
-#: library/admin/options-init.php:4344
+#: library/admin/options-init.php:4352
 msgid "Counter Box Shadow"
 msgstr ""
 
-#: library/admin/options-init.php:4349 library/admin/options-init.php:4368
-#: library/admin/options-init.php:4376
+#: library/admin/options-init.php:4357 library/admin/options-init.php:4376
+#: library/admin/options-init.php:4384
 msgid "Controls the color of the counter text and icon."
 msgstr ""
 
-#: library/admin/options-init.php:4353
+#: library/admin/options-init.php:4361
 msgid "Counter Box Text Color"
 msgstr ""
 
-#: library/admin/options-init.php:4372
+#: library/admin/options-init.php:4380
 msgid "Counter Circle Filled Color"
 msgstr ""
 
-#: library/admin/options-init.php:4380
+#: library/admin/options-init.php:4388
 msgid "Counter Circle Unfilled Color"
 msgstr ""
 
-#: library/admin/options-init.php:4389
+#: library/admin/options-init.php:4397
 msgid "Dropcap"
 msgstr ""
 
-#: library/admin/options-init.php:4395
+#: library/admin/options-init.php:4403
 msgid ""
 "Controls the color of the dropcap text, or the dropcap box is a box is used."
 msgstr ""
 
-#: library/admin/options-init.php:4399
+#: library/admin/options-init.php:4407
 msgid "Dropcap Color"
 msgstr ""
 
-#: library/admin/options-init.php:4408
+#: library/admin/options-init.php:4416
 msgid "Flip Boxes"
 msgstr ""
 
-#: library/admin/options-init.php:4414
+#: library/admin/options-init.php:4422
 msgid "Controls the color of frontside background color."
 msgstr ""
 
-#: library/admin/options-init.php:4418
+#: library/admin/options-init.php:4426
 msgid "Flip Box Background Color Frontside"
 msgstr ""
 
-#: library/admin/options-init.php:4422
+#: library/admin/options-init.php:4430
 msgid "Controls the color of frontside heading color."
 msgstr ""
 
-#: library/admin/options-init.php:4426
+#: library/admin/options-init.php:4434
 msgid "Flip Box Heading Color Frontside"
 msgstr ""
 
-#: library/admin/options-init.php:4430
+#: library/admin/options-init.php:4438
 msgid "Controls the color of frontside text color."
 msgstr ""
 
-#: library/admin/options-init.php:4434
+#: library/admin/options-init.php:4442
 msgid "Flip Box Text Color Frontside"
 msgstr ""
 
-#: library/admin/options-init.php:4438
+#: library/admin/options-init.php:4446
 msgid "Controls the color of backside background color."
 msgstr ""
 
-#: library/admin/options-init.php:4442
+#: library/admin/options-init.php:4450
 msgid "Flip Box Background Color Backside"
 msgstr ""
 
-#: library/admin/options-init.php:4446
+#: library/admin/options-init.php:4454
 msgid "Controls the color of backside heading color."
 msgstr ""
 
-#: library/admin/options-init.php:4450
+#: library/admin/options-init.php:4458
 msgid "Flip Box Heading Color Backside"
 msgstr ""
 
-#: library/admin/options-init.php:4454
+#: library/admin/options-init.php:4462
 msgid "Controls the color of backside text color."
 msgstr ""
 
-#: library/admin/options-init.php:4458
+#: library/admin/options-init.php:4466
 msgid "Flip Box Text Color Backside"
 msgstr ""
 
-#: library/admin/options-init.php:4462
+#: library/admin/options-init.php:4470
 msgid "Controls the border size of flip boxes."
 msgstr ""
 
-#: library/admin/options-init.php:4465
+#: library/admin/options-init.php:4473
 msgid "Flip Box Border Size"
 msgstr ""
 
-#: library/admin/options-init.php:4469
+#: library/admin/options-init.php:4477
 msgid "Controls the border color of flip boxes."
 msgstr ""
 
-#: library/admin/options-init.php:4473
+#: library/admin/options-init.php:4481
 msgid "Flip Box Border Color"
 msgstr ""
 
-#: library/admin/options-init.php:4477
+#: library/admin/options-init.php:4485
 msgid "Controls the border radius (roundness) of flip boxes."
 msgstr ""
 
-#: library/admin/options-init.php:4480
+#: library/admin/options-init.php:4488
 msgid "Flip Box Border Radius"
 msgstr ""
 
-#: library/admin/options-init.php:4489
+#: library/admin/options-init.php:4497
 #: library/views/metaboxes/page_tabs/tab_layout.php:18
 msgid "Full Width"
 msgstr ""
 
-#: library/admin/options-init.php:4495
+#: library/admin/options-init.php:4503
 msgid "Controls the background color of the full width section."
 msgstr ""
 
-#: library/admin/options-init.php:4499
+#: library/admin/options-init.php:4507
 msgid "Full Width Background Color"
 msgstr ""
 
-#: library/admin/options-init.php:4503
+#: library/admin/options-init.php:4511
 msgid "Controls the border size of the full width section."
 msgstr ""
 
-#: library/admin/options-init.php:4506
+#: library/admin/options-init.php:4514
 msgid "Full Width Border Size"
 msgstr ""
 
-#: library/admin/options-init.php:4510
+#: library/admin/options-init.php:4518
 msgid "Controls the border color of the full width section."
 msgstr ""
 
-#: library/admin/options-init.php:4514
+#: library/admin/options-init.php:4522
 msgid "Full Width Border Color"
 msgstr ""
 
-#: library/admin/options-init.php:4529
+#: library/admin/options-init.php:4537
 msgid "Controls color of lines next to text titles."
 msgstr ""
 
-#: library/admin/options-init.php:4533
+#: library/admin/options-init.php:4541
 msgid "Border Title Separator Color"
 msgstr ""
 
-#: library/admin/options-init.php:4537
+#: library/admin/options-init.php:4545
 msgid "Controls the color of the circle when used with icons."
 msgstr ""
 
-#: library/admin/options-init.php:4541
+#: library/admin/options-init.php:4549
 msgid "Icon Circle Color"
 msgstr ""
 
-#: library/admin/options-init.php:4545
+#: library/admin/options-init.php:4553
 msgid "Controls the color of the circle border when used with icons."
 msgstr ""
 
-#: library/admin/options-init.php:4549
+#: library/admin/options-init.php:4557
 msgid "Icon Circle Border Color"
 msgstr ""
 
-#: library/admin/options-init.php:4553
+#: library/admin/options-init.php:4561
 msgid "Controls the color of the icons."
 msgstr ""
 
-#: library/admin/options-init.php:4557
+#: library/admin/options-init.php:4565
 msgid "Icon Color"
 msgstr ""
 
-#: library/admin/options-init.php:4566
+#: library/admin/options-init.php:4574
 msgid "Image Frame"
 msgstr ""
 
-#: library/admin/options-init.php:4572
+#: library/admin/options-init.php:4580
 msgid "Controls the border color of the image frame."
 msgstr ""
 
-#: library/admin/options-init.php:4576
+#: library/admin/options-init.php:4584
 msgid "Image frame Border Color"
 msgstr ""
 
-#: library/admin/options-init.php:4580 library/admin/options-init.php:4633
+#: library/admin/options-init.php:4588 library/admin/options-init.php:4641
 msgid "Controls the border size of the image."
 msgstr ""
 
-#: library/admin/options-init.php:4583
+#: library/admin/options-init.php:4591
 msgid "Image Frame Border Size"
 msgstr ""
 
-#: library/admin/options-init.php:4587
+#: library/admin/options-init.php:4595
 msgid ""
 "Controls the style color of the image frame. Only works for glow and "
 "dropshadow style."
 msgstr ""
 
-#: library/admin/options-init.php:4591
+#: library/admin/options-init.php:4599
 msgid "Image frame Style Color"
 msgstr ""
 
-#: library/admin/options-init.php:4600
+#: library/admin/options-init.php:4608
 msgid "Modal"
 msgstr ""
 
-#: library/admin/options-init.php:4606
+#: library/admin/options-init.php:4614
 msgid "Controls the background color of the modal popup box"
 msgstr ""
 
-#: library/admin/options-init.php:4610
+#: library/admin/options-init.php:4618
 msgid "Modal Background Color"
 msgstr ""
 
-#: library/admin/options-init.php:4614
+#: library/admin/options-init.php:4622
 msgid "Controls the border color of the modal popup box"
 msgstr ""
 
-#: library/admin/options-init.php:4618
+#: library/admin/options-init.php:4626
 msgid "Modal Border Color"
 msgstr ""
 
-#: library/admin/options-init.php:4627
+#: library/admin/options-init.php:4635
 msgid "Person"
 msgstr ""
 
-#: library/admin/options-init.php:4636
+#: library/admin/options-init.php:4644
 msgid "Person Border Size"
 msgstr ""
 
-#: library/admin/options-init.php:4640
+#: library/admin/options-init.php:4648
 msgid "Controls the border color of the of the image."
 msgstr ""
 
-#: library/admin/options-init.php:4644
+#: library/admin/options-init.php:4652
 msgid "Person Border Color"
 msgstr ""
 
-#: library/admin/options-init.php:4648
+#: library/admin/options-init.php:4656
 msgid "For all style types except border. Controls the style color."
 msgstr ""
 
-#: library/admin/options-init.php:4652
+#: library/admin/options-init.php:4660
 msgid "Person Style Color"
 msgstr ""
 
-#: library/admin/options-init.php:4661
+#: library/admin/options-init.php:4669
 msgid "Popover"
 msgstr ""
 
-#: library/admin/options-init.php:4667
+#: library/admin/options-init.php:4675
 msgid "Controls the background color of popover heading area."
 msgstr ""
 
-#: library/admin/options-init.php:4671
+#: library/admin/options-init.php:4679
 msgid "Popover Heading Background Color"
 msgstr ""
 
-#: library/admin/options-init.php:4675
+#: library/admin/options-init.php:4683
 msgid "Controls the background color of popover content area."
 msgstr ""
 
-#: library/admin/options-init.php:4679
+#: library/admin/options-init.php:4687
 msgid "Popover Content Background Color"
 msgstr ""
 
-#: library/admin/options-init.php:4683
+#: library/admin/options-init.php:4691
 msgid "Controls the border color of popover box."
 msgstr ""
 
-#: library/admin/options-init.php:4687
+#: library/admin/options-init.php:4695
 msgid "Popover Border Color"
 msgstr ""
 
-#: library/admin/options-init.php:4691
+#: library/admin/options-init.php:4699
 msgid "Controls the text color inside the popover box."
 msgstr ""
 
-#: library/admin/options-init.php:4695
+#: library/admin/options-init.php:4703
 msgid "Popover Text Color"
 msgstr ""
 
-#: library/admin/options-init.php:4699
+#: library/admin/options-init.php:4707
 msgid ""
 "Controls the position of the popover in reference to the triggering text."
 msgstr ""
 
-#: library/admin/options-init.php:4704 library/admin/options-init.php:4938
-#: library/admin/options-init.php:5568
+#: library/admin/options-init.php:4712 library/admin/options-init.php:4946
+#: library/admin/options-init.php:5576
 #: library/admin/redux-framework/inc/fields/border/field_border.php:138
 #: library/admin/redux-framework/inc/fields/spacing/field_spacing.php:215
 msgid "Top"
 msgstr ""
 
-#: library/admin/options-init.php:4706 library/admin/options-init.php:4940
-#: library/admin/options-init.php:5570
+#: library/admin/options-init.php:4714 library/admin/options-init.php:4948
+#: library/admin/options-init.php:5578
 #: library/admin/redux-framework/inc/fields/border/field_border.php:152
 #: library/admin/redux-framework/inc/fields/spacing/field_spacing.php:229
 msgid "Bottom"
 msgstr ""
 
-#: library/admin/options-init.php:4709
+#: library/admin/options-init.php:4717
 msgid "Popover Position"
 msgstr ""
 
-#: library/admin/options-init.php:4718
+#: library/admin/options-init.php:4726
 msgid "Pricing Table"
 msgstr ""
 
-#: library/admin/options-init.php:4724
+#: library/admin/options-init.php:4732
 msgid "Controls the heading color of separate pricing boxes."
 msgstr ""
 
-#: library/admin/options-init.php:4728
+#: library/admin/options-init.php:4736
 msgid "Pricing Box Style 1 Heading Color"
 msgstr ""
 
-#: library/admin/options-init.php:4732
+#: library/admin/options-init.php:4740
 msgid "Controls the heading color of full boxed pricing tables."
 msgstr ""
 
-#: library/admin/options-init.php:4736
+#: library/admin/options-init.php:4744
 msgid "Pricing Box Style 2 Heading Color"
 msgstr ""
 
-#: library/admin/options-init.php:4740
+#: library/admin/options-init.php:4748
 msgid "Controls the color portions of pricing boxes."
 msgstr ""
 
-#: library/admin/options-init.php:4744
+#: library/admin/options-init.php:4752
 msgid "Pricing Box Color"
 msgstr ""
 
-#: library/admin/options-init.php:4748
+#: library/admin/options-init.php:4756
 msgid "Controls the color of main background and title background."
 msgstr ""
 
-#: library/admin/options-init.php:4752
+#: library/admin/options-init.php:4760
 msgid "Pricing Box Bg Color"
 msgstr ""
 
-#: library/admin/options-init.php:4756
+#: library/admin/options-init.php:4764
 msgid ""
 "Controls the color of the outer border, pricing row and footer row "
 "backgrounds."
 msgstr ""
 
-#: library/admin/options-init.php:4760
+#: library/admin/options-init.php:4768
 msgid "Pricing Box Border Color"
 msgstr ""
 
-#: library/admin/options-init.php:4764
+#: library/admin/options-init.php:4772
 msgid "Controls the color of the dividers in-between pricing rows."
 msgstr ""
 
-#: library/admin/options-init.php:4768
+#: library/admin/options-init.php:4776
 msgid "Pricing Box Divider Color"
 msgstr ""
 
-#: library/admin/options-init.php:4777
+#: library/admin/options-init.php:4785
 msgid "Progress Bar"
 msgstr ""
 
-#: library/admin/options-init.php:4783
+#: library/admin/options-init.php:4791
 msgid "Controls the color of the filled area in progress bars."
 msgstr ""
 
-#: library/admin/options-init.php:4787
+#: library/admin/options-init.php:4795
 msgid "Progress Bar Filled Color"
 msgstr ""
 
-#: library/admin/options-init.php:4791
+#: library/admin/options-init.php:4799
 msgid "Controls the color of the unfilled area in progress bars."
 msgstr ""
 
-#: library/admin/options-init.php:4795
+#: library/admin/options-init.php:4803
 msgid "Progress Bar Unfilled Color"
 msgstr ""
 
-#: library/admin/options-init.php:4799
+#: library/admin/options-init.php:4807
 msgid "Controls the color of the text in progress bars."
 msgstr ""
 
-#: library/admin/options-init.php:4803
+#: library/admin/options-init.php:4811
 msgid "Progress Bar Text Color"
 msgstr ""
 
-#: library/admin/options-init.php:4812
+#: library/admin/options-init.php:4820
 msgid "Separator"
 msgstr ""
 
-#: library/admin/options-init.php:4818
+#: library/admin/options-init.php:4826
 msgid ""
 "Controls the color of all separators, divider lines and borders for meta, "
 "previous & next, filters, category page, boxes around number pagination, "
 "sidebar widgets, section divider lines, counter boxes and more."
 msgstr ""
 
-#: library/admin/options-init.php:4822
+#: library/admin/options-init.php:4830
 msgid "Separators Color"
 msgstr ""
 
-#: library/admin/options-init.php:4831
+#: library/admin/options-init.php:4839
 msgid "Section Separator"
 msgstr ""
 
-#: library/admin/options-init.php:4837
+#: library/admin/options-init.php:4845
 msgid "Controls the border size of the section separator."
 msgstr ""
 
-#: library/admin/options-init.php:4840
+#: library/admin/options-init.php:4848
 msgid "Section Separator Border Size"
 msgstr ""
 
-#: library/admin/options-init.php:4844
+#: library/admin/options-init.php:4852
 msgid "Controls the background color of the divider candy."
 msgstr ""
 
-#: library/admin/options-init.php:4848
+#: library/admin/options-init.php:4856
 msgid "Section Separator Background Color of Divider Candy"
 msgstr ""
 
-#: library/admin/options-init.php:4852
+#: library/admin/options-init.php:4860
 msgid "Controls the border color of the separator."
 msgstr ""
 
-#: library/admin/options-init.php:4856
+#: library/admin/options-init.php:4864
 msgid "Section Separator Border Color"
 msgstr ""
 
-#: library/admin/options-init.php:4865
+#: library/admin/options-init.php:4873
 msgid "Sharing Box"
 msgstr ""
 
-#: library/admin/options-init.php:4871
+#: library/admin/options-init.php:4879
 msgid "Controls the background color of the sharing box."
 msgstr ""
 
-#: library/admin/options-init.php:4875
+#: library/admin/options-init.php:4883
 msgid "Sharing Box Background Color"
 msgstr ""
 
-#: library/admin/options-init.php:4879
+#: library/admin/options-init.php:4887
 msgid "Controls the text color of the tagline text."
 msgstr ""
 
-#: library/admin/options-init.php:4883
+#: library/admin/options-init.php:4891
 msgid "Sharing Box Tagline Text Color"
 msgstr ""
 
-#: library/admin/options-init.php:4892
+#: library/admin/options-init.php:4900
 msgid "Social Links"
 msgstr ""
 
-#: library/admin/options-init.php:4898 library/admin/options-init.php:5530
+#: library/admin/options-init.php:4906 library/admin/options-init.php:5538
 msgid "Select a custom social icon color."
 msgstr ""
 
-#: library/admin/options-init.php:4902
+#: library/admin/options-init.php:4910
 msgid "Social Links Custom Icons Color"
 msgstr ""
 
-#: library/admin/options-init.php:4906 library/admin/options-init.php:5538
+#: library/admin/options-init.php:4914 library/admin/options-init.php:5546
 msgid "Controls the color of the social icons in the sharing box."
 msgstr ""
 
-#: library/admin/options-init.php:4914
+#: library/admin/options-init.php:4922
 msgid "Social Links Icons Boxed"
 msgstr ""
 
-#: library/admin/options-init.php:4918 library/admin/options-init.php:5549
+#: library/admin/options-init.php:4926 library/admin/options-init.php:5557
 msgid "Select a custom social icon box color."
 msgstr ""
 
-#: library/admin/options-init.php:4922
+#: library/admin/options-init.php:4930
 msgid "Social Links Icons Custom Box Color"
 msgstr ""
 
-#: library/admin/options-init.php:4926
+#: library/admin/options-init.php:4934
 msgid "Box Radius for the social icons. In pixels, ex: 4px."
 msgstr ""
 
-#: library/admin/options-init.php:4929
+#: library/admin/options-init.php:4937
 msgid "Social Links Icons Boxed Radius"
 msgstr ""
 
-#: library/admin/options-init.php:4933 library/admin/options-init.php:5564
+#: library/admin/options-init.php:4941 library/admin/options-init.php:5572
 msgid "Controls the tooltip position of the social icons in the sharing box."
 msgstr ""
 
-#: library/admin/options-init.php:4944
+#: library/admin/options-init.php:4952
 msgid "Social Links Icons Tooltip Position"
 msgstr ""
 
-#: library/admin/options-init.php:4953
+#: library/admin/options-init.php:4961
 msgid "Tabs"
 msgstr ""
 
-#: library/admin/options-init.php:4959
+#: library/admin/options-init.php:4967
 msgid ""
 "Controls the color of the active tab, content background color and tab hover."
 msgstr ""
 
-#: library/admin/options-init.php:4963
+#: library/admin/options-init.php:4971
 msgid "Tabs Background Color + Hover Color"
 msgstr ""
 
-#: library/admin/options-init.php:4967
+#: library/admin/options-init.php:4975
 msgid "Controls the color of the inactive tabs and the outer tab border."
 msgstr ""
 
-#: library/admin/options-init.php:4971
+#: library/admin/options-init.php:4979
 msgid "Tabs Inactive Color"
 msgstr ""
 
-#: library/admin/options-init.php:4980
+#: library/admin/options-init.php:4988
 msgid "Tagline"
 msgstr ""
 
-#: library/admin/options-init.php:4986
+#: library/admin/options-init.php:4994
 msgid "Controls the background color of the tagline box."
 msgstr ""
 
-#: library/admin/options-init.php:4990
+#: library/admin/options-init.php:4998
 msgid "Tagline Box Background Color"
 msgstr ""
 
-#: library/admin/options-init.php:4994
+#: library/admin/options-init.php:5002
 msgid "Controls the border color of the tagline box."
 msgstr ""
 
-#: library/admin/options-init.php:4998
+#: library/admin/options-init.php:5006
 msgid "Tagline Box Border Color"
 msgstr ""
 
-#: library/admin/options-init.php:5013
+#: library/admin/options-init.php:5021
 msgid "Controls the background color of the testimonial."
 msgstr ""
 
-#: library/admin/options-init.php:5017
+#: library/admin/options-init.php:5025
 msgid "Testimonial Background Color"
 msgstr ""
 
-#: library/admin/options-init.php:5021
+#: library/admin/options-init.php:5029
 msgid "Controls the text color of the testimonial font."
 msgstr ""
 
-#: library/admin/options-init.php:5025
+#: library/admin/options-init.php:5033
 msgid "Testimonial Text Color"
 msgstr ""
 
-#: library/admin/options-init.php:5029 library/admin/options-init.php:6620
+#: library/admin/options-init.php:5037 library/admin/options-init.php:6628
 msgid "Select the slideshow speed, 1000 = 1 second."
 msgstr ""
 
-#: library/admin/options-init.php:5032 library/admin/options-init.php:6624
+#: library/admin/options-init.php:5040 library/admin/options-init.php:6632
 msgid "Testimonials Speed"
 msgstr ""
 
-#: library/admin/options-init.php:5041
+#: library/admin/options-init.php:5049
 #: library/admin/redux-framework/inc/fields/slides/field_slides.php:145
 #: library/admin/redux-framework/inc/fields/slides/field_slides.php:200
 msgid "Title"
 msgstr ""
 
-#: library/admin/options-init.php:5047
+#: library/admin/options-init.php:5055
 msgid "Controls the color of the title separators"
 msgstr ""
 
-#: library/admin/options-init.php:5051
+#: library/admin/options-init.php:5059
 msgid "Title Separator Color"
 msgstr ""
 
-#: library/admin/options-init.php:5071
+#: library/admin/options-init.php:5079
 msgid "Select the sidebar that will display on the archive/category pages."
 msgstr ""
 
-#: library/admin/options-init.php:5075
+#: library/admin/options-init.php:5083
 msgid "Blog Archive/Category Sidebar"
 msgstr ""
 
-#: library/admin/options-init.php:5081
+#: library/admin/options-init.php:5089
 msgid ""
 "Grid layout with <strong>3</strong> posts per row is recommended to use with "
 "disabled <strong>Sidebar(s)</strong>"
 msgstr ""
 
-#: library/admin/options-init.php:5090
+#: library/admin/options-init.php:5098
 msgid "Blog layout"
 msgstr ""
 
-#: library/admin/options-init.php:5094
+#: library/admin/options-init.php:5102
 msgid "Enable page title in category pages ?"
 msgstr ""
 
-#: library/admin/options-init.php:5098
+#: library/admin/options-init.php:5106
 #: library/admin/redux-framework/framework.php:1688
 msgid "Enable"
 msgstr ""
 
-#: library/admin/options-init.php:5101
+#: library/admin/options-init.php:5109
 msgid "Category Page Title"
 msgstr ""
 
-#: library/admin/options-init.php:5105
+#: library/admin/options-init.php:5113
 msgid "Choose placement of the 'Share This' buttons"
 msgstr ""
 
-#: library/admin/options-init.php:5109 library/admin/options-init.php:5177
+#: library/admin/options-init.php:5117 library/admin/options-init.php:5185
 msgid "Single posts"
 msgstr ""
 
-#: library/admin/options-init.php:5110 library/admin/options-init.php:5176
+#: library/admin/options-init.php:5118 library/admin/options-init.php:5184
 msgid "Single posts + Archive pages"
 msgstr ""
 
-#: library/admin/options-init.php:5114
+#: library/admin/options-init.php:5122
 msgid "'Share This' buttons placement"
 msgstr ""
 
-#: library/admin/options-init.php:5118
+#: library/admin/options-init.php:5126
 msgid ""
 "Select the pagination type for the assigned blog page in Settings > Reading."
 msgstr ""
 
-#: library/admin/options-init.php:5123 library/admin/options-init.php:5430
+#: library/admin/options-init.php:5131 library/admin/options-init.php:5438
 msgid "Pagination"
 msgstr ""
 
-#: library/admin/options-init.php:5124
+#: library/admin/options-init.php:5132
 msgid "Number Pagination"
 msgstr ""
 
-#: library/admin/options-init.php:5125 library/admin/options-init.php:5431
+#: library/admin/options-init.php:5133 library/admin/options-init.php:5439
 msgid "Infinite Scroll"
 msgstr ""
 
-#: library/admin/options-init.php:5127
+#: library/admin/options-init.php:5135
 msgid "Pagination Type"
 msgstr ""
 
-#: library/admin/options-init.php:5131
+#: library/admin/options-init.php:5139
 msgid "Check this box if you want to display edit post link"
 msgstr ""
 
-#: library/admin/options-init.php:5134
+#: library/admin/options-init.php:5142
 msgid "Enable Edit Post Link"
 msgstr ""
 
-#: library/admin/options-init.php:5147
+#: library/admin/options-init.php:5155
 msgid ""
 "Enter number of characters for Post Title Excerpt. This works only if a grid "
 "layout is enabled."
 msgstr ""
 
-#: library/admin/options-init.php:5150
+#: library/admin/options-init.php:5158
 msgid "Post Title Excerpt Length"
 msgstr ""
 
-#: library/admin/options-init.php:5154
+#: library/admin/options-init.php:5162
 msgid ""
 "Check this box if you want to display post excerpts on one column blog layout"
 msgstr ""
 
-#: library/admin/options-init.php:5160
+#: library/admin/options-init.php:5168
 msgid "Enable post excerpts"
 msgstr ""
 
-#: library/admin/options-init.php:5163
+#: library/admin/options-init.php:5171
 msgid "Check this box if you want to display post author avatar"
 msgstr ""
 
-#: library/admin/options-init.php:5169
+#: library/admin/options-init.php:5177
 msgid "Enable post author avatar"
 msgstr ""
 
-#: library/admin/options-init.php:5172
+#: library/admin/options-init.php:5180
 msgid "Choose placement of the post meta header - Date, Author, Comments"
 msgstr ""
 
-#: library/admin/options-init.php:5180
+#: library/admin/options-init.php:5188
 msgid "Post meta header placement"
 msgstr ""
 
-#: library/admin/options-init.php:5184
+#: library/admin/options-init.php:5192
 msgid "Choose the position of the <strong>Previous/Next Post</strong> links"
 msgstr ""
 
-#: library/admin/options-init.php:5188 library/admin/options-init.php:6642
+#: library/admin/options-init.php:5196 library/admin/options-init.php:6650
 msgid "After posts"
 msgstr ""
 
-#: library/admin/options-init.php:5189 library/admin/options-init.php:6643
+#: library/admin/options-init.php:5197 library/admin/options-init.php:6651
 msgid "Before posts"
 msgstr ""
 
-#: library/admin/options-init.php:5190 library/admin/options-init.php:6644
+#: library/admin/options-init.php:5198 library/admin/options-init.php:6652
 msgid "Both"
 msgstr ""
 
-#: library/admin/options-init.php:5192
+#: library/admin/options-init.php:5200
 msgid "Position of previous/next posts links"
 msgstr ""
 
-#: library/admin/options-init.php:5196
+#: library/admin/options-init.php:5204
 msgid ""
 "Choose if you want to display <strong>Similar posts</strong> in articles"
 msgstr ""
 
-#: library/admin/options-init.php:5201
+#: library/admin/options-init.php:5209
 msgid "Match by categories"
 msgstr ""
 
-#: library/admin/options-init.php:5202
+#: library/admin/options-init.php:5210
 msgid "Match by tags"
 msgstr ""
 
-#: library/admin/options-init.php:5204
+#: library/admin/options-init.php:5212
 msgid "Display Similar posts"
 msgstr ""
 
-#: library/admin/options-init.php:5212
+#: library/admin/options-init.php:5220
 msgid "Featured Image"
 msgstr ""
 
-#: library/admin/options-init.php:5216
+#: library/admin/options-init.php:5224
 msgid "Check this box if you want to display featured images"
 msgstr ""
 
-#: library/admin/options-init.php:5219
+#: library/admin/options-init.php:5227
 msgid "Enable featured images"
 msgstr ""
 
-#: library/admin/options-init.php:5223
+#: library/admin/options-init.php:5231
 msgid ""
 "Check this box if you want to display featured image on Single Blog Posts"
 msgstr ""
 
-#: library/admin/options-init.php:5229
+#: library/admin/options-init.php:5237
 msgid "Enable featured image on Single Blog Posts"
 msgstr ""
 
-#: library/admin/options-init.php:5232
+#: library/admin/options-init.php:5240
 msgid "Turn on if you don't want to display default thumbnail images"
 msgstr ""
 
-#: library/admin/options-init.php:5235
+#: library/admin/options-init.php:5243
 msgid "Hide default thumbnail images"
 msgstr ""
 
-#: library/admin/options-init.php:5243
+#: library/admin/options-init.php:5251
 msgid "Post Format"
 msgstr ""
 
-#: library/admin/options-init.php:5247
+#: library/admin/options-init.php:5255
 msgid ""
 "Check this box if you want to enable background color for sticky post format"
 msgstr ""
 
-#: library/admin/options-init.php:5253
+#: library/admin/options-init.php:5261
 msgid "Sticky Post Format Background"
 msgstr ""
 
-#: library/admin/options-init.php:5256
+#: library/admin/options-init.php:5264
 msgid ""
 "Check this box if you want to enable background color for aside post format"
 msgstr ""
 
-#: library/admin/options-init.php:5262
+#: library/admin/options-init.php:5270
 msgid "Aside Post Format Background"
 msgstr ""
 
-#: library/admin/options-init.php:5265
+#: library/admin/options-init.php:5273
 msgid ""
 "Check this box if you want to enable background color for audio post format"
 msgstr ""
 
-#: library/admin/options-init.php:5271
+#: library/admin/options-init.php:5279
 msgid "Audio Post Format Background"
 msgstr ""
 
-#: library/admin/options-init.php:5274
+#: library/admin/options-init.php:5282
 msgid ""
 "Check this box if you want to enable background color for chat post format"
 msgstr ""
 
-#: library/admin/options-init.php:5280
+#: library/admin/options-init.php:5288
 msgid "Chat Post Format Background"
 msgstr ""
 
-#: library/admin/options-init.php:5283
+#: library/admin/options-init.php:5291
 msgid ""
 "Check this box if you want to enable background color for gallery post format"
 msgstr ""
 
-#: library/admin/options-init.php:5289
+#: library/admin/options-init.php:5297
 msgid "Gallery Post Format Background"
 msgstr ""
 
-#: library/admin/options-init.php:5292
+#: library/admin/options-init.php:5300
 msgid ""
 "Check this box if you want to enable background color for image post format"
 msgstr ""
 
-#: library/admin/options-init.php:5298
+#: library/admin/options-init.php:5306
 msgid "Image Post Format Background"
 msgstr ""
 
-#: library/admin/options-init.php:5301
+#: library/admin/options-init.php:5309
 msgid ""
 "Check this box if you want to enable background color for link post format"
 msgstr ""
 
-#: library/admin/options-init.php:5307
+#: library/admin/options-init.php:5315
 msgid "Link Post Format Background"
 msgstr ""
 
-#: library/admin/options-init.php:5310
+#: library/admin/options-init.php:5318
 msgid ""
 "Check this box if you want to enable background color for quote post format"
 msgstr ""
 
-#: library/admin/options-init.php:5316
+#: library/admin/options-init.php:5324
 msgid "Quote Post Format Background"
 msgstr ""
 
-#: library/admin/options-init.php:5319
+#: library/admin/options-init.php:5327
 msgid ""
 "Check this box if you want to enable background color for status post format"
 msgstr ""
 
-#: library/admin/options-init.php:5325
+#: library/admin/options-init.php:5333
 msgid "Status Post Format Background"
 msgstr ""
 
-#: library/admin/options-init.php:5328
+#: library/admin/options-init.php:5336
 msgid ""
 "Check this box if you want to enable background color for video post format"
 msgstr ""
 
-#: library/admin/options-init.php:5334
+#: library/admin/options-init.php:5342
 msgid "Video Post Format Background"
 msgstr ""
 
-#: library/admin/options-init.php:5342
+#: library/admin/options-init.php:5350
 msgid "Portfolio"
 msgstr ""
 
-#: library/admin/options-init.php:5356 library/admin/options-init.php:6771
+#: library/admin/options-init.php:5364 library/admin/options-init.php:6779
 msgid "Insert the number of posts to display per page."
 msgstr ""
 
-#: library/admin/options-init.php:5359
+#: library/admin/options-init.php:5367
 msgid "Number of Portfolio Items Per Page"
 msgstr ""
 
-#: library/admin/options-init.php:5363
+#: library/admin/options-init.php:5371
 msgid "Select the layout for only the archive/category pages."
 msgstr ""
 
-#: library/admin/options-init.php:5367
+#: library/admin/options-init.php:5375
 msgid "Portfolio One Column"
 msgstr ""
 
-#: library/admin/options-init.php:5368
+#: library/admin/options-init.php:5376
 msgid "Portfolio Two Column"
 msgstr ""
 
-#: library/admin/options-init.php:5369
+#: library/admin/options-init.php:5377
 msgid "Portfolio Three Column"
 msgstr ""
 
-#: library/admin/options-init.php:5370
+#: library/admin/options-init.php:5378
 msgid "Portfolio Four Column"
 msgstr ""
 
-#: library/admin/options-init.php:5371
+#: library/admin/options-init.php:5379
 msgid "Portfolio One Column Text"
 msgstr ""
 
-#: library/admin/options-init.php:5372
+#: library/admin/options-init.php:5380
 msgid "Portfolio Two Column Text"
 msgstr ""
 
-#: library/admin/options-init.php:5373
+#: library/admin/options-init.php:5381
 msgid "Portfolio Three Column Text"
 msgstr ""
 
-#: library/admin/options-init.php:5374
+#: library/admin/options-init.php:5382
 msgid "Portfolio Four Column Text"
 msgstr ""
 
-#: library/admin/options-init.php:5375
+#: library/admin/options-init.php:5383
 msgid "Portfolio Grid"
 msgstr ""
 
-#: library/admin/options-init.php:5377
+#: library/admin/options-init.php:5385
 msgid "Portfolio Archive/Category Layout"
 msgstr ""
 
-#: library/admin/options-init.php:5381
+#: library/admin/options-init.php:5389
 msgid ""
 "Select the sidebar that will be added to the archive/category portfolio "
 "pages."
 msgstr ""
 
-#: library/admin/options-init.php:5385
+#: library/admin/options-init.php:5393
 msgid "Portfolio Archive/Category Sidebar"
 msgstr ""
 
-#: library/admin/options-init.php:5389
+#: library/admin/options-init.php:5397
 msgid "Select the sidebar position for the archive/category portfolio pages"
 msgstr ""
 
-#: library/admin/options-init.php:5396
+#: library/admin/options-init.php:5404
 msgid "Portfolio Archive/Category Sidebar Position"
 msgstr ""
 
-#: library/admin/options-init.php:5400
+#: library/admin/options-init.php:5408
 msgid ""
 "Choose to display an excerpt or full portfolio content on archive / "
 "portfolio pages. Note: The \"Full Content\" option will override the page "
 "excerpt settings."
 msgstr ""
 
-#: library/admin/options-init.php:5404
+#: library/admin/options-init.php:5412
 msgid "Excerpt"
 msgstr ""
 
-#: library/admin/options-init.php:5405
+#: library/admin/options-init.php:5413
 msgid "Full Content"
 msgstr ""
 
-#: library/admin/options-init.php:5407
+#: library/admin/options-init.php:5415
 msgid "Excerpt or Full Portfolio Content"
 msgstr ""
 
-#: library/admin/options-init.php:5411
+#: library/admin/options-init.php:5419
 msgid "Insert the number of words you want to show in the post excerpts."
 msgstr ""
 
-#: library/admin/options-init.php:5414
+#: library/admin/options-init.php:5422
 msgid "Excerpt Length"
 msgstr ""
 
-#: library/admin/options-init.php:5418
+#: library/admin/options-init.php:5426
 msgid "Check this if you want to strip HTML from the excerpt content only."
 msgstr ""
 
-#: library/admin/options-init.php:5421
+#: library/admin/options-init.php:5429
 msgid "Strip HTML from Excerpt"
 msgstr ""
 
-#: library/admin/options-init.php:5425
+#: library/admin/options-init.php:5433
 msgid "Select the pagination type for Portfolio Grid layouts."
 msgstr ""
 
-#: library/admin/options-init.php:5433
+#: library/admin/options-init.php:5441
 msgid "Grid Pagination Type"
 msgstr ""
 
-#: library/admin/options-init.php:5437
+#: library/admin/options-init.php:5445
 msgid ""
 "Change/Rewrite the permalink when you use the permalink type as %postname%. "
 "<strong>Make sure to regenerate permalinks.</strong>"
 msgstr ""
 
-#: library/admin/options-init.php:5440
+#: library/admin/options-init.php:5448
 msgid "Portfolio Slug"
 msgstr ""
 
-#: library/admin/options-init.php:5444
+#: library/admin/options-init.php:5452
 msgid "Check the box to show the rollover box on images."
 msgstr ""
 
-#: library/admin/options-init.php:5447
+#: library/admin/options-init.php:5455
 msgid "Image Rollover"
 msgstr ""
 
-#: library/admin/options-init.php:5456
+#: library/admin/options-init.php:5464
 msgid "Portfolio Single Post Page"
 msgstr ""
 
-#: library/admin/options-init.php:5462
+#: library/admin/options-init.php:5470
 msgid ""
 "Check the box to display featured images and videos on single post pages."
 msgstr ""
 
-#: library/admin/options-init.php:5465
+#: library/admin/options-init.php:5473
 msgid "Featured Image / Video on Single Post Page"
 msgstr ""
 
-#: library/admin/options-init.php:5469
+#: library/admin/options-init.php:5477
 msgid "Check the box to disable previous/next pagination."
 msgstr ""
 
-#: library/admin/options-init.php:5472
+#: library/admin/options-init.php:5480
 msgid "Disable Previous/Next Pagination"
 msgstr ""
 
-#: library/admin/options-init.php:5476
+#: library/admin/options-init.php:5484
 msgid "Check the box to enable comments on portfolio items."
 msgstr ""
 
-#: library/admin/options-init.php:5479
+#: library/admin/options-init.php:5487
 msgid "Show Comments"
 msgstr ""
 
-#: library/admin/options-init.php:5483
+#: library/admin/options-init.php:5491
 msgid "Check the box to enable Author on portfolio items."
 msgstr ""
 
-#: library/admin/options-init.php:5486
+#: library/admin/options-init.php:5494
 msgid "Show Author"
 msgstr ""
 
-#: library/admin/options-init.php:5497
+#: library/admin/options-init.php:5505
 msgid "Check the box to display related posts."
 msgstr ""
 
-#: library/admin/options-init.php:5500
+#: library/admin/options-init.php:5508
 msgid "Related Posts"
 msgstr ""
 
-#: library/admin/options-init.php:5504
+#: library/admin/options-init.php:5512
 msgid ""
 "This option controls the amount of related projects / posts that show up on "
 "each single portfolio and blog post. ex: 5"
 msgstr ""
 
-#: library/admin/options-init.php:5507
+#: library/admin/options-init.php:5515
 msgid "Number of Related Posts / Projects"
 msgstr ""
 
-#: library/admin/options-init.php:5516
+#: library/admin/options-init.php:5524
 msgid "Social Sharing Box Shortcode"
 msgstr ""
 
-#: library/admin/options-init.php:5534
+#: library/admin/options-init.php:5542
 msgid "Social Sharing Box Custom Icons Color"
 msgstr ""
 
-#: library/admin/options-init.php:5545
+#: library/admin/options-init.php:5553
 msgid "Social Sharing Box Icons Boxed"
 msgstr ""
 
-#: library/admin/options-init.php:5553
+#: library/admin/options-init.php:5561
 msgid "Social Sharing Box Icons Custom Box Color"
 msgstr ""
 
-#: library/admin/options-init.php:5557
+#: library/admin/options-init.php:5565
 msgid "Box radius for the social icons. In pixels, ex: 4px."
 msgstr ""
 
-#: library/admin/options-init.php:5560
+#: library/admin/options-init.php:5568
 msgid "Social Sharing Box Icons Boxed Radius"
 msgstr ""
 
-#: library/admin/options-init.php:5574
+#: library/admin/options-init.php:5582
 msgid "Social Sharing Box Icons Tooltip Position"
 msgstr ""
 
-#: library/admin/options-init.php:5578
+#: library/admin/options-init.php:5586
 msgid "Show the facebook sharing icon in blog posts."
 msgstr ""
 
-#: library/admin/options-init.php:5587
+#: library/admin/options-init.php:5595
 msgid "Show the twitter sharing icon in blog posts."
 msgstr ""
 
-#: library/admin/options-init.php:5596
+#: library/admin/options-init.php:5604
 msgid "Show the reddit sharing icon in blog posts."
 msgstr ""
 
-#: library/admin/options-init.php:5602
+#: library/admin/options-init.php:5610
 msgid "Reddit"
 msgstr ""
 
-#: library/admin/options-init.php:5605
+#: library/admin/options-init.php:5613
 msgid "Show the linkedin sharing icon in blog posts."
 msgstr ""
 
-#: library/admin/options-init.php:5614
+#: library/admin/options-init.php:5622
 msgid "Show the g+ sharing icon in blog posts."
 msgstr ""
 
-#: library/admin/options-init.php:5623
+#: library/admin/options-init.php:5631
 msgid "Show the tumblr sharing icon in blog posts."
 msgstr ""
 
-#: library/admin/options-init.php:5632
+#: library/admin/options-init.php:5640
 msgid "Show the pinterest sharing icon in blog posts."
 msgstr ""
 
-#: library/admin/options-init.php:5641
+#: library/admin/options-init.php:5649
 msgid "Show the email sharing icon in blog posts."
 msgstr ""
 
-#: library/admin/options-init.php:5647
+#: library/admin/options-init.php:5655
 msgid "Email"
 msgstr ""
 
-#: library/admin/options-init.php:5655
+#: library/admin/options-init.php:5663
 msgid "Social Media Links"
 msgstr ""
 
-#: library/admin/options-init.php:5659
+#: library/admin/options-init.php:5667
 msgid "Check this box if you want to display Subscribe/Social links in header"
 msgstr ""
 
-#: library/admin/options-init.php:5665
+#: library/admin/options-init.php:5673
 msgid "Enable Subscribe/Social links in header"
 msgstr ""
 
-#: library/admin/options-init.php:5668
+#: library/admin/options-init.php:5676
 msgid "Choose the color scheme of subscribe/social icons"
 msgstr ""
 
-#: library/admin/options-init.php:5672
+#: library/admin/options-init.php:5680
 msgid "Subscribe/Social icons color"
 msgstr ""
 
-#: library/admin/options-init.php:5676
+#: library/admin/options-init.php:5684
 msgid "Choose the size of subscribe/social icons"
 msgstr ""
 
-#: library/admin/options-init.php:5681 library/admin/options-init.php:6419
+#: library/admin/options-init.php:5689 library/admin/options-init.php:6427
 msgid "Normal"
 msgstr ""
 
-#: library/admin/options-init.php:5684
+#: library/admin/options-init.php:5692
 msgid "X-Large"
 msgstr ""
 
-#: library/admin/options-init.php:5686
+#: library/admin/options-init.php:5694
 msgid "Subscribe/Social icons size"
 msgstr ""
 
-#: library/admin/options-init.php:5690
+#: library/admin/options-init.php:5698
 msgid "Enable social media links border/radius"
 msgstr ""
 
-#: library/admin/options-init.php:5691
+#: library/admin/options-init.php:5699
 msgid ""
 "Select if you want to display social links with a border, border radius or "
 "disable it."
 msgstr ""
 
-#: library/admin/options-init.php:5696
-#: library/functions/frontpage-functions.php:1326
+#: library/admin/options-init.php:5704
+#: library/functions/frontpage-functions.php:1706
 msgid "0"
 msgstr ""
 
-#: library/admin/options-init.php:5697
-#: library/functions/frontpage-functions.php:1326
+#: library/admin/options-init.php:5705
+#: library/functions/frontpage-functions.php:1706
 msgid "1"
 msgstr ""
 
-#: library/admin/options-init.php:5701
+#: library/admin/options-init.php:5709
 msgid "5"
 msgstr ""
 
-#: library/admin/options-init.php:5702
+#: library/admin/options-init.php:5710
 msgid "6"
 msgstr ""
 
-#: library/admin/options-init.php:5703
+#: library/admin/options-init.php:5711
 msgid "7"
 msgstr ""
 
-#: library/admin/options-init.php:5704
+#: library/admin/options-init.php:5712
 msgid "8"
 msgstr ""
 
-#: library/admin/options-init.php:5705
+#: library/admin/options-init.php:5713
 msgid "9"
 msgstr ""
 
-#: library/admin/options-init.php:5706
+#: library/admin/options-init.php:5714
 msgid "10"
 msgstr ""
 
-#: library/admin/options-init.php:5707
+#: library/admin/options-init.php:5715
 msgid "11"
 msgstr ""
 
-#: library/admin/options-init.php:5708
+#: library/admin/options-init.php:5716
 msgid "12"
 msgstr ""
 
-#: library/admin/options-init.php:5709
+#: library/admin/options-init.php:5717
 msgid "13"
 msgstr ""
 
-#: library/admin/options-init.php:5710
+#: library/admin/options-init.php:5718
 msgid "14"
 msgstr ""
 
-#: library/admin/options-init.php:5711
+#: library/admin/options-init.php:5719
 msgid "15"
 msgstr ""
 
-#: library/admin/options-init.php:5712
+#: library/admin/options-init.php:5720
 msgid "16"
 msgstr ""
 
-#: library/admin/options-init.php:5713
+#: library/admin/options-init.php:5721
 msgid "17"
 msgstr ""
 
-#: library/admin/options-init.php:5714
+#: library/admin/options-init.php:5722
 msgid "18"
 msgstr ""
 
-#: library/admin/options-init.php:5715
+#: library/admin/options-init.php:5723
 msgid "19"
 msgstr ""
 
-#: library/admin/options-init.php:5716
+#: library/admin/options-init.php:5724
 msgid "20"
 msgstr ""
 
-#: library/admin/options-init.php:5717
+#: library/admin/options-init.php:5725
 msgid "21"
 msgstr ""
 
-#: library/admin/options-init.php:5718
+#: library/admin/options-init.php:5726
 msgid "22"
 msgstr ""
 
-#: library/admin/options-init.php:5719
+#: library/admin/options-init.php:5727
 msgid "23"
 msgstr ""
 
-#: library/admin/options-init.php:5720
+#: library/admin/options-init.php:5728
 msgid "24"
 msgstr ""
 
-#: library/admin/options-init.php:5721
+#: library/admin/options-init.php:5729
 msgid "25"
 msgstr ""
 
-#: library/admin/options-init.php:5730
+#: library/admin/options-init.php:5738
 msgid ""
 "Insert custom RSS Feed URL, e.g. <strong>http://feeds.feedburner.com/"
 "Example</strong>"
 msgstr ""
 
-#: library/admin/options-init.php:5736
+#: library/admin/options-init.php:5744
 msgid ""
 "Insert custom newsletter URL, e.g. <strong>http://feedburner.google.com/fb/a/"
 "mailverify?uri=Example&amp;loc=en_US</strong>"
 msgstr ""
 
-#: library/admin/options-init.php:5742
+#: library/admin/options-init.php:5750
 msgid "Insert your Facebook URL"
 msgstr ""
 
-#: library/admin/options-init.php:5748
+#: library/admin/options-init.php:5756
 msgid "Insert your Twitter URL"
 msgstr ""
 
-#: library/admin/options-init.php:5754
+#: library/admin/options-init.php:5762
 msgid "Insert your Instagram URL"
 msgstr ""
 
-#: library/admin/options-init.php:5760
+#: library/admin/options-init.php:5768
 msgid "Insert your Skype URL"
 msgstr ""
 
-#: library/admin/options-init.php:5765
+#: library/admin/options-init.php:5773
 msgid "Youtube"
 msgstr ""
 
-#: library/admin/options-init.php:5766
+#: library/admin/options-init.php:5774
 msgid "Insert your Youtube URL"
 msgstr ""
 
-#: library/admin/options-init.php:5772
+#: library/admin/options-init.php:5780
 msgid "Insert your Flickr URL"
 msgstr ""
 
-#: library/admin/options-init.php:5777
+#: library/admin/options-init.php:5785
 msgid "Linkedin"
 msgstr ""
 
-#: library/admin/options-init.php:5778
+#: library/admin/options-init.php:5786
 msgid "Insert your Linkedin profile URL"
 msgstr ""
 
-#: library/admin/options-init.php:5784
+#: library/admin/options-init.php:5792
 msgid "Insert your Google Plus profile URL"
 msgstr ""
 
-#: library/admin/options-init.php:5790
+#: library/admin/options-init.php:5798
 msgid "Insert your Pinterest profile URL"
 msgstr ""
 
-#: library/admin/options-init.php:5796
+#: library/admin/options-init.php:5804
 msgid "Insert your Tumblr profile URL"
 msgstr ""
 
-#: library/admin/options-init.php:5804
+#: library/admin/options-init.php:5812
 msgid "Social Media Icons Order and Display"
 msgstr ""
 
-#: library/admin/options-init.php:5805
+#: library/admin/options-init.php:5813
 msgid "Drag up or down to arrange Social Media Icons."
 msgstr ""
 
-#: library/admin/options-init.php:5842
+#: library/admin/options-init.php:5850
 msgid ""
 "Create awesome websites with few clicks. Now with DRAG & DROP front page "
 "builder and prebuilt layouts."
 msgstr ""
 
-#: library/admin/options-init.php:5846 library/admin/options-init.php:6094
+#: library/admin/options-init.php:5854 library/admin/options-init.php:6102
 msgid ""
 "Built-in Bootstrap Elements and Font Awesome let you do amazing things with "
 "your website"
 msgstr ""
 
-#: library/admin/options-init.php:5850 library/admin/options-init.php:6099
+#: library/admin/options-init.php:5858 library/admin/options-init.php:6107
 msgid ""
 "Select of 500+ Google Fonts, choose layout as you need, set up your social "
 "links"
 msgstr ""
 
-#: library/admin/options-init.php:5854 library/admin/options-init.php:6104
+#: library/admin/options-init.php:5862 library/admin/options-init.php:6112
 msgid ""
 "Adaptive to any screen depending on the device being used to view the site"
 msgstr ""
 
-#: library/admin/options-init.php:5858 library/admin/options-init.php:6109
+#: library/admin/options-init.php:5866 library/admin/options-init.php:6117
 msgid ""
 "Upload your own logo, change background color or images, select links color "
 "which you love - it's limitless"
 msgstr ""
 
-#: library/admin/options-init.php:5864 library/admin/options-init.php:6117
+#: library/admin/options-init.php:5872 library/admin/options-init.php:6125
 #, php-format
 msgid "Enable Slide %d"
 msgstr ""
 
-#: library/admin/options-init.php:5865 library/admin/options-init.php:6118
+#: library/admin/options-init.php:5873 library/admin/options-init.php:6126
 #, php-format
 msgid "Enable or Disable Slide %d"
 msgstr ""
 
-#: library/admin/options-init.php:5872
+#: library/admin/options-init.php:5880
 #, php-format
 msgid "Slide %d Image"
 msgstr ""
 
-#: library/admin/options-init.php:5873 library/admin/options-init.php:6126
+#: library/admin/options-init.php:5881 library/admin/options-init.php:6134
 #, php-format
 msgid "Upload an image for the Slide %d, or specify an image URL directly"
 msgstr ""
 
-#: library/admin/options-init.php:5883
+#: library/admin/options-init.php:5891
 #, php-format
 msgid "Slide %d Title"
 msgstr ""
 
-#: library/admin/options-init.php:5891
+#: library/admin/options-init.php:5899
 #, php-format
 msgid "Slide %d description"
 msgstr ""
 
-#: library/admin/options-init.php:5900
+#: library/admin/options-init.php:5908
 #, php-format
 msgid "Slide %d Button"
 msgstr ""
 
-#: library/admin/options-init.php:5905 library/admin/options-init.php:6158
+#: library/admin/options-init.php:5913 library/admin/options-init.php:6166
 msgid "Learn more"
 msgstr ""
 
-#: library/admin/options-init.php:5913 library/admin/options-init.php:6166
+#: library/admin/options-init.php:5921 library/admin/options-init.php:6174
 msgid "Add Another Slide"
 msgstr ""
 
-#: library/admin/options-init.php:5914
+#: library/admin/options-init.php:5922
 msgid "Add another slide to the Bootstrap Slider."
 msgstr ""
 
-#: library/admin/options-init.php:5915 library/admin/options-init.php:6168
+#: library/admin/options-init.php:5923 library/admin/options-init.php:6176
 msgid "<a class=\"button button-primary\" href=\"\">Add Slide</a>"
 msgstr ""
 
-#: library/admin/options-init.php:5934
+#: library/admin/options-init.php:5942
 msgid "Check this box if you want to enable Bootstrap Slider"
 msgstr ""
 
-#: library/admin/options-init.php:5937
+#: library/admin/options-init.php:5945
 msgid "Enable Bootstrap Slider"
 msgstr ""
 
-#: library/admin/options-init.php:5941
+#: library/admin/options-init.php:5949
 msgid "Display Bootstrap Slider on all pages?"
 msgstr ""
 
-#: library/admin/options-init.php:5944
+#: library/admin/options-init.php:5952
 msgid "Bootstrap Slider on all pages"
 msgstr ""
 
-#: library/admin/options-init.php:5951
+#: library/admin/options-init.php:5959
 msgid "Check this box to disable Bootstrap Slides 100% Background"
 msgstr ""
 
-#: library/admin/options-init.php:5954
+#: library/admin/options-init.php:5962
 msgid "Disable Bootstrap Slides 100% Background"
 msgstr ""
 
-#: library/admin/options-init.php:5960
+#: library/admin/options-init.php:5968
 msgid "Input the time between transitions (Default: 7000);"
 msgstr ""
 
-#: library/admin/options-init.php:5963
+#: library/admin/options-init.php:5971
 msgid "Speed"
 msgstr ""
 
-#: library/admin/options-init.php:5979 library/admin/options-init.php:6222
-#: library/admin/options-init.php:6366
+#: library/admin/options-init.php:5987 library/admin/options-init.php:6230
+#: library/admin/options-init.php:6374
 msgid ""
 "Select the typography you want for the slide title. * non web-safe font."
 msgstr ""
 
-#: library/admin/options-init.php:5982 library/admin/options-init.php:6225
-#: library/admin/options-init.php:6371
+#: library/admin/options-init.php:5990 library/admin/options-init.php:6233
+#: library/admin/options-init.php:6379
 msgid "Slider Title font"
 msgstr ""
 
-#: library/admin/options-init.php:5997
+#: library/admin/options-init.php:6005
 msgid "Select the background color for the slide title."
 msgstr ""
 
-#: library/admin/options-init.php:6000
+#: library/admin/options-init.php:6008
 msgid "Slider Title Font Background Color"
 msgstr ""
 
-#: library/admin/options-init.php:6010 library/admin/options-init.php:6239
-#: library/admin/options-init.php:6383
+#: library/admin/options-init.php:6018 library/admin/options-init.php:6247
+#: library/admin/options-init.php:6391
 msgid ""
 "Select the typography you want for the slide description. * non web-safe "
 "font."
 msgstr ""
 
-#: library/admin/options-init.php:6013 library/admin/options-init.php:6242
-#: library/admin/options-init.php:6388
+#: library/admin/options-init.php:6021 library/admin/options-init.php:6250
+#: library/admin/options-init.php:6396
 msgid "Slider description font"
 msgstr ""
 
-#: library/admin/options-init.php:6028
+#: library/admin/options-init.php:6036
 msgid "Select the background color for the slide description."
 msgstr ""
 
-#: library/admin/options-init.php:6031
+#: library/admin/options-init.php:6039
 msgid "Slider Description Font Background Color"
 msgstr ""
 
-#: library/admin/options-init.php:6041
+#: library/admin/options-init.php:6049
 msgid "Choose your Bootstrap Slider layout style"
 msgstr ""
 
-#: library/admin/options-init.php:6045
+#: library/admin/options-init.php:6053
 msgid "Choose Bootstrap Layout Type"
 msgstr ""
 
-#: library/admin/options-init.php:6078 library/admin/options-init.php:6262
+#: library/admin/options-init.php:6086 library/admin/options-init.php:6270
 msgid "Slides"
 msgstr ""
 
-#: library/admin/options-init.php:6088
+#: library/admin/options-init.php:6096
 msgid "Super Awesome WP Theme"
 msgstr ""
 
-#: library/admin/options-init.php:6089
+#: library/admin/options-init.php:6097
 msgid ""
 "Absolutely free of cost theme with amazing design and premium features which "
 "will impress your visitors"
 msgstr ""
 
-#: library/admin/options-init.php:6093
+#: library/admin/options-init.php:6101
 msgid "Bootstrap and Font Awesome Ready"
 msgstr ""
 
-#: library/admin/options-init.php:6098
+#: library/admin/options-init.php:6106
 msgid "Easy to use control panel"
 msgstr ""
 
-#: library/admin/options-init.php:6103
+#: library/admin/options-init.php:6111
 msgid "Fully responsive theme"
 msgstr ""
 
-#: library/admin/options-init.php:6108
+#: library/admin/options-init.php:6116
 msgid "Unlimited color schemes"
 msgstr ""
 
-#: library/admin/options-init.php:6125
+#: library/admin/options-init.php:6133
 #, php-format
 msgid "Slide %s Image"
 msgstr ""
 
-#: library/admin/options-init.php:6136
+#: library/admin/options-init.php:6144
 #, php-format
 msgid "Slide %s Title"
 msgstr ""
 
-#: library/admin/options-init.php:6145
+#: library/admin/options-init.php:6153
 #, php-format
 msgid "Slide %s description"
 msgstr ""
 
-#: library/admin/options-init.php:6154
+#: library/admin/options-init.php:6162
 #, php-format
 msgid "Slide %s Button"
 msgstr ""
 
-#: library/admin/options-init.php:6167
+#: library/admin/options-init.php:6175
 msgid "Add another slide to the Parallax Slider."
 msgstr ""
 
-#: library/admin/options-init.php:6186
+#: library/admin/options-init.php:6194
 msgid "Check this box if you want to enable Parallax Slider"
 msgstr ""
 
-#: library/admin/options-init.php:6189
+#: library/admin/options-init.php:6197
 msgid "Enable Parallax Slider"
 msgstr ""
 
-#: library/admin/options-init.php:6193
+#: library/admin/options-init.php:6201
 msgid "Display Parallax Slider on all pages?"
 msgstr ""
 
-#: library/admin/options-init.php:6196
+#: library/admin/options-init.php:6204
 msgid "Parallax Slider on all pages"
 msgstr ""
 
-#: library/admin/options-init.php:6203
+#: library/admin/options-init.php:6211
 msgid "Input the time between transitions (Default: 4000);"
 msgstr ""
 
-#: library/admin/options-init.php:6206
+#: library/admin/options-init.php:6214
 msgid "Parallax Speed"
 msgstr ""
 
-#: library/admin/options-init.php:6274
+#: library/admin/options-init.php:6282
 msgid "Check this box if you want to enable Posts Slider"
 msgstr ""
 
-#: library/admin/options-init.php:6277
+#: library/admin/options-init.php:6285
 msgid "Enable Posts Slider"
 msgstr ""
 
-#: library/admin/options-init.php:6281
+#: library/admin/options-init.php:6289
 msgid "Display Posts Slider on all pages?"
 msgstr ""
 
-#: library/admin/options-init.php:6284
+#: library/admin/options-init.php:6292
 msgid "Posts Slider on all pages"
 msgstr ""
 
-#: library/admin/options-init.php:6295
+#: library/admin/options-init.php:6303
 msgid "Number of posts to display"
 msgstr ""
 
-#: library/admin/options-init.php:6302
+#: library/admin/options-init.php:6310
 msgid "Choose to display latest posts or posts of a category."
 msgstr ""
 
-#: library/admin/options-init.php:6306
+#: library/admin/options-init.php:6314
 msgid "Recent posts"
 msgstr ""
 
-#: library/admin/options-init.php:6309
+#: library/admin/options-init.php:6317
 msgid "Slideshow content"
 msgstr ""
 
-#: library/admin/options-init.php:6316
+#: library/admin/options-init.php:6324
 msgid "Select post categories to pull content for the post slideshow."
 msgstr ""
 
-#: library/admin/options-init.php:6324
+#: library/admin/options-init.php:6332
 msgid "Category ID(s)"
 msgstr ""
 
-#: library/admin/options-init.php:6327
+#: library/admin/options-init.php:6335
 msgid "Input the time between transitions (Default: 3500);"
 msgstr ""
 
-#: library/admin/options-init.php:6330
+#: library/admin/options-init.php:6338
 msgid "Slider Speed"
 msgstr ""
 
-#: library/admin/options-init.php:6338
+#: library/admin/options-init.php:6346
 msgid "Sets the length of Slider Title. Default is 40"
 msgstr ""
 
-#: library/admin/options-init.php:6341
+#: library/admin/options-init.php:6349
 msgid "Slider Title Length"
 msgstr ""
 
-#: library/admin/options-init.php:6348
+#: library/admin/options-init.php:6356
 msgid "Sets the length of Slider Excerpt. Default is 40"
 msgstr ""
 
-#: library/admin/options-init.php:6351
+#: library/admin/options-init.php:6359
 msgid "Slider Excerpt Length"
 msgstr ""
 
-#: library/admin/options-init.php:6407
+#: library/admin/options-init.php:6415
 msgid "Lightbox"
 msgstr ""
 
-#: library/admin/options-init.php:6413
+#: library/admin/options-init.php:6421
 msgid "Set the speed of the animation."
 msgstr ""
 
-#: library/admin/options-init.php:6417
+#: library/admin/options-init.php:6425
 msgid "Fast"
 msgstr ""
 
-#: library/admin/options-init.php:6418
+#: library/admin/options-init.php:6426
 msgid "Slow"
 msgstr ""
 
-#: library/admin/options-init.php:6421
+#: library/admin/options-init.php:6429
 msgid "Animation Speed"
 msgstr ""
 
-#: library/admin/options-init.php:6425
+#: library/admin/options-init.php:6433
 msgid "Show the gallery."
 msgstr ""
 
-#: library/admin/options-init.php:6428
+#: library/admin/options-init.php:6436
 msgid "Show gallery"
 msgstr ""
 
-#: library/admin/options-init.php:6431
+#: library/admin/options-init.php:6439
 msgid "Autoplay the lightbox gallery."
 msgstr ""
 
-#: library/admin/options-init.php:6434
+#: library/admin/options-init.php:6442
 msgid "Autoplay the Lightbox Gallery"
 msgstr ""
 
-#: library/admin/options-init.php:6437
+#: library/admin/options-init.php:6445
 msgid "If autoplay is enabled, set the slideshow speed, 1000 = 1 second."
 msgstr ""
 
-#: library/admin/options-init.php:6440
+#: library/admin/options-init.php:6448
 msgid "Slideshow Speed"
 msgstr ""
 
-#: library/admin/options-init.php:6444
+#: library/admin/options-init.php:6452
 msgid "Set the opacity of background, <br />0.1 (lowest) to 1 (highest)."
 msgstr ""
 
-#: library/admin/options-init.php:6451
+#: library/admin/options-init.php:6459
 msgid "Background Opacity"
 msgstr ""
 
-#: library/admin/options-init.php:6455
+#: library/admin/options-init.php:6463
 msgid "Show the image caption."
 msgstr ""
 
-#: library/admin/options-init.php:6458
+#: library/admin/options-init.php:6466
 msgid "Show Caption"
 msgstr ""
 
-#: library/admin/options-init.php:6461
+#: library/admin/options-init.php:6469
 msgid ""
 "Show the image description. The Alternative text field is used for the "
 "description."
 msgstr ""
 
-#: library/admin/options-init.php:6464
+#: library/admin/options-init.php:6472
 msgid "Show description"
 msgstr ""
 
-#: library/admin/options-init.php:6467
+#: library/admin/options-init.php:6475
 msgid "Show social sharing buttons on lightbox."
 msgstr ""
 
-#: library/admin/options-init.php:6470
+#: library/admin/options-init.php:6478
 msgid "Social Sharing"
 msgstr ""
 
-#: library/admin/options-init.php:6473
+#: library/admin/options-init.php:6481
 msgid "Show post images that are inside the post content area in the lightbox."
 msgstr ""
 
-#: library/admin/options-init.php:6476
+#: library/admin/options-init.php:6484
 msgid "Show Post Images in Lightbox"
 msgstr ""
 
-#: library/admin/options-init.php:6484
+#: library/admin/options-init.php:6492
 msgid "Contact"
 msgstr ""
 
-#: library/admin/options-init.php:6488
+#: library/admin/options-init.php:6496
 msgid ""
 "Get your Google Maps API key <a href=\"https://developers.google.com/maps/"
 "documentation/javascript/get-api-key\" target=\"_blank\">here</>"
 msgstr ""
 
-#: library/admin/options-init.php:6491
+#: library/admin/options-init.php:6499
 msgid "Google Maps API"
 msgstr ""
 
-#: library/admin/options-init.php:6532
+#: library/admin/options-init.php:6540
 msgid "Insert name of header which will be in the header of sent email."
 msgstr ""
 
-#: library/admin/options-init.php:6535
+#: library/admin/options-init.php:6543
 msgid "Sent Email Header (From)"
 msgstr ""
 
-#: library/admin/options-init.php:6539
+#: library/admin/options-init.php:6547
 msgid "Enter the email adress the form will be sent to."
 msgstr ""
 
-#: library/admin/options-init.php:6542
+#: library/admin/options-init.php:6550
 msgid "Email Address"
 msgstr ""
 
-#: library/admin/options-init.php:6554
+#: library/admin/options-init.php:6562
 msgid "Display the address pin."
 msgstr ""
 
-#: library/admin/options-init.php:6559
+#: library/admin/options-init.php:6567
 msgid "Hide Address Pin"
 msgstr ""
 
-#: library/admin/options-init.php:6562
+#: library/admin/options-init.php:6570
 msgid ""
 "Keep the popup graphic with address info hidden when the google map loads. "
 "It will only show when the pin on the map is clicked."
 msgstr ""
 
-#: library/admin/options-init.php:6565
+#: library/admin/options-init.php:6573
 msgid "Show Map Popup On Click"
 msgstr ""
 
-#: library/admin/options-init.php:6592
+#: library/admin/options-init.php:6600
 #, php-format
 msgid ""
 "Get Google reCAPTCHA keys <a href=\"%s\">here</a>  to enable spam protection "
 "on the contact page."
 msgstr ""
 
-#: library/admin/options-init.php:6599 library/admin/options-init.php:6605
+#: library/admin/options-init.php:6607 library/admin/options-init.php:6613
 msgid "Follow the steps in our docs to get your key"
 msgstr ""
 
-#: library/admin/options-init.php:6602
+#: library/admin/options-init.php:6610
 msgid "Google reCAPTCHA Site Key"
 msgstr ""
 
-#: library/admin/options-init.php:6608
+#: library/admin/options-init.php:6616
 msgid "Google reCAPTCHA Secret key"
 msgstr ""
 
-#: library/admin/options-init.php:6616
+#: library/admin/options-init.php:6624
 msgid "Extra"
 msgstr ""
 
-#: library/admin/options-init.php:6630
+#: library/admin/options-init.php:6638
 msgid ""
 "Check the box to add rel=\"nofollow\" attribute to social sharing box "
 "shortcode."
 msgstr ""
 
-#: library/admin/options-init.php:6634
+#: library/admin/options-init.php:6642
 msgid "Add rel=\"nofollow\" to social links"
 msgstr ""
 
-#: library/admin/options-init.php:6638
+#: library/admin/options-init.php:6646
 msgid "Choose the position of the <strong>Older/Newer Posts</strong> links"
 msgstr ""
 
-#: library/admin/options-init.php:6646
+#: library/admin/options-init.php:6654
 msgid "Position of navigation links"
 msgstr ""
 
-#: library/admin/options-init.php:6657
+#: library/admin/options-init.php:6665
 msgid "Middle"
 msgstr ""
 
-#: library/admin/options-init.php:6659
+#: library/admin/options-init.php:6667
 msgid "Position of 'Back to Top' button"
 msgstr ""
 
-#: library/admin/options-init.php:6663
+#: library/admin/options-init.php:6671
 msgid "<h3 style='margin: 0;'>BBPress</h3>"
 msgstr ""
 
-#: library/admin/options-init.php:6669
+#: library/admin/options-init.php:6677
 msgid "Check the box if you want to use one global sidebar on all forum pages."
 msgstr ""
 
-#: library/admin/options-init.php:6674
+#: library/admin/options-init.php:6682
 msgid "BBPress Use Global Sidebar"
 msgstr ""
 
-#: library/admin/options-init.php:6679
+#: library/admin/options-init.php:6687
 msgid "Select the sidebar that will display on forum pages globally."
 msgstr ""
 
-#: library/admin/options-init.php:6684
+#: library/admin/options-init.php:6692
 msgid "BBPress Global Sidebar"
 msgstr ""
 
-#: library/admin/options-init.php:6694
+#: library/admin/options-init.php:6702
 msgid "Advanced"
 msgstr ""
 
-#: library/admin/options-init.php:6698
+#: library/admin/options-init.php:6706
 msgid "Check to disable the theme's mega menu."
 msgstr ""
 
-#: library/admin/options-init.php:6702
+#: library/admin/options-init.php:6710
 msgid "Disable Mega Menu"
 msgstr ""
 
-#: library/admin/options-init.php:6706
+#: library/admin/options-init.php:6714
 msgid ""
 "Check the box if you are using UberMenu, this option adds UberMenu support "
 "without editing any code."
 msgstr ""
 
-#: library/admin/options-init.php:6710
+#: library/admin/options-init.php:6718
 msgid "UberMenu Plugin Support"
 msgstr ""
 
-#: library/admin/options-init.php:6715
+#: library/admin/options-init.php:6723
 msgid "Check this box if you want to enable FlexSlider support"
 msgstr ""
 
-#: library/admin/options-init.php:6720
+#: library/admin/options-init.php:6728
 msgid "Enable FlexSlider support"
 msgstr ""
 
-#: library/admin/options-init.php:6723
+#: library/admin/options-init.php:6731
 msgid "Check this box if you want to enable Google Map Scripts"
 msgstr ""
 
-#: library/admin/options-init.php:6727
+#: library/admin/options-init.php:6735
 msgid "Enable Google Map Scripts"
 msgstr ""
 
-#: library/admin/options-init.php:6731
+#: library/admin/options-init.php:6739
 msgid ""
 "Check this box if you want to enable Animate.css plugin support - (menu "
 "hover effect, featured image hover effect, button hover effect, etc.)"
 msgstr ""
 
-#: library/admin/options-init.php:6735
+#: library/admin/options-init.php:6743
 msgid "Enable Animate.css plugin support"
 msgstr ""
 
-#: library/admin/options-init.php:6739
+#: library/admin/options-init.php:6747
 msgid "Check the box to disable Youtube API scripts."
 msgstr ""
 
-#: library/admin/options-init.php:6744
+#: library/admin/options-init.php:6752
 msgid "Disable Youtube API Scripts"
 msgstr ""
 
-#: library/admin/options-init.php:6747
+#: library/admin/options-init.php:6755
 msgid "Check the box to disable Vimeo API scripts."
 msgstr ""
 
-#: library/admin/options-init.php:6752
+#: library/admin/options-init.php:6760
 msgid "Disable Vimeo API Scripts"
 msgstr ""
 
-#: library/admin/options-init.php:6755
+#: library/admin/options-init.php:6763
 msgid "Check the box to disable font awesome"
 msgstr ""
 
-#: library/admin/options-init.php:6758
+#: library/admin/options-init.php:6766
 msgid "Disable FontAwesome"
 msgstr ""
 
-#: library/admin/options-init.php:6767
+#: library/admin/options-init.php:6775
 msgid "WooCommerce"
 msgstr ""
 
-#: library/admin/options-init.php:6775
+#: library/admin/options-init.php:6783
 msgid "Number of Products per Page"
 msgstr ""
 
-#: library/admin/options-init.php:6780
+#: library/admin/options-init.php:6788
 msgid "Check the box to disable the ordering boxes displayed on the shop page."
 msgstr ""
 
-#: library/admin/options-init.php:6783
+#: library/admin/options-init.php:6791
 msgid "Disable Woocommerce Shop Page Ordering Boxes"
 msgstr ""
 
-#: library/admin/options-init.php:6786
+#: library/admin/options-init.php:6794
 msgid "Check the box to use evolve's one page checkout template."
 msgstr ""
 
-#: library/admin/options-init.php:6790
+#: library/admin/options-init.php:6798
 msgid "Use Woocommerce One Page Checkout"
 msgstr ""
 
-#: library/admin/options-init.php:6794
+#: library/admin/options-init.php:6802
 msgid "Check the box to show the order notes on the checkout page."
 msgstr ""
 
-#: library/admin/options-init.php:6797
+#: library/admin/options-init.php:6805
 msgid "Show Woocommerce Order Notes on Checkout"
 msgstr ""
 
-#: library/admin/options-init.php:6800
+#: library/admin/options-init.php:6808
 msgid "Check the box to show My Account link, uncheck to disable."
 msgstr ""
 
-#: library/admin/options-init.php:6803
+#: library/admin/options-init.php:6811
 msgid "Show Woocommerce My Account Link in Header"
 msgstr ""
 
-#: library/admin/options-init.php:6806
+#: library/admin/options-init.php:6814
 msgid "Check the box to show the Cart icon, uncheck to disable."
 msgstr ""
 
-#: library/admin/options-init.php:6809
+#: library/admin/options-init.php:6817
 msgid "Show Woocommerce Cart Link in Header"
 msgstr ""
 
-#: library/admin/options-init.php:6812
+#: library/admin/options-init.php:6820
 msgid ""
 "Check the box to show the social icons on product pages, uncheck to disable."
 msgstr ""
 
-#: library/admin/options-init.php:6816
+#: library/admin/options-init.php:6824
 msgid "Show Woocommerce Social Icons"
 msgstr ""
 
-#: library/admin/options-init.php:6820
+#: library/admin/options-init.php:6828
 msgid ""
 "Insert your text and it will appear in the first message box on the account "
 "page."
 msgstr ""
 
-#: library/admin/options-init.php:6823
+#: library/admin/options-init.php:6831
 msgid "Account Area Message 1"
 msgstr ""
 
-#: library/admin/options-init.php:6827
+#: library/admin/options-init.php:6835
 msgid ""
 "Insert your text and it will appear in the second message box on the account "
 "page."
 msgstr ""
 
-#: library/admin/options-init.php:6830
+#: library/admin/options-init.php:6838
 msgid "Account Area Message 2"
 msgstr ""
 
-#: library/admin/options-init.php:6856
+#: library/admin/options-init.php:6864
 #: library/admin/redux-framework/inc/extensions/import_export/extension_import_export.php:120
 msgid "Import / Export"
 msgstr ""
@@ -5812,7 +5840,11 @@ msgid "Press return or enter to open this panel"
 msgstr ""
 
 #: library/admin/evolve-exts/class-evolve-redux-customizer-panel.php:118
-msgid "You are customizing hi"
+#: library/admin/evolve-exts/class-evolve-redux-customizer-panel.php:146
+#: library/admin/redux-framework/inc/extensions/customizer/inc/customizer_panel.php:114
+#: library/admin/redux-framework/inc/extensions/customizer/inc/customizer_panel.php:142
+#, php-format
+msgid "You are customizing %s"
 msgstr ""
 
 #: library/admin/evolve-exts/class-evolve-redux-customizer-panel.php:142
@@ -5821,13 +5853,6 @@ msgstr ""
 #: library/admin/redux-framework/inc/extensions/customizer/inc/customizer_panel.php:138
 #: library/admin/redux-framework/inc/extensions/customizer/inc/customizer_section.php:79
 msgid "Back"
-msgstr ""
-
-#: library/admin/evolve-exts/class-evolve-redux-customizer-panel.php:146
-#: library/admin/redux-framework/inc/extensions/customizer/inc/customizer_panel.php:114
-#: library/admin/redux-framework/inc/extensions/customizer/inc/customizer_panel.php:142
-#, php-format
-msgid "You are customizing %s"
 msgstr ""
 
 #: library/admin/evolve-exts/class-evolve-redux-customizer-panel.php:150
@@ -7122,61 +7147,61 @@ msgstr ""
 msgid "Untitled"
 msgstr ""
 
-#: library/functions/basic-functions.php:589
+#: library/functions/basic-functions.php:618
 msgid "Share on Twitter"
 msgstr ""
 
-#: library/functions/basic-functions.php:590
+#: library/functions/basic-functions.php:619
 msgid "Share on Facebook"
 msgstr ""
 
-#: library/functions/basic-functions.php:591
+#: library/functions/basic-functions.php:620
 msgid "Share on Google Plus"
 msgstr ""
 
-#: library/functions/basic-functions.php:592
+#: library/functions/basic-functions.php:621
 msgid "Share on Pinterest"
 msgstr ""
 
-#: library/functions/basic-functions.php:593
+#: library/functions/basic-functions.php:622
 msgid "Share by Email"
 msgstr ""
 
-#: library/functions/basic-functions.php:594
+#: library/functions/basic-functions.php:623
 msgid "More options"
 msgstr ""
 
-#: library/functions/basic-functions.php:849
+#: library/functions/basic-functions.php:878
 msgid "Home"
 msgstr ""
 
-#: library/functions/basic-functions.php:917
+#: library/functions/basic-functions.php:946
 msgid "404 - Page not Found"
 msgstr ""
 
-#: library/functions/basic-functions.php:920
+#: library/functions/basic-functions.php:949
 msgid "Search"
 msgstr ""
 
-#: library/functions/basic-functions.php:1021
+#: library/functions/basic-functions.php:1050
 msgid ""
 "<h2 style=\"color:#fff;\">Oops, no posts to display! Please check your post "
 "slider Category (ID) settings</h2>"
 msgstr ""
 
-#: library/functions/basic-functions.php:1742
+#: library/functions/basic-functions.php:1781
 msgid "Previous "
 msgstr ""
 
-#: library/functions/basic-functions.php:1743
+#: library/functions/basic-functions.php:1782
 msgid "Next "
 msgstr ""
 
-#: library/functions/basic-functions.php:1827
+#: library/functions/basic-functions.php:1866
 msgid "Previous"
 msgstr ""
 
-#: library/functions/basic-functions.php:1837
+#: library/functions/basic-functions.php:1876
 msgid "Next"
 msgstr ""
 
@@ -7204,38 +7229,38 @@ msgstr ""
 msgid "Your trackback is awaiting moderation."
 msgstr ""
 
-#: library/functions/frontpage-functions.php:568
+#: library/functions/frontpage-functions.php:784
 msgid "No location found for the entered address."
 msgstr ""
 
-#: library/functions/frontpage-functions.php:570
+#: library/functions/frontpage-functions.php:786
 msgid "Invalid request. Did you enter an address?"
 msgstr ""
 
-#: library/functions/frontpage-functions.php:572
+#: library/functions/frontpage-functions.php:788
 msgid ""
 "Something went wrong while retrieving your map, please ensure you have "
 "entered the short code correctly."
 msgstr ""
 
-#: library/functions/frontpage-functions.php:576
+#: library/functions/frontpage-functions.php:792
 msgid "Unable to contact Google API service."
 msgstr ""
 
-#: library/functions/frontpage-functions.php:1200
+#: library/functions/frontpage-functions.php:1580
 #, php-format
 msgid "View all posts in %s"
 msgstr ""
 
-#: library/functions/frontpage-functions.php:1300
+#: library/functions/frontpage-functions.php:1680
 msgid "Written By"
 msgstr ""
 
-#: library/functions/frontpage-functions.php:1307
+#: library/functions/frontpage-functions.php:1687
 msgid "0 Comments"
 msgstr ""
 
-#: library/functions/frontpage-functions.php:1326
+#: library/functions/frontpage-functions.php:1706
 msgid "%"
 msgstr ""
 
