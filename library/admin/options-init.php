@@ -189,14 +189,14 @@ if (is_plugin_active('woocommerce/woocommerce.php')) {
     $content_area = array(
         'enabled' => array(
             'content_box' => __('Content Boxes', 'evolve'),
+        ),
+        'disabled' => array(
             'testimonial' => __('Testimonials', 'evolve'),
             'blog_post' => __('Blog Posts', 'evolve'),
             'google_map' => __('Google Map', 'evolve'),
             'woocommerce_product' => __('WooCommerce Products', 'evolve'),
             'counter_circle' => __('Counter Circles', 'evolve'),
             'custom_content' => __('Custom Content', 'evolve'),
-        ),
-        'disabled' => array(
         )
     );
 } else {
@@ -204,13 +204,13 @@ if (is_plugin_active('woocommerce/woocommerce.php')) {
     $content_area = array(
         'enabled' => array(
             'content_box' => __('Content Boxes', 'evolve'),
+        ),
+        'disabled' => array(
             'testimonial' => __('Testimonials', 'evolve'),
             'blog_post' => __('Blog Posts', 'evolve'),
             'google_map' => __('Google Map', 'evolve'),
             'counter_circle' => __('Counter Circles', 'evolve'),
             'custom_content' => __('Custom Content', 'evolve'),
-        ),
-        'disabled' => array(
         )
     );
 }
@@ -529,7 +529,7 @@ Redux::setSection($evolve_opt_name, array(
                 'fluid' => __('Wide', 'evolve'),
             ),
             'title' => __('Layout Style', 'evolve'),
-            'default' => 'wide',
+            'default' => 'fixed',
         ),
         array(
             'subtitle' => __('Select the width for your website', 'evolve'),
