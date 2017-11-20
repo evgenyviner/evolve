@@ -2350,6 +2350,7 @@ p#copyright .credits a {
 .home-content-boxes {
   width: 100%;
   clear: both;
+  margin: 0 0 25px;
 }
 
 .home-content-boxes .row {

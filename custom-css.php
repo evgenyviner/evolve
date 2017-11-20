@@ -3925,6 +3925,12 @@ $evolve_css_data .= '
 	background: ' . $evolve_bootstrap_slide_subtitle_font_rgba . ';
 }
 ';
+} else {
+$evolve_css_data .= '
+#bootstrap-slider .carousel-caption p {
+	background: rgba(0, 0, 0, .7);
+}
+';
 }
 
 $evolve_css_data .= '

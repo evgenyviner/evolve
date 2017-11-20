@@ -85,7 +85,7 @@ function evolve_content_boxes() {
             $evolve_content_box_section_title = '<h2 class="content_box_section_title section_title">'.evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind').'</h2>';
         }
 
-        echo "<div class='home-content-boxes'>".$evolve_content_box_section_title;
+        echo "<div class='home-content-boxes'><div class='row'>".$evolve_content_box_section_title;
 
         $evolve_content_box1_title = evolve_get_option('evl_content_box1_title', 'Flat & Beautiful');
         if ($evolve_content_box1_title === false) {
@@ -257,7 +257,7 @@ function evolve_content_boxes() {
 
             echo "</div>";
         }
-        echo "</div><div class='clearfix'></div></div></div>";
+        echo "</div></div><div class='clearfix'></div></div></div>";
     }
 }
 

@@ -204,3 +204,8 @@
                     <div id="content">                            								
                         <!--BEGIN .container-->
                         <div class="container container-center row">
+                            <?php
+                            $evolve_content_boxes_pos = evolve_get_option('evl_content_boxes_pos', 'above');
+                            if (is_front_page() && $evolve_content_boxes_pos == 'above') {
+                                    evolve_content_boxes();
+                            }

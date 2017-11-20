@@ -6,6 +6,7 @@
  */
 
 global $evl_options;
+$evolve_content_boxes_pos = evolve_get_option('evl_content_boxes_pos', 'above');
 
 if ( isset($evl_options['evl_front_elements_content_area']['enabled']) )
     $evl_frontpage_elements = $evl_options['evl_front_elements_content_area']['enabled'];
@@ -16,7 +17,7 @@ if ($evl_frontpage_elements):
                 switch ($elementkey) {
 
                         case 'content_box':
-                                if ($elementval) {
+                                if ($elementval && $evolve_content_boxes_pos == 'below') {
                                         evolve_content_boxes();
                                 }
                         break;
