@@ -6980,11 +6980,18 @@ if (!function_exists('evolve_redux_header_html')) {
 
     function evolve_redux_header_html() {
         //mod by denzel, to prevent theme check plugin listing out as INFO:
-        $url = esc_url("http://theme4press.com/evolve-multipurpose-wordpress-theme/");
+        $url = esc_url("https://theme4press.com/evolve-multipurpose-wordpress-theme/");
+		$videourl = esc_url("https://youtube.com/");
         ?>
+		<div class="updated">
         <a href="<?php echo $url ?>" target="_blank">
-            <img class="evolve-logo" style="margin-bottom:20px;float:left;position:relative;top:10px;" width="1117" height="311" border="0" alt="evolve - Multipurpose WordPress Theme" src="<?php echo get_template_directory_uri(); ?>/assets/images/functions/evolve.jpg">
-        </a><div style="clear:both;"></div>
+            <img class="evolve-logo" style="margin-bottom:20px;float:left;position:relative;top:10px;" width="718" height="200" border="0" alt="evolve - Multipurpose WordPress Theme" src="<?php echo get_template_directory_uri(); ?>/assets/images/functions/evolve.jpg">
+        </a>
+		<a href="<?php echo $videourl ?>" target="_blank">
+			<img class="evolve-logo" style="margin-bottom:20px;float:left;position:relative;top:10px;" width="409" height="200" border="0" alt="evolve videoe" src="<?php echo get_template_directory_uri(); ?>/assets/images/functions/video.jpg">
+		</a>
+		<div style="clear:both;"></div>
+		</div>	
         <div class="updated">
             <p>Happy with this theme? Please rate it <i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i> on <strong><a href="http://wordpress.org/themes/evolve" target="_blank">wordpress.org</a></strong></p>
         </div>		

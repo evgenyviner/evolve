@@ -1,3 +1,9 @@
+Version:         3.8.2  
+Date:         17/11/17        
+
+- Fixed issues with the Home/Front Page Builder
+
+
 Version:         3.8.0  
 Date:         17/11/17        
 
