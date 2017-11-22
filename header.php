@@ -60,8 +60,16 @@
                 $evolve_current_post_slider_position = get_post_meta($evolve_page_ID, 'evolve_slider_position', true);
                 $evolve_current_post_slider_position = empty($evolve_current_post_slider_position) ? 'default' : $evolve_current_post_slider_position;
 
-                if ( (is_home() || is_front_page()) && ( $header_pos != 1 && $header_pos != false ) ) {
-                        get_template_part('allslider_above');
+                if ( is_home() || is_front_page() ) {
+                        if ( is_home() && !is_front_page() ) {
+                                if ( ($evolve_current_post_slider_position == 'above') || ($evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'above') ) {
+                                        get_template_part('allslider');
+                                }
+                        } else {
+                                if ( $header_pos != 1 && $header_pos != false ) {
+                                        get_template_part('allslider_above');
+                                }
+                        }
                 } elseif ( ($evolve_current_post_slider_position == 'above' && !is_front_page()) || ($evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'above' && !is_front_page()) ) {
                         get_template_part('allslider');
                 }
@@ -100,7 +108,13 @@
                         $evolve_current_post_slider_position = empty($evolve_current_post_slider_position) ? 'default' : $evolve_current_post_slider_position;
 
                         if ( (is_home() || is_front_page()) && is_array($evl_frontpage_slider) ) {
-                                get_template_part('allslider_below');
+                                if ( is_home() && !is_front_page() ) {
+                                        if ( ($evolve_current_post_slider_position == 'below') || ($evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'below') ) {
+                                                get_template_part('allslider');
+                                        }
+                                } else {
+                                        get_template_part('allslider_below');
+                                }
                         } elseif ( ($evolve_current_post_slider_position == 'below' && !is_front_page()) || ($evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'below' && !is_front_page()) ) {
                                 get_template_part('allslider');
                         }
