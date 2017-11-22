@@ -7406,8 +7406,6 @@ if ( get_option('old_new_upgrade_themeoptions', 'false') == 'false' ) {
         }
 
         //set slider on homepage/frontpage
-        $evl_parallax_slider_support = isset($evl_options['evl_parallax_slider_support']) ? $evl_options['evl_parallax_slider_support'] : '0';
-        $evl_carousel_slider = isset($evl_options['evl_carousel_slider']) ? $evl_options['evl_carousel_slider'] : '0';
         ( $evl_parallax_slider_support == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)';
         ( $evl_carousel_slider == '1' ) ? $postslider_status = ' (ACTIVE)' : $postslider_status = ' (INACTIVE)';
 
