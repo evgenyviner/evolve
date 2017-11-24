@@ -440,6 +440,11 @@ li#accordion-panel-nav_menus > h3.accordion-section-title:before {
     background-color: #008CBA;
 }
 
+.wp-customizer .fp_demooverlay {
+    top: -275px;
+    height: 290px;
+}
+
 .fp_demoname {
     color: white;
     font-size: 20px;
@@ -449,4 +454,18 @@ li#accordion-panel-nav_menus > h3.accordion-section-title:before {
     text-transform: capitalize;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
+}
+
+.control-section .accordion-section-title::after {
+    top: 20px;
+}
+
+.in-sub-panel .control-section .accordion-section-title::after {
+    top: 11px;
+}
+
+.redux-main .button, 
+.redux-main .button:hover {
+    white-space: normal;
+    height: auto;
 }

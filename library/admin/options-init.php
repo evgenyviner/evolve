@@ -6930,6 +6930,15 @@ function evolve_extend_customizer() {
         }
 
     }
+    if (!class_exists('Redux_Customizer_Control_raw')) {
+
+        class Redux_Customizer_Control_raw extends Redux_Customizer_Control {
+
+            public $type = "redux-raw";
+
+        }
+
+    }
     if (!class_exists('Redux_Customizer_Control_info')) {
 
         class Redux_Customizer_Control_info extends Redux_Customizer_Control {

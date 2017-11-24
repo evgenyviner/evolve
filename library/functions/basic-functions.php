@@ -1881,3 +1881,16 @@ if (!function_exists('t4p_pagination')):
     }
 
 endif;
+
+
+/* 
+ * 
+ * Switch evolve lite theme to other theme
+ * 
+ */
+
+add_action('switch_theme', 'switch_evolvelite_theme');
+
+function switch_evolvelite_theme() {
+        update_option('evolvelite_theme', 'true');
+}
