@@ -1686,16 +1686,16 @@ $counter_circle_fields = array();
 
 $slide_defaults = array(
     array(
-        'percentage' => '40',
-        'text' => __('Evolve Plus', 'evolve'),
+        'percentage' => '55',
+        'text' => __(' android', 'evolve'),
     ),
     array(
         'percentage' => '75',
-        'text' => __('Alora', 'evolve'),
+        'text' => __('  apple', 'evolve'),
     ),
     array(
-        'percentage' => '30',
-        'text' => __('Evolve Lite', 'evolve'),
+        'percentage' => '88',
+        'text' => __('  amazon', 'evolve'),
     ),
 );
 
@@ -1744,7 +1744,7 @@ for ($i = 1; $i <= 3; $i++) {
         'type' => 'color',
         'title' => sprintf(__('Counter Circle %d Filled Color', 'evolve'), $i),
         'subtitle' => __('Controls the color of the filled in area.', 'evolve'),
-        'default' => '#000000',
+        'default' => '#242c42',
         'required' => array(array("{$evolve_shortname}_fp_counter_circle{$i}", '=', '1'))
     );
 
@@ -1816,7 +1816,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_counter_circle_title',
             'type' => 'text',
             'title' => __('Title of Counter Circle Section', 'evolve'),
-            'default' => 'How many people love our themes',
+            'default' => __('Cooperation with many great brands is our mission', 'evolve'),
         ),
         array(
             'id' => 'evl_reduxinfo_4',
@@ -1919,7 +1919,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'color',
             'compiler' => true,
             'title' => __('Section Background Color', 'evolve'),
-            'default' => '#9ba372',
+            'default' => '#f0f0f0',
         ),
         array(
             'id' => 'evl-front-page-subsec-counter-circle-section-end',
@@ -6990,7 +6990,7 @@ if (!function_exists('evolve_redux_header_html')) {
     function evolve_redux_header_html() {
         //mod by denzel, to prevent theme check plugin listing out as INFO:
         $url = esc_url("https://theme4press.com/evolve-multipurpose-wordpress-theme/");
-		$videourl = esc_url("https://youtube.com/");
+		$videourl = esc_url("https://youtu.be/dgvjt6dJfWM");
         ?>
 		<div class="updated">
         <a href="<?php echo $url ?>" target="_blank">

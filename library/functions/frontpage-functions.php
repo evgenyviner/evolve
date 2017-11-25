@@ -503,11 +503,11 @@ function evolve_counter_circle() {
 
     $html = "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
 
-    $evolve_counter_circle_section_title = evolve_get_option('evl_counter_circle_title', 'How many people love our themes');
+    $evolve_counter_circle_section_title = evolve_get_option('evl_counter_circle_title', 'Cooperation with many great brands is our mission');
     if ($evolve_counter_circle_section_title == false) {
         $evolve_counter_circle_section_title = '';
     } else {
-        $evolve_counter_circle_section_title = '<h2 class="counter_circle_section_title section_title">'.evolve_get_option('evl_counter_circle_title', 'How many people love our themes').'</h2>';
+        $evolve_counter_circle_section_title = '<h2 class="counter_circle_section_title section_title">'.evolve_get_option('evl_counter_circle_title', 'Cooperation with many great brands is our mission').'</h2>';
     }
 
     $html   .=   "<div class='t4p-counters-circle counters-circle'>".$evolve_counter_circle_section_title;
