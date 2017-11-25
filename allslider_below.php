@@ -8,6 +8,7 @@
 <div class="sliderblock">
     <?php
     global $evl_options, $evl_frontpage_slider_status;
+    $evl_frontpage_slider = array();
         if ( isset($evl_options['evl_front_elements_header_area']['enabled']) )
             $evl_frontpage_slider = $evl_options['evl_front_elements_header_area']['enabled'];
             $evl_frontpage_slider_status;

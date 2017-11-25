@@ -52,6 +52,7 @@
                 <?php
                 global $evl_options;
                 $header_pos = '';
+                $evl_frontpage_slider = array();
                 if ( isset($evl_options['evl_front_elements_header_area']['enabled']) ) {
                         $evl_frontpage_slider = array_keys($evl_options['evl_front_elements_header_area']['enabled']);
                         $header_pos = array_search("header", $evl_frontpage_slider);

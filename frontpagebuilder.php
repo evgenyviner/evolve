@@ -7,6 +7,7 @@
 
 global $evl_options;
 $evolve_content_boxes_pos = evolve_get_option('evl_content_boxes_pos', 'above');
+$evl_frontpage_elements = array();
 
 if ( isset($evl_options['evl_front_elements_content_area']['enabled']) )
     $evl_frontpage_elements = $evl_options['evl_front_elements_content_area']['enabled'];
