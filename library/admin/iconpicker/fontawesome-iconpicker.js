@@ -1019,11 +1019,5 @@
 });
 
 jQuery(document).ready(function ($) {
-    $('.iconpicker-icon').on('click', function () {
-        $('.iconpicker-box').iconpicker();
-    }).trigger('click');
-
-    $('.wp-customizer .iconpicker-item').bind('click', function () {
-        redux_change( $( this ) );
-    });
+    $('input.iconpicker-icon').iconpicker();
 });

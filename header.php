@@ -220,6 +220,6 @@
                         <div class="container container-center row">
                             <?php
                             $evolve_content_boxes_pos = evolve_get_option('evl_content_boxes_pos', 'above');
-                            if (is_front_page() && $evolve_content_boxes_pos == 'above') {
+                            if (is_front_page() && $evolve_content_boxes_pos == 'above' && isset($evl_options['evl_front_elements_content_area']['enabled']['content_box'])) {
                                     evolve_content_boxes();
                             }

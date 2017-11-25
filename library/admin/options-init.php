@@ -1275,7 +1275,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 1 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-cube',
-            'class' => 'iconpicker-box iconpicker-icon',
+            'class' => 'iconpicker-icon',
             'required' => array(
                 array('evl_content_box1_enable', '=', '1')
             ),
@@ -1354,7 +1354,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 2 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-circle-o-notch',
-            'class' => 'iconpicker-box iconpicker-icon',
+            'class' => 'iconpicker-icon',
             'required' => array(
                 array('evl_content_box2_enable', '=', '1')
             ),
@@ -1433,7 +1433,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 3 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-shopping-basket',
-            'class' => 'iconpicker-box iconpicker-icon',
+            'class' => 'iconpicker-icon',
             'required' => array(
                 array('evl_content_box3_enable', '=', '1')
             ),
@@ -1512,7 +1512,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'text',
             'title' => __('Content Box 4 Icon (FontAwesome)', 'evolve'),
             'default' => 'fa-object-ungroup',
-            'class' => 'iconpicker-box iconpicker-icon',
+            'class' => 'iconpicker-icon',
             'required' => array(
                 array('evl_content_box4_enable', '=', '1')
             ),
@@ -1715,7 +1715,7 @@ for ($i = 1; $i <= 3; $i++) {
         'type' => 'text',
         'title' => sprintf(__('Counter Circle %d Icon', 'evolve'), $i),
         'subtitle' => __('Click an icon to select.', 'evolve'),
-        'class' => 'iconpicker-box iconpicker-icon',
+        'class' => 'iconpicker-icon',
         'default' => '',
         'required' => array(array("{$evolve_shortname}_fp_counter_circle{$i}", '=', '1'))
     );
@@ -2538,7 +2538,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'editor',
             'title' => __('Editor', 'evolve'),
             'subtitle' => __('Add Costome Content in your Front Page', 'evolve'),
-            'default' => '',
+            'default' => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
         ),
         // Section settings
         array(

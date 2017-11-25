@@ -464,8 +464,8 @@ li#accordion-panel-nav_menus > h3.accordion-section-title:before {
     top: 11px;
 }
 
-.redux-main .button, 
-.redux-main .button:hover {
+.redux-main .button.convertsc, 
+.redux-main .button.convertsc:hover {
     white-space: normal;
     height: auto;
 }
