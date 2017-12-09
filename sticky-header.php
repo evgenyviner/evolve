@@ -41,7 +41,7 @@ if ( is_home() || is_front_page() ) {
                 ?>
                 <nav class="nav nav-holder link-effect">
                     <?php
-                    wp_nav_menu(array('theme_location' => 'primary-menu', 'menu_class' => 'nav-menu', 'fallback_cb' => 'wp_page_menu'));
+                    wp_nav_menu(array('theme_location' => 'primary-menu', 'menu_class' => 'nav-menu'));
                 }
                 ?>
             </nav>
