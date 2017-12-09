@@ -7659,11 +7659,6 @@ add_action( 'customize_register', 'evolve_customize_register' );
 
 /**
  * Render the site title for the selective refresh partial.
- *
- * @since Twenty Seventeen 1.0
- * @see evolve_customize_register()
- *
- * @return void
  */
 function evolve_customize_partial_blogname() {
 	bloginfo( 'name' );
@@ -7671,11 +7666,6 @@ function evolve_customize_partial_blogname() {
 
 /**
  * Render the site tagline for the selective refresh partial.
- *
- * @since Twenty Seventeen 1.0
- * @see evolve_customize_register()
- *
- * @return void
  */
 function evolve_customize_partial_blogdescription() {
 	bloginfo( 'description' );
