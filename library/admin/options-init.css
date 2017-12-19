@@ -469,3 +469,27 @@ li#accordion-panel-nav_menus > h3.accordion-section-title:before {
     white-space: normal;
     height: auto;
 }
+
+.redux-main .button.wp-color-result,
+.redux-main .button.wp-color-result:hover{
+    text-transform: none;
+    font-weight: 400;
+    padding: 0px 1px 0 30px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.redux-main .wp-picker-default:hover {
+    font-weight: bold;
+    height: 24px;
+    margin-right: 5px;
+    padding: 0 10px 1px;
+}
+
+.redux-container-color .wp-picker-container{
+    display: inline-block;
+}
+
+.redux-main .color-transparency-check{
+    margin-top:8px !important;
+}

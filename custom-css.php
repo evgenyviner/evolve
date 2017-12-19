@@ -4092,3 +4092,14 @@ if ( is_home() || is_front_page() ) {
     }
     ';
 }
+
+
+//Responsive sticky header
+
+$evolve_css_data .= '
+@media (min-width: 767px) and (max-width: '.$evolve_min_width_px.'px) {
+        body.admin-bar #header.sticky-header{
+                width: 100%;
+                margin-left:0;
+        }
+}';
