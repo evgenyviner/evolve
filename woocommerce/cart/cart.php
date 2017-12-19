@@ -47,6 +47,7 @@ do_action( 'woocommerce_before_cart' ); ?>
                 $product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
 
                 if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_cart_item_visible', true, $cart_item, $cart_item_key)) {
+                    $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
                     ?>
                     <tr class="<?php echo esc_attr(apply_filters('woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key)); ?>">
 
@@ -55,18 +56,20 @@ do_action( 'woocommerce_before_cart' ); ?>
                                 <?php
                                 $thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
 
-                                if (!$_product->is_visible())
-                                    echo $thumbnail;
-                                else
-                                    printf('<a href="%s">%s</a>', $_product->get_permalink($cart_item), $thumbnail);
+                               if ( ! $product_permalink ) {
+                                        echo $thumbnail;
+                                } else {
+                                        printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail );
+                                }
                                 ?>
                             </span>					
                             <div class="product-info">
                                 <?php
-                                if (!$_product->is_visible())
-                                    echo apply_filters('woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key);
-                                else
-                                    echo apply_filters('woocommerce_cart_item_name', sprintf('<a class="product-title" href="%s">%s</a>', $_product->get_permalink($cart_item), $_product->get_title()), $cart_item, $cart_item_key);
+                                 if ( ! $product_permalink ) {
+                                        echo apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;';
+                                } else {
+                                        echo apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key );
+                                }
 
                                 // Meta data
                                 echo WC()->cart->get_item_data($cart_item);

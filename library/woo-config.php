@@ -566,7 +566,12 @@ function evolve_woocommerce_thumbnail() {
         $first_image_id = $gallery[0];
         $attachment_image = wp_get_attachment_image($first_image_id, $size, false, array('class' => 'hover-image'));
     }
+
     $thumb_image = get_the_post_thumbnail($id, $size);
+    if (empty($thumb_image)) {
+        $placeholder_img = plugins_url() . '/woocommerce/assets/images/placeholder.png';
+        $thumb_image = '<img src=' . $placeholder_img . ' alt="Placeholder" class="woocommerce-placeholder wp-post-image"/>';
+    }
 
     if ($attachment_image) {
         $classes = 'crossfade-images';
@@ -614,12 +619,16 @@ function evolve_woocommerce_header_add_to_cart_fragment($fragments) {
                     <?php echo wc_price($woocommerce->cart->cart_contents_total); ?>
                 </a>
                 <div class="cart-contents">
-                    <?php foreach ($woocommerce->cart->cart_contents as $cart_item): //var_dump($cart_item);     ?>
+                    <?php foreach ($woocommerce->cart->cart_contents as $cart_item): //var_dump($cart_item);
+                        $cart_item_key = $cart_item['key'];
+                        $_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+                        ?>
                         <div class="cart-content">
                             <a href="<?php echo get_permalink($cart_item['product_id']); ?>">
                                 <?php
-                                $thumbnail_id = ($cart_item['variation_id']) ? $cart_item['variation_id'] : $cart_item['product_id'];
-                                echo get_the_post_thumbnail($thumbnail_id, 'recent-works-thumbnail');
+                                $thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
+                                echo $thumbnail;
+
                                 ?>
                                 <div class="cart-desc">
                                     <span class="cart-title"><?php echo $cart_item['data']->post->post_title; ?></span>
@@ -664,12 +673,16 @@ function evolve_woocommerce_header_add_to_cart_fragment($fragments) {
                     <?php //echo wc_price($woocommerce->cart->cart_contents_total);    ?>
                 </a>
                 <div class="cart-contents">
-                    <?php foreach ($woocommerce->cart->cart_contents as $cart_item): //var_dump($cart_item);      ?>
+                    <?php foreach ($woocommerce->cart->cart_contents as $cart_item): //var_dump($cart_item);
+                        $cart_item_key = $cart_item['key'];
+                        $_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+                        ?>
                         <div class="cart-content">
                             <a href="<?php echo get_permalink($cart_item['product_id']); ?>">
                                 <?php
-                                $thumbnail_id = ($cart_item['variation_id']) ? $cart_item['variation_id'] : $cart_item['product_id'];
-                                echo get_the_post_thumbnail($thumbnail_id, 'recent-works-thumbnail');
+                                $thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
+                                echo $thumbnail;
+
                                 ?>
                                 <div class="cart-desc">
                                     <span class="cart-title"><?php echo $cart_item['data']->post->post_title; ?></span>
@@ -715,12 +728,16 @@ function evolve_woocommerce_header_add_to_cart_fragment($fragments) {
                     <span><?php echo $woocommerce->cart->cart_contents_count; ?> item(s)</span>
                 </a>
                 <div class="cart-contents">
-                    <?php foreach ($woocommerce->cart->cart_contents as $cart_item): //var_dump($cart_item);         ?>
+                    <?php foreach ($woocommerce->cart->cart_contents as $cart_item): //var_dump($cart_item);
+                        $cart_item_key = $cart_item['key'];
+                        $_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+                        ?>
                         <div class="cart-content">
                             <a href="<?php echo get_permalink($cart_item['product_id']); ?>">
                                 <?php
-                                $thumbnail_id = ($cart_item['variation_id']) ? $cart_item['variation_id'] : $cart_item['product_id'];
-                                echo get_the_post_thumbnail($thumbnail_id, 'recent-works-thumbnail');
+                                $thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
+                                echo $thumbnail;
+
                                 ?>
                                 <div class="cart-desc">
                                     <span class="cart-title"><?php echo $cart_item['data']->post->post_title; ?></span>
@@ -759,12 +776,16 @@ function evolve_woocommerce_header_add_to_cart_fragment($fragments) {
             <?php else: ?>
                 <a href="<?php echo get_permalink(get_option('woocommerce_cart_page_id')); ?>"><?php echo $woocommerce->cart->cart_contents_count; ?> <?php _e('Item(s)', 'evolve'); ?> - <?php echo wc_price($woocommerce->cart->subtotal); ?></a>
                 <div class="cart-contents">
-                    <?php foreach ($woocommerce->cart->cart_contents as $cart_item): ?>
+                    <?php foreach ($woocommerce->cart->cart_contents as $cart_item):
+                        $cart_item_key = $cart_item['key'];
+                        $_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+                        ?>
                         <div class="cart-content">
                             <a href="<?php echo get_permalink($cart_item['product_id']); ?>">
                                 <?php
-                                $thumbnail_id = ($cart_item['variation_id']) ? $cart_item['variation_id'] : $cart_item['product_id'];
-                                echo get_the_post_thumbnail($thumbnail_id, 'recent-works-thumbnail');
+                                $thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
+                                echo $thumbnail;
+
                                 ?>
                                 <div class="cart-desc">
                                     <span class="cart-title"><?php echo $cart_item['data']->post->post_title; ?></span>

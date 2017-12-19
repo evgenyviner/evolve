@@ -94,12 +94,15 @@
                                                     <?php echo wc_price($woocommerce->cart->cart_contents_total); ?>
                                                 </a>
                                                 <div class="cart-contents">
-                                                    <?php foreach ($woocommerce->cart->cart_contents as $cart_item): //var_dump($cart_item);   ?>
+                                                    <?php foreach ($woocommerce->cart->cart_contents as $cart_item): //var_dump($cart_item);
+                                                        $cart_item_key = $cart_item['key'];
+                                                        $_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+                                                    ?>
                                                         <div class="cart-content">
                                                             <a href="<?php echo get_permalink($cart_item['product_id']); ?>">
                                                                 <?php
-                                                                $thumbnail_id = ($cart_item['variation_id']) ? $cart_item['variation_id'] : $cart_item['product_id'];
-                                                                echo get_the_post_thumbnail($thumbnail_id, 'recent-works-thumbnail');
+                                                                $thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
+                                                                echo $thumbnail;
                                                                 ?>
                                                                 <div class="cart-desc">
                                                                     <span class="cart-title"><?php echo $cart_item['data']->get_name(); ?></span>
