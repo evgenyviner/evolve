@@ -30,7 +30,7 @@
         <?php wp_head(); ?>
 
         <!--[if lt IE 9]>
-        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/ie.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/ie.min.css">
         <![endif]-->
 
     </head><!--END head-->

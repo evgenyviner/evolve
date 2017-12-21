@@ -1,3 +1,10 @@
+Version:         3.8.4  
+Date:         19/12/17        
+
+- Updated FontAwesome Fonts
+- Improved overall speed - CSS and JS minifications, compressed images
+
+
 Version:         3.8.3  
 Date:         19/12/17        
 

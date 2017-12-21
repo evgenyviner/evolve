@@ -85,7 +85,7 @@ if (!class_exists('ReduxFramework_import_button')) {
         public function enqueue() {
 
             wp_enqueue_script(
-                    'redux-field-import-button-js', "{$this->extension->_extension_url}{$this->extension->field_name}/field_import_button.js", array('jquery'), time(), true
+                    'redux-field-import-button-js', "{$this->extension->_extension_url}{$this->extension->field_name}/field_import_button.min.js", array('jquery'), time(), true
             );
         }
 

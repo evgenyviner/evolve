@@ -99,7 +99,7 @@ function evolve_content_boxes() {
         if ($evolve_content_box1_button === false) {
             $evolve_content_box1_button = '';
         }
-        $evolve_content_box1_icon = evolve_get_option('evl_content_box1_icon', 'fa-cube');
+        $evolve_content_box1_icon = evolve_get_option('evl_content_box1_icon', 'fas fa-cube');
         if ($evolve_content_box1_icon === false) {
             $evolve_content_box1_icon = '';
         }
@@ -150,7 +150,7 @@ function evolve_content_boxes() {
 
             echo "<div class='col-sm-12 $BoxClass content-box content-box-1'>";
 
-            echo "<i class='fa " . $evolve_content_box1_icon . "'></i>";
+            echo "<i class='" . $evolve_content_box1_icon . "'></i>";
 
             echo "<h2>" . esc_attr($evolve_content_box1_title) . "</h2>";
 
@@ -173,7 +173,7 @@ function evolve_content_boxes() {
         if ($evolve_content_box2_button === false) {
             $evolve_content_box2_button = '';
         }
-        $evolve_content_box2_icon = evolve_get_option('evl_content_box2_icon', 'fa-circle-o-notch');
+        $evolve_content_box2_icon = evolve_get_option('evl_content_box2_icon', 'fas fa-circle-notch');
         if ($evolve_content_box2_icon === false) {
             $evolve_content_box2_icon = '';
         }
@@ -182,7 +182,7 @@ function evolve_content_boxes() {
 
             echo "<div class='col-sm-12 $BoxClass content-box content-box-2'>";
 
-            echo "<i class='fa " . $evolve_content_box2_icon . "'></i>";
+            echo "<i class='" . $evolve_content_box2_icon . "'></i>";
 
             echo "<h2>" . esc_attr($evolve_content_box2_title) . "</h2>";
 
@@ -206,7 +206,7 @@ function evolve_content_boxes() {
         if ($evolve_content_box3_button === false) {
             $evolve_content_box3_button = '';
         }
-        $evolve_content_box3_icon = evolve_get_option('evl_content_box3_icon', 'fa-shopping-basket');
+        $evolve_content_box3_icon = evolve_get_option('evl_content_box3_icon', 'fas fa-shopping-basket');
         if ($evolve_content_box3_icon === false) {
             $evolve_content_box3_icon = '';
         }
@@ -215,7 +215,7 @@ function evolve_content_boxes() {
 
             echo "<div class='col-sm-12 $BoxClass content-box content-box-3'>";
 
-            echo "<i class='fa " . $evolve_content_box3_icon . "'></i>";
+            echo "<i class='" . $evolve_content_box3_icon . "'></i>";
 
             echo "<h2>" . esc_attr($evolve_content_box3_title) . "</h2>";
 
@@ -238,7 +238,7 @@ function evolve_content_boxes() {
         if ($evolve_content_box4_button === false) {
             $evolve_content_box4_button = '';
         }
-        $evolve_content_box4_icon = evolve_get_option('evl_content_box4_icon', 'fa-object-ungroup');
+        $evolve_content_box4_icon = evolve_get_option('evl_content_box4_icon', 'far fa-object-ungroup');
         if ($evolve_content_box4_icon === false) {
             $evolve_content_box4_icon = '';
         }
@@ -247,7 +247,7 @@ function evolve_content_boxes() {
 
             echo "<div class='col-sm-12 $BoxClass content-box content-box-4'>";
 
-            echo "<i class='fa " . $evolve_content_box4_icon . "'></i>";
+            echo "<i class='" . $evolve_content_box4_icon . "'></i>";
 
             echo "<h2>" . esc_attr($evolve_content_box4_title) . "</h2>";
 
@@ -522,7 +522,7 @@ function evolve_counter_circle() {
                         $unfilledcolor = $evl_options["evl_fp_counter_circle{$i}_unfilledcolor"];
                         $size = '220';
                         $font_size = '30';
-                        $icon = "<i class='fa {$evl_options["evl_fp_counter_circle{$i}_icon"]}'></i>";
+                        $icon = "<i class='{$evl_options["evl_fp_counter_circle{$i}_icon"]}'></i>";
                         $scales = 'no';
                         $countdown = 'no';
                         $speed = '1500';

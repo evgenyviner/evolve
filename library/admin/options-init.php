@@ -261,13 +261,13 @@ foreach ($options_pages_obj as $page) {
 
 function evolve_options_media() {
     wp_register_style(
-            'evolve-redux-custom-css', get_template_directory_uri() . '/library/admin/options-init.css', array('redux-admin-css'), // Be sure to include redux-admin-css so it's appended after the core css is applied
+            'evolve-redux-custom-css', get_template_directory_uri() . '/library/admin/options-init.min.css', array('redux-admin-css'), // Be sure to include redux-admin-css so it's appended after the core css is applied
             time(), //$evolve_theme->get( 'Version' )
             'all'
     );
     wp_enqueue_style('evolve-redux-custom-css');
 
-    wp_enqueue_script('evolve-redux-custom-js', get_template_directory_uri() . '/library/admin/options-init.js', array(), '', true);
+    wp_enqueue_script('evolve-redux-custom-js', get_template_directory_uri() . '/library/admin/options-init.min.js', array(), '', true);
 }
 
 // This example assumes your opt_name is set to redux_demo, replace with your opt_name value
@@ -275,7 +275,7 @@ add_action("redux/page/{$evolve_opt_name}/enqueue", 'evolve_options_media');
 
 function evolve_newIconFont() {
     wp_register_style(
-            'evolve-icomoon', get_template_directory_uri() . '/library/admin/icomoon-admin/style.css', array(), time(), 'all'
+            'evolve-icomoon', get_template_directory_uri() . '/library/admin/icomoon-admin/style.min.css', array(), time(), 'all'
     );
     wp_enqueue_style('evolve-icomoon');
 }
@@ -284,21 +284,21 @@ function evolve_newIconFont() {
 add_action("redux/page/{$evolve_opt_name}/enqueue", 'evolve_newIconFont');
 
 function evolve_headerdefault() {
-    wp_enqueue_script('evolve-headerdefault', get_template_directory_uri() . '/library/admin/headerdefault/headerdefault.js', array(), '', true);
+    wp_enqueue_script('evolve-headerdefault', get_template_directory_uri() . '/library/admin/headerdefault/headerdefault.min.js', array(), '', true);
 }
 
 add_action("redux/page/{$evolve_opt_name}/enqueue", "evolve_headerdefault");
 
 function evolve_colorpalettes() {
-    wp_enqueue_script('evolve-colorpalettes', get_template_directory_uri() . '/library/admin/colorpalettes/colorpalettes.js', array(), '', true);
+    wp_enqueue_script('evolve-colorpalettes', get_template_directory_uri() . '/library/admin/colorpalettes/colorpalettes.min.js', array(), '', true);
 }
 
 add_action("redux/page/{$evolve_opt_name}/enqueue", "evolve_colorpalettes");
 
 function evolve_iconpicker() {
-    wp_enqueue_style('fontawesomecss', get_template_directory_uri() . '/assets/fonts/fontawesome/css/font-awesome.css', false);
+    wp_enqueue_style('fontawesomecss', get_template_directory_uri() . '/assets/fonts/fontawesome/css/font-awesome.min.css', false);
     wp_enqueue_script('iconpicker', get_template_directory_uri() . '/library/admin/iconpicker/fontawesome-iconpicker.js', array(), '', true, 'all');
-    wp_enqueue_style('iconpickercss', get_template_directory_uri() . '/library/admin/iconpicker/fontawesome-iconpicker.css', array(), '', 'all');
+    wp_enqueue_style('iconpickercss', get_template_directory_uri() . '/library/admin/iconpicker/fontawesome-iconpicker.min.css', array(), '', 'all');
 }
 
 add_action("redux/page/{$evolve_opt_name}/enqueue", "evolve_iconpicker");
@@ -1274,7 +1274,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box1_icon',
             'type' => 'text',
             'title' => __('Content Box 1 Icon (FontAwesome)', 'evolve'),
-            'default' => 'fa-cube',
+            'default' => 'fas fa-cube',
             'class' => 'iconpicker-icon',
             'required' => array(
                 array('evl_content_box1_enable', '=', '1')
@@ -1353,7 +1353,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box2_icon',
             'type' => 'text',
             'title' => __('Content Box 2 Icon (FontAwesome)', 'evolve'),
-            'default' => 'fa-circle-o-notch',
+            'default' => 'fas fa-circle-notch',
             'class' => 'iconpicker-icon',
             'required' => array(
                 array('evl_content_box2_enable', '=', '1')
@@ -1432,7 +1432,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box3_icon',
             'type' => 'text',
             'title' => __('Content Box 3 Icon (FontAwesome)', 'evolve'),
-            'default' => 'fa-shopping-basket',
+            'default' => 'fas fa-shopping-basket',
             'class' => 'iconpicker-icon',
             'required' => array(
                 array('evl_content_box3_enable', '=', '1')
@@ -1511,7 +1511,7 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box4_icon',
             'type' => 'text',
             'title' => __('Content Box 4 Icon (FontAwesome)', 'evolve'),
-            'default' => 'fa-object-ungroup',
+            'default' => 'far fa-object-ungroup',
             'class' => 'iconpicker-icon',
             'required' => array(
                 array('evl_content_box4_enable', '=', '1')
