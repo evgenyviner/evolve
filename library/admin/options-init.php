@@ -6979,7 +6979,7 @@ if (!function_exists('compiler_action')) {
 
     function evolve_compiler_action($options, $css, $changed_values) {
         $GLOBALS['evl_options'] = $options;
-        get_template_part(get_template_directory() . '/custom-css');
+        get_template_part(get_template_directory() . '/custom-css.min');
     }
 
 }

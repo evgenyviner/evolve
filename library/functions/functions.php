@@ -79,7 +79,7 @@ function evolve_media() {
 
         wp_enqueue_style('maincss', get_stylesheet_uri(), false);
 
-        require_once( get_template_directory() . '/custom-css.php' );
+        require_once( get_template_directory() . '/custom-css.min.php' );
         wp_add_inline_style('bootstrapcsstheme', $evolve_css_data);
 
         $evolve_header_type = evolve_get_option('evl_header_type', 'none');
