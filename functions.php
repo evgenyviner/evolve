@@ -79,10 +79,26 @@ function evolve_script() {
     wp_enqueue_style('bootstrapcss', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array('maincss'));
     wp_enqueue_style('bootstrapcsstheme', get_template_directory_uri() . '/assets/css/bootstrap-theme.min.css', array('bootstrapcss'));
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.js');
+	
+	/***************************Custom Code***********************************/
+	$evolve_custom_1 = evolve_get_option('evl_footer_reveal');
+	
+    if($evolve_custom_1 == '1'){
+	wp_enqueue_script('footerjs1', get_template_directory_uri() . '/library/media/js/footer-reveal.min.js' ,array( 'jquery' ), '', true);
+	wp_enqueue_script('footerjs2', get_template_directory_uri() . '/library/media/js/main-footer.js', array( 'jquery' ), '', true);
+	
+	 wp_enqueue_style('customcss', get_template_directory_uri() . '/assets/css_footer/custom.css');
+	}
     // Media.css
     wp_enqueue_style('mediacss', get_template_directory_uri() . '/assets/css/media.min.css', array('maincss'));
     // Shortcode.css
+	//wp_enqueue_style('footercss', get_template_directory_uri() . '/assets/css_footer/main.css');
+	
+	//wp_enqueue_style('footercss1', get_template_directory_uri() . '/assets/css_footer/normalize.css');
+    // Shortcode.css
     wp_enqueue_style('shortcode', get_template_directory_uri() . '/assets/css/shortcode/shortcodes.min.css');
+	
+	wp_enqueue_style('shortcode', get_template_directory_uri() . '/assets/css/shortcode/shortcodes.min.css');
 }
 
 add_action('wp_enqueue_scripts', 'evolve_script');
@@ -94,6 +110,7 @@ function evolve_admin_scripts($hook) {
         wp_enqueue_script('iconpicker', get_template_directory_uri() . '/library/admin/iconpicker/fontawesome-iconpicker.min.js', array(), '', true, 'all');
         wp_enqueue_style('colorpickercss', get_template_directory_uri() . '/library/admin/iconpicker/fontawesome-iconpicker.min.css', array(), '', 'all');
     }
+	
 }
 
 add_action('admin_enqueue_scripts', 'evolve_admin_scripts');
