@@ -31,7 +31,7 @@
                 } else {
                     return;
                 }
-              
+
                 el.find( '.redux-datepicker' ).each( function() {
                     $( this ).datepicker({
                         "dateFormat":"mm/dd/yy",

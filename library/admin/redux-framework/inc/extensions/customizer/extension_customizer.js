@@ -1,4 +1,4 @@
-/* global redux, setting */
+/* global jQuery, document, redux, redux_change, setting */
 
 /*!
  SerializeJSON jQuery plugin.
@@ -90,7 +90,7 @@
             validOpts = ['checkboxUncheckedValue', 'parseNumbers', 'parseBooleans', 'parseNulls', 'parseAll', 'parseWithFunction', 'customTypes', 'defaultTypes', 'useIntKeysAsArrayIndex']; // re-define because the user may override the defaultOptions
             for ( opt in options ) {
                 if ( validOpts.indexOf( opt ) === -1 ) {
-					throw new Error(
+                    throw new Error(
                         "serializeJSON ERROR: invalid option '" + opt + "'. Please use one of " + validOpts.join(
                             ', '
                         )
@@ -107,14 +107,11 @@
             parseAll = optWithDefault( 'parseAll' );
             return {
                 checkboxUncheckedValue: optWithDefault( 'checkboxUncheckedValue' ),
-
                 parseNumbers: parseAll || optWithDefault( 'parseNumbers' ),
                 parseBooleans: parseAll || optWithDefault( 'parseBooleans' ),
                 parseNulls: parseAll || optWithDefault( 'parseNulls' ),
                 parseWithFunction: optWithDefault( 'parseWithFunction' ),
-
                 typeFunctions: $.extend( {}, optWithDefault( 'defaultTypes' ), optWithDefault( 'customTypes' ) ),
-
                 useIntKeysAsArrayIndex: optWithDefault( 'useIntKeysAsArrayIndex' ),
             };
         },
@@ -325,7 +322,6 @@
 
 }( window.jQuery || window.$ ));
 
-
 (function( $ ) {  //This functions first parameter is named $
     'use strict';
 
@@ -376,7 +372,7 @@
         }
 
         //var $nData = $parent.serializeJSON();
-        var $nData = $parent.find(':input').serializeJSON();
+        var $nData = $parent.find( ':input' ).serializeJSON();
 
         $.each(
             $nData, function( $k, $v ) {
