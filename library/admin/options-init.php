@@ -3106,6 +3106,18 @@ Redux::setSection($evolve_opt_name, array(
     ),
         )
 );
+/**********************************Custom Code**************************************************/
+Redux::setSection($evolve_opt_name, array( 
+ 'id' => 'evl-footer-subsec-reveal-main-tab',  
+ 'title' => __('Footer Reveal Effect', 'evolve'),  
+ 'subsection' => true,  
+ 'fields' => array(  
+ array(            'subtitle' => __('Check this box if you want to enable footer reveal effect', 'evolve'),            'id' => 'evl_footer_reveal',  
+ 'type' => 'checkbox',            
+ 'title' => __('Footer Reveal Effect', 'evolve'),           
+ 'default' => '1',      
+ ),    ),  
+ )); 
 
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-typography-main-tab',
