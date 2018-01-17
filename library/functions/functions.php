@@ -23,6 +23,7 @@ function evolve_media() {
     $evolve_responsive_menu = evolve_get_option('evl_responsive_menu', 'icon');
     $evolve_responsive_menu_layout = evolve_get_option('evl_responsive_menu_layout', 'basic');
     $evolve_google_map_api = evolve_get_option('evl_google_map_api', '');
+	$evolve_footer_reveal = evolve_get_option('evl_footer_reveal');
 
     if (is_admin())
         return;
@@ -58,8 +59,8 @@ function evolve_media() {
     wp_enqueue_script('meanmenu', EVOLVEJS . '/jquery.meanmenu.min.js', array('jquery'));
     wp_enqueue_script('flexslidermin', EVOLVEJS . '/jquery.flexslider.min.js');
     wp_enqueue_script('main', EVOLVEJS . '/main.min.js', array('jquery'), '', true);
-    wp_enqueue_script('main_backend', EVOLVEJS . '/main_backend.min.js', array('jquery'), '', true);
-
+    wp_enqueue_script('main_backend', EVOLVEJS . '/main_backend.min.js', array('jquery'), '', true);	
+	
     if ($evolve_status_gmap == "1") {
         wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?key=' . $evolve_google_map_api . '&amp;language=' . mb_substr(get_locale(), 0, 2));
         wp_enqueue_script('gmap', EVOLVEJS . '/gmap.min.js', array('jquery'), '', true);
@@ -68,9 +69,15 @@ function evolve_media() {
     if ($evolve_recaptcha_public && $evolve_recaptcha_private) {
         wp_enqueue_script('googlerecaptcha', 'https://www.google.com/recaptcha/api.js');
     }
+	
+    if ($evolve_footer_reveal == '1') {
+	wp_enqueue_script('footer-reveal', get_template_directory_uri() . '/library/media/js/footer-reveal.min.js' ,array( 'jquery' ), '', true);
+	wp_enqueue_script('footer-reveal-fix', get_template_directory_uri() . '/library/media/js/footer-reveal-fix.min.js', array( 'jquery' ), '', true);
+    wp_enqueue_style('footer-revealcss', get_template_directory_uri() . '/assets/css/footer-reveal.min.css');
+	}		
 
     if ($evolve_fontawesome != "1") {
-        // FontAwesome 
+    // FontAwesome 
         wp_enqueue_style('fontawesomecss', get_template_directory_uri() . '/assets/fonts/fontawesome/css/font-awesome.min.css', false);
     }
     

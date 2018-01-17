@@ -3050,6 +3050,13 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_footer_styling',
             'type' => 'info',
         ),
+		array( 
+			'subtitle' => __('Check this box if you want to enable footer reveal effect', 'evolve'),            
+			'id' => 'evl_footer_reveal',  
+			'type' => 'checkbox',            
+			'title' => __('Footer Reveal Effect', 'evolve'),           
+			'default' => '1',      
+		),   			
         array(
             'subtitle' => __('Upload a footer background image for your theme, or specify an image URL directly.', 'evolve'),
             'id' => 'evl_footer_background_image',
