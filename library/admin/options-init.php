@@ -231,12 +231,12 @@ if ( class_exists( 'ReduxFrameworkPlugin' ) ) {
     ));
 }
 
-//Register sidebar options for category/archive pages 
+//Register sidebar options for category/archive pages
 global $wp_registered_sidebars;
 $sidebar_options[] = 'None';
 for ($i = 0; $i < 1; $i++) {
-    $sidebars = $wp_registered_sidebars; // sidebar_generator::get_sidebars(); 
-    //var_dump($sidebars); 
+    $sidebars = $wp_registered_sidebars; // sidebar_generator::get_sidebars();
+    //var_dump($sidebars);
     if (is_array($sidebars) && !empty($sidebars)) {
         foreach ($sidebars as $key => $sidebar) {
             $sidebar_options[$key] = $sidebar['name'];
@@ -930,7 +930,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-// Front Page Content Boxes		
+// Front Page Content Boxes
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-frontpage-content-boxes-tab',
     'title' => __('Content Boxes', 'evolve'),
@@ -3050,13 +3050,13 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_footer_styling',
             'type' => 'info',
         ),
-		array( 
-			'subtitle' => __('Check this box if you want to enable footer reveal effect', 'evolve'),            
-			'id' => 'evl_footer_reveal',  
-			'type' => 'checkbox',            
-			'title' => __('Footer Reveal Effect', 'evolve'),           
-			'default' => '1',      
-		),   			
+		array(
+			'subtitle' => __('Check this box if you want to enable footer reveal effect', 'evolve'),
+			'id' => 'evl_footer_reveal',
+			'type' => 'checkbox',
+			'title' => __('Footer Reveal Effect', 'evolve'),
+			'default' => '1',
+		),
         array(
             'subtitle' => __('Upload a footer background image for your theme, or specify an image URL directly.', 'evolve'),
             'id' => 'evl_footer_background_image',
@@ -4853,10 +4853,10 @@ if (!function_exists('evolve_redux_header_html')) {
 			<img class="evolve-logo" style="margin-bottom:20px;float:left;position:relative;top:10px;" width="409" height="200" border="0" alt="evolve videoe" src="<?php echo get_template_directory_uri(); ?>/assets/images/functions/video.jpg">
 		</a>
 		<div style="clear:both;"></div>
-		</div>	
+		</div>
         <div class="updated">
             <p>Happy with this theme? Please rate it <i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i> on <strong><a href="http://wordpress.org/themes/evolve" target="_blank">wordpress.org</a></strong></p>
-        </div>		
+        </div>
         <div style="clear:both;"></div>
         <?php
     }
@@ -4989,8 +4989,8 @@ if (isset($evolve_options[$evolve_prem_inpt_name]) && ($evolve_options[$evolve_p
 }
 
 /* * ************************************************************************************************************
- * Register theme options section in Customizer 
- * 
+ * Register theme options section in Customizer
+ *
  * ************************************************************************************************************ */
 
 function evolve_register_custom_section($wp_customize) {
@@ -5018,8 +5018,8 @@ function evolve_get_custom_redux_section_class() {
 add_filter('redux/customizer/section/class_name', 'evolve_get_custom_redux_section_class');
 
 /* * ************************************************************************************************************
- * Register theme options panel in Customizer 
- * 
+ * Register theme options panel in Customizer
+ *
  * ************************************************************************************************************ */
 
 function evolve_register_custom_panel($wp_customize) {
@@ -5041,7 +5041,7 @@ add_filter('redux/customizer/panel/class_name', 'evolve_get_custom_redux_panel_c
 
 /* * ************************************************************************************************************
  * Import Demo Content
- * 
+ *
  * ************************************************************************************************************ */
 
 function evolve_import_demo_content($wp_customize) {
@@ -5106,7 +5106,7 @@ function evolve_import_demo_content($wp_customize) {
                         );
                         wp_insert_post( $defaults, false );
                 }
-				
+
                 if ( $frontpage_prebuilt_new_demo == 'woocommerce-2' ) {
                         $theme_name = basename ( get_stylesheet_directory() );
 
@@ -5129,7 +5129,7 @@ function evolve_import_demo_content($wp_customize) {
                             'ping_status' => 'closed',
                         );
                         wp_insert_post( $defaults, false );
-                }				
+                }
 
                 $theme_options_txt = wp_remote_get($theme_options_txt);
                 $imported_options = json_decode(( $theme_options_txt['body']), true);
@@ -5185,9 +5185,9 @@ add_action('redux/options/' . $evolve_opt_name . '/saved', 'evolve_import_demo_c
 
 
 /* * ************************************************************************************************************
- * Convert Old ThemeOptions to New ThemeOptions 
+ * Convert Old ThemeOptions to New ThemeOptions
  * with Frontpage Builder Elements
- * 
+ *
  * ************************************************************************************************************ */
 
 if ( get_option('old_new_upgrade_themeoptions', 'false') == 'false' ) {
