@@ -7,7 +7,7 @@ $section_id = 'evl_options_social';
 Kirki::add_section( $section_id, array(
     'title'          => esc_attr__( 'Social Media Links', 'evolve' ),
     'panel'          => 'evl_options_panel',
-    'priority'       => 55,
+    'priority'       => $priority,
 ) );
 
 // Edit fields

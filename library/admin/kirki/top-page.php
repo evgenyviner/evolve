@@ -7,7 +7,7 @@ $section_id = 'evl_options_top_page';
 Kirki::add_section( $section_id, array(
     'title'          => esc_attr__( 'Page Title / Breadcrumbs / Page Title Bar', 'evolve' ),
     'panel'          => 'evl_options_panel',
-    'priority'       => 35,
+    'priority'       => $priority,
 ) );
 
 // Edit fields

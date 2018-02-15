@@ -7,7 +7,7 @@ $section_id = 'evl_options_bootstrap_slider';
 Kirki::add_section( $section_id, array(
     'title'          => esc_attr__( 'Bootstrap Slider', 'evolve' ),
     'panel'          => 'evl_options_panel',
-    'priority'       => 60,
+    'priority'       => $priority,
 ) );
 
 // Edit fields

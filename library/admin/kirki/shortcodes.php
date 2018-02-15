@@ -7,7 +7,7 @@ $section_id = 'evl_options_shortcodes';
 Kirki::add_section( $section_id, array(
     'title'          => esc_attr__( 'Shortcodes', 'evolve' ),
     'panel'          => 'evl_options_panel',
-    'priority'       => 45,
+    'priority'       => $priority,
 ) );
 
 // Edit fields

@@ -7,7 +7,7 @@ $section_id = 'evl_options_colors';
 Kirki::add_section( $section_id, array(
     'title'          => esc_attr__( 'Colors', 'evolve' ),
     'panel'          => 'evl_options_panel',
-    'priority'       => 90,
+    'priority'       => $priority,
 ) );
 
 // Edit fields

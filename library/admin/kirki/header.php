@@ -7,7 +7,7 @@ $section_id = 'evl_options_header';
 Kirki::add_section( $section_id, array(
     'title'          => esc_attr__( 'Header', 'evolve' ),
     'panel'          => 'evl_options_panel',
-    'priority'       => 20,
+    'priority'       => $priority,
 ) );
 
 // Edit fields

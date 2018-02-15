@@ -7,7 +7,7 @@ $section_id = 'evl_options_typography';
 Kirki::add_section( $section_id, array(
     'title'          => esc_attr__( 'Typography', 'evolve' ),
     'panel'          => 'evl_options_panel',
-    'priority'       => 30,
+    'priority'       => $priority,
 ) );
 
 // Edit fields

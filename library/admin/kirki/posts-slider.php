@@ -7,7 +7,7 @@ $section_id = 'evl_options_posts_slider';
 Kirki::add_section( $section_id, array(
     'title'          => esc_attr__( 'Posts Slider', 'evolve' ),
     'panel'          => 'evl_options_panel',
-    'priority'       => 70,
+    'priority'       => $priority,
 ) );
 
 // Edit fields

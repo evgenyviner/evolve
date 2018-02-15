@@ -7,7 +7,7 @@ $section_id = 'evl_options_theme_links';
 Kirki::add_section( $section_id, array(
     'title'          => esc_attr__( 'Theme Links', 'evolve' ),
     'panel'          => 'evl_options_panel',
-    'priority'       => 5,
+    'priority'       => $priority,
 ) );
 
 // Edit fields

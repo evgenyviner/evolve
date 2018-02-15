@@ -10,66 +10,6 @@ if (file_exists(dirname(__FILE__) . '/redux-framework/framework.php')) {
     require_once dirname(__FILE__) . '/redux-framework/framework.php';
 }
 
-
-/**
- * Options selector
- */
-
-function evolve_theme_options( $wp_customize ) {
-
- //___General___//
- $wp_customize->add_section(
-     'evl_options_tab',
-     array(
-         'title'         => __('Select Options', 'evolve'),
-         'priority'      => 1,
-     )
- );
-
- //Top padding
- $wp_customize->add_setting(
-     'customizer_type',
-     array(
-         'default' => __('redux','evolve'),
-         'sanitize_callback' => 'elv_sanitize_options_type',
-     )
- );
-
- $wp_customize->add_control(
-     'customizer_type',
-     array(
-         'type'        => 'radio',
-         'label'       => __('Customizer type?', 'evolve'),
-         'section'     => 'evl_options_tab',
-         'description' => __('Select type of customizer', 'evolve'),
-         'choices' => array(
-             'redux'    => __('Redux', 'evolve'),
-             'kirki'    => __('Kirki', 'evolve')
-         ),
-     )
- );
-
-
-}
-
-add_action( 'customize_register', 'evolve_theme_options' );
-
-/**
- * Sanitation for options type
- */
-function elv_sanitize_options_type( $input ) {
-   $valid = array(
-     'redux'    => __('Redux', 'evolve'),
-     'kirki'    => __('Kirki', 'evolve')
-   );
-
-   if ( array_key_exists( $input, $valid ) ) {
-       return $input;
-   } else {
-       return '';
-   }
-}
-
 // Load the theme/plugin options
 $options_type = get_theme_mod('customizer_type', 'redux');
 if( $options_type == 'redux' ) {
@@ -104,7 +44,10 @@ if( $options_type != 'redux' ) {
         'woocommerce',
         'colors'
       );
+      $n = 1;
       foreach ($sections as $section) {
+        $n++;
+        $priority = 10*$n++;
         require_once dirname(__FILE__) . '/kirki/'.$section.'.php';
       }
   }
