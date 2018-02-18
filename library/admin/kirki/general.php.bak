@@ -6,7 +6,7 @@ $section_id = 'evl_options_general';
 
 Kirki::add_section( $section_id, array(
     'title'          => esc_attr__( 'Layout', 'evolve' ),
-    'panel'          => 'elv_option_panel_general',
+    'panel'          => 'evl_option_panel_general',
     'priority'       => $priority,
 ) );
 

@@ -1,21 +1,67 @@
 <?php
 
+$prefix = 'evl_';
+
 // Section
 
-$section_id = 'evl_options_styling';
-
-Kirki::add_section( $section_id, array(
-    'title'          => esc_attr__( 'Styling', 'evolve' ),
-    'panel'          => 'evl_options_panel',
-    'priority'       => $priority,
+Kirki::add_section( 'evl_option_styling_main_color', array(
+    'title'          => esc_attr__( 'Main Color Scheme', 'evolve' ),
+    'panel'          => 'evl_option_panel_styling',
+    'priority'       => 1,
 ) );
 
-// Edit fields
+// Section
 
-Kirki::add_field( $config_id, array(
-	'type'        => 'custom',
-	'settings'    => $section_id.'_my_setting',
-	'section'     => $section_id,
-	'default'     => esc_html__( 'Fields go here', 'evolve' ),
-	'priority'    => 5,
+Kirki::add_section( 'evl_option_styling_header_footer', array(
+    'title'          => esc_attr__( 'Header & Footer', 'evolve' ),
+    'panel'          => 'evl_option_panel_styling',
+    'priority'       => 2,
+) );
+
+// Section
+
+Kirki::add_section( 'evl_option_styling_menu', array(
+    'title'          => esc_attr__( 'Menu', 'evolve' ),
+    'panel'          => 'evl_option_panel_styling',
+    'priority'       => 3,
+) );
+
+// Section
+
+Kirki::add_section( 'evl_option_styling_slideshow_widgets_area', array(
+    'title'          => esc_attr__( 'Slideshow & Widgets Area', 'evolve' ),
+    'panel'          => 'evl_option_panel_styling',
+    'priority'       => 4,
+) );
+
+// Section
+
+Kirki::add_section( 'evl_option_styling_content', array(
+    'title'          => esc_attr__( 'Content', 'evolve' ),
+    'panel'          => 'evl_option_panel_styling',
+    'priority'       => 5,
+) );
+
+// Section
+
+Kirki::add_section( 'evl_option_styling_links', array(
+    'title'          => esc_attr__( 'Links', 'evolve' ),
+    'panel'          => 'evl_option_panel_styling',
+    'priority'       => 6,
+) );
+
+// Section
+
+Kirki::add_section( 'evl_option_styling_shadows', array(
+    'title'          => esc_attr__( 'Shadows', 'evolve' ),
+    'panel'          => 'evl_option_panel_styling',
+    'priority'       => 7,
+) );
+
+// Section
+
+Kirki::add_section( 'evl_option_styling_element', array(
+    'title'          => esc_attr__( 'Element Colors', 'evolve' ),
+    'panel'          => 'evl_option_panel_styling',
+    'priority'       => 8,
 ) );

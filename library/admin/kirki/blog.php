@@ -1,21 +1,35 @@
 <?php
 
+$prefix = 'evl_';
+
 // Section
 
-$section_id = 'evl_options_blog';
-
-Kirki::add_section( $section_id, array(
-    'title'          => esc_attr__( 'Blog', 'evolve' ),
-    'panel'          => 'evl_options_panel',
-    'priority'       => $priority,
+Kirki::add_section( 'evl_option_blog_general', array(
+    'title'          => esc_attr__( 'General', 'evolve' ),
+    'panel'          => 'evl_option_panel_blog',
+    'priority'       => 1,
 ) );
 
-// Edit fields
+// Section
 
-Kirki::add_field( $config_id, array(
-	'type'        => 'custom',
-	'settings'    => $section_id.'_my_setting',
-	'section'     => $section_id,
-	'default'     => esc_html__( 'Fields go here', 'evolve' ),
-	'priority'    => 5,
+Kirki::add_section( 'evl_option_blog_posts', array(
+    'title'          => esc_attr__( 'Posts', 'evolve' ),
+    'panel'          => 'evl_option_panel_blog',
+    'priority'       => 2,
+) );
+
+// Section
+
+Kirki::add_section( 'evl_option_blog_feat_image', array(
+    'title'          => esc_attr__( 'Featured Image', 'evolve' ),
+    'panel'          => 'evl_option_panel_blog',
+    'priority'       => 3,
+) );
+
+// Section
+
+Kirki::add_section( 'evl_option_blog_post_format', array(
+    'title'          => esc_attr__( 'Post Format', 'evolve' ),
+    'panel'          => 'evl_option_panel_blog',
+    'priority'       => 4,
 ) );

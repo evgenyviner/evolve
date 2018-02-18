@@ -1,21 +1,19 @@
 <?php
 
+$prefix = 'evl_';
+
 // Section
 
-$section_id = 'evl_options_bootstrap_slider';
-
-Kirki::add_section( $section_id, array(
-    'title'          => esc_attr__( 'Bootstrap Slider', 'evolve' ),
-    'panel'          => 'evl_options_panel',
-    'priority'       => $priority,
+Kirki::add_section( 'evl_option_btstrp_slider_general', array(
+    'title'          => esc_attr__( 'General', 'evolve' ),
+    'panel'          => 'evl_option_panel_bootstrap_slider',
+    'priority'       => 1,
 ) );
 
-// Edit fields
+// Section
 
-Kirki::add_field( $config_id, array(
-	'type'        => 'custom',
-	'settings'    => $section_id.'_my_setting',
-	'section'     => $section_id,
-	'default'     => esc_html__( 'Fields go here', 'evolve' ),
-	'priority'    => 5,
+Kirki::add_section( 'evl_option_btstrp_slider_slides', array(
+    'title'          => esc_attr__( 'Slides', 'evolve' ),
+    'panel'          => 'evl_option_panel_bootstrap_slider',
+    'priority'       => 2,
 ) );

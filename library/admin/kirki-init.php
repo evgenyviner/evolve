@@ -10,9 +10,9 @@ if( !class_exists('Kirki')) {
 
 if ( class_exists('WP_Customize_Panel')) {
 
- class Elv_WP_Customize_Panel extends WP_Customize_Panel {
+ class Evl_WP_Customize_Panel extends WP_Customize_Panel {
    public $panel;
-   public $type = 'elv_panel';
+   public $type = 'evlpanel';
    public function json() {
      $array = wp_array_slice_assoc( (array) $this, array('id','description','priority','type','panel',));
      $array['title'] = html_entity_decode( $this->title, ENT_QUOTES, get_bloginfo('charset'));
@@ -29,7 +29,7 @@ if ( class_exists('WP_Customize_Panel')) {
  * Class add field wrapper
  */
 
-class Elv_Kirki {
+class Evl_Kirki {
 
   public function __construct() {
 
@@ -56,7 +56,7 @@ class Elv_Kirki {
 
 }
 
-new Elv_Kirki();
+new Evl_Kirki();
 
 
 /**
@@ -65,7 +65,7 @@ new Elv_Kirki();
 
 function evolve_theme_options( $wp_customize ) {
 
-  $wp_customize->register_panel_type('Elv_WP_Customize_Panel');
+  $wp_customize->register_panel_type('Evl_WP_Customize_Panel');
 
 
   Kirki::add_panel( 'evl_options_panel', array(
@@ -86,7 +86,7 @@ function evolve_theme_options( $wp_customize ) {
   /**
    * Add panels
    */
-  $prefix = 'elv_option_panel_';
+  $prefix = 'evl_option_panel_';
   $panels = array(
     $prefix.'general'           => __('General', 'evolve'),
     $prefix.'custom_home'       => __('Custom Home/Front Page Builder', 'evolve'),
@@ -112,7 +112,7 @@ function evolve_theme_options( $wp_customize ) {
   );
   $n = 1;
   foreach( $panels as $id => $name ) {
-    $wp_customize->add_panel( new Elv_WP_Customize_Panel($wp_customize,$id,array(
+    $wp_customize->add_panel( new Evl_WP_Customize_Panel($wp_customize,$id,array(
       'title' => $name
     )) );
   }
@@ -132,7 +132,7 @@ function evolve_theme_options( $wp_customize ) {
      'customizer_type',
      array(
          'default' => __('redux','evolve'),
-         'sanitize_callback' => 'elv_sanitize_options_type',
+         'sanitize_callback' => 'evlsanitize_options_type',
      )
  );
 
@@ -158,7 +158,7 @@ add_action( 'customize_register', 'evolve_theme_options' );
 /**
  * Sanitation for options type
  */
-function elv_sanitize_options_type( $input ) {
+function evlsanitize_options_type( $input ) {
    $valid = array(
      'redux'    => __('Redux', 'evolve'),
      'kirki'    => __('Kirki', 'evolve')

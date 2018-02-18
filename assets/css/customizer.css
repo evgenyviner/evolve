@@ -1,3 +1,4 @@
-.customize-control-kirki-radio-image label[class^="elv_"] {
+#sub-accordion-section-evl_options_general_layout label[class^="evl_"],
+#customize-control-evl_frontpage_layout label[class^="evl_"] {
   margin: 10px;
 }

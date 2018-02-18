@@ -1,21 +1,11 @@
 <?php
 
+$prefix = 'evl_';
+
 // Section
 
-$section_id = 'evl_options_extra';
-
-Kirki::add_section( $section_id, array(
+Kirki::add_section( 'evl_option_extra', array(
     'title'          => esc_attr__( 'Extra', 'evolve' ),
-    'panel'          => 'evl_options_panel',
-    'priority'       => $priority,
-) );
-
-// Edit fields
-
-Kirki::add_field( $config_id, array(
-	'type'        => 'custom',
-	'settings'    => $section_id.'_my_setting',
-	'section'     => $section_id,
-	'default'     => esc_html__( 'Fields go here', 'evolve' ),
-	'priority'    => 5,
+    'panel'          => 'evl_option_panel_extra',
+    'priority'       => 1,
 ) );
