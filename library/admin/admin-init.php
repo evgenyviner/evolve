@@ -19,3 +19,8 @@ if (file_exists(dirname(__FILE__) . '/options-init.php')) {
 if (file_exists(dirname(__FILE__) . '/redux-extensions/extensions-init.php')) {
     require_once dirname(__FILE__) . '/redux-extensions/extensions-init.php';
 }
+
+// Load The Theme Customizer Options
+if (file_exists(dirname(__FILE__) . '/options-init.php')) {
+    require_once dirname(__FILE__) . '/options-init.php';
+}

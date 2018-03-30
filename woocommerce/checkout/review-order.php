@@ -4,7 +4,7 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     2.3.0
+ * @version     3.3.0
  */
 if (!defined('ABSPATH')) {
     exit;
@@ -44,16 +44,11 @@ if (!defined('ABSPATH')) {
                             <?php
                             echo apply_filters('woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key);
                             echo apply_filters('woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf('&times; %s', $cart_item['quantity']) . '</strong>', $cart_item, $cart_item_key);
-                            echo WC()->cart->get_item_data($cart_item);
+                            echo wc_get_formatted_cart_item_data($cart_item);
                             ?>
 
                         </div>
                     </td>
-                    <!--<td class="product-name">-->
-                    <!--	--><?php //echo apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key );                      ?>
-                    <!--	--><?php //echo apply_filters( 'woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf( '&times; %s', $cart_item['quantity'] ) . '</strong>', $cart_item, $cart_item_key );                      ?>
-                    <!--	--><?php //echo WC()->cart->get_item_data( $cart_item );                      ?>
-                    <!--</td>-->
                     <td class="product-total">
                         <?php echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key); ?>
                     </td>
@@ -99,7 +94,7 @@ if (!defined('ABSPATH')) {
             <?php
         endforeach;
 
-        if (WC()->cart->tax_display_cart === 'excl') :
+        if (wc_tax_enabled() && ! WC()->cart->display_prices_including_tax() ) :
             if (get_option('woocommerce_tax_total_display') === 'itemized') :
                 foreach (WC()->cart->get_tax_totals() as $code => $tax) :
                     ?>
