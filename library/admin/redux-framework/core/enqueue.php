@@ -251,15 +251,16 @@
                 //*****************************************************************
                 // Vendor JS
                 //*****************************************************************
-                    wp_register_script(
-                        'redux-vendor',
-                        ReduxFramework::$_url . 'assets/js/vendor.min.js',
-                        array( 'jquery' ),
-                        $this->timestamp,
-                        true
-                    );
+                wp_register_script(
+                    'redux-vendor',
+                    ReduxFramework::$_url . 'assets/js/vendor.min.js',
+                    array( 'jquery' ),
+                    $this->timestamp,
+                    true
+                );
 
-                    array_push( $depArray, 'redux-vendor' );
+                array_push( $depArray, 'redux-vendor' );
+
 
                 //*****************************************************************
                 // Redux JS

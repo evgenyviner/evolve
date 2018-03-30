@@ -24,8 +24,8 @@ function evolve_theme_customize_register( $wp_customize ) {
 		'selector' => '.content-box-1 h2',
 		'render_callback' => 'evl_content_box1_title',
 	) );
-       
-        
+
+
         $wp_customize->selective_refresh->add_partial( 'evl_content_box1_icon_color', array(
 		'selector' => '.content-box-1 i',
 		'render_callback' => 'evl_content_box1_icon_color',
