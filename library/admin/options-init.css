@@ -32,37 +32,6 @@
     margin: 0px 0px 0px 0px !important;
 }
 
-.redux-SH-title {
-    font-weight: 600;
-}
-
-.redux-SH-info {
-    display: none;
-    text-align: left;
-    position: absolute;
-    z-index: 2;
-    border: 1px solid #d9d0d0;
-    border-radius: 5px;
-    background-color: #f1f1f1;
-    padding: 10px;
-}
-
-.redux-SH-customizer-info {
-    display: none;
-    font-style: normal !important;
-    font-weight: normal;
-}
-
-.redux-SH-question {
-    cursor: pointer;
-}
-
-.redux-SH-question-customizer {
-    display: inline-block;
-    float: right;
-    cursor: pointer;
-}
-
 #evl_options-evl_hiden_premium .redux_field_th {
     padding: 0px;
 }
@@ -78,6 +47,10 @@
 
 .redux-group-menu {
     background: #505050;
+}
+
+.redux-sidebar .redux-group-menu li.theme_links a {
+	background:#92b126; 
 }
 
 .redux-sidebar {

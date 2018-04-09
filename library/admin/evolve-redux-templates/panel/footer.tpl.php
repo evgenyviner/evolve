@@ -51,32 +51,6 @@
         <?php } ?>
 
 
-        <!-- Show / Hide premium options button -->
-        <?php
-        global $evolve_opt_name, $evolve_prem_inpt_name;
-        $evolvePremiumField = Redux::getField($evolve_opt_name, $evolve_prem_inpt_name);
-        $evolvePremiumField['name'] = $evolve_opt_name . "[" . $evolve_prem_inpt_name . "]";
-        ?>
-        <div class="redux-SH-container">
-            <li id="evl-SH-question-img2" class="redux-SH-question dashicons dashicons-editor-help">&nbsp</li>
-            <span id="evl-SH-info2" class="redux-SH-info"><?php echo esc_html($evolvePremiumField['subtitle']); ?></span>
-            <span class="redux-SH-title"><?php echo esc_html($evolvePremiumField['title']); ?></span>
-            <br>&nbsp;
-        </div>
-        <div class="redux-group-tab redux-SH-container" style="display: block;">
-            <fieldset id="evl_options-evl_hiden_premium2" class="redux-field-container redux-field redux-container-switch" data-id="evl_hiden_premium" data-type="switch">
-                <div class="switch-options">
-                    <label class="cb-enable" id="evl-premium-switch2-on">
-                        <span>Show</span>
-                    </label>
-                    <label class="cb-disable" id="evl-premium-switch2-off">
-                        <span>Hide</span>
-                    </label>
-                </div>
-            </fieldset>
-        </div>
-
-
         <div class="redux-action_bar">
             <span class="spinner"></span>
             <?php

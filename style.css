@@ -5255,7 +5255,7 @@ table#recaptcha_table::before {
 
 .slide-container {
   height: 284px;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
 }
 
@@ -5642,6 +5642,7 @@ a.bbp-author-avatar {
   float: right;
   z-index: 100;
   outline: 0;
+  display: none !important;
 }
 
 ul.thumbNav {

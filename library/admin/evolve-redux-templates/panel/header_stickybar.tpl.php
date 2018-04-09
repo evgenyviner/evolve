@@ -14,24 +14,6 @@
             <?php esc_attr_e('Expand', 'evolve'); ?>
         </a>
 
-        <!-- Show / Hide premium options switch -->
-        <?php
-        global $evolve_opt_name, $evolve_prem_inpt_name;
-        $evolvePremiumField = Redux::getField($evolve_opt_name, $evolve_prem_inpt_name);
-        $evolvePremiumField['name'] = $evolve_opt_name . "[" . $evolve_prem_inpt_name . "]";
-        ?>
-        <div class="redux-SH-container">
-            <li id="evl-SH-question-img1" class="redux-SH-question dashicons dashicons-editor-help">&nbsp</li>
-            <span id="evl-SH-info1" class="redux-SH-info"><?php echo esc_html($evolvePremiumField['subtitle']); ?></span>
-            <span class="redux-SH-title"><?php echo esc_html($evolvePremiumField['title']); ?></span>
-            <br>&nbsp;
-        </div>
-        <div id="premium_section_group"  class="redux-group-tab redux-SH-container">
-            <?php
-            $this->parent->_field_input($evolvePremiumField, $this->parent->options[$evolve_prem_inpt_name]);
-            ?>
-        </div>
-
         <div class="redux-action_bar">
             <span class="spinner"></span>
             <?php
