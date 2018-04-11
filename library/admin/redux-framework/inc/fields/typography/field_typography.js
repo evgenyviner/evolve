@@ -660,7 +660,7 @@
 
         isSelecting = false;
 
-        if ( ! skipCheck ) {
+        if ( !skipCheck ) {
             redux_change( selector );
         }
 

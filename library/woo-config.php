@@ -892,7 +892,16 @@ function evolve_woocommerce_after_cart_table($args) {
 }
 
 function woocommerce_cross_sell_display($posts_per_page = 3, $columns = 3, $orderby = 'rand') {
+    // Get visible cross sells then sort them at random.
+    $cross_sells = array_filter( array_map( 'wc_get_product', WC()->cart->get_cross_sells() ), 'wc_products_array_filter_visible' );
+
+    wc_set_loop_prop( 'name', 'cross-sells' );
+    wc_set_loop_prop( 'columns', apply_filters( 'woocommerce_cross_sells_columns', $columns ) );
+    
+    $cross_sells = $posts_per_page > 0 ? array_slice( $cross_sells, 0, $posts_per_page ) : $cross_sells;
+    
     wc_get_template('cart/cross-sells.php', array(
+        'cross_sells'    => $cross_sells,
         'posts_per_page' => $posts_per_page,
         'orderby' => $orderby,
         'columns' => $columns

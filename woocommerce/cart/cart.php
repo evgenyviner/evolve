@@ -13,7 +13,7 @@
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 3.1.0
+ * @version 3.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,11 +31,11 @@ do_action( 'woocommerce_before_cart' ); ?>
     <table class="shop_table cart" cellspacing="0">
         <thead>
             <tr>
-                <th class="product-name"><?php _e('Product', 'evolve'); ?></th>
-                <th class="product-price"><?php _e('Price', 'evolve'); ?></th>
-                <th class="product-quantity"><?php _e('Quantity', 'evolve'); ?></th>
-                <th class="product-subtotal"><?php _e('Total', 'evolve'); ?></th>
-                <th class="product-remove"><?php _e('Action', 'evolve'); ?></th>
+                <th class="product-name"><?php esc_html_e('Product', 'evolve'); ?></th>
+                <th class="product-price"><?php esc_html_e('Price', 'evolve'); ?></th>
+                <th class="product-quantity"><?php esc_html_e('Quantity', 'evolve'); ?></th>
+                <th class="product-subtotal"><?php esc_html_e('Total', 'evolve'); ?></th>
+                <th class="product-remove"><?php esc_html_e('Action', 'evolve'); ?></th>
             </tr>
         </thead>
         <tbody>
@@ -72,7 +72,7 @@ do_action( 'woocommerce_before_cart' ); ?>
                                 }
 
                                 // Meta data
-                                echo WC()->cart->get_item_data($cart_item);
+                                echo wc_get_formatted_cart_item_data($cart_item);
 
                                 // Backorder notification
                                 if ($_product->backorders_require_notification() && $_product->is_on_backorder($cart_item['quantity']))
@@ -112,7 +112,7 @@ do_action( 'woocommerce_before_cart' ); ?>
                         <!-- Remove from cart link -->
                         <td class="product-remove">
                             <?php
-                            echo apply_filters('woocommerce_cart_item_remove_link', sprintf('<a href="%s" class="remove" title="%s">&times;</a>', esc_url(WC()->cart->get_remove_url($cart_item_key)), __('Remove this item', 'evolve')), $cart_item_key);
+                            echo apply_filters('woocommerce_cart_item_remove_link', sprintf('<a href="%s" class="remove" title="%s">&times;</a>', esc_url(wc_get_cart_remove_url($cart_item_key)), __('Remove this item', 'evolve')), $cart_item_key);
                             ?>
                         </td>
                     </tr>
@@ -131,10 +131,17 @@ do_action( 'woocommerce_before_cart' ); ?>
     </table>
 
     <?php do_action('woocommerce_after_cart_table'); ?>
-
     <div class="cart-collaterals">
-
-        <?php do_action('woocommerce_cart_collaterals'); ?>
+        <?php 
+        
+        /**
+		 * Cart collaterals hook.
+		 *
+		 * @hooked woocommerce_cross_sell_display
+		 * @hooked woocommerce_cart_totals - 10
+		 */
+        
+        do_action('woocommerce_cart_collaterals'); ?>
 
         <div class="cart-totals-buttons">
             <?php woocommerce_cart_totals(); ?>

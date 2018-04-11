@@ -6,10 +6,12 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     2.0.0
+ * @version     3.3.0
  */
-if (!defined('ABSPATH'))
-    exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 global $woocommerce_loop, $post; 
 // Store column count for displaying the grid
 if (empty($woocommerce_loop['columns'])) {
