@@ -1,8 +1,10 @@
 Version:         3.8.4  
-Date:         19/12/17        
+Date:         12/4/18       
 
-- Updated FontAwesome Fonts
+- Added Footer Reveal Effect
+- Updated WooCommerce templates
 - Improved overall speed - CSS and JS minifications, compressed images
+- Minor visual and function fixes
 
 
 Version:         3.8.3  
