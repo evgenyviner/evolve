@@ -75,20 +75,14 @@ register_nav_menu('sticky_navigation', 'Sticky Header Navigation');
 
 function evolve_script() {
     wp_enqueue_style('reset', get_template_directory_uri() . '/assets/css/reset.min.css');
-    // Bootstrap Elements
+    // Bootstrap Elements  
     wp_enqueue_style('bootstrapcss', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array('maincss'));
     wp_enqueue_style('bootstrapcsstheme', get_template_directory_uri() . '/assets/css/bootstrap-theme.min.css', array('bootstrapcss'));
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js');
-<<<<<<< HEAD
-=======
-    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.js');
-
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
     // Media.css
     wp_enqueue_style('mediacss', get_template_directory_uri() . '/assets/css/media.min.css', array('maincss'));
-
-	// Shortcodes.css
-	wp_enqueue_style('shortcode', get_template_directory_uri() . '/assets/css/shortcode/shortcodes.min.css');
+    // Shortcode.css
+    wp_enqueue_style('shortcode', get_template_directory_uri() . '/assets/css/shortcode/shortcodes.min.css');
 }
 
 add_action('wp_enqueue_scripts', 'evolve_script');
@@ -100,17 +94,16 @@ function evolve_admin_scripts($hook) {
         wp_enqueue_script('iconpicker', get_template_directory_uri() . '/library/admin/iconpicker/fontawesome-iconpicker.min.js', array(), '', true, 'all');
         wp_enqueue_style('colorpickercss', get_template_directory_uri() . '/library/admin/iconpicker/fontawesome-iconpicker.min.css', array(), '', 'all');
     }
-
 }
 
 add_action('admin_enqueue_scripts', 'evolve_admin_scripts');
 
 
 /*
- *
+ * 
  * Migrate Custom CSS Code From Theme options To Additional CSS
- * wp_update_custom_css_post work only wordpress 4.7.0 above version
- *
+ * wp_update_custom_css_post work only wordpress 4.7.0 above version 
+ * 
  */
 if ( function_exists( 'wp_update_custom_css_post' ) && ! defined( 'DOING_AJAX' ) ) {
         $custom_css = '';

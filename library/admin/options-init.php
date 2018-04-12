@@ -362,7 +362,7 @@ Redux::setArgs($evolve_opt_name, array(
 ));
 
 Redux::setSection($evolve_opt_name, array(
-<<<<<<< HEAD
+
     'id' => 'evl-theme-links-main-tab',
     'title' => __('Theme Links', 'evolve'),
     'icon' => 'el el-brush',
@@ -375,60 +375,6 @@ Redux::setSection($evolve_opt_name, array(
 		) 
 	)		
 ));
-=======
-    /*
-     * Be carefull if you change the item ID,
-     * because this ID is referenced by the JS scripts!
-     */
-    'id' => 'evl-SH-custom-section',
-    'title' => __('Theme Links', 'evolve'),
-    /*
-      Hide this section tab in the Theme options panel and
-      make this section visible only in the Customizer
-     */
-    'customizer_only' => true,
-    'icon' => 't4p-icon-appbartools',
-        )
-);
-// Show/Hide premium features control field:
-Redux::setField($evolve_opt_name, array(
-    'section_id' => "evl-SH-custom-section",
-    /*
-     * Be carefull if you change the item ID,
-     * because this ID is referenced by the JS scripts!
-     */
-    'id' => $evolve_prem_inpt_name,
-    'subtitle' => __('Switch if you want to display/hide premium features by default', 'evolve'),
-    'compiler' => true,
-    'type' => 'switch',
-    'on' => __('Show', 'evolve'),
-    'off' => __('Hide', 'evolve'),
-    'default' => 1,
-    'title' => __('Premium features:', 'evolve'),
-    'class' => $evolve_prem_class
-        )
-);
-/*
- *  Hack for customizer:
- *  Don't remove!
- *  The folowing field is used in the customizer
- *  to trigger the script that enables the previous field,
- *  it doesn't point to a real option, but is nessesary:
- */
-Redux::setField($evolve_opt_name, array(
-    'section_id' => "evl-SH-custom-section",
-    'id' => 'evl-SH-junk',
-    'subtitle' => '',
-    'compiler' => true,
-    'type' => 'switch',
-    'on' => __('Show', 'evolve'),
-    'off' => __('Hide', 'evolve'),
-    'default' => 0,
-    'title' => '.',
-    'class' => $evolve_prem_class
-        )
-);
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
 
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-general-main-tab',
@@ -437,7 +383,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-<<<<<<< HEAD
+
 /* Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-general-subsec-general-tab',
     'title' => __('General', 'evolve'),
@@ -457,8 +403,8 @@ Redux::setSection($evolve_opt_name, array(
 );
 */
 
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-general-subsec-fav-tab',
     'title' => __('Favicon', 'evolve'),
@@ -471,7 +417,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Custom Favicon', 'evolve'),
             'url' => true,
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Favicon for Apple iPhone (57px x 57px).', 'evolve'),
             'id' => 'evl_iphone_icon',
@@ -509,8 +455,8 @@ Redux::setSection($evolve_opt_name, array(
             'class' => $evolve_prem_class,
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
     ),
         )
 );
@@ -562,7 +508,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Layout Width', 'evolve'),
             'default' => '1200',
         ),
-<<<<<<< HEAD
+
 /*        array(
             'title' => __('Custom Layout Width', 'evolve'),
             'subtitle' => __('Add the custom width in px (ex: 1024)', 'evolve'),
@@ -582,8 +528,8 @@ Redux::setSection($evolve_opt_name, array(
             'class' => $evolve_prem_class,
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Enter the page content top & bottom padding.', 'evolve'),
             'id' => 'evl_content_top_bottom_padding',
@@ -598,7 +544,7 @@ Redux::setSection($evolve_opt_name, array(
                 'units' => 'px',
             ),
         ),
-<<<<<<< HEAD
+
 /*        array(
             'id' => 'evl_info_consid1',
             'type' => 'info',
@@ -748,8 +694,8 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '3',
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
     ),
         )
 );
@@ -879,7 +825,7 @@ Redux::setSection($evolve_opt_name, array(
             'indent' => true
         ),
         array(
-<<<<<<< HEAD
+
             'subtitle' => __('Choose the page where selected layout will be converted to shortcodes', 'evolve'),
             'id' => 'evl-front-page-add-page',
             'compiler' => true,
@@ -901,8 +847,8 @@ Redux::setSection($evolve_opt_name, array(
         ),
 */		
         array(
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
             'id' => 'evl-front-page-import-end',
             'type' => 'section',
             'indent' => false
@@ -1187,7 +1133,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Background Position', 'evolve'),
             'default' => 'center top',
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Check to enable parallax background image when scrolling.', 'evolve'),
             'id' => 'evl_blog_section_background_parallax',
@@ -1199,8 +1145,8 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '0',
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Custom background color of section', 'evolve'),
             'id' => 'evl_blog_section_back_color',
@@ -1258,7 +1204,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Content Boxes Background Color', 'evolve'),
             'default' => '#efefef',
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Enter the content boxes padding.', 'evolve'),
             'id' => 'evl_content_boxes_padding',
@@ -1276,8 +1222,8 @@ Redux::setSection($evolve_opt_name, array(
             ),
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'id' => 'evl-front-page-content-boxes-end',
             'type' => 'section',
@@ -1327,7 +1273,7 @@ Redux::setSection($evolve_opt_name, array(
                 array('evl_content_box1_enable', '=', '1')
             ),
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Upload an image as your icon, or specify an image URL directly. <br/> This overwrites the Content Box 1 Icon (FontAwesome) setting', 'evolve'),
             'id' => 'evl_content_box1_icon_upload',
@@ -1341,8 +1287,8 @@ Redux::setSection($evolve_opt_name, array(
             ),
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'id' => 'evl_content_box1_desc',
             'type' => 'textarea',
@@ -1410,7 +1356,7 @@ Redux::setSection($evolve_opt_name, array(
                 array('evl_content_box2_enable', '=', '1')
             ),
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Upload an image as your icon, or specify an image URL directly. <br/> This overwrites the Content Box 2 Icon (FontAwesome) setting', 'evolve'),
             'id' => 'evl_content_box2_icon_upload',
@@ -1424,8 +1370,8 @@ Redux::setSection($evolve_opt_name, array(
             ),
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'id' => 'evl_content_box2_desc',
             'type' => 'textarea',
@@ -1493,7 +1439,7 @@ Redux::setSection($evolve_opt_name, array(
                 array('evl_content_box3_enable', '=', '1')
             ),
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Upload an image as your icon, or specify an image URL directly. <br/> This overwrites the Content Box 3 Icon (FontAwesome) setting', 'evolve'),
             'id' => 'evl_content_box3_icon_upload',
@@ -1507,8 +1453,8 @@ Redux::setSection($evolve_opt_name, array(
             ),
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'id' => 'evl_content_box3_desc',
             'type' => 'textarea',
@@ -1576,7 +1522,7 @@ Redux::setSection($evolve_opt_name, array(
                 array('evl_content_box4_enable', '=', '1')
             ),
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Upload an image as your icon, or specify an image URL directly. <br/> This overwrites the Content Box 4 Icon (FontAwesome) setting', 'evolve'),
             'id' => 'evl_content_box4_icon_upload',
@@ -1590,8 +1536,8 @@ Redux::setSection($evolve_opt_name, array(
             ),
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'id' => 'evl_content_box4_desc',
             'type' => 'textarea',
@@ -1708,7 +1654,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Background Position', 'evolve'),
             'default' => 'center top',
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Check to enable parallax background image when scrolling.', 'evolve'),
             'id' => 'evl_content_boxes_section_background_parallax',
@@ -1720,8 +1666,8 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '0',
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Custom background color of section', 'evolve'),
             'id' => 'evl_content_boxes_section_back_color',
@@ -1816,7 +1762,7 @@ for ($i = 1; $i <= 3; $i++) {
     );
 }
 
-<<<<<<< HEAD
+
 /* $counter_circle_fields[] = array(
     'id' => 'add_another_fp_counter_circle',
     'type' => 'raw',
@@ -1828,8 +1774,8 @@ for ($i = 1; $i <= 3; $i++) {
 );
 */
 
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-front-page-counter-circle-tab',
     'title' => __('Counter Circle', 'evolve'),
@@ -1861,10 +1807,10 @@ Redux::setSection($evolve_opt_name, array(
         $counter_circle_fields[15],
         $counter_circle_fields[16],
         $counter_circle_fields[17],
-<<<<<<< HEAD
+
 /*        $counter_circle_fields[18], */
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'id' => 'evl-fp-counter-circle-slides-end',
             'type' => 'section',
@@ -1968,7 +1914,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Background Position', 'evolve'),
             'default' => 'center top',
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Check to enable parallax background image when scrolling.', 'evolve'),
             'id' => 'evl_counter_circle_section_background_parallax',
@@ -1980,8 +1926,8 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '0',
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Custom background color of section', 'evolve'),
             'id' => 'evl_counter_circle_section_back_color',
@@ -2176,7 +2122,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Background Position', 'evolve'),
             'default' => 'center top',
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Check to enable parallax background image when scrolling.', 'evolve'),
             'id' => 'evl_googlemap_section_background_parallax',
@@ -2188,8 +2134,8 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '0',
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Custom background color of section', 'evolve'),
             'id' => 'evl_googlemap_section_back_color',
@@ -2263,7 +2209,7 @@ for ($i = 1; $i <= 2; $i++) {
     );
 }
 
-<<<<<<< HEAD
+
 /* $testimonialfields[] = array(
     'id' => 'add_another_fp_testimonial',
     'type' => 'raw',
@@ -2275,8 +2221,8 @@ for ($i = 1; $i <= 2; $i++) {
 );
 */
 
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-front-page-testimonials-tab',
     'title' => __('Testimonials', 'evolve'),
@@ -2323,10 +2269,10 @@ Redux::setSection($evolve_opt_name, array(
         $testimonialfields[5],
         $testimonialfields[6],
         $testimonialfields[7],
-<<<<<<< HEAD
+
 /*        $testimonialfields[8], */
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'id' => 'evl-fp-testimonial-slides-end',
             'type' => 'section',
@@ -2430,7 +2376,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Background Position', 'evolve'),
             'default' => 'center top',
         ),
-<<<<<<< HEAD
+
 /*         array(
             'subtitle' => __('Check to enable parallax background image when scrolling.', 'evolve'),
             'id' => 'evl_testimonials_section_background_parallax',
@@ -2442,8 +2388,8 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '0',
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Custom background color of section', 'evolve'),
             'id' => 'evl_testimonials_section_back_color',
@@ -2582,7 +2528,7 @@ if (is_plugin_active('woocommerce/woocommerce.php')) :
                 'title' => __('Background Position', 'evolve'),
                 'default' => 'center top',
             ),
-<<<<<<< HEAD
+
 /*            array(
                 'subtitle' => __('Check to enable parallax background image when scrolling.', 'evolve'),
                 'id' => 'evl_woo_product_section_background_parallax',
@@ -2594,8 +2540,8 @@ if (is_plugin_active('woocommerce/woocommerce.php')) :
                 'default' => '0',
             ),
 */			
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
             array(
                 'subtitle' => __('Custom background color of section', 'evolve'),
                 'id' => 'evl_woo_product_section_back_color',
@@ -2726,7 +2672,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Background Position', 'evolve'),
             'default' => 'center top',
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Check to enable parallax background image when scrolling.', 'evolve'),
             'id' => 'evl_custom_content_section_background_parallax',
@@ -2738,8 +2684,8 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '0',
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Custom background color of section', 'evolve'),
             'id' => 'evl_custom_content_section_back_color',
@@ -2794,7 +2740,7 @@ Redux::setSection($evolve_opt_name, array(
             'default' => 1,
             'title' => __('Enable Searchbox', 'evolve'),
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Set the opacity of header menu background for Front Page, <br />0.1 (lowest) to 1 (highest) only for Header #4 and #5.', 'evolve'),
             'id' => 'evl_header_background_opacity',
@@ -2809,8 +2755,8 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '0.8',
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Select if the slider shows below or above the header. This only works for the slider assigned in page options, not with shortcodes.', 'evolve'),
             'id' => 'evl_slider_position',
@@ -2835,7 +2781,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Choose Header Type', 'evolve'),
             'default' => 'none',
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => '',
             'id' => 'evl_header_type_locked',
@@ -2853,8 +2799,8 @@ Redux::setSection($evolve_opt_name, array(
             'default' => 'none',
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
     ),
         )
 );
@@ -2874,7 +2820,7 @@ Redux::setSection($evolve_opt_name, array(
             'default' => 1,
             'title' => __('Enable sticky header', 'evolve'),
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Check this box if you want to display sticky header logo', 'evolve'),
             'id' => 'evl_sticky_header_logo',
@@ -2887,8 +2833,8 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Enable sticky header logo', 'evolve'),
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Check this box if you want to display searchbox in sticky header', 'evolve'),
             'id' => 'evl_searchbox_sticky_header',
@@ -2898,7 +2844,7 @@ Redux::setSection($evolve_opt_name, array(
             'default' => 1,
             'title' => __('Enable Searchbox', 'evolve'),
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Adjust sticky header logo size', 'evolve'),
             'id' => 'evl_sticky_header_logo_size',
@@ -2909,8 +2855,8 @@ Redux::setSection($evolve_opt_name, array(
             'class' => $evolve_prem_class,
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
     ),
         )
 );
@@ -2927,7 +2873,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Custom logo', 'evolve'),
             'url' => true,
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Select an image file for the retina version of the custom logo. It should be exactly 2x the size of main logo.', 'evolve'),
             'id' => 'evl_header_logo_retina',
@@ -2988,8 +2934,8 @@ Redux::setSection($evolve_opt_name, array(
             'class' => $evolve_prem_class,
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Choose the position of your custom logo for Header #1', 'evolve'),
             'id' => 'evl_pos_logo',
@@ -3067,7 +3013,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Padding Between Menu Items', 'evolve'),
             'default' => '8',
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Main menu text transform', 'evolve'),
             'id' => 'evl_menu_text_transform',
@@ -3123,8 +3069,8 @@ Redux::setSection($evolve_opt_name, array(
             'class' => $evolve_prem_class,
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Choose the layout of responsive menu on smaller screen sizes', 'evolve'),
             'id' => 'evl_responsive_menu_layout',
@@ -3230,7 +3176,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-<<<<<<< HEAD
+
 /* Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-typography-custom',
     'title' => __('Custom Fonts', 'evolve'),
@@ -3289,8 +3235,8 @@ Redux::setSection($evolve_opt_name, array(
 ); 
 */
 
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-typography-subsec-title-tagline-tab',
     'title' => __('Title & Tagline', 'evolve'),
@@ -3391,7 +3337,7 @@ Redux::setSection($evolve_opt_name, array(
                 'font-weight' => '400',
             ),
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Set the font size for mega menu column titles (menu 2nd level labels). In pixels, ex: 15px', 'evolve'),
             'id' => 'evl_megamenu_title_size',
@@ -3402,8 +3348,8 @@ Redux::setSection($evolve_opt_name, array(
             'class' => $evolve_prem_class,
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
     ),
         )
 );
@@ -3655,7 +3601,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Enable Breadcrumbs Navigation', 'evolve'),
             'default' => '1',
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Choose the display option to show the page title', 'evolve'),
             'id' => 'evl_display_pagetitlebar',
@@ -3757,8 +3703,8 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '0',
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
     ),
         )
 );
@@ -4038,7 +3984,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Top menu color', 'evolve'),
             'default' => '#273039',
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Smooth hover effect must be enabled. Works only for Header #1 and #6', 'evolve'),
             'id' => 'evl_top_menu_hover_color',
@@ -4050,8 +3996,8 @@ Redux::setSection($evolve_opt_name, array(
             'class' => $evolve_prem_class,
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Menu hover font color', 'evolve'),
             'id' => 'evl_top_menu_hover_font_color',
@@ -4264,7 +4210,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-<<<<<<< HEAD
+
 /* Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-shortcode-subsec-shortcodes-section-tab',
     'title' => __('Accordion', 'evolve'),
@@ -4303,14 +4249,14 @@ Redux::setSection($evolve_opt_name, array(
         )
 ); */
 
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-shortcode-subsec-shortcodes-button-tab',
     'title' => __('Button', 'evolve'),
     'subsection' => true,
     'fields' => array(
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Select the default button size.', 'evolve'),
             'id' => 'evl_shortcode_button_size',
@@ -4328,8 +4274,8 @@ Redux::setSection($evolve_opt_name, array(
             'class' => $evolve_prem_class,
         ),
 */
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Select the default shape for buttons.', 'evolve'),
             'id' => 'evl_shortcode_button_shape',
@@ -4445,7 +4391,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-<<<<<<< HEAD
+
 /* Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-shortcode-subsec-shortcodes-content-box-tab',
     'title' => __('Content Box', 'evolve'),
@@ -4496,12 +4442,12 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '#747474',
         ),
     ),
-=======
+
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-blog-main-tab',
     'title' => __('Blog', 'evolve'),
     'icon' => 't4p-icon-appbarclipboardvariantedit',
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
         )
 );
 
@@ -4602,7 +4548,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Enable post author avatar', 'evolve'),
         ),
         array(
-<<<<<<< HEAD
+
             'subtitle' => __('Controls the background color of the full width section.', 'evolve'),
             'id' => 'evl_shortcode_full_width_bg_color',
             'compiler' => true,
@@ -5282,8 +5228,8 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Enable post author avatar', 'evolve'),
         ),
         array(
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
             'subtitle' => __('Choose placement of the post meta header - Date, Author, Comments', 'evolve'),
             'id' => 'evl_header_meta',
             'type' => 'select',
@@ -5298,7 +5244,7 @@ Redux::setSection($evolve_opt_name, array(
         array(
             'subtitle' => __('Choose the position of the <strong>Previous/Next Post</strong> links', 'evolve'),
             'id' => 'evl_post_links',
-<<<<<<< HEAD
+
             'type' => 'select',
             'options' => array(
                 'after' => __('After posts', 'evolve'),
@@ -5541,8 +5487,8 @@ Redux::setSection($evolve_opt_name, array(
             'subtitle' => __('Select the pagination type for Portfolio Grid layouts.', 'evolve'),
             'id' => 'evl_portfolio_pagination_type',
             'compiler' => true,
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
             'type' => 'select',
             'options' => array(
                 'after' => __('After posts', 'evolve'),
@@ -5846,7 +5792,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Tumblr', 'evolve'),
             'subtitle' => __('Insert your Tumblr profile URL', 'evolve'),
         ),
-<<<<<<< HEAD
+
 /*        array(
             'id' => 'evl_header_social_sort',
             'type' => 'sortable',
@@ -5885,8 +5831,8 @@ Redux::setSection($evolve_opt_name, array(
             ),
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
     )
 ));
 
@@ -5959,7 +5905,7 @@ for ($i = 1; $i <= 5; $i ++) {
         'required' => array(array("{$evolve_shortname}_bootstrap_slide{$i}", '=', '1')),
         "default" => '<a class="bootstrap-button" href="#">' . __('Learn more', 'evolve') . '</a>',
     );
-<<<<<<< HEAD
+
 
 /*    $fields[] = array(
         'id' => 'bootstrap_another_slide',
@@ -5972,8 +5918,8 @@ for ($i = 1; $i <= 5; $i ++) {
         'full_width' => false,
     );
 */	
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
 }
 
 
@@ -6111,7 +6057,7 @@ Redux::setSection($evolve_opt_name, array(
                 array('evl_bootstrap_slider_support', '=', '1')
             ),
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => '',
             'id' => 'evl_bootstrap_layout_locked',
@@ -6129,8 +6075,8 @@ Redux::setSection($evolve_opt_name, array(
             ),
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
     ),
         )
 );
@@ -6221,7 +6167,7 @@ for ($i = 1; $i <= 5; $i ++) {
         "default" => '<a class="da-link" href="#">' . __('Learn more', 'evolve') . '</a>'
     );
 
-<<<<<<< HEAD
+
 /*    $fields[] = array(
         'id' => 'parallax_another_slide',
         'type' => 'raw',
@@ -6233,8 +6179,8 @@ for ($i = 1; $i <= 5; $i ++) {
         'full_width' => false,
     );
 */	
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
 }
 
 Redux::setSection($evolve_opt_name, array(
@@ -6467,7 +6413,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-<<<<<<< HEAD
+
 
 
 /* Redux::setSection($evolve_opt_name, array(
@@ -6548,8 +6494,8 @@ Redux::setSection($evolve_opt_name, array(
 );
 */
 
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-contact-main-tab',
     'title' => __('Contact', 'evolve'),
@@ -6687,7 +6633,7 @@ Redux::setSection($evolve_opt_name, array(
     'title' => __('Extra', 'evolve'),
     'icon' => 't4p-icon-appbarsettings',
     'fields' => array(
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Select the slideshow speed, 1000 = 1 second.', 'evolve'),
             'id' => 'evl_testimonials_speed',
@@ -6707,8 +6653,8 @@ Redux::setSection($evolve_opt_name, array(
             'class' => $evolve_prem_class,
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Choose the position of the <strong>Older/Newer Posts</strong> links', 'evolve'),
             'id' => 'evl_nav_links',
@@ -6734,7 +6680,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Position of \'Back to Top\' button', 'evolve'),
             'default' => 'right',
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('<h3 style=\'margin: 0;\'>BBPress</h3>', 'evolve'),
             'id' => 'evl_bbpress',
@@ -6762,8 +6708,8 @@ Redux::setSection($evolve_opt_name, array(
             'class' => $evolve_prem_class,
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
     ),
         )
 );
@@ -6773,7 +6719,7 @@ Redux::setSection($evolve_opt_name, array(
     'title' => __('Advanced', 'evolve'),
     'icon' => 't4p-icon-appbarlistcheck',
     'fields' => array(
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Check to disable the theme\'s mega menu.', 'evolve'),
             'id' => 'evl_disable_megamenu',
@@ -6800,8 +6746,8 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Enable FlexSlider support', 'evolve'),
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Check this box if you want to enable Google Map Scripts', 'evolve'),
             'id' => 'evl_status_gmap',
@@ -6818,7 +6764,7 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Enable Animate.css plugin support', 'evolve'),
             'default' => '1',
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Check the box to disable Youtube API scripts.', 'evolve'),
             'id' => 'evl_status_yt',
@@ -6836,8 +6782,8 @@ Redux::setSection($evolve_opt_name, array(
             'title' => __('Disable Vimeo API Scripts', 'evolve'),
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Check the box to disable font awesome', 'evolve'),
             'id' => 'evl_fontawesome',
@@ -6854,7 +6800,7 @@ Redux::setSection($evolve_opt_name, array(
     'title' => __('WooCommerce', 'evolve'),
     'icon' => 't4p-icon-appbarcart',
     'fields' => array(
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Insert the number of posts to display per page.', 'evolve'),
             'id' => 'evl_woo_items',
@@ -6865,15 +6811,15 @@ Redux::setSection($evolve_opt_name, array(
             'default' => '12',
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Check the box to disable the ordering boxes displayed on the shop page.', 'evolve'),
             'id' => 'evl_woocommerce_evolve_ordering',
             'type' => 'checkbox',
             'title' => __('Disable Woocommerce Shop Page Ordering Boxes', 'evolve'),
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Check the box to use evolve\'s one page checkout template.', 'evolve'),
             'id' => 'evl_woocommerce_one_page_checkout',
@@ -6883,8 +6829,8 @@ Redux::setSection($evolve_opt_name, array(
             'class' => $evolve_prem_class,
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Check the box to show the order notes on the checkout page.', 'evolve'),
             'id' => 'evl_woocommerce_enable_order_notes',
@@ -6903,7 +6849,7 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'checkbox',
             'title' => __('Show Woocommerce Cart Link in Header', 'evolve'),
         ),
-<<<<<<< HEAD
+
 /*        array(
             'subtitle' => __('Check the box to show the social icons on product pages, uncheck to disable.', 'evolve'),
             'id' => 'evl_woocommerce_social_links',
@@ -6913,8 +6859,8 @@ Redux::setSection($evolve_opt_name, array(
             'class' => $evolve_prem_class,
         ),
 */		
-=======
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
+
         array(
             'subtitle' => __('Insert your text and it will appear in the first message box on the account page.', 'evolve'),
             'id' => 'evl_woo_acc_msg_1',
@@ -7069,8 +7015,8 @@ if (!function_exists('evolve_redux_header_html')) {
         $url = esc_url("https://theme4press.com/evolve-multipurpose-wordpress-theme/");
 		$videourl = esc_url("https://youtu.be/dgvjt6dJfWM");
         ?>
-<<<<<<< HEAD
-=======
+
+
 		<div class="updated">
         <a href="<?php echo $url ?>" target="_blank">
             <img class="evolve-logo" style="margin-bottom:20px;float:left;position:relative;top:10px;" width="718" height="200" border="0" alt="evolve - Multipurpose WordPress Theme" src="<?php echo get_template_directory_uri(); ?>/assets/images/functions/evolve.jpg">
@@ -7080,7 +7026,7 @@ if (!function_exists('evolve_redux_header_html')) {
 		</a>
 		<div style="clear:both;"></div>
 		</div>
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
         <div class="updated">
             <p>Happy with this theme? Please rate it <i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i> on <strong><a href="http://wordpress.org/themes/evolve" target="_blank">wordpress.org</a></strong></p>
         </div>
@@ -7171,8 +7117,8 @@ function evolve_redux_admin_head() {
 
 add_action('admin_head', 'evolve_redux_admin_head');
 
-<<<<<<< HEAD
-=======
+
+
 /**
  * Enqueue script for Theme options panel control:
  */
@@ -7216,7 +7162,7 @@ if (isset($evolve_options[$evolve_prem_inpt_name]) && ($evolve_options[$evolve_p
         }
     }
 }
->>>>>>> dda3c5dee6595daa6127e16d1537f02da7d58f27
+
 
 /* * ************************************************************************************************************
  * Register theme options section in Customizer

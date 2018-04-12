@@ -1,16 +1,13 @@
 <?php
 /**
- * Add postMessage support for the Theme Customizer.
+ * Add postMessage support for site title and description for the Theme Customizer.
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function evolve_theme_customize( $wp_customize ) {
+function evolve_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport          = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport   = 'postMessage';
-}
-add_action( 'customize_register', 'evolve_theme_customize', 10 );
 
-function evolve_theme_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial( 'blogname', array(
 		'selector' => '#logo a, #sticky-logo a',
 		'render_callback' => 'evolve_customize_partial_blogname',
@@ -24,31 +21,26 @@ function evolve_theme_customize_register( $wp_customize ) {
 		'selector' => '.content-box-1 h2',
 		'render_callback' => 'evl_content_box1_title',
 	) );
-
-
+       
+        
         $wp_customize->selective_refresh->add_partial( 'evl_content_box1_icon_color', array(
 		'selector' => '.content-box-1 i',
 		'render_callback' => 'evl_content_box1_icon_color',
 	) );
+        
+                
+      
 }
-add_action( 'customize_register', 'evolve_theme_customize_register' );
+add_action( 'customize_register', 'evolve_customize_register' );
 
 /**
- * Render the theme options functions for the selective refresh partial.
+ * Render the site title for the selective refresh partial.
  *
  * @since evolve 3.8.2
  * @see evolve_customize_register()
  *
  * @return void
  */
-
-function evolve_customize_partial_blogname() {
-	bloginfo( 'name' );
-}
-
-function evolve_customize_partial_blogdescription() {
-	bloginfo( 'description' );
-}
 
 function evl_content_box1_title() {
    return get_theme_mod( 'evl_content_box1_title' );
@@ -63,12 +55,26 @@ function evl_content_box1_icon_color() {
 	}
 }
 
+function evolve_customize_partial_blogname() {
+	bloginfo( 'name' );
+}
+
+/**
+ * Render the site tagline for the selective refresh partial.
+ *
+ * @since evolve 3.8.2
+ * @see evolve_customize_register()
+ *
+ * @return void
+ */
+function evolve_customize_partial_blogdescription() {
+	bloginfo( 'description' );
+}
 
 /**
  * Selective Refresh for Widgets.
  */
 add_theme_support( 'customize-selective-refresh-widgets' );
-
 
 /**
  * Bind JS handlers to instantly live-preview changes.
