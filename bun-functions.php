@@ -1,50 +1,77 @@
 <?php
-// echo 1;exit;	
+require_once('bun-function-render-customize.php');
 ##############################################
 # SETUP THEME CONFIG
 ##############################################
-    Kirki::add_config( 'agama_options', array(
+    Kirki::add_config( 'kirki_evolve_options', array(
         'option_type' => 'theme_mod',
         'capability'  => 'edit_theme_options'
     ) );
 #########################################################
 # SITE IDENTITY PANEL
 #########################################################
-    Kirki::add_panel( 'agama_site_identity_panel1', array(
-        'title'         => __( 'Site Identity1	', 'agama' )
+    Kirki::add_panel( 'kirki_frontpage_main_tab', array(
+        'title'         => __( '[Kirki]Custom Home/Front Page Builder	', 'evolve' )
     ) );
     ###########################################
-    # TITLE & TAGLINE GENERAL SECTION
+    # Add SECTION
     ###########################################
-    Kirki::add_section( 'title_tagline', array(
-        'title'         => __( 'General1', 'agama' ),
-        'panel'         => 'agama_site_identity_panel1'
+    Kirki::add_section( 'kirki_frontpage-general-tab', array(
+        'title'         => __( 'General & Layout Settings', 'evolve' ),
+        'panel'         => 'kirki_frontpage_main_tab'
     ) );
-    #################################################################
-    # TITLE & TAGLINE STYLING SECTION
-    #################################################################
-    Kirki::add_section( 'agama_title_tagline_styling_section', array( 
-        'title'         => __( 'Styling', 'agama' ),
-        'panel'         => 'agama_site_identity_panel1'
+    Kirki::add_section( 'kirki_frontpage-blog-general-tab', array(
+        'title'         => __( 'Blog', 'evolve' ),
+        'panel'         => 'kirki_frontpage_main_tab'
     ) );
-    Kirki::add_field( 'agama_options', array( 
-		'label'			=> __( 'Logo Color', 'agama' ),
-		'tooltip'	    => __( 'Select logo color.', 'agama' ),
-		'section'		=> 'agama_title_tagline_styling_section',
-		'settings'		=> 'agama_header_logo_color',
+    Kirki::add_section( 'kirki_frontpage-content-boxes-tab', array(
+        'title'         => __( 'Content Boxes', 'evolve' ),
+        'panel'         => 'kirki_frontpage_main_tab'
+    ) );
+    Kirki::add_section( 'kirki_front-page-counter-circle-tab', array(
+        'title'         => __( 'Counter Circle', 'evolve' ),
+        'panel'         => 'kirki_frontpage_main_tab'
+    ) );
+    Kirki::add_section( 'kirki-fp-googlemap-general-tab', array(
+        'title'         => __( 'Google Map', 'evolve' ),
+        'panel'         => 'kirki_frontpage_main_tab'
+    ) );
+    Kirki::add_section( 'kirki_front-page-testimonials-tab', array(
+        'title'         => __( 'Testimonials', 'evolve' ),
+        'panel'         => 'kirki_frontpage_main_tab'
+    ) );
+	// Front Page WooCommerce Products Sections
+	if (is_plugin_active('woocommerce/woocommerce.php')) {
+		Kirki::add_section( 'kirki-fp-woo-product-general-tab', array(
+			'title'         => __( 'WooCommerce Products', 'evolve' ),
+			'panel'         => 'kirki_frontpage_main_tab'
+		) );
+	}
+    Kirki::add_section( 'kirki-fp-custom-content-general-tab', array(
+        'title'         => __( 'Custom Content', 'evolve' ),
+        'panel'         => 'kirki_frontpage_main_tab'
+    ) );
+	
+	
+    #################################################################
+    # Add fields
+    #################################################################
+    // Kirki::add_section( 'kirki_frontpage-general-tab', array( 
+        // 'title'         => __( 'Styling', 'evolve' ),
+        // 'panel'         => 'kirki_frontpage-main-tab'
+    // ) );
+    Kirki::add_field( 'kirki_evolve_options', array(
+		'label'			=> __( 'Logo Color', 'evolve' ),
+		'tooltip'	    => __( 'Select logo color.', 'evolve' ),
+		'section'		=> 'kirki_frontpage-general-tab',
+		'settings'		=> 'evolve_header_logo_color',
 		'type'			=> 'text',
 		'partial_refresh'		=> array(
-			'agama_header_logo_color' => array(
+			'evolve_header_logo_color' => array(
 				'selector'	=> '#logo a',
-				'render_callback'   => array( 'BinmaocomRefresh', 'agama_header_logo_color' )
+				'render_callback'   => array( 'BinmaocomRefresh', 'evolve_header_logo_color' )
 			)
 		),
 		'default'		=> '#FE6663'
 	) );
 	
-	class BinmaocomRefresh{
-		function agama_header_logo_color() {
-        $title ='123'. esc_html( get_theme_mod( 'agama_header_logo_color', __( 'Powerful Performance', 'agama' ) ) );
-        return $title;
-    }
-    }
