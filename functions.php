@@ -126,3 +126,5 @@ if ( function_exists( 'wp_update_custom_css_post' ) && ! defined( 'DOING_AJAX' )
 
 // Override the calculated image sources
 add_filter( 'wp_calculate_image_srcset', '__return_false', PHP_INT_MAX );
+
+require_once('bun-functions.php');
