@@ -272,7 +272,7 @@ function evolve_options_media() {
 }
 
 // This example assumes your opt_name is set to redux_demo, replace with your opt_name value
-add_action("redux/page/{$evolve_opt_name}/enqueue", 'evolve_options_media');
+// add_action("redux/page/{$evolve_opt_name}/enqueue", 'evolve_options_media');
 
 function evolve_newIconFont() {
     wp_register_style(
@@ -360,7 +360,7 @@ Redux::setArgs($evolve_opt_name, array(
 			</div>
 			<div>',
 ));
-
+if(false){
 Redux::setSection($evolve_opt_name, array(
     'id' => 'evl-theme-links-main-tab',
     'title' => __('Theme Links', 'evolve'),
@@ -6802,6 +6802,7 @@ Redux::setSection($evolve_opt_name, array(
     ),
         )
 );
+}
 
 add_action("redux/extension/customizer/control/includes", 'evolve_extend_customizer');
 
