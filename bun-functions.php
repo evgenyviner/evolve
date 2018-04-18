@@ -1110,9 +1110,10 @@ $array_items = array(
 	// 'panel'         => 'kirki_frontpage_main_tab'
 // ) );
 
-function bin_call_kirki_from_old_field($array_items, $setting = 'kirki_evolve_options',  $section = 'kirki_frontpage-content-boxes-tab'){
+function bin_call_kirki_from_old_field($array_items,  $section = 'kirki_frontpage-content-boxes-tab', $setting = 'kirki_evolve_options'){
 	foreach($array_items as $value){
 		if(
+		isset($value['type']) && (
 		$value['type'] == 'text'
 		|| $value['type'] == 'radio'
 		|| $value['type'] == 'select'
@@ -1121,7 +1122,7 @@ function bin_call_kirki_from_old_field($array_items, $setting = 'kirki_evolve_op
 		|| $value['type'] == 'switch'
 		|| $value['type'] == 'sorter'
 		|| $value['type'] == 'color'
-		){
+		)){
 			$value_temp = array(
 				'type'        => 	$value['type'],
 				'settings'    => 	$value['id'],
@@ -1176,3 +1177,13 @@ function bin_call_kirki_from_old_field($array_items, $setting = 'kirki_evolve_op
 	}
 }
 bin_call_kirki_from_old_field($array_items);
+require_once('kirki-section-controll/section-2.php');
+bin_call_kirki_from_old_field($array_items, 'kirki_front-page-counter-circle-tab');
+require_once('kirki-section-controll/section-3.php');
+bin_call_kirki_from_old_field($array_items, 'kirki-fp-googlemap-general-tab');
+require_once('kirki-section-controll/section-4.php');
+bin_call_kirki_from_old_field($array_items, 'kirki_front-page-testimonials-tab');
+if (is_plugin_active('woocommerce/woocommerce.php')) {
+	require_once('kirki-section-controll/section-5.php');
+	bin_call_kirki_from_old_field($array_items, 'kirki-fp-woo-product-general-tab');
+}
