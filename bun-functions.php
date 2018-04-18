@@ -1109,66 +1109,70 @@ $array_items = array(
 	// 'title'         => __( 'Content Boxes', 'evolve' ),
 	// 'panel'         => 'kirki_frontpage_main_tab'
 // ) );
-foreach($array_items as $value){
-	if(
-	$value['type'] == 'text'
-	|| $value['type'] == 'radio'
-	|| $value['type'] == 'select'
-	|| $value['type'] == 'textarea'
-	|| $value['type'] == 'fontawesome'
-	|| $value['type'] == 'switch'
-	|| $value['type'] == 'sorter'
-	|| $value['type'] == 'color'
-	){
-		$value_temp = array(
-			'type'        => 	$value['type'],
-			'settings'    => 	$value['id'],
-			'label'       =>  	$value['title'] ? $value['title'] : '',
-			'description'       => $value['subtitle'] ? $value['subtitle'] : '',
-			'section'     => 'kirki_frontpage-content-boxes-tab',
-			'default'     => $value['default'] ? $value['default'] : null,
-			'priority'    => 10,
-		);
-		if(isset($value['options'])){			
-			$value_temp['choices'] = $value['options'];
-		}
-		if(isset($value['default'])){
-			$value_temp['default'] = $value['default'];
-			$value_temp['default'] = str_replace('fas fa-', '', $value_temp['default']);
-			$value_temp['default'] = str_replace('far fa-', '', $value_temp['default']);
-		}
-		if(isset($value['selector'])){			
-			$value_temp['partial_refresh'] = array(
-				$value['id'] => array(
-					'selector'	=> $value['selector'],
-					'render_callback'   => array( 'BinmaocomRefresh', $value['render_callback'] )
-				)
+
+function bin_call_kirki_from_old_field($array_items, $setting = 'kirki_evolve_options',  $section = 'kirki_frontpage-content-boxes-tab'){
+	foreach($array_items as $value){
+		if(
+		$value['type'] == 'text'
+		|| $value['type'] == 'radio'
+		|| $value['type'] == 'select'
+		|| $value['type'] == 'textarea'
+		|| $value['type'] == 'fontawesome'
+		|| $value['type'] == 'switch'
+		|| $value['type'] == 'sorter'
+		|| $value['type'] == 'color'
+		){
+			$value_temp = array(
+				'type'        => 	$value['type'],
+				'settings'    => 	$value['id'],
+				'label'       =>  	$value['title'] ? $value['title'] : '',
+				'description'       => $value['subtitle'] ? $value['subtitle'] : '',
+				'section'     => $section,
+				'default'     => $value['default'] ? $value['default'] : null,
+				'priority'    => 10,
 			);
-		}	
-		// 'transport'		=> 'postMessage',
-		// 'js_vars'		=> array(
-		if(isset($value['transport'])){
-			$value_temp['transport'] = $value['transport'];
-		}
-		if(isset($value['js_vars'])){
-			$value_temp['js_vars'] = $value['js_vars'];
-		}
-		if($value['type'] == 'sorter'){
-			$value_temp['type'] = 'sortable';
-			$choices_array = $value['options'];				
-			foreach($value['default'] as $default_key => $default_value){
-				$value_temp['default'] = $default_key;
-				$choices_array[$default_key] = $default_value;
+			if(isset($value['options'])){			
+				$value_temp['choices'] = $value['options'];
 			}
-			$value_temp['choices'] = $choices_array;
+			if(isset($value['default'])){
+				$value_temp['default'] = $value['default'];
+				$value_temp['default'] = str_replace('fas fa-', '', $value_temp['default']);
+				$value_temp['default'] = str_replace('far fa-', '', $value_temp['default']);
+			}
+			if(isset($value['selector'])){			
+				$value_temp['partial_refresh'] = array(
+					$value['id'] => array(
+						'selector'	=> $value['selector'],
+						'render_callback'   => array( 'BinmaocomRefresh', $value['render_callback'] )
+					)
+				);
+			}	
+			// 'transport'		=> 'postMessage',
+			// 'js_vars'		=> array(
+			if(isset($value['transport'])){
+				$value_temp['transport'] = $value['transport'];
+			}
+			if(isset($value['js_vars'])){
+				$value_temp['js_vars'] = $value['js_vars'];
+			}
+			if($value['type'] == 'sorter'){
+				$value_temp['type'] = 'sortable';
+				$choices_array = $value['options'];				
+				foreach($value['default'] as $default_key => $default_value){
+					$value_temp['default'] = $default_key;
+					$choices_array[$default_key] = $default_value;
+				}
+				$value_temp['choices'] = $choices_array;
+			}
+			if($value['type'] == 'switch'){
+				$value_temp['choices'] =  array(
+					'on'  => $value['on'],
+					'off' => $value['off'],
+				);
+			}
+			
+			Kirki::add_field( $setting, $value_temp );
 		}
-		if($value['type'] == 'switch'){
-			$value_temp['choices'] =  array(
-				'on'  => $value['on'],
-				'off' => $value['off'],
-			);
-		}
-		
-		Kirki::add_field( 'kirki_evolve_options', $value_temp );
 	}
 }
+bin_call_kirki_from_old_field($array_items);
