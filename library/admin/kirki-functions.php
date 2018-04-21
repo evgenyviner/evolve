@@ -1,7 +1,61 @@
 <?php
 
-require_once('/library/admin/kirki-framework/kirki.php' ); 
-require_once('bun-function-render-customize.php');
+require_once('kirki-framework/kirki.php' ); 
+require_once('kirki-function-render-customize.php');
+
+add_filter('pre_option_evl_options', 'binmaocom_fix_pre_option_evl_options_function');
+function binmaocom_fix_pre_option_evl_options_function($evl_options){
+	if($evl_options && is_array($evl_options) && count($evl_options)){
+		foreach($evl_options as $key => $value){
+			$evl_options[$key] = get_theme_mod($key, $value);
+		}
+		return $evl_options;
+	}
+}
+add_action( 'customize_controls_print_styles' , array( 'Binmaocom_Add_some_thing_Customize' , 'addInlineCss' ) );
+add_action( 'customize_controls_print_script' , array( 'Binmaocom_Add_some_thing_Customize' , 'addInlineJs' ) );
+class Binmaocom_Add_some_thing_Customize{
+	public function addInlineCss(){
+	?>
+<style type="text/css">
+.customize-control-title {
+    font-weight: 400;
+    color: #000;
+}
+#customize-controls .description {
+    font-size: 13px;
+}
+.customize-control-kirki-custom  {
+	background-color: #fba1a3;
+	border: 1px solid #b84f5b;
+	color: #981225;
+	padding: 10px;
+	border-radius: 3px;
+	margin-right: 10px;
+	width: calc( 100% - 20px);
+}
+.customize-control-kirki-radio-image label {
+	padding: 6px;
+}
+.wp-full-overlay-sidebar-content {
+    background: #fff;
+}
+</style>
+	<?php
+	}
+	public function addInlineJs(){
+	?>
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+		$('body').on('change', '#input_evl_frontpage_prebuilt_demo input', function(){
+			window.location.href="google.com";
+		});
+	});
+</script>
+	<?php
+	}
+}
+
 ##############################################
 # SETUP THEME CONFIG
 ##############################################
@@ -15,6 +69,7 @@ require_once('bun-function-render-customize.php');
     Kirki::add_panel( 'kirki_frontpage_main_tab', array(
         'title'         => __( '[Kirki]Custom Home/Front Page Builder	', 'evolve' )
     ) );
+	if(false){
     ###########################################
     # Add SECTION
     ###########################################
@@ -179,27 +234,7 @@ Kirki::add_field( 'kirki_evolve_options', array(
 	'settings'    => 'evl_demo_warning',
 	'label'       => __( 'WARNING', 'evolve' ),
 	'section'     => 'kirki_frontpage-general-tab',
-	'default'     => sprintf(__('The options below will overwrite many existing option values (colors, text fields, slides etc.), please proceed with caution! It\'s highly recommended to use these options for a new website.', 'evolve')).'<style type="text/css">
-	#customize-control-evl_demo_warning  {
-		background-color: #fba1a3;
-		border: 1px solid #b84f5b;
-		color: #981225;
-		padding: 10px;
-		border-radius: 3px;
-		margin-right: 10px;
-		width: calc( 100% - 20px);
-	}
-	.customize-control-kirki-radio-image label {
-		padding: 6px;
-	}
-	</style>
-	<script type="text/javascript">
-	jQuery(document).ready(function($){
-		$("#evl_frontpage_prebuilt_demodefault").change(function(){
-			window.location.href="google.com";
-		});
-	});
-	</script>
+	'default'     => sprintf(__('The options below will overwrite many existing option values (colors, text fields, slides etc.), please proceed with caution! It\'s highly recommended to use these options for a new website.', 'evolve')).'
 	',
 	'priority'    => 10,
 ) );
@@ -536,84 +571,34 @@ Kirki::add_field( 'kirki_evolve_options', array(
 	),
 ) );
 
+// Kirki::add_field( 'kirki_evolve_options', array(
+	// 'type'        => 'typography',
+	// 'settings'    => 'evl_blog_section_title_alignment',
+	// 'label'       =>  __('Title Font, Alignment and Color', 'evolve'),
+	// 'description'       =>  __('Select the font, alignment and color of the section title. * non web-safe font', 'evolve'),
+	// 'section'     => 'kirki_frontpage-blog-general-tab',
+	// 'default' => array(
+		// 'font-size' => '30px',
+		// 'color' => '#444444',
+		// 'font-family' => 'Roboto',
+		// 'font-style' => '700',
+		// 'text-align' => 'center',
+	// ),
+	// 'priority'    => 10,
+// ) );
 
-function bin_call_kirki_from_old_field($array_items,  $section = 'kirki_frontpage-content-boxes-tab', $setting = 'kirki_evolve_options'){
-	foreach($array_items as $value){
-		if(
-		isset($value['type']) && (
-		$value['type'] == 'text'
-		|| $value['type'] == 'radio'
-		|| $value['type'] == 'select'
-		|| $value['type'] == 'textarea'
-		|| $value['type'] == 'fontawesome'
-		|| $value['type'] == 'switch'
-		|| $value['type'] == 'sorter'
-		|| $value['type'] == 'color'
-		)){
-			$value_temp = array(
-				'type'        => 	$value['type'],
-				'settings'    => 	$value['id'],
-				'label'       =>  	$value['title'] ? $value['title'] : '',
-				'description'       => $value['subtitle'] ? $value['subtitle'] : '',
-				'section'     => $section,
-				'default'     => $value['default'] ? $value['default'] : null,
-				'priority'    => 10,
-			);
-			if(isset($value['options'])){			
-				$value_temp['choices'] = $value['options'];
-			}
-			if(isset($value['default'])){
-				$value_temp['default'] = $value['default'];
-				$value_temp['default'] = str_replace('fas fa-', '', $value_temp['default']);
-				$value_temp['default'] = str_replace('far fa-', '', $value_temp['default']);
-			}
-			if(isset($value['selector'])){			
-				$value_temp['partial_refresh'] = array(
-					$value['id'] => array(
-						'selector'	=> $value['selector'],
-						'render_callback'   => array( 'BinmaocomRefresh', $value['render_callback'] )
-					)
-				);
-			}	
-			// 'transport'		=> 'postMessage',
-			// 'js_vars'		=> array(
-			if(isset($value['transport'])){
-				$value_temp['transport'] = $value['transport'];
-			}
-			if(isset($value['js_vars'])){
-				$value_temp['js_vars'] = $value['js_vars'];
-			}
-			if($value['type'] == 'sorter'){
-				$value_temp['type'] = 'sortable';
-				$choices_array = $value['options'];				
-				foreach($value['default'] as $default_key => $default_value){
-					$value_temp['default'] = $default_key;
-					$choices_array[$default_key] = $default_value;
-				}
-				$value_temp['choices'] = $choices_array;
-			}
-			if($value['type'] == 'switch'){
-				$value_temp['choices'] =  array(
-					'on'  => $value['on'],
-					'off' => $value['off'],
-				);
-			}
-			
-			Kirki::add_field( $setting, $value_temp );
-		}
-	}
-}
 require_once('kirki-section-controll/section-1.php');
-bin_call_kirki_from_old_field($array_items);
+Binmaocom_Fix_Rd::bin_call_kirki_from_old_field($array_items);
 require_once('kirki-section-controll/section-2.php');
-bin_call_kirki_from_old_field($array_items, 'kirki_front-page-counter-circle-tab');
+Binmaocom_Fix_Rd::bin_call_kirki_from_old_field($array_items, 'kirki_front-page-counter-circle-tab');
 require_once('kirki-section-controll/section-3.php');
-bin_call_kirki_from_old_field($array_items, 'kirki-fp-googlemap-general-tab');
+Binmaocom_Fix_Rd::bin_call_kirki_from_old_field($array_items, 'kirki-fp-googlemap-general-tab');
 require_once('kirki-section-controll/section-4.php');
-bin_call_kirki_from_old_field($array_items, 'kirki_front-page-testimonials-tab');
+Binmaocom_Fix_Rd::bin_call_kirki_from_old_field($array_items, 'kirki_front-page-testimonials-tab');
 if (is_plugin_active('woocommerce/woocommerce.php')) {
 	require_once('kirki-section-controll/section-5.php');
-	bin_call_kirki_from_old_field($array_items, 'kirki-fp-woo-product-general-tab');
+	Binmaocom_Fix_Rd::bin_call_kirki_from_old_field($array_items, 'kirki-fp-woo-product-general-tab');
 }
 require_once('kirki-section-controll/section-6.php');
-bin_call_kirki_from_old_field($array_items, 'kirki-fp-custom-content-general-tab');
+Binmaocom_Fix_Rd::bin_call_kirki_from_old_field($array_items, 'kirki-fp-custom-content-general-tab');
+}

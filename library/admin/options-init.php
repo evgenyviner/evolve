@@ -1,4 +1,121 @@
 <?php
+
+require_once('kirki-functions.php');
+global $name_of_panel;
+$name_of_panel = '';
+class Binmaocom_Fix_Rd{
+	static function setSection($param1, $param2){
+		global $name_of_panel;		
+		if(isset($param2['fields']) && is_array($param2['fields']) && count($param2['fields'])){
+			Kirki::add_section( $param2['id'], array(
+				'title'         => $param2['title'],
+				'panel'         => $name_of_panel
+			) );			
+			Binmaocom_Fix_Rd::bin_call_kirki_from_old_field($param2['fields'], $param2['id']);
+		}
+		else{
+			$name_of_panel = $param2['id'];
+			Kirki::add_panel( $param2['id'], array(
+				'title'         => $param2['title']
+			) );
+		}
+	}	
+	static function bin_call_kirki_from_old_field($array_items,  $section = 'kirki_frontpage-content-boxes-tab', $setting = 'kirki_evolve_options'){
+		foreach($array_items as $value){
+			if(
+			isset($value['type']) && (
+			$value['type'] == 'text'
+			|| $value['type'] == 'radio'
+			|| $value['type'] == 'select'
+			|| $value['type'] == 'textarea'
+			|| $value['type'] == 'fontawesome'
+			|| $value['type'] == 'switch'
+			|| $value['type'] == 'sorter'
+			|| $value['type'] == 'color'
+			|| $value['type'] == 'typography'
+			|| $value['type'] == 'media'
+			|| $value['type'] == 'image_select'
+			|| $value['type'] == 'info'
+			)){
+				$value_temp = array(
+					'type'        => 	$value['type'],
+					'settings'    => 	$value['id'],
+					'label'       =>  	$value['title'] ? $value['title'] : '',
+					'description'       => $value['subtitle'] ? $value['subtitle'] : '',
+					'section'     => $section,
+					'default'     => $value['default'] ? $value['default'] : null,
+					'priority'    => 10,
+				);
+				if(isset($value['type']) && $value['type'] == 'select'){
+					if(isset($value['multi']) && $value['multi'] == true){
+						$value_temp['multiple'] = 999;
+					}
+				}
+				if(isset($value['type']) && $value['type'] == 'media'){			
+					$value_temp['type'] = 'image';
+				}
+				if(isset($value['type']) && $value['type'] == 'info'){			
+					$value_temp['type'] = 'custom';
+				}
+				if(isset($value['type']) && $value['type'] == 'image_select'){			
+					$value_temp['type'] = 'radio-image';
+				}
+				//class' => 'iconpicker-icon
+				if(isset($value['class']) && $value['class'] == 'iconpicker-icon'){			
+					$value_temp['type'] = 'fontawesome';
+				}
+				if(isset($value['options'])){			
+					$value_temp['choices'] = $value['options'];
+				}
+				if(isset($value['default'])){
+					$value_temp['default'] = $value['default'];
+					if(isset($value_temp['default']['font-style'])){
+						$value_temp['default']['variant'] = $value_temp['default']['font-style'];
+					}
+					if(!is_array($value['default'])){
+						$value_temp['default'] = str_replace('fas fa-', '', $value_temp['default']);
+						$value_temp['default'] = str_replace('far fa-', '', $value_temp['default']);
+					}
+				}
+				if(isset($value['selector'])){			
+					$value_temp['partial_refresh'] = array(
+						$value['id'] => array(
+							'selector'	=> $value['selector'],
+							'render_callback'   => array( 'BinmaocomRefresh', $value['render_callback'] )
+						)
+					);
+				}	
+				// 'transport'		=> 'postMessage',
+				// 'js_vars'		=> array(
+				if(isset($value['transport'])){
+					$value_temp['transport'] = $value['transport'];
+				}
+				if(isset($value['js_vars'])){
+					$value_temp['js_vars'] = $value['js_vars'];
+				}
+				if($value['type'] == 'sorter'){
+					$value_temp['type'] = 'sortable';
+					$choices_array = $value["options"]['disabled'];	
+					if(isset($value["options"]['enabled']) && is_array($value["options"]['enabled']) && count($value["options"]['enabled'])){
+						foreach($value["options"]['enabled'] as $default_key => $default_value){
+							$value_temp['default'] = $default_key;
+							$choices_array[$default_key] = $default_value;
+						}
+					}
+					$value_temp['choices'] = $choices_array;
+				}
+				if($value['type'] == 'switch'){
+					$value_temp['choices'] =  array(
+						'on'  => $value['on'],
+						'off' => $value['off'],
+					);
+				}
+				Kirki::add_field( $setting, $value_temp );
+			}
+		}
+	}
+}
+
 global $evolve_shortname, $evolve_opt_name, $evolve_prem_inpt_name;
 $evolve_prem_inpt_name = "evl_hiden_premium"; // Switch control's id and name [Show/Hide premium options control]
 $evolve_prem_class = "evl_premium_feature";
@@ -360,8 +477,8 @@ Redux::setArgs($evolve_opt_name, array(
 			</div>
 			<div>',
 ));
-if(false){
-Redux::setSection($evolve_opt_name, array(
+if(true){
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-theme-links-main-tab',
     'title' => __('Theme Links', 'evolve'),
     'icon' => 'el el-brush',
@@ -375,7 +492,7 @@ Redux::setSection($evolve_opt_name, array(
     )
 ));
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-frontpage-main-tab',
     'title' => __('Custom Home/Front Page Builder', 'evolve'),
     'icon' => 't4p-icon-hammer',
@@ -388,7 +505,7 @@ $theme_options = get_option('evl_options', false);
 ( $theme_options['evl_parallax_slider_support'] == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)';
 ( $theme_options['evl_carousel_slider'] == '1' ) ? $postslider_status = ' (ACTIVE)' : $postslider_status = ' (INACTIVE)';
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-frontpage-general-tab',
     'title' => __('General & Layout Settings', 'evolve'),
     'subsection' => true,
@@ -531,7 +648,7 @@ Redux::setSection($evolve_opt_name, array(
 );
 
 // Front Page Blog Sections
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-fp-blog-general-tab',
     'title' => __('Blog', 'evolve'),
     'subsection' => true,
@@ -835,7 +952,7 @@ Redux::setSection($evolve_opt_name, array(
 );
 
 // Front Page Content Boxes
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-frontpage-content-boxes-tab',
     'title' => __('Content Boxes', 'evolve'),
     'subsection' => true,
@@ -915,6 +1032,10 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box1_title',
             'type' => 'text',
             'title' => __('Content Box 1 Title', 'evolve'),
+			'render_callback' => 'evl_content_box1_title',
+			'required' => array(
+				array('evl_content_box1_enable', '=', '1')
+			),
             'default' => 'Flat & Beautiful',
             'required' => array(
                 array('evl_content_box1_enable', '=', '1')
@@ -924,6 +1045,8 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box1_icon',
             'type' => 'text',
             'title' => __('Content Box 1 Icon (FontAwesome)', 'evolve'),
+			'selector' => '.content-box.content-box-1 .icon-box',
+			'render_callback' => 'evl_content_box1_icon',
             'default' => 'fas fa-cube',
             'class' => 'iconpicker-icon',
             'required' => array(
@@ -935,6 +1058,14 @@ Redux::setSection($evolve_opt_name, array(
             'compiler' => true,
             'type' => 'color',
             'title' => __('Content Box 1 Icon Color', 'evolve'),
+			'transport'		=> 'postMessage',
+			'js_vars'		=> array(
+				array(
+					'element'	=> '.content-box.content-box-1 i',
+					'function'	=> 'css',
+					'property'	=> 'color'
+				)
+			),
             'default' => '#8bb9c1',
             'required' => array(
                 array('evl_content_box1_enable', '=', '1')
@@ -957,6 +1088,8 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box1_desc',
             'type' => 'textarea',
             'title' => __('Content Box 1 description', 'evolve'),
+			'selector' => '.content-box.content-box-1 p',
+			'render_callback' => 'evl_content_box1_desc',
             'default' => 'Clean modern theme with smooth and pixel perfect design focused on details',
             'required' => array(
                 array('evl_content_box1_enable', '=', '1')
@@ -966,6 +1099,8 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box1_button',
             'type' => 'textarea',
             'title' => __('Content Box 1 Button', 'evolve'),
+			'selector' => '.content-box.content-box-1 .cntbox_btn',
+			'render_callback' => 'evl_content_box1_button',
             'default' => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
             'required' => array(
                 array('evl_content_box1_enable', '=', '1')
@@ -995,6 +1130,8 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box2_title',
             'type' => 'text',
             'title' => __('Content Box 2 Title', 'evolve'),
+			'selector' => '.content-box.content-box-2 h2',
+			'render_callback' => 'evl_content_box2_title',
             'default' => 'Easy Customizable',
             'required' => array(
                 array('evl_content_box2_enable', '=', '1')
@@ -1004,6 +1141,8 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box2_icon',
             'type' => 'text',
             'title' => __('Content Box 2 Icon (FontAwesome)', 'evolve'),
+			'selector' => '.content-box.content-box-2 .icon-box',
+			'render_callback' => 'evl_content_box2_icon',
             'default' => 'fas fa-circle-notch',
             'class' => 'iconpicker-icon',
             'required' => array(
@@ -1015,6 +1154,14 @@ Redux::setSection($evolve_opt_name, array(
             'compiler' => true,
             'type' => 'color',
             'title' => __('Content Box 2 Icon Color', 'evolve'),
+			'transport'		=> 'postMessage',
+			'js_vars'		=> array(
+				array(
+					'element'	=> '.content-box.content-box-2 i',
+					'function'	=> 'css',
+					'property'	=> 'color'
+				)
+			),
             'default' => '#8ba3c1',
             'required' => array(
                 array('evl_content_box2_enable', '=', '1')
@@ -1037,6 +1184,8 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box2_desc',
             'type' => 'textarea',
             'title' => __('Content Box 2 description', 'evolve'),
+			'selector' => '.content-box.content-box-2 p',
+			'render_callback' => 'evl_content_box2_desc',
             'default' => 'Over a hundred theme options ready to make your website unique',
             'required' => array(
                 array('evl_content_box2_enable', '=', '1')
@@ -1046,6 +1195,8 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box2_button',
             'type' => 'textarea',
             'title' => __('Content Box 2 Button', 'evolve'),
+			'selector' => '.content-box.content-box-2 .cntbox_btn',
+			'render_callback' => 'evl_content_box2_button',
             'default' => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
             'required' => array(
                 array('evl_content_box2_enable', '=', '1')
@@ -1075,6 +1226,8 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box3_title',
             'type' => 'text',
             'title' => __('Content Box 3 Title', 'evolve'),
+			'selector' => '.content-box.content-box-3 h2',
+			'render_callback' => 'evl_content_box3_title',
             'default' => 'WooCommerce Ready',
             'required' => array(
                 array('evl_content_box3_enable', '=', '1')
@@ -1084,6 +1237,8 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box3_icon',
             'type' => 'text',
             'title' => __('Content Box 3 Icon (FontAwesome)', 'evolve'),
+			'selector' => '.content-box.content-box-3 .icon-box',
+			'render_callback' => 'evl_content_box3_icon',
             'default' => 'fas fa-shopping-basket',
             'class' => 'iconpicker-icon',
             'required' => array(
@@ -1095,6 +1250,14 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'color',
             'compiler' => true,
             'title' => __('Content Box 3 Icon Color', 'evolve'),
+			'transport'		=> 'postMessage',
+			'js_vars'		=> array(
+				array(
+					'element'	=> '.content-box.content-box-3 i',
+					'function'	=> 'css',
+					'property'	=> 'color'
+				)
+			),
             'default' => '#8dc4b8',
             'required' => array(
                 array('evl_content_box3_enable', '=', '1')
@@ -1117,6 +1280,8 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box3_desc',
             'type' => 'textarea',
             'title' => __('Content Box 3 description', 'evolve'),
+			'selector' => '.content-box.content-box-3 p',
+			'render_callback' => 'evl_content_box3_desc',
             'default' => 'Start selling your products within few minutes using the WooCommerce feature',
             'required' => array(
                 array('evl_content_box3_enable', '=', '1')
@@ -1126,6 +1291,8 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box3_button',
             'type' => 'textarea',
             'title' => __('Content Box 3 Button', 'evolve'),
+			'selector' => '.content-box.content-box-3 .cntbox_btn',
+			'render_callback' => 'evl_content_box3_button',
             'default' => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
             'required' => array(
                 array('evl_content_box3_enable', '=', '1')
@@ -1155,6 +1322,8 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box4_title',
             'type' => 'text',
             'title' => __('Content Box 4 Title', 'evolve'),
+			'selector' => '.content-box.content-box-4 h2',
+			'render_callback' => 'evl_content_box4_title',
             'default' => 'Prebuilt Demos',
             'required' => array(
                 array('evl_content_box4_enable', '=', '1')
@@ -1164,6 +1333,8 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box4_icon',
             'type' => 'text',
             'title' => __('Content Box 4 Icon (FontAwesome)', 'evolve'),
+			'selector' => '.content-box.content-box-4 .icon-box',
+			'render_callback' => 'evl_content_box4_icon',
             'default' => 'far fa-object-ungroup',
             'class' => 'iconpicker-icon',
             'required' => array(
@@ -1175,6 +1346,14 @@ Redux::setSection($evolve_opt_name, array(
             'type' => 'color',
             'compiler' => true,
             'title' => __('Content Box 4 Icon Color', 'evolve'),
+			'transport'		=> 'postMessage',
+			'js_vars'		=> array(
+				array(
+					'element'	=> '.content-box.content-box-4 i',
+					'function'	=> 'css',
+					'property'	=> 'color'
+				)
+			),
             'default' => '#92bf89',
             'required' => array(
                 array('evl_content_box4_enable', '=', '1')
@@ -1197,6 +1376,8 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box4_desc',
             'type' => 'textarea',
             'title' => __('Content Box 4 description', 'evolve'),
+			'selector' => '.content-box.content-box-4 p',
+			'render_callback' => 'evl_content_box4_desc',
             'default' => 'Drag & Drop front page builder with many demos just perfect to start your new project',
             'required' => array(
                 array('evl_content_box4_enable', '=', '1')
@@ -1206,6 +1387,8 @@ Redux::setSection($evolve_opt_name, array(
             'id' => 'evl_content_box4_button',
             'type' => 'textarea',
             'title' => __('Content Box 4 Button', 'evolve'),
+			'selector' => '.content-box.content-box-4 .cntbox_btn',
+			'render_callback' => 'evl_content_box4_button',
             'default' => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
             'required' => array(
                 array('evl_content_box4_enable', '=', '1')
@@ -1428,7 +1611,7 @@ for ($i = 1; $i <= 3; $i++) {
 
 
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-front-page-counter-circle-tab',
     'title' => __('Counter Circle', 'evolve'),
     'subsection' => true,
@@ -1592,7 +1775,7 @@ Redux::setSection($evolve_opt_name, array(
 );
 
 // Front Page Google Map Sections
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-fp-googlemap-general-tab',
     'title' => __('Google Map', 'evolve'),
     'subsection' => true,
@@ -1866,7 +2049,7 @@ for ($i = 1; $i <= 2; $i++) {
 
 
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-front-page-testimonials-tab',
     'title' => __('Testimonials', 'evolve'),
     'subsection' => true,
@@ -2046,7 +2229,7 @@ Redux::setSection($evolve_opt_name, array(
 
 // Front Page WooCommerce Products Sections
 if (is_plugin_active('woocommerce/woocommerce.php')) :
-    Redux::setSection($evolve_opt_name, array(
+    Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
         'id' => 'evl-fp-woo-product-general-tab',
         'title' => __('WooCommerce Products', 'evolve'),
         'subsection' => true,
@@ -2196,7 +2379,7 @@ endif;
 
 
 // Front Page Custom Content Sections
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-fp-custom-content-general-tab',
     'title' => __('Custom Content', 'evolve'),
     'subsection' => true,
@@ -2334,7 +2517,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-general-main-tab',
     'title' => __('General', 'evolve'),
     'icon' => 't4p-icon-appbartools',
@@ -2342,7 +2525,7 @@ Redux::setSection($evolve_opt_name, array(
 );
 
 
-/* Redux::setSection($evolve_opt_name, array(
+/* Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-general-subsec-general-tab',
   'title' => __('General', 'evolve'),
   'subsection' => true,
@@ -2363,7 +2546,7 @@ Redux::setSection($evolve_opt_name, array(
 
 
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-general-subsec-fav-tab',
     'title' => __('Favicon', 'evolve'),
     'subsection' => true,
@@ -2416,7 +2599,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-general-subsec-lay-tab',
     'title' => __('Layout', 'evolve'),
     'subsection' => true,
@@ -2651,14 +2834,14 @@ Redux::setSection($evolve_opt_name, array(
 
 
 // Header Main Sections
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-header-main-tab',
     'title' => __('Header', 'evolve'),
     'icon' => 't4p-icon-file3',
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-header-subsec-header-tab',
     'title' => __('Header', 'evolve'),
     'subsection' => true,
@@ -2746,7 +2929,7 @@ Redux::setSection($evolve_opt_name, array(
 );
 
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-header-subsec-sticky-header-tab',
     'title' => __('Sticky Header', 'evolve'),
     'subsection' => true,
@@ -2795,7 +2978,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-header-subsec-logo-tab',
     'title' => __('Logo', 'evolve'),
     'subsection' => true,
@@ -2885,7 +3068,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-header-subsec-title-tagline-tab',
     'title' => __('Title & Tagline', 'evolve'),
     'subsection' => true,
@@ -2915,7 +3098,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-header-subsec-menu-tab',
     'title' => __('Menu', 'evolve'),
     'subsection' => true,
@@ -3014,7 +3197,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-header-subsec-header-widgets-tab',
     'title' => __('Header Widgets', 'evolve'),
     'subsection' => true,
@@ -3051,14 +3234,14 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-footer-main-tab',
     'title' => __('Footer', 'evolve'),
     'icon' => 't4p-icon-file4',
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-footer-subsec-footer-widgets-tab',
     'title' => __('Footer Widgets', 'evolve'),
     'subsection' => true,
@@ -3081,7 +3264,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-footer-subsec-custom-footer-tab',
     'title' => __('Custom Footer', 'evolve'),
     'subsection' => true,
@@ -3097,7 +3280,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-typography-main-tab',
     'title' => __('Typography', 'evolve'),
     'icon' => 't4p-icon-appbartextserif',
@@ -3105,7 +3288,7 @@ Redux::setSection($evolve_opt_name, array(
 );
 
 
-/* Redux::setSection($evolve_opt_name, array(
+/* Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-typography-custom',
   'title' => __('Custom Fonts', 'evolve'),
   'subsection' => true,
@@ -3165,7 +3348,7 @@ Redux::setSection($evolve_opt_name, array(
 
 
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-typography-subsec-title-tagline-tab',
     'title' => __('Title & Tagline', 'evolve'),
     'subsection' => true,
@@ -3224,7 +3407,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-typography-subsec-menu-tab',
     'title' => __('Menu', 'evolve'),
     'subsection' => true,
@@ -3279,7 +3462,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-typography-subsec-widget-tab',
     'title' => __('Widget', 'evolve'),
     'subsection' => true,
@@ -3323,7 +3506,7 @@ Redux::setSection($evolve_opt_name, array(
     ),
         )
 );
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-typography-subsec-post-tab',
     'title' => __('Post Title & Content', 'evolve'),
     'subsection' => true,
@@ -3368,7 +3551,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-front-page-content-boxes',
     'title' => __('Front Page Content Boxes', 'evolve'),
     'subsection' => true,
@@ -3413,7 +3596,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-typography-subsec-headings-tab',
     'title' => __('Headings', 'evolve'),
     'subsection' => true,
@@ -3514,7 +3697,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-pagetitlebar-tab',
     'title' => __('Page Title / Breadcrumbs / Page Title Bar', 'evolve'),
     'icon' => 't4p-icon-titlebar',
@@ -3631,14 +3814,14 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-styling-main-tab',
     'title' => __('Styling', 'evolve'),
     'icon' => 't4p-icon-appbardrawpaintbrush',
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-styling-subsec-main-scheme-tab',
     'title' => __('Main Color Scheme', 'evolve'),
     'subsection' => true,
@@ -3710,7 +3893,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-styling-subsec-header-footer-tab',
     'title' => __('Header & Footer', 'evolve'),
     'subsection' => true,
@@ -3865,7 +4048,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-styling-subsec-menu-tab',
     'title' => __('Menu', 'evolve'),
     'subsection' => true,
@@ -3929,7 +4112,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-styling-subsec-slideshow-widgets-tab',
     'title' => __('Slideshow & Widgets Area', 'evolve'),
     'subsection' => true,
@@ -4006,7 +4189,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-styling-subsec-content-tab',
     'title' => __('Content', 'evolve'),
     'subsection' => true,
@@ -4054,7 +4237,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-styling-subsec-links-buttons-tab',
     'title' => __('Links', 'evolve'),
     'subsection' => true,
@@ -4071,7 +4254,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-styling-subsec-shadows-tab',
     'title' => __('Shadows', 'evolve'),
     'subsection' => true,
@@ -4092,7 +4275,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-element-colors',
     'title' => __('Element Colors', 'evolve'),
     'subsection' => true,
@@ -4122,7 +4305,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-shortcode-main-tab',
     'title' => __('Shortcodes', 'evolve'),
     'icon' => 't4p-icon-appbardrawbrush',
@@ -4130,7 +4313,7 @@ Redux::setSection($evolve_opt_name, array(
 );
 
 
-/* Redux::setSection($evolve_opt_name, array(
+/* Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-section-tab',
   'title' => __('Accordion', 'evolve'),
   'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4149,7 +4332,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-blog-tab',
   'title' => __('Blog', 'evolve'),
   'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4170,7 +4353,7 @@ Redux::setSection($evolve_opt_name, array(
 
 
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-shortcode-subsec-shortcodes-button-tab',
     'title' => __('Button', 'evolve'),
     'subsection' => true,
@@ -4310,7 +4493,7 @@ Redux::setSection($evolve_opt_name, array(
 );
 
 
-/* Redux::setSection($evolve_opt_name, array(
+/* Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-content-box-tab',
   'title' => __('Content Box', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4329,7 +4512,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-checklist-tab',
   'title' => __('Checklist', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4361,7 +4544,7 @@ Redux::setSection($evolve_opt_name, array(
   ),
   ),
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-blog-main-tab',
   'title' => __('Blog', 'evolve'),
   'icon' => 't4p-icon-appbarclipboardvariantedit',
@@ -4369,7 +4552,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-blog-subsec-general-tab',
   'title' => __('General', 'evolve'),
   'subsection' => true,
@@ -4435,7 +4618,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-blog-subsec-post-tab',
   'title' => __('Posts', 'evolve'),
   'subsection' => true,
@@ -4493,7 +4676,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-icon-tab',
   'title' => __('Icon', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4536,7 +4719,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-image-frame-tab',
   'title' => __('Image Frame', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4570,7 +4753,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-modal-tab',
   'title' => __('Modal', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4597,7 +4780,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-person-tab',
   'title' => __('Person', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4631,7 +4814,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-popover-tab',
   'title' => __('Popover', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4688,7 +4871,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-pricing-table-tab',
   'title' => __('Pricing Table', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4747,7 +4930,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-progress-bar-tab',
   'title' => __('Progress Bar', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4782,7 +4965,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-separator-tab',
   'title' => __('Separator', 'evolve'),
   'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4801,7 +4984,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-section-separator-tab',
   'title' => __('Section Separator', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4835,7 +5018,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-sharing-box-tab',
   'title' => __('Sharing Box', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4862,7 +5045,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-social-links-tab',
   'title' => __('Social Links', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4923,7 +5106,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-tabs-tab',
   'title' => __('Tabs', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4950,7 +5133,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-tagline-tab',
   'title' => __('Tagline', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4977,7 +5160,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-testimonials-tab',
   'title' => __('Testimonials', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -5011,7 +5194,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-title-tab',
   'title' => __('Title', 'evolve'),
   'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -5031,14 +5214,14 @@ Redux::setSection($evolve_opt_name, array(
   );
  */
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-blog-main-tab',
     'title' => __('Blog', 'evolve'),
     'icon' => 't4p-icon-appbarclipboardvariantedit',
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-blog-subsec-general-tab',
     'title' => __('General', 'evolve'),
     'subsection' => true,
@@ -5115,7 +5298,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-blog-subsec-post-tab',
     'title' => __('Posts', 'evolve'),
     'subsection' => true,
@@ -5184,7 +5367,7 @@ Redux::setSection($evolve_opt_name, array(
     ),
         )
 );
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-blog-subsec-featured-tab',
     'title' => __('Featured Image', 'evolve'),
     'subsection' => true,
@@ -5215,7 +5398,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-post-format',
     'title' => __('Post Format', 'evolve'),
     'subsection' => true,
@@ -5314,7 +5497,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-/* Redux::setSection($evolve_opt_name, array(
+/* Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-portfolio-main-tab',
   'title' => __('Portfolio', 'evolve'),
   'icon' => 't4p-icon-appbarimagemultiple',
@@ -5322,7 +5505,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-portfolio-subsec-general-tab',
   'title' => __('General', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -5429,7 +5612,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-blog-subsec-featured-tab',
   'title' => __('Featured Image', 'evolve'),
   'subsection' => true,
@@ -5460,7 +5643,7 @@ Redux::setSection($evolve_opt_name, array(
   )
   );
 
-  Redux::setSection($evolve_opt_name, array(
+  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-post-format',
   'title' => __('Post Format', 'evolve'),
   'subsection' => true,
@@ -5562,7 +5745,7 @@ Redux::setSection($evolve_opt_name, array(
 
 
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-social-links-main-tab',
     'title' => __('Social Media Links', 'evolve'),
     'icon' => 't4p-icon-appbarsocialtwitter',
@@ -5833,14 +6016,14 @@ for ($i = 1; $i <= 5; $i ++) {
 }
 
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-bootstrap-slider-main-tab',
     'title' => __('Bootstrap Slider', 'evolve'),
     'icon' => 't4p-icon-appbarimageselect',
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-bootstrap-slider-subsec-general-tab',
     'title' => __('General', 'evolve'),
     'subsection' => true,
@@ -5989,7 +6172,7 @@ Redux::setSection($evolve_opt_name, array(
 );
 
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-bootstrap-slider-subsec-slides-tab',
     'title' => __('Slides', 'evolve'),
     'subsection' => true,
@@ -6088,14 +6271,14 @@ for ($i = 1; $i <= 5; $i ++) {
      */
 }
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-parallax-slider-main-tab',
     'title' => __('Parallax Slider', 'evolve'),
     'icon' => 't4p-icon-appbarmonitor',
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-parallax-slider-subsec-general-tab',
     'title' => __('General', 'evolve'),
     'subsection' => true,
@@ -6175,7 +6358,7 @@ Redux::setSection($evolve_opt_name, array(
 );
 
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-parallax-slider-subsec-slides-tab',
     'title' => __('Slides', 'evolve'),
     'subsection' => true,
@@ -6183,7 +6366,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-posts-slider-main-tab',
     'title' => __('Posts Slider', 'evolve'),
     'icon' => 't4p-icon-appbarvideogallery',
@@ -6321,7 +6504,7 @@ Redux::setSection($evolve_opt_name, array(
 
 
 
-/* Redux::setSection($evolve_opt_name, array(
+/* Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-lightbox-main-tab',
   'title' => __('Lightbox', 'evolve'),
   'icon' => 't4p-icon-appbarwindowmaximize',
@@ -6401,7 +6584,7 @@ Redux::setSection($evolve_opt_name, array(
 
 
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-contact-main-tab',
     'title' => __('Contact', 'evolve'),
     'icon' => 't4p-icon-appbarlocationcheckin',
@@ -6533,7 +6716,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-extra-main-tab',
     'title' => __('Extra', 'evolve'),
     'icon' => 't4p-icon-appbarsettings',
@@ -6615,7 +6798,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-advanced-main-tab',
     'title' => __('Advanced', 'evolve'),
     'icon' => 't4p-icon-appbarlistcheck',
@@ -6692,7 +6875,7 @@ Redux::setSection($evolve_opt_name, array(
         )
 );
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-woocommerce-main-tab',
     'title' => __('WooCommerce', 'evolve'),
     'icon' => 't4p-icon-appbarcart',
@@ -6770,7 +6953,7 @@ Redux::setSection($evolve_opt_name, array(
 );
 
 
-//Redux::setSection($evolve_opt_name, array(
+//Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
 //    'id' => 'evl-custom-css-main-tab',
 //    'title' => __('Custom CSS', 'evolve'),
 //    'icon' => 't4p-icon-appbarsymbolbraces',
@@ -6786,7 +6969,7 @@ Redux::setSection($evolve_opt_name, array(
 //        )
 //);
 
-Redux::setSection($evolve_opt_name, array(
+Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-import-export-main-tab',
     'title' => __('Import / Export', 'evolve'),
     'icon' => 't4p-icon-appbarinbox',

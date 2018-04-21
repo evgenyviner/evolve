@@ -353,6 +353,17 @@ function evolve_footer_hooks() {
     <?php
     global $evl_options;
     $header_pos = '';
+	$evl_front_elements_header_area = (get_theme_mod('evl_front_elements_header_area'));
+	if($evl_front_elements_header_area){
+		if(count($evl_front_elements_header_area)){
+			$evl_front_elements_header_area_result = array();
+			foreach($evl_front_elements_header_area as $items){
+				$evl_front_elements_header_area_result[$items] = $items;
+			}
+			$evl_front_elements_header_area = $evl_front_elements_header_area_result;
+		}
+	}
+	$evl_options['evl_front_elements_header_area']['enabled'] = $evl_front_elements_header_area;
     if ( isset($evl_options['evl_front_elements_header_area']['enabled']) ) {
             $evl_frontpage_slider = array_keys($evl_options['evl_front_elements_header_area']['enabled']);
             $header_pos = array_search("header", $evl_frontpage_slider);

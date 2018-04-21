@@ -2,6 +2,7 @@
 /* Front Page Content Boxes */
 function evolve_content_boxes() {
     $evolve_content_boxes = evolve_get_option('evl_content_boxes', '1');
+	
     if ($evolve_content_boxes == "1") {
         global $evl_options;
         
@@ -212,6 +213,7 @@ function evolve_testimonials() {
     $backgroundcolor = $evl_options["evl_fp_testimonials_bg_color"];
     $textcolor = $evl_options["evl_fp_testimonials_text_color"];
     $evolve_testimonials_section_back_color             = evolve_get_option( 'evl_testimonials_section_back_color', '' );
+	// var_dump($evolve_testimonials_section_back_color);exit;
     $evolve_testimonials_section_image_src              = evolve_get_option('evl_testimonials_section_background_image');
     $evolve_testimonials_section_image                  = evolve_get_option('evl_testimonials_section_image', 'cover');
     $evolve_testimonials_section_background_position    = evolve_get_option('evl_testimonials_section_image_background_position', 'center top');

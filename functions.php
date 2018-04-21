@@ -15,7 +15,22 @@ if (get_stylesheet_directory() == get_template_directory()) {
  * Needed because options are
  * as serialized strings.
  */
+
+function endsWith($haystack,$needle,$case=true)
+{
+    $expectedPosition = strlen($haystack) - strlen($needle);
+
+    if ($case)
+        return strrpos($haystack, $needle, 0) === $expectedPosition;
+
+    return strripos($haystack, $needle, 0) === $expectedPosition;
+}
 function evolve_get_option($name, $default = false) {
+	$result = get_theme_mod($name, $default);
+	if(is_string($name) && endsWith($name, '_icon')){
+		$result = 'fa-'.$result;
+	}
+	return $result;
     $config = get_option('evolve');
 
     if (!isset($config['id'])) {
@@ -27,7 +42,6 @@ function evolve_get_option($name, $default = false) {
     if (isset($GLOBALS['redux_compiler_options'])) {
         $options = $GLOBALS['redux_compiler_options'];
     }
-
     if (isset($options[$name])) {
         $mediaKeys = array(
             'evl_bootstrap_slide1_img',
@@ -126,5 +140,3 @@ if ( function_exists( 'wp_update_custom_css_post' ) && ! defined( 'DOING_AJAX' )
 
 // Override the calculated image sources
 add_filter( 'wp_calculate_image_srcset', '__return_false', PHP_INT_MAX );
-
-require_once('bun-functions.php');

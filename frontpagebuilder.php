@@ -8,10 +8,19 @@
 global $evl_options;
 $evolve_content_boxes_pos = evolve_get_option('evl_content_boxes_pos', 'above');
 $evl_frontpage_elements = array();
-
+$evl_front_elements_content_area = (get_theme_mod('evl_front_elements_content_area'));
+if($evl_front_elements_content_area){
+	if(count($evl_front_elements_content_area)){
+		$evl_front_elements_content_area_result = array();
+		foreach($evl_front_elements_content_area as $items){
+			$evl_front_elements_content_area_result[$items] = $items;
+		}
+		$evl_front_elements_content_area = $evl_front_elements_content_area_result;
+	}
+}
+$evl_options['evl_front_elements_content_area']['enabled'] = $evl_front_elements_content_area;
 if ( isset($evl_options['evl_front_elements_content_area']['enabled']) )
     $evl_frontpage_elements = $evl_options['evl_front_elements_content_area']['enabled'];
-
 if ($evl_frontpage_elements):
         foreach ($evl_frontpage_elements as $elementkey => $elementval) {
 

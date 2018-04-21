@@ -198,13 +198,6 @@ $array_items = array(
 		'type' => 'color',
 		'title' => __('Content Box 2 Icon Color', 'evolve'),
 		'transport'		=> 'postMessage',
-		'js_vars'		=> array(
-			array(
-				'element'	=> '.content-box.content-box-2 i',
-				'function'	=> 'css',
-				'property'	=> 'color'
-			)
-		),
 		'default' => '#8ba3c1',
 		'required' => array(
 			array('evl_content_box2_enable', '=', '1')
