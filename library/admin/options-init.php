@@ -7434,16 +7434,16 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
     $frontpage_id = get_option('page_on_front');
     $postspage_id = get_option('page_for_posts');
     //get all theme options
-    $evl_options = get_option('evl_options');
+    $evolve_options = get_option('evl_options');
 
     //get old theme options
-    $evl_layout = isset($evl_options['evl_layout']) ? $evl_options['evl_layout'] : '2cl';
-    $evl_width_layout = isset($evl_options['evl_width_layout']) ? $evl_options['evl_width_layout'] : 'fixed';
-    $evl_bootstrap_slider = isset($evl_options['evl_bootstrap_slider']) ? $evl_options['evl_bootstrap_slider'] : '';
-    $evl_parallax_slider_support = isset($evl_options['evl_parallax_slider_support']) ? $evl_options['evl_parallax_slider_support'] : '';
-    $evl_parallax_slider = isset($evl_options['evl_parallax_slider']) ? $evl_options['evl_parallax_slider'] : '';
-    $evl_carousel_slider = isset($evl_options['evl_carousel_slider']) ? $evl_options['evl_carousel_slider'] : '';
-    $evl_posts_slider = isset($evl_options['evl_posts_slider']) ? $evl_options['evl_posts_slider'] : '';
+    $evolve_layout = isset($evolve_options['evl_layout']) ? $evolve_options['evl_layout'] : '2cl';
+    $evolve_width_layout = isset($evolve_options['evl_width_layout']) ? $evolve_options['evl_width_layout'] : 'fixed';
+    $evolve_bootstrap_slider = isset($evolve_options['evl_bootstrap_slider']) ? $evolve_options['evl_bootstrap_slider'] : '';
+    $evolve_parallax_slider_support = isset($evolve_options['evl_parallax_slider_support']) ? $evolve_options['evl_parallax_slider_support'] : '';
+    $evolve_parallax_slider = isset($evolve_options['evl_parallax_slider']) ? $evolve_options['evl_parallax_slider'] : '';
+    $evolve_carousel_slider = isset($evolve_options['evl_carousel_slider']) ? $evolve_options['evl_carousel_slider'] : '';
+    $evolve_posts_slider = isset($evolve_options['evl_posts_slider']) ? $evolve_options['evl_posts_slider'] : '';
 
     //Set Layout of home/front page
     if (isset($frontpage_id) && $frontpage_id) {
@@ -7452,62 +7452,62 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
 
         if (isset($evolve_sidebar_position) && $evolve_sidebar_position) {
             if (isset($evolve_full_width) && $evolve_full_width == 'yes' && $evolve_sidebar_position == 'default') {
-                $evl_options['evl_frontpage_layout'] = '1c';
+                $evolve_options['evl_frontpage_layout'] = '1c';
             } else {
-                $evl_options['evl_frontpage_layout'] = $evolve_sidebar_position;
+                $evolve_options['evl_frontpage_layout'] = $evolve_sidebar_position;
             }
         } else {
-            $evl_options['evl_frontpage_layout'] = $evl_layout;
+            $evolve_options['evl_frontpage_layout'] = $evolve_layout;
         }
     } else {
-        $evl_options['evl_frontpage_layout'] = $evl_layout;
+        $evolve_options['evl_frontpage_layout'] = $evolve_layout;
     }
 
     //Set Layout Style of home/front page
-    $evl_options['evl_frontpage_width_layout'] = $evl_width_layout;
+    $evolve_options['evl_frontpage_width_layout'] = $evolve_width_layout;
 
     //Reset content boxes section settings
-    $evl_options['evl_content_boxes_title'] = '';
-    $evl_options['evl_content_boxes_section_padding']['padding-top'] = '0px';
-    $evl_options['evl_content_boxes_section_padding']['padding-bottom'] = '0px';
-    $evl_options['evl_content_boxes_section_padding']['padding-left'] = '0px';
-    $evl_options['evl_content_boxes_section_padding']['padding-right'] = '0px';
+    $evolve_options['evl_content_boxes_title'] = '';
+    $evolve_options['evl_content_boxes_section_padding']['padding-top'] = '0px';
+    $evolve_options['evl_content_boxes_section_padding']['padding-bottom'] = '0px';
+    $evolve_options['evl_content_boxes_section_padding']['padding-left'] = '0px';
+    $evolve_options['evl_content_boxes_section_padding']['padding-right'] = '0px';
 
     //for bootstrap slider
-    switch ($evl_bootstrap_slider) {
+    switch ($evolve_bootstrap_slider) {
         case 'homepage':
-            $evl_options['evl_bootstrap_slider_support'] = '1';
+            $evolve_options['evl_bootstrap_slider_support'] = '1';
             break;
         case 'post':
-            $evl_options['evl_bootstrap_slider_support'] = '1';
+            $evolve_options['evl_bootstrap_slider_support'] = '1';
             break;
         case 'all':
-            $evl_options['evl_bootstrap_slider_support'] = '1';
-            $evl_options['evl_bootstrap_slider'] = '1';
+            $evolve_options['evl_bootstrap_slider_support'] = '1';
+            $evolve_options['evl_bootstrap_slider'] = '1';
             break;
     }
 
     //for parallax slider
-    if ($evl_parallax_slider_support == '1' && $evl_parallax_slider == 'all') {
-        $evl_options['evl_parallax_slider'] = '1';
+    if ($evolve_parallax_slider_support == '1' && $evolve_parallax_slider == 'all') {
+        $evolve_options['evl_parallax_slider'] = '1';
     }
 
     //for post slider
-    if ($evl_carousel_slider == '1' && $evl_posts_slider == 'all') {
-        $evl_options['evl_posts_slider'] = '1';
+    if ($evolve_carousel_slider == '1' && $evolve_posts_slider == 'all') {
+        $evolve_options['evl_posts_slider'] = '1';
     }
 
     //set slider on homepage/frontpage
-    ( $evl_parallax_slider_support == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)';
-    ( $evl_carousel_slider == '1' ) ? $postslider_status = ' (ACTIVE)' : $postslider_status = ' (INACTIVE)';
+    ( $evolve_parallax_slider_support == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)';
+    ( $evolve_carousel_slider == '1' ) ? $postslider_status = ' (ACTIVE)' : $postslider_status = ' (INACTIVE)';
 
     $evolve_current_post_slider_position = get_post_meta($postspage_id, 'evolve_slider_position', true);
     $evolve_current_post_slider_position = get_post_meta($frontpage_id, 'evolve_slider_position', true);
     $evolve_current_post_slider_position = empty($evolve_current_post_slider_position) ? 'default' : $evolve_current_post_slider_position;
 
     if ($is_homepage == 'posts' || ( $is_homepage == 'page' && $evolve_current_post_slider_position != 'above' )) {
-        if ($evl_bootstrap_slider == 'homepage' && $evl_parallax_slider != 'homepage' && $evl_posts_slider != 'homepage') {
-            $evl_options['evl_front_elements_header_area'] = array(
+        if ($evolve_bootstrap_slider == 'homepage' && $evolve_parallax_slider != 'homepage' && $evolve_posts_slider != 'homepage') {
+            $evolve_options['evl_front_elements_header_area'] = array(
                 'enabled' => array(
                     'placebo' => 'placebo',
                     'header' => __('Header (REORDER ONLY)', 'evolve'),
@@ -7520,8 +7520,8 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
                 )
             );
         }
-        if ($evl_bootstrap_slider != 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider != 'homepage') {
-            $evl_options['evl_front_elements_header_area'] = array(
+        if ($evolve_bootstrap_slider != 'homepage' && $evolve_parallax_slider == 'homepage' && $evolve_posts_slider != 'homepage') {
+            $evolve_options['evl_front_elements_header_area'] = array(
                 'enabled' => array(
                     'placebo' => 'placebo',
                     'header' => __('Header (REORDER ONLY)', 'evolve'),
@@ -7534,8 +7534,8 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
                 )
             );
         }
-        if ($evl_bootstrap_slider != 'homepage' && $evl_parallax_slider != 'homepage' && $evl_posts_slider == 'homepage') {
-            $evl_options['evl_front_elements_header_area'] = array(
+        if ($evolve_bootstrap_slider != 'homepage' && $evolve_parallax_slider != 'homepage' && $evolve_posts_slider == 'homepage') {
+            $evolve_options['evl_front_elements_header_area'] = array(
                 'enabled' => array(
                     'placebo' => 'placebo',
                     'header' => __('Header (REORDER ONLY)', 'evolve'),
@@ -7548,8 +7548,8 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
                 )
             );
         }
-        if ($evl_bootstrap_slider == 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider != 'homepage') {
-            $evl_options['evl_front_elements_header_area'] = array(
+        if ($evolve_bootstrap_slider == 'homepage' && $evolve_parallax_slider == 'homepage' && $evolve_posts_slider != 'homepage') {
+            $evolve_options['evl_front_elements_header_area'] = array(
                 'enabled' => array(
                     'placebo' => 'placebo',
                     'header' => __('Header (REORDER ONLY)', 'evolve'),
@@ -7562,8 +7562,8 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
                 )
             );
         }
-        if ($evl_bootstrap_slider == 'homepage' && $evl_parallax_slider != 'homepage' && $evl_posts_slider == 'homepage') {
-            $evl_options['evl_front_elements_header_area'] = array(
+        if ($evolve_bootstrap_slider == 'homepage' && $evolve_parallax_slider != 'homepage' && $evolve_posts_slider == 'homepage') {
+            $evolve_options['evl_front_elements_header_area'] = array(
                 'enabled' => array(
                     'placebo' => 'placebo',
                     'header' => __('Header (REORDER ONLY)', 'evolve'),
@@ -7576,8 +7576,8 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
                 )
             );
         }
-        if ($evl_bootstrap_slider != 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider == 'homepage') {
-            $evl_options['evl_front_elements_header_area'] = array(
+        if ($evolve_bootstrap_slider != 'homepage' && $evolve_parallax_slider == 'homepage' && $evolve_posts_slider == 'homepage') {
+            $evolve_options['evl_front_elements_header_area'] = array(
                 'enabled' => array(
                     'placebo' => 'placebo',
                     'header' => __('Header (REORDER ONLY)', 'evolve'),
@@ -7590,8 +7590,8 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
                 )
             );
         }
-        if ($evl_bootstrap_slider == 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider == 'homepage') {
-            $evl_options['evl_front_elements_header_area'] = array(
+        if ($evolve_bootstrap_slider == 'homepage' && $evolve_parallax_slider == 'homepage' && $evolve_posts_slider == 'homepage') {
+            $evolve_options['evl_front_elements_header_area'] = array(
                 'enabled' => array(
                     'placebo' => 'placebo',
                     'header' => __('Header (REORDER ONLY)', 'evolve'),
@@ -7607,8 +7607,8 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
     }
 
     if ($is_homepage == 'page' && $evolve_current_post_slider_position == 'above') {
-        if ($evl_bootstrap_slider == 'homepage' && $evl_parallax_slider != 'homepage' && $evl_posts_slider != 'homepage') {
-            $evl_options['evl_front_elements_header_area'] = array(
+        if ($evolve_bootstrap_slider == 'homepage' && $evolve_parallax_slider != 'homepage' && $evolve_posts_slider != 'homepage') {
+            $evolve_options['evl_front_elements_header_area'] = array(
                 'enabled' => array(
                     'placebo' => 'placebo',
                     'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
@@ -7621,8 +7621,8 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
                 )
             );
         }
-        if ($evl_bootstrap_slider != 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider != 'homepage') {
-            $evl_options['evl_front_elements_header_area'] = array(
+        if ($evolve_bootstrap_slider != 'homepage' && $evolve_parallax_slider == 'homepage' && $evolve_posts_slider != 'homepage') {
+            $evolve_options['evl_front_elements_header_area'] = array(
                 'enabled' => array(
                     'placebo' => 'placebo',
                     'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
@@ -7635,8 +7635,8 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
                 )
             );
         }
-        if ($evl_bootstrap_slider != 'homepage' && $evl_parallax_slider != 'homepage' && $evl_posts_slider == 'homepage') {
-            $evl_options['evl_front_elements_header_area'] = array(
+        if ($evolve_bootstrap_slider != 'homepage' && $evolve_parallax_slider != 'homepage' && $evolve_posts_slider == 'homepage') {
+            $evolve_options['evl_front_elements_header_area'] = array(
                 'enabled' => array(
                     'placebo' => 'placebo',
                     'posts_slider' => __('Posts Slider', 'evolve') . $postslider_status,
@@ -7649,8 +7649,8 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
                 )
             );
         }
-        if ($evl_bootstrap_slider == 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider != 'homepage') {
-            $evl_options['evl_front_elements_header_area'] = array(
+        if ($evolve_bootstrap_slider == 'homepage' && $evolve_parallax_slider == 'homepage' && $evolve_posts_slider != 'homepage') {
+            $evolve_options['evl_front_elements_header_area'] = array(
                 'enabled' => array(
                     'placebo' => 'placebo',
                     'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
@@ -7663,8 +7663,8 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
                 )
             );
         }
-        if ($evl_bootstrap_slider == 'homepage' && $evl_parallax_slider != 'homepage' && $evl_posts_slider == 'homepage') {
-            $evl_options['evl_front_elements_header_area'] = array(
+        if ($evolve_bootstrap_slider == 'homepage' && $evolve_parallax_slider != 'homepage' && $evolve_posts_slider == 'homepage') {
+            $evolve_options['evl_front_elements_header_area'] = array(
                 'enabled' => array(
                     'placebo' => 'placebo',
                     'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
@@ -7677,8 +7677,8 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
                 )
             );
         }
-        if ($evl_bootstrap_slider != 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider == 'homepage') {
-            $evl_options['evl_front_elements_header_area'] = array(
+        if ($evolve_bootstrap_slider != 'homepage' && $evolve_parallax_slider == 'homepage' && $evolve_posts_slider == 'homepage') {
+            $evolve_options['evl_front_elements_header_area'] = array(
                 'enabled' => array(
                     'placebo' => 'placebo',
                     'parallax_slider' => __('Parallax Slider', 'evolve') . $parallaxslider_status,
@@ -7691,8 +7691,8 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
                 )
             );
         }
-        if ($evl_bootstrap_slider == 'homepage' && $evl_parallax_slider == 'homepage' && $evl_posts_slider == 'homepage') {
-            $evl_options['evl_front_elements_header_area'] = array(
+        if ($evolve_bootstrap_slider == 'homepage' && $evolve_parallax_slider == 'homepage' && $evolve_posts_slider == 'homepage') {
+            $evolve_options['evl_front_elements_header_area'] = array(
                 'enabled' => array(
                     'placebo' => 'placebo',
                     'bootstrap_slider' => __('Bootstrap Slider (ACTIVE)', 'evolve'),
@@ -7707,7 +7707,7 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
         }
     }
 
-    update_option('evl_options', $evl_options);
+    update_option('evl_options', $evolve_options);
 
     update_option('old_new_upgrade_themeoptions', 'true');
 }
