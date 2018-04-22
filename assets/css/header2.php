@@ -1,6 +1,6 @@
 <?php
-global $evl_options;
-$options = $evl_options;
+global $evolve_options;
+$options = $evolve_options;
 
 $evolve_css_data = '
 .woocommerce-menu,

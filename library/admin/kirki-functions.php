@@ -4,12 +4,12 @@ require_once('kirki-framework/kirki.php' );
 require_once('kirki-function-render-customize.php');
 
 add_filter('pre_option_evl_options', 'binmaocom_fix_pre_option_evl_options_function');
-function binmaocom_fix_pre_option_evl_options_function($evl_options){
-	if($evl_options && is_array($evl_options) && count($evl_options)){
-		foreach($evl_options as $key => $value){
-			$evl_options[$key] = get_theme_mod($key, $value);
+function binmaocom_fix_pre_option_evl_options_function($evolve_options){
+	if($evolve_options && is_array($evolve_options) && count($evolve_options)){
+		foreach($evolve_options as $key => $value){
+			$evolve_options[$key] = get_theme_mod($key, $value);
 		}
-		return $evl_options;
+		return $evolve_options;
 	}
 }
 add_action( 'customize_controls_print_styles' , array( 'Binmaocom_Add_some_thing_Customize' , 'addInlineCss' ) );

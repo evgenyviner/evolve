@@ -5,24 +5,24 @@
  *
  */
 
-global $evl_options;
+global $evolve_options;
 $evolve_content_boxes_pos = evolve_get_option('evl_content_boxes_pos', 'above');
-$evl_frontpage_elements = array();
-$evl_front_elements_content_area = (get_theme_mod('evl_front_elements_content_area'));
-if($evl_front_elements_content_area){
-	if(count($evl_front_elements_content_area)){
-		$evl_front_elements_content_area_result = array();
-		foreach($evl_front_elements_content_area as $items){
-			$evl_front_elements_content_area_result[$items] = $items;
+$evolve_frontpage_elements = array();
+$evolve_front_elements_content_area = (get_theme_mod('evl_front_elements_content_area'));
+if($evolve_front_elements_content_area){
+	if(count($evolve_front_elements_content_area)){
+		$evolve_front_elements_content_area_result = array();
+		foreach($evolve_front_elements_content_area as $items){
+			$evolve_front_elements_content_area_result[$items] = $items;
 		}
-		$evl_front_elements_content_area = $evl_front_elements_content_area_result;
+		$evolve_front_elements_content_area = $evolve_front_elements_content_area_result;
 	}
 }
-$evl_options['evl_front_elements_content_area']['enabled'] = $evl_front_elements_content_area;
-if ( isset($evl_options['evl_front_elements_content_area']['enabled']) )
-    $evl_frontpage_elements = $evl_options['evl_front_elements_content_area']['enabled'];
-if ($evl_frontpage_elements):
-        foreach ($evl_frontpage_elements as $elementkey => $elementval) {
+$evolve_options['evl_front_elements_content_area']['enabled'] = $evolve_front_elements_content_area;
+if ( isset($evolve_options['evl_front_elements_content_area']['enabled']) )
+    $evolve_frontpage_elements = $evolve_options['evl_front_elements_content_area']['enabled'];
+if ($evolve_frontpage_elements):
+        foreach ($evolve_frontpage_elements as $elementkey => $elementval) {
 
                 switch ($elementkey) {
 

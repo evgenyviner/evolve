@@ -4,7 +4,7 @@ function evolve_content_boxes() {
     $evolve_content_boxes = evolve_get_option('evl_content_boxes', '1');
 	
     if ($evolve_content_boxes == "1") {
-        global $evl_options;
+        global $evolve_options;
         
         $evolve_content_box1_enable = evolve_get_option('evl_content_box1_enable', '1');
         if ($evolve_content_box1_enable === false) {
@@ -22,10 +22,10 @@ function evolve_content_boxes() {
         if ($evolve_content_box4_enable === false) {
             $evolve_content_box4_enable = '';
         }
-        $evolve_content_boxes_section_padding_top         = $evl_options['evl_content_boxes_section_padding']['padding-top'];
-        $evolve_content_boxes_section_padding_bottom      = $evl_options['evl_content_boxes_section_padding']['padding-bottom'];
-        $evolve_content_boxes_section_padding_left        = $evl_options['evl_content_boxes_section_padding']['padding-left'];
-        $evolve_content_boxes_section_padding_right       = $evl_options['evl_content_boxes_section_padding']['padding-right'];
+        $evolve_content_boxes_section_padding_top         = $evolve_options['evl_content_boxes_section_padding']['padding-top'];
+        $evolve_content_boxes_section_padding_bottom      = $evolve_options['evl_content_boxes_section_padding']['padding-bottom'];
+        $evolve_content_boxes_section_padding_left        = $evolve_options['evl_content_boxes_section_padding']['padding-left'];
+        $evolve_content_boxes_section_padding_right       = $evolve_options['evl_content_boxes_section_padding']['padding-right'];
         $evolve_content_boxes_section_back_color          = evolve_get_option( 'evl_content_boxes_section_back_color', '' );
         $evolve_content_boxes_section_image_src           = evolve_get_option('evl_content_boxes_section_background_image');
         $evolve_content_boxes_section_image               = evolve_get_option('evl_content_boxes_section_image', 'cover');
@@ -208,20 +208,20 @@ function evolve_content_boxes() {
 }
 /* Front Page Testimonials */
 function evolve_testimonials() {
-    global $evl_options;
+    global $evolve_options;
     $testimonials_counter = 1;
-    $backgroundcolor = $evl_options["evl_fp_testimonials_bg_color"];
-    $textcolor = $evl_options["evl_fp_testimonials_text_color"];
+    $backgroundcolor = $evolve_options["evl_fp_testimonials_bg_color"];
+    $textcolor = $evolve_options["evl_fp_testimonials_text_color"];
     $evolve_testimonials_section_back_color             = evolve_get_option( 'evl_testimonials_section_back_color', '' );
 	// var_dump($evolve_testimonials_section_back_color);exit;
     $evolve_testimonials_section_image_src              = evolve_get_option('evl_testimonials_section_background_image');
     $evolve_testimonials_section_image                  = evolve_get_option('evl_testimonials_section_image', 'cover');
     $evolve_testimonials_section_background_position    = evolve_get_option('evl_testimonials_section_image_background_position', 'center top');
     $evolve_testimonials_section_background_repeat      = evolve_get_option('evl_testimonials_section_image_background_repeat', 'no-repeat');
-    $evolve_testimonials_section_padding_top            = $evl_options['evl_testimonials_section_padding']['padding-top'];
-    $evolve_testimonials_section_padding_bottom         = $evl_options['evl_testimonials_section_padding']['padding-bottom'];
-    $evolve_testimonials_section_padding_left           = $evl_options['evl_testimonials_section_padding']['padding-left'];
-    $evolve_testimonials_section_padding_right          = $evl_options['evl_testimonials_section_padding']['padding-right'];
+    $evolve_testimonials_section_padding_top            = $evolve_options['evl_testimonials_section_padding']['padding-top'];
+    $evolve_testimonials_section_padding_bottom         = $evolve_options['evl_testimonials_section_padding']['padding-bottom'];
+    $evolve_testimonials_section_padding_left           = $evolve_options['evl_testimonials_section_padding']['padding-left'];
+    $evolve_testimonials_section_padding_right          = $evolve_options['evl_testimonials_section_padding']['padding-right'];
     //html_attr
     $html_class = 't4p-fullwidth fullwidth-box hentry';
     $html_style = '';
@@ -269,15 +269,15 @@ function evolve_testimonials() {
     }
     $html .= "<div class='t4p-testimonials t4p-testimonials-$testimonials_counter'>$styles".$evolve_testimonials_section_title."<div class='reviews'>";
     for ($i = 1; $i <= 2; $i ++) {
-        $enabled = $evl_options["evl_fp_testimonial{$i}"];
+        $enabled = $evolve_options["evl_fp_testimonial{$i}"];
         if ($enabled == 1) {
-            $name  = $evl_options["evl_fp_testimonial{$i}_name"];
+            $name  = $evolve_options["evl_fp_testimonial{$i}_name"];
             $avatar = 'image';
-            $image = $evl_options["evl_fp_testimonial{$i}_avatar"]['url'];
+            $image = $evolve_options["evl_fp_testimonial{$i}_avatar"]['url'];
             $company = '';
             $link = '';
             $target = '';
-            $content = $evl_options["evl_fp_testimonial{$i}_content"];
+            $content = $evolve_options["evl_fp_testimonial{$i}_content"];
             
             $sub_htmls = array();
             
@@ -347,11 +347,11 @@ function evolve_get_attachment_id_from_url( $attachment_url = '' ) {
 }
 /* Front Page Counter Circle */
 function evolve_counter_circle() {
-    global $evl_options;
-    $evolve_counter_circle_section_padding_top          = $evl_options['evl_counter_circle_section_padding']['padding-top'];
-    $evolve_counter_circle_section_padding_bottom       = $evl_options['evl_counter_circle_section_padding']['padding-bottom'];
-    $evolve_counter_circle_section_padding_left         = $evl_options['evl_counter_circle_section_padding']['padding-left'];
-    $evolve_counter_circle_section_padding_right        = $evl_options['evl_counter_circle_section_padding']['padding-right'];
+    global $evolve_options;
+    $evolve_counter_circle_section_padding_top          = $evolve_options['evl_counter_circle_section_padding']['padding-top'];
+    $evolve_counter_circle_section_padding_bottom       = $evolve_options['evl_counter_circle_section_padding']['padding-bottom'];
+    $evolve_counter_circle_section_padding_left         = $evolve_options['evl_counter_circle_section_padding']['padding-left'];
+    $evolve_counter_circle_section_padding_right        = $evolve_options['evl_counter_circle_section_padding']['padding-right'];
     $evolve_counter_circle_section_back_color           = evolve_get_option( 'evl_counter_circle_section_back_color', '' );
     $evolve_counter_circle_section_image_src            = evolve_get_option('evl_counter_circle_section_background_image');
     $evolve_counter_circle_section_image                = evolve_get_option('evl_counter_circle_section_image', 'cover');
@@ -400,16 +400,16 @@ function evolve_counter_circle() {
     }
     $html   .=   "<div class='t4p-counters-circle counters-circle'>".$evolve_counter_circle_section_title;
     for ($i = 1; $i <= 3; $i ++) {
-        $enabled = $evl_options["evl_fp_counter_circle{$i}"];
+        $enabled = $evolve_options["evl_fp_counter_circle{$i}"];
         if ($enabled == 1) {
                         $description = '';
-                        $title = $evl_options["evl_fp_counter_circle{$i}_text"];
-                        $value = $evl_options["evl_fp_counter_circle{$i}_percentage"];
-                        $filledcolor = $evl_options["evl_fp_counter_circle{$i}_filledcolor"];
-                        $unfilledcolor = $evl_options["evl_fp_counter_circle{$i}_unfilledcolor"];
+                        $title = $evolve_options["evl_fp_counter_circle{$i}_text"];
+                        $value = $evolve_options["evl_fp_counter_circle{$i}_percentage"];
+                        $filledcolor = $evolve_options["evl_fp_counter_circle{$i}_filledcolor"];
+                        $unfilledcolor = $evolve_options["evl_fp_counter_circle{$i}_unfilledcolor"];
                         $size = '220';
                         $font_size = '30';
-                        $icon = "<i class='fa {$evl_options["evl_fp_counter_circle{$i}_icon"]}'></i>";
+                        $icon = "<i class='fa {$evolve_options["evl_fp_counter_circle{$i}_icon"]}'></i>";
                         $scales = 'no';
                         $countdown = 'no';
                         $speed = '1500';
@@ -437,22 +437,22 @@ function evolve_counter_circle() {
 }
 /* Front Page Google Map */
 function evolve_google_map() {
-    global $evl_options;
-    $address  = $evl_options["evl_fp_googlemap_address"];
+    global $evolve_options;
+    $address  = $evolve_options["evl_fp_googlemap_address"];
     $gmap_alignment = 'center';
     $map_style  = 'default';
-    $type = $evl_options["evl_fp_googlemap_type"];
-    $width = $evl_options["evl_fp_googlemap_width"];
-    $height = $evl_options["evl_fp_googlemap_height"];
-    $zoom = $evl_options["evl_fp_googlemap_zoom_level"];
-    $scrollwheel = $evl_options["evl_fp_googlemap_scrollwheel"];
-    $scale = $evl_options["evl_fp_googlemap_scale"];
-    $zoom_pancontrol = $evl_options["evl_fp_googlemap_zoomcontrol"];
+    $type = $evolve_options["evl_fp_googlemap_type"];
+    $width = $evolve_options["evl_fp_googlemap_width"];
+    $height = $evolve_options["evl_fp_googlemap_height"];
+    $zoom = $evolve_options["evl_fp_googlemap_zoom_level"];
+    $scrollwheel = $evolve_options["evl_fp_googlemap_scrollwheel"];
+    $scale = $evolve_options["evl_fp_googlemap_scale"];
+    $zoom_pancontrol = $evolve_options["evl_fp_googlemap_zoomcontrol"];
     $popup = 'yes';
-    $evolve_googlemap_section_padding_top          = $evl_options['evl_googlemap_section_padding']['padding-top'];
-    $evolve_googlemap_section_padding_bottom       = $evl_options['evl_googlemap_section_padding']['padding-bottom'];
-    $evolve_googlemap_section_padding_left         = $evl_options['evl_googlemap_section_padding']['padding-left'];
-    $evolve_googlemap_section_padding_right        = $evl_options['evl_googlemap_section_padding']['padding-right'];
+    $evolve_googlemap_section_padding_top          = $evolve_options['evl_googlemap_section_padding']['padding-top'];
+    $evolve_googlemap_section_padding_bottom       = $evolve_options['evl_googlemap_section_padding']['padding-bottom'];
+    $evolve_googlemap_section_padding_left         = $evolve_options['evl_googlemap_section_padding']['padding-left'];
+    $evolve_googlemap_section_padding_right        = $evolve_options['evl_googlemap_section_padding']['padding-right'];
     $evolve_googlemap_section_back_color           = evolve_get_option( 'evl_googlemap_section_back_color', '' );
     $evolve_googlemap_section_image_src            = evolve_get_option('evl_googlemap_section_background_image');
     $evolve_googlemap_section_image                = evolve_get_option('evl_googlemap_section_image', 'cover');
@@ -624,12 +624,12 @@ function get_coordinates( $address, $force_refresh = false ) {
 }
 /* Front Page Custom Content */
 function evolve_custom_content() {
-    global $evl_options;
-    $content = $evl_options["evl_fp_custom_content_editor"];
-    $evolve_custom_content_section_padding_top          = $evl_options['evl_custom_content_section_padding']['padding-top'];
-    $evolve_custom_content_section_padding_bottom       = $evl_options['evl_custom_content_section_padding']['padding-bottom'];
-    $evolve_custom_content_section_padding_left         = $evl_options['evl_custom_content_section_padding']['padding-left'];
-    $evolve_custom_content_section_padding_right        = $evl_options['evl_custom_content_section_padding']['padding-right'];
+    global $evolve_options;
+    $content = $evolve_options["evl_fp_custom_content_editor"];
+    $evolve_custom_content_section_padding_top          = $evolve_options['evl_custom_content_section_padding']['padding-top'];
+    $evolve_custom_content_section_padding_bottom       = $evolve_options['evl_custom_content_section_padding']['padding-bottom'];
+    $evolve_custom_content_section_padding_left         = $evolve_options['evl_custom_content_section_padding']['padding-left'];
+    $evolve_custom_content_section_padding_right        = $evolve_options['evl_custom_content_section_padding']['padding-right'];
     $evolve_custom_content_section_back_color           = evolve_get_option( 'evl_custom_content_section_back_color', '' );
     $evolve_custom_content_section_image_src            = evolve_get_option('evl_custom_content_section_background_image');
     $evolve_custom_content_section_image                = evolve_get_option('evl_custom_content_section_image', 'cover');
@@ -683,13 +683,13 @@ function evolve_custom_content() {
 }
 /* Front Page WooCommerce Product */
 function evolve_woocommerce_products() {
-    global $evl_options;
-    $product_cat = $evl_options["evl_fp_woo_product"];
-    $product_number = $evl_options["evl_fp_woo_product_number"];
-    $evolve_woo_product_section_padding_top          = $evl_options['evl_woo_product_section_padding']['padding-top'];
-    $evolve_woo_product_section_padding_bottom       = $evl_options['evl_woo_product_section_padding']['padding-bottom'];
-    $evolve_woo_product_section_padding_left         = $evl_options['evl_woo_product_section_padding']['padding-left'];
-    $evolve_woo_product_section_padding_right        = $evl_options['evl_woo_product_section_padding']['padding-right'];
+    global $evolve_options;
+    $product_cat = $evolve_options["evl_fp_woo_product"];
+    $product_number = $evolve_options["evl_fp_woo_product_number"];
+    $evolve_woo_product_section_padding_top          = $evolve_options['evl_woo_product_section_padding']['padding-top'];
+    $evolve_woo_product_section_padding_bottom       = $evolve_options['evl_woo_product_section_padding']['padding-bottom'];
+    $evolve_woo_product_section_padding_left         = $evolve_options['evl_woo_product_section_padding']['padding-left'];
+    $evolve_woo_product_section_padding_right        = $evolve_options['evl_woo_product_section_padding']['padding-right'];
     $evolve_woo_product_section_back_color           = evolve_get_option( 'evl_woo_product_section_back_color', '' );
     $evolve_woo_product_section_image_src            = evolve_get_option('evl_woo_product_section_background_image');
     $evolve_woo_product_section_image                = evolve_get_option('evl_woo_product_section_image', 'cover');
@@ -747,32 +747,32 @@ function evolve_woocommerce_products() {
 }
 /* Front Page Blog Content */
 function evolve_blog_posts() {
-    global $evl_options;
-    $layout = $evl_options["evl_fp_blog_layout"];
-    $number_posts = ( ! $evl_options["evl_fp_blog_number_posts"] ) ? '-1' : $evl_options["evl_fp_blog_number_posts"];
-    $cat_slug = ( !isset($evl_options["evl_fp_blog_cat_slug"]) ) ? '' : $evl_options["evl_fp_blog_cat_slug"];
-    $exclude_cats = ( !isset($evl_options["evl_fp_blog_exclude_cats"]) ) ? '' : $evl_options["evl_fp_blog_exclude_cats"];
-    $show_title = $evl_options["evl_fp_blog_show_title"];
-    $title_link = $evl_options["evl_fp_blog_title_link"];
-    $thumbnail = $evl_options["evl_fp_blog_thumbnail"];
-    $excerpt = $evl_options["evl_fp_blog_excerpt"];
-    $excerpt_length = $evl_options["evl_fp_blog_excerpt_length"];
-    $meta_all = $evl_options["evl_fp_blog_meta_all"];
-    $meta_author = $evl_options["evl_fp_blog_meta_author"];
-    $meta_categories = $evl_options["evl_fp_blog_meta_categories"];
-    $meta_comments = $evl_options["evl_fp_blog_meta_comments"];
-    $meta_date = $evl_options["evl_fp_blog_meta_date"];
-    $meta_link = $evl_options["evl_fp_blog_meta_link"];
-    $meta_tags = $evl_options["evl_fp_blog_meta_tags"];
-    $paging = $evl_options["evl_fp_blog_paging"];
-    $scrolling = $evl_options["evl_fp_blog_scrolling"];
-    $blog_grid_columns = $evl_options["evl_fp_blog_blog_grid_columns"];
-    $strip_html = $evl_options["evl_fp_blog_strip_html"];
+    global $evolve_options;
+    $layout = $evolve_options["evl_fp_blog_layout"];
+    $number_posts = ( ! $evolve_options["evl_fp_blog_number_posts"] ) ? '-1' : $evolve_options["evl_fp_blog_number_posts"];
+    $cat_slug = ( !isset($evolve_options["evl_fp_blog_cat_slug"]) ) ? '' : $evolve_options["evl_fp_blog_cat_slug"];
+    $exclude_cats = ( !isset($evolve_options["evl_fp_blog_exclude_cats"]) ) ? '' : $evolve_options["evl_fp_blog_exclude_cats"];
+    $show_title = $evolve_options["evl_fp_blog_show_title"];
+    $title_link = $evolve_options["evl_fp_blog_title_link"];
+    $thumbnail = $evolve_options["evl_fp_blog_thumbnail"];
+    $excerpt = $evolve_options["evl_fp_blog_excerpt"];
+    $excerpt_length = $evolve_options["evl_fp_blog_excerpt_length"];
+    $meta_all = $evolve_options["evl_fp_blog_meta_all"];
+    $meta_author = $evolve_options["evl_fp_blog_meta_author"];
+    $meta_categories = $evolve_options["evl_fp_blog_meta_categories"];
+    $meta_comments = $evolve_options["evl_fp_blog_meta_comments"];
+    $meta_date = $evolve_options["evl_fp_blog_meta_date"];
+    $meta_link = $evolve_options["evl_fp_blog_meta_link"];
+    $meta_tags = $evolve_options["evl_fp_blog_meta_tags"];
+    $paging = $evolve_options["evl_fp_blog_paging"];
+    $scrolling = $evolve_options["evl_fp_blog_scrolling"];
+    $blog_grid_columns = $evolve_options["evl_fp_blog_blog_grid_columns"];
+    $strip_html = $evolve_options["evl_fp_blog_strip_html"];
     
-    $evolve_blog_section_padding_top          = $evl_options['evl_blog_section_padding']['padding-top'];
-    $evolve_blog_section_padding_bottom       = $evl_options['evl_blog_section_padding']['padding-bottom'];
-    $evolve_blog_section_padding_left         = $evl_options['evl_blog_section_padding']['padding-left'];
-    $evolve_blog_section_padding_right        = $evl_options['evl_blog_section_padding']['padding-right'];
+    $evolve_blog_section_padding_top          = $evolve_options['evl_blog_section_padding']['padding-top'];
+    $evolve_blog_section_padding_bottom       = $evolve_options['evl_blog_section_padding']['padding-bottom'];
+    $evolve_blog_section_padding_left         = $evolve_options['evl_blog_section_padding']['padding-left'];
+    $evolve_blog_section_padding_right        = $evolve_options['evl_blog_section_padding']['padding-right'];
     $evolve_blog_section_back_color           = evolve_get_option( 'evl_blog_section_back_color', '' );
     $evolve_blog_section_image_src            = evolve_get_option('evl_blog_section_background_image');
     $evolve_blog_section_image                = evolve_get_option('evl_blog_section_image', 'cover');
@@ -962,15 +962,15 @@ function wrap_loop_open() {
     echo $wrapper;
 }
 function wrap_loop_close() {
-    global $evl_options;
+    global $evolve_options;
     $wrapper = '';
-    if ( $evl_options['evl_fp_blog_layout'] == 'grid' ) {
+    if ( $evolve_options['evl_fp_blog_layout'] == 'grid' ) {
         $wrapper .= '<div class="t4p-clearfix"></div>';
     }
     echo $wrapper;
 }
 function before_loop($post_id) {
-    global $evl_options;
+    global $evolve_options;
     $post_count = 1;
     //loop_attr
     $defaults = array(
@@ -984,11 +984,11 @@ function before_loop($post_id) {
     $post_count = $args['post_count'];
     $loop_attr_id = 'post-' . $post_id;
     $extra_classes = array();
-    if ($evl_options['evl_fp_blog_layout'] == 'large') {
+    if ($evolve_options['evl_fp_blog_layout'] == 'large') {
         $extra_classes[] = 'blog-large';
     }
-    if ($evl_options['evl_fp_blog_layout'] == 'grid') {
-        $column_width = 12 / $evl_options['evl_fp_blog_blog_grid_columns'];
+    if ($evolve_options['evl_fp_blog_layout'] == 'grid') {
+        $column_width = 12 / $evolve_options['evl_fp_blog_blog_grid_columns'];
         $extra_classes[] = 'blog-grid';
         $extra_classes[] = sprintf('col-lg-%s col-md-%s col-sm-%s', $column_width, $column_width, $column_width);
     }
@@ -1020,7 +1020,7 @@ function before_loop($post_id) {
     echo "<div id='$loop_attr_id' class='$loop_attr_class $formatted_class' itemtype='$loop_attr_itemtype' itemprop='$loop_attr_itemprop'> \n";
 }
 function before_loop_timeline($args) {
-    global $evl_options;
+    global $evolve_options;
     $post_count = 1;
     //loop_attr
     $defaults = array(
@@ -1034,11 +1034,11 @@ function before_loop_timeline($args) {
     $post_count = $args['post_count'];
     $loop_attr_id = 'post-' . $post_id;
     $extra_classes = array();
-    if ($evl_options['evl_fp_blog_layout'] == 'large') {
+    if ($evolve_options['evl_fp_blog_layout'] == 'large') {
         $extra_classes[] = 'blog-large';
     }
-    if ($evl_options['evl_fp_blog_layout'] == 'grid') {
-        $column_width = 12 / $evl_options['evl_fp_blog_blog_grid_columns'];
+    if ($evolve_options['evl_fp_blog_layout'] == 'grid') {
+        $column_width = 12 / $evolve_options['evl_fp_blog_blog_grid_columns'];
         $extra_classes[] = 'blog-grid';
         $extra_classes[] = sprintf('col-lg-%s col-md-%s col-sm-%s', $column_width, $column_width, $column_width);
     }
@@ -1100,7 +1100,7 @@ function get_post_thumbnails($post_id, $count = '') {
     return $attachment_ids;
 }
 function loop_header($header) {
-    global $evl_options;
+    global $evolve_options;
     $defaults = array(
         'title_link' => false,
     );
@@ -1109,25 +1109,25 @@ function loop_header($header) {
     $meta_data = '';
     $content_sep = '';
     $link = '';
-    if ($evl_options['evl_fp_blog_thumbnail'] == 'yes') {
+    if ($evolve_options['evl_fp_blog_thumbnail'] == 'yes') {
         $pre_title_content = get_slideshow();
     }
     
-    if ($evl_options['evl_fp_blog_layout'] == 'large') {
+    if ($evolve_options['evl_fp_blog_layout'] == 'large') {
         ob_start();
         entry_meta_alternate();
         $meta_data = ob_get_contents();
         ob_get_clean();
     }
-    if ($evl_options['evl_fp_blog_layout'] == 'grid') {
-        if ((!$evl_options['evl_fp_blog_meta_all'] == 'yes' && $evl_options['evl_fp_blog_excerpt_length'] == '0' ) ||
-                (!$evl_options['evl_fp_blog_meta_author'] == 'yes' && !$evl_options['evl_fp_blog_meta_date'] == 'yes' && !$evl_options['evl_fp_blog_meta_categories'] == 'yes' && !$evl_options['evl_fp_blog_meta_tags'] == 'yes' && !$evl_options['evl_fp_blog_meta_comments'] == 'yes' && !$evl_options['evl_fp_blog_meta_link'] == 'yes' && $evl_options['evl_fp_blog_excerpt_length'] == '0' )
+    if ($evolve_options['evl_fp_blog_layout'] == 'grid') {
+        if ((!$evolve_options['evl_fp_blog_meta_all'] == 'yes' && $evolve_options['evl_fp_blog_excerpt_length'] == '0' ) ||
+                (!$evolve_options['evl_fp_blog_meta_author'] == 'yes' && !$evolve_options['evl_fp_blog_meta_date'] == 'yes' && !$evolve_options['evl_fp_blog_meta_categories'] == 'yes' && !$evolve_options['evl_fp_blog_meta_tags'] == 'yes' && !$evolve_options['evl_fp_blog_meta_comments'] == 'yes' && !$evolve_options['evl_fp_blog_meta_link'] == 'yes' && $evolve_options['evl_fp_blog_excerpt_length'] == '0' )
         ) {
             $content_sep = "<div class='no-content-sep'></div>";
         } else {
             $content_sep = "<div class='content-sep'></div>";
         }
-        if ($evl_options['evl_fp_blog_meta_all'] == 'yes') {
+        if ($evolve_options['evl_fp_blog_meta_all'] == 'yes') {
             ob_start();
             entry_meta_grid_timeline();
             $meta_data = ob_get_contents();
@@ -1135,8 +1135,8 @@ function loop_header($header) {
         }
     }
     $pre_title_content .= "<div class='post-content-container'>";
-    if ($evl_options['evl_fp_blog_show_title'] == 'yes') {
-        if ($evl_options['evl_fp_blog_title_link'] == 'yes') {
+    if ($evolve_options['evl_fp_blog_show_title'] == 'yes') {
+        if ($evolve_options['evl_fp_blog_title_link'] == 'yes') {
             $link = sprintf('<a href="%s">%s</a>', get_permalink(), get_the_title());
         } else {
             $link = get_the_title();
@@ -1150,12 +1150,12 @@ function loop_header($header) {
     echo $html;
 }
 function loop_footer() {
-    global $evl_options;
+    global $evolve_options;
     
-    if ($evl_options['evl_fp_blog_meta_all'] == 'yes' && $evl_options['evl_fp_blog_layout'] == 'large') {
+    if ($evolve_options['evl_fp_blog_meta_all'] == 'yes' && $evolve_options['evl_fp_blog_layout'] == 'large') {
        entry_meta_default();
     }
-    if ($evl_options['evl_fp_blog_meta_all'] == 'yes' && $evl_options['evl_fp_blog_layout'] == 'grid') {
+    if ($evolve_options['evl_fp_blog_meta_all'] == 'yes' && $evolve_options['evl_fp_blog_layout'] == 'grid') {
         echo read_more();
         echo grid_timeline_comments();
         echo '<div class="t4p-clearfix"></div>';
@@ -1212,11 +1212,11 @@ function timeline_date($date_params) {
     echo $inner_content;
 }
 function entry_meta_default() {
-    global $evl_options;
+    global $evolve_options;
     $inner_content = '';
     $inner_content .= read_more();
-    if ($evl_options['evl_fp_blog_layout'] == 'large') {
-        if ($evl_options['evl_fp_blog_meta_categories'] == 'yes') {
+    if ($evolve_options['evl_fp_blog_layout'] == 'large') {
+        if ($evolve_options['evl_fp_blog_meta_categories'] == 'yes') {
             $categories = get_the_category();
             $no_of_categories = count($categories);
             $separator = ', ';
@@ -1231,12 +1231,12 @@ function entry_meta_default() {
             }
             $inner_content .= sprintf('<span class="entry-categories">%s</span><span class="meta-separator">|</span>', $output);
         }
-        if ($evl_options['evl_fp_blog_meta_tags'] == 'yes') {
+        if ($evolve_options['evl_fp_blog_meta_tags'] == 'yes') {
             $inner_content .= sprintf('%s<span class="meta-separator">|</span>', post_meta_tags());
         }
     }
     //blog-shortcode-entry-meta    
-    if ($evl_options['evl_fp_blog_layout'] == 'grid' ) {
+    if ($evolve_options['evl_fp_blog_layout'] == 'grid' ) {
         $blog_shortcode_entry_meta = 'entry-meta-single';
     } else {
         $blog_shortcode_entry_meta = 'entry-meta';
@@ -1245,10 +1245,10 @@ function entry_meta_default() {
     echo $entry_meta;
 }
 function entry_meta_alternate() {
-    global $evl_options;
+    global $evolve_options;
     $inner_content = post_meta_data(true);
     //blog-shortcode-entry-meta
-    if ($evl_options['evl_fp_blog_layout'] == 'grid') {
+    if ($evolve_options['evl_fp_blog_layout'] == 'grid') {
         $blog_shortcode_entry_meta = 'entry-meta-single';
     } else {
         $blog_shortcode_entry_meta = 'entry-meta';
@@ -1257,10 +1257,10 @@ function entry_meta_alternate() {
     echo $entry_meta;
 }
 function entry_meta_grid_timeline() {
-    global $evl_options;
+    global $evolve_options;
     $inner_content = post_meta_data(false);
     //blog-shortcode-entry-meta    
-    if ($evl_options['evl_fp_blog_layout'] == 'grid') {
+    if ($evolve_options['evl_fp_blog_layout'] == 'grid') {
         $blog_shortcode_entry_meta = 'entry-meta-single';
     } else {
         $blog_shortcode_entry_meta = 'entry-meta';
@@ -1269,7 +1269,7 @@ function entry_meta_grid_timeline() {
     echo $entry_meta;
 }
 function post_meta_data($return_all_meta = false) {
-    global $evl_options, $smof_data;
+    global $evolve_options, $smof_data;
     $inner_content = "<p class='entry-meta-details'>";
         $meta_time = get_the_modified_time('c');
         //meta_date_attr
@@ -1298,14 +1298,14 @@ function post_meta_data($return_all_meta = false) {
             $meta_author_link_rel = 'author';
         }
         $meta_author = get_the_author_meta('display_name');
-        if ($evl_options['evl_fp_blog_meta_date'] == 'yes') {
+        if ($evolve_options['evl_fp_blog_meta_date'] == 'yes') {
             $inner_content .= "<span class='entry-time'><span class='updated' style='display:none;'>$meta_time</span><time class='$meta_date_class'>$meta_date</time></span><span class='meta-separator'>|</span>";
         }
-        if ($evl_options['evl_fp_blog_meta_author'] == 'yes') {
+        if ($evolve_options['evl_fp_blog_meta_author'] == 'yes') {
             $inner_content .= "<span class='$meta_author_class' itemprop='$meta_author_itemprop' itemscope='$meta_author_itemscope' itemtype='$meta_author_itemtype'>" . __('Written By', 'evolve') . " <a href='$meta_author_link_href' itemprop='$meta_author_link_itemprop' rel='$meta_author_link_rel'>$meta_author</a>" . "</span><span class='meta-separator'>|</span>";
         }
-        if ($evl_options['evl_fp_blog_layout'] != 'grid' && $evl_options['evl_fp_blog_layout'] != 'timeline') {
-            if ($evl_options['evl_fp_blog_meta_comments'] == 'yes') {
+        if ($evolve_options['evl_fp_blog_layout'] != 'grid' && $evolve_options['evl_fp_blog_layout'] != 'timeline') {
+            if ($evolve_options['evl_fp_blog_meta_comments'] == 'yes') {
                     ob_start();
                     comments_popup_link(__('0 Comments', 'evolve'), __('1 Comment', 'evolve'), __('% Comments', 'evolve'));
                     $comments = ob_get_contents();
@@ -1317,8 +1317,8 @@ function post_meta_data($return_all_meta = false) {
     return $inner_content;
 }
 function grid_timeline_comments() {
-    global $evl_options;
-    if ($evl_options['evl_fp_blog_meta_comments'] == 'yes') {
+    global $evolve_options;
+    if ($evolve_options['evl_fp_blog_meta_comments'] == 'yes') {
         $comments_icon = "<i class='t4p-icon-comment'></i>&nbsp";
         ob_start();
         comments_popup_link($comments_icon . __('0', 'evolve'), $comments_icon . __('1', 'evolve'), $comments_icon . __('%', 'evolve'));
@@ -1329,10 +1329,10 @@ function grid_timeline_comments() {
     }
 }
 function post_meta_tags() {
-    global $evl_options;
+    global $evolve_options;
     if( has_tag() ) {
             $inner_content = '';			
-            if ($evl_options['evl_fp_blog_meta_tags'] == 'yes') {
+            if ($evolve_options['evl_fp_blog_meta_tags'] == 'yes') {
                     ob_start();
                     echo ' ';
                     the_tags('');
@@ -1344,8 +1344,8 @@ function post_meta_tags() {
     }
 }
 function read_more() {
-    global $evl_options;
-    if ($evl_options['evl_fp_blog_meta_link'] == 'yes') {
+    global $evolve_options;
+    if ($evolve_options['evl_fp_blog_meta_link'] == 'yes') {
         $inner_content = '';
             $inner_content .= "<p class='entry-read-more'>";
             $btn_text = __('Read More', 'evolve');
@@ -1356,10 +1356,10 @@ function read_more() {
     }
 }
 function loop_content() {
-    global $evl_options;
+    global $evolve_options;
     // get the post content according to the chosen kind of delivery
-    if ($evl_options['evl_fp_blog_excerpt'] == 'yes') {
-        $content = t4p_content($evl_options['evl_fp_blog_excerpt_length'], $evl_options['evl_fp_blog_strip_html']);
+    if ($evolve_options['evl_fp_blog_excerpt'] == 'yes') {
+        $content = t4p_content($evolve_options['evl_fp_blog_excerpt_length'], $evolve_options['evl_fp_blog_strip_html']);
     } else {
         $content = get_the_content();
         //$content = apply_filters('the_content', $content);

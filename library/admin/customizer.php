@@ -47,10 +47,10 @@ function evl_content_box1_title() {
 }
 
 function evl_content_box1_icon_color() {
-   	$evl_content_box1_icon_color = get_theme_mod( 'evl_content_box1_icon_color' );
-	if ( ! empty( $evl_content_box1_icon_color ) ) {
+   	$evolve_content_box1_icon_color = get_theme_mod( 'evl_content_box1_icon_color' );
+	if ( ! empty( $evolve_content_box1_icon_color ) ) {
                 echo 	'<style>';
-                echo    '.content-box-1 i {color:'.  $evl_content_box1_icon_color. ';}';
+                echo    '.content-box-1 i {color:'.  $evolve_content_box1_icon_color. ';}';
                 echo    '</style>';
 	}
 }

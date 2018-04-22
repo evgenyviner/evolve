@@ -50,12 +50,12 @@
 
             <div class="menu-back">
                 <?php
-                global $evl_options;
+                global $evolve_options;
                 $header_pos = '';
-                $evl_frontpage_slider = array();
-                if ( isset($evl_options['evl_front_elements_header_area']['enabled']) ) {
-                        $evl_frontpage_slider = array_keys($evl_options['evl_front_elements_header_area']['enabled']);
-                        $header_pos = array_search("header", $evl_frontpage_slider);
+                $evolve_frontpage_slider = array();
+                if ( isset($evolve_options['evl_front_elements_header_area']['enabled']) ) {
+                        $evolve_frontpage_slider = array_keys($evolve_options['evl_front_elements_header_area']['enabled']);
+                        $header_pos = array_search("header", $evolve_frontpage_slider);
                 }
 
                 $evolve_current_post_slider_position = get_post_meta($evolve_page_ID, 'evolve_slider_position', true);
@@ -108,7 +108,7 @@
                         $evolve_current_post_slider_position = get_post_meta($evolve_page_ID, 'evolve_slider_position', true);
                         $evolve_current_post_slider_position = empty($evolve_current_post_slider_position) ? 'default' : $evolve_current_post_slider_position;
 
-                        if ( (is_home() || is_front_page()) && is_array($evl_frontpage_slider) ) {
+                        if ( (is_home() || is_front_page()) && is_array($evolve_frontpage_slider) ) {
                                 if ( is_home() && !is_front_page() ) {
                                         if ( ($evolve_current_post_slider_position == 'below') || ($evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'below') ) {
                                                 get_template_part('allslider');
@@ -221,6 +221,6 @@
                         <div class="container container-center row">
                             <?php
                             $evolve_content_boxes_pos = evolve_get_option('evl_content_boxes_pos', 'above');
-                            if (is_front_page() && $evolve_content_boxes_pos == 'above' && isset($evl_options['evl_front_elements_content_area']['enabled']['content_box'])) {
+                            if (is_front_page() && $evolve_content_boxes_pos == 'above' && isset($evolve_options['evl_front_elements_content_area']['enabled']['content_box'])) {
                                     evolve_content_boxes();
                             }

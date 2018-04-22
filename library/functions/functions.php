@@ -7,7 +7,7 @@
  * @subpackage Functions
  */
 function evolve_media() {
-    global $evl_options;
+    global $evolve_options;
     $evolve_template_url = get_template_directory_uri();
 
     $evolve_css_data = '';
@@ -119,7 +119,7 @@ function evolve_media() {
         $evolve_responsive_menu = '';
     }
     
-    //$evl_portfolio_pagination_type = isset($evl_options['evl_portfolio_pagination_type']) ? $evl_options['evl_portfolio_pagination_type'] : '';
+    //$evolve_portfolio_pagination_type = isset($evolve_options['evl_portfolio_pagination_type']) ? $evolve_options['evl_portfolio_pagination_type'] : '';
     $local_variables = array(
         'language_flag' => $language_code,
         'infinite_blog_finished_msg' => '<em>' . __('All posts displayed', 'evolve') . '</em>',

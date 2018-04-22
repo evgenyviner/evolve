@@ -36,9 +36,9 @@ function evolve_get_option($name, $default = false) {
     if (!isset($config['id'])) {
         //return $default;
     }
-    global $evl_options;
+    global $evolve_options;
 
-    $options = $evl_options;
+    $options = $evolve_options;
     if (isset($GLOBALS['redux_compiler_options'])) {
         $options = $GLOBALS['redux_compiler_options'];
     }

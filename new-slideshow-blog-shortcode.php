@@ -1,5 +1,5 @@
 <?php
-global $smof_data, $post, $evl_options;
+global $smof_data, $post, $evolve_options;
 
 if (get_post_meta($post->ID, 'evolve_image_rollover_icons', true) == 'link') {
     $link_icon_css = 'display:inline-block;';
@@ -41,7 +41,7 @@ if (
     $size = 'full';
 }
 
-if ($evl_options['evl_fp_blog_layout'] == 'grid' || $evl_options['evl_fp_blog_layout'] == 'timeline') {
+if ($evolve_options['evl_fp_blog_layout'] == 'grid' || $evolve_options['evl_fp_blog_layout'] == 'timeline') {
     $size = 'full';
 }
 
@@ -49,12 +49,12 @@ if (has_post_thumbnail() ||
         get_post_meta(get_the_ID(), 'evolve_video', true)
 ):
 
-    if ($evl_options['evl_fp_blog_layout'] == 'large' || $evl_options['evl_fp_blog_layout'] == 'large alternate' || $evl_options['evl_fp_blog_layout'] == 'grid' || $evl_options['evl_fp_blog_layout'] == 'timeline'):
+    if ($evolve_options['evl_fp_blog_layout'] == 'large' || $evolve_options['evl_fp_blog_layout'] == 'large alternate' || $evolve_options['evl_fp_blog_layout'] == 'grid' || $evolve_options['evl_fp_blog_layout'] == 'timeline'):
         ?>
         <div class="t4p-flexslider flexslider post-slideshow">
             <?php
         endif;
-        if ($evl_options['evl_fp_blog_layout'] == 'medium' || $evl_options['evl_fp_blog_layout'] == 'medium alternate'):
+        if ($evolve_options['evl_fp_blog_layout'] == 'medium' || $evolve_options['evl_fp_blog_layout'] == 'medium alternate'):
             ?>
             <div class="t4p-flexslider flexslider blog-medium-image floated-post-slideshow">
             <?php endif; ?>      
