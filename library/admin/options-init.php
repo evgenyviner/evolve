@@ -64,6 +64,23 @@ class Binmaocom_Fix_Rd{
 				if(isset($value['class']) && $value['class'] == 'iconpicker-icon'){			
 					$value_temp['type'] = 'fontawesome';
 				}
+				if(isset($value['required']) && is_array($value['required'])){
+					$active_callback = array();
+					if(count($value['required'])){
+						foreach($value['required'] as $required){
+							if($required[2] == '='){
+								$required[2] = '==';
+							}
+							$active_callback[] = array(
+								'setting'   => $required[0],
+								'operator'  => $required[1],
+								'value'     => $required[2]
+							);
+							
+						}
+						$value_temp['active_callback'] = $active_callback;
+					}
+				}
 				if(isset($value['options'])){			
 					$value_temp['choices'] = $value['options'];
 				}
