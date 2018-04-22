@@ -1354,13 +1354,6 @@ div.redux-star.redux-star5 {
   }
 }
 
-@media screen and (min-width: 601px) and (max-width: 782px) {
-  .redux-container .sticky-save-warn .redux-save-warn {
-    top: 47px !important;
-    right: 13px !important;
-  }
-}
-
 @media screen and (max-width: 782px) {
   #redux-footer #redux-share {
     line-height: 38px;

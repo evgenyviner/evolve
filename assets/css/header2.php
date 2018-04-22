@@ -219,7 +219,7 @@ ul.woocommerce-menu ul a {
     padding: 0 0 0 10px !important;
     position: relative;
     transition: all 0.5s ease 0s;
-    width: 170px !important;
+    width: 220px !important;
 }
 
 #search_label_top {

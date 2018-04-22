@@ -88,10 +88,8 @@ get_template_part('library/views/metaboxes/metaboxes');
 register_nav_menu('sticky_navigation', 'Sticky Header Navigation');
 
 function evolve_script() {
-    wp_enqueue_style('reset', get_template_directory_uri() . '/assets/css/reset.min.css');
     // Bootstrap Elements  
     wp_enqueue_style('bootstrapcss', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array('maincss'));
-    wp_enqueue_style('bootstrapcsstheme', get_template_directory_uri() . '/assets/css/bootstrap-theme.min.css', array('bootstrapcss'));
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js');
     // Media.css
     wp_enqueue_style('mediacss', get_template_directory_uri() . '/assets/css/media.min.css', array('maincss'));

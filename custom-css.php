@@ -34,7 +34,7 @@ $evolve_gmap_address                  = evolve_get_option( 'evl_gmap_address', '
 $evolve_status_gmap                   = evolve_get_option( 'evl_status_gmap', '' );
 $evolve_gmap_width                    = evolve_get_option( 'evl_gmap_width', '100%' );
 $evolve_gmap_height                   = evolve_get_option( 'evl_gmap_height', '415px' );
-$evolve_width_px                      = (int)evolve_get_option( 'evl_width_px', '1200' );
+$evolve_width_px                      = (int)evolve_get_option( 'evl_width_px', '1140' );
 $evolve_content_box1_icon_color       = evolve_get_option( 'evl_content_box1_icon_color', '#afbbc1' );
 $evolve_content_box2_icon_color       = evolve_get_option( 'evl_content_box2_icon_color', '#afbbc1' );
 $evolve_content_box3_icon_color       = evolve_get_option( 'evl_content_box3_icon_color', '#afbbc1' );
@@ -141,7 +141,6 @@ $evolve_css_data .= '
 $evolve_css_data .= '
 .sticky-header .nav {
     float: left;
-    margin-left: 25px;
 }
 
 ul.nav-menu li.current-menu-item > a,
@@ -1967,14 +1966,14 @@ if ( is_home() || is_front_page() ) {
     if ($evolve_frontpage_width_layout == "fixed" && !is_page_template('100-width.php')) {
         $evolve_css_data .= '
         body #header.sticky-header {
-            margin-left: -16px;
+            margin-left: 0px;
         }
         ';
     }  
 } elseif ($evolve_width_layout == "fixed" && !is_page_template('100-width.php')) {
 $evolve_css_data .= '
 body #header.sticky-header {
-    margin-left: -16px;
+    margin-left: 0px;
 }
 ';
     }
@@ -1983,14 +1982,14 @@ if ( is_home() || is_front_page() ) {
     if ($evolve_frontpage_width_layout == "fixed" && $evolve_menu_background == "1" && !is_page_template('100-width.php')) {
         $evolve_css_data .= '
         body #header.sticky-header {
-            margin-left: -15px;
+            margin-left: 0px;
         }
         ';
     }  
 } elseif ($evolve_width_layout == "fixed" && $evolve_menu_background == "1" && !is_page_template('100-width.php')) {
 $evolve_css_data .= '
 body #header.sticky-header {
-    margin-left: -15px;
+    margin-left: 0px;
 }
 ';
 }

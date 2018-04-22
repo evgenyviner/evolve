@@ -87,7 +87,7 @@ function evolve_media() {
         wp_enqueue_style('maincss', get_stylesheet_uri(), false);
 
         require_once( get_template_directory() . '/custom-css.min.php' );
-        wp_add_inline_style('bootstrapcsstheme', $evolve_css_data);
+        wp_add_inline_style('bootstrapcss', $evolve_css_data);
 
         $evolve_header_type = evolve_get_option('evl_header_type', 'none');
         switch ($evolve_header_type) {
@@ -98,7 +98,7 @@ function evolve_media() {
                 require_once( get_template_directory() . '/assets/css/header2.min.php' );
                 break;
         }
-        wp_add_inline_style('bootstrapcsstheme', $evolve_css_data);
+        wp_add_inline_style('bootstrapcss', $evolve_css_data);
 	wp_enqueue_style('meanmenu', get_template_directory_uri() . '/assets/css/shortcode/meanmenu.min.css');
     }
 

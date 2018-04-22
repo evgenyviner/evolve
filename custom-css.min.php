@@ -4,7 +4,7 @@ $evolve_template_url                  = get_template_directory_uri();
 $evolve_pagination_type               = evolve_get_option( 'evl_pagination_type', 'pagination' );
 $evolve_layout                        = evolve_get_option( 'evl_layout', '2cl' );
 $evolve_width_layout                  = evolve_get_option( 'evl_width_layout', 'fixed' );
-$evolve_frontpage_width_layout        = evolve_get_option('evl_frontpage_width_layout', 'fixed');
+$evolve_frontpage_width_layout        = evolve_get_option( 'evl_frontpage_width_layout', 'fixed' );
 $evolve_content_back                  = evolve_get_option( 'evl_content_back', 'light' );
 $evolve_menu_back_color               = evolve_get_option( 'evl_menu_back_color', '#273039' );
 $evolve_menu_back                     = evolve_get_option( 'evl_menu_back', 'light' );
@@ -34,7 +34,7 @@ $evolve_gmap_address                  = evolve_get_option( 'evl_gmap_address', '
 $evolve_status_gmap                   = evolve_get_option( 'evl_status_gmap', '' );
 $evolve_gmap_width                    = evolve_get_option( 'evl_gmap_width', '100%' );
 $evolve_gmap_height                   = evolve_get_option( 'evl_gmap_height', '415px' );
-$evolve_width_px                      = (int)evolve_get_option( 'evl_width_px', '1200' );
+$evolve_width_px                      = (int)evolve_get_option( 'evl_width_px', '1140' );
 $evolve_content_box1_icon_color       = evolve_get_option( 'evl_content_box1_icon_color', '#afbbc1' );
 $evolve_content_box2_icon_color       = evolve_get_option( 'evl_content_box2_icon_color', '#afbbc1' );
 $evolve_content_box3_icon_color       = evolve_get_option( 'evl_content_box3_icon_color', '#afbbc1' );
@@ -74,7 +74,7 @@ if (empty($evolve_content_box_background_color)) {
 $evolve_css_data .= '@media (min-width: 768px) { .col-md-3.osmac { width: 24.95% !important; } .col-md-4.osmac { width: 33.3% !important; } .col-md-6.osmac { width: 49.95% !important; } }';
 	}	
 
-$evolve_css_data .= '.sticky-header .nav { float: left; margin-left: 25px; } ul.nav-menu li.current-menu-item > a, ul.nav-menu li.current-menu-ancestor > a, ul.nav-menu li.current-menu-ancestor > a span, ul.nav-menu li.current-menu-item > a span, ul.nav-menu li a:active, ul.nav-menu li:active > a, ul.nav-menu li a:focus, ul.nav-menu li:focus > a, ul.nav-menu li a:hover, ul.nav-menu li:hover> a, ul.nav-menu li:hover, ul.nav-menu li a:hover span, ul.nav-menu li:hover> a span, ul.nav-menu li:hover> .sf-with-ul::after { color: ' . $evolve_top_menu_hover_font_color . '; }';
+$evolve_css_data .= '.sticky-header .nav { float: left; } ul.nav-menu li.current-menu-item > a, ul.nav-menu li.current-menu-ancestor > a, ul.nav-menu li.current-menu-ancestor > a span, ul.nav-menu li.current-menu-item > a span, ul.nav-menu li a:active, ul.nav-menu li:active > a, ul.nav-menu li a:focus, ul.nav-menu li:focus > a, ul.nav-menu li a:hover, ul.nav-menu li:hover> a, ul.nav-menu li:hover, ul.nav-menu li a:hover span, ul.nav-menu li:hover> a span, ul.nav-menu li:hover> .sf-with-ul::after { color: ' . $evolve_top_menu_hover_font_color . '; }';
 
 if (evolve_get_option('evl_main_menu_hover_effect', 'rollover') != 'disabled') {
     $menu_effect = evolve_get_option('evl_main_menu_hover_effect', 'smooth');
@@ -440,18 +440,18 @@ $evolve_css_data .= 'body #header.sticky-header { margin: 0px; left: 0px; width:
 
 if ( is_home() || is_front_page() ) {
     if ($evolve_frontpage_width_layout == "fixed" && !is_page_template('100-width.php')) {
-        $evolve_css_data .= 'body #header.sticky-header { margin-left: -16px; }';
+        $evolve_css_data .= 'body #header.sticky-header { margin-left: 0px; }';
     }  
 } elseif ($evolve_width_layout == "fixed" && !is_page_template('100-width.php')) {
-$evolve_css_data .= 'body #header.sticky-header { margin-left: -16px; }';
+$evolve_css_data .= 'body #header.sticky-header { margin-left: 0px; }';
     }
 
 if ( is_home() || is_front_page() ) {
     if ($evolve_frontpage_width_layout == "fixed" && $evolve_menu_background == "1" && !is_page_template('100-width.php')) {
-        $evolve_css_data .= 'body #header.sticky-header { margin-left: -15px; }';
+        $evolve_css_data .= 'body #header.sticky-header { margin-left: 0px; }';
     }  
 } elseif ($evolve_width_layout == "fixed" && $evolve_menu_background == "1" && !is_page_template('100-width.php')) {
-$evolve_css_data .= 'body #header.sticky-header { margin-left: -15px; }';
+$evolve_css_data .= 'body #header.sticky-header { margin-left: 0px; }';
 }
 
 if (!empty($evolve_social_color)) {

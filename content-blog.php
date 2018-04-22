@@ -37,7 +37,7 @@ $evolve_posts_excerpt_title_length = intval(evolve_get_option('evl_posts_excerpt
     if (is_home() || is_front_page()) :
     ?>
             <div class="t4p-fullwidth homepage-content" >
-                <div class="t4p-row">
+                <div class="t4p-row row">
     <?php
     endif;
     ?>

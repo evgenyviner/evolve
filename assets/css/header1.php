@@ -11,6 +11,7 @@ $evolve_css_data = '
 #search-text-top {
     position: absolute;
     right: 0;
+	top: 0;
 }
 
 #search-text-top:focus {
@@ -77,7 +78,7 @@ $evolve_css_data = '
     }
     #search-text-top {
         background: #fff;
-        font-size: 12px;
+        font-size: 15px;
         font-weight: normal;
         color: #888;
     }
@@ -87,8 +88,8 @@ $evolve_css_data = '
     }
     #search-text-top {
         border: 1px solid #fff;
-        height: 36px;
-        width: 170px;
+        height: 40px;
+        width: 220px;
     }
     .woocommerce-menu-holder {
         float: none;
@@ -115,14 +116,11 @@ $evolve_css_data = '
         background-image: none;
     }
     .header {
-      padding-bottom: 10px;
-      padding-top: 10px;
+      padding-bottom: 20px;
+      padding-top: 20px;
     }
     .header #righttopcolumn {
       margin-bottom: 0;
-    }
-    #wrapper .dd-container {
-        text-align: center;
     }
     .title-container{
         display: block;

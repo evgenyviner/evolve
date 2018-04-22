@@ -2655,13 +2655,13 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'compiler' => true,
             'type' => 'select',
             'options' => array(
-                800 => '800px',
-                985 => '985px',
-                1200 => '1200px',
+                720 => '720px',
+                960 => '960px',
+                1140 => '1140px',
                 1600 => '1600px',
             ),
             'title' => __('Layout Width', 'evolve'),
-            'default' => '1200',
+            'default' => '1140',
         ),
         /*        array(
           'title' => __('Custom Layout Width', 'evolve'),

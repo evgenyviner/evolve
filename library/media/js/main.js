@@ -239,13 +239,6 @@ $j(document).ready(function () {
     });
 })(jQuery);
 
-jQuery(document).ready(function ($) {
-    // sticky menu logo vertical alignment center
-    var parentHeight = jQuery('header.sticky-header').actual('height');
-    var childHeight = jQuery('#sticky-logo').actual('height');
-    jQuery('#sticky-logo').css('margin-top', (parentHeight - childHeight) / 2);
-});
-
 // **********************  home content box style for mac and iphone  ****************************
 
 if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
