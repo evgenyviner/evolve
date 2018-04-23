@@ -47,12 +47,13 @@
                 <?php
             }
             ?>
-
             <div class="menu-back">
                 <?php
                 global $evolve_options;
                 $header_pos = '';
                 $evolve_frontpage_slider = array();
+				$evolve_options['evl_front_elements_content_area']['enabled'] = evolve_get_option('evl_front_elements_content_area');
+				$evolve_options['evl_front_elements_header_area']['enabled'] = evolve_get_option('evl_front_elements_header_area');
                 if ( isset($evolve_options['evl_front_elements_header_area']['enabled']) ) {
                         $evolve_frontpage_slider = array_keys($evolve_options['evl_front_elements_header_area']['enabled']);
                         $header_pos = array_search("header", $evolve_frontpage_slider);

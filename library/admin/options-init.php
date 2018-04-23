@@ -1,11 +1,13 @@
 <?php
 
 require_once('kirki-functions.php');
-global $name_of_panel;
+global $name_of_panel, $bi_all_customize_fields;
 $name_of_panel = '';
+$bi_all_customize_fields = array();
+
 class Binmaocom_Fix_Rd{
 	static function setSection($param1, $param2){
-		global $name_of_panel;		
+		global $name_of_panel, $bi_all_customize_fields;
 		if(isset($param2['fields']) && is_array($param2['fields']) && count($param2['fields'])){
 			Kirki::add_section( $param2['id'], array(
 				'title'         => $param2['title'],
@@ -21,15 +23,19 @@ class Binmaocom_Fix_Rd{
 		}
 	}	
 	static function bin_call_kirki_from_old_field($array_items,  $section = 'kirki_frontpage-content-boxes-tab', $setting = 'kirki_evolve_options'){
+		global $name_of_panel, $bi_all_customize_fields;
 		foreach($array_items as $value){
 			if(
 			isset($value['type']) && (
 			$value['type'] == 'text'
 			|| $value['type'] == 'radio'
 			|| $value['type'] == 'select'
+			|| $value['type'] == 'checkbox'
 			|| $value['type'] == 'textarea'
 			|| $value['type'] == 'fontawesome'
 			|| $value['type'] == 'switch'
+			|| $value['type'] == 'slider'
+			|| $value['type'] == 'spinner'
 			|| $value['type'] == 'sorter'
 			|| $value['type'] == 'color'
 			|| $value['type'] == 'typography'
@@ -59,6 +65,25 @@ class Binmaocom_Fix_Rd{
 				}
 				if(isset($value['type']) && $value['type'] == 'image_select'){			
 					$value_temp['type'] = 'radio-image';
+				}
+				if(isset($value['type']) && $value['type'] == 'slider'){			
+					$value_temp['choices'] = array(
+						'min' => $value['min'],
+						'max' => $value['max'],
+						'step' => isset($value['step']) ? $value['step'] : 1,
+					);
+				}
+				if(isset($value['type']) && $value['type'] == 'spinner'){
+					$value_temp['type'] = 'number';
+					if(isset($value['min'])){
+						$value_temp['choices']['min'] = $value['min'];
+					}
+					if(isset($value['max'])){
+						$value_temp['choices']['max'] = $value['max'];
+					}
+					if(isset($value['step'])){
+						$value_temp['choices']['step'] = $value['step'];
+					}
 				}
 				//class' => 'iconpicker-icon
 				if(isset($value['class']) && $value['class'] == 'iconpicker-icon'){			
@@ -127,6 +152,11 @@ class Binmaocom_Fix_Rd{
 						'off' => $value['off'],
 					);
 				}
+				
+				$bi_all_customize_fields[$value['id']] = array(
+					'value' => $value,
+					'value_temp' => $value_temp,
+				);
 				Kirki::add_field( $setting, $value_temp );
 			}
 		}
@@ -518,6 +548,14 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
 
 //Check status of parallax and post slider
 $theme_options = get_option('evl_options', false);
+if(!$theme_options){
+	$bi_evolve_options = get_option('bi_evolve_options', false);
+	if($bi_evolve_options){
+		$theme_options =  $bi_evolve_options;
+	}
+}
+$theme_options['evl_bootstrap_slider_support'] = get_theme_mod('evl_bootstrap_slider_support');
+// var_dump($bi_evolve_options);exit;
 ( isset($theme_options['evl_bootstrap_slider_support']) && $theme_options['evl_bootstrap_slider_support'] == '1' ) ? $bootstrapslider_status = ' (ACTIVE)' : $bootstrapslider_status = ' (INACTIVE)';
 ( $theme_options['evl_parallax_slider_support'] == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)';
 ( $theme_options['evl_carousel_slider'] == '1' ) ? $postslider_status = ' (ACTIVE)' : $postslider_status = ' (INACTIVE)';
@@ -7214,7 +7252,32 @@ add_action('redux/' . $evolve_opt_name . '/panel/after', 'evl_theme_options_cont
  * (if the 'Hide premium features' option is active):
  * ************************************************************************************************************ */
 
+global $evolve_options;
 $evolve_options = get_option($evolve_opt_name, false); // Get saved options
+if(!$evolve_options){
+	global $bi_all_customize_fields;
+	if($bi_all_customize_fields){
+		foreach($bi_all_customize_fields as $value){
+			if($value['value']['type'] == 'sorter'){
+				$enabled = get_theme_mod($value['value_temp']['settings'], false);
+				if(count($enabled)){
+					$enabled_temp = array();
+					foreach($enabled as $items){
+						$enabled_temp[$items] = $items;
+					}
+					$enabled = $enabled_temp;
+				}
+				$evolve_options[$value['value_temp']['settings']]['enabled'] = $enabled;
+			}
+			else{
+				$evolve_options[$value['value_temp']['settings']] = get_theme_mod($value['value_temp']['settings'], $value['value_temp']['default']);
+			}
+		}
+		update_option('bi_evolve_options', $evolve_options);
+	}
+}
+// var_dump($evolve_options);
+// exit;
 // Check if the 'Hide premium features' option is active:
 if (isset($evolve_options[$evolve_prem_inpt_name]) && ($evolve_options[$evolve_prem_inpt_name] == "0")) {
     $evolve_sections = Redux::getSections($evolve_opt_name); // Get all sections
@@ -7768,3 +7831,7 @@ function evolve_customize_partial_blogdescription() {
  * Selective Refresh for Widgets.
  */
 add_theme_support('customize-selective-refresh-widgets');
+
+if(true || $bi_all_customize_fields === false){
+	update_option('bi_all_customize_fields', $bi_all_customize_fields);
+}
