@@ -205,22 +205,22 @@ if (( $evolve_tagline_pos !== "disable" ) && ( $evolve_tagline_pos == "next" )) 
 $evolve_css_data .= '.title-container #logo { float: left; padding-right: 10px; } .title-container #tagline { padding-top: 20px; } @media only screen and (max-width: 768px) { .title-container #tagline { padding-top: 10px; } } .title-container #logo a { padding: 0px 20px 0px 0px; }';
     }
 
-if (( $evolve_pos_logo == "right" ) || ( $evolve_pos_logo == "left" ) || ( $evolve_pos_logo == "disable" )) {
+if ( $evolve_pos_logo == "right" || $evolve_pos_logo == "left" || $evolve_pos_logo == "disable" ) {
 $evolve_css_data .= '.title-container #logo a { padding: 0px 20px 0px 3px; }';
     }
 
-if (( $evolve_header_logo != "" ) && ( $evolve_pos_logo == "left" ) && ( $evolve_tagline_pos == "above" )) {
+if ( $evolve_header_logo != ""  &&  $evolve_pos_logo == "left"  && $evolve_tagline_pos == "above"  && $evolve_pos_logo !== 'disable') {
 $evolve_css_data .= '.title-container #logo a { margin-left: 0px; }';
     }
 
-if (( $evolve_header_logo != "" ) && ( $evolve_pos_logo == "left" ) && ( $evolve_tagline_pos == "under" )) {
+if ( $evolve_header_logo != "" && $evolve_pos_logo == "left" && $evolve_tagline_pos == "under" && $evolve_pos_logo !== 'disable') {
 $evolve_css_data .= '.title-container #logo a { margin-left: 0px; }';
     }
 
 $evolve_css_data .= 'body #header.sticky-header img#logo-image { max-width: ' . $evolve_sticky_header_logo_size . 'px; }';
 
     //Blog Title font
-    $evolve_css_data .= evolve_print_fonts('evl_title_font', '#logo a', $additional_css = 'letter-spacing:-.03em');
+    $evolve_css_data .= evolve_print_fonts('evl_title_font', '#logo a');
 
     //Blog tagline font
     $evolve_css_data .= evolve_print_fonts('evl_tagline_font', '#tagline');
@@ -313,12 +313,8 @@ if ($bootstrap_100_background == '1') {
 $evolve_css_data .= '#bootstrap-slider .carousel-inner .w-100 { display: block; height: auto; width: 100%; }';
     }
 
-if ($evolve_pos_logo == "center") {
-$evolve_css_data .= '.header #logo-image { float: none; margin: 15px auto; }';
-
-$evolve_css_data .= '.container .container-header { position: relative; }';
-
-$evolve_css_data .= '.title-container { text-align: center; }';
+if ($evolve_pos_logo == "center" && !empty($evolve_header_logo)) {
+$evolve_css_data .= '#logo, #tagline, .header #logo-image { float: none; margin: 5px auto; } #logo, #tagline, .header-logo-container{ display:inline-block; text-align:center; width:100%} #logo, #tagline, .container .container-header { position: relative; } .title-container { text-align: center; }';
     }
 
 if (( $evolve_pos_logo == "center" ) && ( $evolve_tagline_pos == "next" )) {
@@ -326,15 +322,11 @@ $evolve_css_data .= '.title-container #tagline { float: left; }';
     }
 
 if ($evolve_pos_logo == "right") {
-$evolve_css_data .= '#logo-image { float: right; margin: 15px 0px; } .header-logo-container { clear: right; } .sticky-header #logo { float: left; padding: 6px 6px 6px 3px; } .sticky-header #sticky-logo { float: left; padding: 0px 6px 0px 3px; }';
+$evolve_css_data .= '@media (min-width:768px){#logo-image{float:right;margin:15px 0}} .header-logo-container { clear: right; }';
     }
 
-if ($evolve_pos_logo == "left") {
+if ($evolve_pos_logo == "left" || $evolve_pos_logo == "center" || $evolve_pos_logo == "right") {
 $evolve_css_data .= '.sticky-header #logo { float: left; padding: 6px 6px 6px 3px; } .sticky-header #sticky-logo { float: left; padding: 0px 6px 0px 3px; } body #header.sticky-header img#logo-image { margin-left: 10px; }';
-    }
-
-if ($evolve_pos_logo == "center") {
-    $evolve_css_data .= '.sticky-header #logo { float:left; padding: 6px 6px 6px 3px; } .sticky-header #sticky-logo { float:left; padding: 0px 6px 0px 3px; } body #header.sticky-header img#logo-image { margin-left:10px; }';
     }
 
 if ($evolve_pos_logo == "disable") {

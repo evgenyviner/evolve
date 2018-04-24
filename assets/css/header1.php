@@ -66,10 +66,6 @@ $evolve_css_data = '
         text-align: center;
         width: 100%;
     }
-    #logo-image {
-        float: none;
-        margin: auto;
-    }
 }
 
 @media (max-width: 768px) {

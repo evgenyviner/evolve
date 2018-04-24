@@ -17,7 +17,7 @@ if (is_singular() and ! is_page()) {
     <div class="clearfix"></div> 
 <?php } else { ?>
     <!--BEGIN .navigation-links-->
-    <div class="navigation-links page-navigation clearfix">
+    <div class="navigation-links page-navigation clearfix row">
         <?php
         if (function_exists('wp_pagenavi')) {
             wp_pagenavi();

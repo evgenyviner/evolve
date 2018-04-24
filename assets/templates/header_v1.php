@@ -1,4 +1,20 @@
-<?php $evolve_tagline_pos = evolve_get_option('evl_tagline_pos', 'next'); ?>
+<?php
+$evolve_blog_title = evolve_get_option('evl_blog_title', '0');
+$evolve_tagline_pos = evolve_get_option('evl_tagline_pos', 'next');
+$evolve_header_logo = evolve_get_option('evl_header_logo', '');
+$evolve_pos_logo = evolve_get_option('evl_pos_logo', 'left');
+$evolve_social_links = evolve_get_option('evl_social_links', '1');
+$evolve_woocommerce_acc_link_main_nav = evolve_get_option('evl_woocommerce_acc_link_main_nav', '0');
+$evolve_woocommerce_cart_link_main_nav = evolve_get_option('evl_woocommerce_cart_link_main_nav', '0');
+$evolve_menu_background = evolve_get_option('evl_disable_menu_back', '1');
+$evolve_width_layout = evolve_get_option('evl_width_layout', 'fixed');
+$evolve_frontpage_width_layout = evolve_get_option('evl_frontpage_width_layout', 'fixed');
+$evolve_main_menu = evolve_get_option('evl_main_menu', '0');
+$evolve_searchbox = evolve_get_option('evl_searchbox', '1');
+$evolve_sticky_header = evolve_get_option('evl_sticky_header', '1');
+$evolve_width_layout = evolve_get_option('evl_width_layout', 'fixed');
+$evolve_frontpage_width_layout = evolve_get_option('evl_frontpage_width_layout', 'fixed');
+?>
 
 <!--BEGIN .header-pattern-->
 <div class="header-pattern">
@@ -20,15 +36,24 @@
                         <!--BEGIN #righttopcolumn-->
                         <?php
                         if ($evolve_tagline_pos == "next") {
-                            $evolve_social_class = '<div class="col order-1 order-sm-1 order-md-3">';
+                            $evolve_social_class = 'col order-1 order-sm-1 order-md-3';
                         } else {
-                            $evolve_social_class = '<div class="col order-1 order-sm-1 order-md-2">';
+                            $evolve_social_class = 'col order-1 order-sm-1 order-md-2';
                         }
-                        echo $evolve_social_class;
+
+                        if ($evolve_header_logo && $evolve_pos_logo !== 'disable') {
+                            if ($evolve_pos_logo == "center") {
+                                $evolve_social_class = 'col-12 order-1 order-sm-1';
+                            } if ($evolve_pos_logo == "left") {
+                                $evolve_social_class = 'col col-md-12 col-lg-auto order-1 order-sm-1 order-md-1 order-lg-3';
+                            } if ($evolve_pos_logo == "right") {
+                                $evolve_social_class = 'col-12 order-1';
+                            }
+                        }
+                        echo '<div class="' . $evolve_social_class . '">';
                         ?>
                         <div id="righttopcolumn">
                             <?php
-                            $evolve_social_links = evolve_get_option('evl_social_links', '1');
                             if ($evolve_social_links == "1") {
                                 ?>
                                 <!--BEGIN #subscribe-follow-->
@@ -42,14 +67,12 @@
 
                             <!--BEGIN #Woocommerce-->
                             <?php
-                            $woocommerce_acc_link_main_nav = evolve_get_option('evl_woocommerce_acc_link_main_nav', '0');
-                            $woocommerce_cart_link_main_nav = evolve_get_option('evl_woocommerce_cart_link_main_nav', '0');
-                            if (class_exists('Woocommerce') && ($woocommerce_acc_link_main_nav || $woocommerce_cart_link_main_nav)) {
+                            if (class_exists('Woocommerce') && ($evolve_woocommerce_acc_link_main_nav || $evolve_woocommerce_cart_link_main_nav)) {
                                 global $woocommerce;
                                 ?>
                                 <div class="woocommerce-menu-holder">
                                     <ul class="woocommerce-menu">
-                                        <?php if ($woocommerce_acc_link_main_nav): ?>
+                                        <?php if ($evolve_woocommerce_acc_link_main_nav): ?>
                                             <li class="my-account">
                                                 <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>" class="my-account-link"><?php _e('My Account', 'evolve'); ?></a>
                                                 <?php if (!is_user_logged_in()): ?>
@@ -81,7 +104,7 @@
                                             <?php
                                         endif;
 
-                                        if ($woocommerce_cart_link_main_nav):
+                                        if ($evolve_woocommerce_cart_link_main_nav):
                                             ?>
                                             <li class="cart">
                                                 <?php if (!$woocommerce->cart->cart_contents_count): ?>
@@ -135,7 +158,7 @@
                                                     </div><!-- /.cart-contents -->
                                                 <?php endif; //if(!$woocommerce->cart->cart_contents_count):      ?>
                                             </li><!-- /li.cart -->
-                                        <?php endif; //if($woocommerce_cart_link_main_nav):       ?>
+                                        <?php endif; //if($evolve_woocommerce_cart_link_main_nav):       ?>
                                     </ul><!-- /ul.woocommerce-menu -->
                                 </div><!-- /span .woocommerce-menu-holder -->
                             <?php } ?>
@@ -144,24 +167,56 @@
                         <!--END #righttopcolumn-->
                     </div>
                     <?php
-                    $evolve_pos_logo = evolve_get_option('evl_pos_logo', 'left');
                     if ($evolve_pos_logo == "disable") {
                         
                     } else {
-                        $evolve_header_logo = evolve_get_option('evl_header_logo', '');
                         if ($evolve_header_logo) {
                             if ($evolve_pos_logo == "center") {
-
-                                echo "<div class='header-logo-container clearfix'><a href=" . home_url() . "><img id='logo-image' class='img-responsive' alt='" . get_bloginfo('name') . "' src=" . $evolve_header_logo . " /></a></div>";
-                            } else {
-                                echo "<div class='header-logo-container'><a href=" . home_url() . "><img id='logo-image' class='img-responsive' alt='" . get_bloginfo('name') . "' src=" . $evolve_header_logo . " /></a></div>";
+                                $evolve_logo_class = 'col-12 order-2 header-logo-container clearfix';
+                            } if ($evolve_pos_logo == "left") {
+                                $evolve_logo_class = 'col-md-auto order-2 header-logo-container';
+                            } if ($evolve_pos_logo == "right") {
+                                $evolve_logo_class = 'col col-md-6 col-sm-12 order-2 order-md-3 header-logo-container';
                             }
+                            echo "<div class='" . $evolve_logo_class . "'><a href=" . home_url() . "><img id='logo-image' class='img-responsive' alt='" . get_bloginfo('name') . "' src=" . $evolve_header_logo . " /></a></div>";
                         }
                     }
-                    ?>
-                    <?php
-                    if ($evolve_tagline_pos !== "disable" && $evolve_tagline_pos !== "next") {
-                        echo '<div class="col-md-auto order-1 order-sm-2 order-md-1">';
+
+                    if (($evolve_tagline_pos !== "disable" && $evolve_tagline_pos !== "next" && empty($evolve_header_logo)) || $evolve_pos_logo == "disable" ||
+                            ($evolve_tagline_pos == "disable" && empty($evolve_header_logo))) {
+                        $evolve_title_tagline_class_1 = '<div class="col-md-auto order-1 order-sm-2 order-md-1">';
+                        $evolve_title_tagline_class_2 = '</div>';
+                    } if ($evolve_tagline_pos == "next" && $evolve_pos_logo == "disable") {
+                        $evolve_title_tagline_class_1 = '';
+                        $evolve_title_tagline_class_2 = '';
+                    }
+
+                    echo $evolve_title_tagline_class_1;
+
+                    if ($evolve_header_logo && $evolve_pos_logo !== 'disable') {
+                        if ($evolve_pos_logo == "center") {
+                            $evolve_tagline_class_1 = '<div class="col-12 order-2 order-md-2">';
+                            $evolve_tagline_class_2 = '</div>';
+                            $evolve_helper_tagline_class_1 = '<div class="col-12 order-2">';
+                            $evolve_helper_tagline_class_2 = '</div>';
+                        } if ($evolve_pos_logo == "left") {
+                            $evolve_tagline_class_1 = '<div class="col-12 order-2 order-md-2">';
+                            $evolve_tagline_class_2 = '</div>';
+                            $evolve_helper_tagline_class_1 = '<div class="col col-sm-12 col-md-auto order-2">';
+                            $evolve_helper_tagline_class_2 = '</div>';
+                        } if ($evolve_pos_logo == "right") {
+                            $evolve_tagline_class_1 = '<div class="col-12 order-2 order-md-2">';
+                            $evolve_tagline_class_2 = '</div>';
+                            $evolve_helper_tagline_class_1 = '<div class="col-md-6 col-sm-12 order-3 order-md-2">';
+                            $evolve_helper_tagline_class_2 = '</div>';
+                        }
+                    }
+
+                    if ($evolve_header_logo && $evolve_tagline_pos == "next" && $evolve_pos_logo == 'disable') {
+                        $evolve_tagline_class_1 = '';
+                        $evolve_tagline_class_2 = '';
+                        $evolve_helper_tagline_class_1 = '';
+                        $evolve_helper_tagline_class_2 = '';
                     }
 
                     if ($evolve_tagline_pos == "next") {
@@ -171,39 +226,63 @@
                         $evolve_tagline_class_1 = "";
                         $evolve_tagline_class_2 = "";
                     }
+
+                    if ($evolve_header_logo && $evolve_tagline_pos == "next" && $evolve_pos_logo !== 'center' && $evolve_pos_logo !== 'disable') {
+                        $evolve_row_class_1 = '<div class="row align-items-center">';
+                        $evolve_row_class_2 = '</div>';
+                    } else {
+                        $evolve_row_class_1 = '';
+                        $evolve_row_class_2 = '';
+                    }
+
+                    echo $evolve_helper_tagline_class_1 . $evolve_row_class_1;
+
                     $tagline = $evolve_tagline_class_1 . '<div id="tagline">' . get_bloginfo('description') . '</div>' . $evolve_tagline_class_2;
-                    if (($evolve_tagline_pos !== "disable") && ($evolve_tagline_pos == "above")) {
+                    if ($evolve_tagline_pos !== "disable" && $evolve_tagline_pos == "above") {
                         echo $tagline;
                     }
-                    $evolve_blog_title = evolve_get_option('evl_blog_title', '0');
+
                     if ($evolve_blog_title == "0" || !$evolve_blog_title) {
                         if (is_front_page()) :
 
                             if ($evolve_tagline_pos == "next") {
                                 $evolve_title_class_1 = '<div class="col-md-auto order-1 order-sm-2 order-md-2">';
                                 $evolve_title_class_2 = '</div>';
-                            } else if ($evolve_tagline_pos == "disable") {
+                            } else if ($evolve_tagline_pos == "disable" && empty($evolve_header_logo)) {
                                 $evolve_title_class_1 = "<div class='col-md-auto order-1 order-sm-2 order-md-1'>";
+                                $evolve_title_class_2 = "</div>";
+                            } else if ($evolve_tagline_pos == "next" && $evolve_header_logo) {
+                                $evolve_title_class_1 = "<div class='col-md-auto order-3 order-md-1'>";
+                                $evolve_title_class_2 = "</div>";
+                            } else if ($evolve_tagline_pos == "next" && empty($evolve_header_logo)) {
+                                $evolve_title_class_1 = "<div class='col-md-auto order-2 order-md-1'>";
                                 $evolve_title_class_2 = "</div>";
                             } else {
                                 $evolve_title_class_1 = "";
                                 $evolve_title_class_2 = "";
                             }
-                            ?>
-                            <?php echo $evolve_title_class_1; ?><h1 id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name') ?></a></h1><?php echo $evolve_title_class_2; ?>
-                        <?php else : ?> 
-                                <?php echo $evolve_title_class_1; ?><h4 id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name') ?></a></h4><?php echo $evolve_title_class_2; ?>
-                            <?php
+
+                            echo $evolve_title_class_1;
+                            ?><h1 id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name') ?></a></h1><?php
+                            echo $evolve_title_class_2;
+                        else :
+                            echo $evolve_title_class_1;
+                            ?><h4 id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name') ?></a></h4><?php
+                                echo $evolve_title_class_2;
+
                             endif;
-                        } else {
-                            
                         }
-                        if (($evolve_tagline_pos !== "disable") && (($evolve_tagline_pos == "") || ($evolve_tagline_pos == "next") || ($evolve_tagline_pos == "under"))) {
+
+                        if ($evolve_tagline_pos !== "disable" && ($evolve_tagline_pos == "" || $evolve_tagline_pos == "next" || $evolve_tagline_pos == "under")) {
                             echo $tagline;
                         }
 
-                        if ($evolve_tagline_pos !== "disable" && $evolve_tagline_pos !== "next") {
-                            echo '</div>';
+                        if ($evolve_tagline_pos !== "disable" && $evolve_tagline_pos !== "next" && empty($evolve_header_logo) || $evolve_pos_logo == "disable") {
+                            echo $evolve_title_tagline_class_2;
+                        }
+
+                        if (($evolve_header_logo && $evolve_pos_logo !== 'disable') || ($evolve_header_logo && $evolve_tagline_pos == "next")) {
+                            echo $evolve_row_class_2 . $evolve_helper_tagline_class_2;
                         }
                         ?>                        
                 </div>
@@ -219,9 +298,6 @@
 <!--END .header-pattern-->
 <div class="menu-container header_v0">
     <?php
-    $evolve_menu_background = evolve_get_option('evl_disable_menu_back', '1');
-    $evolve_width_layout = evolve_get_option('evl_width_layout', 'fixed');
-    $evolve_frontpage_width_layout = evolve_get_option('evl_frontpage_width_layout', 'fixed');
     if (is_home() || is_front_page()) {
         if ($evolve_frontpage_width_layout == "fluid" && $evolve_menu_background == "1") {
             echo '<div class="fluid-width">';
@@ -237,7 +313,6 @@
             <div class="container nacked-menu container-menu">
                 <div class="row align-items-center">
                     <?php
-                    $evolve_main_menu = evolve_get_option('evl_main_menu', '0');
                     if ($evolve_main_menu == "1") {
                         ?>
 
@@ -248,7 +323,6 @@
                                 echo '<nav class="nav nav-holder link-effect">';
                                 wp_nav_menu(array('theme_location' => 'primary-menu', 'menu_class' => 'nav-menu', 'fallback_cb' => 'wp_page_menu', 'walker' => new evolve_Walker_Nav_Menu()));
 
-                                $evolve_responsive_menu_layout = evolve_get_option('evl_responsive_menu_layout', 'basic');
                                 if ($evolve_responsive_menu_layout == 'dropdown') {
                                     wp_nav_menu(array('theme_location' => 'primary-menu', 'container_class' => 'evolve_mobile_menu', 'menu_class' => 'nav-menu'));
                                 }
@@ -262,7 +336,6 @@
                             </nav>
                         </div><!-- /.primary-menu -->
                         <?php
-                        $evolve_searchbox = evolve_get_option('evl_searchbox', '1');
                         if ($evolve_searchbox == "1") {
                             ?>
                             <!--BEGIN #searchform-->
@@ -276,9 +349,7 @@
                             <?php
                         }
                     }
-                    ?>
-                    <?php
-                    $evolve_sticky_header = evolve_get_option('evl_sticky_header', '1');
+
                     if ($evolve_sticky_header == "1") {
                         // sticky header
                         get_template_part('sticky-header');
@@ -290,8 +361,6 @@
         </div><!-- /.menu-header -->
     </div>
     <?php
-    $evolve_width_layout = evolve_get_option('evl_width_layout', 'fixed');
-    $evolve_frontpage_width_layout = evolve_get_option('evl_frontpage_width_layout', 'fixed');
     if (is_home() || is_front_page()) {
         if ($evolve_frontpage_width_layout == "fluid") {
             echo '</div><!-- /.fluid-width -->';

@@ -591,11 +591,8 @@ html {
     display: none;
 }
 
-body,
-input,
-textarea {
+body {
     color: #888;
-    font: 16px/1.5 "Roboto", arial, sans-serif;
 }
 
 body,
@@ -718,22 +715,13 @@ a:active {
     color: #76d898;
 }
 
-.content h1 a,
-.content h2 a,
-.content h3 a,
-.content h4 a,
-.content h5 a,
-.content h6 a {
-    color: #444649;
-}
-
 .content h1 a:hover,
 .content h2 a:hover,
 .content h3 a:hover,
 .content h4 a:hover,
 .content h5 a:hover,
 .content h6 a:hover {
-    color: #76d898;
+    color: #0bb697;
     text-decoration: none;
 }
 
@@ -870,9 +858,7 @@ a.read-more,
 }
 
 #tagline {
-    color: #aaaaaa;
     display: block;
-    font: 400 13px "Roboto", arial, sans-serif;
 }
 
 .home .type-post.sticky .entry-header a,
@@ -989,8 +975,6 @@ h3,
 h4,
 h5,
 h6 {
-    color: #51545C;
-    font: normal normal 'Roboto', arial, sans-serif;
     clear: both;
     margin-bottom: 15px;
 }
@@ -1769,11 +1753,10 @@ input#submit:hover {
     display: inline-block;
     line-height: 0;
     margin: 0 5px;
-    padding: 5px;
+    padding: 8px;
 }
 
 .header #logo {
-    font: 400 39px/39px "Roboto", arial, sans-serif;
     position: relative;
     margin-top: 0;
     margin-bottom: 0;
@@ -1781,7 +1764,6 @@ input#submit:hover {
 
 .menu-header-sticky #sticky-logo {
     position: relative;
-    font: 400 25px 'Roboto', arial, sans-serif;
 }
 
 #logo-image {
@@ -2315,12 +2297,16 @@ p#copyright .credits a {
     display: block;
     line-height: 40px;
     font-size: 20px;
+	left: 25px;
+	position: absolute;
     background: #636363;
     background: rgba(0, 0, 0, 0.7);
 }
 
 #bootstrap-slider a.right:before {
     content: '\e919';
+	left: initial; 
+	right: 25px;
 }
 
 
@@ -3979,7 +3965,6 @@ ul.nav-menu a {
     padding: 8px 10px;
     color: #c1c1c1;
     text-shadow: 1px 1px 0 #ffffff;
-    font: 15px/1.5 "Roboto", arial, sans-serif;
 }
 
 ul.nav-menu li:hover ul,
@@ -5211,13 +5196,6 @@ ul.breadcrumbs li a {
 .page-title-container .container {
     padding-left: 30px;
     padding-right: 30px;
-}
-
-.entry-title,
-.entry-title a {
-    font: bold 28px/100% 'Roboto', arial, sans-serif;
-    color: #51545c;
-    letter-spacing: 0;
 }
 
 .entry-title a:hover {
