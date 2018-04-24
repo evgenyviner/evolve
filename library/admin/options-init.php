@@ -4302,7 +4302,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'id' => 'evl_form_bg_color',
             'type' => 'color',
             'title' => __('Form Background Color', 'evolve'),
-            'default' => '#ffffff',
+            'default' => '#fcfcfc',
         ),
         array(
             'subtitle' => __('Controls the text color for forms.', 'evolve'),
