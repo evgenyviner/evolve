@@ -652,8 +652,8 @@ function evolve_bootstrap() {
                 $active = " active";
             }
 
-            echo "<div class='item" . $active . "'>";
-            echo "<img class='img-responsive' src='" . $evolve_options["evl_bootstrap_slide{$i}_img"]['url'] . "' alt='" . $evolve_options["evl_bootstrap_slide{$i}_title"] . "' />";
+            echo "<div class='carousel-item" . $active . "'>";
+            echo "<img class='d-block w-100' src='" . $evolve_options["evl_bootstrap_slide{$i}_img"]['url'] . "' alt='" . $evolve_options["evl_bootstrap_slide{$i}_title"] . "' />";
 
                 echo '<div class="carousel-caption ' . evolve_bootstrap_layout_class() . '">';
 
@@ -675,7 +675,7 @@ function evolve_bootstrap() {
 
         if ($wrap) {
                     echo "</div>
-                <a class='left carousel-control' href='#bootstrap-slider' data-slide='prev'></a><a class='right carousel-control' href='#bootstrap-slider' data-slide='next'></a>
+                <a class='left carousel-control-prev' href='#bootstrap-slider' data-slide='prev'></a><a class='right carousel-control-next' href='#bootstrap-slider' data-slide='next'></a>
                 </div>";
         }
 }

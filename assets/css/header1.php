@@ -130,9 +130,7 @@ $evolve_css_data = '
         display: inline-block;
     }
     .menu-header { padding: 20px 0; }
-    #wrapper .dd-options{
-        margin-top: 10px;
-    }
+
     #wrapper .primary-menu .mean-nav.link-effect > ul.nav-menu{
         margin-top: 8px;
     }

@@ -228,17 +228,17 @@ function evolve_widget_text($args, $number = 1) {
 }
 
 class evolve_carousel_WP_Widget extends WP_Widget {
-
-    function __construct() {
+	
+    public function __construct() {
         $widget_ops = array(
             'classname' => 'carousel-slider',
             'description' => __('Insert your custom image slides', 'evolve')
         );
-        $control_ops = array('width' => 400, 'height' => 350);
-        parent::__construct('carousel-slider', __('evolve: Carousel Slider', 'evolve'), $widget_ops, $control_ops);
+
+        parent::__construct('carousel-slider', __('evolve: Carousel (Bootstrap) Slider', 'evolve'), $widget_ops);
     }
 
-    function widget($args, $instance) {
+    public function widget($args, $instance) {
         extract($args);
         $title = apply_filters('widget_title', empty($instance['title']) ? '' : $instance['title'], $instance, $this->id_base);
         $text = apply_filters('widget_text', empty($instance['text']) ? '' : $instance['text'], $instance);
@@ -247,12 +247,12 @@ class evolve_carousel_WP_Widget extends WP_Widget {
             echo $before_title . $title . $after_title;
         }
         ?>
-        <div class="textwidget"><?php echo!empty($instance['filter']) ? wpautop($text) : $text; ?></div>
+        <div class="textwidget"><?php echo !empty($instance['filter']) ? wpautop($text) : $text; ?></div>
         <?php
         echo $after_widget;
     }
 
-    function update($new_instance, $old_instance) {
+    public function update($new_instance, $old_instance) {
         $instance = $old_instance;
         $instance['title'] = strip_tags($new_instance['title']);
         if (current_user_can('unfiltered_html')) {
@@ -265,7 +265,7 @@ class evolve_carousel_WP_Widget extends WP_Widget {
         return $instance;
     }
 
-    function form($instance) {
+    public function form($instance) {
 
         $evolve_defaultslider = "<div id='myCarousel' class='carousel slide' data-ride='carousel'>
   
@@ -278,52 +278,52 @@ class evolve_carousel_WP_Widget extends WP_Widget {
 
 <div class='carousel-inner'>
 
-<div class='item active'>
-	<img src='" . get_template_directory_uri() . "/assets/images/bootstrap-slider/1.jpg' alt='' />
+<div class='carousel-item active'>
+	<img class='d-block w-100' src='" . get_template_directory_uri() . "/assets/images/bootstrap-slider/1.jpg' alt='' />
 	<div class='carousel-caption'>
-		<h4>Built-in Bootstrap Elements and Font Awesome let you do amazing things with your website</h4>
+		<h5>Built-in Bootstrap Elements and Font Awesome let you do amazing things with your website</h5>
 	</div>
 </div>
 
-<div class='item'>
-	<img src='" . get_template_directory_uri() . "/assets/images/bootstrap-slider/2.jpg' alt='' />
+<div class='carousel-item'>
+	<img class='d-block w-100' src='" . get_template_directory_uri() . "/assets/images/bootstrap-slider/2.jpg' alt='' />
 	<div class='carousel-caption'>
-		<h4>Easy to use control panel with a lot of options</h4> 
+		<h5>Easy to use control panel with a lot of options</h5> 
 	</div>
 </div>
 
-<div class='item'>
-	<img src='" . get_template_directory_uri() . "/assets/images/bootstrap-slider/3.jpg' alt='' />
+<div class='carousel-item'>
+	<img class='d-block w-100' src='" . get_template_directory_uri() . "/assets/images/bootstrap-slider/3.jpg' alt='' />
 	<div class='carousel-caption'>
-		<h4>Fully responsive theme for any device</h4>  
+		<h5>Fully responsive theme for any device</h5>  
 	</div>
 </div> 
 
-<div class='item'>
-	<img src='" . get_template_directory_uri() . "/assets/images/bootstrap-slider/4.jpg' alt='' />
+<div class='carousel-item'>
+	<img class='d-block w-100' src='" . get_template_directory_uri() . "/assets/images/bootstrap-slider/4.jpg' alt='' />
 	<div class='carousel-caption'>
-		<h4>Unlimited color schemes</h4> 
+		<h5>Unlimited color schemes</h5> 
 	</div>
 </div>
 
-</div><!--/.carousel-inner-->
-
-<a class='left carousel-control' href='#myCarousel' data-slide='prev'></a>
-
-<a class='right carousel-control' href='#myCarousel' data-slide='next'></a>
-
-</div><!--/#myCarousel-->";
+</div><!--/.carousel-inner--><a class='left carousel-control-prev' href='#myCarousel' data-slide='prev'></a><a class='right carousel-control-next' href='#myCarousel' data-slide='next'></a></div><!--/#myCarousel-->";
 
 
         $instance = wp_parse_args((array) $instance, array('title' => '', 'text' => $evolve_defaultslider));
         $title = strip_tags($instance['title']);
-        $text = esc_textarea($instance['text']);
+        $text = ($instance['text']);
+		$rand    = rand( 0, 999 );
+        $editor_id   = $this->get_field_id( 'evolve_wp_editor_' . $rand );
+		$editor_name = $this->get_field_name( 'evolve_wp_editor_' . $rand );
+		$settings = array(
+			'textarea_name' => $editor_name,
+		);
         ?>
         <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'evolve'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>"/>
         </p>
 
-        <textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
+        <?php wp_editor($text, $editor_id, $settings); ?>
 
         <?php
     }

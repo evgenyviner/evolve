@@ -74,7 +74,7 @@ if (empty($evolve_content_box_background_color)) {
 $evolve_css_data .= '@media (min-width: 768px) { .col-md-3.osmac { width: 24.95% !important; } .col-md-4.osmac { width: 33.3% !important; } .col-md-6.osmac { width: 49.95% !important; } }';
 	}	
 
-$evolve_css_data .= '.sticky-header .nav { float: left; } ul.nav-menu li.current-menu-item > a, ul.nav-menu li.current-menu-ancestor > a, ul.nav-menu li.current-menu-ancestor > a span, ul.nav-menu li.current-menu-item > a span, ul.nav-menu li a:active, ul.nav-menu li:active > a, ul.nav-menu li a:focus, ul.nav-menu li:focus > a, ul.nav-menu li a:hover, ul.nav-menu li:hover> a, ul.nav-menu li:hover, ul.nav-menu li a:hover span, ul.nav-menu li:hover> a span, ul.nav-menu li:hover> .sf-with-ul::after { color: ' . $evolve_top_menu_hover_font_color . '; }';
+$evolve_css_data .= '.sticky-header .nav { float: left; } ul.nav-menu li.current-menu-item > a, ul.nav-menu li.current-menu-ancestor > a, ul.nav-menu li.current-menu-ancestor > a span, ul.nav-menu li.current-menu-item > a span, ul.nav-menu li a:active, ul.nav-menu li:active > a, ul.nav-menu li a:focus, ul.nav-menu li:focus > a, ul.nav-menu li a:hover, ul.nav-menu li:hover> a, ul.nav-menu li:hover, ul.nav-menu li a:hover span, ul.nav-menu li:hover> a span, ul.nav-menu li:hover> .sf-with-ul::after, #search-text-top, #search_label_top, #search-text-top::placeholder { color: ' . $evolve_top_menu_hover_font_color . '; }';
 
 if (evolve_get_option('evl_main_menu_hover_effect', 'rollover') != 'disabled') {
     $menu_effect = evolve_get_option('evl_main_menu_hover_effect', 'smooth');
@@ -232,10 +232,10 @@ $evolve_css_data .= 'body #header.sticky-header img#logo-image { max-width: ' . 
     $evolve_css_data .= evolve_print_fonts('evl_content_font', '.entry-content', $additional_css = 'line-height:1.5em', $additional_color_css_class = 'body', $imp = '');
 
     //Menu blog title font
-    $evolve_css_data .= evolve_print_fonts('evl_menu_blog_title_font', '#sticky-logo a', $additional_css = 'letter-spacing:-.03em');
+    $evolve_css_data .= evolve_print_fonts('evl_menu_blog_title_font', '#sticky-logo a', '');
 
     //Main menu font
-    $evolve_css_data .= evolve_print_fonts('evl_menu_font', 'ul.nav-menu a, .menu-header, #wrapper .dd-container label, #wrapper .dd-container a, #wrapper .dd-container a.mean-expand');
+    $evolve_css_data .= evolve_print_fonts('evl_menu_font', 'ul.nav-menu a, .menu-header, #wrapper .dd-container label, #wrapper .dd-container a, #wrapper .dd-container a.mean-expand, #search-text-box #search_label_top span');
 
     //Top menu font
     $evolve_css_data .= evolve_print_fonts('evl_top_menu_font', '.new-top-menu ul.nav-menu a, .top-menu, #wrapper .new-top-menu .dd-container label, #wrapper .new-top-menu .dd-container a, .woocommerce-menu .cart > a, .woocommerce-menu .my-account > a');
@@ -310,7 +310,7 @@ $evolve_css_data .= 'ul.primary-menu-cont.nav-menu li:hover ul, ul.primary-menu-
 if ($bootstrap_100_background == '1') {
 
 } else {
-$evolve_css_data .= '#bootstrap-slider .carousel-inner .img-responsive { display: block; height: auto; width: 100%; }';
+$evolve_css_data .= '#bootstrap-slider .carousel-inner .w-100 { display: block; height: auto; width: 100%; }';
     }
 
 if ($evolve_pos_logo == "center") {
@@ -354,7 +354,7 @@ $evolve_css_data .= '#backtotop { left: 50%; }';
     }
 
 if ($evolve_custom_background == "1") {
-$evolve_css_data .= '#wrapper { position: relative; margin: 0 auto 30px auto; background: #f9f9f9; box-shadow: 0 0 3px rgba(0, 0, 0, .2); } #wrapper:before { -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.6); -moz-box-shadow: 0 0 9px rgba(0, 0, 0, 0.6); box-shadow: 0 0 9px rgba(0, 0, 0, 0.6); left: 30px; right: 30px; position: absolute; z-index: -1; height: 20px; bottom: 0px; content: ""; -webkit-border-radius: 100px / 10px; -moz-border-radius: 100px / 10px; border-radius: 100px / 10px; }';
+$evolve_css_data .= '#wrapper { margin: 0 auto 30px auto; background: #f9f9f9; box-shadow: 0 0 3px rgba(0, 0, 0, .2); } #wrapper:before { -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.6); -moz-box-shadow: 0 0 9px rgba(0, 0, 0, 0.6); box-shadow: 0 0 9px rgba(0, 0, 0, 0.6); left: 30px; right: 30px; position: absolute; z-index: -1; height: 20px; bottom: 0px; content: ""; -webkit-border-radius: 100px / 10px; -moz-border-radius: 100px / 10px; border-radius: 100px / 10px; }@media screen and (min-width: 767px) {#wrapper {position: relative; }}';
     }
 
 if ($evolve_widget_background == "1") {
@@ -437,22 +437,6 @@ if ( is_home() || is_front_page() ) {
 } elseif ($evolve_width_layout == "fluid" || is_page_template('100-width.php')) {
 $evolve_css_data .= 'body #header.sticky-header { margin: 0px; left: 0px; width: 100%; }';
     }
-
-if ( is_home() || is_front_page() ) {
-    if ($evolve_frontpage_width_layout == "fixed" && !is_page_template('100-width.php')) {
-        $evolve_css_data .= 'body #header.sticky-header { margin-left: 0px; }';
-    }  
-} elseif ($evolve_width_layout == "fixed" && !is_page_template('100-width.php')) {
-$evolve_css_data .= 'body #header.sticky-header { margin-left: 0px; }';
-    }
-
-if ( is_home() || is_front_page() ) {
-    if ($evolve_frontpage_width_layout == "fixed" && $evolve_menu_background == "1" && !is_page_template('100-width.php')) {
-        $evolve_css_data .= 'body #header.sticky-header { margin-left: 0px; }';
-    }  
-} elseif ($evolve_width_layout == "fixed" && $evolve_menu_background == "1" && !is_page_template('100-width.php')) {
-$evolve_css_data .= 'body #header.sticky-header { margin-left: 0px; }';
-}
 
 if (!empty($evolve_social_color)) {
 $evolve_css_data .= '#rss, #email-newsletter, #facebook, #twitter, #instagram, #skype, #youtube, #flickr, #linkedin, #plus, #pinterest, #tumblr { color: ' . $evolve_social_color . '; } .sc_menu li a { color: ' . $evolve_social_color . '; }';

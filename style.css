@@ -718,21 +718,21 @@ a:active {
     color: #76d898;
 }
 
-h1.entry-title a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
+.content h1 a,
+.content h2 a,
+.content h3 a,
+.content h4 a,
+.content h5 a,
+.content h6 a {
     color: #444649;
 }
 
-h1.entry-title a:hover,
-h2 a:hover,
-h3 a:hover,
-h4 a:hover,
-h5 a:hover,
-h6 a:hover {
+.content h1 a:hover,
+.content h2 a:hover,
+.content h3 a:hover,
+.content h4 a:hover,
+.content h5 a:hover,
+.content h6 a:hover {
     color: #76d898;
     text-decoration: none;
 }
@@ -1451,7 +1451,7 @@ textarea {
     -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.15) inset;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.15) inset;
     border: 1px solid #ddd;
-    background: #ffffff;
+    background: #fcfcfc;
 }
 
 #change_address input[type="text"],
@@ -1745,7 +1745,7 @@ input#submit:hover {
     margin: 0 auto;
     position: relative;
     z-index: 21;
-}	
+}
 
 .header #righttopcolumn {
     float: right;
@@ -1779,7 +1779,7 @@ input#submit:hover {
     margin-bottom: 0;
 }
 
-.header #sticky-logo {
+.menu-header-sticky #sticky-logo {
     position: relative;
     font: 400 25px 'Roboto', arial, sans-serif;
 }
@@ -1817,7 +1817,7 @@ input#submit:hover {
 }
 
 #wrapper .dd-container .dd-selected-text {
-    background: rgba(255, 255, 255, 0.5);    
+    background: rgba(255, 255, 255, 0.5);
     padding: 12px;
     cursor: pointer;
     line-height: 1;
@@ -2014,7 +2014,7 @@ p#copyright .credits a {
     clear: right;
     position: relative;
     z-index: 0;
-	margin: 0;
+    margin: 0;
 }
 
 #search-text-box {
@@ -2059,7 +2059,6 @@ p#copyright .credits a {
     float: left;
     width: 240px;
     z-index: 0;
-    background: rgba(255, 255, 255, 0.7);
     font-weight: normal;
     left: 0;
     height: 50px;
@@ -2100,7 +2099,6 @@ p#copyright .credits a {
 #search-text-top:focus {
     text-indent: 1px;
     background-color: rgba(0, 0, 0, .1);
-    color: #888;
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -2114,7 +2112,7 @@ p#copyright .credits a {
     top: 0;
     width: 50px;
     font-size: 14px;
-	padding: 15px;
+    padding: 15px;
 }
 
 #search-button-box {
@@ -2160,7 +2158,6 @@ p#copyright .credits a {
 #search-text-box #search_label,
 #search-text-box #search_label_top {
     float: left;
-    margin: 0 0 10px 0;
     position: relative;
     z-index: 12;
 }
@@ -2173,14 +2170,11 @@ p#copyright .credits a {
 
 #search-text-box #search_label span,
 #search-text-box #search_label_top span {
-    color: #aaa;
-    left: -3px;
+    left: 0px;
     cursor: text;
     display: block;
-    font-size: 13px;
-    height: 40px;
-    margin-bottom: -40px;
-    top: 10px;
+    font-size: 15px;
+    height: 50px;
     padding: 0 12px;
     position: relative;
     z-index: 10;
@@ -2217,7 +2211,7 @@ p#copyright .credits a {
     top: 0;
     width: 50px;
     font-size: 14px;
-	padding: 15px;
+    padding: 15px;
 }
 
 #search-stickyfix {
@@ -3679,21 +3673,21 @@ a.post-edit-link:before {
 }
 
 @media screen and (max-width: 575px) {
-	#wrapper .primary-menu .link-effect .dd-select a,
-    #wrapper .dd-container	{
-		text-align: center;
-	}
+    #wrapper .primary-menu .link-effect .dd-select a,
+    #wrapper .dd-container {
+        text-align: center;
+    }
     .menu-header #search-text-box {
         margin-top: 30px;
-    }	
-} 
+    }
+}
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
     #wrapper .primary-menu .link-effect .dd-select a,
-    #wrapper .dd-container	{
+    #wrapper .dd-container {
         text-align: left;
     }
-}	
+}
 
 @media screen and (max-width: 768px) {
     .sc_menu li {
@@ -3843,6 +3837,9 @@ a.post-edit-link:before {
     #wrapper .primary-menu .link-effect a {
         line-height: 1;
         vertical-align: top;
+    }
+    #wrapper .dd-options {
+        margin-top: 10px;
     }
 }
 
@@ -4161,10 +4158,6 @@ body #header.sticky-header img#logo-image {
 body #header.sticky-header .nav ul.nav-menu ul li a {
     padding-top: 3px;
     padding-bottom: 3px;
-}
-
-body #header.sticky-header .logo-url-text {
-    margin-top: 10px;
 }
 
 #wrapper .dd-container .dd-select {
@@ -5540,7 +5533,7 @@ ul#slides {
         width: 100%;
     }
     #slide_holder .featured-thumbnail::before {
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.7);
         content: "";
         display: inline-block;
         height: 100%;
@@ -5552,8 +5545,8 @@ ul#slides {
         border: none;
     }
     #slide_holder .post-more {
-        bottom: 20px;
-        left: 15px;
+        bottom: 35px;
+        left: 35px;
         margin: 0;
     }
     #slide_holder p,
@@ -5561,8 +5554,11 @@ ul#slides {
         float: none;
         left: 0;
         width: 100%;
-        padding: 0 15px;
+        padding: 0 35px;
     }
+	#slide_holder .featured-title {
+		padding: 35px 35px 0 35px;
+	}
     .widget-title {
         margin: 0;
         padding: 0;
@@ -7403,6 +7399,17 @@ p.order-info mark {
 .col2-set div.woocommerce-Address {
     float: left;
     width: 50%;
+}
+
+.woocommerce-store-notice {
+    background: #273039;
+    color: #fff;
+    padding: 1em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
 }
 
 

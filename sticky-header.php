@@ -1,4 +1,4 @@
-<header id="header" class="sticky-header 
+<header id="header" class="sticky-header"> 
 <?php
 $evolve_width_layout = evolve_get_option('evl_width_layout', 'fixed');
 $evolve_frontpage_width_layout = evolve_get_option('evl_frontpage_width_layout', 'fixed');
@@ -6,16 +6,8 @@ $evolve_pos_logo = evolve_get_option('evl_pos_logo', 'left');
 $evolve_header_logo = evolve_get_option('evl_header_logo', '');
 $evolve_blog_title = evolve_get_option('evl_blog_title', '0');
 $evolve_searchbox_sticky_header = evolve_get_option('evl_searchbox_sticky_header', '1');
-
-if (is_home() || is_front_page()) {
-    if ($evolve_frontpage_width_layout == "fixed") {
-        echo "container row align-items-center";
-    }
-} elseif ($evolve_width_layout == "fixed") {
-    echo "container row align-items-center";
-}
-?>">
-
+?>
+<div class="container">
     <div class="row align-items-center">
         <?php
         if ($evolve_pos_logo == "disable") {
@@ -67,4 +59,5 @@ if (is_home() || is_front_page()) {
             <!--END #searchform-->
         <?php } ?>
     </div>
+	</div>
 </header>

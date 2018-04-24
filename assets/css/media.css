@@ -31,7 +31,7 @@
         float: left;
         width: 98%;
         padding: 0 0 20px 0;
-    }    
+    }
     .copyright {
         float: none;
         padding: 0 0 15px;
@@ -42,25 +42,24 @@
         text-align: center;
         max-width: 100%;
     }
-   
-    .copyright:after{
+    .copyright:after {
         content: "";
         display: block;
         clear: both;
-    }    
+    }
     .copyright li {
         float: none;
         display: inline-block;
     }
     .continue {
         display: none;
-    }    
+    }
     .page-title {
         width: auto;
         padding-left: 10px;
         padding-right: 10px;
         padding-top: 18px;
-    }    
+    }
     .page-title h1 {
         float: none;
     }
@@ -69,7 +68,7 @@
         text-align: center;
         padding-top: 0;
         line-height: 11px;
-    }    
+    }
     #header {
         padding: 20px;
     }
@@ -150,10 +149,10 @@
     }
     .pagination {
         margin-top: 40px;
-    }    
+    }
     h5.toggle span.toggle-title {
         width: 80%;
-    }    
+    }
     .page-title h1 {
         margin-top: 0;
         margin-bottom: 5px;
@@ -188,14 +187,14 @@
     .project-content .project-description,
     .project-content .project-info {
         width: 100%;
-    }    
+    }
     #style_selector {
         display: none;
-    }    
+    }
     .faq-tabs {
         height: auto;
         border-bottom: 0;
-    }    
+    }
     .faq-tabs li {
         float: none;
         margin-right: 0;
@@ -214,7 +213,7 @@
     nav#nav,
     nav#sticky-nav {
         margin-right: 0;
-    }    
+    }
     .rev_slider .button,
     .ls-layer .button {
         min-height: 0;
@@ -239,9 +238,9 @@
     #gmap {
         width: 100%;
         margin-bottom: 20px;
-    }    
+    }
     #wrapper .top-menu .dd-container .dd-select,
-    .woocommerce-menu .dd-select{
+    .woocommerce-menu .dd-select {
         width: auto!important;
         display: inline-block;
     }
@@ -251,16 +250,13 @@
     .header .woocommerce-menu li {
         margin-bottom: 0;
     }
-    #wrapper .mean-container .mean-nav ul li a{
+    #wrapper .mean-container .mean-nav ul li a {
         line-height: 1;
     }
-    .menu-header #search-text-box{
-        
-    }
-    .dd-option label{
+    .menu-header #search-text-box {}
+    .dd-option label {
         margin-bottom: 0;
     }
-
     #wrapper .ei-slider {
         width: 100%;
     }
@@ -269,7 +265,7 @@
     }
     #wrapper .ei-slider {
         height: 200px;
-    }    
+    }
     .large-alternate .post-content {
         width: 100%;
         margin-top: 10px;
@@ -464,29 +460,13 @@
     }
     #wrapper .page-title-container {
         max-height: inherit;
-    }    
+    }
     #reviews li .avatar {
         width: calc(20% - 20px);
     }
     #reviews li .comment-text {
         width: calc(81% - 20px);
     }
-}
-
-@media screen and (max-width: 782px) {
-    body.admin-bar #wrapper #slidingbar-area,
-    .admin-bar p.demo_store,
-    body.admin-bar #header.sticky-header {
-        top: 46px;
-    }
-    body.body_blank.admin-bar {
-        top: 45px;
-    }
-    /* in the Theme Check we cannot use this as it fails, find better solution
-	html #wp_adminbar {
-        z-index: 9999999;
-        position: fixed;
-    } */
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
@@ -526,30 +506,30 @@
         float: left;
         width: 98%;
         padding: 0 2% 20px 0;
-    }    
+    }
     .copyright {
         float: none;
         padding: 0 0 15px;
         text-align: center;
     }
-    .copyright:after{
+    .copyright:after {
         content: "";
         display: block;
         clear: both;
-    }    
+    }
     .copyright li {
         float: none;
         display: inline-block;
     }
     .continue {
         display: none;
-    }   
+    }
     .page-title {
         width: auto;
         padding-left: 10px;
         padding-right: 10px;
         padding-top: 18px;
-    }    
+    }
     .page-title h1 {
         float: none;
     }
@@ -632,10 +612,10 @@
     }
     .pagination {
         margin-top: 40px;
-    }    
+    }
     h5.toggle span.toggle-title {
         width: 80%;
-    }    
+    }
     .page-title h1 {
         margin-top: 0;
         margin-bottom: 5px;
@@ -645,7 +625,7 @@
         float: none;
         line-height: normal;
         width: 100%;
-    }    
+    }
     .project-content .project-description {
         margin-bottom: 50px;
         float: none;
@@ -653,14 +633,14 @@
     .project-content .project-description,
     .project-content .project-info {
         width: 100%;
-    }    
+    }
     #style_selector {
         display: none;
-    }    
+    }
     .faq-tabs {
         height: auto;
         border-bottom: 0;
-    }    
+    }
     .faq-tabs li {
         float: none;
         margin-right: 0;
@@ -679,7 +659,7 @@
     nav#nav,
     nav#sticky-nav {
         margin-right: 0;
-    }    
+    }
     .footer-area .flickr_badge_image img,
     #slidingbar-area .flickr_badge_image img {
         max-width: 64px;
@@ -714,7 +694,7 @@
     }
     #wrapper .ei-slider {
         height: 200px;
-    }    
+    }
     .content-boxes-icon-boxed .col {
         height: auto;
         padding-bottom: 20px;
@@ -775,7 +755,7 @@
     }
     .buttons a {
         margin-right: 5px;
-    }    
+    }
     .post-content .rev_slider_wrapper {
         margin-left: -5px;
     }
@@ -842,7 +822,7 @@
     .timeline-layout .meta-info .alignright {
         float: right;
     }
-    #main,    
+    #main,
     .footer-area,
     #footer,
     #slidingbar {
@@ -927,7 +907,7 @@
     }
     body #small-nav {
         visibility: visible;
-    }    
+    }
     #bbpress-forums #bbp-single-user-details #bbp-user-avatar img.avatar {
         width: 80px;
         height: 80px;
@@ -944,7 +924,7 @@
     #bbpress-forums #bbp-single-user-details #bbp-user-navigation .second-col {
         margin-left: 53%;
         width: 47%;
-    }    
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -981,7 +961,7 @@
     }
 }
 
-@media only screen and (max-width: 505px) {  
+@media only screen and (max-width: 505px) {
     #reviews li .avatar {
         float: none;
         margin: auto;
@@ -1004,12 +984,12 @@
     #reviews li .comment-text .meta {
         float: none;
     }
-    .image .image-extras .image-extras-content .icon{
+    .image .image-extras .image-extras-content .icon {
         height: 40px;
         margin: 0 4px;
         width: 40px;
     }
-    .image .image-extras .image-extras-content .icon::before{
+    .image .image-extras .image-extras-content .icon::before {
         font-size: 14px;
         left: 50%;
         line-height: 1;
@@ -1019,11 +999,10 @@
         -webkit-transform: translate(-50%, -50%);
     }
     .content .image .image-extras .image-extras-content h3,
-    .content .image .image-extras .image-extras-content h3 a{
+    .content .image .image-extras .image-extras-content h3 a {
         font-size: 14px;
     }
 }
-
 
 @media only screen and (max-width: 768px) {
     .link-effect .dd-container .dd-select,

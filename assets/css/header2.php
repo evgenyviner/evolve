@@ -170,8 +170,13 @@ ul.woocommerce-menu ul a {
     padding: 15px 13px;
     width: 190px;
 }
-#search-text-box #search_label_top .srch-btn {
-    width: 182px;
+#search-text-box #search_label_top .srch-btn,
+#search-text-top:focus {
+    width: 270px;
+}
+
+#search-text-top:focus {
+	padding-right: 70px;
 }
 
 #search-text-box #search_label_top .srch-btn::before {
@@ -179,13 +184,15 @@ ul.woocommerce-menu ul a {
     content: "\f0d9";
     cursor: pointer;
     font-family: icomoon;
-    font-size: 18px !important;
+    font-size: 22px !important;
     font-weight: normal;
     position: absolute;
-    right: 47px !important;
+    right: 53px;
     text-align: center;
-    top: -5px !important;
     width: 3px;
+	top: 0;
+	line-height: 50px;
+	height: 50px;
 }
 
 #search-text-box #search_label_top .srch-btn::after {
@@ -197,34 +204,29 @@ ul.woocommerce-menu ul a {
     font-family: icomoon;
     font-size: 18px !important;
     font-weight: normal;
-    line-height: 35px;
     position: absolute;
-    right: 7px !important;
+    right: 0;
     text-align: center;
-    top: -10px !important;
-    width: 38px;
+    top: 0px !important;
+    width: 50px;
+	line-height: 50px;
+	height: 50px;
 }
 
 #search-text-top {
-    background: #fff none repeat scroll 0 0 !important;
-    border: 1px solid #273039 !important;
-    border-radius: 4px !important;
-    color: #757575 !important;
+    background: rgba(0, 0, 0, .1);
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 4px;
     float: right !important;
     font-family: Roboto !important;
-    font-size: 14px;
     font-weight: 500;
     text-indent: 1px !important;
-    height: 35px;
-    padding: 0 0 0 10px !important;
+    height: 50px;
+    padding: 0 70px 0 25px !important;
     position: relative;
     transition: all 0.5s ease 0s;
-    width: 220px !important;
-}
-
-#search_label_top {
-    margin-top: 5px !important;
-    color: #888;
+    width: 270px;
+	font-size: 15px;
 }
 
 div#search-text-box {
@@ -274,13 +276,21 @@ div#search-text-box {
 /*responsive*/
 
 @media only screen and (max-width: 768px) {
+    #search-text-box #search_label_top {
+        width: 270px;
+	}	
     .searchform {
         clear: both;
         float: none;
     }
-    .sc_menu {
+    .sc_menu,
+    #wrapper .primary-menu .link-effect .dd-select a, 
+    #wrapper .dd-container	{
         text-align: center;
     }
+	#wrapper .dd-container {
+		margin: 25px 0 20px 0;
+	}
     .woocommerce-menu {
         float: none;
         margin-right: 0;

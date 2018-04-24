@@ -156,7 +156,11 @@ ul.nav-menu li:hover> a,
 ul.nav-menu li:hover,
 ul.nav-menu li a:hover span,
 ul.nav-menu li:hover> a span,
-ul.nav-menu li:hover> .sf-with-ul::after {
+ul.nav-menu li:hover> .sf-with-ul::after,
+#search-text-top, 
+#search-text-box #search_label_top span,
+#search_label_top,
+#search-text-top::placeholder {
     color: ' . $evolve_top_menu_hover_font_color . ';
 }
 ';
@@ -1508,7 +1512,7 @@ body #header.sticky-header img#logo-image {
     $evolve_css_data .= evolve_print_fonts('evl_menu_blog_title_font', '#sticky-logo a', $additional_css = 'letter-spacing:-.03em');
 
     //Main menu font
-    $evolve_css_data .= evolve_print_fonts('evl_menu_font', 'ul.nav-menu a, .menu-header, #wrapper .dd-container label, #wrapper .dd-container a, #wrapper .dd-container a.mean-expand');
+    $evolve_css_data .= evolve_print_fonts('evl_menu_font', 'ul.nav-menu a, .menu-header, #wrapper .dd-container label, #wrapper .dd-container a, #wrapper .dd-container a.mean-expand, #search-text-box #search_label_top span');
 
     //Top menu font
     $evolve_css_data .= evolve_print_fonts('evl_top_menu_font', '.new-top-menu ul.nav-menu a, .top-menu, #wrapper .new-top-menu .dd-container label, #wrapper .new-top-menu .dd-container a, .woocommerce-menu .cart > a, .woocommerce-menu .my-account > a');
@@ -1594,7 +1598,7 @@ if ($bootstrap_100_background == '1') {
 
 } else {
 $evolve_css_data .= '
-#bootstrap-slider .carousel-inner .img-responsive {
+#bootstrap-slider .carousel-inner .w-100 {
     display: block;
     height: auto;
     width: 100%;
@@ -1734,7 +1738,6 @@ $evolve_css_data .= '
 if ($evolve_custom_background == "1") {
 $evolve_css_data .= '
 #wrapper {
-    position: relative;
     margin: 0 auto 30px auto;
     background: #f9f9f9;
     box-shadow: 0 0 3px rgba(0, 0, 0, .2);
@@ -1755,7 +1758,13 @@ $evolve_css_data .= '
     -moz-border-radius: 100px / 10px;
     border-radius: 100px / 10px;
 }
-';
+
+@media screen and (min-width: 767px) {
+	#wrapper {
+		position: relative;
+	}
+}	
+	';
     }
 
 if ($evolve_widget_background == "1") {
