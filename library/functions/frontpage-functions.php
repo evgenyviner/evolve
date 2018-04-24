@@ -270,10 +270,15 @@ function evolve_testimonials() {
     $html .= "<div class='t4p-testimonials t4p-testimonials-$testimonials_counter'>$styles".$evolve_testimonials_section_title."<div class='reviews'>";
     for ($i = 1; $i <= 2; $i ++) {
         $enabled = $evolve_options["evl_fp_testimonial{$i}"];
+		// var_dump($evolve_options);
+		// exit;
         if ($enabled == 1) {
             $name  = $evolve_options["evl_fp_testimonial{$i}_name"];
             $avatar = 'image';
-            $image = $evolve_options["evl_fp_testimonial{$i}_avatar"]['url'];
+			$image = $evolve_options["evl_fp_testimonial{$i}_avatar"];
+			if(isset( $evolve_options["evl_fp_testimonial{$i}_avatar"]['url'])){
+				$image = $evolve_options["evl_fp_testimonial{$i}_avatar"]['url'];
+			}
             $company = '';
             $link = '';
             $target = '';

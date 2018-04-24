@@ -25,11 +25,33 @@ function endsWith($haystack,$needle,$case=true)
 
     return strripos($haystack, $needle, 0) === $expectedPosition;
 }
+function binmaocom_fix_get_theme_mod($array_in){
+	if(count($array_in)){
+		$enabled_temp = array();
+		foreach($array_in as $items){
+			$enabled_temp[$items] = $items;
+		}
+		return $enabled_temp;
+	}
+	return $array_in;
+}
+global $bi_all_customize_fields;
+$bi_all_customize_fields = get_option('bi_all_customize_fields', false);
 function evolve_get_option($name, $default = false) {
+	global $bi_all_customize_fields;
+	if($default == false){
+		if($bi_all_customize_fields === false && isset($bi_all_customize_fields[$name]) && isset($bi_all_customize_fields[$name]['default'])){
+			$default = $bi_all_customize_fields[$name]['default'];
+		}
+	}
 	$result = get_theme_mod($name, $default);
-	if(is_string($name) && endsWith($name, '_icon')){
+	if($result && is_array($result) && isset($bi_all_customize_fields[$name]) && isset($bi_all_customize_fields[$name]['value']['type']) && $bi_all_customize_fields[$name]['value']['type'] == 'sorter'){
+		$result = binmaocom_fix_get_theme_mod($result);
+	}
+	if($result && is_string($name) && endsWith($name, '_icon')){
 		$result = 'fa-'.$result;
 	}
+	
 	return $result;
     $config = get_option('evolve');
 
