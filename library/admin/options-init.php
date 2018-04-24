@@ -9,6 +9,12 @@ class Binmaocom_Fix_Rd{
 	static function setSection($param1, $param2){
 		global $name_of_panel, $bi_all_customize_fields;
 		if(isset($param2['fields']) && is_array($param2['fields']) && count($param2['fields'])){
+			if(!isset($param2['subsection'])){
+				$name_of_panel = $param2['id'];
+				Kirki::add_panel( $param2['id'], array(
+					'title'         => $param2['title']
+				) );
+			}
 			Kirki::add_section( $param2['id'], array(
 				'title'         => $param2['title'],
 				'panel'         => $name_of_panel
@@ -3751,11 +3757,17 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     ),
         )
 );
-
+// Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+    // 'id' => 'evl-pagetitlebar-tab',
+    // 'title' => __('Page Title / Breadcrumbs / Page Title Bar', 'evolve'),
+    // 'icon' => 't4p-icon-titlebar',
+	// )
+// );
 Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-pagetitlebar-tab',
     'title' => __('Page Title / Breadcrumbs / Page Title Bar', 'evolve'),
     'icon' => 't4p-icon-titlebar',
+	// 'subsection' => true,
     'fields' => array(
         array(
             'subtitle' => __('Check this box if you want to enable breadcrumbs navigation', 'evolve'),
