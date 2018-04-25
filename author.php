@@ -53,7 +53,7 @@ endif;
         if (($evolve_nav_links == "before") || ($evolve_nav_links == "both")) {
             ?>
             <span class="nav-top">
-                <?php get_template_part('navigation', 'index'); ?>
+                <?php get_template_part('template-parts/navigation', 'index'); ?>
             </span>
             <?php
         } else {
@@ -194,7 +194,7 @@ endif;
 
             endwhile;
 
-            get_template_part('navigation', 'index');
+            get_template_part('template-parts/navigation', 'index');
 
         endif;
         ?>
@@ -207,7 +207,7 @@ endif;
         if (($evolve_nav_links == "before") || ($evolve_nav_links == "both")) {
             ?>
             <span class="nav-top">
-                <?php get_template_part('navigation', 'index'); ?>
+                <?php get_template_part('template-parts/navigation', 'index'); ?>
             </span>
 
             <?php
@@ -385,7 +385,7 @@ endif;
             endwhile;
 
             if (($evolve_nav_links == "") || ($evolve_nav_links == "after") || ($evolve_nav_links == "both")) {
-                get_template_part('navigation', 'index');
+                get_template_part('template-parts/navigation', 'index');
             } else {
                 
             }

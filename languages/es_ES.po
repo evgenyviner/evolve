@@ -23,7 +23,7 @@ msgid "This post is password protected. Enter the password to view comments."
 msgstr "Este art&iacute;culo esta protegido por contrase&ntilde;a. Introduzca la contrase&ntilde;a para ver los comentarios."
 
 # @ evolve
-#: comments.php:49 library/functions/comments.php:28
+#: comments.php:49 library/custom-functions/comments.php:28
 msgid "No Comments Yet"
 msgstr "No se han encontrado comentarios"
 
@@ -552,13 +552,13 @@ msgstr "Deja tu cometario"
 
 # @ evolve
 #: index.php:68 index.php:216 index.php:531 index.php:649
-#: library/functions/comments.php:29
+#: library/custom-functions/comments.php:29
 msgid "1 Comment"
 msgstr "!  Comentario"
 
 # @ evolve
 #: index.php:68 index.php:216 index.php:531 index.php:649
-#: library/functions/comments.php:27
+#: library/custom-functions/comments.php:27
 msgid "% Comments"
 msgstr "% Comentarios"
 
@@ -568,11 +568,11 @@ msgid "<strong>Pages:</strong>"
 msgstr "<strong>Páginas:</strong>"
 
 # @ evolve
-#: library/functions/comments.php:33
+#: library/custom-functions/comments.php:33
 msgid "% Trackbacks"
 msgstr ""
 
 # @ evolve
-#: library/functions/comments.php:35
+#: library/custom-functions/comments.php:35
 msgid "1 Trackback"
 msgstr ""

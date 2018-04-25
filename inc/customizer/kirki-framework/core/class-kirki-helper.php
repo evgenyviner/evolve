@@ -235,7 +235,7 @@ class Kirki_Helper {
 	 *
 	 * @static
 	 * @access public
-	 * @param string|array $taxonomies See https://developer.wordpress.org/reference/functions/get_terms/ for details.
+	 * @param string|array $taxonomies See https://developer.wordpress.org/reference/custom-functions/get_terms/ for details.
 	 * @return array
 	 */
 	public static function get_terms( $taxonomies ) {

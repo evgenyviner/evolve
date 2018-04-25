@@ -22,7 +22,7 @@ msgstr ""
 "коментарите."
 
 #: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/comments.php:55
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/comments.php:28
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/comments.php:28
 msgid "No Comments Yet"
 msgstr "Нема коментари"
 
@@ -128,7 +128,7 @@ msgstr "Остави коментар"
 #: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:230
 #: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:522
 #: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:640
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/comments.php:29
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/comments.php:29
 msgid "1 Comment"
 msgstr "1 коментар"
 
@@ -138,7 +138,7 @@ msgstr "1 коментар"
 #: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:230
 #: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:522
 #: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:640
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/comments.php:27
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/comments.php:27
 msgid "% Comments"
 msgstr "% коментари"
 
@@ -277,48 +277,48 @@ msgstr "Сите коментари"
 msgid "Bootstrap Examples"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/basic-functions.php:114
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:114
 msgid "Primary Menu"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/basic-functions.php:158
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:158
 msgid "<div class=\"similar-posts\"><h5>Similar posts</h5><ul>"
 msgstr "<div class=\"similar-posts\"><h5>Слични објави</h5><ul>"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/basic-functions.php:455
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:455
 #, php-format
 msgid "Page %s"
 msgstr "Страни %s"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/basic-functions.php:476
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:476
 msgid "Share on Twitter"
 msgstr "Сподели на Twitter"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/basic-functions.php:477
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:477
 msgid "Share on Facebook"
 msgstr "Сподели на FaceBook"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/basic-functions.php:478
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:478
 msgid "Share on Google Plus"
 msgstr "Сподели на Google+"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/basic-functions.php:479
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:479
 msgid "Share on Pinterest"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/basic-functions.php:480
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:480
 msgid "Share by Email"
 msgstr "Сподели по e-mail"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/basic-functions.php:481
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:481
 msgid "More options"
 msgstr "повеќе опции"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/basic-functions.php:919
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:919
 msgid "Home"
 msgstr "Дома"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/basic-functions.php:974
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:974
 msgid "404 - Page not Found"
 msgstr ""
 "404... Охх, како сега да ти кажам... нешто не чини, мора да е до тебе зошто "
@@ -326,103 +326,103 @@ msgstr ""
 "се надевам дека администраторов тука ќе го реши проблемов наскоро. Имај убав "
 "ден!"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/basic-functions.php:975
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:975
 msgid "Search"
 msgstr "Пребарај"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/basic-functions.php:1046
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:1046
 msgid "Read more"
 msgstr "Прочитај повеќе"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/basic-functions.php:1054
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:1054
 msgid ""
 "<h2 style=\"color:#fff;\">Oops, no posts to display! Please check your post "
 "slider Category (ID) settings</h2>"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/comments.php:33
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/comments.php:33
 msgid "% Trackbacks"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/comments.php:35
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/comments.php:35
 msgid "1 Trackback"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:70
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:70
 msgid "evolve Setting Import / Export"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:70
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:99
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:70
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:99
 msgid "evolve Backup"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:101
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:101
 msgid "Import Settings"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:102
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:102
 msgid ""
 "If you have settings in a backup file on your computer, the Import / Export "
 "system can import those into this site. To get started, upload your backup "
 "file to import from below."
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:107
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:107
 #, php-format
 msgid "Upload File: (Maximum Size: %s)"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:110
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:110
 msgid "Upload File and Import"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:115
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:115
 msgid "Export Settings"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:116
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:116
 msgid ""
 "When you click the button below, the Import / Export system will create a "
 "text file for you to save to your computer."
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:117
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:117
 #, php-format
 msgid ""
 "This text file can be used to restore your settings here on \"%s\", or to "
 "easily setup another website with the same settings\"."
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:121
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:121
 msgid "Download Export File"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:142
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:142
 msgid "Backup Manager"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:143
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:143
 msgid "Welcome to the evolve Backup Manager."
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:144
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:144
 msgid "Here are a few notes on using this screen."
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:145
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:145
 msgid ""
 "The backup manager allows you to backup or restore your \"Theme Options\" "
 "and other settings to or from a text file."
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:146
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:146
 msgid ""
 "To create a backup, simply select the setting type you'd like to backup (or "
 "\"All Settings\") and hit the \"Download Export File\" button."
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:147
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:147
 msgid ""
 "To restore your settings from a backup, browse your computer for the file "
 "(under the \"Import Settings\" heading) and hit the \"Upload File and Import"
@@ -430,13 +430,13 @@ msgid ""
 "backup."
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:148
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:148
 msgid ""
 "Please note that only valid backup files generated through the evolve Backup "
 "Manager should be imported."
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:167
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:167
 #, php-format
 msgid ""
 "Please note that this backup manager backs up only your settings and not "
@@ -444,78 +444,78 @@ msgid ""
 "%s."
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:170
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:170
 msgid "There was a problem importing your settings. Please Try again."
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:172
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:172
 msgid "There was a problem exporting your settings. Please Try again."
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:174
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:174
 msgid "The import file you've provided is invalid. Please try again."
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-backup.php:176
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:176
 #, php-format
 msgid "Settings successfully imported. | Return to %sTheme Options%s"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-framework.php:317
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-framework.php:317
 msgid ""
 "<div id=\"t4p-popup-reset\" class=\"t4p-save-popup\"><div class=\"t4p-save-"
 "reset\">Options Reset</div></div>"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-framework.php:358
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-framework.php:358
 msgid ""
 "<div id=\"t4p-popup-save\" class=\"t4p-save-popup\"><div class=\"t4p-save-"
 "reset\">Options Updated</div></div>"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-framework.php:416
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-framework.php:416
 msgid "Theme Options"
 msgstr "Опции на Темата"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-medialibrary-uploader.php:18
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-medialibrary-uploader.php:18
 msgid "Options Framework Internal Container"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-medialibrary-uploader.php:81
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-medialibrary-uploader.php:81
 msgid "Upload"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-medialibrary-uploader.php:104
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-medialibrary-uploader.php:104
 msgid "View File"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-medialibrary-uploader.php:241
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-medialibrary-uploader.php:241
 msgid "Gallery"
 msgstr "Галерија"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/options-medialibrary-uploader.php:241
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-medialibrary-uploader.php:241
 msgid "Previously Uploaded"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/tabs-widget.php:129
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/tabs-widget.php:129
 msgid "says"
 msgstr "вели"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/widgets.php:27
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/widgets.php:27
 msgid ""
 "You are using one column layout. Please visit theme settings page and change "
 "layout to enable sidebar widgets. Widgets placed on this area won't be "
 "active."
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/widgets.php:231
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/widgets.php:231
 msgid "Insert your custom image slides"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/widgets.php:233
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/widgets.php:233
 msgid "evolve: Carousel Slider"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/library/functions/widgets.php:317
+#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/widgets.php:317
 msgid "Title:"
 msgstr "Наслов:"

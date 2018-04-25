@@ -46,7 +46,7 @@ endif;
         if (($evolve_nav_links == "before") || ($evolve_nav_links == "both")) {
             ?>
             <span class="nav-top">
-                <?php get_template_part('navigation', 'index'); ?>
+                <?php get_template_part('template-parts/navigation', 'index'); ?>
             </span>
             <?php
         } else {
@@ -197,7 +197,7 @@ endif;
                 </div><!--END .row-->
 
                 <?php
-                get_template_part('navigation', 'index');
+                get_template_part('template-parts/navigation', 'index');
 
             else :
 
@@ -255,7 +255,7 @@ endif;
     if (($evolve_nav_links == "before") || ($evolve_nav_links == "both")) {
         ?>
         <span class="nav-top">
-            <?php get_template_part('navigation', 'index'); ?>
+            <?php get_template_part('template-parts/navigation', 'index'); ?>
         </span>
 
         <div class="t4p-row">
@@ -442,7 +442,7 @@ endif;
             <?php
             if (($evolve_nav_links == "") || ($evolve_nav_links == "after") || ($evolve_nav_links == "both")) {
 
-                get_template_part('navigation', 'index');
+                get_template_part('template-parts/navigation', 'index');
             } else {
                 
             }

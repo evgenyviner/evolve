@@ -452,10 +452,10 @@ msgstr "Archiwa"
 msgid "Meta"
 msgstr "Meta"
 
-#: ../evolve/library/functions/comments.php:33
+#: ../evolve/inc/custom-functions/comments.php:33
 msgid "% Trackbacks"
 msgstr "% Trackbacków"
 
-#: ../evolve/library/functions/comments.php:35
+#: ../evolve/inc/custom-functions/comments.php:35
 msgid "1 Trackback"
 msgstr "1 Trackback"

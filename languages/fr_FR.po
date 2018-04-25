@@ -22,12 +22,12 @@ msgstr ""
 #: content-blog.php:83 content-blog.php:252 content-blog.php:273 index.php:95
 #: index.php:115 index.php:271 index.php:289 page.php:58 search.php:93
 #: search.php:115 search.php:297 search.php:319 single.php:66 single.php:99
-#: single.php:118 library/functions/pluggable.php:104
+#: single.php:118 library/custom-functions/pluggable.php:104
 msgid "EDIT"
 msgstr "MODIFIER"
 
-#: 404.php:47 library/functions/basic-functions.php:2370
-#: library/functions/basic-functions.php:3673
+#: 404.php:47 library/custom-functions/basic-functions.php:2370
+#: library/custom-functions/basic-functions.php:3673
 msgid "404 - Page not Found"
 msgstr "404 - Page non trouvée"
 
@@ -70,12 +70,12 @@ msgstr "F Y"
 msgid "Yearly archives for"
 msgstr "Archives annuelles pour"
 
-#: archive.php:60 library/functions/basic-functions.php:3682
+#: archive.php:60 library/custom-functions/basic-functions.php:3682
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr "Y"
 
-#: archive.php:66 library/admin/options-init.php:4245
+#: archive.php:66 inc/customizer/options-init.php:4245
 msgid "Posts in category"
 msgstr "Articles dans la catégorie"
 
@@ -91,7 +91,7 @@ msgstr "Ecrit par"
 
 #: archive.php:203 archive.php:378 author.php:184 author.php:358
 #: content-blog.php:161 content-blog.php:332 index.php:181 index.php:348
-#: search.php:170 search.php:374 library/functions/basic-functions.php:2457
+#: search.php:170 search.php:374 library/custom-functions/basic-functions.php:2457
 msgid "Read More"
 msgstr "Lire plus"
 
@@ -104,14 +104,14 @@ msgstr "Laisser un commentaire"
 #: archive.php:206 archive.php:279 attachment.php:69 author.php:187
 #: author.php:259 content-blog.php:164 content-blog.php:235 index.php:184
 #: index.php:251 search.php:174 search.php:278 single.php:80
-#: library/functions/comments.php:30
+#: library/custom-functions/comments.php:30
 msgid "1 Comment"
 msgstr "1 Commentaire"
 
 #: archive.php:206 archive.php:279 attachment.php:69 author.php:187
 #: author.php:259 content-blog.php:164 content-blog.php:235 index.php:184
 #: index.php:251 search.php:174 search.php:278 single.php:80
-#: library/functions/comments.php:28
+#: library/custom-functions/comments.php:28
 msgid "% Comments"
 msgstr "% Commentaires"
 
@@ -133,7 +133,7 @@ msgid "Posts by"
 msgstr "Billets par"
 
 #: bbpress.php:20 buddypress.php:20 content-blog.php:339
-#: library/admin/options-init.php:937
+#: inc/customizer/options-init.php:937
 msgid "Pages"
 msgstr "Pages"
 
@@ -143,7 +143,7 @@ msgstr ""
 "Ce billet est protégé par mot de passe. Entrez le mot de passe pour voir les "
 "commentaires."
 
-#: comments.php:30 library/functions/comments.php:29
+#: comments.php:30 library/custom-functions/comments.php:29
 msgid "No Comments Yet"
 msgstr "Aucun commentaire jusqu’à présent."
 
@@ -152,7 +152,7 @@ msgid "Name:"
 msgstr "Nom :"
 
 #: contact.php:87 library/woo-config.php:1809
-#: library/functions/widgets/contact_info.php:53
+#: library/custom-functions/widgets/contact_info.php:53
 msgid "Email:"
 msgstr "E-mail :"
 
@@ -206,7 +206,7 @@ msgid "Permanent Link to "
 msgstr "Lien permanent vers "
 
 #: content-blog.php:94 content-blog.php:220 content-blog.php:262
-#: library/functions/basic-functions.php:358
+#: library/custom-functions/basic-functions.php:358
 msgid "Permanent Link to"
 msgstr "Lien permanent vers "
 
@@ -247,8 +247,8 @@ msgstr "<i class=\"t4p-icon-angle-left\"></i> Précédent"
 #: portfolio-one-column.php:167 portfolio-three-column-text.php:169
 #: portfolio-three-column.php:167 portfolio-two-column-text.php:167
 #: portfolio-two-column.php:169
-#: library/admin/redux-framework/inc/fields/border/field_border.php:125
-#: library/admin/redux-framework/inc/fields/spacing/field_spacing.php:191
+#: inc/customizer/redux-framework/inc/fields/border/field_border.php:125
+#: inc/customizer/redux-framework/inc/fields/spacing/field_spacing.php:191
 msgid "All"
 msgstr "Tous"
 
@@ -256,7 +256,7 @@ msgstr "Tous"
 #: portfolio-three-column-text.php:270 portfolio-two-column-text.php:265
 #: taxonomy-portfolio_category.php:283 taxonomy-portfolio_skills.php:284
 #: taxonomy-portfolio_tags.php:284
-#: library/admin/redux-framework/inc/welcome/views/about.php:22
+#: inc/customizer/redux-framework/inc/welcome/views/about.php:22
 msgid "Learn More"
 msgstr "En savoir plus"
 
@@ -307,13 +307,13 @@ msgid "Type your search"
 msgstr "Entrez votre recherche"
 
 #: single-evolve_portfolio.php:65 single-evolve_portfolio.php:67
-#: single-evolve_portfolio.php:79 library/functions/basic-functions.php:3576
+#: single-evolve_portfolio.php:79 library/custom-functions/basic-functions.php:3576
 #: woocommerce/myaccount/orders.php:119
 msgid "Previous"
 msgstr "Précédent"
 
 #: single-evolve_portfolio.php:84 single-evolve_portfolio.php:86
-#: single-evolve_portfolio.php:98 library/functions/basic-functions.php:3586
+#: single-evolve_portfolio.php:98 library/custom-functions/basic-functions.php:3586
 #: woocommerce/myaccount/orders.php:125
 msgid "Next"
 msgstr "Suivant"
@@ -634,7 +634,7 @@ msgid "Slug:"
 msgstr "Slug :"
 
 #: bbpress/form-topic-tag.php:42
-#: library/admin/tgm/class-tgm-plugin-activation.php:2543
+#: inc/customizer/tgm/class-tgm-plugin-activation.php:2543
 msgid "Update"
 msgstr "Mettre à jour"
 
@@ -657,10 +657,10 @@ msgid ""
 msgstr ""
 
 #: bbpress/form-topic-tag.php:85 bbpress/form-topic-tag.php:98
-#: library/admin/redux-extensions/extensions/repeater/repeater/field_repeater.php:196
-#: library/admin/redux-extensions/extensions/repeater/repeater/field_repeater.php:254
-#: library/admin/redux-framework/inc/fields/slides/field_slides.php:167
-#: library/admin/redux-framework/inc/fields/slides/field_slides.php:220
+#: inc/customizer/redux-extensions/extensions/repeater/repeater/field_repeater.php:196
+#: inc/customizer/redux-extensions/extensions/repeater/repeater/field_repeater.php:254
+#: inc/customizer/redux-framework/inc/fields/slides/field_slides.php:167
+#: inc/customizer/redux-framework/inc/fields/slides/field_slides.php:220
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -740,7 +740,7 @@ msgid "Replies"
 msgstr "Réponses"
 
 #: bbpress/loop-forums.php:18 bbpress/loop-topics.php:18
-#: library/admin/options-init.php:2859
+#: inc/customizer/options-init.php:2859
 msgid "Posts"
 msgstr "Articles"
 
@@ -890,8 +890,8 @@ msgid "Edit Menu Item"
 msgstr "Modifier rubrique menu"
 
 #: library/mega-menus.php:551
-#: library/admin/redux-framework/inc/fields/slides/field_slides.php:153
-#: library/admin/redux-framework/inc/fields/slides/field_slides.php:207
+#: inc/customizer/redux-framework/inc/fields/slides/field_slides.php:153
+#: inc/customizer/redux-framework/inc/fields/slides/field_slides.php:207
 msgid "URL"
 msgstr "URL"
 
@@ -915,10 +915,10 @@ msgstr ""
 msgid "Link Relationship (XFN)"
 msgstr ""
 
-#: library/mega-menus.php:588 library/admin/options-init.php:3972
-#: library/admin/options-init.php:4183
-#: library/admin/redux-framework/inc/fields/slides/field_slides.php:149
-#: library/admin/redux-framework/inc/fields/slides/field_slides.php:204
+#: library/mega-menus.php:588 inc/customizer/options-init.php:3972
+#: inc/customizer/options-init.php:4183
+#: inc/customizer/redux-framework/inc/fields/slides/field_slides.php:149
+#: inc/customizer/redux-framework/inc/fields/slides/field_slides.php:204
 msgid "Description"
 msgstr "Description"
 
@@ -990,13 +990,13 @@ msgid "Original: %s"
 msgstr ""
 
 #: library/mega-menus.php:707
-#: library/admin/redux-framework/inc/fields/background/field_background.php:321
-#: library/admin/redux-framework/inc/fields/media/field_media.php:205
-#: library/admin/redux-framework/inc/fields/multi_text/field_multi_text.php:69
-#: library/admin/redux-framework/inc/fields/multi_text/field_multi_text.php:73
-#: library/admin/redux-framework/inc/fields/multi_text/field_multi_text.php:76
-#: library/admin/redux-framework/inc/fields/slides/field_slides.php:133
-#: library/admin/redux-framework/inc/fields/slides/field_slides.php:190
+#: inc/customizer/redux-framework/inc/fields/background/field_background.php:321
+#: inc/customizer/redux-framework/inc/fields/media/field_media.php:205
+#: inc/customizer/redux-framework/inc/fields/multi_text/field_multi_text.php:69
+#: inc/customizer/redux-framework/inc/fields/multi_text/field_multi_text.php:73
+#: inc/customizer/redux-framework/inc/fields/multi_text/field_multi_text.php:76
+#: inc/customizer/redux-framework/inc/fields/slides/field_slides.php:133
+#: inc/customizer/redux-framework/inc/fields/slides/field_slides.php:190
 msgid "Remove"
 msgstr "Enlever"
 
@@ -1021,7 +1021,7 @@ msgid "Default Order"
 msgstr "Ordre par défaut"
 
 #: library/woo-config.php:446
-#: library/admin/redux-framework/inc/welcome/views/status_report.php:710
+#: inc/customizer/redux-framework/inc/welcome/views/status_report.php:710
 msgid "Name"
 msgstr "Nom"
 
@@ -1043,11 +1043,11 @@ msgstr "Évaluation"
 
 #: library/woo-config.php:469 library/woo-config.php:471
 #: library/woo-config.php:472 library/woo-config.php:473
-#: library/admin/options-init.php:4484 library/functions/page_options.php:84
-#: library/functions/page_options.php:90
-#: library/functions/page_tabs/tab_pageportfolio.php:28
-#: library/functions/page_tabs/tab_pagetitlebar.php:20
-#: library/functions/page_tabs/tab_pagetitlebar.php:27
+#: inc/customizer/options-init.php:4484 library/custom-functions/page_options.php:84
+#: library/custom-functions/page_options.php:90
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:28
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:20
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:27
 msgid "Show"
 msgstr "Affiché"
 
@@ -1237,8 +1237,8 @@ msgid "Order"
 msgstr "Ordonner"
 
 #: library/woo-config.php:1457
-#: library/admin/redux-framework/inc/welcome/welcome.php:359
-#: library/admin/tgm/class-tgm-plugin-activation.php:2382
+#: inc/customizer/redux-framework/inc/welcome/welcome.php:359
+#: inc/customizer/tgm/class-tgm-plugin-activation.php:2382
 msgid "Status"
 msgstr "Statut"
 
@@ -1312,7 +1312,7 @@ msgid "Last name"
 msgstr "Nom"
 
 #: library/woo-config.php:1661
-#: library/admin/redux-framework/inc/tracking.php:157
+#: inc/customizer/redux-framework/inc/tracking.php:157
 #: woocommerce/myaccount/form-edit-account.php:44
 msgid "Email address"
 msgstr "Adresse e-mail"
@@ -1367,46 +1367,46 @@ msgstr "Telephone :"
 msgid "N/A"
 msgstr "N/A"
 
-#: library/admin/options-init.php:294
+#: inc/customizer/options-init.php:294
 msgid "evolve"
 msgstr "evolve"
 
-#: library/admin/options-init.php:300
+#: inc/customizer/options-init.php:300
 msgid "Theme Options"
 msgstr "Options du thème"
 
-#: library/admin/options-init.php:301
-#: library/admin/redux-framework/framework.php:224
-#: library/admin/redux-framework/framework.php:228
+#: inc/customizer/options-init.php:301
+#: inc/customizer/redux-framework/framework.php:224
+#: inc/customizer/redux-framework/framework.php:228
 msgid "Options"
 msgstr "Options"
 
-#: library/admin/options-init.php:308
+#: inc/customizer/options-init.php:308
 msgid "Theme Homepage"
 msgstr "Page d’accueil du thème"
 
-#: library/admin/options-init.php:313
+#: inc/customizer/options-init.php:313
 msgid "Documentation"
 msgstr "Documentation"
 
-#: library/admin/options-init.php:318
-#: library/admin/redux-framework/inc/welcome/welcome.php:356
+#: inc/customizer/options-init.php:318
+#: inc/customizer/redux-framework/inc/welcome/welcome.php:356
 msgid "Support"
 msgstr "Support"
 
-#: library/admin/options-init.php:323 library/admin/options-init.php:3293
-#: library/admin/options-init.php:3450
+#: inc/customizer/options-init.php:323 inc/customizer/options-init.php:3293
+#: inc/customizer/options-init.php:3450
 msgid "Facebook"
 msgstr "Facebook"
 
-#: library/admin/options-init.php:332 library/admin/options-init.php:339
-#: library/admin/options-init.php:2785 library/admin/options-init.php:3065
-#: library/admin/options-init.php:3554 library/admin/options-init.php:3820
-#: library/admin/options-init.php:4031
+#: inc/customizer/options-init.php:332 inc/customizer/options-init.php:339
+#: inc/customizer/options-init.php:2785 inc/customizer/options-init.php:3065
+#: inc/customizer/options-init.php:3554 inc/customizer/options-init.php:3820
+#: inc/customizer/options-init.php:4031
 msgid "General"
 msgstr "Général"
 
-#: library/admin/options-init.php:348
+#: inc/customizer/options-init.php:348
 msgid ""
 "Importing the demo content. Please don't leave/refresh the page until it's "
 "imported"
@@ -1414,7 +1414,7 @@ msgstr ""
 "Importation du contenu de démonstration. Veuillez laissez/ne rafraîchissez "
 "pas la page jusqu'à ce que ce soit terminé."
 
-#: library/admin/options-init.php:351
+#: inc/customizer/options-init.php:351
 msgid ""
 "Importing demo content will give you sliders, pages, posts, theme options, "
 "widgets, sidebars and other settings. This will replicate the live demo. "
@@ -1438,107 +1438,107 @@ msgstr ""
 "seront pas importés car ils ne font pas partie du paquet du thème. Ce thème "
 "n’est que compatible avec eux.</strong>"
 
-#: library/admin/options-init.php:354
+#: inc/customizer/options-init.php:354
 msgid "Import Demo Content"
 msgstr "Importer le contenu de démonstration"
 
-#: library/admin/options-init.php:362
+#: inc/customizer/options-init.php:362
 msgid "Favicon"
 msgstr "Favicon"
 
-#: library/admin/options-init.php:366
+#: inc/customizer/options-init.php:366
 msgid "Upload custom favicon."
 msgstr "Téléchargez votre favicon."
 
-#: library/admin/options-init.php:369
+#: inc/customizer/options-init.php:369
 msgid "Custom Favicon"
 msgstr "Favicon personnalisé"
 
-#: library/admin/options-init.php:373
+#: inc/customizer/options-init.php:373
 msgid "Favicon for Apple iPhone (57px x 57px)."
 msgstr "Favicon pour iPhone Apple (57px sur 57px)."
 
-#: library/admin/options-init.php:376
+#: inc/customizer/options-init.php:376
 msgid "Apple iPhone Icon Upload"
 msgstr "Icône iPhone Apple"
 
-#: library/admin/options-init.php:380
+#: inc/customizer/options-init.php:380
 msgid "Favicon for Apple iPhone Retina Version (114px x 114px)."
 msgstr "Favicon pour iPhone Apple version Retina (114px sur 114px)."
 
-#: library/admin/options-init.php:383
+#: inc/customizer/options-init.php:383
 msgid "Apple iPhone Retina Icon Upload"
 msgstr "Icône Retina iPhone Apple"
 
-#: library/admin/options-init.php:387
+#: inc/customizer/options-init.php:387
 msgid "Favicon for Apple iPad (72px x 72px)."
 msgstr "Favicon pour iPad Apple (72px sur 72px)."
 
-#: library/admin/options-init.php:390
+#: inc/customizer/options-init.php:390
 msgid "Apple iPad Icon Upload"
 msgstr "Icône iPad Apple"
 
-#: library/admin/options-init.php:394
+#: inc/customizer/options-init.php:394
 msgid "Favicon for Apple iPad Retina Version (144px x 144px)."
 msgstr "Favicon pour iPad Apple version Retina (114px sur 114px)."
 
-#: library/admin/options-init.php:397
+#: inc/customizer/options-init.php:397
 msgid "Apple iPad Retina Icon Upload"
 msgstr "Icône Retina iPad Apple"
 
-#: library/admin/options-init.php:406
-#: library/functions/basic-functions.php:2081
+#: inc/customizer/options-init.php:406
+#: library/custom-functions/basic-functions.php:2081
 msgid "Layout"
 msgstr "Mise en page"
 
-#: library/admin/options-init.php:410
+#: inc/customizer/options-init.php:410
 msgid "Select main content and sidebar alignment."
 msgstr ""
 "Sélectionnez la disposition du contenu principal et de la barre latérale."
 
-#: library/admin/options-init.php:422
+#: inc/customizer/options-init.php:422
 msgid "Select a layout"
 msgstr "Disposition"
 
-#: library/admin/options-init.php:426
+#: inc/customizer/options-init.php:426
 msgid "<strong>Boxed version</strong> automatically enables custom background"
 msgstr ""
 "La version <strong>encadrée</strong> active automatiquement un fond "
 "personnalisé."
 
-#: library/admin/options-init.php:431
+#: inc/customizer/options-init.php:431
 msgid "Boxed"
 msgstr "Encadrée"
 
-#: library/admin/options-init.php:432
+#: inc/customizer/options-init.php:432
 msgid "Wide"
 msgstr "Largeur 100%"
 
-#: library/admin/options-init.php:434
+#: inc/customizer/options-init.php:434
 msgid "Layout Style"
 msgstr "Style"
 
-#: library/admin/options-init.php:438
+#: inc/customizer/options-init.php:438
 msgid "Select the width for your website"
 msgstr "Sélectionnez la largeur de votre site web."
 
-#: library/admin/options-init.php:447
+#: inc/customizer/options-init.php:447
 msgid "Custom"
 msgstr "Personnalisé"
 
-#: library/admin/options-init.php:449
+#: inc/customizer/options-init.php:449
 msgid "Layout Width"
 msgstr "Largeur"
 
-#: library/admin/options-init.php:453
+#: inc/customizer/options-init.php:453
 msgid "Custom Layout Width"
 msgstr "Largeur mise en page personnalisée"
 
-#: library/admin/options-init.php:454
+#: inc/customizer/options-init.php:454
 msgid "Add the custom width in px (ex: 1024)"
 msgstr "Ajouter la largeur personnalisée en px (ex. : 1024)"
 
-#: library/admin/options-init.php:461
+#: inc/customizer/options-init.php:461
 msgid ""
 "Select the left and right padding for the 100% width template main content "
 "area. Enter value in px. ex: 20px"
@@ -1546,121 +1546,121 @@ msgstr ""
 "Sélectionnez le rembourrage gauche/droite pour le modèle « largeur 100% » du "
 "contenu principal. Entrez la valeur en px, ex. : 20px."
 
-#: library/admin/options-init.php:464 library/functions/page_options.php:10
-#: library/functions/page_tabs/tab_layout.php:26
+#: inc/customizer/options-init.php:464 library/custom-functions/page_options.php:10
+#: library/custom-functions/page_tabs/tab_layout.php:26
 msgid "100% Width Template Left/Right Padding"
 msgstr "Style « largeur 100% » rembourrage G/D"
 
-#: library/admin/options-init.php:470
+#: inc/customizer/options-init.php:470
 msgid "<h3>Content and One Sidebar Width</h3>"
 msgstr ""
 
-#: library/admin/options-init.php:473 library/admin/options-init.php:529
+#: inc/customizer/options-init.php:473 inc/customizer/options-init.php:529
 msgid ""
 "These options apply for the following layouts <img style=\"float:left, "
 "display:inline\" src=\""
 msgstr ""
 
-#: library/admin/options-init.php:480 library/admin/options-init.php:536
+#: inc/customizer/options-init.php:480 inc/customizer/options-init.php:536
 #, fuzzy
 msgid "Select the width for your content"
 msgstr "Sélectionnez la largeur de votre site web."
 
-#: library/admin/options-init.php:498 library/admin/options-init.php:554
+#: inc/customizer/options-init.php:498 inc/customizer/options-init.php:554
 #, fuzzy
 msgid "Content Width"
 msgstr "Police contenu"
 
-#: library/admin/options-init.php:502 library/admin/options-init.php:558
+#: inc/customizer/options-init.php:502 inc/customizer/options-init.php:558
 #, fuzzy
 msgid "Select the width for your Sidebar 1"
 msgstr "Sélectionnez la largeur de votre site web."
 
-#: library/admin/options-init.php:520 library/admin/options-init.php:576
+#: inc/customizer/options-init.php:520 inc/customizer/options-init.php:576
 #, fuzzy
 msgid "Sidebar 1 Width"
 msgstr "Barre latérale 1"
 
-#: library/admin/options-init.php:526
+#: inc/customizer/options-init.php:526
 msgid "<h3>Content and Two Sidebars Width</h3>"
 msgstr ""
 
-#: library/admin/options-init.php:580
+#: inc/customizer/options-init.php:580
 #, fuzzy
 msgid "Select the width for your Sidebar 2"
 msgstr "Sélectionnez la largeur de votre site web."
 
-#: library/admin/options-init.php:598
+#: inc/customizer/options-init.php:598
 #, fuzzy
 msgid "Sidebar 2 Width"
 msgstr "Barre latérale 2"
 
-#: library/admin/options-init.php:607 library/admin/options-init.php:614
+#: inc/customizer/options-init.php:607 inc/customizer/options-init.php:614
 msgid "Header"
 msgstr "En-tête"
 
-#: library/admin/options-init.php:618
+#: inc/customizer/options-init.php:618
 msgid "Enter the header padding."
 msgstr "Saisissez les rembourrages de l’en-tête."
 
-#: library/admin/options-init.php:622
+#: inc/customizer/options-init.php:622
 msgid "Header Padding"
 msgstr "Rembourrages en-tête"
 
-#: library/admin/options-init.php:632
+#: inc/customizer/options-init.php:632
 msgid "Check this box if you want to display searchbox in Header #1 and #3"
 msgstr "Affichez la boîte de recherche sur les en-tête n° 1 et n° 3."
 
-#: library/admin/options-init.php:635 library/admin/options-init.php:692
-#: library/admin/options-init.php:701 library/admin/options-init.php:710
-#: library/admin/options-init.php:1369 library/admin/options-init.php:1700
-#: library/admin/options-init.php:1723 library/admin/options-init.php:1827
-#: library/admin/options-init.php:2873 library/admin/options-init.php:2882
-#: library/admin/options-init.php:2942 library/admin/options-init.php:2966
-#: library/admin/options-init.php:2975 library/admin/options-init.php:2984
-#: library/admin/options-init.php:2993 library/admin/options-init.php:3002
-#: library/admin/options-init.php:3011 library/admin/options-init.php:3020
-#: library/admin/options-init.php:3029 library/admin/options-init.php:3038
-#: library/admin/options-init.php:3047 library/admin/options-init.php:3290
-#: library/admin/options-init.php:3299 library/admin/options-init.php:3308
-#: library/admin/options-init.php:3317 library/admin/options-init.php:3326
-#: library/admin/options-init.php:3335 library/admin/options-init.php:3344
-#: library/admin/options-init.php:3353 library/admin/options-init.php:3371
-#: library/admin/options-init.php:3561 library/admin/options-init.php:3600
-#: library/admin/options-init.php:3654 library/admin/options-init.php:3709
-#: library/admin/options-init.php:3764 library/admin/options-init.php:4497
-#: library/admin/options-init.php:4506 library/admin/options-init.php:4514
+#: inc/customizer/options-init.php:635 inc/customizer/options-init.php:692
+#: inc/customizer/options-init.php:701 inc/customizer/options-init.php:710
+#: inc/customizer/options-init.php:1369 inc/customizer/options-init.php:1700
+#: inc/customizer/options-init.php:1723 inc/customizer/options-init.php:1827
+#: inc/customizer/options-init.php:2873 inc/customizer/options-init.php:2882
+#: inc/customizer/options-init.php:2942 inc/customizer/options-init.php:2966
+#: inc/customizer/options-init.php:2975 inc/customizer/options-init.php:2984
+#: inc/customizer/options-init.php:2993 inc/customizer/options-init.php:3002
+#: inc/customizer/options-init.php:3011 inc/customizer/options-init.php:3020
+#: inc/customizer/options-init.php:3029 inc/customizer/options-init.php:3038
+#: inc/customizer/options-init.php:3047 inc/customizer/options-init.php:3290
+#: inc/customizer/options-init.php:3299 inc/customizer/options-init.php:3308
+#: inc/customizer/options-init.php:3317 inc/customizer/options-init.php:3326
+#: inc/customizer/options-init.php:3335 inc/customizer/options-init.php:3344
+#: inc/customizer/options-init.php:3353 inc/customizer/options-init.php:3371
+#: inc/customizer/options-init.php:3561 inc/customizer/options-init.php:3600
+#: inc/customizer/options-init.php:3654 inc/customizer/options-init.php:3709
+#: inc/customizer/options-init.php:3764 inc/customizer/options-init.php:4497
+#: inc/customizer/options-init.php:4506 inc/customizer/options-init.php:4514
 msgid "Enabled"
 msgstr "Activé"
 
-#: library/admin/options-init.php:636 library/admin/options-init.php:693
-#: library/admin/options-init.php:702 library/admin/options-init.php:711
-#: library/admin/options-init.php:849 library/admin/options-init.php:1370
-#: library/admin/options-init.php:1701 library/admin/options-init.php:1724
-#: library/admin/options-init.php:2874 library/admin/options-init.php:2883
-#: library/admin/options-init.php:2943 library/admin/options-init.php:2967
-#: library/admin/options-init.php:2976 library/admin/options-init.php:2985
-#: library/admin/options-init.php:2994 library/admin/options-init.php:3003
-#: library/admin/options-init.php:3012 library/admin/options-init.php:3021
-#: library/admin/options-init.php:3030 library/admin/options-init.php:3039
-#: library/admin/options-init.php:3048 library/admin/options-init.php:3291
-#: library/admin/options-init.php:3300 library/admin/options-init.php:3309
-#: library/admin/options-init.php:3318 library/admin/options-init.php:3327
-#: library/admin/options-init.php:3336 library/admin/options-init.php:3345
-#: library/admin/options-init.php:3354 library/admin/options-init.php:3372
-#: library/admin/options-init.php:3404 library/admin/options-init.php:3562
-#: library/admin/options-init.php:3601 library/admin/options-init.php:3655
-#: library/admin/options-init.php:3710 library/admin/options-init.php:3765
-#: library/admin/options-init.php:4496 library/admin/options-init.php:4505
-#: library/admin/options-init.php:4513
+#: inc/customizer/options-init.php:636 inc/customizer/options-init.php:693
+#: inc/customizer/options-init.php:702 inc/customizer/options-init.php:711
+#: inc/customizer/options-init.php:849 inc/customizer/options-init.php:1370
+#: inc/customizer/options-init.php:1701 inc/customizer/options-init.php:1724
+#: inc/customizer/options-init.php:2874 inc/customizer/options-init.php:2883
+#: inc/customizer/options-init.php:2943 inc/customizer/options-init.php:2967
+#: inc/customizer/options-init.php:2976 inc/customizer/options-init.php:2985
+#: inc/customizer/options-init.php:2994 inc/customizer/options-init.php:3003
+#: inc/customizer/options-init.php:3012 inc/customizer/options-init.php:3021
+#: inc/customizer/options-init.php:3030 inc/customizer/options-init.php:3039
+#: inc/customizer/options-init.php:3048 inc/customizer/options-init.php:3291
+#: inc/customizer/options-init.php:3300 inc/customizer/options-init.php:3309
+#: inc/customizer/options-init.php:3318 inc/customizer/options-init.php:3327
+#: inc/customizer/options-init.php:3336 inc/customizer/options-init.php:3345
+#: inc/customizer/options-init.php:3354 inc/customizer/options-init.php:3372
+#: inc/customizer/options-init.php:3404 inc/customizer/options-init.php:3562
+#: inc/customizer/options-init.php:3601 inc/customizer/options-init.php:3655
+#: inc/customizer/options-init.php:3710 inc/customizer/options-init.php:3765
+#: inc/customizer/options-init.php:4496 inc/customizer/options-init.php:4505
+#: inc/customizer/options-init.php:4513
 msgid "Disabled"
 msgstr "Désactivé"
 
-#: library/admin/options-init.php:638 library/admin/options-init.php:713
+#: inc/customizer/options-init.php:638 inc/customizer/options-init.php:713
 msgid "Enable Searchbox"
 msgstr "Boîte de recherche"
 
-#: library/admin/options-init.php:641
+#: inc/customizer/options-init.php:641
 msgid ""
 "Set the opacity of header menu background for Front Page, <br />0.1 (lowest) "
 "to 1 (highest) only for Header #4 and #5."
@@ -1669,12 +1669,12 @@ msgstr ""
 "0.1 (le plus bas) à 1 (le plus élevé) seulement pour les en-têtes n° 4 et n° "
 "5."
 
-#: library/admin/options-init.php:648
+#: inc/customizer/options-init.php:648
 msgid "Header Menu Background Opacity"
 msgstr "Opacité fond menu en-tête"
 
-#: library/admin/options-init.php:652
-#: library/functions/page_tabs/tab_slider.php:7
+#: inc/customizer/options-init.php:652
+#: library/custom-functions/page_tabs/tab_slider.php:7
 msgid ""
 "Select if the slider shows below or above the header. This only works for "
 "the slider assigned in page options, not with shortcodes."
@@ -1683,76 +1683,76 @@ msgstr ""
 "fonctionne que pour le diaporama affecté dans les options de page, pas ceux "
 "avec des shortcodes."
 
-#: library/admin/options-init.php:657
-#: library/functions/page_tabs/tab_slider.php:5
+#: inc/customizer/options-init.php:657
+#: library/custom-functions/page_tabs/tab_slider.php:5
 msgid "Below"
 msgstr "Au-dessous"
 
-#: library/admin/options-init.php:658
-#: library/functions/page_tabs/tab_slider.php:6
+#: inc/customizer/options-init.php:658
+#: library/custom-functions/page_tabs/tab_slider.php:6
 msgid "Above"
 msgstr "Au-dessus"
 
-#: library/admin/options-init.php:660
-#: library/functions/page_tabs/tab_slider.php:3
+#: inc/customizer/options-init.php:660
+#: library/custom-functions/page_tabs/tab_slider.php:3
 msgid "Slider Position"
 msgstr "Position diaporama"
 
-#: library/admin/options-init.php:664
+#: inc/customizer/options-init.php:664
 msgid "Choose your Header Type"
 msgstr "Choisissez le modèle d'en-tête (de n° 1 à n° 6)."
 
-#: library/admin/options-init.php:676
+#: inc/customizer/options-init.php:676
 msgid "Choose Header Type"
 msgstr "Modèle d’en-tête"
 
-#: library/admin/options-init.php:685
+#: inc/customizer/options-init.php:685
 msgid "Sticky Header"
 msgstr "En-tête attaché"
 
-#: library/admin/options-init.php:689
+#: inc/customizer/options-init.php:689
 msgid "Check this box if you want to display sticky header"
 msgstr "Affichez un en-tête attaché."
 
-#: library/admin/options-init.php:695
+#: inc/customizer/options-init.php:695
 msgid "Enable sticky header"
 msgstr "Activer"
 
-#: library/admin/options-init.php:698
+#: inc/customizer/options-init.php:698
 msgid "Check this box if you want to display sticky header logo"
 msgstr "Affichez le logo sur l’en-tête attaché."
 
-#: library/admin/options-init.php:704
+#: inc/customizer/options-init.php:704
 msgid "Enable sticky header logo"
 msgstr "Logo"
 
-#: library/admin/options-init.php:707
+#: inc/customizer/options-init.php:707
 msgid "Check this box if you want to display searchbox in sticky header"
 msgstr "Affichez la boîte de recherche sur l’en-tête attaché."
 
-#: library/admin/options-init.php:716
+#: inc/customizer/options-init.php:716
 msgid "Adjust sticky header logo size"
 msgstr "Ajustez la taille du logo sur l’en-tête attaché."
 
-#: library/admin/options-init.php:719
+#: inc/customizer/options-init.php:719
 msgid "Sticky header logo size in height"
 msgstr "Hauteur logo"
 
-#: library/admin/options-init.php:728
+#: inc/customizer/options-init.php:728
 msgid "Logo"
 msgstr "Logo"
 
-#: library/admin/options-init.php:732
+#: inc/customizer/options-init.php:732
 msgid "Upload a logo for your theme, or specify an image URL directly."
 msgstr ""
 "Ajouter votre logo dans votre thème, ou spécifiez directement l’URL d’une "
 "image."
 
-#: library/admin/options-init.php:735
+#: inc/customizer/options-init.php:735
 msgid "Custom logo"
 msgstr "Logo personnalisé"
 
-#: library/admin/options-init.php:739
+#: inc/customizer/options-init.php:739
 msgid ""
 "Select an image file for the retina version of the custom logo. It should be "
 "exactly 2x the size of main logo."
@@ -1760,11 +1760,11 @@ msgstr ""
 "Sélectionnez une image pour la version Retina du logo personnalisé. Elle "
 "doit avoir exactement le double de la taille du logo principal."
 
-#: library/admin/options-init.php:742
+#: inc/customizer/options-init.php:742
 msgid "Custom logo (Retina Version @2x)"
 msgstr "Logo Retina version @2x"
 
-#: library/admin/options-init.php:746
+#: inc/customizer/options-init.php:746
 msgid ""
 "If retina logo is uploaded, enter the standard logo (1x) version width, do "
 "not enter the retina logo width."
@@ -1772,11 +1772,11 @@ msgstr ""
 "Si un logo Retina est téléchargé, entrez la largeur de la version standard "
 "du logo (1x), n’entrez pas la largeur de la version Retina du logo."
 
-#: library/admin/options-init.php:749
+#: inc/customizer/options-init.php:749
 msgid "Standard Logo Width for Retina Logo"
 msgstr "Largeur standard logo Retina"
 
-#: library/admin/options-init.php:752
+#: inc/customizer/options-init.php:752
 msgid ""
 "If retina logo is uploaded, enter the standard logo (1x) version height, do "
 "not enter the retina logo height."
@@ -1784,21 +1784,21 @@ msgstr ""
 "Si un logo Retina est téléchargé, entrez la hauteur de la version standard "
 "du logo (1x), n’entrez pas la hauteur de la version Retina du logo."
 
-#: library/admin/options-init.php:755
+#: inc/customizer/options-init.php:755
 msgid "Standard Logo Height for Retina Logo"
 msgstr "Hauteur standard logo Retina"
 
-#: library/admin/options-init.php:758
+#: inc/customizer/options-init.php:758
 msgid "Upload a logo for your sticky header, or specify an image URL directly."
 msgstr ""
 "Ajoutez un logo pour votre en-tête attaché, ou spécifiez directement l’URL "
 "d’une image."
 
-#: library/admin/options-init.php:761
+#: inc/customizer/options-init.php:761
 msgid "Sticky header logo"
 msgstr "Logo en-tête attaché"
 
-#: library/admin/options-init.php:765
+#: inc/customizer/options-init.php:765
 msgid ""
 "Select an image file for the retina version of the sticky header logo. It "
 "should be exactly 2x the size of sticky header logo."
@@ -1806,11 +1806,11 @@ msgstr ""
 "Sélectionnez un fichier pour la version Retina du logo de l’en-tête attaché. "
 "Il doit faire exactement le double de la taille du logo de l’en-tête attaché."
 
-#: library/admin/options-init.php:768
+#: inc/customizer/options-init.php:768
 msgid "Sticky header logo (Retina Version @2x)"
 msgstr "Logo (Retina version @2x) en-tête attaché"
 
-#: library/admin/options-init.php:772
+#: inc/customizer/options-init.php:772
 msgid ""
 "If retina logo is uploaded, enter the standard sticky header logo (1x) "
 "version width, do not enter the retina logo width."
@@ -1818,11 +1818,11 @@ msgstr ""
 "Si un logo Retina est téléchargé, entrez la largeur de la version standard "
 "du logo (1x), n’entrez pas la largeur de la version Retina du logo."
 
-#: library/admin/options-init.php:775
+#: inc/customizer/options-init.php:775
 msgid "Standard Sticky Header Logo Width for Retina Logo"
 msgstr "Largeur standard logo Retina"
 
-#: library/admin/options-init.php:778
+#: inc/customizer/options-init.php:778
 msgid ""
 "If retina logo is uploaded, enter the standard sticky header logo (1x) "
 "version height, do not enter the retina logo height."
@@ -1830,95 +1830,95 @@ msgstr ""
 "Si un logo Retina est téléchargé, entrez la hauteur de la version standard "
 "du logo (1x), n’entrez pas la hauteur de la version Retina du logo."
 
-#: library/admin/options-init.php:781
+#: inc/customizer/options-init.php:781
 msgid "Standard Sticky Header Logo Height for Retina Logo"
 msgstr "Hauteur standard logo Retina"
 
-#: library/admin/options-init.php:784
+#: inc/customizer/options-init.php:784
 msgid "Choose the position of your custom logo for Header #1"
 msgstr "Choisissez la position de votre logo dans l’en-tête n° 1."
 
-#: library/admin/options-init.php:789 library/admin/options-init.php:2445
-#: library/admin/options-init.php:2667 library/admin/options-init.php:3106
-#: library/admin/options-init.php:3280 library/admin/options-init.php:4584
-#: library/admin/redux-framework/inc/fields/border/field_border.php:159
-#: library/admin/redux-framework/inc/fields/spacing/field_spacing.php:236
-#: library/functions/page_tabs/tab_pageportfolio.php:13
+#: inc/customizer/options-init.php:789 inc/customizer/options-init.php:2445
+#: inc/customizer/options-init.php:2667 inc/customizer/options-init.php:3106
+#: inc/customizer/options-init.php:3280 inc/customizer/options-init.php:4584
+#: inc/customizer/redux-framework/inc/fields/border/field_border.php:159
+#: inc/customizer/redux-framework/inc/fields/spacing/field_spacing.php:236
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:13
 msgid "Left"
 msgstr "Gauche"
 
-#: library/admin/options-init.php:790
+#: inc/customizer/options-init.php:790
 msgid "Center"
 msgstr "Centre"
 
-#: library/admin/options-init.php:791 library/admin/options-init.php:2443
-#: library/admin/options-init.php:2665 library/admin/options-init.php:3107
-#: library/admin/options-init.php:3278 library/admin/options-init.php:4585
-#: library/admin/redux-framework/inc/fields/border/field_border.php:145
-#: library/admin/redux-framework/inc/fields/spacing/field_spacing.php:222
-#: library/functions/page_tabs/tab_pageportfolio.php:12
+#: inc/customizer/options-init.php:791 inc/customizer/options-init.php:2443
+#: inc/customizer/options-init.php:2665 inc/customizer/options-init.php:3107
+#: inc/customizer/options-init.php:3278 inc/customizer/options-init.php:4585
+#: inc/customizer/redux-framework/inc/fields/border/field_border.php:145
+#: inc/customizer/redux-framework/inc/fields/spacing/field_spacing.php:222
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:12
 msgid "Right"
 msgstr "Droite"
 
-#: library/admin/options-init.php:792 library/admin/options-init.php:822
-#: library/admin/options-init.php:894 library/admin/options-init.php:1828
-#: library/admin/options-init.php:2815 library/admin/options-init.php:2828
-#: library/admin/options-init.php:2894 library/admin/options-init.php:2916
-#: library/admin/options-init.php:4583
-#: library/admin/redux-framework/framework.php:1756
+#: inc/customizer/options-init.php:792 inc/customizer/options-init.php:822
+#: inc/customizer/options-init.php:894 inc/customizer/options-init.php:1828
+#: inc/customizer/options-init.php:2815 inc/customizer/options-init.php:2828
+#: inc/customizer/options-init.php:2894 inc/customizer/options-init.php:2916
+#: inc/customizer/options-init.php:4583
+#: inc/customizer/redux-framework/framework.php:1756
 msgid "Disable"
 msgstr "Désactivé"
 
-#: library/admin/options-init.php:794
+#: inc/customizer/options-init.php:794
 msgid "Logo position"
 msgstr "Position logo"
 
-#: library/admin/options-init.php:803 library/admin/options-init.php:1049
+#: inc/customizer/options-init.php:803 inc/customizer/options-init.php:1049
 msgid "Title & Tagline"
 msgstr "Titre & slogan"
 
-#: library/admin/options-init.php:807
+#: inc/customizer/options-init.php:807
 msgid "Check this box if you don't want to display title of your blog"
 msgstr "Cochez cette case pour masquer le titre du site."
 
-#: library/admin/options-init.php:810
+#: inc/customizer/options-init.php:810
 msgid "Disable Blog Title"
 msgstr "Désactiver titre du site"
 
-#: library/admin/options-init.php:814
+#: inc/customizer/options-init.php:814
 msgid "Choose the position of blog tagline"
 msgstr "Choisissez la position du slogan du site."
 
-#: library/admin/options-init.php:819
+#: inc/customizer/options-init.php:819
 msgid "Next to blog title"
 msgstr "À côté du titre du site"
 
-#: library/admin/options-init.php:820
+#: inc/customizer/options-init.php:820
 msgid "Above blog title"
 msgstr "Au-dessus du titre du site"
 
-#: library/admin/options-init.php:821
+#: inc/customizer/options-init.php:821
 msgid "Under blog title"
 msgstr "Sous le titre du site"
 
-#: library/admin/options-init.php:824
+#: inc/customizer/options-init.php:824
 msgid "Blog Tagline position"
 msgstr "Position slogan"
 
-#: library/admin/options-init.php:833 library/admin/options-init.php:1100
-#: library/admin/options-init.php:1615
+#: inc/customizer/options-init.php:833 inc/customizer/options-init.php:1100
+#: inc/customizer/options-init.php:1615
 msgid "Menu"
 msgstr "Menu"
 
-#: library/admin/options-init.php:837
+#: inc/customizer/options-init.php:837
 msgid "Check this box if you don't want to display main menu"
 msgstr "Cochez cette case pour masquer le menu principal."
 
-#: library/admin/options-init.php:840
+#: inc/customizer/options-init.php:840
 msgid "Disable main menu"
 msgstr "Désactiver menu principal"
 
-#: library/admin/options-init.php:843
+#: inc/customizer/options-init.php:843
 msgid ""
 "Select the main menu hover effect. Smooth effect works only for Header #1 "
 "and #6"
@@ -1926,152 +1926,152 @@ msgstr ""
 "Sélectionnez l’effet de survol du menu principal. <br/>L’effet « Lisse » ne "
 "fonctionne que pour les en-têtes modèle n° 1 et n° 6."
 
-#: library/admin/options-init.php:847
+#: inc/customizer/options-init.php:847
 msgid "Smooth"
 msgstr "Lisse"
 
-#: library/admin/options-init.php:848
+#: inc/customizer/options-init.php:848
 msgid "Rollover"
 msgstr "Roulement"
 
-#: library/admin/options-init.php:851
+#: inc/customizer/options-init.php:851
 msgid "Choose menu item hover effect"
 msgstr "Effet de survol"
 
-#: library/admin/options-init.php:855
+#: inc/customizer/options-init.php:855
 msgid "Padding between menu items."
 msgstr "Choisissez la taille du rembourrage entre les rubriques du menu."
 
-#: library/admin/options-init.php:858
+#: inc/customizer/options-init.php:858
 msgid "Padding Between Menu Items"
 msgstr "Rembourrage"
 
-#: library/admin/options-init.php:862
+#: inc/customizer/options-init.php:862
 msgid "Main menu text transform"
 msgstr "Définissez le type de transformation du texte du menu principal."
 
-#: library/admin/options-init.php:867
+#: inc/customizer/options-init.php:867
 msgid "none"
 msgstr "Aucune"
 
-#: library/admin/options-init.php:868
+#: inc/customizer/options-init.php:868
 msgid "lowercase"
 msgstr "minuscule"
 
-#: library/admin/options-init.php:869
+#: inc/customizer/options-init.php:869
 msgid "Capitalize"
 msgstr "Capitale"
 
-#: library/admin/options-init.php:870
+#: inc/customizer/options-init.php:870
 msgid "UPPERCASE"
 msgstr "MAJUSCULE"
 
-#: library/admin/options-init.php:872
+#: inc/customizer/options-init.php:872
 msgid "Set the main menu text transform"
 msgstr "Transformation texte menu principal"
 
-#: library/admin/options-init.php:876
+#: inc/customizer/options-init.php:876
 msgid "Menu dropdown icon style"
 msgstr "Sélectionnez le style d'icône de la liste déroulante du menu."
 
-#: library/admin/options-init.php:881
+#: inc/customizer/options-init.php:881
 msgid "Arrow"
 msgstr "Flèche"
 
-#: library/admin/options-init.php:882
+#: inc/customizer/options-init.php:882
 msgid "Plus"
 msgstr "Plus"
 
-#: library/admin/options-init.php:884
+#: inc/customizer/options-init.php:884
 msgid "Select the menu dropdown icon style"
 msgstr "Style icône liste déroulante"
 
-#: library/admin/options-init.php:888
+#: inc/customizer/options-init.php:888
 msgid "Choose the style of responsive menu on smaller screen sizes"
 msgstr "Choisissez le style de menu adaptatif sur les écrans les plus petits."
 
-#: library/admin/options-init.php:892 library/admin/options-init.php:2271
+#: inc/customizer/options-init.php:892 inc/customizer/options-init.php:2271
 msgid "Icon"
 msgstr "Icône"
 
-#: library/admin/options-init.php:893
+#: inc/customizer/options-init.php:893
 msgid "Text"
 msgstr "Texte"
 
-#: library/admin/options-init.php:896
+#: inc/customizer/options-init.php:896
 msgid "Responsive Menu"
 msgstr "Menu adaptatif"
 
-#: library/admin/options-init.php:900
+#: inc/customizer/options-init.php:900
 msgid "Responsive Menu Text"
 msgstr "Texte du menu adaptatif"
 
-#: library/admin/options-init.php:901
+#: inc/customizer/options-init.php:901
 msgid "Type the text for the responsive menu"
 msgstr "Type de texte pour le menu adaptatif"
 
-#: library/admin/options-init.php:913
+#: inc/customizer/options-init.php:913
 msgid "Header Widgets"
 msgstr "Widgets en-tête"
 
-#: library/admin/options-init.php:917
+#: inc/customizer/options-init.php:917
 msgid "Select how many header widget areas you want to display."
 msgstr ""
 "Sélectionnez le nombre de colonnes de widgets à afficher dans l’en-tête."
 
-#: library/admin/options-init.php:927
+#: inc/customizer/options-init.php:927
 msgid "Number of widget cols in header"
 msgstr "Nombre de colonnes"
 
-#: library/admin/options-init.php:931
+#: inc/customizer/options-init.php:931
 msgid "Choose where to display header widgets"
 msgstr "Choisissez où afficher les widgets d’en-tête."
 
-#: library/admin/options-init.php:935
+#: inc/customizer/options-init.php:935
 msgid "Home page"
 msgstr "Page d’accueil"
 
-#: library/admin/options-init.php:936
+#: inc/customizer/options-init.php:936
 msgid "Single Post"
 msgstr "Article unique"
 
-#: library/admin/options-init.php:938 library/admin/options-init.php:2827
-#: library/admin/options-init.php:3830 library/admin/options-init.php:4048
-#: library/admin/options-init.php:4220
+#: inc/customizer/options-init.php:938 inc/customizer/options-init.php:2827
+#: inc/customizer/options-init.php:3830 inc/customizer/options-init.php:4048
+#: inc/customizer/options-init.php:4220
 msgid "All pages"
 msgstr "Toutes les pages"
 
-#: library/admin/options-init.php:939
+#: inc/customizer/options-init.php:939
 msgid "Select Per Post/Page"
 msgstr "Sélectionnez par article/page"
 
-#: library/admin/options-init.php:941
+#: inc/customizer/options-init.php:941
 msgid "Header widgets placement"
 msgstr "Emplacement"
 
-#: library/admin/options-init.php:950
+#: inc/customizer/options-init.php:950
 msgid "Footer"
 msgstr "Pied-de-page"
 
-#: library/admin/options-init.php:957
+#: inc/customizer/options-init.php:957
 msgid "Footer Widgets"
 msgstr "Widgets pied de page"
 
-#: library/admin/options-init.php:961
+#: inc/customizer/options-init.php:961
 msgid "Select how many footer widget areas you want to display."
 msgstr ""
 "Sélectionnez le nombre de colonnes de widgets à afficher dans le pied de "
 "page."
 
-#: library/admin/options-init.php:971
+#: inc/customizer/options-init.php:971
 msgid "Number of widget cols in footer"
 msgstr "Nombre de colonnes"
 
-#: library/admin/options-init.php:980
+#: inc/customizer/options-init.php:980
 msgid "Custom Footer"
 msgstr "Pied de page personnalisé"
 
-#: library/admin/options-init.php:984
+#: inc/customizer/options-init.php:984
 msgid ""
 "Available <strong>HTML</strong> tags and attributes:<br /><br /> <code> &lt;"
 "b&gt; &lt;i&gt; &lt;a href=\"\" title=\"\"&gt; &lt;blockquote&gt; &lt;del "
@@ -2089,19 +2089,19 @@ msgstr ""
 "h4&gt; &lt;h5&gt; &lt;h6&gt; <br /> &lt;table&gt; &lt;tbody&gt; &lt;tr&gt; "
 "&lt;td&gt; &lt;br /&gt; &lt;hr /&gt;</code>"
 
-#: library/admin/options-init.php:987
+#: inc/customizer/options-init.php:987
 msgid "Custom footer"
 msgstr "Texte à afficher"
 
-#: library/admin/options-init.php:996
+#: inc/customizer/options-init.php:996
 msgid "Typography"
 msgstr "Typographie"
 
-#: library/admin/options-init.php:1003
+#: inc/customizer/options-init.php:1003
 msgid "Custom Fonts"
 msgstr "Polices personnalisées"
 
-#: library/admin/options-init.php:1007
+#: inc/customizer/options-init.php:1007
 msgid ""
 "<h3 style='margin: 0;'>Custom fonts for all elements.</h3><p style=\"margin-"
 "bottom:0;\">This will override the Google / standard font options. All 4 "
@@ -2111,59 +2111,59 @@ msgstr ""
 "style=\"margin-bottom:0;\">Ceci remplacera les options de police Google/"
 "standard. Les 4 fichiers sont requis.</h3>"
 
-#: library/admin/options-init.php:1012
+#: inc/customizer/options-init.php:1012
 msgid "Upload the .woff font file."
 msgstr "Téléchargez le fichier de police .woff."
 
-#: library/admin/options-init.php:1016
+#: inc/customizer/options-init.php:1016
 msgid "Custom Font .woff"
 msgstr "Police personnalisée .woff"
 
-#: library/admin/options-init.php:1020
+#: inc/customizer/options-init.php:1020
 msgid "Upload the .ttf font file."
 msgstr "Téléchargez le fichier de police .ttf."
 
-#: library/admin/options-init.php:1024
+#: inc/customizer/options-init.php:1024
 msgid "Custom Font .ttf"
 msgstr "Police personnalisée .ttf"
 
-#: library/admin/options-init.php:1028
+#: inc/customizer/options-init.php:1028
 msgid "Upload the .svg font file."
 msgstr "Téléchargez le fichier de police .svg."
 
-#: library/admin/options-init.php:1032
+#: inc/customizer/options-init.php:1032
 msgid "Custom Font .svg"
 msgstr "Police personnalisée .svg"
 
-#: library/admin/options-init.php:1036
+#: inc/customizer/options-init.php:1036
 msgid "Upload the .eot font file."
 msgstr "Téléchargez le fichier de police .eot."
 
-#: library/admin/options-init.php:1040
+#: inc/customizer/options-init.php:1040
 msgid "Custom Font .eot"
 msgstr "Police personnalisée .eot"
 
-#: library/admin/options-init.php:1053
+#: inc/customizer/options-init.php:1053
 msgid ""
 "Select the typography you want for your blog title. * non web-safe font."
 msgstr ""
 "Sélectionnez la typographie pour le titre du site. * pas de police web safe."
 
-#: library/admin/options-init.php:1056
+#: inc/customizer/options-init.php:1056
 msgid "Blog Title font"
 msgstr "Police titre site"
 
-#: library/admin/options-init.php:1067
+#: inc/customizer/options-init.php:1067
 msgid ""
 "Select the typography you want for your blog tagline. * non web-safe font."
 msgstr ""
 "Sélectionnez la typographie pour le slogan du site. * pas de police web safe."
 
-#: library/admin/options-init.php:1072
+#: inc/customizer/options-init.php:1072
 msgid "Blog tagline font"
 msgstr "Police slogan"
 
-#: library/admin/options-init.php:1081
+#: inc/customizer/options-init.php:1081
 #, fuzzy
 msgid ""
 "Select the typography you want for your sticky header blog title. * non web-"
@@ -2171,96 +2171,96 @@ msgid ""
 msgstr ""
 "Sélectionnez la typographie pour le titre du site. * pas de police web safe."
 
-#: library/admin/options-init.php:1086
+#: inc/customizer/options-init.php:1086
 #, fuzzy
 msgid "Sticky header blog title font"
 msgstr "Logo en-tête attaché"
 
-#: library/admin/options-init.php:1104
+#: inc/customizer/options-init.php:1104
 msgid "Select the typography you want for your main menu. * non web-safe font."
 msgstr ""
 "Sélectionnez la typographie pour le menu principal. * pas de police web safe."
 
-#: library/admin/options-init.php:1109
+#: inc/customizer/options-init.php:1109
 msgid "Main menu font"
 msgstr "Police menu principal"
 
-#: library/admin/options-init.php:1118
+#: inc/customizer/options-init.php:1118
 msgid "Select the typography you want for your top menu. * non web-safe font."
 msgstr ""
 "Sélectionnez la typographie pour le menu du haut. * pas de polices web safe."
 
-#: library/admin/options-init.php:1123
+#: inc/customizer/options-init.php:1123
 msgid "Top menu font"
 msgstr "Police menu du haut"
 
-#: library/admin/options-init.php:1132
+#: inc/customizer/options-init.php:1132
 msgid ""
 "Set the font size for mega menu column titles (menu 2nd level labels). In "
 "pixels, ex: 15px"
 msgstr ""
 
-#: library/admin/options-init.php:1135
+#: inc/customizer/options-init.php:1135
 msgid "Mega Menu Column Title Size"
 msgstr ""
 
-#: library/admin/options-init.php:1144
+#: inc/customizer/options-init.php:1144
 msgid "Widget"
 msgstr "Widget"
 
-#: library/admin/options-init.php:1148
+#: inc/customizer/options-init.php:1148
 msgid ""
 "Select the typography you want for your widget title. * non web-safe font."
 msgstr ""
 "Sélectionnez la typographie pour le titre des widgets. * pas de police web "
 "safe."
 
-#: library/admin/options-init.php:1153
+#: inc/customizer/options-init.php:1153
 msgid "Widget title font"
 msgstr "Police titre"
 
-#: library/admin/options-init.php:1162
+#: inc/customizer/options-init.php:1162
 msgid ""
 "Select the typography you want for your widget content. * non web-safe font."
 msgstr ""
 "Sélectionnez la typographie pour le contenu des widgets. * pas de police web "
 "safe."
 
-#: library/admin/options-init.php:1167
+#: inc/customizer/options-init.php:1167
 msgid "Widget content font"
 msgstr "Police contenu"
 
-#: library/admin/options-init.php:1180
+#: inc/customizer/options-init.php:1180
 msgid "Post Title & Content"
 msgstr "Titre & contenu des articles"
 
-#: library/admin/options-init.php:1184
+#: inc/customizer/options-init.php:1184
 msgid ""
 "Select the typography you want for your post titles. * non web-safe font."
 msgstr ""
 "Sélectionnez la typographie pour le titre des articles. * pas de police web "
 "safe."
 
-#: library/admin/options-init.php:1189
+#: inc/customizer/options-init.php:1189
 msgid "Post title font"
 msgstr "Police titre"
 
-#: library/admin/options-init.php:1198
+#: inc/customizer/options-init.php:1198
 msgid ""
 "Select the typography you want for your blog content. * non web-safe font."
 msgstr ""
 "Sélectionnez la typographie pour les contenus du site. * pas de police web "
 "safe."
 
-#: library/admin/options-init.php:1203
+#: inc/customizer/options-init.php:1203
 msgid "Content font"
 msgstr "Police contenu"
 
-#: library/admin/options-init.php:1217 library/admin/options-init.php:3547
+#: inc/customizer/options-init.php:1217 inc/customizer/options-init.php:3547
 msgid "Front Page Content Boxes"
 msgstr "Boîtes de contenu accueil"
 
-#: library/admin/options-init.php:1221
+#: inc/customizer/options-init.php:1221
 msgid ""
 "Select the typography you want for your content boxes titles. * non web-safe "
 "font."
@@ -2268,11 +2268,11 @@ msgstr ""
 "Sélectionnez la typographie pour le titre des boîtes de contenu. * pas de "
 "police web safe."
 
-#: library/admin/options-init.php:1226
+#: inc/customizer/options-init.php:1226
 msgid "Content boxes title font"
 msgstr "Police titre"
 
-#: library/admin/options-init.php:1235
+#: inc/customizer/options-init.php:1235
 msgid ""
 "Select the typography you want for your content boxes description. * non web-"
 "safe font."
@@ -2280,185 +2280,185 @@ msgstr ""
 "Sélectionnez la typographie pour la description des boîtes de contenu. * pas "
 "de police web safe."
 
-#: library/admin/options-init.php:1240
+#: inc/customizer/options-init.php:1240
 msgid "Content boxes description font"
 msgstr "Police contenu"
 
-#: library/admin/options-init.php:1254
+#: inc/customizer/options-init.php:1254
 msgid "Headings"
 msgstr "Titres (h1, h2...)"
 
-#: library/admin/options-init.php:1258
+#: inc/customizer/options-init.php:1258
 msgid ""
 "Select the typography you want for your H1 tag in blog content. * non web-"
 "safe font."
 msgstr ""
 "Sélectionnez la typographie pour les balises H1. * pas de police web safe."
 
-#: library/admin/options-init.php:1263
+#: inc/customizer/options-init.php:1263
 msgid "H1 font"
 msgstr "Police H1"
 
-#: library/admin/options-init.php:1272
+#: inc/customizer/options-init.php:1272
 msgid ""
 "Select the typography you want for your H2 tag in blog content. * non web-"
 "safe font."
 msgstr ""
 "Sélectionnez la typographie pour les balises H2. * pas de police web safe."
 
-#: library/admin/options-init.php:1277
+#: inc/customizer/options-init.php:1277
 msgid "H2 font"
 msgstr "Police H2"
 
-#: library/admin/options-init.php:1286
+#: inc/customizer/options-init.php:1286
 msgid ""
 "Select the typography you want for your H3 tag in blog content. * non web-"
 "safe font."
 msgstr ""
 "Sélectionnez la typographie pour les balises H3. * pas de police web safe."
 
-#: library/admin/options-init.php:1291
+#: inc/customizer/options-init.php:1291
 msgid "H3 font"
 msgstr "Police H3"
 
-#: library/admin/options-init.php:1300
+#: inc/customizer/options-init.php:1300
 msgid ""
 "Select the typography you want for your H4 tag in blog content. * non web-"
 "safe font."
 msgstr ""
 "Sélectionnez la typographie pour les balises H4. * pas de police web safe."
 
-#: library/admin/options-init.php:1303
+#: inc/customizer/options-init.php:1303
 msgid "H4 font"
 msgstr "Police H4"
 
-#: library/admin/options-init.php:1314
+#: inc/customizer/options-init.php:1314
 msgid ""
 "Select the typography you want for your H5 tag in blog content. * non web-"
 "safe font."
 msgstr ""
 "Sélectionnez la typographie pour les balises H5. * pas de police web safe."
 
-#: library/admin/options-init.php:1317
+#: inc/customizer/options-init.php:1317
 msgid "H5 font"
 msgstr "Police H5"
 
-#: library/admin/options-init.php:1328
+#: inc/customizer/options-init.php:1328
 msgid ""
 "Select the typography you want for your H6 tag in blog content. * non web-"
 "safe font."
 msgstr ""
 "Sélectionnez la typographie pour les balises H6. * pas de police web safe."
 
-#: library/admin/options-init.php:1333
+#: inc/customizer/options-init.php:1333
 msgid "H6 font"
 msgstr "Police H6"
 
-#: library/admin/options-init.php:1347
-#: library/functions/basic-functions.php:2082
-#: library/functions/page_tabs/tab_pagetitlebar.php:3
+#: inc/customizer/options-init.php:1347
+#: library/custom-functions/basic-functions.php:2082
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:3
 msgid "Page Title / Breadcrumbs / Page Title Bar"
 msgstr ""
 
-#: library/admin/options-init.php:1351
+#: inc/customizer/options-init.php:1351
 #, fuzzy
 msgid "Choose the display option to show the page title"
 msgstr "Choisissez la position du slogan du site."
 
-#: library/admin/options-init.php:1356
-#: library/functions/page_tabs/tab_pagetitlebar.php:4
+#: inc/customizer/options-init.php:1356
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:4
 #, fuzzy
 msgid "Title + Breadcrumb"
 msgstr "Page fil d'Ariane"
 
-#: library/admin/options-init.php:1357
-#: library/functions/page_tabs/tab_pagetitlebar.php:5
+#: inc/customizer/options-init.php:1357
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:5
 #, fuzzy
 msgid "Only Title"
 msgstr "Titre"
 
-#: library/admin/options-init.php:1358
-#: library/functions/page_tabs/tab_pagetitlebar.php:6
+#: inc/customizer/options-init.php:1358
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:6
 #, fuzzy
 msgid "Only Breadcrumb"
 msgstr "Page fil d'Ariane"
 
-#: library/admin/options-init.php:1359 library/admin/options-init.php:1482
-#: library/admin/options-init.php:1543 library/admin/options-init.php:2668
-#: library/admin/options-init.php:3281
-#: library/functions/page_tabs/tab_pagetitlebar.php:7
+#: inc/customizer/options-init.php:1359 inc/customizer/options-init.php:1482
+#: inc/customizer/options-init.php:1543 inc/customizer/options-init.php:2668
+#: inc/customizer/options-init.php:3281
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:7
 msgid "None"
 msgstr "Aucune"
 
-#: library/admin/options-init.php:1361
+#: inc/customizer/options-init.php:1361
 #, fuzzy
 msgid "Page Title & Breadcrumbs"
 msgstr "Page fil d'Ariane"
 
-#: library/admin/options-init.php:1365
+#: inc/customizer/options-init.php:1365
 #, fuzzy
 msgid ""
 "Check this box if you want to display page titlebar above the content and "
 "sidebar area"
 msgstr "Affichez l’avatar de l’auteur de l’article."
 
-#: library/admin/options-init.php:1372
+#: inc/customizer/options-init.php:1372
 #, fuzzy
 msgid "Page Title Bar"
 msgstr "Titre de la page"
 
-#: library/admin/options-init.php:1375
+#: inc/customizer/options-init.php:1375
 #, fuzzy
 msgid "Choose your page titlebar layout"
 msgstr "Choisissez le modèle d'en-tête (de n° 1 à n° 6)."
 
-#: library/admin/options-init.php:1379
+#: inc/customizer/options-init.php:1379
 msgid "Page Title Bar Layout Type"
 msgstr ""
 
-#: library/admin/options-init.php:1391
+#: inc/customizer/options-init.php:1391
 msgid "Title bar padding for top and bottom"
 msgstr ""
 
-#: library/admin/options-init.php:1394
+#: inc/customizer/options-init.php:1394
 #, fuzzy
 msgid "Page Title Bar Padding"
 msgstr "Titre de la page"
 
-#: library/admin/options-init.php:1401
+#: inc/customizer/options-init.php:1401
 #, fuzzy
 msgid "Custom background color of page title bar"
 msgstr "Personnaliser la couleur du fond de l’en-tête."
 
-#: library/admin/options-init.php:1405
+#: inc/customizer/options-init.php:1405
 #, fuzzy
 msgid "Page Title Bar Background Color"
 msgstr "Couleur fond boîte slogan"
 
-#: library/admin/options-init.php:1412
+#: inc/customizer/options-init.php:1412
 msgid ""
 "Select an image or insert an image url to use for the page title bar "
 "background."
 msgstr ""
 
-#: library/admin/options-init.php:1415
-#: library/functions/page_tabs/tab_pagetitlebar.php:14
+#: inc/customizer/options-init.php:1415
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:14
 #, fuzzy
 msgid "Page Title Bar Background"
 msgstr "Fond personnalisé titre widget"
 
-#: library/admin/options-init.php:1422
+#: inc/customizer/options-init.php:1422
 msgid ""
 "Select an image or insert an image url to use for the retina page title bar "
 "background."
 msgstr ""
 
-#: library/admin/options-init.php:1425
+#: inc/customizer/options-init.php:1425
 #, fuzzy
 msgid "Page Title Bar Background (Retina Version @2x)"
 msgstr "Logo (Retina version @2x) en-tête attaché"
 
-#: library/admin/options-init.php:1432
+#: inc/customizer/options-init.php:1432
 #, fuzzy
 msgid ""
 "Check this box to have the page title bar background image display at 100% "
@@ -2467,34 +2467,34 @@ msgstr ""
 "L’image de fond sera toujours à 100% en largeur, en hauteur et à l’échelle "
 "en fonction de la taille du navigateur."
 
-#: library/admin/options-init.php:1436 library/admin/options-init.php:1703
-#: library/functions/page_tabs/tab_pagetitlebar.php:18
+#: inc/customizer/options-init.php:1436 inc/customizer/options-init.php:1703
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:18
 msgid "100% Background Image"
 msgstr "Image à 100% du fond"
 
-#: library/admin/options-init.php:1443
+#: inc/customizer/options-init.php:1443
 msgid "Check to enable parallax background image when scrolling."
 msgstr ""
 
-#: library/admin/options-init.php:1447
-#: library/functions/page_tabs/tab_pagetitlebar.php:25
+#: inc/customizer/options-init.php:1447
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:25
 #, fuzzy
 msgid "Parallax Background Image"
 msgstr "Image à 100% du fond"
 
-#: library/admin/options-init.php:1459
+#: inc/customizer/options-init.php:1459
 msgid "Styling"
 msgstr "Sytle"
 
-#: library/admin/options-init.php:1466
+#: inc/customizer/options-init.php:1466
 msgid "Header & Footer"
 msgstr "En-tête & pied de page"
 
-#: library/admin/options-init.php:1470
+#: inc/customizer/options-init.php:1470
 msgid "<h3 style='margin: 0;'>Header Styling</h3>"
 msgstr "<h3 style='margin: 0;'>Style d’en-tête</h3>"
 
-#: library/admin/options-init.php:1475
+#: inc/customizer/options-init.php:1475
 msgid ""
 "Select if the header background image should be displayed in cover or "
 "contain size. Change "
@@ -2502,100 +2502,100 @@ msgstr ""
 "Sélectionnez si l’image de fond de l’en-tête doit être affichée en couvrante "
 "ou contenu.<br/>Changement de l’image : "
 
-#: library/admin/options-init.php:1480 library/admin/options-init.php:1541
-#: library/admin/options-init.php:1770
+#: inc/customizer/options-init.php:1480 inc/customizer/options-init.php:1541
+#: inc/customizer/options-init.php:1770
 msgid "Cover"
 msgstr "Couvrante"
 
-#: library/admin/options-init.php:1481 library/admin/options-init.php:1542
-#: library/admin/options-init.php:1771
+#: inc/customizer/options-init.php:1481 inc/customizer/options-init.php:1542
+#: inc/customizer/options-init.php:1771
 msgid "Contain"
 msgstr "Contenu"
 
-#: library/admin/options-init.php:1484
+#: inc/customizer/options-init.php:1484
 msgid "Header Image Background Responsiveness Style"
 msgstr "Adaptation image de fond"
 
-#: library/admin/options-init.php:1491 library/admin/options-init.php:1552
-#: library/admin/options-init.php:1713
+#: inc/customizer/options-init.php:1491 inc/customizer/options-init.php:1552
+#: inc/customizer/options-init.php:1713
 msgid "no-repeat"
 msgstr "Non"
 
-#: library/admin/options-init.php:1492 library/admin/options-init.php:1553
-#: library/admin/options-init.php:1710
+#: inc/customizer/options-init.php:1492 inc/customizer/options-init.php:1553
+#: inc/customizer/options-init.php:1710
 msgid "repeat"
 msgstr "Oui"
 
-#: library/admin/options-init.php:1493 library/admin/options-init.php:1554
-#: library/admin/options-init.php:1711
+#: inc/customizer/options-init.php:1493 inc/customizer/options-init.php:1554
+#: inc/customizer/options-init.php:1711
 msgid "repeat-x"
 msgstr "Horizontale"
 
-#: library/admin/options-init.php:1494 library/admin/options-init.php:1555
-#: library/admin/options-init.php:1712
+#: inc/customizer/options-init.php:1494 inc/customizer/options-init.php:1555
+#: inc/customizer/options-init.php:1712
 msgid "repeat-y"
 msgstr "Verticale"
 
-#: library/admin/options-init.php:1496 library/admin/options-init.php:1557
-#: library/admin/options-init.php:1715
-#: library/admin/redux-framework/inc/fields/background/field_background.php:141
+#: inc/customizer/options-init.php:1496 inc/customizer/options-init.php:1557
+#: inc/customizer/options-init.php:1715
+#: inc/customizer/redux-framework/inc/fields/background/field_background.php:141
 msgid "Background Repeat"
 msgstr "Répétition fond"
 
-#: library/admin/options-init.php:1503 library/admin/options-init.php:1564
+#: inc/customizer/options-init.php:1503 inc/customizer/options-init.php:1564
 msgid "center top"
 msgstr "Centre haut"
 
-#: library/admin/options-init.php:1504 library/admin/options-init.php:1565
+#: inc/customizer/options-init.php:1504 inc/customizer/options-init.php:1565
 msgid "center center"
 msgstr "Centre centre"
 
-#: library/admin/options-init.php:1505 library/admin/options-init.php:1566
+#: inc/customizer/options-init.php:1505 inc/customizer/options-init.php:1566
 msgid "center bottom"
 msgstr "Centre bas"
 
-#: library/admin/options-init.php:1506 library/admin/options-init.php:1567
+#: inc/customizer/options-init.php:1506 inc/customizer/options-init.php:1567
 msgid "left top"
 msgstr "Gauche haut"
 
-#: library/admin/options-init.php:1507 library/admin/options-init.php:1568
+#: inc/customizer/options-init.php:1507 inc/customizer/options-init.php:1568
 msgid "left center"
 msgstr "Gauche centre"
 
-#: library/admin/options-init.php:1508 library/admin/options-init.php:1569
+#: inc/customizer/options-init.php:1508 inc/customizer/options-init.php:1569
 msgid "left bottom"
 msgstr "Gauche bas"
 
-#: library/admin/options-init.php:1509 library/admin/options-init.php:1570
+#: inc/customizer/options-init.php:1509 inc/customizer/options-init.php:1570
 msgid "right top"
 msgstr "Droite haut"
 
-#: library/admin/options-init.php:1510 library/admin/options-init.php:1571
+#: inc/customizer/options-init.php:1510 inc/customizer/options-init.php:1571
 msgid "right center"
 msgstr "Droite centre"
 
-#: library/admin/options-init.php:1511 library/admin/options-init.php:1572
+#: inc/customizer/options-init.php:1511 inc/customizer/options-init.php:1572
 msgid "right bottom"
 msgstr "Droite bas"
 
-#: library/admin/options-init.php:1513 library/admin/options-init.php:1574
-#: library/admin/redux-framework/inc/fields/background/field_background.php:223
+#: inc/customizer/options-init.php:1513 inc/customizer/options-init.php:1574
+#: inc/customizer/redux-framework/inc/fields/background/field_background.php:223
 msgid "Background Position"
 msgstr "Position fond"
 
-#: library/admin/options-init.php:1517
+#: inc/customizer/options-init.php:1517
 msgid "Custom background color of header"
 msgstr "Personnaliser la couleur du fond de l’en-tête."
 
-#: library/admin/options-init.php:1521
+#: inc/customizer/options-init.php:1521
 msgid "Header color"
 msgstr "Couleur fond"
 
-#: library/admin/options-init.php:1525
+#: inc/customizer/options-init.php:1525
 msgid "<h3 style='margin: 0;'>Footer Styling</h3>"
 msgstr "<h3 style='margin: 0;'>Style de pied de page</h3>"
 
-#: library/admin/options-init.php:1530
+#: inc/customizer/options-init.php:1530
 msgid ""
 "Upload a footer background image for your theme, or specify an image URL "
 "directly."
@@ -2603,11 +2603,11 @@ msgstr ""
 "Téléchargez une image de fond pour le pied de page de votre thème, ou "
 "spécifiez directement l’URL d’une image."
 
-#: library/admin/options-init.php:1533
+#: inc/customizer/options-init.php:1533
 msgid "Footer Image"
 msgstr "Image pied de page"
 
-#: library/admin/options-init.php:1537
+#: inc/customizer/options-init.php:1537
 msgid ""
 "Select if the footer background image should be displayed in cover or "
 "contain size."
@@ -2615,57 +2615,57 @@ msgstr ""
 "Sélectionnez si le fond du pied de page doit être affiché en taille "
 "couvrante ou contenu."
 
-#: library/admin/options-init.php:1545
+#: inc/customizer/options-init.php:1545
 msgid "Footer Image Background Responsiveness Style"
 msgstr "Adaptation image de fond"
 
-#: library/admin/options-init.php:1578
+#: inc/customizer/options-init.php:1578
 msgid "Custom background color of footer"
 msgstr "Couleur personnalisée du fond du pied de page."
 
-#: library/admin/options-init.php:1582
+#: inc/customizer/options-init.php:1582
 msgid "Footer color"
 msgstr "Couleur fond"
 
-#: library/admin/options-init.php:1585
+#: inc/customizer/options-init.php:1585
 msgid "<h3 style='margin: 0;'>Header & Footer Default Pattern</h3>"
 msgstr "<h3 style='margin: 0;'>Motif par défaut</h3>"
 
-#: library/admin/options-init.php:1590
+#: inc/customizer/options-init.php:1590
 msgid "Choose the pattern for header and footer background"
 msgstr "Choisissez le motif pour le fond de l’en-tête et du pied de page."
 
-#: library/admin/options-init.php:1605
+#: inc/customizer/options-init.php:1605
 msgid "Header and Footer pattern"
 msgstr "Motif en-tête et pied de page"
 
-#: library/admin/options-init.php:1619
+#: inc/customizer/options-init.php:1619
 msgid "Background color of main menu. Only Header #1 and #6 are supported."
 msgstr ""
 "Couleur du fond du menu principal. Seulement pour les en-têtes modèle n° 1 "
 "et n° 6."
 
-#: library/admin/options-init.php:1624 library/admin/options-init.php:1781
+#: inc/customizer/options-init.php:1624 inc/customizer/options-init.php:1781
 msgid "Light"
 msgstr "Claire"
 
-#: library/admin/options-init.php:1625 library/admin/options-init.php:1782
+#: inc/customizer/options-init.php:1625 inc/customizer/options-init.php:1782
 msgid "Dark"
 msgstr "Foncée"
 
-#: library/admin/options-init.php:1627
+#: inc/customizer/options-init.php:1627
 msgid "Main menu color"
 msgstr "﻿Couleur prédéfinie"
 
-#: library/admin/options-init.php:1631
+#: inc/customizer/options-init.php:1631
 msgid "Custom background color of main menu."
 msgstr "Choisissez la couleur pour le fond du menu principal."
 
-#: library/admin/options-init.php:1635
+#: inc/customizer/options-init.php:1635
 msgid "Or custom main menu color"
 msgstr "Ou couleur personnalisée"
 
-#: library/admin/options-init.php:1639
+#: inc/customizer/options-init.php:1639
 msgid ""
 "Check this box if you want to disable main menu background gradient, shadow "
 "effect and borders"
@@ -2673,54 +2673,54 @@ msgstr ""
 "Cochez cette case pour désactiver le dégradé, l’ombre et les bordures du "
 "fond du menu principal."
 
-#: library/admin/options-init.php:1643
+#: inc/customizer/options-init.php:1643
 msgid "Disable main menu background gradient, shadow and borders"
 msgstr "Désactiver effets du fond (dégradé, ombre, bordures)"
 
-#: library/admin/options-init.php:1647
+#: inc/customizer/options-init.php:1647
 msgid "Background color of top menu for Header #4"
 msgstr ""
 "Choisissez la couleur de fond du menu du haut pour l’en-tête modèle n° 4."
 
-#: library/admin/options-init.php:1651
+#: inc/customizer/options-init.php:1651
 msgid "Top menu color"
 msgstr "Couleur menu du haut"
 
-#: library/admin/options-init.php:1655
+#: inc/customizer/options-init.php:1655
 msgid "Smooth hover effect must be enabled. Works only for Header #1 and #6"
 msgstr ""
 "Le survol « Lisse » doit être activé. Seulement pour les en-têtes modèle n° "
 "1 et n° 6."
 
-#: library/admin/options-init.php:1659
+#: inc/customizer/options-init.php:1659
 msgid "Custom menu hover background color"
 msgstr "Couleur personnalisé du survol "
 
-#: library/admin/options-init.php:1663 library/admin/options-init.php:1667
+#: inc/customizer/options-init.php:1663 inc/customizer/options-init.php:1667
 msgid "Menu hover font color"
 msgstr "Couleur police du survol."
 
-#: library/admin/options-init.php:1676
+#: inc/customizer/options-init.php:1676
 msgid "Slideshow & Widgets Area"
 msgstr "Diaporama & zone widget"
 
-#: library/admin/options-init.php:1680
+#: inc/customizer/options-init.php:1680
 msgid "Choose the color scheme for the area below header menu"
 msgstr "Choisissez le jeu de couleurs pour la zone sous le menu d’en-tête."
 
-#: library/admin/options-init.php:1684
+#: inc/customizer/options-init.php:1684
 msgid "Color scheme of the slideshow and widgets area"
 msgstr "Jeu de couleurs"
 
-#: library/admin/options-init.php:1688
+#: inc/customizer/options-init.php:1688
 msgid "Upload an image for the area below header menu"
 msgstr "Téléchargez une image pour le fond de la zone sous le menu d’en-tête."
 
-#: library/admin/options-init.php:1692
+#: inc/customizer/options-init.php:1692
 msgid "Background Image of the slideshow and widgets area"
 msgstr "Image fond"
 
-#: library/admin/options-init.php:1696
+#: inc/customizer/options-init.php:1696
 msgid ""
 "Have background image always at 100% in width and height and scale according "
 "to the browser size."
@@ -2728,49 +2728,49 @@ msgstr ""
 "L’image de fond sera toujours à 100% en largeur, en hauteur et à l’échelle "
 "en fonction de la taille du navigateur."
 
-#: library/admin/options-init.php:1719
+#: inc/customizer/options-init.php:1719
 msgid ""
 "Check this box if you want to enable custom background for widget titles"
 msgstr "Activez un fond personnalisé pour le titre des widgets."
 
-#: library/admin/options-init.php:1725
+#: inc/customizer/options-init.php:1725
 msgid "Enable Widget Title Custom Background"
 msgstr "Fond personnalisé du titre"
 
-#: library/admin/options-init.php:1729
+#: inc/customizer/options-init.php:1729
 msgid "Choose the color scheme for widgets background"
 msgstr "Choisissez le jeu de couleur pour le fond des widgets."
 
-#: library/admin/options-init.php:1733
+#: inc/customizer/options-init.php:1733
 msgid "Widget Title Custom Background"
 msgstr "Fond personnalisé titre widget"
 
-#: library/admin/options-init.php:1740
+#: inc/customizer/options-init.php:1740
 msgid "Check this box if you want to disable widget content boxed background"
 msgstr ""
 "Cochez cette case pour désactiver le fond encadré pour le contenu des "
 "widgets."
 
-#: library/admin/options-init.php:1744
+#: inc/customizer/options-init.php:1744
 msgid "Disable Widget Content Boxed Background"
 msgstr "Désactiver le fond encadré pour le contenu des widgets."
 
-#: library/admin/options-init.php:1753
+#: inc/customizer/options-init.php:1753
 msgid "Content"
 msgstr "Contenu"
 
-#: library/admin/options-init.php:1757
+#: inc/customizer/options-init.php:1757
 msgid ""
 "Upload a content background image for your theme, or specify an image URL "
 "directly."
 msgstr ""
 "Téléchargez une image de fond pour le thème, ou spécifiez l’URL d’une image."
 
-#: library/admin/options-init.php:1761
+#: inc/customizer/options-init.php:1761
 msgid "Content Image"
 msgstr "Image"
 
-#: library/admin/options-init.php:1765
+#: inc/customizer/options-init.php:1765
 msgid ""
 "Select if the content background image should be displayed in cover or "
 "contain size."
@@ -2778,99 +2778,99 @@ msgstr ""
 "Sélectionnez si l’image de fond du contenu doit être affichée en taille "
 "couvrante ou contenu."
 
-#: library/admin/options-init.php:1773
+#: inc/customizer/options-init.php:1773
 msgid "Content Image Background Responsiveness Style"
 msgstr "Type d’adaptation de l’image de fond"
 
-#: library/admin/options-init.php:1777
+#: inc/customizer/options-init.php:1777
 msgid "Background color of content"
 msgstr "Couleur du fond du contenu."
 
-#: library/admin/options-init.php:1784
+#: inc/customizer/options-init.php:1784
 msgid "Content color"
 msgstr "Couleur prédéfinie"
 
-#: library/admin/options-init.php:1788
+#: inc/customizer/options-init.php:1788
 msgid "Custom background color of content area"
 msgstr "Couleur personnalisée du fond de la zone de contenu."
 
-#: library/admin/options-init.php:1792
+#: inc/customizer/options-init.php:1792
 msgid "Or Custom content color"
 msgstr "Ou couleur personnalisé"
 
-#: library/admin/options-init.php:1801
+#: inc/customizer/options-init.php:1801
 msgid "Links"
 msgstr "Liens"
 
-#: library/admin/options-init.php:1805
+#: inc/customizer/options-init.php:1805
 msgid "Custom color for content links"
 msgstr "Choisissez la couleur des liens."
 
-#: library/admin/options-init.php:1809
+#: inc/customizer/options-init.php:1809
 msgid "General Link Color"
 msgstr "Couleur générale"
 
-#: library/admin/options-init.php:1818
+#: inc/customizer/options-init.php:1818
 msgid "Shadows"
 msgstr "Ombres"
 
-#: library/admin/options-init.php:1822
+#: inc/customizer/options-init.php:1822
 msgid "Enables the shadow effect on the elements, enables text shadows"
 msgstr "Active l’effets ombre pour les éléments. Active l'ombre des textes."
 
-#: library/admin/options-init.php:1830
+#: inc/customizer/options-init.php:1830
 msgid "Shadow Effect"
 msgstr "Effet ombre"
 
-#: library/admin/options-init.php:1839
+#: inc/customizer/options-init.php:1839
 msgid "Element Colors"
 msgstr "Couleurs des éléments"
 
-#: library/admin/options-init.php:1843
+#: inc/customizer/options-init.php:1843
 msgid "Controls the background color of form fields."
 msgstr "Contrôle la couleur du fond des champs de formulaires."
 
-#: library/admin/options-init.php:1846
+#: inc/customizer/options-init.php:1846
 msgid "Form Background Color"
 msgstr "Fond des formulaires"
 
-#: library/admin/options-init.php:1850
+#: inc/customizer/options-init.php:1850
 msgid "Controls the text color for forms."
 msgstr "Contrôle la couleur du texte des formulaires."
 
-#: library/admin/options-init.php:1853
+#: inc/customizer/options-init.php:1853
 msgid "Form Text Color"
 msgstr "Textes des formulaires"
 
-#: library/admin/options-init.php:1857
+#: inc/customizer/options-init.php:1857
 msgid "Controls the border color of form fields."
 msgstr "Contrôle la couleur des bordures des champs des formulaires."
 
-#: library/admin/options-init.php:1860
+#: inc/customizer/options-init.php:1860
 msgid "Form Border Color"
 msgstr "Couleur des bordure de formulaires"
 
-#: library/admin/options-init.php:1869
+#: inc/customizer/options-init.php:1869
 msgid "Shortcodes"
 msgstr "Shortcodes"
 
-#: library/admin/options-init.php:1876
+#: inc/customizer/options-init.php:1876
 msgid "Accordion"
 msgstr "Accordéon"
 
-#: library/admin/options-init.php:1880
+#: inc/customizer/options-init.php:1880
 msgid "Controls the color of the inactive boxes behind the '+' icons."
 msgstr "Contrôle la couleur des boîtes inactives derrières les icônes « + »."
 
-#: library/admin/options-init.php:1884
+#: inc/customizer/options-init.php:1884
 msgid "Accordion Inactive Box Color"
 msgstr "Couleur des boîtes inactives"
 
-#: library/admin/options-init.php:1893 library/admin/options-init.php:2778
+#: inc/customizer/options-init.php:1893 inc/customizer/options-init.php:2778
 msgid "Blog"
 msgstr "Blog"
 
-#: library/admin/options-init.php:1897
+#: inc/customizer/options-init.php:1897
 msgid ""
 "Controls the color of the icon circle in blog alternate and recent posts "
 "layouts."
@@ -2878,158 +2878,158 @@ msgstr ""
 "Contrôle la couleur du cercle de l’icône dans la mise en page alternative du "
 "blog et des articles récents."
 
-#: library/admin/options-init.php:1901
+#: inc/customizer/options-init.php:1901
 msgid "Blog Icon Circle Color"
 msgstr "Couleur cercle icône"
 
-#: library/admin/options-init.php:1910 library/admin/options-init.php:3978
-#: library/admin/options-init.php:4189
+#: inc/customizer/options-init.php:1910 inc/customizer/options-init.php:3978
+#: inc/customizer/options-init.php:4189
 msgid "Button"
 msgstr "Bouton"
 
-#: library/admin/options-init.php:1914
+#: inc/customizer/options-init.php:1914
 msgid "Select the default button size."
 msgstr "Sélectionnez la taille par défaut des boutons."
 
-#: library/admin/options-init.php:1919 library/admin/options-init.php:3391
+#: inc/customizer/options-init.php:1919 inc/customizer/options-init.php:3391
 msgid "Small"
 msgstr "Petit"
 
-#: library/admin/options-init.php:1920
+#: inc/customizer/options-init.php:1920
 msgid "Medium"
 msgstr "Moyen"
 
-#: library/admin/options-init.php:1921 library/admin/options-init.php:3392
+#: inc/customizer/options-init.php:1921 inc/customizer/options-init.php:3392
 msgid "Large"
 msgstr "Grand"
 
-#: library/admin/options-init.php:1922
+#: inc/customizer/options-init.php:1922
 msgid "XLarge"
 msgstr "Énorme"
 
-#: library/admin/options-init.php:1924
+#: inc/customizer/options-init.php:1924
 msgid "Button Size"
 msgstr "Taille"
 
-#: library/admin/options-init.php:1928
+#: inc/customizer/options-init.php:1928
 msgid "Select the default shape for buttons."
 msgstr "Sélectionnez la forme par défaut des boutons."
 
-#: library/admin/options-init.php:1933
+#: inc/customizer/options-init.php:1933
 msgid "Square"
 msgstr "Carré"
 
-#: library/admin/options-init.php:1934
+#: inc/customizer/options-init.php:1934
 msgid "Round"
 msgstr "Rond"
 
-#: library/admin/options-init.php:1935
+#: inc/customizer/options-init.php:1935
 msgid "Pill"
 msgstr "Pilule"
 
-#: library/admin/options-init.php:1937
+#: inc/customizer/options-init.php:1937
 msgid "Button Shape"
 msgstr "Forme"
 
-#: library/admin/options-init.php:1941
+#: inc/customizer/options-init.php:1941
 msgid "Select the default button type."
 msgstr "Choisissez le type par défaut des boutons."
 
-#: library/admin/options-init.php:1946
+#: inc/customizer/options-init.php:1946
 msgid "Flat"
 msgstr "Plat"
 
-#: library/admin/options-init.php:1947
+#: inc/customizer/options-init.php:1947
 msgid "3d"
 msgstr "3d"
 
-#: library/admin/options-init.php:1949
+#: inc/customizer/options-init.php:1949
 msgid "Button Type"
 msgstr "Type"
 
-#: library/admin/options-init.php:1953
+#: inc/customizer/options-init.php:1953
 msgid "Controls the top color of the button gradients."
 msgstr "Contrôle le dégradé de la couleur du haut du bouton."
 
-#: library/admin/options-init.php:1957
+#: inc/customizer/options-init.php:1957
 msgid "Button Gradient Top Color"
 msgstr "Dégradé couleur du haut"
 
-#: library/admin/options-init.php:1961
+#: inc/customizer/options-init.php:1961
 msgid "Controls the bottom color of the button gradients."
 msgstr "Contrôle le dégradé de la couleur du bas du bouton."
 
-#: library/admin/options-init.php:1965
+#: inc/customizer/options-init.php:1965
 msgid "Button Gradient Bottom Color"
 msgstr "Dégradé couleur du bas"
 
-#: library/admin/options-init.php:1969
+#: inc/customizer/options-init.php:1969
 msgid "Controls the top hover color of the button gradients."
 msgstr "Contrôle le dégradé de la couleur de survol du haut du bouton."
 
-#: library/admin/options-init.php:1973
+#: inc/customizer/options-init.php:1973
 msgid "Button Gradient Top Hover Color"
 msgstr "Dégradé couleur de survol du haut"
 
-#: library/admin/options-init.php:1977
+#: inc/customizer/options-init.php:1977
 msgid "Controls the bottom hover color of the button gradients."
 msgstr "Contrôle le dégradé de la couleur de survol du bas du bouton."
 
-#: library/admin/options-init.php:1981
+#: inc/customizer/options-init.php:1981
 msgid "Button Gradient Bottom Hover Color"
 msgstr "Dégradé couleur de survol du bas"
 
-#: library/admin/options-init.php:1985
+#: inc/customizer/options-init.php:1985
 msgid "This option controls the color of the button text and icon."
 msgstr "Contrôle la couleur du texte et de l’icône du bouton."
 
-#: library/admin/options-init.php:1989
+#: inc/customizer/options-init.php:1989
 msgid "Button Accent Color"
 msgstr "Couleur d'accentuation"
 
-#: library/admin/options-init.php:1993
+#: inc/customizer/options-init.php:1993
 msgid "This option controls the hover color of the button text and icon."
 msgstr "Contrôle la couleur du texte et de l’icône au survol du bouton."
 
-#: library/admin/options-init.php:1997
+#: inc/customizer/options-init.php:1997
 msgid "Button Accent Hover Color"
 msgstr "Couleur d'accentuation au survol"
 
-#: library/admin/options-init.php:2001
+#: inc/customizer/options-init.php:2001
 msgid "Controls the default bevel color of the buttons."
 msgstr "Contrôle la couleur du chanfrein par défaut des boutons."
 
-#: library/admin/options-init.php:2005
+#: inc/customizer/options-init.php:2005
 msgid "Button Bevel Color (3D Mode only)"
 msgstr "Couleur du chanfrein (mode 3D seulement)"
 
-#: library/admin/options-init.php:2009
+#: inc/customizer/options-init.php:2009
 msgid "Controls the border color of the buttons."
 msgstr "Contrôle la couleur de la bordure des boutons."
 
-#: library/admin/options-init.php:2013
+#: inc/customizer/options-init.php:2013
 msgid "Button Border Color"
 msgstr "Couleur de bordure"
 
-#: library/admin/options-init.php:2017
+#: inc/customizer/options-init.php:2017
 msgid "Controls the border hover color of the buttons."
 msgstr "Contrôle la couleur du chanfrein des boutons."
 
-#: library/admin/options-init.php:2021
+#: inc/customizer/options-init.php:2021
 msgid "Button Border Hover Color"
 msgstr "Couleur de bordure au survol"
 
-#: library/admin/options-init.php:2025
+#: inc/customizer/options-init.php:2025
 msgid "Select the border width for buttons. Enter value in px. ex: 1px"
 msgstr ""
 "Sélectionnez la largeur de la bordure des boutons. Entrez une valeur en "
 "pixels, ex. : 1px."
 
-#: library/admin/options-init.php:2028
+#: inc/customizer/options-init.php:2028
 msgid "Button Border Width"
 msgstr "Largeur de bordure"
 
-#: library/admin/options-init.php:2032
+#: inc/customizer/options-init.php:2032
 msgid ""
 "Select the box to disable the inset shadow and text shadow on the flat "
 "button type."
@@ -3037,15 +3037,15 @@ msgstr ""
 "Cochez la case pour désactiver l'ombre de l’encart et du texte pour les "
 "boutons plats."
 
-#: library/admin/options-init.php:2035
+#: inc/customizer/options-init.php:2035
 msgid "Disable Flat Button Shadow"
 msgstr "Désactiver l’ombre des boutons plats"
 
-#: library/admin/options-init.php:2044
+#: inc/customizer/options-init.php:2044
 msgid "Content Box"
 msgstr "Boîte de contenu"
 
-#: library/admin/options-init.php:2048
+#: inc/customizer/options-init.php:2048
 msgid ""
 "Controls the color of the background for content boxes. Only use for 'icon-"
 "boxed' style. Leave transparent for other styles."
@@ -3053,217 +3053,217 @@ msgstr ""
 "Contrôle la couleur du fond pour les boîtes de contenu. Seulement pour le "
 "style « icon-boxed ». Laissez tranparent pour les autres styles."
 
-#: library/admin/options-init.php:2052
+#: inc/customizer/options-init.php:2052
 msgid "Content Box Background Color"
 msgstr "Couleur du fond"
 
-#: library/admin/options-init.php:2061
+#: inc/customizer/options-init.php:2061
 msgid "Checklist"
 msgstr "Check-list"
 
-#: library/admin/options-init.php:2065
+#: inc/customizer/options-init.php:2065
 msgid "Check the box if you want to use circles on checklists."
 msgstr "Cochez la case pour utiliser des cercles avec les check-lists."
 
-#: library/admin/options-init.php:2068
+#: inc/customizer/options-init.php:2068
 msgid "Checklist Circle"
 msgstr "Cercles"
 
-#: library/admin/options-init.php:2072
+#: inc/customizer/options-init.php:2072
 msgid "Controls the color of the checklist circle."
 msgstr "Contrôle la couleur des cercles de check-lists."
 
-#: library/admin/options-init.php:2076
+#: inc/customizer/options-init.php:2076
 msgid "Checklist Circle Color"
 msgstr "Couleur des cercles"
 
-#: library/admin/options-init.php:2080
+#: inc/customizer/options-init.php:2080
 msgid "Controls the color of the checklist icon."
 msgstr "Contrôle la couleur des icônes de check-lists."
 
-#: library/admin/options-init.php:2084
+#: inc/customizer/options-init.php:2084
 msgid "Checklist Icon Color"
 msgstr "Couleur des icônes"
 
-#: library/admin/options-init.php:2093
+#: inc/customizer/options-init.php:2093
 msgid "Counter Boxes"
 msgstr "Boîtes compteur"
 
-#: library/admin/options-init.php:2097
+#: inc/customizer/options-init.php:2097
 msgid "Check the box if you want to display counter box shadow."
 msgstr "Cochez cette case si vous souhaitez afficher l'ombre."
 
-#: library/admin/options-init.php:2100
+#: inc/customizer/options-init.php:2100
 msgid "Counter Box Shadow"
 msgstr "Ombre"
 
-#: library/admin/options-init.php:2105 library/admin/options-init.php:2122
-#: library/admin/options-init.php:2130
+#: inc/customizer/options-init.php:2105 inc/customizer/options-init.php:2122
+#: inc/customizer/options-init.php:2130
 msgid "Controls the color of the counter text and icon."
 msgstr "Contrôle la couleur du texte et de l’icône du compteur."
 
-#: library/admin/options-init.php:2109
+#: inc/customizer/options-init.php:2109
 msgid "Counter Box Text Color"
 msgstr "Couleur du texte"
 
-#: library/admin/options-init.php:2118
+#: inc/customizer/options-init.php:2118
 msgid "Counter Circle"
 msgstr "Cercle compteur"
 
-#: library/admin/options-init.php:2126
+#: inc/customizer/options-init.php:2126
 msgid "Counter Circle Filled Color"
 msgstr "Couleur de remplissage"
 
-#: library/admin/options-init.php:2134
+#: inc/customizer/options-init.php:2134
 msgid "Counter Circle Unfilled Color"
 msgstr "Couleur non remplie"
 
-#: library/admin/options-init.php:2143
+#: inc/customizer/options-init.php:2143
 msgid "Dropcap"
 msgstr "Lettrine"
 
-#: library/admin/options-init.php:2147
+#: inc/customizer/options-init.php:2147
 msgid ""
 "Controls the color of the dropcap text, or the dropcap box is a box is used."
 msgstr ""
 "Contrôle la couleur de la lettrine, ou la boîte de la lettrine si une boîte "
 "est utilisée."
 
-#: library/admin/options-init.php:2151
+#: inc/customizer/options-init.php:2151
 msgid "Dropcap Color"
 msgstr "Couleur lettrine"
 
-#: library/admin/options-init.php:2160
+#: inc/customizer/options-init.php:2160
 msgid "Flip Boxes"
 msgstr "Flip Boxes"
 
-#: library/admin/options-init.php:2164
+#: inc/customizer/options-init.php:2164
 msgid "Controls the color of frontside background color."
 msgstr "Contrôle la couleur du fond du recto."
 
-#: library/admin/options-init.php:2168
+#: inc/customizer/options-init.php:2168
 msgid "Flip Box Background Color Frontside"
 msgstr "Couleur fond recto"
 
-#: library/admin/options-init.php:2172
+#: inc/customizer/options-init.php:2172
 msgid "Controls the color of frontside heading color."
 msgstr "Contrôle la couleur du titre du recto."
 
-#: library/admin/options-init.php:2176
+#: inc/customizer/options-init.php:2176
 msgid "Flip Box Heading Color Frontside"
 msgstr "Couleur titre recto"
 
-#: library/admin/options-init.php:2180
+#: inc/customizer/options-init.php:2180
 msgid "Controls the color of frontside text color."
 msgstr "Contrôle la couleur du titre du recto."
 
-#: library/admin/options-init.php:2184
+#: inc/customizer/options-init.php:2184
 msgid "Flip Box Text Color Frontside"
 msgstr "Couleur texte recto"
 
-#: library/admin/options-init.php:2188
+#: inc/customizer/options-init.php:2188
 msgid "Controls the color of backside background color."
 msgstr "Contrôle la couleur du fond du verso."
 
-#: library/admin/options-init.php:2192
+#: inc/customizer/options-init.php:2192
 msgid "Flip Box Background Color Backside"
 msgstr "Couleur fond verso"
 
-#: library/admin/options-init.php:2196
+#: inc/customizer/options-init.php:2196
 msgid "Controls the color of backside heading color."
 msgstr "Contrôle la couleur du titre du verso."
 
-#: library/admin/options-init.php:2200
+#: inc/customizer/options-init.php:2200
 msgid "Flip Box Heading Color Backside"
 msgstr "Couleur titre verso"
 
-#: library/admin/options-init.php:2204
+#: inc/customizer/options-init.php:2204
 msgid "Controls the color of backside text color."
 msgstr "Contrôle la couleur du texte du verso."
 
-#: library/admin/options-init.php:2208
+#: inc/customizer/options-init.php:2208
 msgid "Flip Box Text Color Backside"
 msgstr "Couleur texte verso"
 
-#: library/admin/options-init.php:2212
+#: inc/customizer/options-init.php:2212
 msgid "Controls the border size of flip boxes."
 msgstr "Contrôle la largeur de la bordure."
 
-#: library/admin/options-init.php:2215
+#: inc/customizer/options-init.php:2215
 msgid "Flip Box Border Size"
 msgstr "Taille bordure"
 
-#: library/admin/options-init.php:2219
+#: inc/customizer/options-init.php:2219
 msgid "Controls the border color of flip boxes."
 msgstr "Contrôle la couleur de la bordure."
 
-#: library/admin/options-init.php:2223
+#: inc/customizer/options-init.php:2223
 msgid "Flip Box Border Color"
 msgstr "Couleur bordure"
 
-#: library/admin/options-init.php:2227
+#: inc/customizer/options-init.php:2227
 msgid "Controls the border radius (roundness) of flip boxes."
 msgstr "Contrôle le rayon de la bordure (rondeur)."
 
-#: library/admin/options-init.php:2230
+#: inc/customizer/options-init.php:2230
 msgid "Flip Box Border Radius"
 msgstr "Rayon bordure"
 
-#: library/admin/options-init.php:2239 library/functions/page_options.php:4
-#: library/functions/page_tabs/tab_layout.php:18
+#: inc/customizer/options-init.php:2239 library/custom-functions/page_options.php:4
+#: library/custom-functions/page_tabs/tab_layout.php:18
 msgid "Full Width"
 msgstr "Pleine largeur"
 
-#: library/admin/options-init.php:2243
+#: inc/customizer/options-init.php:2243
 msgid "Controls the background color of the full width section."
 msgstr "Contrôle la couleur du fond de la section pleine largeur."
 
-#: library/admin/options-init.php:2247
+#: inc/customizer/options-init.php:2247
 msgid "Full Width Background Color"
 msgstr "Couleur fond"
 
-#: library/admin/options-init.php:2251
+#: inc/customizer/options-init.php:2251
 msgid "Controls the border size of the full width section."
 msgstr "Contrôle la taille de la bordure de la section pleine largeur."
 
-#: library/admin/options-init.php:2254
+#: inc/customizer/options-init.php:2254
 msgid "Full Width Border Size"
 msgstr "Taille bordure"
 
-#: library/admin/options-init.php:2258
+#: inc/customizer/options-init.php:2258
 msgid "Controls the border color of the full width section."
 msgstr "Contrôle la couleur de la bordure de la section pleine largeur."
 
-#: library/admin/options-init.php:2262
+#: inc/customizer/options-init.php:2262
 msgid "Full Width Border Color"
 msgstr "Couleur bordure"
 
-#: library/admin/options-init.php:2275
+#: inc/customizer/options-init.php:2275
 msgid "Controls color of lines next to text titles."
 msgstr "Contrôle la couleur des lignes à côté du titre."
 
-#: library/admin/options-init.php:2279
+#: inc/customizer/options-init.php:2279
 msgid "Border Title Separator Color"
 msgstr "Couleur bordure séparateur titre"
 
-#: library/admin/options-init.php:2283
+#: inc/customizer/options-init.php:2283
 msgid "Controls the color of the circle when used with icons."
 msgstr "Contrôle la couleur du cercle quand utilisé avec des icônes."
 
-#: library/admin/options-init.php:2287
+#: inc/customizer/options-init.php:2287
 msgid "Icon Circle Color"
 msgstr "Couleur cercle"
 
-#: library/admin/options-init.php:2291
+#: inc/customizer/options-init.php:2291
 msgid "Controls the color of the circle border when used with icons."
 msgstr ""
 "Contrôle la couleur de la bordure du cercle quand utilisé avec des icônes."
 
-#: library/admin/options-init.php:2295
+#: inc/customizer/options-init.php:2295
 msgid "Icon Circle Border Color"
 msgstr "Couleur bordure"
 
-#: library/admin/options-init.php:2299
+#: inc/admin/options-init.php:2299
 msgid "Controls the color of the icons."
 msgstr "Contrôle la couleur de l’icône."
 
@@ -3575,18 +3575,18 @@ msgid "Controls the color of the social icons in the sharing box."
 msgstr "Contrôle la couleur de l’encadrement des icônes de partage social."
 
 #: library/admin/options-init.php:2637 library/admin/options-init.php:3251
-#: library/functions/page_options.php:5 library/functions/page_options.php:76
-#: library/functions/page_tabs/tab_layout.php:19
-#: library/functions/page_tabs/tab_pageportfolio.php:7
-#: library/functions/page_tabs/tab_widget.php:4
+#: library/custom-functions/page_options.php:5 library/custom-functions/page_options.php:76
+#: library/custom-functions/page_tabs/tab_layout.php:19
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:7
+#: library/custom-functions/page_tabs/tab_widget.php:4
 msgid "No"
 msgstr "Non"
 
 #: library/admin/options-init.php:2638 library/admin/options-init.php:3252
-#: library/functions/page_options.php:6 library/functions/page_options.php:77
-#: library/functions/page_tabs/tab_layout.php:20
-#: library/functions/page_tabs/tab_pageportfolio.php:6
-#: library/functions/page_tabs/tab_widget.php:5
+#: library/custom-functions/page_options.php:6 library/custom-functions/page_options.php:77
+#: library/custom-functions/page_tabs/tab_layout.php:20
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:6
+#: library/custom-functions/page_tabs/tab_widget.php:5
 msgid "Yes"
 msgstr "Oui"
 
@@ -3990,7 +3990,7 @@ msgid "Video Post Format Background"
 msgstr "Fond « Vidéo »"
 
 #: library/admin/options-init.php:3058
-#: library/functions/basic-functions.php:2084
+#: library/custom-functions/basic-functions.php:2084
 msgid "Portfolio"
 msgstr "Portfolio"
 
@@ -4716,8 +4716,8 @@ msgstr "Description"
 msgid "Content Box 4 Button"
 msgstr "Bouton"
 
-#: library/admin/options-init.php:3813 library/functions/page_options.php:21
-#: library/functions/page_tabs/tab_slider.php:17
+#: library/admin/options-init.php:3813 library/custom-functions/page_options.php:21
+#: library/custom-functions/page_tabs/tab_slider.php:17
 msgid "Bootstrap Slider"
 msgstr "Diaporama Bootstrap"
 
@@ -4886,8 +4886,8 @@ msgstr "Thème entièrement adaptatif"
 msgid "Unlimited color schemes"
 msgstr "Schémas de couleurs illimités"
 
-#: library/admin/options-init.php:4024 library/functions/page_options.php:19
-#: library/functions/page_tabs/tab_slider.php:15
+#: library/admin/options-init.php:4024 library/custom-functions/page_options.php:19
+#: library/custom-functions/page_tabs/tab_slider.php:15
 msgid "Parallax Slider"
 msgstr "Diaporama parallaxe"
 
@@ -4919,8 +4919,8 @@ msgstr "Entrez le temps entre les transitions (par défaut : 4 000)."
 msgid "Parallax Speed"
 msgstr "Vitesse du parallaxe"
 
-#: library/admin/options-init.php:4203 library/functions/page_options.php:20
-#: library/functions/page_tabs/tab_slider.php:16
+#: library/admin/options-init.php:4203 library/custom-functions/page_options.php:20
+#: library/custom-functions/page_tabs/tab_slider.php:16
 msgid "Posts Slider"
 msgstr "Carrousel d’articles"
 
@@ -5186,11 +5186,11 @@ msgstr "Niveau zoom carte"
 msgid "Display the address pin."
 msgstr "Affichez le marqueur d’adresse."
 
-#: library/admin/options-init.php:4483 library/functions/page_options.php:85
-#: library/functions/page_options.php:91
-#: library/functions/page_tabs/tab_pageportfolio.php:29
-#: library/functions/page_tabs/tab_pagetitlebar.php:21
-#: library/functions/page_tabs/tab_pagetitlebar.php:28
+#: library/admin/options-init.php:4483 library/custom-functions/page_options.php:85
+#: library/custom-functions/page_options.php:91
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:29
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:21
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:28
 msgid "Hide"
 msgstr "Masqué"
 
@@ -5540,10 +5540,10 @@ msgid "Hints"
 msgstr ""
 
 #: library/admin/redux-framework/framework.php:1900
-#: library/functions/page_tabs/tab_pagetitlebar.php:8
-#: library/functions/page_tabs/tab_pagetitlebar.php:19
-#: library/functions/page_tabs/tab_pagetitlebar.php:26
-#: library/functions/page_tabs/tab_slider.php:4
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:8
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:19
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:26
+#: library/custom-functions/page_tabs/tab_slider.php:4
 msgid "Default"
 msgstr "Défaut"
 
@@ -6014,7 +6014,7 @@ msgid "Add More"
 msgstr "Ajouter plus"
 
 #: library/admin/redux-framework/inc/fields/password/field_password.php:62
-#: library/functions/class-wp-theme-update-manager.php:177
+#: library/custom-functions/class-wp-theme-update-manager.php:177
 #: templates/header_v1.php:52 templates/header_v2.php:95
 #: templates/header_v3.php:95 templates/header_v4.php:29
 #: templates/header_v5.php:181 templates/header_v6.php:140
@@ -6022,7 +6022,7 @@ msgid "Password"
 msgstr "Mot de passe"
 
 #: library/admin/redux-framework/inc/fields/password/field_password.php:63
-#: library/functions/class-wp-theme-update-manager.php:175
+#: library/custom-functions/class-wp-theme-update-manager.php:175
 #: templates/header_v1.php:49 templates/header_v2.php:92
 #: templates/header_v3.php:92 templates/header_v4.php:26
 #: templates/header_v5.php:178 templates/header_v6.php:137
@@ -7232,7 +7232,7 @@ msgid "All plugins installed and activated successfully. %1$s"
 msgstr ""
 
 #: library/admin/tgm/class-tgm-plugin-activation.php:380
-#: library/functions/class-wp-theme-update-manager.php:255
+#: library/custom-functions/class-wp-theme-update-manager.php:255
 msgid "Dismiss this notice"
 msgstr "Ignorer cette remarque"
 
@@ -7588,578 +7588,578 @@ msgstr[1] ""
 msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
-#: library/functions/basic-functions.php:52
+#: library/custom-functions/basic-functions.php:52
 #, php-format
 msgid "Page %s"
 msgstr "Page %s"
 
-#: library/functions/basic-functions.php:154
+#: library/custom-functions/basic-functions.php:154
 msgid "Primary Menu"
 msgstr "Menu primaire"
 
-#: library/functions/basic-functions.php:155
+#: library/custom-functions/basic-functions.php:155
 msgid "Top Menu"
 msgstr "Menu du haut"
 
-#: library/functions/basic-functions.php:353
+#: library/custom-functions/basic-functions.php:353
 msgid "Similar posts"
 msgstr "Articles similaires"
 
-#: library/functions/basic-functions.php:365
+#: library/custom-functions/basic-functions.php:365
 msgid "Untitled"
 msgstr "Sans-titre"
 
-#: library/functions/basic-functions.php:1479
+#: library/custom-functions/basic-functions.php:1479
 msgid "Share on Twitter"
 msgstr "Partager sur Twitter"
 
-#: library/functions/basic-functions.php:1480
+#: library/custom-functions/basic-functions.php:1480
 msgid "Share on Facebook"
 msgstr "Partager sur Facebook"
 
-#: library/functions/basic-functions.php:1481
+#: library/custom-functions/basic-functions.php:1481
 msgid "Share on Google Plus"
 msgstr "Partager sur Google +"
 
-#: library/functions/basic-functions.php:1482
+#: library/custom-functions/basic-functions.php:1482
 msgid "Share on Pinterest"
 msgstr "Partager sur Pinterest"
 
-#: library/functions/basic-functions.php:1483
+#: library/custom-functions/basic-functions.php:1483
 msgid "Share by Email"
 msgstr "Partager par e-mail"
 
-#: library/functions/basic-functions.php:1484
+#: library/custom-functions/basic-functions.php:1484
 msgid "More options"
 msgstr "Plus d’options"
 
-#: library/functions/basic-functions.php:2083
+#: library/custom-functions/basic-functions.php:2083
 #, fuzzy
 msgid "Widgets"
 msgstr "Les widgets"
 
-#: library/functions/basic-functions.php:2085
+#: library/custom-functions/basic-functions.php:2085
 #, fuzzy
 msgid "Slider"
 msgstr "Pas de diaporama"
 
-#: library/functions/basic-functions.php:2086
+#: library/custom-functions/basic-functions.php:2086
 #, fuzzy
 msgid "Sidebar"
 msgstr "Barre latérale 1"
 
-#: library/functions/basic-functions.php:2297
+#: library/custom-functions/basic-functions.php:2297
 msgid "Home"
 msgstr "Accueil"
 
-#: library/functions/basic-functions.php:2373
+#: library/custom-functions/basic-functions.php:2373
 msgid "Search"
 msgstr "Recherche"
 
-#: library/functions/basic-functions.php:2465
+#: library/custom-functions/basic-functions.php:2465
 msgid ""
 "<h2 style=\"color:#fff;\">Oops, no posts to display! Please check your post "
 "slider Category (ID) settings</h2>"
 msgstr ""
 
-#: library/functions/basic-functions.php:3371
+#: library/custom-functions/basic-functions.php:3371
 msgid "Successfully imported demo data!"
 msgstr ""
 
-#: library/functions/basic-functions.php:3447
+#: library/custom-functions/basic-functions.php:3447
 msgid "Previous "
 msgstr "Précédent"
 
-#: library/functions/basic-functions.php:3448
+#: library/custom-functions/basic-functions.php:3448
 msgid "Next "
 msgstr "Suivant"
 
-#: library/functions/basic-functions.php:3669
+#: library/custom-functions/basic-functions.php:3669
 msgid "Search results for:"
 msgstr "Résultats de recherche pour :"
 
-#: library/functions/basic-functions.php:3678
+#: library/custom-functions/basic-functions.php:3678
 msgid "Daily Archives: "
 msgstr "Archives quotidiennes :"
 
-#: library/functions/basic-functions.php:3680
+#: library/custom-functions/basic-functions.php:3680
 msgid "Monthly Archives: "
 msgstr "Archives mensuelles :"
 
-#: library/functions/basic-functions.php:3680
+#: library/custom-functions/basic-functions.php:3680
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "F Y"
 
-#: library/functions/basic-functions.php:3682
+#: library/custom-functions/basic-functions.php:3682
 msgid "Yearly Archives: "
 msgstr "Archives annuelles :"
 
-#: library/functions/class-wp-theme-update-manager.php:117
-#: library/functions/class-wp-theme-update-manager.php:185
+#: library/custom-functions/class-wp-theme-update-manager.php:117
+#: library/custom-functions/class-wp-theme-update-manager.php:185
 #, php-format
 msgid "%s Theme Update"
 msgstr "%s mise à jour du thème"
 
-#: library/functions/class-wp-theme-update-manager.php:132
+#: library/custom-functions/class-wp-theme-update-manager.php:132
 msgid "Please enter your Theme4Press account username"
 msgstr ""
 
-#: library/functions/class-wp-theme-update-manager.php:146
+#: library/custom-functions/class-wp-theme-update-manager.php:146
 msgid "Please enter your Theme4Press account password"
 msgstr ""
 
-#: library/functions/class-wp-theme-update-manager.php:173
+#: library/custom-functions/class-wp-theme-update-manager.php:173
 msgid ""
 "Insert your Theme4Press username and password details to enable theme update "
 "notifications."
 msgstr ""
 
-#: library/functions/class-wp-theme-update-manager.php:191
+#: library/custom-functions/class-wp-theme-update-manager.php:191
 msgid ""
 "<p><strong>Username and password are correct.</strong> You will be notified "
 "when new update is available.</p>"
 msgstr ""
 
-#: library/functions/class-wp-theme-update-manager.php:244
+#: library/custom-functions/class-wp-theme-update-manager.php:244
 #, php-format
 msgid "Please enter your username and password to enable updates to %s."
 msgstr ""
 
-#: library/functions/class-wp-theme-update-manager.php:252
+#: library/custom-functions/class-wp-theme-update-manager.php:252
 msgid "Complete the setup now"
 msgstr "Terminez la configuration maintenant"
 
-#: library/functions/class-wp-theme-update-manager.php:283
-#: library/functions/class-wp-theme-update-manager.php:289
+#: library/custom-functions/class-wp-theme-update-manager.php:283
+#: library/custom-functions/class-wp-theme-update-manager.php:289
 msgid ""
 "It seems you have <a href=\"http://wpmegamenu.com/\">Ubermenu</a> installed, "
 "please enable <a href=\""
 msgstr ""
 
-#: library/functions/comments.php:34
+#: library/custom-functions/comments.php:34
 msgid "% Pings/Trackbacks"
 msgstr "% Pings/Trackbacks"
 
-#: library/functions/comments.php:35
+#: library/custom-functions/comments.php:35
 msgid "No Pings/Trackbacks Yet"
 msgstr "Pas encore de Pings/Trackbacks"
 
-#: library/functions/comments.php:36
+#: library/custom-functions/comments.php:36
 msgid "1 Pings/Trackbacks"
 msgstr "1 Pings/Trackbacks"
 
-#: library/functions/comments.php:69
+#: library/custom-functions/comments.php:69
 msgid "Follow replies"
 msgstr "Suivez les réponses"
 
-#: library/functions/comments.php:212
+#: library/custom-functions/comments.php:212
 msgid "Your comment is awaiting moderation"
 msgstr ""
 
-#: library/functions/functions.php:172
+#: library/custom-functions/functions.php:172
 msgid "Shopping Cart"
 msgstr "Panier d’achat"
 
-#: library/functions/functions.php:175
+#: library/custom-functions/functions.php:175
 msgid "All posts displayed"
 msgstr "Tous les articles affichés"
 
-#: library/functions/functions.php:176
+#: library/custom-functions/functions.php:176
 msgid "Loading the next set of posts..."
 msgstr ""
 
-#: library/functions/functions.php:177
+#: library/custom-functions/functions.php:177
 msgid "Loading Portfolio Items..."
 msgstr "Chargement du portfolio..."
 
-#: library/functions/functions.php:180
+#: library/custom-functions/functions.php:180
 msgid "Details"
 msgstr "Détails"
 
-#: library/functions/page_options.php:2
+#: library/custom-functions/page_options.php:2
 msgid "Post options"
 msgstr "Options article"
 
-#: library/functions/page_options.php:12
+#: library/custom-functions/page_options.php:12
 msgid "Slider Options"
 msgstr "Options du diaporama"
 
-#: library/functions/page_options.php:14
-#: library/functions/page_tabs/tab_slider.php:10
+#: library/custom-functions/page_options.php:14
+#: library/custom-functions/page_tabs/tab_slider.php:10
 msgid "Slider Type"
 msgstr "Type de diaporama"
 
-#: library/functions/page_options.php:15
-#: library/functions/page_tabs/tab_slider.php:11
+#: library/custom-functions/page_options.php:15
+#: library/custom-functions/page_tabs/tab_slider.php:11
 msgid "No Slider"
 msgstr "Pas de diaporama"
 
-#: library/functions/page_options.php:16
-#: library/functions/page_tabs/tab_slider.php:12
+#: library/custom-functions/page_options.php:16
+#: library/custom-functions/page_tabs/tab_slider.php:12
 msgid "LayerSlider"
 msgstr "LayerSlider"
 
-#: library/functions/page_options.php:17
-#: library/functions/page_tabs/tab_slider.php:13
+#: library/custom-functions/page_options.php:17
+#: library/custom-functions/page_tabs/tab_slider.php:13
 msgid "Revolution Slider"
 msgstr "Diaporama Revolution Slider"
 
-#: library/functions/page_options.php:18
+#: library/custom-functions/page_options.php:18
 msgid "FlexSlider"
 msgstr "FlexSlider"
 
-#: library/functions/page_options.php:26 library/functions/page_options.php:48
-#: library/functions/page_options.php:62
-#: library/functions/page_tabs/tab_slider.php:25
-#: library/functions/page_tabs/tab_slider.php:50
-#: library/functions/page_tabs/tab_slider.php:64
+#: library/custom-functions/page_options.php:26 library/custom-functions/page_options.php:48
+#: library/custom-functions/page_options.php:62
+#: library/custom-functions/page_tabs/tab_slider.php:25
+#: library/custom-functions/page_tabs/tab_slider.php:50
+#: library/custom-functions/page_tabs/tab_slider.php:64
 msgid "Select a slider"
 msgstr "Sélectionnez un diaporama"
 
-#: library/functions/page_options.php:44
-#: library/functions/page_tabs/tab_slider.php:45
+#: library/custom-functions/page_options.php:44
+#: library/custom-functions/page_tabs/tab_slider.php:45
 msgid "Select LayerSlider"
 msgstr "Sélectionnez LayerSlider"
 
-#: library/functions/page_options.php:57
-#: library/functions/page_tabs/tab_slider.php:59
+#: library/custom-functions/page_options.php:57
+#: library/custom-functions/page_tabs/tab_slider.php:59
 msgid "Select Revolution Slider"
 msgstr "Sélectionnez Revolution Slider"
 
-#: library/functions/page_options.php:70
+#: library/custom-functions/page_options.php:70
 msgid "Select FlexSlider"
 msgstr "Sélectionnez FlexSlider"
 
-#: library/functions/page_options.php:73
+#: library/custom-functions/page_options.php:73
 msgid "Widget Options"
 msgstr "Options des widgets"
 
-#: library/functions/page_options.php:75
-#: library/functions/page_tabs/tab_widget.php:3
+#: library/custom-functions/page_options.php:75
+#: library/custom-functions/page_tabs/tab_widget.php:3
 msgid "Enable Header Widgets"
 msgstr "Activer l’en-tête attaché"
 
-#: library/functions/page_options.php:81
+#: library/custom-functions/page_options.php:81
 msgid "Page title options"
 msgstr "Option titre de page"
 
-#: library/functions/page_options.php:83
+#: library/custom-functions/page_options.php:83
 msgid "Page Title"
 msgstr "Titre de la page"
 
-#: library/functions/page_options.php:89
+#: library/custom-functions/page_options.php:89
 msgid "Page Breadcrumb"
 msgstr "Page fil d'Ariane"
 
-#: library/functions/pluggable.php:87
+#: library/custom-functions/pluggable.php:87
 msgid "Permalink to this comment"
 msgstr "Permalien de ce commentaire"
 
-#: library/functions/tabs-widget.php:12
+#: library/custom-functions/tabs-widget.php:12
 msgid "evolve: Tabs"
 msgstr "evolve : onglets"
 
-#: library/functions/tabs-widget.php:13
+#: library/custom-functions/tabs-widget.php:13
 msgid "Popular posts, recent post and comments."
 msgstr ""
 
-#: library/functions/tabs-widget.php:41
+#: library/custom-functions/tabs-widget.php:41
 msgid "Popular"
 msgstr "Populaire"
 
-#: library/functions/tabs-widget.php:46
+#: library/custom-functions/tabs-widget.php:46
 msgid "Recent"
 msgstr "Récent"
 
-#: library/functions/tabs-widget.php:51
+#: library/custom-functions/tabs-widget.php:51
 msgid "Comments"
 msgstr "Commentaires"
 
-#: library/functions/tabs-widget.php:137
+#: library/custom-functions/tabs-widget.php:137
 msgid " says"
 msgstr " dit"
 
-#: library/functions/tabs-widget.php:184
+#: library/custom-functions/tabs-widget.php:184
 msgid "Popular Posts Order By"
 msgstr "Messages populaires trier par"
 
-#: library/functions/tabs-widget.php:190
+#: library/custom-functions/tabs-widget.php:190
 msgid "Highest Comments"
 msgstr "Commentaires les plus hauts"
 
-#: library/functions/tabs-widget.php:195
+#: library/custom-functions/tabs-widget.php:195
 msgid "Highest Views"
 msgstr "Les plus vues"
 
-#: library/functions/tabs-widget.php:199
+#: library/custom-functions/tabs-widget.php:199
 msgid "Number of popular posts"
 msgstr "Nombre de messages populaires"
 
-#: library/functions/tabs-widget.php:203
+#: library/custom-functions/tabs-widget.php:203
 msgid "Number of recent posts"
 msgstr "Nombre de messages récents"
 
-#: library/functions/tabs-widget.php:207
+#: library/custom-functions/tabs-widget.php:207
 msgid "Number of comments"
 msgstr "Nombre de commentaires"
 
-#: library/functions/tabs-widget.php:212
+#: library/custom-functions/tabs-widget.php:212
 msgid "Show popular posts"
 msgstr "Afficher les messages populaires"
 
-#: library/functions/tabs-widget.php:216
+#: library/custom-functions/tabs-widget.php:216
 msgid "Show recent posts"
 msgstr "Afficher les articles récents"
 
-#: library/functions/tabs-widget.php:220
+#: library/custom-functions/tabs-widget.php:220
 msgid "Show comments"
 msgstr "Afficher les commentaires"
 
-#: library/functions/widgets.php:17
+#: library/custom-functions/widgets.php:17
 msgid "Sidebar 1"
 msgstr "Barre latérale 1"
 
-#: library/functions/widgets.php:27
+#: library/custom-functions/widgets.php:27
 msgid "Sidebar 2"
 msgstr "Barre latérale 2"
 
-#: library/functions/widgets.php:38
+#: library/custom-functions/widgets.php:38
 msgid "Header 1"
 msgstr "En-tête 1"
 
-#: library/functions/widgets.php:50
+#: library/custom-functions/widgets.php:50
 msgid "Header 2"
 msgstr "En-tête 2"
 
-#: library/functions/widgets.php:62
+#: library/custom-functions/widgets.php:62
 msgid "Header 3"
 msgstr "En-tête 3"
 
-#: library/functions/widgets.php:74
+#: library/custom-functions/widgets.php:74
 msgid "Header 4"
 msgstr "En-tête 4"
 
-#: library/functions/widgets.php:86
+#: library/custom-functions/widgets.php:86
 msgid "Footer 1"
 msgstr "Pied de page 1"
 
-#: library/functions/widgets.php:98
+#: library/custom-functions/widgets.php:98
 msgid "Footer 2"
 msgstr "Pied de page 2"
 
-#: library/functions/widgets.php:110
+#: library/custom-functions/widgets.php:110
 msgid "Footer 3"
 msgstr "Pied de page 3"
 
-#: library/functions/widgets.php:122
+#: library/custom-functions/widgets.php:122
 msgid "Footer 4"
 msgstr "Pied de page 4"
 
-#: library/functions/widgets.php:244
+#: library/custom-functions/widgets.php:244
 msgid "Insert your custom image slides"
 msgstr ""
 
-#: library/functions/widgets.php:247
+#: library/custom-functions/widgets.php:247
 msgid "evolve: Carousel Slider"
 msgstr "evolve : carrousel"
 
-#: library/functions/widgets.php:331
+#: library/custom-functions/widgets.php:331
 msgid "Title:"
 msgstr "Titre :"
 
-#: library/functions/page_tabs/tab_layout.php:5
+#: library/custom-functions/page_tabs/tab_layout.php:5
 msgid "Sidebar Position"
 msgstr "Position de la barre latérale"
 
-#: library/functions/page_tabs/tab_layout.php:15
+#: library/custom-functions/page_tabs/tab_layout.php:15
 msgid "Use this setting to select and set position of sidebar"
 msgstr ""
 
-#: library/functions/page_tabs/tab_layout.php:16
+#: library/custom-functions/page_tabs/tab_layout.php:16
 msgid ""
 "If \"No Sidebar\" is selected, this layout will follow the settings of Theme "
 "Options -> General -> Select a layout."
 msgstr ""
 
-#: library/functions/page_tabs/tab_layout.php:24
+#: library/custom-functions/page_tabs/tab_layout.php:24
 msgid ""
 "If setting full width, Please set the above Sidebar Position to \"No Sidebar"
 "\"."
 msgstr ""
 
-#: library/functions/page_tabs/tab_layout.php:26
+#: library/custom-functions/page_tabs/tab_layout.php:26
 msgid "In pixels ex: 20px. Leave empty for default value."
 msgstr ""
 
-#: library/functions/page_tabs/tab_pageportfolio.php:5
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:5
 #, fuzzy
 msgid "Portfolio: Full Width"
 msgstr "Portfolio grille"
 
-#: library/functions/page_tabs/tab_pageportfolio.php:23
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:23
 #, fuzzy
 msgid "Portfolio Type"
 msgstr "Portfolio"
 
-#: library/functions/page_tabs/tab_pageportfolio.php:23
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:23
 msgid ""
 "Choose what portfolio category you want to display on this page. Leave blank "
 "for all categories."
 msgstr ""
 
-#: library/functions/page_tabs/tab_pageportfolio.php:27
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:27
 #, fuzzy
 msgid "Show Portfolio Filters"
 msgstr "Chargement du portfolio..."
 
-#: library/functions/page_tabs/tab_pagetitlebar.php:12
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:12
 #, fuzzy
 msgid "Page Title Bar Background Color (Hex Code)"
 msgstr "Couleur fond boîte slogan"
 
-#: library/functions/page_tabs/tab_pagetitlebar.php:16
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:16
 #, fuzzy
 msgid "Page Title Bar Background Retina"
 msgstr "Fond personnalisé titre widget"
 
-#: library/functions/page_tabs/tab_slider.php:14
+#: library/custom-functions/page_tabs/tab_slider.php:14
 msgid "Theme4Press Slider"
 msgstr "Diaporama Theme4Press"
 
-#: library/functions/page_tabs/tab_slider.php:72
+#: library/custom-functions/page_tabs/tab_slider.php:72
 msgid "Select Theme4Press Slider"
 msgstr "Sélectionnez le diaporama Theme4Press"
 
-#: library/functions/widgets/125_125.php:12
+#: library/custom-functions/widgets/125_125.php:12
 msgid "evolve: 125x125 Ads"
 msgstr "evolve : annonces 125x125"
 
-#: library/functions/widgets/125_125.php:13
+#: library/custom-functions/widgets/125_125.php:13
 msgid "Add 125x125 ads."
 msgstr "Ajouter des annonces 125x125."
 
-#: library/functions/widgets/contact_info.php:12
+#: library/custom-functions/widgets/contact_info.php:12
 msgid "evolve: Get In Touch"
 msgstr "evolve : Get In Touch"
 
-#: library/functions/widgets/contact_info.php:29
+#: library/custom-functions/widgets/contact_info.php:29
 msgid "Address:"
 msgstr "Adresse :"
 
-#: library/functions/widgets/contact_info.php:35
+#: library/custom-functions/widgets/contact_info.php:35
 msgid "Phone:"
 msgstr "Téléphone :"
 
-#: library/functions/widgets/contact_info.php:41
+#: library/custom-functions/widgets/contact_info.php:41
 msgid "Mobile:"
 msgstr "Mobile :"
 
-#: library/functions/widgets/contact_info.php:47
+#: library/custom-functions/widgets/contact_info.php:47
 msgid "Fax:"
 msgstr "Fax :"
 
-#: library/functions/widgets/contact_info.php:65
+#: library/custom-functions/widgets/contact_info.php:65
 msgid "Web:"
 msgstr "Site web :"
 
-#: library/functions/widgets/facebook-like-widget.php:12
+#: library/custom-functions/widgets/facebook-like-widget.php:12
 msgid "evolve: Facebook Like Box"
 msgstr "evolve : Facebook Like Box"
 
-#: library/functions/widgets/facebook-like-widget.php:13
+#: library/custom-functions/widgets/facebook-like-widget.php:13
 msgid "Adds support for Facebook Like Box."
 msgstr "Ajoute le support pour Facebook Like Box."
 
-#: library/functions/widgets/flickr-widget.php:12
+#: library/custom-functions/widgets/flickr-widget.php:12
 msgid "evolve: Flickr"
 msgstr "evolve : Flickr"
 
-#: library/functions/widgets/flickr-widget.php:13
+#: library/custom-functions/widgets/flickr-widget.php:13
 msgid "The most recent photos from flickr."
 msgstr ""
 
-#: library/functions/widgets/recent-works-widget.php:12
+#: library/custom-functions/widgets/recent-works-widget.php:12
 msgid "evolve: Portfolio"
 msgstr "evolve : portfolio"
 
-#: library/functions/widgets/recent-works-widget.php:13
+#: library/custom-functions/widgets/recent-works-widget.php:13
 msgid "Recent works from the portfolio."
 msgstr ""
 
-#: library/functions/widgets/social_links.php:12
+#: library/custom-functions/widgets/social_links.php:12
 msgid "evolve: Social Links"
 msgstr "evolve : liens sociaux"
 
-#: library/functions/widgets/tweets-widget.php:12
+#: library/custom-functions/widgets/tweets-widget.php:12
 msgid "evolve: Twitter"
 msgstr "evolve : Twitter"
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "second"
 msgstr "seconde"
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "minute"
 msgstr "minute"
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "hour"
 msgstr "heure"
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "day"
 msgstr "jour"
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "week"
 msgstr "semaine"
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "month"
 msgstr "mois"
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "year"
 msgstr "année"
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "decade"
 msgstr "décade"
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "seconds"
 msgstr "secondes"
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "minutes"
 msgstr "minutes"
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "hours"
 msgstr "heures"
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "days"
 msgstr "jours"
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "weeks"
 msgstr "semaines"
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "months"
 msgstr "mois"
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "years"
 msgstr "années"
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "decades"
 msgstr "décades"
 
-#: library/functions/widgets/tweets-widget.php:133
+#: library/custom-functions/widgets/tweets-widget.php:133
 msgid "ago"
 msgstr "depuis"
 

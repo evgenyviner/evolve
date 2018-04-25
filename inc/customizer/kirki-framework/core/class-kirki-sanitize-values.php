@@ -62,8 +62,8 @@ class Kirki_Sanitize_Values {
 	 * Sanitization callback for 'dropdown-pages' type controls. This callback sanitizes `$page_id`
 	 * as an absolute integer, and then validates that $input is the ID of a published page.
 	 *
-	 * @see absint() https://developer.wordpress.org/reference/functions/absint/
-	 * @see get_post_status() https://developer.wordpress.org/reference/functions/get_post_status/
+	 * @see absint() https://developer.wordpress.org/reference/custom-functions/absint/
+	 * @see get_post_status() https://developer.wordpress.org/reference/custom-functions/get_post_status/
 	 *
 	 * @param int                  $page_id    Page ID.
 	 * @param WP_Customize_Setting $setting Setting instance.

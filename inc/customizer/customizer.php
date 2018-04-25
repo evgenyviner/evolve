@@ -75,11 +75,3 @@ function evolve_customize_partial_blogdescription() {
  * Selective Refresh for Widgets.
  */
 add_theme_support( 'customize-selective-refresh-widgets' );
-
-/**
- * Bind JS handlers to instantly live-preview changes.
- */
-function evolve_customize_preview_js() {
-        wp_enqueue_script( 'evolvecustomizepreview', get_template_directory_uri() . '/assets/js/evolve-customize-preview.js', array( 'customize-preview' ), '1.0', true );
-}
-// add_action( 'customize_preview_init', 'evolve_customize_preview_js' );

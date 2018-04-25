@@ -23,7 +23,7 @@ msgstr ""
 #: author.php:118 author.php:262 author.php:283 contact.php:130
 #: content-blog.php:81 content-blog.php:250 content-blog.php:271 index.php:94
 #: index.php:114 index.php:270 index.php:288
-#: library/functions/pluggable.php:104 page.php:58 search.php:88 search.php:110
+#: library/custom-functions/pluggable.php:104 page.php:58 search.php:88 search.php:110
 #: search.php:292 search.php:314 single.php:91 single.php:108
 msgid "EDIT"
 msgstr "MODIFICA"
@@ -77,7 +77,7 @@ msgstr "Scritto da"
 
 #: archive.php:192 archive.php:356 author.php:173 author.php:337
 #: content-blog.php:159 content-blog.php:330 index.php:180 index.php:347
-#: library/functions/basic-functions.php:2389 search.php:165 search.php:369
+#: library/custom-functions/basic-functions.php:2389 search.php:165 search.php:369
 msgid "Read More"
 msgstr ""
 
@@ -89,14 +89,14 @@ msgstr "Lascia un commento"
 
 #: archive.php:195 archive.php:262 attachment.php:62 author.php:176
 #: author.php:243 content-blog.php:162 content-blog.php:233 index.php:183
-#: index.php:250 library/functions/comments.php:30 search.php:169
+#: index.php:250 library/custom-functions/comments.php:30 search.php:169
 #: search.php:273 single.php:72
 msgid "1 Comment"
 msgstr "1 commento"
 
 #: archive.php:195 archive.php:262 attachment.php:62 author.php:176
 #: author.php:243 content-blog.php:162 content-blog.php:233 index.php:183
-#: index.php:250 library/functions/comments.php:28 search.php:169
+#: index.php:250 library/custom-functions/comments.php:28 search.php:169
 #: search.php:273 single.php:72
 msgid "% Comments"
 msgstr "% commenti"
@@ -589,11 +589,11 @@ msgstr ""
 "Questo articolo é protetto da una password. Inserisci la password per "
 "leggere i commenti."
 
-#: comments.php:30 library/functions/comments.php:29
+#: comments.php:30 library/custom-functions/comments.php:29
 msgid "No Comments Yet"
 msgstr "Nessun commento ancora"
 
-#: contact.php:86 library/functions/widgets/contact_info.php:53
+#: contact.php:86 library/custom-functions/widgets/contact_info.php:53
 #: library/woo-config.php:1578
 msgid "Email:"
 msgstr ""
@@ -645,7 +645,7 @@ msgid "Permanent Link to "
 msgstr ""
 
 #: content-blog.php:92 content-blog.php:218 content-blog.php:260
-#: library/functions/basic-functions.php:358
+#: library/custom-functions/basic-functions.php:358
 msgid "Permanent Link to"
 msgstr ""
 
@@ -755,7 +755,7 @@ msgid "Apple iPad Retina Icon Upload"
 msgstr ""
 
 #: library/admin/options-init.php:404
-#: library/functions/basic-functions.php:2025
+#: library/custom-functions/basic-functions.php:2025
 msgid "Layout"
 msgstr ""
 
@@ -809,8 +809,8 @@ msgid ""
 "area. Enter value in px. ex: 20px"
 msgstr ""
 
-#: library/admin/options-init.php:462 library/functions/page_options.php:10
-#: library/functions/page_tabs/tab_layout.php:26
+#: library/admin/options-init.php:462 library/custom-functions/page_options.php:10
+#: library/custom-functions/page_tabs/tab_layout.php:26
 msgid "100% Width Template Left/Right Padding"
 msgstr ""
 
@@ -927,24 +927,24 @@ msgid "Header Menu Background Opacity"
 msgstr ""
 
 #: library/admin/options-init.php:650
-#: library/functions/page_tabs/tab_slider.php:7
+#: library/custom-functions/page_tabs/tab_slider.php:7
 msgid ""
 "Select if the slider shows below or above the header. This only works for "
 "the slider assigned in page options, not with shortcodes."
 msgstr ""
 
 #: library/admin/options-init.php:655
-#: library/functions/page_tabs/tab_slider.php:5
+#: library/custom-functions/page_tabs/tab_slider.php:5
 msgid "Below"
 msgstr ""
 
 #: library/admin/options-init.php:656
-#: library/functions/page_tabs/tab_slider.php:6
+#: library/custom-functions/page_tabs/tab_slider.php:6
 msgid "Above"
 msgstr ""
 
 #: library/admin/options-init.php:658
-#: library/functions/page_tabs/tab_slider.php:3
+#: library/custom-functions/page_tabs/tab_slider.php:3
 msgid "Slider Position"
 msgstr ""
 
@@ -1077,7 +1077,7 @@ msgstr ""
 #: library/admin/options-init.php:3166 library/admin/options-init.php:4450
 #: library/admin/redux-framework/inc/fields/border/field_border.php:159
 #: library/admin/redux-framework/inc/fields/spacing/field_spacing.php:236
-#: library/functions/page_tabs/tab_pageportfolio.php:13
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:13
 msgid "Left"
 msgstr "Sinistra"
 
@@ -1090,7 +1090,7 @@ msgstr ""
 #: library/admin/options-init.php:3164 library/admin/options-init.php:4451
 #: library/admin/redux-framework/inc/fields/border/field_border.php:145
 #: library/admin/redux-framework/inc/fields/spacing/field_spacing.php:222
-#: library/functions/page_tabs/tab_pageportfolio.php:12
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:12
 msgid "Right"
 msgstr "Destra"
 
@@ -2254,8 +2254,8 @@ msgstr ""
 msgid "Flip Box Border Radius"
 msgstr ""
 
-#: library/admin/options-init.php:2125 library/functions/page_options.php:4
-#: library/functions/page_tabs/tab_layout.php:18
+#: library/admin/options-init.php:2125 library/custom-functions/page_options.php:4
+#: library/custom-functions/page_tabs/tab_layout.php:18
 msgid "Full Width"
 msgstr ""
 
@@ -2610,18 +2610,18 @@ msgid "Controls the color of the social icons in the sharing box."
 msgstr ""
 
 #: library/admin/options-init.php:2523 library/admin/options-init.php:3137
-#: library/functions/page_options.php:5 library/functions/page_options.php:78
-#: library/functions/page_tabs/tab_layout.php:19
-#: library/functions/page_tabs/tab_pageportfolio.php:7
-#: library/functions/page_tabs/tab_widget.php:4
+#: library/custom-functions/page_options.php:5 library/custom-functions/page_options.php:78
+#: library/custom-functions/page_tabs/tab_layout.php:19
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:7
+#: library/custom-functions/page_tabs/tab_widget.php:4
 msgid "No"
 msgstr ""
 
 #: library/admin/options-init.php:2524 library/admin/options-init.php:3138
-#: library/functions/page_options.php:6 library/functions/page_options.php:79
-#: library/functions/page_tabs/tab_layout.php:20
-#: library/functions/page_tabs/tab_pageportfolio.php:6
-#: library/functions/page_tabs/tab_widget.php:5
+#: library/custom-functions/page_options.php:6 library/custom-functions/page_options.php:79
+#: library/custom-functions/page_tabs/tab_layout.php:20
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:6
+#: library/custom-functions/page_tabs/tab_widget.php:5
 msgid "Yes"
 msgstr ""
 
@@ -3009,7 +3009,7 @@ msgid "Video Post Format Background"
 msgstr ""
 
 #: library/admin/options-init.php:2944
-#: library/functions/basic-functions.php:2029
+#: library/custom-functions/basic-functions.php:2029
 msgid "Portfolio"
 msgstr ""
 
@@ -3697,8 +3697,8 @@ msgstr ""
 msgid "Content Box 4 Button"
 msgstr ""
 
-#: library/admin/options-init.php:3699 library/functions/page_options.php:23
-#: library/functions/page_tabs/tab_slider.php:17
+#: library/admin/options-init.php:3699 library/custom-functions/page_options.php:23
+#: library/custom-functions/page_tabs/tab_slider.php:17
 msgid "Bootstrap Slider"
 msgstr ""
 
@@ -3856,8 +3856,8 @@ msgstr ""
 msgid "Unlimited color schemes"
 msgstr ""
 
-#: library/admin/options-init.php:3897 library/functions/page_options.php:21
-#: library/functions/page_tabs/tab_slider.php:15
+#: library/admin/options-init.php:3897 library/custom-functions/page_options.php:21
+#: library/custom-functions/page_tabs/tab_slider.php:15
 msgid "Parallax Slider"
 msgstr ""
 
@@ -3887,8 +3887,8 @@ msgstr ""
 msgid "Parallax Speed"
 msgstr ""
 
-#: library/admin/options-init.php:4076 library/functions/page_options.php:22
-#: library/functions/page_tabs/tab_slider.php:16
+#: library/admin/options-init.php:4076 library/custom-functions/page_options.php:22
+#: library/custom-functions/page_tabs/tab_slider.php:16
 msgid "Posts Slider"
 msgstr ""
 
@@ -4128,19 +4128,19 @@ msgstr ""
 msgid "Display the address pin."
 msgstr ""
 
-#: library/admin/options-init.php:4349 library/functions/page_options.php:87
-#: library/functions/page_options.php:93
-#: library/functions/page_tabs/tab_pageportfolio.php:29
-#: library/functions/page_tabs/tab_pagetitlebar.php:5
-#: library/functions/page_tabs/tab_pagetitlebar.php:11
+#: library/admin/options-init.php:4349 library/custom-functions/page_options.php:87
+#: library/custom-functions/page_options.php:93
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:29
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:5
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:11
 msgid "Hide"
 msgstr ""
 
-#: library/admin/options-init.php:4350 library/functions/page_options.php:86
-#: library/functions/page_options.php:92
-#: library/functions/page_tabs/tab_pageportfolio.php:28
-#: library/functions/page_tabs/tab_pagetitlebar.php:4
-#: library/functions/page_tabs/tab_pagetitlebar.php:10
+#: library/admin/options-init.php:4350 library/custom-functions/page_options.php:86
+#: library/custom-functions/page_options.php:92
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:28
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:4
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:10
 #: library/woo-config.php:459 library/woo-config.php:461
 #: library/woo-config.php:462 library/woo-config.php:463
 msgid "Show"
@@ -4525,7 +4525,7 @@ msgid "Hints"
 msgstr ""
 
 #: library/admin/redux-framework/framework.php:1900
-#: library/functions/page_tabs/tab_slider.php:4
+#: library/custom-functions/page_tabs/tab_slider.php:4
 msgid "Default"
 msgstr ""
 
@@ -4790,7 +4790,7 @@ msgid "Add More"
 msgstr ""
 
 #: library/admin/redux-framework/inc/fields/password/field_password.php:62
-#: library/functions/class-wp-theme-update-manager.php:177
+#: library/custom-functions/class-wp-theme-update-manager.php:177
 #: templates/header_v1.php:52 templates/header_v2.php:95
 #: templates/header_v3.php:95 templates/header_v4.php:29
 #: templates/header_v5.php:181 templates/header_v6.php:140
@@ -4798,7 +4798,7 @@ msgid "Password"
 msgstr ""
 
 #: library/admin/redux-framework/inc/fields/password/field_password.php:63
-#: library/functions/class-wp-theme-update-manager.php:175
+#: library/custom-functions/class-wp-theme-update-manager.php:175
 #: templates/header_v1.php:49 templates/header_v2.php:92
 #: templates/header_v3.php:92 templates/header_v4.php:26
 #: templates/header_v5.php:178 templates/header_v6.php:137
@@ -5327,7 +5327,7 @@ msgid "All plugins installed and activated successfully. %1$s"
 msgstr ""
 
 #: library/admin/tgm/class-tgm-plugin-activation.php:380
-#: library/functions/class-wp-theme-update-manager.php:255
+#: library/custom-functions/class-wp-theme-update-manager.php:255
 msgid "Dismiss this notice"
 msgstr ""
 
@@ -5501,574 +5501,574 @@ msgstr ""
 msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
-#: library/functions/basic-functions.php:52
+#: library/custom-functions/basic-functions.php:52
 #, php-format
 msgid "Page %s"
 msgstr "Pagina %s"
 
-#: library/functions/basic-functions.php:154
+#: library/custom-functions/basic-functions.php:154
 msgid "Primary Menu"
 msgstr "Menu principale"
 
-#: library/functions/basic-functions.php:155
+#: library/custom-functions/basic-functions.php:155
 msgid "Top Menu"
 msgstr ""
 
-#: library/functions/basic-functions.php:353
+#: library/custom-functions/basic-functions.php:353
 msgid "Similar posts"
 msgstr ""
 
-#: library/functions/basic-functions.php:365
+#: library/custom-functions/basic-functions.php:365
 msgid "Untitled"
 msgstr "Senza Titolo"
 
-#: library/functions/basic-functions.php:1485
+#: library/custom-functions/basic-functions.php:1485
 msgid "Share on Twitter"
 msgstr ""
 
-#: library/functions/basic-functions.php:1486
+#: library/custom-functions/basic-functions.php:1486
 msgid "Share on Facebook"
 msgstr ""
 
-#: library/functions/basic-functions.php:1487
+#: library/custom-functions/basic-functions.php:1487
 msgid "Share on Google Plus"
 msgstr ""
 
-#: library/functions/basic-functions.php:1488
+#: library/custom-functions/basic-functions.php:1488
 msgid "Share on Pinterest"
 msgstr ""
 
-#: library/functions/basic-functions.php:1489
+#: library/custom-functions/basic-functions.php:1489
 msgid "Share by Email"
 msgstr ""
 
-#: library/functions/basic-functions.php:1490
+#: library/custom-functions/basic-functions.php:1490
 msgid "More options"
 msgstr "Altre opzioni"
 
-#: library/functions/basic-functions.php:2026
+#: library/custom-functions/basic-functions.php:2026
 msgid "Slider"
 msgstr ""
 
-#: library/functions/basic-functions.php:2027
+#: library/custom-functions/basic-functions.php:2027
 msgid "Widgets"
 msgstr ""
 
-#: library/functions/basic-functions.php:2028
+#: library/custom-functions/basic-functions.php:2028
 msgid "Title Bar"
 msgstr ""
 
-#: library/functions/basic-functions.php:2030
+#: library/custom-functions/basic-functions.php:2030
 msgid "Sidebar"
 msgstr ""
 
-#: library/functions/basic-functions.php:2241
+#: library/custom-functions/basic-functions.php:2241
 msgid "Home"
 msgstr ""
 
-#: library/functions/basic-functions.php:2302
+#: library/custom-functions/basic-functions.php:2302
 msgid "404 - Page not Found"
 msgstr ""
 
-#: library/functions/basic-functions.php:2305
+#: library/custom-functions/basic-functions.php:2305
 msgid "Search"
 msgstr ""
 
-#: library/functions/basic-functions.php:2397
+#: library/custom-functions/basic-functions.php:2397
 msgid ""
 "<h2 style=\"color:#fff;\">Oops, no posts to display! Please check your post "
 "slider Category (ID) settings</h2>"
 msgstr ""
 
-#: library/functions/basic-functions.php:3139
+#: library/custom-functions/basic-functions.php:3139
 msgid "Successfully imported demo data!"
 msgstr ""
 
-#: library/functions/basic-functions.php:3215
+#: library/custom-functions/basic-functions.php:3215
 msgid "Previous "
 msgstr ""
 
-#: library/functions/basic-functions.php:3216
+#: library/custom-functions/basic-functions.php:3216
 msgid "Next "
 msgstr ""
 
-#: library/functions/basic-functions.php:3344 single-evolve_portfolio.php:65
+#: library/custom-functions/basic-functions.php:3344 single-evolve_portfolio.php:65
 #: single-evolve_portfolio.php:67 single-evolve_portfolio.php:79
 msgid "Previous"
 msgstr ""
 
-#: library/functions/basic-functions.php:3354 single-evolve_portfolio.php:84
+#: library/custom-functions/basic-functions.php:3354 single-evolve_portfolio.php:84
 #: single-evolve_portfolio.php:86 single-evolve_portfolio.php:98
 msgid "Next"
 msgstr ""
 
-#: library/functions/basic-functions.php:3488
+#: library/custom-functions/basic-functions.php:3488
 msgid "Search results for:"
 msgstr ""
 
-#: library/functions/basic-functions.php:3492
+#: library/custom-functions/basic-functions.php:3492
 msgid "Error 404 Page"
 msgstr ""
 
-#: library/functions/basic-functions.php:3499
+#: library/custom-functions/basic-functions.php:3499
 msgid "Daily Archives: "
 msgstr ""
 
-#: library/functions/basic-functions.php:3501
+#: library/custom-functions/basic-functions.php:3501
 msgid "Monthly Archives: "
 msgstr ""
 
-#: library/functions/basic-functions.php:3503
+#: library/custom-functions/basic-functions.php:3503
 msgid "Yearly Archives: "
 msgstr ""
 
-#: library/functions/class-wp-theme-update-manager.php:117
-#: library/functions/class-wp-theme-update-manager.php:185
+#: library/custom-functions/class-wp-theme-update-manager.php:117
+#: library/custom-functions/class-wp-theme-update-manager.php:185
 #, php-format
 msgid "%s Theme Update"
 msgstr ""
 
-#: library/functions/class-wp-theme-update-manager.php:132
+#: library/custom-functions/class-wp-theme-update-manager.php:132
 msgid "Please enter your Theme4Press account username"
 msgstr ""
 
-#: library/functions/class-wp-theme-update-manager.php:146
+#: library/custom-functions/class-wp-theme-update-manager.php:146
 msgid "Please enter your Theme4Press account password"
 msgstr ""
 
-#: library/functions/class-wp-theme-update-manager.php:173
+#: library/custom-functions/class-wp-theme-update-manager.php:173
 msgid ""
 "Insert your Theme4Press username and password details to enable theme update "
 "notifications."
 msgstr ""
 
-#: library/functions/class-wp-theme-update-manager.php:191
+#: library/custom-functions/class-wp-theme-update-manager.php:191
 msgid ""
 "<p><strong>Username and password are correct.</strong> You will be notified "
 "when new update is available.</p>"
 msgstr ""
 
-#: library/functions/class-wp-theme-update-manager.php:244
+#: library/custom-functions/class-wp-theme-update-manager.php:244
 #, php-format
 msgid "Please enter your username and password to enable updates to %s."
 msgstr ""
 
-#: library/functions/class-wp-theme-update-manager.php:252
+#: library/custom-functions/class-wp-theme-update-manager.php:252
 msgid "Complete the setup now"
 msgstr ""
 
-#: library/functions/comments.php:34
+#: library/custom-functions/comments.php:34
 msgid "% Pings/Trackbacks"
 msgstr ""
 
-#: library/functions/comments.php:35
+#: library/custom-functions/comments.php:35
 msgid "No Pings/Trackbacks Yet"
 msgstr ""
 
-#: library/functions/comments.php:36
+#: library/custom-functions/comments.php:36
 msgid "1 Pings/Trackbacks"
 msgstr ""
 
-#: library/functions/comments.php:69
+#: library/custom-functions/comments.php:69
 msgid "Follow replies"
 msgstr ""
 
-#: library/functions/comments.php:212
+#: library/custom-functions/comments.php:212
 msgid "Your comment is awaiting moderation"
 msgstr ""
 
-#: library/functions/functions.php:154
+#: library/custom-functions/functions.php:154
 msgid "Shopping Cart"
 msgstr ""
 
-#: library/functions/functions.php:157
+#: library/custom-functions/functions.php:157
 msgid "All posts displayed"
 msgstr ""
 
-#: library/functions/functions.php:158
+#: library/custom-functions/functions.php:158
 msgid "Loading the next set of posts..."
 msgstr ""
 
-#: library/functions/functions.php:159
+#: library/custom-functions/functions.php:159
 msgid "Loading Portfolio Items..."
 msgstr ""
 
-#: library/functions/functions.php:162
+#: library/custom-functions/functions.php:162
 msgid "Details"
 msgstr ""
 
-#: library/functions/page_options.php:2
+#: library/custom-functions/page_options.php:2
 msgid "Post options"
 msgstr ""
 
-#: library/functions/page_options.php:14
+#: library/custom-functions/page_options.php:14
 msgid "Slider Options"
 msgstr ""
 
-#: library/functions/page_options.php:16
-#: library/functions/page_tabs/tab_slider.php:10
+#: library/custom-functions/page_options.php:16
+#: library/custom-functions/page_tabs/tab_slider.php:10
 msgid "Slider Type"
 msgstr ""
 
-#: library/functions/page_options.php:17
-#: library/functions/page_tabs/tab_slider.php:11
+#: library/custom-functions/page_options.php:17
+#: library/custom-functions/page_tabs/tab_slider.php:11
 msgid "No Slider"
 msgstr ""
 
-#: library/functions/page_options.php:18
-#: library/functions/page_tabs/tab_slider.php:12
+#: library/custom-functions/page_options.php:18
+#: library/custom-functions/page_tabs/tab_slider.php:12
 msgid "LayerSlider"
 msgstr ""
 
-#: library/functions/page_options.php:19
-#: library/functions/page_tabs/tab_slider.php:13
+#: library/custom-functions/page_options.php:19
+#: library/custom-functions/page_tabs/tab_slider.php:13
 msgid "Revolution Slider"
 msgstr ""
 
-#: library/functions/page_options.php:20
+#: library/custom-functions/page_options.php:20
 msgid "FlexSlider"
 msgstr ""
 
-#: library/functions/page_options.php:28 library/functions/page_options.php:50
-#: library/functions/page_options.php:64
-#: library/functions/page_tabs/tab_slider.php:25
-#: library/functions/page_tabs/tab_slider.php:50
-#: library/functions/page_tabs/tab_slider.php:64
+#: library/custom-functions/page_options.php:28 library/custom-functions/page_options.php:50
+#: library/custom-functions/page_options.php:64
+#: library/custom-functions/page_tabs/tab_slider.php:25
+#: library/custom-functions/page_tabs/tab_slider.php:50
+#: library/custom-functions/page_tabs/tab_slider.php:64
 msgid "Select a slider"
 msgstr ""
 
-#: library/functions/page_options.php:46
-#: library/functions/page_tabs/tab_slider.php:45
+#: library/custom-functions/page_options.php:46
+#: library/custom-functions/page_tabs/tab_slider.php:45
 msgid "Select LayerSlider"
 msgstr ""
 
-#: library/functions/page_options.php:59
-#: library/functions/page_tabs/tab_slider.php:59
+#: library/custom-functions/page_options.php:59
+#: library/custom-functions/page_tabs/tab_slider.php:59
 msgid "Select Revolution Slider"
 msgstr ""
 
-#: library/functions/page_options.php:72
+#: library/custom-functions/page_options.php:72
 msgid "Select FlexSlider"
 msgstr ""
 
-#: library/functions/page_options.php:75
+#: library/custom-functions/page_options.php:75
 msgid "Widget Options"
 msgstr ""
 
-#: library/functions/page_options.php:77
-#: library/functions/page_tabs/tab_widget.php:3
+#: library/custom-functions/page_options.php:77
+#: library/custom-functions/page_tabs/tab_widget.php:3
 msgid "Enable Header Widgets"
 msgstr ""
 
-#: library/functions/page_options.php:83
+#: library/custom-functions/page_options.php:83
 msgid "Page title options"
 msgstr ""
 
-#: library/functions/page_options.php:85
-#: library/functions/page_tabs/tab_pagetitlebar.php:3
+#: library/custom-functions/page_options.php:85
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:3
 msgid "Page Title"
 msgstr ""
 
-#: library/functions/page_options.php:91
-#: library/functions/page_tabs/tab_pagetitlebar.php:9
+#: library/custom-functions/page_options.php:91
+#: library/custom-functions/page_tabs/tab_pagetitlebar.php:9
 msgid "Page Breadcrumb"
 msgstr ""
 
-#: library/functions/page_tabs/tab_layout.php:5
+#: library/custom-functions/page_tabs/tab_layout.php:5
 msgid "Sidebar Position"
 msgstr ""
 
-#: library/functions/page_tabs/tab_layout.php:15
+#: library/custom-functions/page_tabs/tab_layout.php:15
 msgid "Use this setting to select and set position of sidebar"
 msgstr ""
 
-#: library/functions/page_tabs/tab_layout.php:16
+#: library/custom-functions/page_tabs/tab_layout.php:16
 msgid ""
 "If \"No Sidebar\" is selected, this layout will follow the settings of Theme "
 "Options -> General -> Select a layout."
 msgstr ""
 
-#: library/functions/page_tabs/tab_layout.php:24
+#: library/custom-functions/page_tabs/tab_layout.php:24
 msgid ""
 "If setting full width, Please set the above Sidebar Position to \"No Sidebar"
 "\"."
 msgstr ""
 
-#: library/functions/page_tabs/tab_layout.php:26
+#: library/custom-functions/page_tabs/tab_layout.php:26
 msgid "In pixels ex: 20px. Leave empty for default value."
 msgstr ""
 
-#: library/functions/page_tabs/tab_pageportfolio.php:5
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:5
 msgid "Portfolio: Full Width"
 msgstr ""
 
-#: library/functions/page_tabs/tab_pageportfolio.php:23
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:23
 msgid "Portfolio Type"
 msgstr ""
 
-#: library/functions/page_tabs/tab_pageportfolio.php:23
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:23
 msgid ""
 "Choose what portfolio category you want to display on this page. Leave blank "
 "for all categories."
 msgstr ""
 
-#: library/functions/page_tabs/tab_pageportfolio.php:27
+#: library/custom-functions/page_tabs/tab_pageportfolio.php:27
 msgid "Show Portfolio Filters"
 msgstr ""
 
-#: library/functions/page_tabs/tab_slider.php:14
+#: library/custom-functions/page_tabs/tab_slider.php:14
 msgid "Theme4Press Slider"
 msgstr ""
 
-#: library/functions/page_tabs/tab_slider.php:72
+#: library/custom-functions/page_tabs/tab_slider.php:72
 msgid "Select Theme4Press Slider"
 msgstr ""
 
-#: library/functions/pluggable.php:87
+#: library/custom-functions/pluggable.php:87
 msgid "Permalink to this comment"
 msgstr ""
 
-#: library/functions/tabs-widget.php:12
+#: library/custom-functions/tabs-widget.php:12
 msgid "evolve: Tabs"
 msgstr ""
 
-#: library/functions/tabs-widget.php:13
+#: library/custom-functions/tabs-widget.php:13
 msgid "Popular posts, recent post and comments."
 msgstr ""
 
-#: library/functions/tabs-widget.php:41
+#: library/custom-functions/tabs-widget.php:41
 msgid "Popular"
 msgstr ""
 
-#: library/functions/tabs-widget.php:46
+#: library/custom-functions/tabs-widget.php:46
 msgid "Recent"
 msgstr ""
 
-#: library/functions/tabs-widget.php:51
+#: library/custom-functions/tabs-widget.php:51
 msgid "Comments"
 msgstr ""
 
-#: library/functions/tabs-widget.php:137
+#: library/custom-functions/tabs-widget.php:137
 msgid " says"
 msgstr ""
 
-#: library/functions/tabs-widget.php:184
+#: library/custom-functions/tabs-widget.php:184
 msgid "Popular Posts Order By"
 msgstr ""
 
-#: library/functions/tabs-widget.php:190
+#: library/custom-functions/tabs-widget.php:190
 msgid "Highest Comments"
 msgstr ""
 
-#: library/functions/tabs-widget.php:195
+#: library/custom-functions/tabs-widget.php:195
 msgid "Highest Views"
 msgstr ""
 
-#: library/functions/tabs-widget.php:199
+#: library/custom-functions/tabs-widget.php:199
 msgid "Number of popular posts"
 msgstr ""
 
-#: library/functions/tabs-widget.php:203
+#: library/custom-functions/tabs-widget.php:203
 msgid "Number of recent posts"
 msgstr ""
 
-#: library/functions/tabs-widget.php:207
+#: library/custom-functions/tabs-widget.php:207
 msgid "Number of comments"
 msgstr ""
 
-#: library/functions/tabs-widget.php:212
+#: library/custom-functions/tabs-widget.php:212
 msgid "Show popular posts"
 msgstr ""
 
-#: library/functions/tabs-widget.php:216
+#: library/custom-functions/tabs-widget.php:216
 msgid "Show recent posts"
 msgstr ""
 
-#: library/functions/tabs-widget.php:220
+#: library/custom-functions/tabs-widget.php:220
 msgid "Show comments"
 msgstr ""
 
-#: library/functions/widgets.php:17
+#: library/custom-functions/widgets.php:17
 msgid "Sidebar 1"
 msgstr ""
 
-#: library/functions/widgets.php:27
+#: library/custom-functions/widgets.php:27
 msgid "Sidebar 2"
 msgstr ""
 
-#: library/functions/widgets.php:38
+#: library/custom-functions/widgets.php:38
 msgid "Header 1"
 msgstr ""
 
-#: library/functions/widgets.php:50
+#: library/custom-functions/widgets.php:50
 msgid "Header 2"
 msgstr ""
 
-#: library/functions/widgets.php:62
+#: library/custom-functions/widgets.php:62
 msgid "Header 3"
 msgstr ""
 
-#: library/functions/widgets.php:74
+#: library/custom-functions/widgets.php:74
 msgid "Header 4"
 msgstr ""
 
-#: library/functions/widgets.php:86
+#: library/custom-functions/widgets.php:86
 msgid "Footer 1"
 msgstr ""
 
-#: library/functions/widgets.php:98
+#: library/custom-functions/widgets.php:98
 msgid "Footer 2"
 msgstr ""
 
-#: library/functions/widgets.php:110
+#: library/custom-functions/widgets.php:110
 msgid "Footer 3"
 msgstr ""
 
-#: library/functions/widgets.php:122
+#: library/custom-functions/widgets.php:122
 msgid "Footer 4"
 msgstr ""
 
-#: library/functions/widgets.php:244
+#: library/custom-functions/widgets.php:244
 msgid "Insert your custom image slides"
 msgstr ""
 
-#: library/functions/widgets.php:247
+#: library/custom-functions/widgets.php:247
 msgid "evolve: Carousel Slider"
 msgstr ""
 
-#: library/functions/widgets.php:331
+#: library/custom-functions/widgets.php:331
 msgid "Title:"
 msgstr ""
 
-#: library/functions/widgets/125_125.php:12
+#: library/custom-functions/widgets/125_125.php:12
 msgid "evolve: 125x125 Ads"
 msgstr ""
 
-#: library/functions/widgets/125_125.php:13
+#: library/custom-functions/widgets/125_125.php:13
 msgid "Add 125x125 ads."
 msgstr ""
 
-#: library/functions/widgets/contact_info.php:12
+#: library/custom-functions/widgets/contact_info.php:12
 msgid "evolve: Get In Touch"
 msgstr ""
 
-#: library/functions/widgets/contact_info.php:29
+#: library/custom-functions/widgets/contact_info.php:29
 msgid "Address:"
 msgstr ""
 
-#: library/functions/widgets/contact_info.php:35
+#: library/custom-functions/widgets/contact_info.php:35
 msgid "Phone:"
 msgstr ""
 
-#: library/functions/widgets/contact_info.php:41
+#: library/custom-functions/widgets/contact_info.php:41
 msgid "Mobile:"
 msgstr ""
 
-#: library/functions/widgets/contact_info.php:47
+#: library/custom-functions/widgets/contact_info.php:47
 msgid "Fax:"
 msgstr ""
 
-#: library/functions/widgets/contact_info.php:65
+#: library/custom-functions/widgets/contact_info.php:65
 msgid "Web:"
 msgstr ""
 
-#: library/functions/widgets/facebook-like-widget.php:12
+#: library/custom-functions/widgets/facebook-like-widget.php:12
 msgid "evolve: Facebook Like Box"
 msgstr ""
 
-#: library/functions/widgets/facebook-like-widget.php:13
+#: library/custom-functions/widgets/facebook-like-widget.php:13
 msgid "Adds support for Facebook Like Box."
 msgstr ""
 
-#: library/functions/widgets/flickr-widget.php:12
+#: library/custom-functions/widgets/flickr-widget.php:12
 msgid "evolve: Flickr"
 msgstr ""
 
-#: library/functions/widgets/flickr-widget.php:13
+#: library/custom-functions/widgets/flickr-widget.php:13
 msgid "The most recent photos from flickr."
 msgstr ""
 
-#: library/functions/widgets/recent-works-widget.php:12
+#: library/custom-functions/widgets/recent-works-widget.php:12
 msgid "evolve: Portfolio"
 msgstr ""
 
-#: library/functions/widgets/recent-works-widget.php:13
+#: library/custom-functions/widgets/recent-works-widget.php:13
 msgid "Recent works from the portfolio."
 msgstr ""
 
-#: library/functions/widgets/social_links.php:12
+#: library/custom-functions/widgets/social_links.php:12
 msgid "evolve: Social Links"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:12
+#: library/custom-functions/widgets/tweets-widget.php:12
 msgid "evolve: Twitter"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "second"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "minute"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "hour"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "day"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "week"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "month"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "year"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:128
+#: library/custom-functions/widgets/tweets-widget.php:128
 msgid "decade"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "seconds"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "minutes"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "hours"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "days"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "weeks"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "months"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "years"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:129
+#: library/custom-functions/widgets/tweets-widget.php:129
 msgid "decades"
 msgstr ""
 
-#: library/functions/widgets/tweets-widget.php:133
+#: library/custom-functions/widgets/tweets-widget.php:133
 msgid "ago"
 msgstr ""
 

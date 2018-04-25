@@ -65,15 +65,15 @@
                 if ( is_home() || is_front_page() ) {
                         if ( is_home() && !is_front_page() ) {
                                 if ( ($evolve_current_post_slider_position == 'above') || ($evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'above') ) {
-                                        get_template_part('allslider');
+                                        get_template_part('template-parts/allslider');
                                 }
                         } else {
                                 if ( $header_pos != 1 && $header_pos != false ) {
-                                        get_template_part('allslider_above');
+                                        get_template_part('template-parts/allslider-above');
                                 }
                         }
                 } elseif ( ($evolve_current_post_slider_position == 'above' && !is_front_page()) || ($evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'above' && !is_front_page()) ) {
-                        get_template_part('allslider');
+                        get_template_part('template-parts/allslider');
                 }
 
                 ?>
@@ -84,10 +84,10 @@
             <?php
             switch ($evolve_header_type) {
                 case "none":
-                    get_template_part('assets/templates/header_v1');
+                    get_template_part('template-parts/header_v1');
                     break;
                 case "h1":
-                    get_template_part('assets/templates/header_v2');
+                    get_template_part('template-parts/header_v2');
                     break;
             }
             ?> 
@@ -112,13 +112,13 @@
                         if ( (is_home() || is_front_page()) && is_array($evolve_frontpage_slider) ) {
                                 if ( is_home() && !is_front_page() ) {
                                         if ( ($evolve_current_post_slider_position == 'below') || ($evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'below') ) {
-                                                get_template_part('allslider');
+                                                get_template_part('template-parts/allslider');
                                         }
                                 } else {
-                                        get_template_part('allslider_below');
+                                        get_template_part('template-parts/allslider-below');
                                 }
                         } elseif ( ($evolve_current_post_slider_position == 'below' && !is_front_page()) || ($evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'below' && !is_front_page()) ) {
-                                get_template_part('allslider');
+                                get_template_part('template-parts/allslider');
                         }
 
                         ?>

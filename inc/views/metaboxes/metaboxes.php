@@ -17,7 +17,7 @@ class evolve_ThemeFrameworkMetaboxes {
     function evolve_admin_script_loader() {
         global $pagenow;
         if (is_admin() && ($pagenow == 'post-new.php' || $pagenow == 'post.php')) {
-            wp_register_script('evolve_upload', get_template_directory_uri() . '/library/media/js/upload.min.js');
+            wp_register_script('evolve_upload', get_template_directory_uri() . '/inc/js/upload.min.js');
             wp_enqueue_script('evolve_upload');
             wp_enqueue_script('media-upload');
             wp_enqueue_script('thickbox');
@@ -49,18 +49,18 @@ class evolve_ThemeFrameworkMetaboxes {
     }
 
     public function evolve_post_options() {
-        get_template_part('library/views/metaboxes/style.min');
+        get_template_part('inc/views/metaboxes/style.min');
         $this->evolve_render_option_tabs(array('layout', 'pagetitlebar', 'widget', 'slider'));
     }
 
     public function evolve_page_options() {
-        get_template_part('library/views/metaboxes/style.min');
+        get_template_part('inc/views/metaboxes/style.min');
         $this->evolve_render_option_tabs(array('layout', 'pagetitlebar', 'widget', 'slider'));
     }
 
     public function evolve_print_metabox_scripts() {
         wp_register_style(
-                'evolve-icomoon', get_template_directory_uri() . '/library/admin/icomoon-admin/style.min.css', array(), time(), 'all'
+                'evolve-icomoon', get_template_directory_uri() . '/inc/customizer/icomoon-admin/style.min.css', array(), time(), 'all'
         );
         wp_enqueue_style('evolve-icomoon');
     }

@@ -42,7 +42,7 @@ endif;
             if (($evolve_post_links == "before") || ($evolve_post_links == "both")) {
                 ?>
                 <span class="nav-top">
-                    <?php get_template_part('navigation', 'index'); ?>
+                    <?php get_template_part('template-parts/navigation', 'index'); ?>
                 </span>
             <?php } ?>
 
@@ -178,7 +178,7 @@ endif;
             }
 
             if (($evolve_post_links == "") || ($evolve_post_links == "after") || ($evolve_post_links == "both")) {
-                get_template_part('navigation', 'index');
+                get_template_part('template-parts/navigation', 'index');
             }
 
             comments_template('', true);

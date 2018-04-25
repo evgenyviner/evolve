@@ -1,5 +1,78 @@
 <?php
 
+
+class WPevolve {
+
+    /**
+     * init() Initialisation method which calls all other methods in turn.
+     *
+     * @since 0.1
+     */
+    public static function init() {
+        $theme = new WPevolve;
+
+        $theme->enviroment();
+        $theme->evolve();
+        $theme->defaults();
+        $theme->ready();
+
+        do_action('evolve_init');
+    }
+
+    /**
+     * enviroment() defines WP evolve directory constants
+     *
+     * @since 0.2.3
+     */
+    public static function enviroment() {
+
+        define('EVOLVE_THEME', get_template_directory_uri(), true);
+        define('EVOLVE_LIBRARY', EVOLVE_THEME . '/assets', true); // Shortcut to point to the /inc/ URI
+        define('EVOLVE_CSS', EVOLVE_LIBRARY . '/css', true);
+        define('EVOLVE_IMAGES', EVOLVE_LIBRARY . '/images', true);
+        define('EVOLVE_JS', EVOLVE_LIBRARY . '/js', true);
+
+        do_action('enviroment'); // Available action: load_enviroment
+    }
+
+    /**
+     * evolve() includes all the core functions for WP evolve
+     *
+     * @since 0.2.3
+     */
+    public static function evolve() {
+        get_template_part('inc/custom-functions/hooks'); // load the WP evolve Hook System
+        get_template_part('inc/custom-functions/functions'); // load evolve functions
+        get_template_part('inc/custom-functions/comments'); // load comment functions
+        get_template_part('inc/custom-functions/widgets'); // load Widget functions
+    }
+
+    /**
+     * defaults() connects WP evolve default behavior to their respective action
+     *
+     * @since 0.2.3
+     */
+    public static function defaults() {
+        add_filter('wp_page_menu', 'evolve_menu_ulclass'); // adds a .nav class to the ul wp_page_menu generates
+        add_action('init', 'evolve_media'); // evolve_media() loads scripts and styles
+    }
+
+    /**
+     * ready() includes user's theme.php if it exists, calls the evolve_init action, includes all pluggable functions and registers widgets
+     *
+     * @since 0.2.3
+     */
+    public static function ready() {
+        get_template_part('inc/custom-functions/custom-functions'); // include custom-functions.php if that file exist
+        get_template_part('inc/custom-functions/pluggable'); // load pluggable functions
+        do_action('evolve_init'); // Available action: evolve_init
+    }
+
+}
+
+// end of WPevolve;
+
+
 /**
  * Semantic Classes is made up of class-generating functions
  * that dynamically generate context sensitive classes and ids
@@ -342,3 +415,4 @@ function semantic_last_class($type = NULL) {
 }
 
 /* Remember: Semantic Classes, like the Sandbox, is for play. (-_^) */
+
