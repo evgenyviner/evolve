@@ -51,6 +51,7 @@ class Binmaocom_Fix_Rd{
 			|| $value['type'] == 'select'
 			|| $value['type'] == 'checkbox'
 			|| $value['type'] == 'textarea'
+			|| $value['type'] == 'editor'
 			|| $value['type'] == 'fontawesome'
 			|| $value['type'] == 'switch'
 			|| $value['type'] == 'slider'
