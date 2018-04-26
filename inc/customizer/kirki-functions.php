@@ -40,6 +40,17 @@ class Binmaocom_Add_some_thing_Customize{
 .wp-full-overlay-sidebar-content {
     background: #fff;
 }
+li#customize-control-evl_theme_links {
+    background: transparent;
+    border-color: transparent;
+}
+li#customize-control-evl_theme_links a {
+    display: block;
+    margin: 5px 0;
+}
+h3.accordion-section-title.dashicons-before.el {
+    display: block;
+}
 </style>
 	<?php
 	}
@@ -66,7 +77,7 @@ class Binmaocom_Add_some_thing_Customize{
 #########################################################
 # SITE IDENTITY PANEL
 #########################################################
-    Kirki::add_panel( 'kirki_frontpage_main_tab', array(
-        'title'         => __( '[Kirki]Custom Home/Front Page Builder	', 'evolve' )
-    ) );
+    // Kirki::add_panel( 'kirki_frontpage_main_tab', array(
+        // 'title'         => __( '[Kirki]Custom Home/Front Page Builder	', 'evolve' )
+    // ) );
 	

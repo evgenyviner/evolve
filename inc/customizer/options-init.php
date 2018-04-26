@@ -1,35 +1,47 @@
 <?php
 
 require_once('kirki-functions.php');
-global $name_of_panel, $bi_all_customize_fields;
+global $name_of_panel, $bi_all_customize_fields, $bi_index_control;
 $name_of_panel = '';
+$bi_index_control = 0;
 $bi_all_customize_fields = array();
 
 class Binmaocom_Fix_Rd{
 	static function setSection($param1, $param2){
-		global $name_of_panel, $bi_all_customize_fields;
+		global $name_of_panel, $bi_all_customize_fields, $bi_index_control;
+		$bi_index_control ++;
 		if(isset($param2['fields']) && is_array($param2['fields']) && count($param2['fields'])){
 			if(!isset($param2['subsection'])){
 				$name_of_panel = $param2['id'];
-				Kirki::add_panel( $param2['id'], array(
-					'title'         => $param2['title']
-				) );
+				Kirki::add_section( $param2['id'], array(
+					'title'         => $param2['title'],
+					'priority'   => $bi_index_control,
+					// 'panel'         => $param2['id'],
+					'icon' => $param2['icon'],
+				) );				
 			}
-			Kirki::add_section( $param2['id'], array(
-				'title'         => $param2['title'],
-				'panel'         => $name_of_panel
-			) );			
+			else{
+				Kirki::add_section( $param2['id'], array(
+					'title'         => $param2['title'],
+					'panel'         => $name_of_panel,
+					'priority'   => $bi_index_control,
+					'icon' => $param2['icon'],
+				) );				
+			}
 			Binmaocom_Fix_Rd::bin_call_kirki_from_old_field($param2['fields'], $param2['id']);
+			
 		}
 		else{
 			$name_of_panel = $param2['id'];
 			Kirki::add_panel( $param2['id'], array(
-				'title'         => $param2['title']
+				'title'         => $param2['title'],
+				'priority'   => $bi_index_control,
+				'icon' => $param2['icon'],
 			) );
 		}
 	}	
 	static function bin_call_kirki_from_old_field($array_items,  $section = 'kirki_frontpage-content-boxes-tab', $setting = 'kirki_evolve_options'){
-		global $name_of_panel, $bi_all_customize_fields;
+		global $name_of_panel, $bi_all_customize_fields, $bi_index_control;
 		foreach($array_items as $value){
 			if(
 			isset($value['type']) && (
@@ -52,8 +64,8 @@ class Binmaocom_Fix_Rd{
 				$value_temp = array(
 					'type'        => 	$value['type'],
 					'settings'    => 	$value['id'],
-					'label'       =>  	$value['title'] ? $value['title'] : '',
-					'description'       => $value['subtitle'] ? $value['subtitle'] : '',
+					'label'       =>  	$value['title'] ? $value['title'] : ' ',
+					'description'       => $value['subtitle'] ? $value['subtitle'] : ' ',
 					'section'     => $section,
 					'default'     => $value['default'] ? $value['default'] : null,
 					'priority'    => 10,
@@ -68,6 +80,9 @@ class Binmaocom_Fix_Rd{
 				}
 				if(isset($value['type']) && $value['type'] == 'info'){			
 					$value_temp['type'] = 'custom';
+					if(isset($value['desc'])){
+						$value_temp['description'] = $value['desc'];
+					}
 				}
 				if(isset($value['type']) && $value['type'] == 'image_select'){			
 					$value_temp['type'] = 'radio-image';
