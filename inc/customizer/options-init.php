@@ -30,6 +30,7 @@ class Binmaocom_Fix_Rd{
 			}
 			Binmaocom_Fix_Rd::bin_call_kirki_from_old_field($param2['fields'], $param2['id']);
 			
+			
 		}
 		else{
 			$name_of_panel = $param2['id'];
@@ -80,9 +81,6 @@ class Binmaocom_Fix_Rd{
 				}
 				if(isset($value['type']) && $value['type'] == 'info'){			
 					$value_temp['type'] = 'custom';
-					if(isset($value['desc'])){
-						$value_temp['description'] = $value['desc'];
-					}
 				}
 				if(isset($value['type']) && $value['type'] == 'image_select'){			
 					$value_temp['type'] = 'radio-image';
@@ -109,6 +107,9 @@ class Binmaocom_Fix_Rd{
 				//class' => 'iconpicker-icon
 				if(isset($value['class']) && $value['class'] == 'iconpicker-icon'){			
 					$value_temp['type'] = 'fontawesome';
+				}
+				if(isset($value['desc'])){
+					$value_temp['description'] = $value['desc'];
 				}
 				if(isset($value['required']) && is_array($value['required'])){
 					$active_callback = array();
@@ -140,22 +141,6 @@ class Binmaocom_Fix_Rd{
 						$value_temp['default'] = str_replace('far fa-', '', $value_temp['default']);
 					}
 				}
-				if(isset($value['selector'])){			
-					$value_temp['partial_refresh'] = array(
-						$value['id'] => array(
-							'selector'	=> $value['selector'],
-							'render_callback'   => array( 'BinmaocomRefresh', $value['render_callback'] )
-						)
-					);
-				}	
-				// 'transport'		=> 'postMessage',
-				// 'js_vars'		=> array(
-				if(isset($value['transport'])){
-					$value_temp['transport'] = $value['transport'];
-				}
-				if(isset($value['js_vars'])){
-					$value_temp['js_vars'] = $value['js_vars'];
-				}
 				if($value['type'] == 'sorter'){
 					$value_temp['type'] = 'sortable';
 					$choices_array = $value["options"]['disabled'];	
@@ -178,6 +163,23 @@ class Binmaocom_Fix_Rd{
 					'value' => $value,
 					'value_temp' => $value_temp,
 				);
+				
+				if(isset($value['selector'])){			
+					$value_temp['partial_refresh'] = array(
+						$value['id'] => array(
+							'selector'	=> $value['selector'],
+							'render_callback'   => array( 'BinmaocomRefresh', $value['render_callback'] )
+						)
+					);
+				}	
+				// 'transport'		=> 'postMessage',
+				// 'js_vars'		=> array(
+				if(isset($value['transport'])){
+					$value_temp['transport'] = $value['transport'];
+				}
+				if(isset($value['js_vars'])){
+					$value_temp['js_vars'] = $value['js_vars'];
+				}
 				Kirki::add_field( $setting, $value_temp );
 			}
 		}
@@ -203,12 +205,11 @@ $evolve_imagepath = get_template_directory_uri() . '/assets/images/customizer/';
 $evolve_imagepathfolder = get_template_directory_uri() . '/assets/images/';
 
 //Check Redux Framework is active or not
-if (!is_plugin_active('redux-framework/redux-framework.php')) {
+if (!class_exists('Kirki')) {
     $redux_info_box = 'info';
 } else {
     $redux_info_box = '';
 }
-
 // OLD DATA MIGRATION
 add_action('after_setup_theme', 'evolve_migrate_options');
 
@@ -337,7 +338,7 @@ function evolve_shortcodes_range($range, $all = true, $default = false, $range_s
     return $number_of_posts;
 }
 
-if (!class_exists('Redux')) {
+if (!class_exists('Kirki')) {
     return;
 }
 
@@ -405,17 +406,17 @@ if (is_plugin_active('woocommerce/woocommerce.php')) {
 $upgrade_from_33 = get_option('evolve', false);
 
 // If the Redux plugin is installed
-if (class_exists('ReduxFrameworkPlugin')) {
-    Redux::setArgs($evolve_opt_name, array(
-        'customizer_only' => false,
-        'customizer' => true,
-    ));
-} else {
-    // No Redux plugin. Use embedded. Customizer only!
-    Redux::setArgs($evolve_opt_name, array(
-        'customizer_only' => true,
-    ));
-}
+// if (class_exists('ReduxFrameworkPlugin')) {
+    // Redux::setArgs($evolve_opt_name, array(
+        // 'customizer_only' => false,
+        // 'customizer' => true,
+    // ));
+// } else {
+    // // No Redux plugin. Use embedded. Customizer only!
+    // Redux::setArgs($evolve_opt_name, array(
+        // 'customizer_only' => true,
+    // ));
+// }
 
 //Register sidebar options for category/archive pages
 global $wp_registered_sidebars;
@@ -445,106 +446,63 @@ foreach ($options_pages_obj as $page) {
     $options_pages[$page->ID] = $page->post_title;
 }
 
-function evolve_options_media() {
-    wp_register_style(
-            'evolve-redux-custom-css', get_template_directory_uri() . '/inc/customizer/options-init.min.css', array('redux-admin-css'), // Be sure to include redux-admin-css so it's appended after the core css is applied
-            time(), //$evolve_theme->get( 'Version' )
-            'all'
-    );
-    wp_enqueue_style('evolve-redux-custom-css');
 
-    wp_enqueue_script('evolve-redux-custom-js', get_template_directory_uri() . '/inc/customizer/options-init.min.js', array(), '', true);
-}
-
-// This example assumes your opt_name is set to redux_demo, replace with your opt_name value
-// add_action("redux/page/{$evolve_opt_name}/enqueue", 'evolve_options_media');
-
-function evolve_newIconFont() {
-    wp_register_style(
-            'evolve-icomoon', get_template_directory_uri() . '/inc/customizer/icomoon-admin/style.min.css', array(), time(), 'all'
-    );
-    wp_enqueue_style('evolve-icomoon');
-}
-
-// This example assumes the opt_name is set to redux_demo.  Please replace it with your opt_name value.
-add_action("redux/page/{$evolve_opt_name}/enqueue", 'evolve_newIconFont');
-
-function evolve_headerdefault() {
-    wp_enqueue_script('evolve-headerdefault', get_template_directory_uri() . '/inc/customizer/headerdefault/headerdefault.min.js', array(), '', true);
-}
-
-add_action("redux/page/{$evolve_opt_name}/enqueue", "evolve_headerdefault");
-
-function evolve_colorpalettes() {
-    wp_enqueue_script('evolve-colorpalettes', get_template_directory_uri() . '/inc/customizer/colorpalettes/colorpalettes.min.js', array(), '', true);
-}
-
-add_action("redux/page/{$evolve_opt_name}/enqueue", "evolve_colorpalettes");
-
-function evolve_iconpicker() {
-    wp_enqueue_style('fontawesomecss', get_template_directory_uri() . '/assets/fonts/fontawesome/css/font-awesome.min.css', false);
-    wp_enqueue_script('iconpicker', get_template_directory_uri() . '/inc/customizer/iconpicker/fontawesome-iconpicker.js', array(), '', true, 'all');
-    wp_enqueue_style('iconpickercss', get_template_directory_uri() . '/inc/customizer/iconpicker/fontawesome-iconpicker.min.css', array(), '', 'all');
-}
-
-add_action("redux/page/{$evolve_opt_name}/enqueue", "evolve_iconpicker");
-
-Redux::setArgs($evolve_opt_name, array(
-    'display_name' => __('evolve', 'evolve'),
-    'display_name' => '<img width="135" height="28" src="' . get_template_directory_uri() . '/assets/images/customizer/logo.png" alt="evolve">',
-    // Name that appears at the top of your panel
-    'display_version' => $evolve_theme->get('Version'),
-    'menu_type' => 'submenu',
-    'dev_mode' => false,
-    'menu_title' => __('Theme Options', 'evolve'),
-    'page_title' => $evolve_theme->get('Name') . ' ' . __('Options', 'evolve'),
-    'admin_bar' => true,
-    'customizer' => true,
-    'save_defaults' => empty($upgrade_from_33),
-    //Override Redux plugin template files:
-    'templates_path' => dirname(__FILE__) . '/evolve-redux-templates/panel',
-    'share_icons' => array(
-        array(
-            'url' => $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/',
-            'title' => __('Theme Homepage', 'evolve'),
-            'icon' => 't4p-icon-appbarhome'
-        ),
-        array(
-            'url' => $evolve_t4p_url . 'docs/',
-            'title' => __('Documentation', 'evolve'),
-            'icon' => 't4p-icon-appbarpagetext'
-        ),
-        array(
-            'url' => $evolve_t4p_url . 'support-forums/',
-            'title' => __('Support', 'evolve'),
-            'icon' => 't4p-icon-appbarlifesaver'
-        ),
-        array(
-            'url' => $evolve_fb_url,
-            'title' => __('Facebook', 'evolve'),
-            'icon' => 't4p-icon-appbarsocialfacebook'
-        )
-    ),
-    'intro_text' => '
-					<a href="' . $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/" title="Theme Homepage" target="_blank">
-						<i class="t4p-icon-appbarhome"></i>
-						 Theme Homepage
-					</a>
-					<a href="' . $evolve_t4p_url . 'docs/" title="Documentation" target="_blank">
-						<i class="t4p-icon-appbarpagetext"></i>
-						 Documentation
-					</a>
-					<a href="' . $evolve_t4p_url . 'support-forums/" title="Support" target="_blank">
-						<i class="t4p-icon-appbarlifesaver"></i>
-						 Support
-					</a>
-					<a href="' . $evolve_fb_url . '" title="Facebook" target="_blank">
-						<i class="t4p-icon-appbarsocialfacebook"></i>
-						 Facebook
-					</a>
-			</div>
-			<div>',
-));
+// Redux::setArgs($evolve_opt_name, array(
+    // 'display_name' => __('evolve', 'evolve'),
+    // 'display_name' => '<img width="135" height="28" src="' . get_template_directory_uri() . '/assets/images/customizer/logo.png" alt="evolve">',
+    // // Name that appears at the top of your panel
+    // 'display_version' => $evolve_theme->get('Version'),
+    // 'menu_type' => 'submenu',
+    // 'dev_mode' => false,
+    // 'menu_title' => __('Theme Options', 'evolve'),
+    // 'page_title' => $evolve_theme->get('Name') . ' ' . __('Options', 'evolve'),
+    // 'admin_bar' => true,
+    // 'customizer' => true,
+    // 'save_defaults' => empty($upgrade_from_33),
+    // //Override Redux plugin template files:
+    // 'templates_path' => dirname(__FILE__) . '/evolve-redux-templates/panel',
+    // 'share_icons' => array(
+        // array(
+            // 'url' => $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/',
+            // 'title' => __('Theme Homepage', 'evolve'),
+            // 'icon' => 't4p-icon-appbarhome'
+        // ),
+        // array(
+            // 'url' => $evolve_t4p_url . 'docs/',
+            // 'title' => __('Documentation', 'evolve'),
+            // 'icon' => 't4p-icon-appbarpagetext'
+        // ),
+        // array(
+            // 'url' => $evolve_t4p_url . 'support-forums/',
+            // 'title' => __('Support', 'evolve'),
+            // 'icon' => 't4p-icon-appbarlifesaver'
+        // ),
+        // array(
+            // 'url' => $evolve_fb_url,
+            // 'title' => __('Facebook', 'evolve'),
+            // 'icon' => 't4p-icon-appbarsocialfacebook'
+        // )
+    // ),
+    // 'intro_text' => '
+					// <a href="' . $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/" title="Theme Homepage" target="_blank">
+						// <i class="t4p-icon-appbarhome"></i>
+						 // Theme Homepage
+					// </a>
+					// <a href="' . $evolve_t4p_url . 'docs/" title="Documentation" target="_blank">
+						// <i class="t4p-icon-appbarpagetext"></i>
+						 // Documentation
+					// </a>
+					// <a href="' . $evolve_t4p_url . 'support-forums/" title="Support" target="_blank">
+						// <i class="t4p-icon-appbarlifesaver"></i>
+						 // Support
+					// </a>
+					// <a href="' . $evolve_fb_url . '" title="Facebook" target="_blank">
+						// <i class="t4p-icon-appbarsocialfacebook"></i>
+						 // Facebook
+					// </a>
+			// </div>
+			// <div>',
+// ));
 if(true){
 Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-theme-links-main-tab',
@@ -649,7 +607,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the prebuilt layout options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the prebuilt layout options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => sprintf(__('The options below will overwrite many existing option values (colors, text fields, slides etc.), please proceed with caution! It\'s highly recommended to use these options for a new website.', 'evolve')),
@@ -920,7 +878,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
@@ -1489,7 +1447,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
@@ -1743,7 +1701,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
@@ -1948,7 +1906,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
@@ -2196,7 +2154,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
@@ -2345,7 +2303,7 @@ if (is_plugin_active('woocommerce/woocommerce.php')) :
                 'notice' => false,
                 'style' => 'warning',
                 'icon' => 'el el-info-circle',
-                'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+                'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
             ),
             array(
                 'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
@@ -2486,7 +2444,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the font, alignment and color of the section title. * non web-safe font.', 'evolve'),
@@ -3378,7 +3336,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
   'notice' => false,
   'style' => 'warning',
   'icon' => 'el el-info-circle',
-  'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+  'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
   ),
   array(
   'raw' => __('<h3 style=\'margin: 0;\'>Custom fonts for all elements.</h3><p style="margin-bottom:0;">This will override the Google / standard font options. All 4 files are required.</h3>', 'evolve'),
@@ -3435,7 +3393,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the typography you want for your blog title. * non web-safe font.', 'evolve'),
@@ -3494,7 +3452,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the typography you want for your main menu. * non web-safe font.', 'evolve'),
@@ -3549,7 +3507,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the typography you want for your widget title. * non web-safe font.', 'evolve'),
@@ -3593,7 +3551,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the typography you want for your post titles. * non web-safe font.', 'evolve'),
@@ -3638,7 +3596,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the typography you want for your content boxes titles. * non web-safe font.', 'evolve'),
@@ -3683,7 +3641,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the typography you want for your H1 tag in blog content. * non web-safe font.', 'evolve'),
@@ -6153,7 +6111,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the typography you want for the slide title. * non web-safe font.', 'evolve'),
@@ -6399,7 +6357,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the typography you want for the slide title. * non web-safe font.', 'evolve'),
@@ -6543,7 +6501,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
             'notice' => false,
             'style' => 'warning',
             'icon' => 'el el-info-circle',
-            'desc' => __('The following required plugin for the font options is currently inactive: <b>Redux Framework</b>', 'evolve')
+            'desc' => __('The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve')
         ),
         array(
             'subtitle' => __('Select the typography you want for the slide title. * non web-safe font.', 'evolve'),
@@ -7067,200 +7025,11 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     ),
         )
 );
+
 }
-
-add_action("redux/extension/customizer/control/includes", 'evolve_extend_customizer');
-
-function evolve_extend_customizer() {
-    // Extra customizer field types
-    if (!class_exists('Redux_Customizer_Control_spinner')) {
-
-        class Redux_Customizer_Control_spinner extends Redux_Customizer_Control {
-
-            public $type = "redux-spinner";
-
-        }
-
-    }
-    if (!class_exists('Redux_Customizer_Control_slider')) {
-
-        class Redux_Customizer_Control_slider extends Redux_Customizer_Control {
-
-            public $type = "redux-slider";
-
-        }
-
-    }
-    if (!class_exists('Redux_Customizer_Control_typography')) {
-
-        class Redux_Customizer_Control_typography extends Redux_Customizer_Control {
-
-            public $type = "redux-typography";
-
-        }
-
-    }
-    if (!class_exists('Redux_Customizer_Control_sorter')) {
-
-        class Redux_Customizer_Control_sorter extends Redux_Customizer_Control {
-
-            public $type = "redux-sorter";
-
-        }
-
-    }
-    if (!class_exists('Redux_Customizer_Control_raw')) {
-
-        class Redux_Customizer_Control_raw extends Redux_Customizer_Control {
-
-            public $type = "redux-raw";
-
-        }
-
-    }
-    if (!class_exists('Redux_Customizer_Control_info')) {
-
-        class Redux_Customizer_Control_info extends Redux_Customizer_Control {
-
-            public $type = "redux-info";
-
-        }
-
-    }
-}
-
-/**
- * Removes the demo link and the notice of integrated demo from the redux-framework plugin
- */
-if (!function_exists('evolve_remove_redux_demo')) {
-
-    function evolve_remove_redux_demo() {
-        // Used to hide the demo mode link from the plugin page. Only used when Redux is a plugin.
-        if (class_exists('ReduxFrameworkPlugin')) {
-            remove_filter('plugin_row_meta', array(
-                ReduxFrameworkPlugin::instance(),
-                'plugin_metalinks'
-                    ), null, 2);
-
-            // Used to hide the activation notice informing users of the demo panel. Only used when Redux is a plugin.
-            remove_action('admin_notices', array(ReduxFrameworkPlugin::instance(), 'admin_notices'));
-        }
-    }
-
-    add_action('redux/loaded', 'evolve_remove_redux_demo');
-}
-
 
 // Function to test the compiler hook and demo CSS output.
 // Above 10 is a priority, but 2 in necessary to include the dynamically generated CSS to be sent to the function.
-//add_filter( 'redux/options/' . $evolve_opt_name . '/compiler', 'evolve_compiler_action', 10, 3 );
-if (!function_exists('compiler_action')) {
-
-    function evolve_compiler_action($options, $css, $changed_values) {
-        $GLOBALS['evl_options'] = $options;
-        get_template_part(get_template_directory() . '/custom-css.min');
-    }
-
-}
-
-
-if (!function_exists('evolve_redux_header_html')) {
-
-    function evolve_redux_header_html() {
-        //mod by denzel, to prevent theme check plugin listing out as INFO:
-        $url = esc_url("https://theme4press.com/evolve-multipurpose-wordpress-theme/");
-        $videourl = esc_url("https://youtu.be/dgvjt6dJfWM");
-        ?>
-
-        <div class="updated">
-            <p>Happy with this theme? Please rate it <i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i><i class="t4p-icon-star-full"></i> on <strong><a href="http://wordpress.org/themes/evolve" target="_blank">wordpress.org</a></strong></p>
-        </div>
-        <div style="clear:both;"></div>
-        <?php
-    }
-
-    add_action("redux/evl_options/panel/before", 'evolve_redux_header_html');
-}
-
-function evolve_redux_admin_head() {
-    ?>
-    <style>
-        .evolve_expand_options {
-            cursor: pointer;
-            display: block;
-            height: 22px;
-            width: 21px;
-            float: left;
-            font-size: 0;
-            text-indent: -9999px;
-            margin: 1px 0 0 5px;
-            border: 1px solid #bbb;
-            border-radius: 2px;
-            background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAyCAIAAAAm4OfBAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQhJREFUeNrslT0KhDAQhTeLR7ATT6IXSKGFYO0lciFrO1N4AU8TLNXKv0CaJbLJRAZxl1hYyJuXN+PoR/Z9fyFdBNNr27Zf8Oq6bhgGSGUYhpTSzyeBNi8hRFVVEK+6rrXaQFOs6yrvTdOYjcqyVEpTLqXI89yaSypBudq2xckF2TipOSvfmmhZFuAGnJV6Licvey5gj7fnwpwXvEfLfqnT0jQ1OBJCQLnUBvZ9b85VFAV076UU8g1ZckVRxBiDzD6OY62WzPOM9i+cpunvvcZxfCQfPWs9a91Ym2UZ5xyHtd/e8hXWng+/zlrD9jmz1tDj7bkw5wXv0Y210itJEs9az9oHsPYQYACveK0/IuB51AAAAABJRU5ErkJggg==) no-repeat -2px -26px;
-        }
-
-        .redux-sidebar,
-        .redux-main {
-            -webkit-transition: all 0.25s;
-            transition: all 0.25s;
-        }
-    </style>
-    <script>
-        jQuery(document).ready(
-                function ($) {
-                    $('.expand_options').removeClass('expand_options').addClass('evolve_expand_options').click(
-                            function (e) {
-
-                                e.preventDefault();
-
-                                var $this = $(this);
-
-                                var $container = $('.redux-container');
-                                if ($container.hasClass('fully-expanded')) {
-                                    $container.removeClass('fully-expanded');
-
-                                    var tab = $.cookie("redux_current_tab");
-
-                                    $container.find('#' + tab + '_section_group').css('display', 'block');
-                                    if ($container.find('#redux-footer').length !== 0) {
-                                        $.redux.stickyInfo(); // race condition fix
-                                    }
-                                    $.redux.initFields();
-                                }
-
-                                // var trigger = parent.find( '.expand_options' );
-                                var $reduxMain = $container.find('.redux-main');
-                                var $reduxSidebar = $container.find('.redux-sidebar');
-
-                                var width = $reduxSidebar.width() - 1;
-                                var id = $reduxSidebar.find('.active a').data('rel');
-
-                                if ($this.hasClass('evolve_expanded')) {
-                                    $reduxMain.removeClass('expand').css('margin-left', width);
-
-                                    $reduxSidebar.css('margin-left', 0);
-                                    $container.find('.redux-group-tab[data-rel!="' + id + '"]').css('display', 'none');
-                                    // Show the only active one
-                                } else {
-                                    $reduxMain.addClass('expand').css('margin-left', '-1px');
-
-                                    $reduxSidebar.css('margin-left', -width - 113);
-                                    $container.find('.redux-group-tab').css('display', 'block');
-                                    $.redux.initFields();
-                                }
-
-                                $this.toggleClass('evolve_expanded');
-
-                                return false;
-                            }
-                    );
-                }
-        );
-    </script>
-    <?php
-}
-
-add_action('admin_head', 'evolve_redux_admin_head');
 
 /* * ************************************************************************************************************
  * Hide premium fields and sections before rendering the options panel
@@ -7291,34 +7060,6 @@ if(!$evolve_options){
 		update_option('bi_evolve_options', $evolve_options);
 	}
 }
-// var_dump($evolve_options);
-// exit;
-// Check if the 'Hide premium features' option is active:
-if (isset($evolve_options[$evolve_prem_inpt_name]) && ($evolve_options[$evolve_prem_inpt_name] == "0")) {
-    $evolve_sections = Redux::getSections($evolve_opt_name); // Get all sections
-    $field = null;
-
-    foreach ($evolve_options as $option => $value) {
-        $field = Redux::getField($evolve_opt_name, $option); // Get all fields
-        // Check if the FIELD has "locked" property, wich indicates is a premium feature:
-        if (isset($field['locked'])) {
-            Redux::hideField($evolve_opt_name, $field['id'], true); // Hide premium feature
-        }
-    }
-
-    // Hack for dynamic generated locked options
-    Redux::hideField($evolve_opt_name, 'bootstrap_another_slide', true);
-    Redux::hideField($evolve_opt_name, 'parallax_another_slide', true);
-    Redux::hideField($evolve_opt_name, 'demo_data', true);
-
-    foreach ($evolve_sections as $section => $settings) {
-        // Check if the SECTION has "locked" property, wich indicates is a premium section:
-        if (isset($settings['locked'])) {
-            Redux::hideSection($evolve_opt_name, $section, true); // Hide premium section
-        }
-    }
-}
-
 
 /* * ************************************************************************************************************
  * Register theme options section in Customizer
@@ -7326,13 +7067,6 @@ if (isset($evolve_options[$evolve_prem_inpt_name]) && ($evolve_options[$evolve_p
  * ************************************************************************************************************ */
 
 function evolve_register_custom_section($wp_customize) {
-    if (!class_exists('Evolve_Redux_Customizer_Section')) {
-        include_once dirname(__FILE__) . '/evolve-exts/class-evolve-redux-customizer-section.php';
-    }
-    if (method_exists($wp_customize, 'register_section_type')) {
-        $wp_customize->register_section_type('Evolve_Redux_Customizer_Section');
-    }
-
     /* wordpress default section reorder to bottom */
     $wp_customize->get_section('title_tagline')->priority = 101;
     $wp_customize->get_section('colors')->priority = 102;
@@ -7342,34 +7076,6 @@ function evolve_register_custom_section($wp_customize) {
 }
 
 add_action('customize_register', 'evolve_register_custom_section');
-
-function evolve_get_custom_redux_section_class() {
-    return 'Evolve_Redux_Customizer_Section';
-}
-
-add_filter('redux/customizer/section/class_name', 'evolve_get_custom_redux_section_class');
-
-/* * ************************************************************************************************************
- * Register theme options panel in Customizer
- *
- * ************************************************************************************************************ */
-
-function evolve_register_custom_panel($wp_customize) {
-    if (!class_exists('Evolve_Redux_Customizer_Panel')) {
-        include_once dirname(__FILE__) . '/evolve-exts/class-evolve-redux-customizer-panel.php';
-    }
-    if (method_exists($wp_customize, 'register_section_type')) {
-        $wp_customize->register_panel_type('Evolve_Redux_Customizer_Panel');
-    }
-}
-
-add_action('customize_register', 'evolve_register_custom_panel');
-
-function evolve_get_custom_redux_panel_class() {
-    return 'Evolve_Redux_Customizer_Panel';
-}
-
-add_filter('redux/customizer/panel/class_name', 'evolve_get_custom_redux_panel_class');
 
 /* * ************************************************************************************************************
  * Import Demo Content
