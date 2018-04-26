@@ -50,7 +50,10 @@ function evolve_get_option($name, $default = false) {
         $result = binmaocom_fix_get_theme_mod($result);
     }
     if ($result && is_string($name) && endsWith($name, '_icon')) {
-        $result = 'fa-' . $result;
+		if (!(strpos($result, 'fa-') === 0)) {
+		   // It starts with 'http'
+		   $result = 'fa-' . $result;
+		}        
     }
 
     return $result;
