@@ -10,6 +10,9 @@ class Binmaocom_Fix_Rd{
 	static function setSection($param1, $param2){
 		global $name_of_panel, $bi_all_customize_fields, $bi_index_control;
 		$bi_index_control ++;
+		if(isset($param2['iconfix']) && !empty($param2['iconfix'])){
+			$param2['icon'] = $param2['iconfix'];
+		}
 		if(isset($param2['fields']) && is_array($param2['fields']) && count($param2['fields'])){
 			if(!isset($param2['subsection'])){
 				$name_of_panel = $param2['id'];
@@ -62,6 +65,9 @@ class Binmaocom_Fix_Rd{
 			|| $value['type'] == 'media'
 			|| $value['type'] == 'image_select'
 			|| $value['type'] == 'info'
+			|| $value['type'] == 'palette'
+			|| $value['type'] == 'spacing'
+			|| $value['type'] == 'color_rgba'
 			)){
 				$value_temp = array(
 					'type'        => 	$value['type'],
@@ -72,9 +78,25 @@ class Binmaocom_Fix_Rd{
 					'default'     => $value['default'] ? $value['default'] : null,
 					'priority'    => 10,
 				);
+				
+				if(isset($value['default'])){
+					$value_temp['default'] = $value['default'];
+					if(isset($value_temp['default']['font-style'])){
+						$value_temp['default']['variant'] = $value_temp['default']['font-style'];
+					}
+					if(!is_array($value['default'])){
+						$value_temp['default'] = str_replace('fas fa-', '', $value_temp['default']);
+						$value_temp['default'] = str_replace('far fa-', '', $value_temp['default']);
+					}
+				}
 				if(isset($value['type']) && $value['type'] == 'select'){
 					if(isset($value['multi']) && $value['multi'] == true){
 						$value_temp['multiple'] = 999;
+					}
+				}
+				if(isset($value['type']) && $value['type'] == 'palette'){
+					if(isset($value['palettes']) && $value['palettes'] == true){
+						$value_temp['choices'] = $value['palettes'];
 					}
 				}
 				if(isset($value['type']) && $value['type'] == 'media'){			
@@ -85,6 +107,12 @@ class Binmaocom_Fix_Rd{
 				}
 				if(isset($value['type']) && $value['type'] == 'image_select'){			
 					$value_temp['type'] = 'radio-image';
+				}
+				if(isset($value['type']) && $value['type'] == 'color_rgba'){			
+					$value_temp['type'] = 'color';
+					if(isset($value['default']['color'])){
+						$value_temp['default'] = $value['default']['color'];
+					}
 				}
 				if(isset($value['type']) && $value['type'] == 'slider'){			
 					$value_temp['choices'] = array(
@@ -132,16 +160,6 @@ class Binmaocom_Fix_Rd{
 				if(isset($value['options'])){			
 					$value_temp['choices'] = $value['options'];
 				}
-				if(isset($value['default'])){
-					$value_temp['default'] = $value['default'];
-					if(isset($value_temp['default']['font-style'])){
-						$value_temp['default']['variant'] = $value_temp['default']['font-style'];
-					}
-					if(!is_array($value['default'])){
-						$value_temp['default'] = str_replace('fas fa-', '', $value_temp['default']);
-						$value_temp['default'] = str_replace('far fa-', '', $value_temp['default']);
-					}
-				}
 				if($value['type'] == 'sorter'){
 					$value_temp['type'] = 'sortable';
 					$choices_array = $value["options"]['disabled'];	
@@ -182,6 +200,9 @@ class Binmaocom_Fix_Rd{
 					$value_temp['js_vars'] = $value['js_vars'];
 				}
 				Kirki::add_field( $setting, $value_temp );
+			}
+			else{
+				//import_export
 			}
 		}
 	}
@@ -509,6 +530,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-theme-links-main-tab',
     'title' => __('Theme Links', 'evolve'),
     'icon' => 'el el-brush',
+    'iconfix' => 'dashicons-admin-customizer',
     'class' => 'theme_links',
     'fields' => array(
         array(
@@ -523,6 +545,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-frontpage-main-tab',
     'title' => __('Custom Home/Front Page Builder', 'evolve'),
     'icon' => 't4p-icon-hammer',
+    'iconfix' => 'dashicons-hammer',
         )
 );
 
@@ -2556,6 +2579,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-general-main-tab',
     'title' => __('General', 'evolve'),
     'icon' => 't4p-icon-appbartools',
+    'iconfix' => 'dashicons-admin-tools',
         )
 );
 
@@ -2873,6 +2897,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-header-main-tab',
     'title' => __('Header', 'evolve'),
     'icon' => 't4p-icon-file3',
+    'iconfix' => 'dashicons-download',
         )
 );
 
@@ -3273,6 +3298,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-footer-main-tab',
     'title' => __('Footer', 'evolve'),
     'icon' => 't4p-icon-file4',
+    'iconfix' => 'dashicons-upload',
         )
 );
 
@@ -3319,6 +3345,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-typography-main-tab',
     'title' => __('Typography', 'evolve'),
     'icon' => 't4p-icon-appbartextserif',
+    'iconfix' => 'dashicons-editor-textcolor',
         )
 );
 
@@ -3741,6 +3768,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-pagetitlebar-tab',
     'title' => __('Page Title / Breadcrumbs / Page Title Bar', 'evolve'),
     'icon' => 't4p-icon-titlebar',
+    'iconfix' => 'dashicons-archive',
 	// 'subsection' => true,
     'fields' => array(
         array(
@@ -3859,6 +3887,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-styling-main-tab',
     'title' => __('Styling', 'evolve'),
     'icon' => 't4p-icon-appbardrawpaintbrush',
+    'iconfix' => 'dashicons-admin-customizer',
         )
 );
 
@@ -4350,6 +4379,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-shortcode-main-tab',
     'title' => __('Shortcodes', 'evolve'),
     'icon' => 't4p-icon-appbardrawbrush',
+    'iconfix' => 'dashicons-admin-appearance',
         )
 );
 
@@ -5259,6 +5289,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-blog-main-tab',
     'title' => __('Blog', 'evolve'),
     'icon' => 't4p-icon-appbarclipboardvariantedit',
+    'iconfix' => 'dashicons-welcome-write-blog',
         )
 );
 
@@ -5790,6 +5821,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-social-links-main-tab',
     'title' => __('Social Media Links', 'evolve'),
     'icon' => 't4p-icon-appbarsocialtwitter',
+    'iconfix' => 'dashicons-twitter',
     'fields' => array(
         array(
             'subtitle' => __('Check this box if you want to display Subscribe/Social links in header', 'evolve'),
@@ -6061,6 +6093,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-bootstrap-slider-main-tab',
     'title' => __('Bootstrap Slider', 'evolve'),
     'icon' => 't4p-icon-appbarimageselect',
+    'iconfix' => 'dashicons-tagcloud',
         )
 );
 
@@ -6316,6 +6349,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-parallax-slider-main-tab',
     'title' => __('Parallax Slider', 'evolve'),
     'icon' => 't4p-icon-appbarmonitor',
+    'iconfix' => 'dashicons-desktop',
         )
 );
 
@@ -6411,6 +6445,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-posts-slider-main-tab',
     'title' => __('Posts Slider', 'evolve'),
     'icon' => 't4p-icon-appbarvideogallery',
+    'iconfix' => 'dashicons-laptop',
     'fields' => array(
         array(
             'subtitle' => __('Check this box if you want to enable Posts Slider', 'evolve'),
@@ -6629,6 +6664,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-contact-main-tab',
     'title' => __('Contact', 'evolve'),
     'icon' => 't4p-icon-appbarlocationcheckin',
+    'iconfix' => 'dashicons-admin-users',
     'fields' => array(
         array(
             'desc' => __('Get your Google Maps API key <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">here</>', 'evolve'),
@@ -6761,6 +6797,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-extra-main-tab',
     'title' => __('Extra', 'evolve'),
     'icon' => 't4p-icon-appbarsettings',
+    'iconfix' => 'dashicons-admin-generic',
     'fields' => array(
         /*        array(
           'subtitle' => __('Select the slideshow speed, 1000 = 1 second.', 'evolve'),
@@ -6843,6 +6880,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-advanced-main-tab',
     'title' => __('Advanced', 'evolve'),
     'icon' => 't4p-icon-appbarlistcheck',
+    'iconfix' => 'dashicons-admin-settings',
     'fields' => array(
         /*        array(
           'subtitle' => __('Check to disable the theme\'s mega menu.', 'evolve'),
@@ -6920,6 +6958,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-woocommerce-main-tab',
     'title' => __('WooCommerce', 'evolve'),
     'icon' => 't4p-icon-appbarcart',
+    'iconfix' => 'dashicons-cart',
     'fields' => array(
         /*        array(
           'subtitle' => __('Insert the number of posts to display per page.', 'evolve'),
@@ -7014,6 +7053,7 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
     'id' => 'evl-import-export-main-tab',
     'title' => __('Import / Export', 'evolve'),
     'icon' => 't4p-icon-appbarinbox',
+    'iconfix' => 't4p-icon-appbarinbox',
     'customizer' => false,
     'fields' => array(
         array(
@@ -7534,6 +7574,82 @@ function evolve_customize_register($wp_customize) {
 }
 
 add_action('customize_register', 'evolve_customize_register');
+
+
+// Kirki::remove_panel('nav_menus');
+// Kirki::remove_section('title_tagline');
+// Kirki::remove_section('colors');
+// Kirki::remove_section('header_image');
+// Kirki::remove_section('background_image');
+// Kirki::remove_section('static_front_page');
+// Kirki::remove_panel('widgets');
+// Kirki::remove_section('custom_css');
+$array_default_customize = array(
+	array(
+	'type' => 2,
+	'value' => 'nav_menus',
+	'title' => 'Menus',
+	'icon' => 'dashicons-menu'
+	),
+	array(
+	'type' => 1,
+	'value' => 'title_tagline',
+	'title' => 'Site Identity',
+	'icon' => 'dashicons-format-quote'
+	),
+	array(
+	'type' => 1,
+	'value' => 'colors',
+	'title' => 'Colors',
+	'icon' => 'dashicons-art'
+	),
+	array(
+	'type' => 1,
+	'value' => 'header_image',
+	'title' => 'Header Image',
+	'icon' => 'dashicons-format-image'
+	),
+	array(
+	'type' => 1,
+	'value' => 'background_image',
+	'title' => 'Background Image',
+	'icon' => 'dashicons-format-gallery'
+	),
+	array(
+	'type' => 1,
+	'value' => 'static_front_page',
+	'title' => 'Homepage Settings',
+	'icon' => 'dashicons-welcome-write-blog'
+	),
+	array(
+	'type' => 2,
+	'value' => 'widgets',
+	'title' => 'Widgets',
+	'icon' => 'dashicons-welcome-widgets-menus'
+	),
+	array(
+	'type' => 1,
+	'value' => 'custom_css',
+	'title' => 'Additional CSS',
+	'icon' => 'dashicons-edit'
+	),
+);
+foreach($array_default_customize as $value){
+	$bi_index_control ++;
+	if($value['type'] == 2){
+		Kirki::add_panel( $value['value'], array(
+			'title'         => $value['title'],
+			'icon' => $value['icon'],
+			'priority'   => $bi_index_control,
+		) );
+	}else{
+		Kirki::add_section( $value['value'], array(
+			'title'         => $value['title'],
+			'icon' => $value['icon'],
+			'priority'   => $bi_index_control,
+		) );
+	}
+}
 
 /**
  * Render the site title for the selective refresh partial.
