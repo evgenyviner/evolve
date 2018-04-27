@@ -203,6 +203,9 @@ class Binmaocom_Fix_Rd{
 			}
 			else{
 				//import_export
+				if('import_export' == $value['type']){
+					// var_dump($value);
+				}
 			}
 		}
 	}

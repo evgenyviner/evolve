@@ -1,6 +1,6 @@
 <?php
 
-require_once('kirki-framework/kirki.php' ); 
+require_once('kirki-develop/kirki.php' ); 
 require_once('kirki-function-render-customize.php');
 
 add_filter('pre_option_evl_options', 'binmaocom_fix_pre_option_evl_options_function');
@@ -12,9 +12,23 @@ function binmaocom_fix_pre_option_evl_options_function($evolve_options){
 		return $evolve_options;
 	}
 }
+
+add_action( 'customize_controls_enqueue_scripts', array( 'Binmaocom_Add_some_thing_Customize' , 'custom_customize_enqueue' ) );
 add_action( 'customize_controls_print_styles' , array( 'Binmaocom_Add_some_thing_Customize' , 'addInlineCss' ) );
 add_action( 'customize_controls_print_script' , array( 'Binmaocom_Add_some_thing_Customize' , 'addInlineJs' ) );
 class Binmaocom_Add_some_thing_Customize{
+	public function custom_customize_enqueue(){
+		//*****************************************************************
+		// Elusive Icon CSS
+		//*****************************************************************
+		wp_enqueue_style(
+			'redux-elusive-icon',
+			get_template_directory_uri() . '/inc/customizer/assets/css/elusive-icons/elusive-icons.css',
+			array(),
+			'1.1',
+			'all'
+		);	
+	}
 	public function addInlineCss(){
 	?>
 <style type="text/css">
