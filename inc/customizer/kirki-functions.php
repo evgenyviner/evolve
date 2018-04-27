@@ -18,6 +18,10 @@ class Binmaocom_Add_some_thing_Customize{
 	public function addInlineCss(){
 	?>
 <style type="text/css">
+.preview-notice .panel-title.dashicons-before:before {
+    line-height: 28px;
+    padding-right: 3px;
+}
 .customize-control-title {
     font-weight: 400;
     color: #000;
