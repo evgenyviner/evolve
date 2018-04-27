@@ -1,16 +1,15 @@
-/*
-Theme Name: EvoLve
-*/
-
+/*******************************************************
+ * Theme Name: evolve
+ *******************************************************/
 
 /*
 Used to style the TinyMCE editor.
 */
 
 html .mceContentBody {
-    direction:rtl;
-    unicode-bidi:embed;
-    float:right;
+    direction: rtl;
+    unicode-bidi: embed;
+    float: right;
 }
 
 * {
@@ -41,15 +40,14 @@ table {
 }
 
 html .mceContentBody {
-    direction:rtl;
-    unicode-bidi:embed;
-    float:right;
+    direction: rtl;
+    unicode-bidi: embed;
+    float: right;
 }
 
 * {
     font-family: Arial, Tahoma, sans-serif;
 }
-
 
 /* Text elements */
 

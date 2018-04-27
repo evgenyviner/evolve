@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 }
 
 if (session_id() == '' || !isset($_SESSION))
-    session_start();
+    {session_start();}
 
 add_action('init', 'evolve_woocommerce_ordering');
 
@@ -288,9 +288,10 @@ function evolve_product_search_form($form) {
 
 remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 
-// *******************************************************
-// * Category page show shorting order
-// *******************************************************
+
+/*******************************************************
+ * Category page show shorting order
+ *******************************************************/
 
 function evolve_woocommerce_catalog_ordering() {
 
@@ -858,7 +859,7 @@ function evolve_cart_shipping_calc() {
                     <option value=""><?php _e('Select a country&hellip;', 'evolve'); ?></option>
                     <?php
                     foreach (WC()->countries->get_shipping_countries() as $key => $value)
-                        echo '<option value="' . esc_attr($key) . '"' . selected(WC()->customer->get_shipping_country(), esc_attr($key), false) . '>' . esc_html($value) . '</option>';
+                        {echo '<option value="' . esc_attr($key) . '"' . selected(WC()->customer->get_shipping_country(), esc_attr($key), false) . '>' . esc_html($value) . '</option>';}
                     ?>
                 </select>
             </p>
@@ -879,7 +880,7 @@ function evolve_cart_shipping_calc() {
                             <option value=""><?php _e('Select a state&hellip;', 'evolve'); ?></option>
                             <?php
                             foreach ($states as $ckey => $cvalue)
-                                echo '<option value="' . esc_attr($ckey) . '" ' . selected($current_r, $ckey, false) . '>' . esc_html($cvalue) . '</option>';
+                                {echo '<option value="' . esc_attr($ckey) . '" ' . selected($current_r, $ckey, false) . '>' . esc_html($cvalue) . '</option>';}
                             ?>
                         </select>
                     </span><?php
@@ -978,7 +979,7 @@ function evolve_woocommerce_cross_sell_display() {
     $crosssells = WC()->cart->get_cross_sells();
 
     if (sizeof($crosssells) == 0)
-        return;
+        {return;}
 
     $number_of_columns = 4;
 
@@ -992,7 +993,7 @@ function evolve_woocommerce_checkout_coupon_form($args) {
     global $woocommerce;
 
     if (!WC()->cart->coupons_enabled())
-        return;
+        {return;}
     ?>
 
     <form class="woocommerce-content-box full-width checkout_coupon" method="post">
@@ -1514,7 +1515,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
 
                 <?php
                 if (!wc_ship_to_billing_address_only() && wc_shipping_enabled())
-                    echo '<div class="u-columns woocommerce-Addresses col2-set">';
+                    {echo '<div class="u-columns woocommerce-Addresses col2-set">';}
 
                 foreach ($get_addresses as $name => $title) :
                     ?>
@@ -1541,9 +1542,9 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                             $formatted_address = WC()->countries->get_formatted_address($address);
 
                             if (!$formatted_address)
-                                _e('You have not set up this type of address yet.', 'evolve');
+                                {_e('You have not set up this type of address yet.', 'evolve');}
                             else
-                                echo $formatted_address;
+                                {echo $formatted_address;}
                             ?>
                         </address>
                     </div>
@@ -1552,7 +1553,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                 endforeach;
 
                 if (!wc_ship_to_billing_address_only() && wc_shipping_enabled())
-                    echo '<div class="clear"></div></div>';
+                    {echo '<div class="clear"></div></div>';}
 
                 $load_address = 'billing';
                 $current_user = wp_get_current_user();
@@ -1868,7 +1869,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                 <tfoot>
                     <?php
                     if ($totals = $order->get_order_item_totals())
-                        foreach ($totals as $total) :
+                        {foreach ($totals as $total) :
                             ?>
                             <tr>
                                 <td class="filler-td">&nbsp;</td>
@@ -1876,7 +1877,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                                 <td class="product-total"><?php echo $total['value']; ?></td>
                             </tr>
                             <?php
-                        endforeach;
+                        endforeach;}
                     ?>
                 </tfoot>
                 <tbody>
@@ -1896,17 +1897,17 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                                         $thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
 
                                         if (!$_product->is_visible())
-                                            echo $thumbnail;
+                                            {echo $thumbnail;}
                                         else
-                                            printf('<a href="%s">%s</a>', $_product->get_permalink(), $thumbnail);
+                                            {printf('<a href="%s">%s</a>', $_product->get_permalink(), $thumbnail);}
                                         ?>
                                     </span>
                                     <div class="product-info">
                                         <?php
                                         if ($_product && !$_product->is_visible())
-                                            echo apply_filters('woocommerce_order_item_name', $item['name'], $item);
+                                            {echo apply_filters('woocommerce_order_item_name', $item['name'], $item);}
                                         else
-                                            echo apply_filters('woocommerce_order_item_name', sprintf('<a href="%s">%s</a>', get_permalink($item['product_id']), $item['name']), $item);
+                                            {echo apply_filters('woocommerce_order_item_name', sprintf('<a href="%s">%s</a>', get_permalink($item['product_id']), $item['name']), $item);}
 
                                         wc_display_item_meta($item);
 
@@ -1962,11 +1963,11 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
             <dl class="customer_details">
                 <?php
                 if ($order->get_customer_note())
-                    echo '<dt>' . __('Note:', 'evolve') . '</dt> <dd>' . $order->get_customer_note() . '</dd>';
+                    {echo '<dt>' . __('Note:', 'evolve') . '</dt> <dd>' . $order->get_customer_note() . '</dd>';}
                 if ($order->get_billing_email())
-                    echo '<dt>' . __('Email:', 'evolve') . '</dt> <dd>' . $order->get_billing_email() . '</dd>';
+                    {echo '<dt>' . __('Email:', 'evolve') . '</dt> <dd>' . $order->get_billing_email() . '</dd>';}
                 if ($order->get_billing_phone())
-                    echo '<dt>' . __('Telephone:', 'evolve') . '</dt> <dd>' . $order->get_billing_phone() . '</dd>';
+                    {echo '<dt>' . __('Telephone:', 'evolve') . '</dt> <dd>' . $order->get_billing_phone() . '</dd>';}
 
                 do_action('woocommerce_order_details_after_customer_details', $order);
                 ?>
@@ -1986,9 +1987,9 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                     <address><p>
                             <?php
                             if (!$order->get_formatted_billing_address())
-                                _e('N/A', 'evolve');
+                                {_e('N/A', 'evolve');}
                             else
-                                echo $order->get_formatted_billing_address();
+                                {echo $order->get_formatted_billing_address();}
                             ?>
                         </p></address>
 
@@ -2004,9 +2005,9 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                         <address><p>
                                 <?php
                                 if (!$order->get_formatted_shipping_address())
-                                    _e('N/A', 'evolve');
+                                    {_e('N/A', 'evolve');}
                                 else
-                                    echo $order->get_formatted_shipping_address();
+                                    {echo $order->get_formatted_shipping_address();}
                                 ?>
                             </p></address>
 
@@ -2023,9 +2024,10 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
         <?php
     }
 
-    // *******************************************************
-    // * Remove Double Cart Totals
-    // *******************************************************
+
+/*******************************************************
+ * Remove Double Cart Totals
+ *******************************************************/
 
     if (class_exists('Woocommerce')) {
         remove_action('woocommerce_cart_collaterals', 'woocommerce_cart_totals', 10); // Remove Duplicated Cart Totals
@@ -2033,46 +2035,9 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
     }
 
 
-    // *******************************************************
-    // * Register default function when plugin not activated
-    // *******************************************************
-
-    add_action('wp_head', 'evolve_plugins_loaded');
-
-    function evolve_plugins_loaded() {
-        if (!function_exists('is_woocommerce')) {
-
-            function is_woocommerce() {
-                return false;
-            }
-
-        }
-        if (!function_exists('is_product')) {
-
-            function is_product() {
-                return false;
-            }
-
-        }
-        if (!function_exists('is_buddypress')) {
-
-            function is_buddypress() {
-                return false;
-            }
-
-        }
-        if (!function_exists('is_bbpress')) {
-
-            function is_bbpress() {
-                return false;
-            }
-
-        }
-    }
-
-    // *******************************************************
-    // * Woo Products Shortcode Recode
-    // *******************************************************
+/*******************************************************
+ * Woo Products Shortcode Recode
+ *******************************************************/
 
     function evolve_woo_product($atts, $content = null) {
         global $woocommerce_loop;

@@ -62,8 +62,8 @@ class Kirki_Sanitize_Values {
 	 * Sanitization callback for 'dropdown-pages' type controls. This callback sanitizes `$page_id`
 	 * as an absolute integer, and then validates that $input is the ID of a published page.
 	 *
-	 * @see absint() https://developer.wordpress.org/reference/custom-functions/absint/
-	 * @see get_post_status() https://developer.wordpress.org/reference/custom-functions/get_post_status/
+	 * @see absint() https://developer.wordpress.org/reference/functions/absint/
+	 * @see get_post_status() https://developer.wordpress.org/reference/functions/get_post_status/
 	 *
 	 * @param int                  $page_id    Page ID.
 	 * @param WP_Customize_Setting $setting Setting instance.
@@ -102,7 +102,7 @@ class Kirki_Sanitize_Values {
 		}
 
 		// If auto, inherit or initial, return the value.
-		if ( 'auto' === $value || 'initial' === $value || 'inherit' === $value ) {
+		if ( 'auto' === $value || 'initial' === $value || 'inherit' === $value || 'normal' === $value ) {
 			return $value;
 		}
 
@@ -121,7 +121,7 @@ class Kirki_Sanitize_Values {
 		$unit_used = '';
 
 		// An array of all valid CSS units. Their order was carefully chosen for this evaluation, don't mix it up!!!
-		$units = array( 'rem', 'em', 'ex', '%', 'px', 'cm', 'mm', 'in', 'pt', 'pc', 'ch', 'vh', 'vw', 'vmin', 'vmax' );
+		$units = array( 'fr', 'rem', 'em', 'ex', '%', 'px', 'cm', 'mm', 'in', 'pt', 'pc', 'ch', 'vh', 'vw', 'vmin', 'vmax' );
 		foreach ( $units as $unit ) {
 			if ( false !== strpos( $value, $unit ) ) {
 				$unit_used = $unit;
