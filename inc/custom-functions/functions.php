@@ -7,7 +7,7 @@
  * @subpackage Functions
  */
 function evolve_media() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
     $evolve_template_url = get_template_directory_uri();
 
     $evolve_css_data = '';

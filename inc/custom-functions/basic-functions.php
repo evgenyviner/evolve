@@ -353,7 +353,8 @@ function evolve_footer_hooks() {
         );</script>
 
 	<?php
-	global $evolve_options;
+	global $evolve_options; do_action('fix_evolve_options_data');
+	
 	$header_pos                        = '';
 	$evolve_front_elements_header_area = ( get_theme_mod( 'evl_front_elements_header_area' ) );
 	if ( $evolve_front_elements_header_area ) {
@@ -653,7 +654,8 @@ function evolve_sharethis() {
 /* Bootstrap Slider */
 
 function evolve_bootstrap() {
-	global $evolve_options;
+	global $evolve_options; do_action('fix_evolve_options_data');
+	
 	$wrap = false;
 	for ( $i = 1; $i <= 5; $i ++ ) {
 
@@ -715,7 +717,8 @@ function evolve_bootstrap_layout_class() {
 /* Parallax Slider */
 
 function evolve_parallax() {
-	global $evolve_options;
+	global $evolve_options; do_action('fix_evolve_options_data');
+	
 	if ( $evolve_options['evl_show_slide1'] == "1" || $evolve_options['evl_show_slide2'] == "1" || $evolve_options['evl_show_slide3'] == "1" || $evolve_options['evl_show_slide4'] == "1" || $evolve_options['evl_show_slide5'] == "1" ) {
 		echo "<div id='da-slider' class='da-slider'>";
 
@@ -1605,7 +1608,8 @@ function evolve_lets_get_sidebar_2() {
 }
 
 function evolve_print_fonts( $name, $css_class, $additional_css = '', $additional_color_css_class = '', $imp = '' ) {
-	global $evolve_options;
+	global $evolve_options; do_action('fix_evolve_options_data');
+	
 	$options     = $evolve_options;
 	$css         = '';
 	$font_size   = '';

@@ -561,7 +561,7 @@ if(!$theme_options){
 	}
 }
 $theme_options['evl_bootstrap_slider_support'] = get_theme_mod('evl_bootstrap_slider_support');
-// var_dump($bi_evolve_options);exit;
+
 ( isset($theme_options['evl_bootstrap_slider_support']) && $theme_options['evl_bootstrap_slider_support'] == '1' ) ? $bootstrapslider_status = ' (ACTIVE)' : $bootstrapslider_status = ' (INACTIVE)';
 ( $theme_options['evl_parallax_slider_support'] == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)';
 ( $theme_options['evl_carousel_slider'] == '1' ) ? $postslider_status = ' (ACTIVE)' : $postslider_status = ' (INACTIVE)';
@@ -7080,31 +7080,58 @@ Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
  * (if the 'Hide premium features' option is active):
  * ************************************************************************************************************ */
 
-global $evolve_options;
-$evolve_options = get_option($evolve_opt_name, false); // Get saved options
-if(!$evolve_options){
-	global $bi_all_customize_fields;
-	if($bi_all_customize_fields){
-		foreach($bi_all_customize_fields as $value){
-			if($value['value']['type'] == 'sorter'){
-				$enabled = get_theme_mod($value['value_temp']['settings'], false);
-				if(count($enabled)){
-					$enabled_temp = array();
-					foreach($enabled as $items){
-						$enabled_temp[$items] = $items;
+global $evolve_options, $geted_for_preview;
+$geted_for_preview = false;
+function bin_get_new_option($geted_for_preview_in = false){
+	global $evolve_options, $geted_for_preview;
+	if($geted_for_preview ==  false){		
+		// $bt = debug_backtrace();
+		// if($bt){foreach($bt as $bts){
+			// // var_dump($bts);
+			// // $geted_for_preview = true;
+			// if (strpos($bts["file"], "\\themes\\") !== false) {
+				// var_dump($bts["file"]);
+				// var_dump($bts["line"]);
+				// echo '<br />';
+			// }
+		// }}
+		$evolve_options = get_option($evolve_opt_name, false); // Get saved options
+		if(!$evolve_options){
+			global $bi_all_customize_fields;
+			$bi_all_customize_fields = get_option('bi_all_customize_fields', $bi_all_customize_fields);
+			if($bi_all_customize_fields){
+				foreach($bi_all_customize_fields as $control){
+					if($control['value']['type'] == 'sorter'){
+						$enabled = evolve_get_option($control['value_temp']['settings'], false);
+						if(count($enabled)){
+							$enabled_temp = array();
+							foreach($enabled as $items){
+								$enabled_temp[$items] = $items;
+							}
+							$enabled = $enabled_temp;
+						}
+						$evolve_options[$control['value_temp']['settings']]['enabled'] = $enabled;
 					}
-					$enabled = $enabled_temp;
+					else{				
+						$evolve_options[$control['value_temp']['settings']] = evolve_get_option($control['value_temp']['settings'], $control['value_temp']['default']);
+					}
 				}
-				$evolve_options[$value['value_temp']['settings']]['enabled'] = $enabled;
-			}
-			else{
-				$evolve_options[$value['value_temp']['settings']] = get_theme_mod($value['value_temp']['settings'], $value['value_temp']['default']);
+				update_option('bi_evolve_options', $evolve_options);
 			}
 		}
-		update_option('bi_evolve_options', $evolve_options);
+	}
+	//update to checked is get from preview
+	if($geted_for_preview_in ==  true){
+		$geted_for_preview = true;
 	}
 }
-
+add_action('init', 'bin_get_new_option');
+add_action('fix_evolve_options_data', 'fix_evolve_options_data');
+function fix_evolve_options_data(){
+	if(is_customize_preview() && !is_admin()){
+		bin_get_new_option();
+	}
+}
 /* * ************************************************************************************************************
  * Register theme options section in Customizer
  *
@@ -7279,6 +7306,8 @@ if (get_option('old_new_upgrade_themeoptions', 'false') == 'false') {
     $frontpage_id = get_option('page_on_front');
     $postspage_id = get_option('page_for_posts');
     //get all theme options
+	//bin debug
+	echo 2;exit;
     $evolve_options = get_option('evl_options');
 
     //get old theme options

@@ -1,6 +1,6 @@
 <?php
 
-require_once('kirki-develop/kirki.php' ); 
+require_once('kirki-framework/kirki.php' ); 
 require_once('kirki-function-render-customize.php');
 
 add_filter('pre_option_evl_options', 'binmaocom_fix_pre_option_evl_options_function');

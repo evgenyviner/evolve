@@ -57,7 +57,8 @@ function evolve_get_option( $name, $default = false ) {
 	if ( ! isset( $config['id'] ) ) {
 		//return $default;
 	}
-	global $evolve_options;
+	global $evolve_options; do_action('fix_evolve_options_data');
+	
 
 	$options = $evolve_options;
 	if ( isset( $GLOBALS['redux_compiler_options'] ) ) {
