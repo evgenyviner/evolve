@@ -2,25 +2,6 @@
 // Responsive Primary Menu
 //
 
-if (js_responsive_menu.responsive_menu_layout == 'dropdown') {
-
-    jQuery(document).ready(function () {
-        if ( jQuery('.primary-menu .nav-holder .evolve_mobile_menu').length ) {
-            if (js_responsive_menu.responsive_menu == '') {
-                jQuery('.primary-menu .nav-holder .evolve_mobile_menu').meanmenu();
-            } else {
-                jQuery('.primary-menu .nav-holder .evolve_mobile_menu').meanmenu({
-                    meanMenuClose: "<label class='dd-selected-text'>" + js_responsive_menu.responsive_menu + "</label>",
-                    meanMenuOpen: "<label class='dd-selected-text'>" + js_responsive_menu.responsive_menu + "</label>"
-                });
-            }
-        } else {
-            jQuery('.primary-menu .nav-holder div.nav-menu').meanmenu();
-        }
-    });
-
-} else {
-
     // Create the dropdown base
     jQuery('<select />').appendTo('.primary-menu .nav-holder');
 
@@ -28,7 +9,7 @@ if (js_responsive_menu.responsive_menu_layout == 'dropdown') {
     jQuery('<option />', {
         'selected': 'selected',
         'value': '',
-        'text': js_responsive_menu.responsive_menu
+        'text': '<span class="t4p-icon-menu"></span>'
     }).appendTo('.primary-menu .nav-holder select');
 
     // Populate dropdown with menu items
@@ -61,7 +42,7 @@ if (js_responsive_menu.responsive_menu_layout == 'dropdown') {
             }
         }
     });
-}
+
 
 //
 // Responsive WooCommerce Menu
