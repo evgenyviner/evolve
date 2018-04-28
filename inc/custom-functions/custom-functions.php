@@ -1,6 +1,8 @@
 <?php
 function evolve_media() {
 
+	do_action( 'fix_evolve_options_data' );
+
 	if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
 		$language_code = ICL_LANGUAGE_CODE;
 	} else {

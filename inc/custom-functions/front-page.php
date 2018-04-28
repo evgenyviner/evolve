@@ -4,7 +4,8 @@ function evolve_content_boxes() {
     $evolve_content_boxes = evolve_get_option('evl_content_boxes', '1');
 	
     if ($evolve_content_boxes == "1") {
-        global $evolve_options;
+        global $evolve_options; do_action('fix_evolve_options_data');
+		
         
         $evolve_content_box1_enable = evolve_get_option('evl_content_box1_enable', '1');
         if ($evolve_content_box1_enable === false) {
@@ -208,7 +209,8 @@ function evolve_content_boxes() {
 }
 /* Front Page Testimonials */
 function evolve_testimonials() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     $testimonials_counter = 1;
     $backgroundcolor = $evolve_options["evl_fp_testimonials_bg_color"];
     $textcolor = $evolve_options["evl_fp_testimonials_text_color"];
@@ -270,8 +272,6 @@ function evolve_testimonials() {
     $html .= "<div class='t4p-testimonials t4p-testimonials-$testimonials_counter'>$styles".$evolve_testimonials_section_title."<div class='reviews'>";
     for ($i = 1; $i <= 2; $i ++) {
         $enabled = $evolve_options["evl_fp_testimonial{$i}"];
-		// var_dump($evolve_options);
-		// exit;
         if ($enabled == 1) {
             $name  = $evolve_options["evl_fp_testimonial{$i}_name"];
             $avatar = 'image';
@@ -352,7 +352,8 @@ function evolve_get_attachment_id_from_url( $attachment_url = '' ) {
 }
 /* Front Page Counter Circle */
 function evolve_counter_circle() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     $evolve_counter_circle_section_padding_top          = $evolve_options['evl_counter_circle_section_padding']['padding-top'];
     $evolve_counter_circle_section_padding_bottom       = $evolve_options['evl_counter_circle_section_padding']['padding-bottom'];
     $evolve_counter_circle_section_padding_left         = $evolve_options['evl_counter_circle_section_padding']['padding-left'];
@@ -442,7 +443,8 @@ function evolve_counter_circle() {
 }
 /* Front Page Google Map */
 function evolve_google_map() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     $address  = $evolve_options["evl_fp_googlemap_address"];
     $gmap_alignment = 'center';
     $map_style  = 'default';
@@ -629,7 +631,8 @@ function get_coordinates( $address, $force_refresh = false ) {
 }
 /* Front Page Custom Content */
 function evolve_custom_content() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     $content = $evolve_options["evl_fp_custom_content_editor"];
     $evolve_custom_content_section_padding_top          = $evolve_options['evl_custom_content_section_padding']['padding-top'];
     $evolve_custom_content_section_padding_bottom       = $evolve_options['evl_custom_content_section_padding']['padding-bottom'];
@@ -688,7 +691,8 @@ function evolve_custom_content() {
 }
 /* Front Page WooCommerce Product */
 function evolve_woocommerce_products() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     $product_cat = $evolve_options["evl_fp_woo_product"];
     $product_number = $evolve_options["evl_fp_woo_product_number"];
     $evolve_woo_product_section_padding_top          = $evolve_options['evl_woo_product_section_padding']['padding-top'];
@@ -752,7 +756,8 @@ function evolve_woocommerce_products() {
 }
 /* Front Page Blog Content */
 function evolve_blog_posts() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     $layout = $evolve_options["evl_fp_blog_layout"];
     $number_posts = ( ! $evolve_options["evl_fp_blog_number_posts"] ) ? '-1' : $evolve_options["evl_fp_blog_number_posts"];
     $cat_slug = ( !isset($evolve_options["evl_fp_blog_cat_slug"]) ) ? '' : $evolve_options["evl_fp_blog_cat_slug"];
@@ -909,7 +914,7 @@ function evolve_blog_posts() {
             $attr_class = sprintf('t4p-blog-shortcode t4p-blog-%s t4p-blog-%s', $blog_layout, $scrolling);
             $html .= "<div class='$attr_class'>";
             //blog-shortcode-posts-container
-            $post_container_class = sprintf('t4p-posts-container posts-container-%s', $scrolling);
+            $post_container_class = sprintf('t4p-posts-container row posts-container-%s', $scrolling);
             if ($layout == 'grid') {
                 $post_container_class .= sprintf(' grid-layout grid-layout-%s', $blog_grid_columns);
             }
@@ -953,7 +958,7 @@ function evolve_blog_posts() {
             $html .= '</div>';
             if ($paging == 'yes') {
                 ob_start();
-                t4p_pagination($query->max_num_pages, $range = 2, $query);
+                evolve_pagination($query->max_num_pages, $range = 2, $query);
                 $pagination = ob_get_contents();
                 ob_get_clean();
                 $html .= $pagination;
@@ -967,7 +972,8 @@ function wrap_loop_open() {
     echo $wrapper;
 }
 function wrap_loop_close() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     $wrapper = '';
     if ( $evolve_options['evl_fp_blog_layout'] == 'grid' ) {
         $wrapper .= '<div class="t4p-clearfix"></div>';
@@ -975,7 +981,8 @@ function wrap_loop_close() {
     echo $wrapper;
 }
 function before_loop($post_id) {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     $post_count = 1;
     //loop_attr
     $defaults = array(
@@ -1025,7 +1032,8 @@ function before_loop($post_id) {
     echo "<div id='$loop_attr_id' class='$loop_attr_class $formatted_class' itemtype='$loop_attr_itemtype' itemprop='$loop_attr_itemprop'> \n";
 }
 function before_loop_timeline($args) {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     $post_count = 1;
     //loop_attr
     $defaults = array(
@@ -1105,7 +1113,8 @@ function get_post_thumbnails($post_id, $count = '') {
     return $attachment_ids;
 }
 function loop_header($header) {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     $defaults = array(
         'title_link' => false,
     );
@@ -1155,7 +1164,8 @@ function loop_header($header) {
     echo $html;
 }
 function loop_footer() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     
     if ($evolve_options['evl_fp_blog_meta_all'] == 'yes' && $evolve_options['evl_fp_blog_layout'] == 'large') {
        entry_meta_default();
@@ -1217,7 +1227,8 @@ function timeline_date($date_params) {
     echo $inner_content;
 }
 function entry_meta_default() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     $inner_content = '';
     $inner_content .= read_more();
     if ($evolve_options['evl_fp_blog_layout'] == 'large') {
@@ -1250,7 +1261,8 @@ function entry_meta_default() {
     echo $entry_meta;
 }
 function entry_meta_alternate() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     $inner_content = post_meta_data(true);
     //blog-shortcode-entry-meta
     if ($evolve_options['evl_fp_blog_layout'] == 'grid') {
@@ -1262,7 +1274,8 @@ function entry_meta_alternate() {
     echo $entry_meta;
 }
 function entry_meta_grid_timeline() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     $inner_content = post_meta_data(false);
     //blog-shortcode-entry-meta    
     if ($evolve_options['evl_fp_blog_layout'] == 'grid') {
@@ -1275,6 +1288,7 @@ function entry_meta_grid_timeline() {
 }
 function post_meta_data($return_all_meta = false) {
     global $evolve_options, $smof_data;
+	
     $inner_content = "<p class='entry-meta-details'>";
         $meta_time = get_the_modified_time('c');
         //meta_date_attr
@@ -1322,7 +1336,8 @@ function post_meta_data($return_all_meta = false) {
     return $inner_content;
 }
 function grid_timeline_comments() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     if ($evolve_options['evl_fp_blog_meta_comments'] == 'yes') {
         $comments_icon = "<i class='t4p-icon-comment'></i>&nbsp";
         ob_start();
@@ -1334,7 +1349,8 @@ function grid_timeline_comments() {
     }
 }
 function post_meta_tags() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     if( has_tag() ) {
             $inner_content = '';			
             if ($evolve_options['evl_fp_blog_meta_tags'] == 'yes') {
@@ -1349,7 +1365,8 @@ function post_meta_tags() {
     }
 }
 function read_more() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     if ($evolve_options['evl_fp_blog_meta_link'] == 'yes') {
         $inner_content = '';
             $inner_content .= "<p class='entry-read-more'>";
@@ -1361,7 +1378,8 @@ function read_more() {
     }
 }
 function loop_content() {
-    global $evolve_options;
+    global $evolve_options; do_action('fix_evolve_options_data');
+	
     // get the post content according to the chosen kind of delivery
     if ($evolve_options['evl_fp_blog_excerpt'] == 'yes') {
         $content = t4p_content($evolve_options['evl_fp_blog_excerpt_length'], $evolve_options['evl_fp_blog_strip_html']);

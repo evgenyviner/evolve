@@ -1,5 +1,6 @@
 <?php
-global $evolve_options;
+global $evolve_options; do_action('fix_evolve_options_data');
+
 $options = $evolve_options;
 
 $evolve_css_data = '

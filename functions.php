@@ -4,6 +4,8 @@
  * Theme Setup
  *******************************************************/
 
+do_action('fix_evolve_options_data');
+
 $evolve_similar_posts              = evolve_get_option( 'evl_similar_posts', 'disable' );
 $evolve_posts_excerpt_title_length = intval( evolve_get_option( 'evl_posts_excerpt_title_length', '40' ) );
 $evolve_gmap                       = evolve_get_option( 'evl_status_gmap', '1' );
@@ -1810,7 +1812,8 @@ function evolve_get_option( $name, $default = false ) {
 	if ( ! isset( $config['id'] ) ) {
 		//return $default;
 	}
-	global $evolve_options;
+	global $evolve_options; do_action('fix_evolve_options_data');
+	
 
 	$options = $evolve_options;
 	if ( isset( $GLOBALS['redux_compiler_options'] ) ) {

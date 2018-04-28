@@ -50,7 +50,8 @@ $evolve_content_boxes_pos        = evolve_get_option( 'evl_content_boxes_pos', '
     <div class="menu-back">
 
 		<?php
-		global $evolve_options;
+		global $evolve_options; do_action('fix_evolve_options_data');
+		
 		$evolve_frontpage_slider                                      = array();
 		$evolve_options['evl_front_elements_content_area']['enabled'] = evolve_get_option( 'evl_front_elements_content_area' );
 		$evolve_options['evl_front_elements_header_area']['enabled']  = evolve_get_option( 'evl_front_elements_header_area' );
