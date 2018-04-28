@@ -98,7 +98,6 @@ function evolve_get_option( $name, $default = false ) {
 	return $default;
 }
 
-get_template_part( 'inc/custom-functions/basic-functions' );
 get_template_part( 'inc/custom-functions/front-page' );
 get_template_part( 'inc/customizer/admin-init' );
 
