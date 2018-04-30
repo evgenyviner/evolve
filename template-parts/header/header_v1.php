@@ -366,9 +366,7 @@ $evolve_helper_tagline_class_2         = '';
                 <div class="row align-items-center">
 					<?php
 					if ( $evolve_main_menu == "1" ) {
-						?>
-
-					<?php } else { ?>
+					} else { ?>
                         <div class="primary-menu col-md-11 col-sm-11">
 							<?php
 							if ( has_nav_menu( 'primary-menu' ) ) {
@@ -395,6 +393,24 @@ $evolve_helper_tagline_class_2         = '';
 								}
 								?>
                             </nav>
+
+                           <?php if ( has_nav_menu( 'boot-menu' ) ) {
+                            echo '<nav class="navbar navbar-expand-md mr-auto link-effect">
+                                <div class="navbar-toggler" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </div><div id="primary-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
+                                    wp_nav_menu( array(
+                                    'theme_location' => 'boot-menu',
+                                    'depth'          => 10,
+                                    'container'      => false,
+                                    'menu_class'     => 'navbar-nav mr-auto',
+                                    'fallback_cb'    => 'evolve_custom_menu_walker::fallback',
+                                    'walker'         => new evolve_custom_menu_walker()
+                                    ) );
+                                    }
+                                    echo '</div></nav>';
+                            ?>
+
                         </div><!-- .primary-menu -->
 						<?php
 						if ( $evolve_searchbox == "1" ) {
@@ -419,19 +435,20 @@ $evolve_helper_tagline_class_2         = '';
 						get_template_part( 'template-parts/sticky-header' );
 					}
 					?>
+                </div>
+                </nav>
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div><!-- .menu-header-sticky -->
+</div><!-- .menu-header -->
 
-                </div><!-- .row -->
-            </div><!-- .container -->
-        </div><!-- .menu-header-sticky -->
-    </div><!-- .menu-header -->
-
-	<?php if ( is_home() || is_front_page() ) {
-		if ( $evolve_frontpage_width_layout == "fluid" ) {
-			echo '</div><!-- .fluid-width -->';
-		}
-	} elseif ( $evolve_width_layout == "fluid" ) {
+<?php if ( is_home() || is_front_page() ) {
+	if ( $evolve_frontpage_width_layout == "fluid" ) {
 		echo '</div><!-- .fluid-width -->';
 	}
-	?>
+} elseif ( $evolve_width_layout == "fluid" ) {
+	echo '</div><!-- .fluid-width -->';
+}
+?>
 
 </div><!-- .menu-container .header_v0 -->

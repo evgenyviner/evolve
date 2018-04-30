@@ -172,47 +172,44 @@ while ( have_posts() ) :
     </div>
     <form action="" method="post">
 
-        <div id="comment-input">
+        <div class="input-group">
 
-            <div class="col-sm-4 col-md-4 padding-l">
+            <div class="input-group mb-3 col-md-4">
                 <input type="text" name="contact_name" id="author" value="<?php
 				if ( isset( $_POST['contact_name'] ) && ! empty( $_POST['contact_name'] ) ) {
 					echo esc_html( $_POST['contact_name'] );
 				}
 				?>" placeholder="<?php _e( 'Name (required)', 'evolve' ); ?>" size="22" tabindex="1"
-                       aria-required="true" class="input-name">
+                       aria-required="true" class="form-control">
             </div>
 
-            <div class="col-sm-4 col-md-4 padding-l">
+            <div class="input-group mb-3 col-md-4">
                 <input type="text" name="email" id="email" value="<?php
 				if ( isset( $_POST['email'] ) && ! empty( $_POST['email'] ) ) {
 					echo esc_html( $_POST['email'] );
 				}
 				?>" placeholder="<?php _e( 'Email (required)', 'evolve' ); ?>" size="22" tabindex="2"
-                       aria-required="true" class="input-email">
+                       aria-required="true" class="form-control">
             </div>
 
-            <div class="col-sm-4 col-md-4 padding-l">
+            <div class="input-group mb-3 col-md-4">
                 <input type="text" name="url" id="url" value="<?php
 				if ( isset( $_POST['url'] ) && ! empty( $_POST['url'] ) ) {
 					echo esc_html( $_POST['url'] );
 				}
-				?>" placeholder="<?php _e( 'Subject', 'evolve' ); ?>" size="22" tabindex="3" class="input-website">
+				?>" placeholder="<?php _e( 'Subject', 'evolve' ); ?>" size="22" tabindex="3" class="form-control">
             </div>
 
         </div>
 
-        <div class="clearfix"></div>
-
-        <div id="comment-textarea" class="col-md-12">
-                    <textarea name="msg" id="comment" cols="39" rows="4" tabindex="4" class="textarea-comment"
+        <div class="col input-group">
+                    <textarea class="form-control" name="msg" id="comment" cols="39" rows="4" tabindex="4"
                               placeholder="<?php _e( 'Message', 'evolve' ); ?>"><?php
 	                    if ( isset( $_POST['msg'] ) && ! empty( $_POST['msg'] ) ) {
 		                    echo esc_html( $_POST['msg'] );
 	                    }
 	                    ?></textarea>
         </div>
-        <div class="clearfix"></div>
 
 		<?php if ( $evolve_recaptcha_public && $evolve_recaptcha_private ): ?>
 
@@ -222,7 +219,12 @@ while ( have_posts() ) :
 
 		<?php endif; ?>
 
-        <input name="submit" type="submit" id="submit" tabindex="5" value="<?php _e( 'Send Message', 'evolve' ); ?>">
+        <div class="input-group">
+
+            <input class="btn btn-primary" name="submit" type="submit" id="submit" tabindex="5"
+                   value="<?php _e( 'Send Message', 'evolve' ); ?>">
+
+        </div>
 
     </form>
 

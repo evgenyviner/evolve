@@ -35,6 +35,7 @@ $evolve_padding_left            = $evolve_options['evl_header_padding']['padding
 $evolve_padding_right           = $evolve_options['evl_header_padding']['padding-right'];
 $evolve_menu_padding            = evolve_get_option( 'evl_main_menu_padding', '8' );
 $evolve_menu_font               = evolve_get_option( 'evl_menu_font' );
+$evolve_responsive_menu_layout  = evolve_get_option( 'evl_responsive_menu_layout', 'basic' );
 
 
 /*******************************************************
@@ -133,6 +134,15 @@ $evolve_content_bottom_padding = $evolve_options['evl_content_top_bottom_padding
 
 $evolve_css_data .= 'body { background-color: #ecebe9; }';
 
+if ( $evolve_responsive_menu_layout == 'dropdown' ) {
+	$evolve_css_data .= '
+@media (max-width: 576px) {
+    .navbar .dropdown-menu {
+        display: block;
+    }
+}';
+}
+
 $evolve_content_box_background_color = ( $evolve_content_box_background_color == '' ) ? 'transparent' : $evolve_content_box_background_color;
 if ( $evolve_content_box_background_color ) {
 	$evolve_css_data .= '
@@ -206,6 +216,25 @@ $evolve_css_data .= '
 .sticky-header .nav {
     float: left;
 }
+
+.navbar-nav .nav-link:focus, 
+.navbar-nav .nav-link:hover,
+.navbar-nav .active > .nav-link, 
+.navbar-nav .nav-link.active, 
+.navbar-nav .nav-link.show, 
+.navbar-nav .show > .nav-link,
+.navbar-nav li.menu-item.current-menu-item > a,
+.navbar-nav li.menu-item.current-menu-item > span.um-anchoremulator,
+.navbar-nav li.menu-item.current-menu-parent > a,
+.navbar-nav li.menu-item.current-menu-parent > span.um-anchoremulator,
+.navbar-nav li.menu-item.current-menu-ancestor > a,
+.navbar-nav li.menu-item.current-menu-ancestor > span.um-anchoremulator,
+
+
+
+'// TODO
+                    // remove
+                    . '
 
 ul.nav-menu li.current-menu-item > a,
 ul.nav-menu li.current-menu-ancestor > a,
@@ -1035,6 +1064,17 @@ ul.nav-menu li.current-menu-ancestor li.current-menu-item > a {
 if ( ! empty( $evolve_menu_back_color ) ) {
 	$evolve_menu_back_color = mb_substr( $evolve_menu_back_color, 1 );
 	$evolve_css_data        .= '
+	
+.navbar-nav .dropdown-menu,
+.navbar-nav .dropdown-item:focus, 
+.navbar-nav .dropdown-item:hover {    
+	background: #' . $evolve_menu_back_color . ';
+}	
+	
+' // TODO
+	                           //* remove this
+	                           . '
+	
 ul.nav-menu li.nav-hover ul {
     background: #' . $evolve_menu_back_color . ';
 }
@@ -1081,13 +1121,21 @@ ul.nav-menu li:hover {
     border-right-color: #' . $evolve_menu_back_color . ';
 }
 
-ul.nav-menu ul,
-ul.nav-menu li li,
-ul.nav-menu li li li,
-ul.nav-menu li li li li,
-#wrapper .dd-options li,
-#wrapper .dd-options,
-.mean-container .mean-nav ul {
+    .navbar-nav li,
+    .navbar-nav,
+    .navbar-nav .dropdown-menu
+
+'// TODO
+	                           // remove
+//ul.nav-menu ul,
+//ul.nav-menu li li,
+//ul.nav-menu li li li,
+//ul.nav-menu li li li li,
+//#wrapper .dd-options li,
+//#wrapper .dd-options,
+//.mean-container .mean-nav ul
+.'
+	{
     border-color: #' . evolve_hexDarker( $evolve_menu_back_color ) . ';
 }
 
@@ -1095,6 +1143,11 @@ ul.nav-menu li li li li,
     border-bottom: 1px solid #' . evolve_hexDarker( $evolve_menu_back_color ) . ';
 }
 
+.navbar-toggler,
+'// TODO
+	                           // remove
+
+	                           . '
 #wrapper .dd-container .dd-selected-text,
 #wrapper .dd-options li a:hover,
 .mean-container .mean-nav ul li a:hover,
@@ -1582,7 +1635,9 @@ $evolve_css_data .= evolve_print_fonts( 'evl_content_font', '.entry-content', $a
 $evolve_css_data .= evolve_print_fonts( 'evl_menu_blog_title_font', '#sticky-logo a', $additional_css = 'letter-spacing:-.03em' );
 
 //Main menu font
-$evolve_css_data .= evolve_print_fonts( 'evl_menu_font', 'ul.nav-menu a, .menu-header, #wrapper .dd-container label, #wrapper .dd-container a, #wrapper .dd-container a.mean-expand, #search-text-box #search_label_top span' );
+$evolve_css_data .= evolve_print_fonts( 'evl_menu_font', '.navbar-nav .nav-link, .navbar-nav .dropdown-item,'// TODO
+                                                         // remove //
+                                                         . ' ul.nav-menu a, .menu-header, #wrapper .dd-container label, #wrapper .dd-container a, #wrapper .dd-container a.mean-expand, #search-text-box #search_label_top span' );
 
 //Top menu font
 $evolve_css_data .= evolve_print_fonts( 'evl_top_menu_font', '.new-top-menu ul.nav-menu a, .top-menu, #wrapper .new-top-menu .dd-container label, #wrapper .new-top-menu .dd-container a, .woocommerce-menu .cart > a, .woocommerce-menu .my-account > a' );
@@ -1937,8 +1992,12 @@ $evolve_css_data .= '
     padding-right: ' . $evolve_padding_right . ';
 }
 
+.navbar-nav > li,' .
+                    // TODO
+                    // remove
+                    '
 ul.nav-menu > li {
-    padding: 0px ' . $evolve_menu_padding . 'px;
+    padding: 0 ' . $evolve_menu_padding . 'px;
 }
 ';
 
@@ -2994,13 +3053,8 @@ $evolve_css_data .= '
 
     #wrapper .primary-menu .link-effect a.dd-selected{
         display: inline-block !important;
-        padding: 0;
     }
 
-    #wrapper .primary-menu .link-effect a {
-        line-height: normal;
-        padding: 10px;
-    }
 }
 
 /* Small devices (tablets, 768px) */

@@ -37,7 +37,6 @@ class evolve_theme_init {
 	 */
 	public static function defaults() {
 		add_filter( 'wp_page_menu', 'evolve_menu_ulclass' ); // adds a .nav class to the ul wp_page_menu generates
-		add_action( 'init', 'evolve_media' ); // evolve_media() loads scripts and styles
 	}
 
 	/**

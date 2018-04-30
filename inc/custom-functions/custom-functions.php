@@ -1,33 +1,4 @@
 <?php
-function evolve_media() {
-
-	do_action( 'fix_evolve_options_data' );
-
-	if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
-		$language_code = ICL_LANGUAGE_CODE;
-	} else {
-		$language_code = '';
-	}
-
-	$local_variables = array(
-		'language_flag'              => $language_code,
-		'infinite_blog_finished_msg' => '<em>' . __( 'All posts displayed', 'evolve' ) . '</em>',
-		'infinite_blog_text'         => '<em>' . __( 'Loading the next set of posts...', 'evolve' ) . '</em>',
-		'theme_url'                  => get_template_directory_uri(),
-		'order_actions'              => __( 'Details', 'evolve' ),
-	);
-
-	global $woocommerce;
-
-	if ( class_exists( 'Woocommerce' ) ) {
-		if ( version_compare( $woocommerce->version, '2.3', '>=' ) ) {
-			$local_variables['woocommerce_23'] = true;
-		}
-	}
-
-	wp_localize_script( 'main', 'js_local_vars', $local_variables );
-
-}
 
 /**
  * evolve_menu - adds css class to the <ul> tag in wp_page_menu.
