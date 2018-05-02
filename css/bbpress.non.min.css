@@ -1501,15 +1501,6 @@ body.my-account #bbpress-forums {
     background: #444;
 }
 
-#bbpress-forums .custom_select_box .dd-container .dd-selected {
-    padding: 0 15px 0 0 !important;
-    text-indent: 5px;
-}
-
-#bbpress-forums .custom_select_box .dd-options li a:hover {
-    background: #EEEEEE !important;
-}
-
 #bbpress-forums ul.bbp-forums {
     font-size: 13px;
 }

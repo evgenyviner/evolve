@@ -1,8 +1,8 @@
 <?php
 
-/*******************************************************
- * Theme Setup
- *******************************************************/
+/*
+   Theme Setup
+   ======================================= */
 
 do_action( 'fix_evolve_options_data' );
 
@@ -26,7 +26,10 @@ $evolve_carousel_slider            = evolve_get_option( 'evl_carousel_slider', '
 $evolve_carousel_speed             = evolve_get_option( 'evl_carousel_speed', '3500' );
 $evolve_pagination_type            = evolve_get_option( 'evl_pagination_type', 'pagination' );
 $evolve_pos_button                 = evolve_get_option( 'evl_pos_button', 'right' );
+$evolve_slider_page_id             = '';
+$evolve_parallax                   = evolve_get_option( 'evl_parallax_slider', '1' );
 $evolve_parallax_slider            = evolve_get_option( 'evl_parallax_slider_support', '1' );
+$evolve_parallax_speed             = evolve_get_option( 'evl_parallax_speed', '4000' );
 $evolve_recaptcha_public           = evolve_get_option( 'evl_recaptcha_public', '' );
 $evolve_recaptcha_private          = evolve_get_option( 'evl_recaptcha_private', '' );
 $evolve_fontawesome                = evolve_get_option( 'evl_fontawesome', '0' );
@@ -163,11 +166,17 @@ function evolve_setup() {
 
 add_action( 'after_setup_theme', 'evolve_setup' );
 
-// Init Custom Definitions And Functions
+/*
+   Init Custom Definitions And Functions
+   ======================================= */
+
 get_template_part( 'inc/custom-functions/theme-definitions' );
 evolve_theme_init::init();
 
-// Truncate Function
+/*
+   Truncate Function
+   ======================================= */
+
 function evolve_truncate( $str, $length = 10, $trailing = '..' ) {
 	$length -= mb_strlen( $trailing );
 	if ( mb_strlen( $str ) > $length ) {
@@ -179,7 +188,10 @@ function evolve_truncate( $str, $length = 10, $trailing = '..' ) {
 	return $res;
 }
 
-// Custom Excerpt Length
+/*
+   Custom Excerpt Length
+   ======================================= */
+
 function evolve_excerpt_max_charlength( $num ) {
 	$limit   = $num + 1;
 	$excerpt = explode( ' ', get_the_excerpt(), $limit );
@@ -188,7 +200,10 @@ function evolve_excerpt_max_charlength( $num ) {
 	echo $excerpt;
 }
 
-// Get First Image
+/*
+   Get First Image
+   ======================================= */
+
 function evolve_get_first_image() {
 	global $post, $posts;
 	$first_img = '';
@@ -200,14 +215,20 @@ function evolve_get_first_image() {
 	}
 }
 
-// Tiny URL
+/*
+   Tiny URL
+   ======================================= */
+
 function evolve_tinyurl( $url ) {
 	$response = esc_url( wp_remote_retrieve_body( wp_remote_get( 'http://tinyurl.com/api-create.php?url=' . $url ) ) );
 
 	return $response;
 }
 
-// Similar Posts Feature
+/*
+   Similar Posts Feature
+   ======================================= */
+
 function evolve_similar_posts() {
 	$post      = '';
 	$orig_post = $post;
@@ -261,6 +282,10 @@ function evolve_similar_posts() {
 	$post = $orig_post;
 	wp_reset_query();
 }
+
+/*
+   Footer Hooks
+   ======================================= */
 
 function evolve_footer_hooks() {
 	global $evolve_gmap, $evolve_gmap_address, $evolve_gmap_type, $evolve_map_zoom_level, $evolve_map_pop, $evolve_map_scrollwheel, $evolve_map_scale, $evolve_map_zoomcontrol, $evolve_map_pin;
@@ -492,29 +517,6 @@ function evolve_footer_hooks() {
 	if ( empty( $evolve_bootstrap_speed ) ): $evolve_bootstrap_speed = '7000';
 	endif;
 
-	$evolve_parallax_slider = evolve_get_option( 'evl_parallax_slider_support', '1' );
-
-	if ( $evolve_parallax_slider == "1" ):
-
-		$evolve_parallax_speed = evolve_get_option( 'evl_parallax_speed', '4000' );
-		if ( empty( $evolve_parallax_speed ) ): $evolve_parallax_speed = '4000';
-		endif;
-		?>
-        <script type="text/javascript">
-            /*----------------*/
-            /* Parallax Slider
-             /*----------------*/
-
-            var $par = jQuery.noConflict();
-            $par('#da-slider').cslider(
-                {
-                    autoplay: true,
-                    bgincrement: 450,
-                    interval: <?php echo $evolve_parallax_speed; ?>
-                }
-            );</script>
-
-	<?php endif;
 }
 
 function evolve_hexDarker( $hex, $factor = 30 ) {
@@ -542,8 +544,9 @@ function evolve_hexDarker( $hex, $factor = 30 ) {
 	return $new_hex;
 }
 
-
-// Share This Buttons
+/*
+   Share This Buttons
+   ======================================= */
 
 function evolve_sharethis() {
 	global $post;
@@ -553,22 +556,28 @@ function evolve_sharethis() {
 	}
 	?>
     <div class="share-this">
-        <a rel="nofollow" class="tipsytext" title="<?php _e( 'Share on Twitter', 'evolve' ); ?>" target="_blank"
+        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+           title="<?php _e( 'Share on Twitter', 'evolve' ); ?>" target="_blank"
            href="http://twitter.com/intent/tweet?status=<?php echo $post->post_title; ?>+&raquo;+<?php echo esc_url( evolve_tinyurl( get_permalink() ) ); ?>"><i
                     class="t4p-icon-social-twitter"></i></a>
-        <a rel="nofollow" class="tipsytext" title="<?php _e( 'Share on Facebook', 'evolve' ); ?>" target="_blank"
+        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+           title="<?php _e( 'Share on Facebook', 'evolve' ); ?>" target="_blank"
            href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&amp;t=<?php echo $post->post_title; ?>"><i
                     class="t4p-icon-social-facebook"></i></a>
-        <a rel="nofollow" class="tipsytext" title="<?php _e( 'Share on Google Plus', 'evolve' ); ?>" target="_blank"
+        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+           title="<?php _e( 'Share on Google Plus', 'evolve' ); ?>" target="_blank"
            href="https://plus.google.com/share?url=<?php the_permalink(); ?>"><i
                     class="t4p-icon-social-google-plus"></i></a>
-        <a rel="nofollow" class="tipsytext" title="<?php _e( 'Share on Pinterest', 'evolve' ); ?>" target="_blank"
+        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+           title="<?php _e( 'Share on Pinterest', 'evolve' ); ?>" target="_blank"
            href="http://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $image_url; ?>&description=<?php echo $post->post_title; ?>"><i
                     class="t4p-icon-social-pinterest"></i></a>
-        <a rel="nofollow" class="tipsytext" title="<?php _e( 'Share by Email', 'evolve' ); ?>" target="_blank"
+        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+           title="<?php _e( 'Share by Email', 'evolve' ); ?>" target="_blank"
            href="http://www.addtoany.com/email?linkurl=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>"><i
                     class="t4p-icon-social-envelope-o"></i></a>
-        <a rel="nofollow" class="tipsytext" title="<?php _e( 'More options', 'evolve' ); ?>" target="_blank"
+        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom" title="<?php _e( 'More options', 'evolve' ); ?>"
+           target="_blank"
            href="http://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>"><i
                     class="t4p-icon-redo"></i></a>
     </div>
@@ -664,159 +673,6 @@ function evolve_parallax() {
 		echo "<nav class='da-arrows'><span class='da-arrows-prev'></span><span class='da-arrows-next'></span></nav></div>";
 	}
 }
-
-
-/**
- * Define Custom Menu Walker
- */
-class evolve_Walker_Nav_Menu extends Walker_Nav_Menu {
-	/**
-	 * @see   Walker::start_lvl()
-	 * @since 3.0.0
-	 *
-	 * @param string $output Passed by reference. Used to append additional content.
-	 * @param int $depth Depth of page. Used for padding.
-	 */
-
-	/**
-	 * @see   Walker::start_el()
-	 * @since 3.0.0
-	 *
-	 * @param string $output Passed by reference. Used to append additional content.
-	 * @param object $item Menu item data object.
-	 * @param int $depth Depth of menu item. Used for padding.
-	 * @param int $current_page Menu item ID.
-	 * @param object $args
-	 */
-	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-
-		/**
-		 * Dividers, Headers or Disabled
-		 * =============================
-		 * Determine whether the item is a Divider, Header, Disabled or regular
-		 * menu item. To prevent errors we use the strcasecmp() function to so a
-		 * comparison that is not case sensitive. The strcasecmp() function returns
-		 * a 0 if the strings are equal.
-		 */
-		$class_names = $value = '';
-
-		$classes   = empty( $item->classes ) ? array() : (array) $item->classes;
-		$classes[] = 'menu-item-' . $item->ID;
-
-		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
-
-		if ( $args->has_children ) {
-			$class_names .= ' dropdown';
-		}
-
-		if ( in_array( 'current-menu-item', $classes ) ) {
-			$class_names .= ' active';
-		}
-
-		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-
-		$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args );
-		$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
-
-		$output .= $indent . '<li' . $id . $value . $class_names . '>';
-
-		/**
-		 * PolyLang Broken Flag Images - Fix
-		 * =================================
-		 *
-		 * @by    jerry
-		 * @since 3.2.0
-		 * @todo  find better solution
-		 */
-		$item->title_2 = $item->title; // Let's take flag image
-		if ( class_exists( 'Polylang' ) ) {
-			if ( preg_match( '/<img src=/', $item->title ) ) {
-				$item->title = strip_tags( $item->title ); // Let's remove flag image
-			}
-		}
-
-		$atts           = array();
-		$atts['title']  = ! empty( $item->title ) ? $item->title : '';
-		$atts['target'] = ! empty( $item->target ) ? $item->target : '';
-		$atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
-		$atts['href']   = ! empty( $item->url ) ? $item->url : '';
-
-
-		$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
-
-		$attributes = '';
-		foreach ( $atts as $attr => $value ) {
-			if ( ! empty( $value ) ) {
-				$value      = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
-				$attributes .= ' ' . $attr . '="' . $value . '"';
-			}
-		}
-
-		$item_output = $args->before;
-
-		/*
-		 * Glyphicons
-		 * ===========
-		 * Since the the menu item is NOT a Divider or Header we check the see
-		 * if there is a value in the attr_title property. If the attr_title
-		 * property is NOT null we apply it as the class name for the glyphicon.
-		 */
-		if ( evolve_get_option( 'evl_main_menu_hover_effect', 'rollover' ) == 'disable' ) {
-			$item_output .= '<a' . $attributes . '>';
-		} else {
-			$item_output .= '<a' . $attributes . '><span data-hover="' . $item->title . '">';
-		}
-
-		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title_2, $item->ID ) . $args->link_after;
-		$item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="arrow"></span>' : '';
-		if ( evolve_get_option( 'evl_main_menu_hover_effect', 'rollover' ) == 'disable' ) {
-			$item_output .= '</a>';
-		} else {
-			$item_output .= '</span></a>';
-		}
-		$item_output .= $args->after;
-
-		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-	}
-
-	/**
-	 * Traverse elements to create list from elements.
-	 * Display one element if the element doesn't have any children otherwise,
-	 * display the element and its children. Will only traverse up to the max
-	 * depth and no ignore elements under that depth.
-	 * This method shouldn't be called directly, use the walk() method instead.
-	 *
-	 * @see   Walker::start_el()
-	 * @since 2.5.0
-	 *
-	 * @param object $element Data object
-	 * @param array $children_elements List of elements to continue traversing.
-	 * @param int $max_depth Max depth to traverse.
-	 * @param int $depth Depth of current element.
-	 * @param array $args
-	 * @param string $output Passed by reference. Used to append additional content.
-	 *
-	 * @return null Null on failure with no changes to parameters.
-	 */
-	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
-		if ( ! $element ) {
-			return;
-		}
-
-		$id_field = $this->db_fields['id'];
-
-		// Display this element.
-		if ( is_object( $args[0] ) ) {
-			$args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
-		}
-
-		parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
-	}
-
-}
-
-//end evolve_Walker_Nav_Menu
 
 
 /**
@@ -1031,7 +887,7 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 				if ( evolve_get_option( 'evl_main_menu_hover_effect', 'rollover' ) == 'disable' ) {
 					$item_output .= '<a' . $attributes . '>';
 				} else {
-					$item_output .= '<a' . $attributes . '><span data-hover="' . $item->title . '">';
+					$item_output .= '<a' . $attributes . '><span class="link-effect" data-hover="' . $item->title . '">';
 				}
 			}
 			/**
@@ -1613,6 +1469,7 @@ add_action( 'wp_footer', 'evolve_infinite_scroll_blog' );
 
 function evolve_infinite_scroll_blog() {
 	echo '<script>
+jQuery(function ($) {
             if (jQuery(".posts-container-infinite").length == 1) {
                 var ias = jQuery.ias({
                     container: ".posts-container-infinite",
@@ -1648,6 +1505,7 @@ function evolve_infinite_scroll_blog() {
                         ias.extension(new IASNoneLeftExtension());';
 	}
 	echo '}
+});
     </script>';
 }
 
@@ -2406,7 +2264,7 @@ get_template_part( 'inc/views/metaboxes/metaboxes' );
 // General Scripts To Enqueue
 function evolve_scripts() {
 
-	global $evolve_parallax_slider, $evolve_carousel_slider, $evolve_pos_button, $evolve_gmap, $evolve_google_map_api, $evolve_recaptcha_public, $evolve_recaptcha_private,
+	global $post, $evolve_slider_page_id, $evolve_parallax, $evolve_parallax_slider, $evolve_parallax_speed, $evolve_carousel_slider, $evolve_pos_button, $evolve_gmap, $evolve_google_map_api, $evolve_recaptcha_public, $evolve_recaptcha_private,
 	       $evolve_footer_reveal, $evolve_fontawesome, $evolve_css_data;
 
 	if ( $evolve_fontawesome != "1" ) {
@@ -2415,53 +2273,57 @@ function evolve_scripts() {
 	}
 
 	// Main Stylesheet
+	wp_enqueue_style( 'evolve', get_stylesheet_uri(), false );
 
-	wp_enqueue_style( 'evolve', get_stylesheet_uri(),  array( 'evolve-bootstrap' )  );
 	// Bootstrap
-	wp_enqueue_style( 'evolve-bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', false );
 	wp_enqueue_script( 'evolve-bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array( 'jquery' ), '', true );
 
-	require_once( get_template_directory() . '/custom-css.min.php' );
+	require get_parent_theme_file_path( '/custom-css.min.php' );
 	wp_add_inline_style( 'evolve', $evolve_css_data );
 
 	$evolve_header_type = evolve_get_option( 'evl_header_type', 'none' );
 	switch ( $evolve_header_type ) {
 		case "none":
-			require_once( get_template_directory() . '/assets/css/header1.css.min.php' );
+			require get_parent_theme_file_path( '/assets/css/header1.css.min.php' );
 			break;
 		case "h1":
-			require_once( get_template_directory() . '/assets/css/header2.css.min.php' );
+			require get_parent_theme_file_path( '/assets/css/header2.css.min.php' );
 			break;
 	}
 	wp_add_inline_style( 'evolve', $evolve_css_data );
 
-	if ( $evolve_parallax_slider == "1" ) {
-		wp_enqueue_script( 'evolve-parallax', EVOLVE_JS . '/parallax.min.js', array( 'jquery' ), '', true );
-		wp_enqueue_style( 'evolve-parallax', EVOLVE_CSS . '/parallax.min.css' );
-		wp_enqueue_script( 'evolve-parallax-modernizr', EVOLVE_JS . '/parallax.modernizr.min.js', 'evolve-parallax', '', true );
+	// Check If The Slider Is Enabled Globally or Per Post/Page
+	if ( ! empty( $post->ID ) ) {
+		if ( ! is_home() && ! is_front_page() && ! is_archive() ) {
+			$evolve_slider_page_id = $post->ID;
+		}
+		if ( ! is_home() && is_front_page() ) {
+			$evolve_slider_page_id = $post->ID;
+		}
 	}
+	if ( is_home() && ! is_front_page() ) {
+		$evolve_slider_page_id = get_option( 'page_for_posts' );
+	}
+
+	// Enqueue Parallax Slider Style Where Required
+	if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && $evolve_parallax_slider == "1" ) || ( $evolve_parallax == "1" && $evolve_parallax_slider == "1" ) ):
+		if ( $evolve_parallax_slider == "1" ) {
+			wp_enqueue_style( 'evolve-parallax', EVOLVE_CSS . '/parallax.min.css' );
+		}
+	endif;
 
 	if ( $evolve_carousel_slider == "1" ) {
 		wp_enqueue_script( 'carousel', EVOLVE_JS . '/carousel.min.js', array( 'jquery' ), '', true );
 	}
-	wp_enqueue_script( 'evolve-tipsy', EVOLVE_JS . '/tipsy.min.js', array( 'jquery' ), '', true );
-	wp_enqueue_script( 'evolve-fields', EVOLVE_JS . '/fields.min.js', array( 'jquery' ), '', true );
+
 	wp_enqueue_script( 'evolve-tabs', EVOLVE_JS . '/tabs.min.js', array( 'jquery' ), '', true );
 
 	//if ($evolve_pagination_type == "infinite") {
 	wp_enqueue_script( 'evolve-infinite-scroll', EVOLVE_JS . '/jquery.infinite-scroll.min.js', array( 'jquery' ), '', true );
 	//}
 
-	if ( $evolve_pos_button == "disable" || $evolve_pos_button == "" ) {
-
-	} else {
-		wp_enqueue_script( 'evolve-scroll-to-top', EVOLVE_JS . '/jquery.scroll.pack.min.js', array( 'jquery' ), '', true );
-	}
-	// TODO remove this wp_enqueue_script( 'supersubs', EVOLVE_JS . '/supersubs.min.js', array( 'jquery' ), '', true );
-	// wp_enqueue_script( 'superfish', EVOLVE_JS . '/superfish.min.js', array( 'jquery' ), '', true );
-	wp_enqueue_script( 'buttons', EVOLVE_JS . '/buttons.min.js', array( 'jquery' ), '', true );
-	wp_enqueue_script( 'ddslick', EVOLVE_JS . '/ddslick.min.js', array( 'jquery' ), '', true );
-	wp_enqueue_script( 'flexslidermin', EVOLVE_JS . '/jquery.flexslider.min.js', array( 'jquery' ), '', true );
+	// TODO
+	// remove this wp_enqueue_script( 'flexslidermin', EVOLVE_JS . '/jquery.flexslider.min.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'main', EVOLVE_JS . '/main.min.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'main_backend', EVOLVE_JS . '/main_backend.min.js', array( 'jquery' ), '', true );
 
@@ -2471,7 +2333,7 @@ function evolve_scripts() {
 	}
 
 	if ( $evolve_recaptcha_public && $evolve_recaptcha_private ) {
-		wp_enqueue_script( 'googlerecaptcha', 'https://www.google.com/recaptcha/api.js' );
+		wp_enqueue_script( 'googlerecaptcha', 'https://www.google.com/recaptcha/api.js', '', '', true );
 	}
 
 	if ( $evolve_footer_reveal == '1' ) {
@@ -2491,33 +2353,46 @@ function evolve_scripts() {
 	// Remove
 	// wp_enqueue_style( 'mediacss', get_template_directory_uri() . '/assets/css/media.min.css', array( 'maincss' ) );
 
-	if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
-		$language_code = ICL_LANGUAGE_CODE;
-	} else {
-		$language_code = '';
-	}
+	/*
+	   Add Dynamic Data To main.js
+	   ======================================= */
 
-	$local_variables = array(
-		'language_flag'              => $language_code,
+	$evolve_local_variables = array(
 		'infinite_blog_finished_msg' => '<em>' . __( 'All posts displayed', 'evolve' ) . '</em>',
 		'infinite_blog_text'         => '<em>' . __( 'Loading the next set of posts...', 'evolve' ) . '</em>',
 		'theme_url'                  => get_template_directory_uri(),
 		'order_actions'              => __( 'Details', 'evolve' ),
 	);
 
+	// Check WooCommerce Plugin & Version
 	global $woocommerce;
 
 	if ( class_exists( 'Woocommerce' ) ) {
 		if ( version_compare( $woocommerce->version, '2.3', '>=' ) ) {
-			$local_variables['woocommerce_23'] = true;
+			$evolve_local_variables['woocommerce_23'] = true;
 		}
+		$evolve_local_variables['woocommerce'] = true;
 	}
 
-	wp_localize_script( 'main', 'js_local_vars', $local_variables );
+	// Back To Top Button (Scroll to Top)
+	if ( $evolve_pos_button !== "disable" && ! empty( $evolve_pos_button ) ) {
+		$evolve_local_variables['scroll_to_top'] = true;
+	}
+
+	// Parallax Slider
+	if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && $evolve_parallax_slider == "1" ) || ( $evolve_parallax == "1" && $evolve_parallax_slider == "1" ) ):
+		if ( $evolve_parallax_slider == "1" ) {
+			if ( ! is_numeric( $evolve_parallax_speed ) || $evolve_parallax_speed < 0 ): $evolve_local_variables['parallax_speed'] = '4000';
+			else : $evolve_local_variables['parallax_speed'] = $evolve_parallax_speed;;
+			endif;
+			$evolve_local_variables['parallax_slider'] = true;
+		}
+	endif;
+
+	wp_localize_script( 'main', 'evolve_js_local_vars', $evolve_local_variables );
 }
 
 add_action( 'wp_enqueue_scripts', 'evolve_scripts' );
-
 
 /*
    Migrate Custom CSS Code From Theme options
@@ -2544,15 +2419,12 @@ if ( function_exists( 'wp_update_custom_css_post' ) && ! defined( 'DOING_AJAX' )
 
 add_filter( 'wp_calculate_image_srcset', '__return_false', PHP_INT_MAX );
 
-
 /*
    WooCommerce Support
    ======================================= */
 
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-
-if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-	require get_parent_theme_file_path( '/inc/custom-functions/woocommerce-support.php' );
+if ( class_exists( 'Woocommerce' ) ) {
+	require get_parent_theme_file_path( 'inc/custom-functions/woocommerce-support.php' );
 }
 
 

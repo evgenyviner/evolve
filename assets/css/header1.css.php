@@ -127,9 +127,6 @@ $evolve_css_data = '
     }
     .menu-header { padding: 20px 0; }
 
-    #wrapper .primary-menu .mean-nav.link-effect > ul.nav-menu{
-        margin-top: 8px;
-    }
 }
 
 @media screen and (min-width: 1200px) {

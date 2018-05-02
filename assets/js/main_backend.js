@@ -1620,8 +1620,8 @@ jQuery(window).load(function () {
             delay: 0
         };
 
-        if (typeof(js_local_vars) != "undefined" && js_local_vars.testimonials_speed) {
-            reviews_cycle_args.timeout = parseInt(js_local_vars.testimonials_speed);
+        if (typeof(evolve_js_local_vars) != "undefined" && evolve_js_local_vars.testimonials_speed) {
+            reviews_cycle_args.timeout = parseInt(evolve_js_local_vars.testimonials_speed);
         } else {
             reviews_cycle_args.timeout = parseInt(4000);
         }

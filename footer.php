@@ -86,9 +86,7 @@
 <!--END body-->
 <?php
 $evolve_pos_button = evolve_get_option( 'evl_pos_button', 'right' );
-if ( $evolve_pos_button == "disable" || $evolve_pos_button == "" ) {
-
-} else {
+if ( $evolve_pos_button !== "disable" && ! empty( $evolve_pos_button ) ) {
 	?>
     <a href="#top" id="top-link">
         <div id="backtotop"></div>

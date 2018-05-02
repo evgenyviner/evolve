@@ -368,50 +368,26 @@ $evolve_helper_tagline_class_2         = '';
 					if ( $evolve_main_menu == "1" ) {
 					} else { ?>
                         <div class="primary-menu col-md-11 col-sm-11">
-							<?php
-							if ( has_nav_menu( 'primary-menu' ) ) {
-								echo '<nav class="nav nav-holder link-effect">';
-								wp_nav_menu( array(
-									'theme_location' => 'primary-menu',
-									'menu_class'     => 'nav-menu',
-									'fallback_cb'    => 'wp_page_menu',
-									'walker'         => new evolve_Walker_Nav_Menu()
-								) );
 
-								if ( $evolve_responsive_menu_layout == 'dropdown' ) {
-									wp_nav_menu( array(
-										'theme_location'  => 'primary-menu',
-										'container_class' => 'evolve_mobile_menu',
-										'menu_class'      => 'nav-menu'
-									) );
-								}
-							} else {
-							?>
-                            <nav class="nav nav-holder">
-								<?php
-								wp_nav_menu( array( 'theme_location' => 'primary-menu', 'menu_class' => 'nav-menu' ) );
-								}
-								?>
-                            </nav>
-
-                           <?php if ( has_nav_menu( 'boot-menu' ) ) {
-                            echo '<nav class="navbar navbar-expand-md mr-auto link-effect">
+							<?php if ( has_nav_menu( 'primary-menu' ) ) {
+								echo '<nav class="navbar navbar-expand-md mr-auto">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
                                 </div><div id="primary-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
-                                    wp_nav_menu( array(
-                                    'theme_location' => 'boot-menu',
-                                    'depth'          => 10,
-                                    'container'      => false,
-                                    'menu_class'     => 'navbar-nav mr-auto',
-                                    'fallback_cb'    => 'evolve_custom_menu_walker::fallback',
-                                    'walker'         => new evolve_custom_menu_walker()
-                                    ) );
-                                    }
-                                    echo '</div></nav>';
-                            ?>
+								wp_nav_menu( array(
+									'theme_location' => 'primary-menu',
+									'depth'          => 10,
+									'container'      => false,
+									'menu_class'     => 'navbar-nav mr-auto',
+									'fallback_cb'    => 'evolve_custom_menu_walker::fallback',
+									'walker'         => new evolve_custom_menu_walker()
+								) );
+								echo '</div></nav>';
+							}
+							?>
 
                         </div><!-- .primary-menu -->
+
 						<?php
 						if ( $evolve_searchbox == "1" ) {
 							?>

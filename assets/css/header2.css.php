@@ -246,10 +246,6 @@ div#search-text-box {
     padding: 8.7px 8px;
 }
 
-.sc_menu a.tipsytext:hover {
-    color: '.$evolve_top_menu_hover_font_color.' !important;
-}
-
 .title-container #logo {
     float: none;
 }
@@ -284,14 +280,9 @@ div#search-text-box {
         clear: both;
         float: none;
     }
-    .sc_menu,
-    #wrapper .primary-menu .link-effect .dd-select a, 
-    #wrapper .dd-container	{
+    .sc_menu{
         text-align: center;
     }
-	#wrapper .dd-container {
-		margin: 25px 0 20px 0;
-	}
     .woocommerce-menu {
         float: none;
         margin-right: 0;
@@ -299,9 +290,6 @@ div#search-text-box {
     .woocommerce-menu li {
         background-image: none;
         margin-left: 0px;
-    }
-    .woocommerce-menu .dd-options li a {
-        text-align: left;
     }
     .searchform {
         float: none;
@@ -331,9 +319,6 @@ div#search-text-box {
         position: fixed;
         top: 54%;
         left: 45%;
-    }
-    #wrapper .dd-options li a {
-        text-align: left;
     }
 }
 

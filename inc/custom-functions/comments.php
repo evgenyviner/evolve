@@ -66,7 +66,7 @@ function evolve_discussion_title($type = NULL, $echo = true) {
 function evolve_discussion_rss() {
     global $id;
     $uri = get_post_comments_feed_link($id);
-    $text = "<span class=\"comment-feed-link\"><a title='" . __('Follow replies', 'evolve') . "' class=\"tipsytext follow-replies\" href=\"{$uri}\"><i class='t4p-icon-social-rss'></i></a></span>";
+    $text = "<span class=\"comment-feed-link\"><a title='" . __('Follow replies', 'evolve') . "' class=\"follow-replies\" data-toggle=\"tooltip\" data-placement=\"top\" href=\"{$uri}\"><i class='t4p-icon-social-rss'></i></a></span>";
     echo $text;
 }
 

@@ -8,7 +8,7 @@ $evolve_slider_page_id  = '';
 $evolve_bootstrap       = evolve_get_option( 'evl_bootstrap_slider', '1' );
 $evolve_bootstrap_on    = evolve_get_option( 'evl_bootstrap_slider_support', '1' );
 $evolve_parallax        = evolve_get_option( 'evl_parallax_slider', '1' );
-$evolve_parallax_on     = evolve_get_option( 'evl_parallax_slider_support', '1' );
+$evolve_parallax_slider = evolve_get_option( 'evl_parallax_slider_support', '1' );
 $evolve_posts_slider    = evolve_get_option( 'evl_posts_slider', '1' );
 $evolve_posts_slider_on = evolve_get_option( 'evl_carousel_slider', '1' );
 ?>
@@ -43,7 +43,7 @@ $evolve_posts_slider_on = evolve_get_option( 'evl_carousel_slider', '1' );
 	 * Parallax Slider
 	 *******************************************************/
 
-	if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && $evolve_parallax_on == "1" ) || ( $evolve_parallax == "1" && $evolve_parallax_on == "1" ) ):
+	if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && $evolve_parallax_slider == "1" ) || ( $evolve_parallax == "1" && $evolve_parallax_slider == "1" ) ):
 		$evolve_parallax_slider = evolve_get_option( 'evl_parallax_slider_support', '1' );
 		if ( $evolve_parallax_slider == "1" ):
 			evolve_parallax();

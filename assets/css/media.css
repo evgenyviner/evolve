@@ -92,15 +92,6 @@
     .mobile-topnav-holder {
         display: block;
     }
-    .nav-holder .dd-container,
-    .top-menu .dd-container {
-        display: block;
-        width: 100%;
-    }
-    .top-menu .dd-container {
-        width: 50%;
-        margin: 0 auto;
-    }
     .one_half,
     .one_third,
     .two_third,
@@ -239,23 +230,11 @@
         width: 100%;
         margin-bottom: 20px;
     }
-    #wrapper .top-menu .dd-container .dd-select,
-    .woocommerce-menu .dd-select {
-        width: auto!important;
-        display: inline-block;
-    }
-    .woocommerce-menu .dd-container {
-        text-align: center;
-    }
     .header .woocommerce-menu li {
         margin-bottom: 0;
     }
     #wrapper .mean-container .mean-nav ul li a {
         line-height: 1;
-    }
-    .menu-header #search-text-box {}
-    .dd-option label {
-        margin-bottom: 0;
     }
     #wrapper .ei-slider {
         width: 100%;
@@ -561,11 +540,6 @@
     .mobile-nav-holder,
     .mobile-topnav-holder {
         display: block;
-    }
-    .nav-holder .dd-container,
-    .top-menu .dd-container {
-        display: block;
-        width: 100%;
     }
     .one_half,
     .one_third,
@@ -1001,16 +975,5 @@
     .content .image .image-extras .image-extras-content h3,
     .content .image .image-extras .image-extras-content h3 a {
         font-size: 14px;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .link-effect .dd-container .dd-select,
-    .link-effect .dd-selected {
-        pointer-events: none;
-    }
-    .link-effect .dd-selected .dd-selected-text {
-        pointer-events: all;
-        cursor: pointer;
     }
 }

@@ -761,23 +761,23 @@ function evolve_woocommerce_after_single_product_summary() {
 
         $social .= '<ul class="social-share">
 	<li class="facebook">
-		<a target="_blank" class="tipsytext" title="' . __('Share On', 'evolve') . ' Facebook" href="http://www.facebook.com/sharer.php?m2w&s=100&p&#91;url&#93;=' . get_permalink() . '&p&#91;title&#93;=' . wp_strip_all_tags(get_the_title(), true) . '" target="_blank"' . $nofollow . '>
+		<a target="_blank" data-toggle="tooltip" data-placement="bottom" title="' . __('Share On', 'evolve') . ' Facebook" href="http://www.facebook.com/sharer.php?m2w&s=100&p&#91;url&#93;=' . get_permalink() . '&p&#91;title&#93;=' . wp_strip_all_tags(get_the_title(), true) . '" target="_blank"' . $nofollow . '>
 			<i class="t4p-icon-social-facebook"></i>  			
 		</a>
 	</li>
 	<li class="twitter">
-		<a target="_blank" class="tipsytext" title="' . __('Share On', 'evolve') . ' Twitter" href="https://twitter.com/share?text=' . wp_strip_all_tags(get_the_title(), true) . ' ' . get_permalink() . '" target="_blank"' . $nofollow . '>
+		<a target="_blank" data-toggle="tooltip" data-placement="bottom" title="' . __('Share On', 'evolve') . ' Twitter" href="https://twitter.com/share?text=' . wp_strip_all_tags(get_the_title(), true) . ' ' . get_permalink() . '" target="_blank"' . $nofollow . '>
 			<i class="t4p-icon-social-twitter"></i>   
     </a>
 	</li>
 	<li class="pinterest">';
         $full_image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
-        $social .= '<a target="_blank" class="tipsytext" title="' . __('Pin to', 'evolve') . ' Pinterest" href="http://pinterest.com/pin/create/button/?url=' . urlencode(wp_strip_all_tags(get_the_title(), true)) . '&amp;description=' . urlencode(get_the_title()) . '&amp;media=' . urlencode($full_image[0]) . '" target="_blank"' . $nofollow . '>
+        $social .= '<a target="_blank" data-toggle="tooltip" data-placement="bottom" title="' . __('Pin to', 'evolve') . ' Pinterest" href="http://pinterest.com/pin/create/button/?url=' . urlencode(wp_strip_all_tags(get_the_title(), true)) . '&amp;description=' . urlencode(get_the_title()) . '&amp;media=' . urlencode($full_image[0]) . '" target="_blank"' . $nofollow . '>
 			<i class="t4p-icon-social-pinterest"></i>      			
 		</a>
 	</li>
 	<li class="email">
-		<a target="_blank" class="tipsytext" title="' . __('Email to a Friend', 'evolve') . '" href="mailto:?subject=' . wp_strip_all_tags(get_the_title(), true) . '&amp;body=' . get_permalink() . '">
+		<a target="_blank" data-toggle="tooltip" data-placement="bottom" title="' . __('Email to a Friend', 'evolve') . '" href="mailto:?subject=' . wp_strip_all_tags(get_the_title(), true) . '&amp;body=' . get_permalink() . '">
 			<i class="t4p-icon-social-envelope-o"></i>    			
 		</a>
 	</li>
