@@ -1,6 +1,11 @@
 <?php
 
-require_once( 'kirki-functions.php' );
+// require_once( 'kirki-functions.php' );
+get_template_part( 'inc/customizer/kirki-framework/kirki' );
+add_filter('kirki_load_fontawesome', 'remove_font_awesome_from_kirki', 999);
+function remove_font_awesome_from_kirki(){
+	return false;
+}
 global $name_of_panel, $bi_all_customize_fields, $bi_index_control;
 $name_of_panel           = '';
 $bi_index_control        = 0;
