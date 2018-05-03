@@ -1,9 +1,5 @@
 <?php
 
-/*
-   Theme Setup
-   ======================================= */
-
 do_action( 'fix_evolve_options_data' );
 
 $evolve_similar_posts              = evolve_get_option( 'evl_similar_posts', 'disable' );
@@ -27,8 +23,8 @@ $evolve_carousel_speed             = evolve_get_option( 'evl_carousel_speed', '3
 $evolve_pagination_type            = evolve_get_option( 'evl_pagination_type', 'pagination' );
 $evolve_pos_button                 = evolve_get_option( 'evl_pos_button', 'right' );
 $evolve_slider_page_id             = '';
-$evolve_parallax                   = evolve_get_option( 'evl_parallax_slider', '1' );
-$evolve_parallax_slider            = evolve_get_option( 'evl_parallax_slider_support', '1' );
+$evolve_parallax_slider_all        = evolve_get_option( 'evl_parallax_slider', '1' );
+$evolve_parallax_slider_support    = evolve_get_option( 'evl_parallax_slider_support', '1' );
 $evolve_parallax_speed             = evolve_get_option( 'evl_parallax_speed', '4000' );
 $evolve_recaptcha_public           = evolve_get_option( 'evl_recaptcha_public', '' );
 $evolve_recaptcha_private          = evolve_get_option( 'evl_recaptcha_private', '' );
@@ -37,12 +33,16 @@ $evolve_google_map_api             = evolve_get_option( 'evl_google_map_api', ''
 $evolve_footer_reveal              = evolve_get_option( 'evl_footer_reveal' );
 $evolve_menu_back                  = evolve_get_option( 'evl_menu_back', 'dark' );
 
+/*
+   Theme Setup
+   ======================================= */
+
 function evolve_setup() {
 
-	$evolve_width_px     = evolve_get_option( 'evl_width_px', '1200' );
-	$evolve_width_px     = apply_filters( 'evolve_header_image_width', $evolve_width_px );
-	$evolve_layout       = evolve_get_option( 'evl_layout', '2cr' );
-	$evolve_width_layout = evolve_get_option( 'evl_width_layout', 'fixed' );
+	$evolve_width_px_default = evolve_get_option( 'evl_width_px', '1200' );
+	$evolve_width_px         = apply_filters( 'evolve_header_image_width', $evolve_width_px_default );
+	$evolve_layout           = evolve_get_option( 'evl_layout', '2cr' );
+	$evolve_width_layout     = evolve_get_option( 'evl_width_layout', 'fixed' );
 
 	// Load Textdomain
 	load_theme_textdomain( 'evolve' );
@@ -64,6 +64,7 @@ function evolve_setup() {
 	// Editor Style Support
 	add_editor_style( 'assets/css/editor-style.css' );
 
+	// Custom Titles
 	if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 
 		function evolve_wp_title( $title, $sep ) {
@@ -2017,7 +2018,9 @@ if ( ! function_exists( 'evolve_custom_number_paging_nav' ) ) :
 
 endif;
 
-/* change in bbpress breadcrumb */
+/*
+   Change in bbPress Breadcrumb
+   ======================================= */
 
 function evolve_custom_bbp_breadcrumb() {
 	$args['sep'] = ' / ';
@@ -2027,7 +2030,9 @@ function evolve_custom_bbp_breadcrumb() {
 
 add_filter( 'bbp_before_get_breadcrumb_parse_args', 'evolve_custom_bbp_breadcrumb' );
 
-/* Change prefix pyre to evolve */
+/*
+   Change Prefix pyre To evolve (For Older Versions)
+   ======================================= */
 
 $evolve_change_metabox_prefix = get_option( 'evl_change_metabox_prefix', 0 );
 if ( $evolve_change_metabox_prefix != 1 ) {
@@ -2053,10 +2058,9 @@ function evolve_change_prefix() {
 //filter added for buddypress-docs comment show
 add_filter( 'bp_docs_allow_comment_section', '__return_true', 100 );
 
-
-/*******************************************************
- * Blog Pagination
- *******************************************************/
+/*
+   Blog Pagination
+   ======================================= */
 
 if ( ! function_exists( 'evolve_pagination' ) ):
 
@@ -2112,10 +2116,9 @@ if ( ! function_exists( 'evolve_pagination' ) ):
 
 endif;
 
-
-/*******************************************************
- * Switch evolve Theme To Other Theme
- *******************************************************/
+/*
+   Switch evolve Theme To Other Theme
+   ======================================= */
 
 add_action( 'switch_theme', 'evolve_switch' );
 
@@ -2123,10 +2126,9 @@ function evolve_switch() {
 	update_option( 'evolvelite_theme', 'true' );
 }
 
-
-/*******************************************************
- * Register Default Function When Plugin Not Activated
- *******************************************************/
+/*
+   Register Default Function When Plugin Not Activated
+   ======================================= */
 
 add_action( 'wp_head', 'evolve_plugins_loaded' );
 
@@ -2264,7 +2266,7 @@ get_template_part( 'inc/views/metaboxes/metaboxes' );
 // General Scripts To Enqueue
 function evolve_scripts() {
 
-	global $post, $evolve_slider_page_id, $evolve_parallax, $evolve_parallax_slider, $evolve_parallax_speed, $evolve_carousel_slider, $evolve_pos_button, $evolve_gmap, $evolve_google_map_api, $evolve_recaptcha_public, $evolve_recaptcha_private,
+	global $post, $evolve_slider_page_id, $evolve_frontpage_slider_status, $evolve_parallax_slider_all, $evolve_parallax_slider_support, $evolve_parallax_speed, $evolve_carousel_slider, $evolve_pos_button, $evolve_gmap, $evolve_google_map_api, $evolve_recaptcha_public, $evolve_recaptcha_private,
 	       $evolve_footer_reveal, $evolve_fontawesome, $evolve_css_data;
 
 	if ( $evolve_fontawesome != "1" ) {
@@ -2306,10 +2308,8 @@ function evolve_scripts() {
 	}
 
 	// Enqueue Parallax Slider Style Where Required
-	if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && $evolve_parallax_slider == "1" ) || ( $evolve_parallax == "1" && $evolve_parallax_slider == "1" ) ):
-		if ( $evolve_parallax_slider == "1" ) {
-			wp_enqueue_style( 'evolve-parallax', EVOLVE_CSS . '/parallax.min.css' );
-		}
+	if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && $evolve_parallax_slider_support == "1" ) || ( $evolve_parallax_slider_all == "1" && $evolve_parallax_slider_support == "1" ) || ( $evolve_parallax_slider_support == "1" && is_front_page() && ( get_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) || ( $evolve_parallax_slider_support == "1" && is_home() && ( get_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ):
+		wp_enqueue_style( 'evolve-parallax', EVOLVE_CSS . '/parallax.min.css' );
 	endif;
 
 	if ( $evolve_carousel_slider == "1" ) {
@@ -2380,13 +2380,11 @@ function evolve_scripts() {
 	}
 
 	// Parallax Slider
-	if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && $evolve_parallax_slider == "1" ) || ( $evolve_parallax == "1" && $evolve_parallax_slider == "1" ) ):
-		if ( $evolve_parallax_slider == "1" ) {
-			if ( ! is_numeric( $evolve_parallax_speed ) || $evolve_parallax_speed < 0 ): $evolve_local_variables['parallax_speed'] = '4000';
-			else : $evolve_local_variables['parallax_speed'] = $evolve_parallax_speed;;
-			endif;
-			$evolve_local_variables['parallax_slider'] = true;
-		}
+	if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && $evolve_parallax_slider_support == "1" ) || ( $evolve_parallax_slider_all == "1" && $evolve_parallax_slider_support == "1" ) || ( $evolve_parallax_slider_support == "1" && is_front_page() && ( get_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) || ( $evolve_parallax_slider_support == "1" && is_home() && ( get_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ):
+		if ( ! is_numeric( $evolve_parallax_speed ) || $evolve_parallax_speed < 0 ): $evolve_local_variables['parallax_speed'] = '4000';
+		else : $evolve_local_variables['parallax_speed'] = $evolve_parallax_speed;;
+		endif;
+		$evolve_local_variables['parallax_slider'] = true;
 	endif;
 
 	wp_localize_script( 'main', 'evolve_js_local_vars', $evolve_local_variables );

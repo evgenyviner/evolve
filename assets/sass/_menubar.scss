@@ -67,7 +67,7 @@
             }
         }
     }
-    #wrapper{
+    #container-wrapper{
         .primary-menu{
             .mean-nav.link-effect{
                 > ul.nav-menu{
@@ -109,7 +109,7 @@
     width: 100%;
 }
 
-.menu-back {
+.header-block {
     clear: both;
     background-repeat: repeat-y;
     @include box-shadow(0 1px 1px rgba(0, 0, 0, .05));
@@ -393,7 +393,7 @@ body #header.sticky-header{
 
 
 
-#wrapper {
+#container-wrapper {
     .dd-container{
         .dd-select{
             height: auto;
@@ -466,12 +466,12 @@ ul.nav-menu li.nav-hover ul {
     opacity: 1;
 }
 
-#wrapper ul.nav-menu li ul {
+#container-wrapper ul.nav-menu li ul {
     border: 0 none;
     @include box-shadow(0 0 0 0);
 }
 
-#wrapper {
+#container-wrapper {
     .primary-menu{
         .link-effect{
             a{
@@ -568,7 +568,7 @@ ul.nav-menu li.nav-hover ul {
                     }
                 }
             }
-            #wrapper {
+            #container-wrapper {
                 .evolve_mobile_menu{
                     display: none !important;
                 }

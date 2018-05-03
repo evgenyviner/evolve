@@ -24,71 +24,71 @@ jQuery(function ($) {
     // =========================
 
     var Dropdownhover = function (element, options) {
-        this.options = options
-        this.$element = $(element)
+        this.options = options;
+        this.$element = $(element);
 
-        var that = this
+        var that = this;
 
         // Defining if navigation tree or single dropdown
-        this.dropdowns = this.$element.hasClass('dropdown-toggle') ? this.$element.parent().find('.dropdown-menu').parent('.dropdown') : this.$element.find('.dropdown')
+        this.dropdowns = this.$element.hasClass('dropdown-toggle') ? this.$element.parent().find('.dropdown-menu').parent('.dropdown') : this.$element.find('.dropdown');
 
         this.dropdowns.each(function () {
             $(this).on('mouseenter.bs.dropdownhover', function (e) {
                 that.show($(this).children('a, button'))
             })
-        })
+        });
         this.dropdowns.each(function () {
             $(this).on('mouseleave.bs.dropdownhover', function (e) {
                 that.hide($(this).children('a, button'))
             })
         })
 
-    }
+    };
 
-    Dropdownhover.TRANSITION_DURATION = 300
-    Dropdownhover.DELAY = 150
-    Dropdownhover.TIMEOUT
+    Dropdownhover.TRANSITION_DURATION = 300;
+    Dropdownhover.DELAY = 150;
+    Dropdownhover.TIMEOUT;
 
     Dropdownhover.DEFAULTS = {
         animations: ['fadeInDown', 'fadeInRight', 'fadeInUp', 'fadeInLeft'],
-    }
+    };
 
     // Opens dropdown menu when mouse is over the trigger element
     Dropdownhover.prototype.show = function (_dropdownLink) {
 
 
-        var $this = $(_dropdownLink)
+        var $this = $(_dropdownLink);
 
-        window.clearTimeout(Dropdownhover.TIMEOUT)
+        window.clearTimeout(Dropdownhover.TIMEOUT);
         // Close all dropdowns
         $('.dropdown').not($this.parents()).each(function () {
             $(this).removeClass('open');
         });
 
-        var effect = this.options.animations[0]
+        var effect = this.options.animations[0];
 
-        if ($this.is('.disabled, :disabled')) return
+        if ($this.is('.disabled, :disabled')) return;
 
-        var $parent = $this.parent()
-        var isActive = $parent.hasClass('open')
+        var $parent = $this.parent();
+        var isActive = $parent.hasClass('open');
 
         if (!isActive) {
 
-            var $dropdown = $this.next('.dropdown-menu')
-            var relatedTarget = {relatedTarget: this}
+            var $dropdown = $this.next('.dropdown-menu');
+            var relatedTarget = {relatedTarget: this};
 
             $parent
-                .addClass('open')
+                .addClass('open');
 
-            var side = this.position($dropdown)
+            var side = this.position($dropdown);
             side == 'top' ? effect = this.options.animations[2] :
                 side == 'right' ? effect = this.options.animations[3] :
                     side == 'left' ? effect = this.options.animations[1] :
-                        effect = this.options.animations[0]
+                        effect = this.options.animations[0];
 
-            $dropdown.addClass('animated ' + effect)
+            $dropdown.addClass('animated ' + effect);
 
-            var transition = $dropdown.hasClass('animated')
+            var transition = $dropdown.hasClass('animated');
 
             transition ?
                 $dropdown
@@ -100,18 +100,18 @@ jQuery(function ($) {
         }
 
         return false
-    }
+    };
 
     // Closes dropdown menu when moise is out of it
     Dropdownhover.prototype.hide = function (_dropdownLink) {
 
-        var that = this
-        var $this = $(_dropdownLink)
-        var $parent = $this.parent()
+        var that = this;
+        var $this = $(_dropdownLink);
+        var $parent = $this.parent();
         Dropdownhover.TIMEOUT = window.setTimeout(function () {
             $parent.removeClass('open')
         }, Dropdownhover.DELAY)
-    }
+    };
 
     // Calculating position of dropdown menu
     Dropdownhover.prototype.position = function (dropdown) {
@@ -119,7 +119,7 @@ jQuery(function ($) {
         var win = $(window);
 
         // Reset css to prevent incorrect position
-        dropdown.css({bottom: '', left: '', top: '', right: ''}).removeClass('dropdownhover-top')
+        dropdown.css({bottom: '', left: '', top: '', right: ''}).removeClass('dropdownhover-top');
 
         var viewport = {
             top: win.scrollTop(),
@@ -135,28 +135,28 @@ jQuery(function ($) {
         position.right = bounds.left + dropdown.outerWidth();
         position.bottom = bounds.top + dropdown.outerHeight();
 
-        var side = ''
+        var side = '';
 
-        var isSubnow = dropdown.parents('.dropdown-menu').length
+        var isSubnow = dropdown.parents('.dropdown-menu').length;
 
         if (isSubnow) {
 
             if (position.left < 0) {
-                side = 'left'
+                side = 'left';
                 dropdown.removeClass('dropdownhover-right').addClass('dropdownhover-left')
             } else {
-                side = 'right'
+                side = 'right';
                 dropdown.addClass('dropdownhover-right').removeClass('dropdownhover-left')
             }
 
             if (bounds.left < viewport.left) {
-                side = 'right'
+                side = 'right';
                 dropdown.css({
                     left: '100%',
                     right: 'auto'
                 }).addClass('dropdownhover-right').removeClass('dropdownhover-left')
             } else if (bounds.right > viewport.right) {
-                side = 'left'
+                side = 'left';
                 dropdown.css({
                     left: 'auto',
                     right: '100%'
@@ -171,30 +171,30 @@ jQuery(function ($) {
 
         } else { // Defines special position styles for root dropdown menu
 
-            var parentLi = dropdown.parent('.dropdown')
-            var pBounds = parentLi.offset()
-            pBounds.right = pBounds.left + parentLi.outerWidth()
-            pBounds.bottom = pBounds.top + parentLi.outerHeight()
+            var parentLi = dropdown.parent('.dropdown');
+            var pBounds = parentLi.offset();
+            pBounds.right = pBounds.left + parentLi.outerWidth();
+            pBounds.bottom = pBounds.top + parentLi.outerHeight();
 
             if (bounds.right > viewport.right) {
                 dropdown.css({left: -(bounds.right - viewport.right), right: 'auto'})
             }
 
             if (bounds.bottom > viewport.bottom && (pBounds.top - viewport.top) > (viewport.bottom - pBounds.bottom) || dropdown.position().top < 0) {
-                side = 'top'
+                side = 'top';
                 dropdown.css({
                     bottom: '100%',
                     top: 'auto'
                 }).addClass('dropdownhover-top').removeClass('dropdownhover-bottom')
             } else {
-                side = 'bottom'
+                side = 'bottom';
                 dropdown.addClass('dropdownhover-bottom')
             }
         }
 
         return side;
 
-    }
+    };
 
 
     // DROPDOWNHOVER PLUGIN DEFINITION
@@ -202,32 +202,32 @@ jQuery(function ($) {
 
     function Plugin(option) {
         return this.each(function () {
-            var $this = $(this)
-            var data = $this.data('bs.dropdownhover')
-            var settings = $this.data()
+            var $this = $(this);
+            var data = $this.data('bs.dropdownhover');
+            var settings = $this.data();
             if ($this.data('animations') !== undefined && $this.data('animations') !== null)
-                settings.animations = $.isArray(settings.animations) ? settings.animations : settings.animations.split(' ')
+                settings.animations = $.isArray(settings.animations) ? settings.animations : settings.animations.split(' ');
 
-            var options = $.extend({}, Dropdownhover.DEFAULTS, settings, typeof option == 'object' && option)
+            var options = $.extend({}, Dropdownhover.DEFAULTS, settings, typeof option == 'object' && option);
 
             if (!data) $this.data('bs.dropdownhover', (data = new Dropdownhover(this, options)))
 
         })
     }
 
-    var old = $.fn.dropdownhover
+    var old = $.fn.dropdownhover;
 
-    $.fn.dropdownhover = Plugin
-    $.fn.dropdownhover.Constructor = Dropdownhover
+    $.fn.dropdownhover = Plugin;
+    $.fn.dropdownhover.Constructor = Dropdownhover;
 
 
     // DROPDOWNHOVER NO CONFLICT
     // ====================
 
     $.fn.dropdownhover.noConflict = function () {
-        $.fn.dropdownhover = old
+        $.fn.dropdownhover = old;
         return this
-    }
+    };
 
 
     // APPLY TO STANDARD DROPDOWNHOVER ELEMENTS
@@ -236,23 +236,23 @@ jQuery(function ($) {
     var resizeTimer;
     $(document).ready(function () {
         $('[data-hover="dropdown"]').each(function () {
-            var $target = $(this)
+            var $target = $(this);
             Plugin.call($target, $target.data())
         })
-    })
+    });
     $(window).on('resize', function () {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function () {
             if ($(window).width() >= 768) // Breakpoin plugin is activated (728px)
                 $('[data-hover="dropdown"]').each(function () {
-                    var $target = $(this)
+                    var $target = $(this);
                     Plugin.call($target, $target.data())
-                })
+                });
             else  // Disabling and clearing plugin data if screen is less 768px
                 $('[data-hover="dropdown"]').each(function () {
-                    $(this).removeData('bs.dropdownhover')
+                    $(this).removeData('bs.dropdownhover');
                     if ($(this).hasClass('dropdown-toggle'))
-                        $(this).parent('.dropdown').find('.dropdown').andSelf().off('mouseenter.bs.dropdownhover mouseleave.bs.dropdownhover')
+                        $(this).parent('.dropdown').find('.dropdown').andSelf().off('mouseenter.bs.dropdownhover mouseleave.bs.dropdownhover');
                     else
                         $(this).find('.dropdown').off('mouseenter.bs.dropdownhover mouseleave.bs.dropdownhover')
                 })
@@ -287,7 +287,7 @@ jQuery(function ($) {
 
 jQuery(function ($) {
     $('[data-toggle="tooltip"]').tooltip()
-})
+});
 
 /*
    Home Content Box Style For Mac And iPhone
@@ -340,7 +340,6 @@ jQuery(window).load(function () {
             jQuery(".sbtn3").css('padding-top', btnpadding[2]);
             jQuery(".sbtn4").css('padding-top', btnpadding[3]);
         }
-        ;
         setHeight();
 
         jQuery(window).resize(function () {
@@ -362,7 +361,7 @@ jQuery(window).load(function () {
    ======================================= */
 
 jQuery(document).ready(function () {
-    jQuery('.primary-menu .menu-item-language a,.sticky-header .menu-item-language a').each(function () {
+    jQuery('.navbar .menu-item-language a,.sticky-header .menu-item-language a').each(function () {
         var el = jQuery(this);
         plan_text = el.text();
         if (jQuery(this).find('img').length) {
@@ -1031,7 +1030,7 @@ if (evolve_js_local_vars.parallax_slider === '1') {
      * of control over the experience.
     */
 
-    ;(function (window, document, undefined) {
+    (function (window, document, undefined) {
         var classes = [];
 
 
@@ -1109,8 +1108,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
         function is(obj, type) {
             return typeof obj === type;
         }
-        ;
-
         /**
          * Run through all tests and detect their support in the current UA.
          *
@@ -1168,7 +1165,7 @@ if (evolve_js_local_vars.parallax_slider === '1') {
                         } else {
                             // cast to a Boolean, if not one already
                             if (Modernizr[featureNameSplit[0]] && !(Modernizr[featureNameSplit[0]] instanceof Boolean)) {
-                                Modernizr[featureNameSplit[0]] = new Boolean(Modernizr[featureNameSplit[0]]);
+                                Modernizr[featureNameSplit[0]] = Boolean(Modernizr[featureNameSplit[0]]);
                             }
 
                             Modernizr[featureNameSplit[0]][featureNameSplit[1]] = result;
@@ -1179,8 +1176,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
                 }
             }
         }
-        ;
-
         /**
          * docElement is a convenience wrapper to grab the root element of the document
          *
@@ -1237,8 +1232,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
             }
 
         }
-
-        ;
 
         /**
          * If the browsers follow the spec, then they would expose vendor-specific styles as:
@@ -1300,9 +1293,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
                 return m1 + m2.toUpperCase();
             }).replace(/^-/, '');
         }
-        ;
-
-
         /**
          * contains checks to see if a string contains another string
          *
@@ -1316,8 +1306,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
         function contains(str, substr) {
             return !!~('' + str).indexOf(substr);
         }
-
-        ;
 
         /**
          * createElement is a convenience wrapper around document.createElement. Since we
@@ -1342,8 +1330,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
             }
         }
 
-        ;
-
         /**
          * fnBind is a super small [bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) polyfill.
          *
@@ -1359,8 +1345,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
                 return fn.apply(that, arguments);
             };
         }
-
-        ;
 
         /**
          * testDOMProps is a generic DOM property test; if a browser supports
@@ -1398,8 +1382,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
             }
             return false;
         }
-
-        ;
 
         /**
          * Create our "modernizr" element that we do most feature tests on.
@@ -1443,9 +1425,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
                 return '-' + m1.toLowerCase();
             }).replace(/^ms-/, '-ms-');
         }
-        ;
-
-
         /**
          * wrapper around getComputedStyle, to fix issues with Firefox returning null when
          * called inside of a hidden iframe
@@ -1481,8 +1460,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
             return result;
         }
 
-        ;
-
         /**
          * getBody returns the body of a document, or an element that can stand in for
          * the body if a real body does not exist
@@ -1505,8 +1482,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
 
             return body;
         }
-
-        ;
 
         /**
          * injectElementWithStyles injects an element with style element and some CSS rules
@@ -1581,8 +1556,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
 
         }
 
-        ;
-
         /**
          * nativeTestProps allows for us to use native feature detection functionality if available.
          * some prefixed form, or false, in the case of an unsupported rule
@@ -1622,8 +1595,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
             }
             return undefined;
         }
-        ;
-
         // testProps is a generic CSS / DOM property test.
 
         // In testing support for a given CSS property, it's legit to test:
@@ -1716,8 +1687,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
             cleanElems();
             return false;
         }
-
-        ;
 
         /**
          * testPropsAll tests a list of DOM properties we want to check against.
@@ -1850,8 +1819,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
         // Leak Modernizr namespace
         window.Modernizr = Modernizr;
 
-
-        ;
 
     })(window, document);
 

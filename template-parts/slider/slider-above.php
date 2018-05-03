@@ -5,32 +5,34 @@
  *******************************************************/
 
 global $evolve_options, $evolve_frontpage_slider_status;
-$evolve_frontpage_slider = array();
-?>
+$evolve_frontpage_slider   = array();
+$evolve_slideblock_class_1 = '<div class="header-block sliderblock"><div class="container">';
+$evolve_slideblock_class_2 = '</div></div>';
 
-<div class="sliderblock">
+if ( isset( $evolve_options['evl_front_elements_header_area']['enabled'] ) ) {
+	$evolve_frontpage_slider = $evolve_options['evl_front_elements_header_area']['enabled'];
+}
 
-	<?php
-	if ( isset( $evolve_options['evl_front_elements_header_area']['enabled'] ) ) {
-		$evolve_frontpage_slider = $evolve_options['evl_front_elements_header_area']['enabled'];
-	}
-
-	if ( $evolve_frontpage_slider ):
-		foreach ( $evolve_frontpage_slider as $sliderkey => $sliderval ) {
-			if ( $sliderkey == 'bootstrap_slider' ) {
-				fp_bootstrap_slider();
-				$evolve_frontpage_slider_status['bootstrap'] = false;
-			} elseif ( $sliderkey == 'parallax_slider' ) {
-				fp_parallax_slider();
-				$evolve_frontpage_slider_status['parallax'] = false;
-			} elseif ( $sliderkey == 'posts_slider' ) {
-				fp_post_slider();
-				$evolve_frontpage_slider_status['posts'] = false;
-			} elseif ( $sliderkey == 'header' ) {
-				break;
-			}
+if ( $evolve_frontpage_slider ):
+	foreach ( $evolve_frontpage_slider as $sliderkey => $sliderval ) {
+		if ( $sliderkey == 'bootstrap_slider' ) {
+			echo $evolve_slideblock_class_1;
+			fp_bootstrap_slider();
+			echo $evolve_slideblock_class_2;
+			$evolve_frontpage_slider_status['bootstrap'] = false;
+		} elseif ( $sliderkey == 'parallax_slider' ) {
+			echo $evolve_slideblock_class_1;
+			fp_parallax_slider();
+			echo $evolve_slideblock_class_2;
+			$evolve_frontpage_slider_status['parallax'] = false;
+		} elseif ( $sliderkey == 'posts_slider' ) {
+			echo $evolve_slideblock_class_1;
+			fp_post_slider();
+			echo $evolve_slideblock_class_2;
+			$evolve_frontpage_slider_status['posts'] = false;
+		} elseif ( $sliderkey == 'header' ) {
+			break;
 		}
-	endif;
-	?>
+	}
+endif;
 
-</div><!-- .sliderblock-->

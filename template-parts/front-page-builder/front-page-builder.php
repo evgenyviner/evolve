@@ -1,14 +1,14 @@
 <?php
+
 /*
- *
- * Template: front-page-builder.php
- *
- */
+   Template: front-page-builder.php
+   ======================================= */
 
 global $evolve_options;
 do_action( 'fix_evolve_options_data' );
 $evolve_content_boxes_pos  = evolve_get_option( 'evl_content_boxes_pos', 'above' );
 $evolve_frontpage_elements = evolve_get_option( 'evl_front_elements_content_area' );
+
 if ( $evolve_frontpage_elements ):
 	foreach ( $evolve_frontpage_elements as $elementkey => $elementval ) {
 
@@ -52,6 +52,5 @@ if ( $evolve_frontpage_elements ):
 				}
 				break;
 		}
-
 	}
 endif;

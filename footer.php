@@ -84,23 +84,20 @@
     <!--END .footer-->
 </div>
 <!--END body-->
+
 <?php
 $evolve_pos_button = evolve_get_option( 'evl_pos_button', 'right' );
 if ( $evolve_pos_button !== "disable" && ! empty( $evolve_pos_button ) ) {
 	?>
+
     <a href="#top" id="top-link">
         <div id="backtotop"></div>
     </a>
-	<?php
-}
 
-$evolve_custom_background = evolve_get_option( 'evl_custom_background', '1' );
-if ( $evolve_custom_background == "1" ) {
-	?>
-    </div>
-	<?php
-}
-wp_footer();
-?>
+<?php } ?>
+
+</div><!-- #container-wrapper -->
+
+<?php wp_footer(); ?>
 </body>
 </html>

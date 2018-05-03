@@ -757,13 +757,13 @@ table.variations {
         display: inline-block;
     }
 }
-#wrapper .cart-loading {
+#container-wrapper .cart-loading {
     background-color: $full-dark-color;
     opacity: 0.9;
     -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=90)";
     filter: alpha(opacity=90);
 }
-.no-rgba #wrapper .cart-loading {
+.no-rgba #container-wrapper .cart-loading {
     background-color: #000;
 }
 @-webkit-keyframes mask {

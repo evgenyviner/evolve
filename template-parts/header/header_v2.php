@@ -156,8 +156,7 @@ $evolve_sticky_header                  = evolve_get_option( 'evl_sticky_header',
 <div class="clearfix"></div>
 
 <div class="header-pattern">
-    <!--BEGIN .header-border-->
-    <div class="header-border-sticky menu-header-sticky">
+    <div class="menu-header-sticky">
         <div class="header-border<?php
 		if ( get_header_image() ) {
 			echo ' custom-header';
@@ -203,7 +202,7 @@ $evolve_sticky_header                  = evolve_get_option( 'evl_sticky_header',
 									?>
 
 								<?php } else { ?>
-                                    <div class="primary-menu p-menu-stick">
+                                    <div class="p-menu-stick">
 
 										<?php
 										if ( has_nav_menu( 'primary-menu' ) ) {

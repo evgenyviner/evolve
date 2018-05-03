@@ -86,7 +86,6 @@ I. Evolve components
          d. Control Nav
          e. Avoids image jumping
 */
-
 @import url("assets/css/bootstrap.min.css");
 
 /*!==========================================================================
@@ -723,24 +722,6 @@ a:active {
     text-decoration: none;
 }
 
-h1,
-h2 {
-    line-height: 36px;
-    margin: 20px 0 10px;
-}
-
-h3,
-h4 {
-    line-height: 30px;
-    margin: 20px 0 10px;
-}
-
-h5,
-h6 {
-    line-height: 26px;
-    margin: 20px 0 10px;
-}
-
 .alignleft {
     float: left;
 }
@@ -964,52 +945,6 @@ a.read-more,
 /*!==========================================================================
    Headings
    ========================================================================== */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    clear: both;
-    margin-bottom: 15px;
-}
-
-h1 {
-    font-size: 46px;
-    line-height: 46px;
-    padding: 5px 0;
-}
-
-h2 {
-    font-size: 40px;
-    line-height: 40px;
-    padding: 5px 0;
-}
-
-h3 {
-    font-size: 34px;
-    line-height: 34px;
-    padding: 5px 0;
-}
-
-h4 {
-    font-size: 27px;
-    line-height: 27px;
-    padding: 5px 0;
-}
-
-h5 {
-    font-size: 20px;
-    line-height: 20px;
-    padding: 5px 0;
-}
-
-h6 {
-    font-size: 14px;
-    line-height: 18px;
-    padding: 5px 0;
-}
 
 h2.section_title {
     width: 100%;
@@ -1532,8 +1467,7 @@ input#submit:hover {
 }
 
 .gallery-row:after,
-.navigation-links:after,
-.container:after {
+.navigation-links:after {
     content: ".";
     display: block;
     height: 0;
@@ -1542,8 +1476,7 @@ input#submit:hover {
 }
 
 .gallery-row,
-.navigation-links,
-.container {
+.navigation-links {
     display: block;
 }
 
@@ -1674,21 +1607,8 @@ input#submit:hover {
 
 /* ======================== Body & Wrapper ======================== */
 
-.container-header {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
 .container-menu {
     margin: 0 auto;
-    padding-bottom: 10px;
-    position: relative;
-    z-index: auto;
-}
-
-.nacked-menu {
-    padding: 0 15px;
-    margin-bottom: 0;
 }
 
 .container-center {
@@ -1707,40 +1627,12 @@ input#submit:hover {
 /* ======================== Header ======================== */
 
 .header {
-    margin: 0 auto;
     position: relative;
     z-index: 21;
 }
 
-.header #righttopcolumn {
-    float: right;
-    position: relative;
-    z-index: 100;
-}
-
-.header #righttopcolumn .sc_menu {
-    float: right;
-    margin: 0;
-    padding: 0;
-}
-
-.header #righttopcolumn .sc_menu li {
-    display: inline-block;
-    float: left;
-    padding: 0 0 5px;
-}
-
-.header #righttopcolumn .sc_menu li a {
-    display: inline-block;
-    line-height: 0;
-    margin: 0 5px;
-    padding: 8px;
-}
-
-.header #logo {
-    position: relative;
-    margin-top: 0;
-    margin-bottom: 0;
+.header h4#logo {
+    font-size: 2.5rem;
 }
 
 .menu-header-sticky #sticky-logo {
@@ -2477,7 +2369,6 @@ p#copyright .credits a {
         width: 240px;
     }
 
-    #righttopcolumn,
     #social,
     .header a,
     #tagline,
@@ -2509,20 +2400,6 @@ p#copyright .credits a {
     #secondary,
     #secondary-2 {
         clear: both;
-    }
-
-    .header #righttopcolumn {
-        width: 100%;
-        text-align: center;
-        overflow: hidden;
-    }
-
-    .header #righttopcolumn .sc_menu {
-        float: none;
-    }
-
-    .header #righttopcolumn .sc_menu li {
-        float: none;
     }
 
     .header #social {
@@ -6298,10 +6175,6 @@ a.post-edit-link:before {
         float: none;
     }
 
-    #wrapper .primary-menu label {
-        margin: 0;
-    }
-
     .da-slide {
         padding: 20px;
     }
@@ -6402,10 +6275,6 @@ a.post-edit-link:before {
    Menu Bar
    ========================================================================== */
 
-.primary-menu .nav-menu .children {
-    padding: 0;
-}
-
 .sticky-header .nav-menu .children {
     padding: 0;
 }
@@ -6430,15 +6299,6 @@ a.post-edit-link:before {
     .header-logo-container .normal_logo,
     .sticky-header .normal_logo {
         display: inline-block;
-    }
-
-    .container-header {
-        display: table;
-        width: 100%;
-    }
-
-    .header #righttopcolumn {
-        display: table-footer-group;
     }
 
     .header .woocommerce-menu li:last-child {
@@ -6482,8 +6342,7 @@ a.post-edit-link:before {
     width: 100%;
 }
 
-.menu-back {
-    clear: both;
+.header-block {
     background-repeat: repeat-y;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -6796,8 +6655,7 @@ form.top-searchform {
     text-align: left;
 }
 
-.top-menu .sub-menu,
-.primary-menu .sub-menu {
+.top-menu .sub-menu {
     display: none;
 }
 
@@ -6821,12 +6679,6 @@ form.top-searchform {
 
     ul.nav-menu ul.sub-menu .sf-with-ul::after {
         top: 10px;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    div#search-text-box {
-        margin-right: 20px;
     }
 }
 
@@ -7968,10 +7820,6 @@ ul#slides {
     width: 775px;
 }
 
-.menu-container .container-center {
-    margin: 0 auto;
-}
-
 /* ==========================================================================
    Responsive
    ========================================================================== */
@@ -8955,7 +8803,7 @@ ol.commentlist {
     padding: 25px 0;
 }
 
-#wrapper .evolve-myaccount-data {
+#container-wrapper .evolve-myaccount-data {
     overflow: visible;
 }
 
@@ -9892,6 +9740,8 @@ p.order-info mark {
 
 /* ======================== WooCommerce Menu  ======================== */
 
+/* TODO remove
+
 .header-pattern {
     z-index: 22;
     position: relative;
@@ -9900,6 +9750,8 @@ p.order-info mark {
 .header-pattern.header_v4 {
     z-index: 1000;
 }
+
+*/
 
 .header .woocommerce-menu {
     list-style: none;
@@ -10096,8 +9948,8 @@ p.order-info mark {
 
 /* ======================== Woocommerce Slider ======================== */
 
-body .menu-back .wooslider .slide-content img,
-body .menu-back .wooslider .slide-content p {
+body .header-block .wooslider .slide-content img,
+body .header-block .wooslider .slide-content p {
     margin: 0em;
 }
 
@@ -11209,14 +11061,14 @@ table.variations {
     display: inline-block;
 }
 
-#wrapper .cart-loading {
+#container-wrapper .cart-loading {
     background-color: #333333;
     opacity: 0.9;
     -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=90)";
     filter: alpha(opacity=90);
 }
 
-.no-rgba #wrapper .cart-loading {
+.no-rgba #container-wrapper .cart-loading {
     background-color: #000;
 }
 
@@ -12473,7 +12325,7 @@ Button Shortcode
 }
 
 @media screen and (max-width: 782px) {
-    body.admin-bar #wrapper #slidingbar-area,
+    body.admin-bar #container-wrapper #slidingbar-area,
     .admin-bar p.demo_store,
     body.admin-bar #header.sticky-header {
         top: 46px;

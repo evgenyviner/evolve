@@ -303,7 +303,7 @@ if ( is_home() || is_front_page() ) {
 		$evolve_css_data .= '
         @media (min-width: ' . $evolve_min_width_px . 'px) {
             .container,
-            #wrapper {
+            #container-wrapper {
                 width: ' . $evolve_width_px . 'px;
             }
         }
@@ -314,7 +314,7 @@ if ( is_home() || is_front_page() ) {
             .container {
                 width: ' . $evolve_width_px . 'px;
             }
-            .menu-back .container:first-child {
+            .header-block .container:first-child {
                 width: 100%;
                 padding-left: 0px;
                 padding-right: 0px;
@@ -327,7 +327,7 @@ if ( is_home() || is_front_page() ) {
 		$evolve_css_data .= '
 @media (min-width: ' . $evolve_min_width_px . 'px) {
     .container,
-    #wrapper {
+    #container-wrapper {
 	width: ' . $evolve_width_px . 'px;
     }
 }
@@ -338,7 +338,7 @@ if ( is_home() || is_front_page() ) {
     .container {
         width: ' . $evolve_width_px . 'px;
     }
-    .menu-back .container:first-child {
+    .header-block .container:first-child {
         width: 100%;
         padding-left: 0px;
         padding-right: 0px;
@@ -420,7 +420,7 @@ if ( is_home() || is_front_page() ) {
          * @beta
          */
 
-        #wrapper {
+        #container-wrapper {
             margin: 0;
             width: 100%;
         }
@@ -436,7 +436,7 @@ if ( is_home() || is_front_page() ) {
  * @beta
  */
 
-#wrapper {
+#container-wrapper {
     margin: 0;
     width: 100%;
 }
@@ -553,7 +553,7 @@ a.post-more:hover,
     box-shadow: none;
 }
 
-.menu-back {
+.header-block {
     border-top-color: #515151;
 }
 
@@ -684,9 +684,8 @@ ul.breadcrumbs li:after {
     color: rgba(255, 255, 255, 0.2);
 }
 
-.menu-container,
 .content,
-#wrapper {
+#container-wrapper {
     background: #555;
 }
 
@@ -1267,7 +1266,7 @@ if ( ! empty( $evolve_main_pattern ) && $evolve_main_pattern != 'none' && in_arr
 if ( $evolve_scheme_widgets != "" ) {
 	$evolve_scheme_color = mb_substr( $evolve_scheme_widgets, 1 );
 	$evolve_css_data     .= '
-.menu-back {
+.header-block {
     background-color: ' . $evolve_scheme_widgets . ';
     background: -webkit-gradient(radial, center center, 0, center center, 460, from(' . $evolve_scheme_widgets . '), to(#' . evolve_hexDarker( $evolve_scheme_color, 40 ) . '));
     background: -webkit-radial-gradient(circle, ' . $evolve_scheme_widgets . ', #' . evolve_hexDarker( $evolve_scheme_color, 40 ) . ');
@@ -1593,22 +1592,6 @@ for ( $i = 1; $i < 7; $i ++ ) {
 	$evolve_css_data .= evolve_print_fonts( 'evl_content_h' . $i . '_font', ".entry-content h{$i}", $additional_css = '' );
 }
 
-if ( $evolve_menu_font['font-size'] < "14px" ) {
-	$evolve_css_data .= '
-ul.primary-menu-cont.nav-menu li:hover ul,
-ul.primary-menu-cont.nav-menu li.nav-hover ul {    
-    top: 40px;    
-}
-';
-} elseif ( $evolve_menu_font['font-size'] >= "14px" ) {
-	$evolve_css_data .= '
-ul.primary-menu-cont.nav-menu li:hover ul,
-ul.primary-menu-cont.nav-menu li.nav-hover ul {
-    top: 52px;
-}
-';
-}
-
 if ( $evolve_bootstrap_100_background == '1' ) {
 
 } else {
@@ -1639,8 +1622,7 @@ if ( $evolve_pos_logo == "center" ) {
 }
 
 #logo, 
-#tagline,
-.container .container-header {
+#tagline {
     position: relative;
 }
 
@@ -1732,13 +1714,13 @@ if ( $evolve_pos_button == "middle" || $evolve_pos_button == "" ) {
 
 if ( $evolve_custom_background == "1" ) {
 	$evolve_css_data .= '
-#wrapper {
+#container-wrapper {
     margin: 0 auto 30px auto;
     background: #f9f9f9;
     box-shadow: 0 0 3px rgba(0, 0, 0, .2);
 }
 
-#wrapper:before {
+#container-wrapper:before {
     -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.6);
     -moz-box-shadow: 0 0 9px rgba(0, 0, 0, 0.6);
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.6);
@@ -1755,7 +1737,7 @@ if ( $evolve_custom_background == "1" ) {
 }
 
 @media screen and (min-width: 767px) {
-	#wrapper {
+	#container-wrapper {
 		position: relative;
 	}
 }	
@@ -1885,25 +1867,36 @@ $evolve_css_data .= '
     padding-right: ' . $evolve_padding_right . ';
 }
 
-.navbar-nav > li,' .
-                    // TODO
-                    // remove
-                    '
-ul.nav-menu > li {
+.navbar-nav > li {
     padding: 0 ' . $evolve_menu_padding . 'px;
+}
+
+ .navbar-nav > li:first-child {
+    padding-left: 0;
 }
 ';
 
 if ( $evolve_header_image_src ) {
-	$evolve_css_data .= '
-.custom-header {
+	$evolve_css_data .= '.custom-header {
+	background-image: url(' . esc_url( $evolve_header_image_src ) . ');
+    background-position: ' . $evolve_background_position . ';
+    background-repeat: ' . $evolve_background_repeat . ';
     position: relative;
-    border-bottom: 0;
     background-size: ' . $evolve_header_image . ';
     width: 100%;
+    height: 100%;
 }
 ';
 }
+/* TODO
+remove this
+if ( is_home() || is_front_page() ) {
+   if ( $evolve_frontpage_width_layout == "fluid" || is_page_template( '100-width.php' ) ) {
+	   $evolve_css_data .= '.custom-header { position: relative; background: url(' . esc_url( $evolve_header_image_src ) . ') top center no-repeat; border-bottom: 0; }';
+   }
+} elseif ( $evolve_width_layout == "fluid" || is_page_template( '100-width.php' ) ) {
+   $evolve_css_data .= '.custom-header { position: relative; background: url(' . esc_url( $evolve_header_image_src ) . ') top center no-repeat; border-bottom: 0; }';
+} */
 
 if ( $evolve_footer_image_src ) {
 	$evolve_css_data .= '
@@ -1912,26 +1905,6 @@ if ( $evolve_footer_image_src ) {
     border-bottom: 0;
     background-size: ' . $evolve_footer_image . ';
     width: 100%;
-}
-';
-}
-
-if ( is_home() || is_front_page() ) {
-	if ( $evolve_frontpage_width_layout == "fluid" || is_page_template( '100-width.php' ) ) {
-		$evolve_css_data .= '
-        .custom-header {
-            position: relative;
-            background: url(' . esc_url( $evolve_header_image_src ) . ') top center no-repeat;
-            border-bottom: 0;
-        }
-        ';
-	}
-} elseif ( $evolve_width_layout == "fluid" || is_page_template( '100-width.php' ) ) {
-	$evolve_css_data .= '
-.custom-header {
-    position: relative;
-    background: url(' . esc_url( $evolve_header_image_src ) . ') top center no-repeat;
-    border-bottom: 0;
 }
 ';
 }
@@ -2044,7 +2017,7 @@ if ( $evolve_social_box_radius != 'disabled' ) {
 
 if ( $evolve_scheme_background ) {
 	$evolve_css_data .= '
-.menu-back { 
+.header-block { 
     background-image: url(' . $evolve_scheme_background . ');
     background-position: top center;
 }
@@ -2053,7 +2026,7 @@ if ( $evolve_scheme_background ) {
 
 if ( $evolve_scheme_background_100 == '1' ) {
 	$evolve_css_data .= '
-.menu-back {
+.header-block {
     background-attachment: fixed;
     background-position: center center;
     -webkit-background-size: cover;
@@ -2066,7 +2039,7 @@ if ( $evolve_scheme_background_100 == '1' ) {
 
 if ( $evolve_scheme_background_repeat ) {
 	$evolve_css_data .= '
-.menu-back { 
+.header-block { 
     background-repeat: ' . $evolve_scheme_background_repeat . ';
 }
 ';
@@ -2145,7 +2118,7 @@ a.comment-reply-link,
 .bbp-submit-wrapper button,
 .wpcf7-form input[type="submit"],
 .wpcf7-submit,
-#wrapper a.read-more,
+#container-wrapper a.read-more,
 input[type="submit"],
 .price_slider_amount button,
 .product-buttons .add_to_cart_button,
@@ -2176,7 +2149,7 @@ a.comment-reply-link:active,
 .bbp-submit-wrapper button:active,
 .wpcf7-form input[type="submit"]:active,
 .wpcf7-submit:active,
-#wrapper a.read-more:active,
+#container-wrapper a.read-more:active,
 input[type="submit"]:active,
 .product-buttons .add_to_cart_button:active,
 .product-buttons .button.product_type_grouped:active,
@@ -2225,7 +2198,7 @@ a.comment-reply-link:hover,
 .bbp-submit-wrapper button:hover,
 .wpcf7-form input[type="submit"]:hover,
 .wpcf7-submit:hover,
-#wrapper a.read-more:hover,
+#container-wrapper a.read-more:hover,
 .price_slider_amount button:hover,
 .product-buttons .add_to_cart_button:hover,
 .product-buttons .button.product_type_grouped:hover,
@@ -2464,7 +2437,7 @@ a.comment-reply-link:hover,
 .bbp-submit-wrapper button:hover,
 .wpcf7-form input[type="submit"]:hover,
 .wpcf7-submit:hover,
-#wrapper a.read-more:hover,
+#container-wrapper a.read-more:hover,
 input[type="submit"]:hover,
 .product-buttons .add_to_cart_button:hover,
 .product-buttons .button.product_type_grouped:hover,
@@ -2549,7 +2522,7 @@ a.comment-reply-link,
 .bbp-submit-wrapper button,
 .wpcf7-form input[type="submit"],
 .wpcf7-submit,
-#wrapper a.read-more,
+#container-wrapper a.read-more,
 input[type="submit"],
 .price_slider_amount button,
 .product-buttons .add_to_cart_button,
@@ -2575,7 +2548,7 @@ a.comment-reply-link:hover,
 .button:hover,
 .button.default:hover,
 .t4p-button.button-default:hover,
-#wrapper a.read-more:hover,
+#container-wrapper a.read-more:hover,
 .t4p-accordian .panel-title a.active,
 .price_slider_amount button:hover,
 .button:focus,
@@ -2614,7 +2587,7 @@ a.comment-reply-link,
 .bbp-submit-wrapper button,
 .wpcf7-form input[type="submit"],
 .wpcf7-submit,
-#wrapper a.read-more,
+#container-wrapper a.read-more,
 .woocommerce-pagination .current,
 .t4p-accordian .panel-title a.active,
 input[type="submit"],
@@ -2658,7 +2631,7 @@ a.comment-reply-link:hover,
 .bbp-submit-wrapper button:hover,
 .wpcf7-form input[type="submit"]:hover,
 .wpcf7-submit:hover,
-#wrapper a.read-more:hover,
+#container-wrapper a.read-more:hover,
 .woocommerce-pagination .current:hover,
 input[type="submit"]:hover,
 .price_slider_amount button:hover,
@@ -2803,8 +2776,8 @@ a.comment-reply-link,
 .t4p-button,
 .reading-box .button,
 .continue.button,
-#wrapper .portfolio-one .button,
-#wrapper .comment-submit,
+#container-wrapper .portfolio-one .button,
+#container-wrapper .comment-submit,
 #reviews input#submit,
 .comment-form input[type="submit"],
 .button,
@@ -2872,8 +2845,8 @@ a.read-more:hover,
 a.comment-reply-link:hover,	
 .entry-content a.t4p-button-default:hover,	
 .t4p-button:hover,
-#wrapper .portfolio-one .button:hover,
-#wrapper .comment-submit:hover,
+#container-wrapper .portfolio-one .button:hover,
+#container-wrapper .comment-submit:hover,
 #reviews input#submit:hover,
 .comment-form input[type="submit"]:hover,
 .wpcf7-form input[type="submit"]:hover,
@@ -2894,7 +2867,7 @@ a.comment-reply-link:hover,
 .woocommerce .button.view:hover,
 .reading-box .button:hover, 
 .continue.button:hover, 
-#wrapper .comment-form input[type="submit"]:hover,
+#container-wrapper .comment-form input[type="submit"]:hover,
 .comment-form input[type="submit"]:hover,
 .button:hover,
 .button .lightgray:hover,
@@ -2992,11 +2965,11 @@ $evolve_css_data .= '
 }
 ';
 
-//mod by denzel, set #wrapper box shadow to none.  
+//mod by denzel, set .wrapper box shadow to none.
 
 if ( $evolve_shadow_effect == 'disable' ) {
 	$evolve_css_data .= '
-#wrapper,
+.wrapper,
 .entry-content .thumbnail-post,
 #search-text,
 #search-text-top:focus,
@@ -3012,7 +2985,7 @@ thead td,
 .page-template-blog-page-php .formatted-post,
 .tab-holder .tabs li a,
 .tab-holder .news-list li,
-#wrapper:before,
+.wrapper:before,
 #bbpress-forums .bbp-search-form #bbp_search,
 .bbp-search-form #bbp_search,
 .bbp-topic-form input#bbp_topic_title,
@@ -3190,13 +3163,13 @@ input#s,
 .evolve-select-parent .evolve-select-arrow,
 .evolve-select-parent .country_to_state,
 .evolve-select-parent .state_select,
-#wrapper .select-arrow,
+.wrapper .select-arrow,
 #lang_sel_click a.lang_sel_sel,
 #lang_sel_click ul ul a,
 #lang_sel_click ul ul a:visited,
 #lang_sel_click a,
 #lang_sel_click a:visited,
-#wrapper .search-field input,
+#container-wrapper .search-field input,
 input[type=text],
 input[type=email],
 input[type=password],
@@ -3248,7 +3221,7 @@ input#s .placeholder,
 .evolve-select-parent .country_to_state,
 .evolve-select-parent .state_select,
 .select2-container .select2-choice>.select2-chosen,
-#wrapper .search-field input,
+#container-wrapper .search-field input,
 input[type=text],
 input[type=email],
 input[type=password],
@@ -3337,7 +3310,7 @@ input#s,
 #lang_sel_click ul ul a:visited,
 #lang_sel_click a,
 #lang_sel_click a:visited,
-#wrapper .search-field input,
+#container-wrapper .search-field input,
 input[type=text],
 input[type=email],
 input[type=password],
@@ -3948,19 +3921,6 @@ if ( ! empty( $evolve_bootstrap_slide_title_font_rgba ) ) {
 	$evolve_css_data .= '
 #bootstrap-slider .carousel-caption h2 {
 	background: ' . $evolve_bootstrap_slide_title_font_rgba . ';
-}
-';
-}
-
-if ( $evolve_header_image_src ) {
-	$evolve_css_data .= '
-.header-bg {
-    background: url(' . esc_url( $evolve_header_image_src ) . ') ' . $evolve_background_position . ' ' . $evolve_background_repeat . ';
-    border-bottom: 0;
-    background-size: ' . $evolve_header_image . ';
-    width: 100%;
-    height: 100%;
-    position: absolute;
 }
 ';
 }
