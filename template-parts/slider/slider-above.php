@@ -1,8 +1,8 @@
 <?php
 
-/*******************************************************
- * Template: slider-above.php
- *******************************************************/
+/*
+   Template: slider-above.php
+   ======================================= */
 
 global $evolve_options, $evolve_frontpage_slider_status;
 $evolve_frontpage_slider   = array();

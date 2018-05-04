@@ -9,18 +9,17 @@ $evolve_woocommerce_cart_link_main_nav = evolve_get_option( 'evl_woocommerce_car
 $evolve_menu_background                = evolve_get_option( 'evl_disable_menu_back', '1' );
 $evolve_width_layout                   = evolve_get_option( 'evl_width_layout', 'fixed' );
 $evolve_frontpage_width_layout         = evolve_get_option( 'evl_frontpage_width_layout', 'fixed' );
-$evolve_main_menu                      = evolve_get_option( 'evl_main_menu', '0' );
-$evolve_searchbox                      = evolve_get_option( 'evl_searchbox', '1' );
-$evolve_sticky_header                  = evolve_get_option( 'evl_sticky_header', '1' );
-$evolve_width_layout                   = evolve_get_option( 'evl_width_layout', 'fixed' );
-$evolve_frontpage_width_layout         = evolve_get_option( 'evl_frontpage_width_layout', 'fixed' );
-$evolve_title_class_1                  = "";
-$evolve_title_class_2                  = "";
-$evolve_responsive_menu_layout         = evolve_get_option( 'evl_responsive_menu_layout', 'basic' );
-$evolve_title_tagline_class_1          = '';
-$evolve_title_tagline_class_2          = '';
-$evolve_helper_tagline_class_1         = '';
-$evolve_helper_tagline_class_2         = '';
+
+$evolve_searchbox              = evolve_get_option( 'evl_searchbox', '1' );
+$evolve_width_layout           = evolve_get_option( 'evl_width_layout', 'fixed' );
+$evolve_frontpage_width_layout = evolve_get_option( 'evl_frontpage_width_layout', 'fixed' );
+$evolve_title_class_1          = "";
+$evolve_title_class_2          = "";
+$evolve_responsive_menu_layout = evolve_get_option( 'evl_responsive_menu_layout', 'basic' );
+$evolve_title_tagline_class_1  = '';
+$evolve_title_tagline_class_2  = '';
+$evolve_helper_tagline_class_1 = '';
+$evolve_helper_tagline_class_2 = '';
 ?>
 
 <div class="header-pattern">
@@ -349,9 +348,8 @@ $evolve_helper_tagline_class_2         = '';
 <header class="menu-header">
     <div class="container container-menu">
         <div class="row align-items-center">
-			<?php
-			if ( $evolve_main_menu == "1" ) {
-			} else {
+
+			<?php if ( get_theme_mod( 'evl_main_menu', false ) !== '1' ) {
 
 				if ( has_nav_menu( 'primary-menu' ) ) {
 					echo '<nav class="navbar sticky-top navbar-expand-md mr-auto col-md-11 col-sm-11">
@@ -369,30 +367,29 @@ $evolve_helper_tagline_class_2         = '';
 					) );
 					echo '</div></nav>';
 				}
-
-				if ( $evolve_searchbox == "1" ) {
-					?>
-
-                    <form action="<?php echo home_url(); ?>" method="get"
-                          class="searchform col-md-1 col-sm-1">
-                        <div id="search-text-box">
-                            <label class="searchfield col-md-1 col-sm-1" id="search_label_top"
-                                   for="search-text-top"><input id="search-text-top" type="text"
-                                                                tabindex="1"
-                                                                name="s" class="search"
-                                                                placeholder="<?php _e( 'Type your search', 'evolve' ); ?>"/></label>
-                        </div>
-                    </form>
-
-					<?php
-				}
 			}
 
-			if ( $evolve_sticky_header == "1" ) {
-				// sticky header
+			if ( get_theme_mod( 'evl_searchbox', true ) ) {
+				?>
+
+                <form action="<?php echo home_url(); ?>" method="get"
+                      class="searchform col-md-1 col-sm-1">
+                    <div id="search-text-box">
+                        <label class="searchfield col-md-1 col-sm-1" id="search_label_top"
+                               for="search-text-top"><input id="search-text-top" type="text"
+                                                            tabindex="1"
+                                                            name="s" class="search"
+                                                            placeholder="<?php _e( 'Type your search', 'evolve' ); ?>"/></label>
+                    </div>
+                </form>
+
+				<?php
+			}
+
+			if ( get_theme_mod( 'evl_sticky_header', true ) ) {
+				// Include The Sticky Header If Enabled
 				get_template_part( 'template-parts/sticky-header' );
-			}
-			?>
+			} ?>
 
         </div><!-- .row -->
     </div><!-- .container .container-menu -->

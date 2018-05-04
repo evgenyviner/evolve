@@ -6369,7 +6369,7 @@ if ( true ) {
 					'id'       => 'evl_parallax_slider_support',
 					'type'     => 'checkbox',
 					'title'    => __( 'Enable Parallax Slider', 'evolve' ),
-					'default'  => '1',
+					'default'  => '0',
 				),
 				array(
 					'subtitle' => __( 'Display Parallax Slider on all pages?', 'evolve' ),
@@ -6458,7 +6458,7 @@ if ( true ) {
 					'id'       => 'evl_carousel_slider',
 					'type'     => 'checkbox',
 					'title'    => __( 'Enable Posts Slider', 'evolve' ),
-					'default'  => '1',
+					'default'  => '0',
 				),
 				array(
 					'subtitle' => __( 'Display Posts Slider on all pages?', 'evolve' ),

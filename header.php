@@ -1,8 +1,8 @@
 <?php
 
-/*******************************************************
- * Template: header.php
- *******************************************************/
+/*
+   Template: header.php
+   ======================================= */
 
 $evolve_header_type              = evolve_get_option( 'evl_header_type', 'none' );
 $evolve_slider_position          = evolve_get_option( 'evl_slider_position', 'below' );
@@ -40,13 +40,21 @@ $evolve_content_boxes_pos        = evolve_get_option( 'evl_content_boxes_pos', '
     </head>
 <body <?php body_class(); ?>>
 
+<?php if ( get_theme_mod( 'evl_pos_button', 'right' ) !== "disable" ) { ?>
+
     <div id="top"></div>
+
+<?php } ?>
 
 <div id="container-wrapper">
 
 <?php
 global $evolve_options;
 do_action( 'fix_evolve_options_data' );
+
+if ( get_theme_mod( 'evl_sticky_header', true ) ) { ?>
+    <div class="header-height">
+<?php }
 
 $evolve_frontpage_slider                                      = array();
 $evolve_options['evl_front_elements_content_area']['enabled'] = evolve_get_option( 'evl_front_elements_content_area' );
@@ -58,11 +66,13 @@ if ( isset( $evolve_options['evl_front_elements_header_area']['enabled'] ) ) {
 }
 
 $evolve_current_post_slider_position = get_post_meta( $evolve_page_ID, 'evolve_slider_position', true );
-$evolve_current_post_slider_position = empty( $evolve_current_post_slider_position ) ? 'default' : $evolve_current_post_slider_position;
+$evolve_current_post_slider_position = empty( $evolve_current_post_slider_position ) ? 'default' :
+	$evolve_current_post_slider_position;
 
 if ( is_home() || is_front_page() ) {
 	if ( is_home() && ! is_front_page() ) {
-		if ( ( $evolve_current_post_slider_position == 'above' ) || ( $evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'above' ) ) {
+		if ( ( $evolve_current_post_slider_position == 'above' ) || ( $evolve_current_post_slider_position == 'default' &&
+		                                                              $evolve_slider_position == 'above' ) ) {
 			get_template_part( 'template-parts/slider/slider' );
 		}
 	} else {
@@ -70,7 +80,8 @@ if ( is_home() || is_front_page() ) {
 			get_template_part( 'template-parts/slider/slider-above' );
 		}
 	}
-} elseif ( ( $evolve_current_post_slider_position == 'above' && ! is_front_page() ) || ( $evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'above' && ! is_front_page() ) ) {
+} elseif ( ( $evolve_current_post_slider_position == 'above' && ! is_front_page() ) || (
+		$evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'above' && ! is_front_page() ) ) {
 	get_template_part( 'template-parts/slider/slider' );
 }
 
@@ -81,17 +92,11 @@ switch ( $evolve_header_type ) {
 	case "h1":
 		get_template_part( 'template-parts/header/header_v2' );
 		break;
-} ?>
+}
 
-    <div class="menu-container">
-
-<?php if ( is_home() || is_front_page() ) {
-	if ( $evolve_frontpage_width_layout == "fluid" && $evolve_menu_background == "1" ) {
-		echo '<div class="fluid-width">';
-	}
-} elseif ( $evolve_width_layout == "fluid" && $evolve_menu_background == "1" ) {
-	echo '<div class="fluid-width">';
-} ?>
+if ( get_theme_mod( 'evl_sticky_header', true ) ) { ?>
+    </div><!-- header-height -->
+<?php } ?>
 
     <div class="container header-block">
 
@@ -109,15 +114,9 @@ switch ( $evolve_header_type ) {
 			}
 		} elseif ( ( $evolve_current_post_slider_position == 'below' && ! is_front_page() ) || ( $evolve_current_post_slider_position == 'default' && $evolve_slider_position == 'below' && ! is_front_page() ) ) {
 			get_template_part( 'template-parts/slider/slider' );
-		} ?>
+		}
 
-        <div style="clear:both;"></div>
-
-		<?php if ( is_home() || is_front_page() ) {
-			if ( $evolve_frontpage_width_layout == "fluid" ) {
-				echo '<div class="container">';
-			}
-		} elseif ( $evolve_width_layout == "fluid" ) {
+		if ( ( ( is_home() || is_front_page() ) && get_theme_mod( 'evl_frontpage_width_layout', 'fixed' ) == "fluid" ) || get_theme_mod( 'evl_width_layout', 'fixed' ) == "fluid" ) {
 			echo '<div class="container">';
 		}
 
@@ -175,23 +174,11 @@ switch ( $evolve_header_type ) {
 			}
 		}
 
-		if ( is_home() || is_front_page() ) {
-			if ( $evolve_frontpage_width_layout == "fluid" ) {
-				echo '</div><!-- .container -->';
-			}
-		} elseif ( $evolve_width_layout == "fluid" ) {
+		if ( ( ( is_home() || is_front_page() ) && get_theme_mod( 'evl_frontpage_width_layout', 'fixed' ) == "fluid" ) || get_theme_mod( 'evl_width_layout', 'fixed' ) == "fluid" ) {
 			echo '</div><!-- .container -->';
 		} ?>
 
     </div><!-- .header-block -->
-
-<?php if ( is_home() || is_front_page() ) {
-	if ( $evolve_frontpage_width_layout == "fluid" ) {
-		echo '</div><!-- .fluid-width -->';
-	}
-} elseif ( $evolve_width_layout == "fluid" ) {
-	echo '</div><!-- .fluid-width -->';
-} ?>
 
 <div class="content <?php semantic_body(); ?>">
 

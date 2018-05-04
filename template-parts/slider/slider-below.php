@@ -1,14 +1,12 @@
 <?php
 
-/*******************************************************
- * Template: slider-below.php
- *******************************************************/
+/*
+   Template: slider-below.php
+   ======================================= */
 
 global $evolve_options, $evolve_frontpage_slider_status;
 $evolve_frontpage_slider = array();
-?>
 
-<?php
 if ( isset( $evolve_options['evl_front_elements_header_area']['enabled'] ) ) {
 	$evolve_frontpage_slider = $evolve_options['evl_front_elements_header_area']['enabled'];
 }

@@ -1,18 +1,12 @@
 <?php
 
-/*******************************************************
- * Template: slider.php
- *******************************************************/
+/*
+   Template: slider.php
+   ======================================= */
 
 $evolve_slider_page_id     = '';
-$evolve_bootstrap          = evolve_get_option( 'evl_bootstrap_slider', '1' );
-$evolve_bootstrap_on       = evolve_get_option( 'evl_bootstrap_slider_support', '1' );
-$evolve_parallax           = evolve_get_option( 'evl_parallax_slider', '1' );
-$evolve_parallax_slider    = evolve_get_option( 'evl_parallax_slider_support', '1' );
-$evolve_posts_slider       = evolve_get_option( 'evl_posts_slider', '1' );
-$evolve_posts_slider_on    = evolve_get_option( 'evl_carousel_slider', '1' );
-$evolve_slideblock_class_1 = '<div class="header-block sliderblock"><div class="container">';
-$evolve_slideblock_class_2 = '</div></div>';
+$evolve_slideblock_class_1 = '<div class="header-block">';
+$evolve_slideblock_class_2 = '</div>';
 
 if ( ! empty( $post->ID ) ) {
 	if ( ! is_home() && ! is_front_page() && ! is_archive() ) {
@@ -26,44 +20,36 @@ if ( is_home() && ! is_front_page() ) {
 	$evolve_slider_page_id = get_option( 'page_for_posts' );
 }
 
+/*
+   Bootstrap Slider
+   ======================================= */
 
-/*******************************************************
- * Bootstrap Slider
- *******************************************************/
-
-if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && $evolve_bootstrap_on == "1" ) || ( $evolve_bootstrap == "1" && $evolve_bootstrap_on == "1" ) ):
+if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && get_theme_mod( 'evl_bootstrap_slider_support', false ) ) || ( get_theme_mod( 'evl_bootstrap_slider', false ) && get_theme_mod( 'evl_bootstrap_slider_support', false ) ) ) {
 	echo $evolve_slideblock_class_1;
 	evolve_bootstrap();
 	echo $evolve_slideblock_class_2;
-endif;
+}
 
+/*
+   Parallax Slider
+   ======================================= */
 
-/*******************************************************
- * Parallax Slider
- *******************************************************/
+if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && get_theme_mod( 'evl_parallax_slider_support', false ) ) || ( get_theme_mod( 'evl_parallax_slider', false ) && get_theme_mod( 'evl_parallax_slider_support', false ) ) ) {
+	echo $evolve_slideblock_class_1;
+	evolve_parallax();
+	echo $evolve_slideblock_class_2;
+}
 
-if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && $evolve_parallax_slider == "1" ) || ( $evolve_parallax == "1" && $evolve_parallax_slider == "1" ) ):
-	$evolve_parallax_slider = evolve_get_option( 'evl_parallax_slider_support', '1' );
-	if ( $evolve_parallax_slider == "1" ):
-		echo $evolve_slideblock_class_1;
-		evolve_parallax();
-		echo $evolve_slideblock_class_2;
-	endif;
-endif;
+/*
+   Posts Slider
+   ======================================= */
 
+if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'posts' && get_theme_mod( 'evl_carousel_slider', false ) || ( get_theme_mod( 'evl_posts_slider', false ) && get_theme_mod( 'evl_carousel_slider', false ) ) ) ) {
+	echo $evolve_slideblock_class_1;
+	evolve_posts_slider();
+	echo $evolve_slideblock_class_2;
+}
 
-/*******************************************************
- * Posts Slider
- *******************************************************/
-
-if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'posts' && $evolve_posts_slider_on == "1" ) || ( $evolve_posts_slider == "1" && $evolve_posts_slider_on == "1" ) ):
-	$evolve_carousel_slider = evolve_get_option( 'evl_carousel_slider', '1' );
-	if ( $evolve_carousel_slider == "1" ):
-		echo $evolve_slideblock_class_1;
-		evolve_posts_slider();
-		echo $evolve_slideblock_class_2;
-	endif;
-endif;
 
 
 

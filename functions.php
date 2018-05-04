@@ -14,7 +14,6 @@ $evolve_map_zoomcontrol            = evolve_get_option( 'evl_map_zoomcontrol', '
 $evolve_map_pin                    = evolve_get_option( 'evl_map_pin', '0' );
 $evolve_map_pop                    = evolve_get_option( 'evl_map_popup', '0' );
 $evolve_front_elements_header_area = ( get_theme_mod( 'evl_front_elements_header_area' ) );
-$evolve_sticky_header              = evolve_get_option( 'evl_sticky_header', '1' );
 $evolve_page_ID                    = get_queried_object_id();
 $evolve_slider_position            = evolve_get_option( 'evl_slider_position', 'below' );
 $evolve_animate_css                = evolve_get_option( 'evl_animatecss', '1' );
@@ -389,7 +388,7 @@ function evolve_footer_hooks() {
 		$evolve_header_pos       = array_search( "header", $evolve_frontpage_slider );
 	}
 
-	if ( $evolve_sticky_header == "1" && ( is_home() || is_front_page() ) && ( $evolve_header_pos != 1 && $evolve_header_pos != false ) ) { ?>
+	if ( get_theme_mod( 'evl_sticky_header', true ) ) { ?>
 
         <script type="text/javascript">
             jQuery(document).ready(
@@ -397,55 +396,11 @@ function evolve_footer_hooks() {
                     if (jQuery('.sticky-header').length >= 1) {
                         jQuery(window).scroll(function () {
                             var header = jQuery(document).scrollTop();
-                            var headerHeight = jQuery('.sliderblock').height() + jQuery('.new-top-menu').height() + jQuery('.menu-header').height() + jQuery('.header-pattern').height();
+                            var headerHeight = jQuery('.header-height').height();
                             if (header > headerHeight) {
-                                jQuery('.sticky-header').addClass('sticky');
-                                jQuery('.sticky-header').show();
+                                jQuery('.sticky-header').fadeIn(400);
                             } else {
-                                jQuery('.sticky-header').removeClass('sticky');
-                                jQuery('.sticky-header').hide();
-                            }
-                        });
-                    }
-                }
-            );</script>
-
-	<?php } elseif ( $evolve_sticky_header == "1" && ! is_front_page() && get_post_meta( $evolve_page_ID, 'evolve_slider_position', true ) == 'above' || ( get_post_meta( $evolve_page_ID, 'evolve_slider_position', true ) == 'default' && $evolve_slider_position == 'above' ) ) { ?>
-
-        <script type="text/javascript">
-            jQuery(document).ready(
-                function ($) {
-                    if (jQuery('.sticky-header').length >= 1) {
-                        jQuery(window).scroll(function () {
-                            var header = jQuery(document).scrollTop();
-                            var headerHeight = jQuery('.sliderblock').height() + jQuery('.new-top-menu').height() + jQuery('.menu-header').height() + jQuery('.header-pattern').height();
-                            if (header > headerHeight) {
-                                jQuery('.sticky-header').addClass('sticky');
-                                jQuery('.sticky-header').show();
-                            } else {
-                                jQuery('.sticky-header').removeClass('sticky');
-                                jQuery('.sticky-header').hide();
-                            }
-                        });
-                    }
-                }
-            );</script>
-
-	<?php } elseif ( $evolve_sticky_header == "1" ) { ?>
-
-        <script type="text/javascript">
-            jQuery(document).ready(
-                function ($) {
-                    if (jQuery('.sticky-header').length >= 1) {
-                        jQuery(window).scroll(function () {
-                            var header = jQuery(document).scrollTop();
-                            var headerHeight = jQuery('.new-top-menu').height() + jQuery('.menu-header').height() + jQuery('.header-pattern').height();
-                            if (header > headerHeight) {
-                                jQuery('.sticky-header').addClass('sticky');
-                                jQuery('.sticky-header').show();
-                            } else {
-                                jQuery('.sticky-header').removeClass('sticky');
-                                jQuery('.sticky-header').hide();
+                                jQuery('.sticky-header').fadeOut(400);
                             }
                         });
                     }
