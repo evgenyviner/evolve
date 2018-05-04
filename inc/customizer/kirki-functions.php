@@ -3,6 +3,16 @@
 require get_parent_theme_file_path('inc/customizer/kirki-framework/kirki.php' );
 require get_parent_theme_file_path('inc/customizer/kirki-function-render-customize.php');
 
+//begin coding for import function
+function call_js_import_customizer_live_preview() {
+wp_enqueue_script( 'js_import_customizer', 
+					 get_template_directory_uri().'/inc/customizer/assets/js/js-preview.js', 
+					 array( 'customize-preview', 'jquery' ), '', true 
+				   );
+}
+add_action( 'customize_preview_init', 'call_js_import_customizer_live_preview' );
+
+
 add_filter('pre_option_evl_options', 'binmaocom_fix_pre_option_evl_options_function');
 function binmaocom_fix_pre_option_evl_options_function($evolve_options){
 	if($evolve_options && is_array($evolve_options) && count($evolve_options)){

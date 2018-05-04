@@ -672,6 +672,7 @@ if ( true ) {
 					),
 					'title'    => __( 'Select the prebuilt demo for home/front page', 'evolve' ),
 					'default'  => 'default',
+					'transport' => 'postMessage'
 				),
 				/* array(
           'subtitle' => sprintf(__('Unlock <strong>50+ new elements</strong> with Drag & Drop Composer for your current layout by converting it to a page with shortcodes.', 'evolve')),
