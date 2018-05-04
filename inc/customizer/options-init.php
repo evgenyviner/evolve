@@ -1,11 +1,17 @@
 <?php
 
 // require_once( 'kirki-functions.php' );
-get_template_part( 'inc/customizer/kirki-framework/kirki' );
+require get_parent_theme_file_path('inc/customizer/kirki-functions.php' );
 // add_filter('kirki_load_fontawesome', 'remove_font_awesome_from_kirki', 999);
 // function remove_font_awesome_from_kirki(){
 //	return false;
 // }
+add_action( 'wp_loaded', 'call_function_fillter_to_get_real_value_from_kirki_customize');
+function call_function_fillter_to_get_real_value_from_kirki_customize() {
+   if ( is_customize_preview() && ! is_admin() ) {
+		bin_get_new_option();
+	}
+}
 
 global $name_of_panel, $bi_all_customize_fields, $bi_index_control;
 $name_of_panel           = '';
@@ -6664,7 +6670,7 @@ if ( true ) {
 			'iconfix' => 'dashicons-admin-users',
 			'fields'  => array(
 				array(
-					'desc'    => __( 'Get your Google Maps API key <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">here</>', 'evolve' ),
+					'desc'    => __( 'Get your Google Maps API key <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">here</a>', 'evolve' ),
 					'id'      => 'evl_google_map_api',
 					'type'    => 'text',
 					'title'   => __( 'Google Maps API', 'evolve' ),
@@ -7123,7 +7129,7 @@ add_action( 'init', 'bin_get_new_option' );
 add_action( 'fix_evolve_options_data', 'fix_evolve_options_data' );
 function fix_evolve_options_data() {
 	if ( is_customize_preview() && ! is_admin() ) {
-		bin_get_new_option();
+		// bin_get_new_option();
 	}
 }
 
