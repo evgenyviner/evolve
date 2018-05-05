@@ -211,7 +211,7 @@ $evolve_sticky_header                  = evolve_get_option( 'evl_sticky_header',
 												'theme_location' => 'primary-menu',
 												'menu_class'     => 'nav-menu',
 												'fallback_cb'    => 'wp_page_menu',
-												'walker'         => new evolve_Walker_Nav_Menu()
+												'walker'         => new evolve_custom_menu_walker()
 											) );
 
 											if ( $evolve_responsive_menu_layout == 'dropdown' ) {
