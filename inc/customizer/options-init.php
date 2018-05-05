@@ -176,8 +176,8 @@ class Binmaocom_Fix_Rd {
 					$choices_array      = $value["options"]['disabled'];
 					if ( isset( $value["options"]['enabled'] ) && is_array( $value["options"]['enabled'] ) && count( $value["options"]['enabled'] ) ) {
 						foreach ( $value["options"]['enabled'] as $default_key => $default_value ) {
-							$value_temp['default']         = $default_key;
-							$choices_array[ $default_key ] = $default_value;
+							$value_temp['default'][]		= $default_key;
+							$choices_array[ $default_key ]	= $default_value;
 						}
 					}
 					$value_temp['choices'] = $choices_array;
@@ -672,6 +672,8 @@ if ( true ) {
 					),
 					'title'    => __( 'Select the prebuilt demo for home/front page', 'evolve' ),
 					'default'  => 'default',
+					'render_callback' => 'evl_content_box1_title',
+					'selector'        => '.content-box.content-box-1 p',
 					'transport' => 'postMessage'
 				),
 				/* array(
@@ -7104,7 +7106,7 @@ function bin_get_new_option( $geted_for_preview_in = false ) {
 				foreach ( $bi_all_customize_fields as $control ) {
 					if ( $control['value']['type'] == 'sorter' ) {
 						$enabled = evolve_get_option( $control['value_temp']['settings'], false );
-						if ( count( $enabled ) ) {
+						if ( $enabled && is_array($enabled) && count( $enabled ) ) {
 							$enabled_temp = array();
 							foreach ( $enabled as $items ) {
 								$enabled_temp[ $items ] = $items;
