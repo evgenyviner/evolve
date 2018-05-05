@@ -1,6 +1,5 @@
 <?php
 
-// require_once( 'kirki-functions.php' );
 require get_parent_theme_file_path('inc/customizer/kirki-functions.php' );
 // add_filter('kirki_load_fontawesome', 'remove_font_awesome_from_kirki', 999);
 // function remove_font_awesome_from_kirki(){
@@ -31,7 +30,6 @@ class Binmaocom_Fix_Rd {
 				Kirki::add_section( $param2['id'], array(
 					'title'    => $param2['title'],
 					'priority' => $bi_index_control,
-					// 'panel'         => $param2['id'],
 					'icon'     => $param2['icon'],
 				) );
 			} else {
@@ -43,8 +41,6 @@ class Binmaocom_Fix_Rd {
 				) );
 			}
 			Binmaocom_Fix_Rd::bin_call_kirki_from_old_field( $param2['fields'], $param2['id'] );
-
-
 		} else {
 			$name_of_panel = $param2['id'];
 			Kirki::add_panel( $param2['id'], array(
@@ -175,10 +171,16 @@ class Binmaocom_Fix_Rd {
 					$value_temp['type'] = 'sortable';
 					$choices_array      = $value["options"]['disabled'];
 					if ( isset( $value["options"]['enabled'] ) && is_array( $value["options"]['enabled'] ) && count( $value["options"]['enabled'] ) ) {
+						$value_temp['default'] = array();
 						foreach ( $value["options"]['enabled'] as $default_key => $default_value ) {
-							$value_temp['default'][]		= $default_key;
-							$choices_array[ $default_key ]	= $default_value;
+							if($default_key != 'placebo'){
+								$value_temp['default'][]		= $default_key;
+								$choices_array[ $default_key ]	= $default_value;
+							}
 						}
+					}
+					if($choices_array && is_array($choices_array) && isset($choices_array['placebo'])){
+						unset($choices_array['placebo']);
 					}
 					$value_temp['choices'] = $choices_array;
 				}
@@ -672,9 +674,9 @@ if ( true ) {
 					),
 					'title'    => __( 'Select the prebuilt demo for home/front page', 'evolve' ),
 					'default'  => 'default',
-					'render_callback' => 'evl_content_box1_title',
-					'selector'        => '.content-box.content-box-1 p',
-					'transport' => 'postMessage'
+					'render_callback' => 'evolve_call_customize_import',
+					'selector'        => 'body',
+					// 'transport' => 'postMessage'
 				),
 				/* array(
           'subtitle' => sprintf(__('Unlock <strong>50+ new elements</strong> with Drag & Drop Composer for your current layout by converting it to a page with shortcodes.', 'evolve')),
@@ -2051,10 +2053,9 @@ if ( true ) {
 			),
 		)
 	);
-
+	
 // Testimonials Dynamic Fields
 	$testimonialfields = array();
-
 	$slide_defaults = array(
 		array(
 			'image'       => "{$evolve_imagepathfolder}frontpage-builder/team-1.png",
@@ -7106,14 +7107,14 @@ function bin_get_new_option( $geted_for_preview_in = false ) {
 				foreach ( $bi_all_customize_fields as $control ) {
 					if ( $control['value']['type'] == 'sorter' ) {
 						$enabled = evolve_get_option( $control['value_temp']['settings'], false );
-						if ( $enabled && is_array($enabled) && count( $enabled ) ) {
+						if ( $enabled && is_array($enabled) && count( $enabled ) && isset($enabled["enabled"]) && is_array($enabled["enabled"]) && count( $enabled["enabled"] ) ) {
 							$enabled_temp = array();
-							foreach ( $enabled as $items ) {
-								$enabled_temp[ $items ] = $items;
+							foreach ( $enabled["enabled"] as $enabled_key => $items ) {
+								$enabled_temp[] = $enabled_key;
 							}
 							$enabled = $enabled_temp;
 						}
-						$evolve_options[ $control['value_temp']['settings'] ]['enabled'] = $enabled;
+						$evolve_options[ $control['value_temp']['settings'] ] = $enabled;
 					} else {
 						$evolve_options[ $control['value_temp']['settings'] ] = evolve_get_option( $control['value_temp']['settings'], $control['value_temp']['default'] );
 					}
@@ -7156,6 +7157,159 @@ add_action( 'customize_register', 'evolve_register_custom_section' );
  * Import Demo Content
  *
  * ************************************************************************************************************ */
+function evolve_import_demo_content_kirki( $wp_customize = null ) {
+	$evolve_opt_name             = "evl_options";
+	$plugin_options              = get_option( 'evl_options', false );
+	$frontpage_prebuilt_new_demo = evolve_get_option( 'evl_frontpage_prebuilt_demo', 'default' );
+	$frontpage_prebuilt_old_demo = get_option( 'frontpage_prebuilt_old_demo', 'default' );
+	$evolve_imagepathfolder      = get_template_directory_uri() . '/assets/images/';
+
+	if ( $frontpage_prebuilt_new_demo != $frontpage_prebuilt_old_demo ) {
+
+		switch ( $frontpage_prebuilt_new_demo ) {
+			case 'default':
+				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/default.json';
+				break;
+			case 'blog':
+				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/blog.json';
+				break;
+			case 'woocommerce':
+				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/woocommerce.json';
+				break;
+			case 'blog-2':
+				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/blog_2.json';
+				break;
+			case 'corporate':
+				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/corporate.json';
+				break;
+			case 'magazine':
+				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/magazine.json';
+				break;
+			case 'business':
+				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/business.json';
+				break;
+			case 'woocommerce-2':
+				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/woocommerce_2.json';
+				break;
+			case 'bbpress-buddypress':
+				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/bbpress_buddypress.json';
+				break;
+		}
+		if ( $frontpage_prebuilt_new_demo == 'woocommerce' ) {
+			$theme_name = basename( get_stylesheet_directory() );
+
+			$theme_mods                     = get_option( 'theme_mods_' . $theme_name, false );
+			$theme_mods['background_color'] = "ecebe9";
+			update_option( 'theme_mods_' . $theme_name, $theme_mods );
+
+			$color    = '{
+                            "' . $theme_name . '"::background_color": {
+                                "value": "#ecebe9",
+                                "type": "theme_mod",
+                                "user_id": 1
+                            }
+                        }';
+			$defaults = array(
+				'post_content'   => $color,
+				'post_status'    => 'trash',
+				'post_type'      => 'customize_changeset',
+				'comment_status' => 'closed',
+				'ping_status'    => 'closed',
+			);
+			wp_insert_post( $defaults, false );
+		}
+
+		if ( $frontpage_prebuilt_new_demo == 'woocommerce-2' ) {
+			$theme_name = basename( get_stylesheet_directory() );
+			$theme_mods                     = get_option( 'theme_mods_' . $theme_name, false );
+			$theme_mods['background_color'] = "ffffff";
+			update_option( 'theme_mods_' . $theme_name, $theme_mods );
+
+			$color    = '{
+                            "' . $theme_name . '"::background_color": {
+                                "value": "#ffffff",
+                                "type": "theme_mod",
+                                "user_id": 1
+                            }
+                        }';
+			$defaults = array(
+				'post_content'   => $color,
+				'post_status'    => 'trash',
+				'post_type'      => 'customize_changeset',
+				'comment_status' => 'closed',
+				'ping_status'    => 'closed',
+			);
+			wp_insert_post( $defaults, false );
+		}
+
+		$theme_options_txt = wp_remote_get( $theme_options_txt );
+		$imported_options  = json_decode( ( $theme_options_txt['body'] ), true );
+
+		if ( ! empty( $imported_options ) && is_array( $imported_options ) && isset( $imported_options['redux-backup'] ) && $imported_options['redux-backup'] == '1' ) {
+
+			$changed_values = array();
+
+			foreach ( $imported_options as $key => $value ) {
+				$bootstrapsliderKeys = array(
+					'evl_bootstrap_slide1_img',
+					'evl_bootstrap_slide2_img',
+					'evl_bootstrap_slide3_img',
+					'evl_bootstrap_slide4_img',
+					'evl_bootstrap_slide5_img',
+				);
+				$parallaxsliderKeys  = array(
+					'evl_slide1_img',
+					'evl_slide2_img',
+					'evl_slide3_img',
+					'evl_slide4_img',
+					'evl_slide5_img',
+				);
+
+				if ( in_array( $key, $bootstrapsliderKeys ) ) {
+					$img_name               = basename( $value['url'] );
+					$plugin_options[ $key ] = array( 'url' => "{$evolve_imagepathfolder}bootstrap-slider/{$img_name}" );
+				} elseif ( in_array( $key, $parallaxsliderKeys ) ) {
+					$img_name               = basename( $value['url'] );
+					$plugin_options[ $key ] = array( 'url' => "{$evolve_imagepathfolder}parallax/{$img_name}" );
+				} else {
+					if ( isset( $plugin_options[ $key ] ) && $plugin_options[ $key ] != $value ) {
+						$changed_values[ $key ] = $value;
+						$plugin_options[ $key ] = $value;
+					}
+				}
+				$result = $value;
+				if ( $result && is_array($result) && count( $result ) && isset($result["enabled"]) && is_array($result["enabled"]) && count( $result["enabled"] ) ) {
+					$enabled_temp = array();
+					foreach ( $result["enabled"] as $enabled_key => $items ) {
+						if('placebo' != $enabled_key){
+							$enabled_temp[] = $enabled_key;
+						}
+					}
+					$value = $enabled_temp;
+				}
+				
+				if ( $value && is_array($value) && count( $value ) && isset($value["url"]) ) {
+					$value = $value["url"];
+				}
+				if ( $value && is_array($value) && count( $value ) && isset($value["color"]) ) {
+					$value = $value["color"];
+				}
+				set_theme_mod($key, $value);
+			}
+
+			update_option( 'evl_options', $plugin_options );
+		}
+
+		update_option( 'frontpage_prebuilt_old_demo', $frontpage_prebuilt_new_demo );
+		?>
+        <script type='text/javascript'>
+            jQuery(document).ready(function ($) {
+                window.location.href = window.location.href;
+            });
+        </script>
+		<?php
+	}
+}
 
 function evolve_import_demo_content( $wp_customize ) {
 	$evolve_opt_name             = "evl_options";
@@ -7310,9 +7464,6 @@ if ( get_option( 'old_new_upgrade_themeoptions', 'false' ) == 'false' ) {
 	$frontpage_id = get_option( 'page_on_front' );
 	$postspage_id = get_option( 'page_for_posts' );
 	//get all theme options
-	//bin debug
-	echo 2;
-	exit;
 	$evolve_options = get_option( 'evl_options' );
 
 	//get old theme options

@@ -13,7 +13,7 @@ $evolve_map_scale                  = evolve_get_option( 'evl_map_scale', '0' );
 $evolve_map_zoomcontrol            = evolve_get_option( 'evl_map_zoomcontrol', '0' );
 $evolve_map_pin                    = evolve_get_option( 'evl_map_pin', '0' );
 $evolve_map_pop                    = evolve_get_option( 'evl_map_popup', '0' );
-$evolve_front_elements_header_area = ( get_theme_mod( 'evl_front_elements_header_area' ) );
+$evolve_front_elements_header_area = evolve_get_option( 'evl_front_elements_header_area' );
 $evolve_page_ID                    = get_queried_object_id();
 $evolve_slider_position            = evolve_get_option( 'evl_slider_position', 'below' );
 $evolve_animate_css                = evolve_get_option( 'evl_animatecss', '1' );
@@ -371,7 +371,6 @@ function evolve_footer_hooks() {
 
 	<?php global $evolve_options, $evolve_slider_position, $evolve_front_elements_header_area, $evolve_sticky_header, $evolve_page_ID;
 	$evolve_header_pos = '';
-
 	if ( $evolve_front_elements_header_area ) {
 		if ( count( $evolve_front_elements_header_area ) ) {
 			$evolve_front_elements_header_area_result = array();
@@ -1893,11 +1892,11 @@ function evolve_print_fonts( $name, $css_class, $additional_css = '', $additiona
 	$font_weight = '';
 	$font_align  = '';
 	$color       = '';
-	if ( $options[ $name ]['font-size'] != '' ) {
+	if (isset($options[ $name ]['font-size']) &&  $options[ $name ]['font-size'] != '' ) {
 		$font_size = $options[ $name ]['font-size'];
 		$css       .= "$css_class{font-size:" . $font_size . " " . $imp . ";}";
 	}
-	if ( $options[ $name ]['font-family'] != '' ) {
+	if ( isset($options[ $name ]['font-family']) && $options[ $name ]['font-family'] != '' ) {
 		$font_family = $options[ $name ]['font-family'];
 		$css         .= "$css_class{font-family:" . $font_family . ";}";
 	}
@@ -1920,7 +1919,7 @@ function evolve_print_fonts( $name, $css_class, $additional_css = '', $additiona
 	if ( $additional_css != '' ) {
 		$css .= "$css_class{" . $additional_css . ";}";
 	}
-	if ( $additional_color_css_class != '' ) {
+	if ( isset( $options[ $name ]['color'] ) && $additional_color_css_class != '' ) {
 		$color = $options[ $name ]['color'];
 		$css   .= "$additional_color_css_class{color:" . $color . ";}";
 	}
@@ -2131,15 +2130,15 @@ function endsWith( $haystack, $needle, $case = true ) {
 }
 
 function binmaocom_fix_get_theme_mod( $array_in ) {
-	if ( count( $array_in ) ) {
+	if ( $array_in && is_array($array_in) && count( $array_in ) ) {
 		$enabled_temp = array();
 		foreach ( $array_in as $items ) {
-			$enabled_temp[ $items ] = $items;
+			if('placebo' != $items){
+				$enabled_temp[ $items ] = $items;
+			}
 		}
-
 		return $enabled_temp;
 	}
-
 	return $array_in;
 }
 
@@ -2162,6 +2161,14 @@ function evolve_get_option( $name, $default = false ) {
 			// It starts with 'http'
 			$result = 'fa-' . $result;
 		}
+	}
+	
+	if ( $result && is_array($result) && count( $result ) && isset($result["enabled"]) && is_array($result["enabled"]) && count( $result["enabled"] ) ) {
+		$enabled_temp = array();
+		foreach ( $result["enabled"] as $enabled_key => $items ) {
+			$enabled_temp[] = $enabled_key;
+		}
+		$result = $enabled_temp;
 	}
 
 	return $result;
@@ -2379,6 +2386,3 @@ add_filter( 'wp_calculate_image_srcset', '__return_false', PHP_INT_MAX );
 if ( class_exists( 'Woocommerce' ) ) {
 	require get_parent_theme_file_path( 'inc/custom-functions/woocommerce-support.php' );
 }
-
-
-

@@ -1,9 +1,13 @@
 <?php
 	class BinmaocomRefresh{
-		function evolve_header_logo_color() {
-			$title ='123'. esc_html( get_theme_mod( 'evolve_header_logo_color', __( 'Powerful Performance', 'agama' ) ) );
-			return $title;
+		function evolve_call_customize_import() {
+			ob_start();
+			evolve_import_demo_content_kirki();
+			$content = ob_get_contents();
+			ob_clean();
+			return $content;
 		}
+		
 		function evl_content_box1_icon() {
 			$content ='<i class="fa fa-'.get_theme_mod( __FUNCTION__,'cube').'" aria-hidden="true"></i>';
 			return $content;
