@@ -9,11 +9,11 @@
 if (!defined('ABSPATH'))
     exit; // Exit if accessed directly
 
-$woocommerce_one_page_checkout = evolve_get_option('evl_woocommerce_one_page_checkout', '0');
+$woocommerce_one_page_checkout = evolve_theme_mod('evl_woocommerce_one_page_checkout', '0');
 
 global $woocommerce, $current_user;
-$woo_acc_msg_1 = evolve_get_option('evl_woo_acc_msg_1', 'Call us - <i class="t4p-icon-phone"></i> 7438 882 764');
-$woo_acc_msg_2 = evolve_get_option('evl_woo_acc_msg_2', 'Email us - <i class="t4p-icon-envelope-o"></i> contact@example.com');
+$woo_acc_msg_1 = evolve_theme_mod('evl_woo_acc_msg_1', 'Call us - <i class="t4p-icon-phone"></i> 7438 882 764');
+$woo_acc_msg_2 = evolve_theme_mod('evl_woo_acc_msg_2', 'Email us - <i class="t4p-icon-envelope-o"></i> contact@example.com');
 ?>
 <p class="evolve_myaccount_user">
     <span class="myaccount_user_container">

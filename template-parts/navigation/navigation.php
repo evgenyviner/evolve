@@ -4,7 +4,7 @@
  * Template: navigation.php
  *******************************************************/
 
-$evolve_pagination_type = evolve_get_option( 'evl_pagination_type', 'pagination' );
+$evolve_pagination_type = evolve_theme_mod( 'evl_pagination_type', 'pagination' );
 
 if ( is_singular() and ! is_page() ) { ?>
 

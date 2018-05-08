@@ -22,19 +22,19 @@
 
 		<?php
 		// if Footer widgets exist
-		if ( ( get_theme_mod( 'evl_widgets_num', 'disable' ) !== "" ) || ( get_theme_mod( 'evl_widgets_num', 'disable' ) !== "disable" ) ) {
+		if ( ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) !== "" ) || ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) !== "disable" ) ) {
 
 			$evolve_footer_css = '';
-			if ( get_theme_mod( 'evl_widgets_num', 'disable' ) == "one" ) {
+			if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "one" ) {
 				$evolve_footer_css = 'widget-one-column col-sm-12';
 			}
-			if ( get_theme_mod( 'evl_widgets_num', 'disable' ) == "two" ) {
+			if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "two" ) {
 				$evolve_footer_css = 'col-sm-6 col-md-6';
 			}
-			if ( get_theme_mod( 'evl_widgets_num', 'disable' ) == "three" ) {
+			if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "three" ) {
 				$evolve_footer_css = 'col-sm-6 col-md-4';
 			}
-			if ( get_theme_mod( 'evl_widgets_num', 'disable' ) == "four" ) {
+			if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "four" ) {
 				$evolve_footer_css = 'col-sm-6 col-md-3';
 			}
 			?>
@@ -81,7 +81,7 @@
         <div class="clearfix"></div>
 
 		<?php
-		$footer_content = evolve_get_option( 'evl_footer_content', '<p id=\'copyright\'><span class=\'credits\'><a href=\'http://theme4press.com/evolve-multipurpose-wordpress-theme/\'>evolve</a> theme by Theme4Press&nbsp;&nbsp;&bull;&nbsp;&nbsp;Powered by <a href=\'http://wordpress.org\'>WordPress</a></span></p>' );
+		$footer_content = evolve_theme_mod( 'evl_footer_content', '<p id=\'copyright\'><span class=\'credits\'><a href=\'http://theme4press.com/evolve-multipurpose-wordpress-theme/\'>evolve</a> theme by Theme4Press&nbsp;&nbsp;&bull;&nbsp;&nbsp;Powered by <a href=\'http://wordpress.org\'>WordPress</a></span></p>' );
 		if ( $footer_content === false ) {
 			$footer_content = '';
 		}
@@ -93,7 +93,7 @@
     </div><!-- .container -->
 </footer><!-- .footer -->
 
-<?php if ( get_theme_mod( 'evl_pos_button', 'right' ) !== "disable" ) { ?>
+<?php if ( evolve_theme_mod( 'evl_pos_button', 'right' ) !== "disable" ) { ?>
 
     <a href="#top" id="top-link">
         <div id="backtotop"></div>

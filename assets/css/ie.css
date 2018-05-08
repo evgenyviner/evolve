@@ -17,6 +17,6 @@
     width: 66%
 }
 
-body #header.sticky-header {
+body .sticky-header {
     background: #efefef
 }

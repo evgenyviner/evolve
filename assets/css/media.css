@@ -69,19 +69,19 @@
         padding-top: 0;
         line-height: 11px;
     }
-    #header {
+    .sticky-header {
         padding: 20px;
     }
-    #header .logo {
+    .sticky-header .logo {
         float: none;
         text-align: center;
         margin: 0;
         margin-bottom: 20px;
     }
-    body #header.sticky-header .logo {
+    body .sticky-header .logo {
         float: left;
     }
-    #header .nav-holder {
+    .sticky-header .nav-holder {
         float: none;
     }
     .nav-holder ul,
@@ -518,19 +518,19 @@
         padding-top: 0;
         line-height: 11px;
     }
-    #header {
+    .sticky-header {
         padding: 20px;
     }
-    #header .logo {
+    .sticky-header .logo {
         float: none;
         text-align: center;
         margin: 0;
         margin-bottom: 20px;
     }
-    body #header.sticky-header .logo {
+    body .sticky-header .logo {
         float: left;
     }
-    #header .nav-holder {
+    .sticky-header .nav-holder {
         float: none;
     }
     .nav-holder ul,
@@ -685,11 +685,11 @@
 }
 
 @media only screen and (max-width: 640px) {
-    #header .logo {
+    .sticky-header .logo {
         float: none;
         margin: 20px auto;
     }
-    body #header.sticky-header .logo {
+    body .sticky-header .logo {
         float: left;
     }
     .evolve-container .columns .col,

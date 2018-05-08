@@ -6,11 +6,11 @@
 
 get_header();
 
-$evolve_edit_post         = evolve_get_option( 'evl_edit_post', '0' );
-$evolve_recaptcha_public  = evolve_get_option( 'evl_recaptcha_public', '' );
-$evolve_recaptcha_private = evolve_get_option( 'evl_recaptcha_private', '' );
-$evolve_email_address     = evolve_get_option( 'evl_email_address', '' );
-$evolve_sent_email_header = evolve_get_option( 'evl_sent_email_header', get_bloginfo( 'name' ) );
+$evolve_edit_post         = evolve_theme_mod( 'evl_edit_post', '0' );
+$evolve_recaptcha_public  = evolve_theme_mod( 'evl_recaptcha_public', '' );
+$evolve_recaptcha_private = evolve_theme_mod( 'evl_recaptcha_private', '' );
+$evolve_email_address     = evolve_theme_mod( 'evl_email_address', '' );
+$evolve_sent_email_header = evolve_theme_mod( 'evl_sent_email_header', get_bloginfo( 'name' ) );
 
 //If the form is submitted
 if ( isset( $_POST['submit'] ) ) {
@@ -237,7 +237,7 @@ while ( have_posts() ) :
     </div><!--END .hentry-->
 
 	<?php
-	$evolve_share_this = evolve_get_option( 'evl_share_this', 'single' );
+	$evolve_share_this = evolve_theme_mod( 'evl_share_this', 'single' );
 	if ( ( $evolve_share_this == "all" ) ) {
 		evolve_sharethis();
 	}

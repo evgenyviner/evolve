@@ -116,7 +116,7 @@ class evolve_GoogleRecaptcha {
 
 		$response      = isset( $_POST['g-recaptcha-response'] ) ? esc_attr( $_POST['g-recaptcha-response'] ) : '';
 		$remote_ip     = $_SERVER["REMOTE_ADDR"];
-		$secret        = evolve_get_option( 'evl_recaptcha_private', '' );
+		$secret        = evolve_theme_mod( 'evl_recaptcha_private', '' );
 		$request       = wp_remote_get( 'https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $response . '&remoteip=' . $remote_ip );
 		$response_body = wp_remote_retrieve_body( $request );
 		$res           = json_decode( $response_body, true );

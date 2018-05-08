@@ -572,7 +572,7 @@ if ( true ) {
 			$theme_options = $bi_evolve_options;
 		}
 	}
-	$theme_options['evl_bootstrap_slider_support'] = get_theme_mod( 'evl_bootstrap_slider_support' );
+	$theme_options['evl_bootstrap_slider_support'] = evolve_theme_mod( 'evl_bootstrap_slider_support' );
 
 	( isset( $theme_options['evl_bootstrap_slider_support'] ) && $theme_options['evl_bootstrap_slider_support'] == '1' ) ? $bootstrapslider_status = ' (ACTIVE)' : $bootstrapslider_status = ' (INACTIVE)';
 	( $theme_options['evl_parallax_slider_support'] == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)';
@@ -2713,11 +2713,11 @@ if ( true ) {
 					'options'  => array(
 						720  => '720px',
 						960  => '960px',
-						1140 => '1140px',
+						1200 => '1200px',
 						1600 => '1600px',
 					),
 					'title'    => __( 'Layout Width', 'evolve' ),
-					'default'  => '1140',
+					'default'  => '1200',
 				),
 				/*        array(
           'title' => __('Custom Layout Width', 'evolve'),
@@ -7106,7 +7106,7 @@ function bin_get_new_option( $geted_for_preview_in = false ) {
 			if ( $bi_all_customize_fields ) {
 				foreach ( $bi_all_customize_fields as $control ) {
 					if ( $control['value']['type'] == 'sorter' ) {
-						$enabled = evolve_get_option( $control['value_temp']['settings'], false );
+						$enabled = evolve_theme_mod( $control['value_temp']['settings'], false );
 						if ( $enabled && is_array($enabled) && count( $enabled ) && isset($enabled["enabled"]) && is_array($enabled["enabled"]) && count( $enabled["enabled"] ) ) {
 							$enabled_temp = array();
 							foreach ( $enabled["enabled"] as $enabled_key => $items ) {
@@ -7116,7 +7116,7 @@ function bin_get_new_option( $geted_for_preview_in = false ) {
 						}
 						$evolve_options[ $control['value_temp']['settings'] ] = $enabled;
 					} else {
-						$evolve_options[ $control['value_temp']['settings'] ] = evolve_get_option( $control['value_temp']['settings'], $control['value_temp']['default'] );
+						$evolve_options[ $control['value_temp']['settings'] ] = evolve_theme_mod( $control['value_temp']['settings'], $control['value_temp']['default'] );
 					}
 				}
 				update_option( 'bi_evolve_options', $evolve_options );
@@ -7160,7 +7160,7 @@ add_action( 'customize_register', 'evolve_register_custom_section' );
 function evolve_import_demo_content_kirki( $wp_customize = null ) {
 	$evolve_opt_name             = "evl_options";
 	$plugin_options              = get_option( 'evl_options', false );
-	$frontpage_prebuilt_new_demo = evolve_get_option( 'evl_frontpage_prebuilt_demo', 'default' );
+	$frontpage_prebuilt_new_demo = evolve_theme_mod( 'evl_frontpage_prebuilt_demo', 'default' );
 	$frontpage_prebuilt_old_demo = get_option( 'frontpage_prebuilt_old_demo', 'default' );
 	$evolve_imagepathfolder      = get_template_directory_uri() . '/assets/images/';
 
@@ -7314,7 +7314,7 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 function evolve_import_demo_content( $wp_customize ) {
 	$evolve_opt_name             = "evl_options";
 	$plugin_options              = get_option( 'evl_options', false );
-	$frontpage_prebuilt_new_demo = evolve_get_option( 'evl_frontpage_prebuilt_demo', 'default' );
+	$frontpage_prebuilt_new_demo = evolve_theme_mod( 'evl_frontpage_prebuilt_demo', 'default' );
 	$frontpage_prebuilt_old_demo = get_option( 'frontpage_prebuilt_old_demo', 'default' );
 	$evolve_imagepathfolder      = get_template_directory_uri() . '/assets/images/';
 

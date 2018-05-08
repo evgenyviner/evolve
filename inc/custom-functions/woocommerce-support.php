@@ -12,7 +12,7 @@ if (session_id() == '' || !isset($_SESSION))
 add_action('init', 'evolve_woocommerce_ordering');
 
 function evolve_woocommerce_ordering() {
-    $evolve_woocommerce_ordering = evolve_get_option('evl_woocommerce_evolve_ordering', '0');
+    $evolve_woocommerce_ordering = evolve_theme_mod('evl_woocommerce_evolve_ordering', '0');
 
     remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
     if (!$evolve_woocommerce_ordering) {
@@ -82,10 +82,10 @@ if (!class_exists('evolve_TemplateWoo')) {
                 $page_template = '';
             }
 
-            $evolve_layout = evolve_get_option('evl_layout', '2cl');
-            $evolve_post_layout = evolve_get_option('evl_post_layout', 'two');
-            $evolve_opt1_width_content = evolve_get_option('evl_opt1_width_content', '8');
-            $evolve_opt2_width_content = evolve_get_option('evl_opt2_width_content', '6');
+            $evolve_layout = evolve_theme_mod('evl_layout', '2cl');
+            $evolve_post_layout = evolve_theme_mod('evl_post_layout', 'two');
+            $evolve_opt1_width_content = evolve_theme_mod('evl_opt1_width_content', '8');
+            $evolve_opt2_width_content = evolve_theme_mod('evl_opt2_width_content', '6');
 
             $evolve_layout_css = '';
             echo'<div id="primary" class="';
@@ -134,8 +134,8 @@ if (!class_exists('evolve_TemplateWoo')) {
 
             $get_sidebar = false;
 
-            $evolve_layout = evolve_get_option('evl_layout', '2cl');
-            $evolve_opt2_width_sidebar2 = evolve_get_option('evl_opt2_width_sidebar2', '3');
+            $evolve_layout = evolve_theme_mod('evl_layout', '2cl');
+            $evolve_opt2_width_sidebar2 = evolve_theme_mod('evl_opt2_width_sidebar2', '3');
 
             if ($evolve_layout == "3cm" || $evolve_layout == "3cl" || $evolve_layout == "3cr") {
                 $get_sidebar = true;
@@ -198,9 +198,9 @@ if (!class_exists('evolve_TemplateWoo')) {
                 $pageID = $post->ID;
             }
 
-            $evolve_layout = evolve_get_option('evl_layout', '2cl');
-            $evolve_opt1_width_sidebar1 = evolve_get_option('evl_opt1_width_sidebar1', '4');
-            $evolve_opt2_width_sidebar1 = evolve_get_option('evl_opt2_width_sidebar1', '3');
+            $evolve_layout = evolve_theme_mod('evl_layout', '2cl');
+            $evolve_opt1_width_sidebar1 = evolve_theme_mod('evl_opt1_width_sidebar1', '4');
+            $evolve_opt2_width_sidebar1 = evolve_theme_mod('evl_opt2_width_sidebar1', '3');
 
             $sidebar_css = '';
 
@@ -261,8 +261,8 @@ if (!class_exists('evolve_TemplateWoo')) {
         }
 
         function shop_breadcrumb() {
-            $evolve_breadcrumbs = evolve_get_option('evl_breadcrumbs', '1');
-            $evolve_pagetitlebar_layout = evolve_get_option('evl_pagetitlebar_layout', '0');
+            $evolve_breadcrumbs = evolve_theme_mod('evl_breadcrumbs', '1');
+            $evolve_pagetitlebar_layout = evolve_theme_mod('evl_pagetitlebar_layout', '0');
             if ($evolve_breadcrumbs == "1" && $evolve_pagetitlebar_layout == '0'):
                 woocommerce_breadcrumb();
             endif;
@@ -295,7 +295,7 @@ remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 
 function evolve_woocommerce_catalog_ordering() {
 
-    $woo_items = evolve_get_option('evl_woo_items', '12');
+    $woo_items = evolve_theme_mod('evl_woo_items', '12');
 
     if (isset($_SERVER['QUERY_STRING'])) {
 
@@ -460,7 +460,7 @@ add_filter('loop_shop_per_page', 'evolve_loop_shop_per_page');
 
 function evolve_loop_shop_per_page() {
 
-    $woo_items = evolve_get_option('evl_woo_items', '12');
+    $woo_items = evolve_theme_mod('evl_woo_items', '12');
 
     if (isset($_SERVER['QUERY_STRING'])) {
         parse_str($_SERVER['QUERY_STRING'], $params);
@@ -534,7 +534,7 @@ function evolve_woocommerce_header_add_to_cart_fragment($fragments) {
 
     ob_start();
 
-    $evolve_header_type = evolve_get_option('evl_header_type', 'none');
+    $evolve_header_type = evolve_theme_mod('evl_header_type', 'none');
     if ($evolve_header_type == 'h1') {
         ?>
         <li class="cart header-cart">
@@ -750,8 +750,8 @@ add_action('woocommerce_after_single_product_summary', 'evolve_woocommerce_after
 
 function evolve_woocommerce_after_single_product_summary() {
 
-    $woocommerce_social_links = evolve_get_option('evl_woocommerce_social_links', '1');
-    $nofollow_social_links = evolve_get_option('evl_nofollow_social_links', '0');
+    $woocommerce_social_links = evolve_theme_mod('evl_woocommerce_social_links', '1');
+    $nofollow_social_links = evolve_theme_mod('evl_nofollow_social_links', '0');
     $social = '';
     $nofollow = '';
     if ($nofollow_social_links) {
@@ -1169,7 +1169,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
 
     function evolve_enable_order_notes_field() {
 
-        $woocommerce_enable_order_notes = evolve_get_option('evl_woocommerce_enable_order_notes', '0');
+        $woocommerce_enable_order_notes = evolve_theme_mod('evl_woocommerce_enable_order_notes', '0');
 
         if (!$woocommerce_enable_order_notes) {
             return 0;
@@ -1215,8 +1215,8 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
     function evolve_woocommerce_account_dashboard() {
 
         global $woocommerce, $current_user;
-        $woo_acc_msg_1 = evolve_get_option('evl_woo_acc_msg_1', 'Call us - <i class="t4p-icon-phone"></i> 7438 882 764');
-        $woo_acc_msg_2 = evolve_get_option('evl_woo_acc_msg_2', 'Email us - <i class="t4p-icon-envelope-o"></i> contact@example.com');
+        $woo_acc_msg_1 = evolve_theme_mod('evl_woo_acc_msg_1', 'Call us - <i class="t4p-icon-phone"></i> 7438 882 764');
+        $woo_acc_msg_2 = evolve_theme_mod('evl_woo_acc_msg_2', 'Email us - <i class="t4p-icon-envelope-o"></i> contact@example.com');
         ?>
 
         <p class="evolve_myaccount_user">
@@ -1305,8 +1305,8 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
 
         function evolve_woocommerce_view_dashboard($args) {
             global $woocommerce, $current_user;
-            $woo_acc_msg_1 = evolve_get_option('evl_woo_acc_msg_1', 'Call us - <i class="t4p-icon-phone"></i> 7438 882 764');
-            $woo_acc_msg_2 = evolve_get_option('evl_woo_acc_msg_2', 'Email us - <i class="t4p-icon-envelope-o"></i> contact@example.com');
+            $woo_acc_msg_1 = evolve_theme_mod('evl_woo_acc_msg_1', 'Call us - <i class="t4p-icon-phone"></i> 7438 882 764');
+            $woo_acc_msg_2 = evolve_theme_mod('evl_woo_acc_msg_2', 'Email us - <i class="t4p-icon-envelope-o"></i> contact@example.com');
             ?>
             <div class="view_dashboard" <?php
         if (isset($_SESSION['formvalue'])) {

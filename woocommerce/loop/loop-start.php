@@ -35,7 +35,7 @@ if (is_shop() || is_product_category() || is_product_tag()) {
         $page_template = '';
     }
 
-    $evolve_layout = evolve_get_option('evl_layout', '2cl');
+    $evolve_layout = evolve_theme_mod('evl_layout', '2cl');
 
     if ($evolve_layout == "1c") {
         $woocommerce_loop['columns'] = 4;
@@ -44,9 +44,9 @@ if (is_shop() || is_product_category() || is_product_tag()) {
     }
 } else {
 
-    $evolve_layout = evolve_get_option('evl_layout', '2cl');
-    $evolve_opt1_width_content = evolve_get_option('evl_opt1_width_content', '8');
-    $evolve_opt2_width_content = evolve_get_option('evl_opt2_width_content', '6');
+    $evolve_layout = evolve_theme_mod('evl_layout', '2cl');
+    $evolve_opt1_width_content = evolve_theme_mod('evl_opt1_width_content', '8');
+    $evolve_opt2_width_content = evolve_theme_mod('evl_opt2_width_content', '6');
 
     if ( $evolve_layout == "1c" ) {
         $woocommerce_loop['columns'] = 4;

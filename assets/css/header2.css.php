@@ -234,10 +234,6 @@ div#search-text-box {
     margin-right: 0;
 }
 
-#social {
-    float: right;
-}
-
 .sc_menu {
     float: none;
 }
@@ -352,7 +348,6 @@ ul.nav-menu li:hover {
 }
 
 #righttopcolumn,
-#social,
 .sc_menu,
 .header a,
 #tagline,

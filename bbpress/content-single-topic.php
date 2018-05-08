@@ -10,7 +10,7 @@
 <div id="bbpress-forums">
 
     <?php
-    $evolve_breadcrumbs = evolve_get_option('evl_breadcrumbs', '1');
+    $evolve_breadcrumbs = evolve_theme_mod('evl_breadcrumbs', '1');
     if ($evolve_breadcrumbs == "1"):
         bbp_breadcrumb();
     endif;

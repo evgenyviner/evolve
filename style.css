@@ -119,7 +119,7 @@ I. Evolve components
 [class*=" t4p-icon-"],
 .widget-content [class^="t4p-icon-"],
 .widget-content [class*=" t4p-icon-"] {
-    font-family: 'icomoon';
+    font-family: "IcoMoon";
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -682,10 +682,6 @@ form,
     clear: both;
 }
 
-#social {
-    float: right;
-}
-
 #wp-toolbar > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input {
     background-color: rgba(255, 255, 255, 0);
 }
@@ -764,18 +760,14 @@ span.more a,
 a.read-more,
 .entry-content a.t4p-button-default {
     background: #0bb697;
-    border-color: #0bb697;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
     border-radius: 4px;
     -webkit-box-shadow: 0 2px 0 #1d6e72;
     -moz-box-shadow: 0 2px 0 #1d6e72;
-    -ms-box-shadow: 0 2px 0 #1d6e72;
     -o-box-shadow: 0 2px 0 #1d6e72;
     box-shadow: 0 2px 0 #1d6e72;
-    border-style: solid;
-    border-width: 1px;
+    border: 1px solid #0bb697;
     color: #ffffff;
     cursor: pointer;
     font-size: 14px;
@@ -859,17 +851,14 @@ a.read-more,
     background-color: #f1f1f1;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
     border-radius: 3px;
     -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     -moz-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-    -ms-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     -o-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     clip: auto;
     color: #21759b;
     display: block;
-    font-size: 14px;
     font-size: 0.875rem;
     font-weight: bold;
     height: auto;
@@ -1002,7 +991,6 @@ h2.section_title {
     border: 1px solid #E0DDDD;
     -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
-    -ms-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     -o-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
@@ -1010,13 +998,11 @@ h2.section_title {
 .widget:after {
     -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.7);
     -moz-box-shadow: 0 0 9px rgba(0, 0, 0, 0.7);
-    -ms-box-shadow: 0 0 9px rgba(0, 0, 0, 0.7);
     -o-box-shadow: 0 0 9px rgba(0, 0, 0, 0.7);
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.7);
-    -webkit-border-radius: 10;
-    -moz-border-radius: 10;
-    -ms-border-radius: 10;
-    border-radius: 10;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
     content: "";
     position: absolute;
     height: 8px;
@@ -1141,7 +1127,6 @@ pre {
     color: #333;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
-    -ms-border-radius: 0;
     border-radius: 0;
 }
 
@@ -1180,10 +1165,6 @@ code {
    Lists
    ========================================================================== */
 
-ul.nav-menu {
-    margin-left: 0;
-}
-
 .entry-content ul,
 .entry-content ol,
 #search-query {
@@ -1211,8 +1192,7 @@ ol {
 ul,
 ul ul,
 ul ul ul {
-    list-style-type: none;
-    list-style-image: url("assets/images/list-style.png");
+    list-style: none url("assets/images/list-style.png");
     padding: 0;
 }
 
@@ -1327,7 +1307,6 @@ thead td {
 thead {
     -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
-    -ms-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     -o-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
@@ -1353,11 +1332,9 @@ textarea {
     padding: 10px 8px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
     border-radius: 3px;
     -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.15) inset;
     -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.15) inset;
-    -ms-box-shadow: 0 0 4px rgba(0, 0, 0, 0.15) inset;
     -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.15) inset;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.15) inset;
     border: 1px solid #ddd;
@@ -1381,7 +1358,6 @@ span.more a,
 a.read-more,
 .entry-content a.t4p-button-default {
     font-size: 14px;
-    font-weight: 500;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
     height: auto;
     line-height: 41px;
@@ -1396,12 +1372,10 @@ a.read-more,
     background: #0bb697;
     -webkit-box-shadow: 0 2px 0 #1d6e72;
     -moz-box-shadow: 0 2px 0 #1d6e72;
-    -ms-box-shadow: 0 2px 0 #1d6e72;
     -o-box-shadow: 0 2px 0 #1d6e72;
     box-shadow: 0 2px 0 #1d6e72;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
     border-radius: 4px;
 }
 
@@ -1607,10 +1581,6 @@ input#submit:hover {
 
 /* ======================== Body & Wrapper ======================== */
 
-.container-menu {
-    margin: 0 auto;
-}
-
 .container-center {
     margin: 0 auto;
 }
@@ -1644,18 +1614,33 @@ input#submit:hover {
     margin-right: 20px;
 }
 
-#header.sticky-header {
+.sticky-header {
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-    -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     background: rgba(242, 242, 242, 0.97);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     position: fixed;
     top: 0;
     z-index: 99998;
-    display: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    visibility: hidden;
+    opacity: 0;
+    width: inherit;
+    max-width: inherit;
+    -webkit-transition: visibility 0s .2s, opacity .2s linear;
+    -moz-transition: visibility 0s .2s, opacity .2s linear;
+    -o-transition: visibility 0s .2s, opacity .2s linear;
+    transition: visibility 0s .2s, opacity .2s linear;
+}
+
+.sticky-header.fadein {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity .2s linear;
+    -moz-transition: opacity .2s linear;
+    -o-transition: opacity .2s linear;
+    transition: opacity .2s linear;
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
@@ -1673,8 +1658,7 @@ input#submit:hover {
 }
 
 @media only screen and (max-width: 768px) {
-    body #header.sticky-header,
-    body #header.sticky-header.sticky {
+    body .sticky-header {
         display: none;
     }
 
@@ -1806,13 +1790,9 @@ p#copyright .credits a {
 #search-stickyfix:focus {
     -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9);
     -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9);
-    -ms-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9);
     -o-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9);
     box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9);
-    -border-radius: 0;
     -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
     border-radius: 0;
     border: 1px solid rgba(0, 0, 0, 0.1);
     font-size: 15px;
@@ -1829,7 +1809,6 @@ p#copyright .credits a {
 #search-text:focus {
     -webkit-box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
     -moz-box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-    -ms-box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
     -o-box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
@@ -2330,8 +2309,7 @@ p#copyright .credits a {
 }
 
 @media (max-width: 768px) {
-    body #header.sticky-header,
-    body #header.sticky-header.sticky {
+    body .sticky-header {
         display: none !important;
     }
 
@@ -2369,7 +2347,6 @@ p#copyright .credits a {
         width: 240px;
     }
 
-    #social,
     .header a,
     #tagline,
     #logo {
@@ -2400,12 +2377,6 @@ p#copyright .credits a {
     #secondary,
     #secondary-2 {
         clear: both;
-    }
-
-    .header #social {
-        width: 100%;
-        text-align: center;
-        overflow: hidden;
     }
 
     .title-container #tagline {
@@ -2528,6 +2499,8 @@ p#copyright .credits a {
 
 /* ======================== WPML Plugin style ======================== */
 
+
+/* TODO remove */
 ul.nav-menu li.menu-item-language {
     position: relative;
 }
@@ -2781,7 +2754,6 @@ a:hover {
     z-index: 2;
     -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
-    -ms-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     -o-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
@@ -2845,7 +2817,7 @@ a:hover {
     overflow: hidden;
     -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
-    -ms-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
+
     -o-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
@@ -2984,7 +2956,6 @@ a:hover {
     border: none;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
     border-radius: 3px;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -6275,10 +6246,6 @@ a.post-edit-link:before {
    Menu Bar
    ========================================================================== */
 
-.sticky-header .nav-menu .children {
-    padding: 0;
-}
-
 .header-logo-container .normal_logo {
     display: block;
 }
@@ -6311,33 +6278,15 @@ a.post-edit-link:before {
 
 }
 
-#header.sticky-header {
-    background: rgba(242, 242, 242, 0.97) none repeat scroll 0 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-    -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-    -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-    display: none;
-    position: fixed;
-    top: 0;
-    z-index: 99998;
-}
-
 .menu-header {
     -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.1) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.1) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.1) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.1) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.1) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
     background: #f5f5f5;
-    border-color: #e0dddd;
-    border-style: solid;
-    border-width: 1px;
+    border: 1px solid #e0dddd;
     color: #c1c1c1;
     text-shadow: 0 1px 0 #ffffff;
-    float: left;
     display: block;
     width: 100%;
 }
@@ -6346,274 +6295,20 @@ a.post-edit-link:before {
     background-repeat: repeat-y;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-    -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
-ul.nav-menu {
-    width: 100%;
-    margin-bottom: 0;
-}
-
-ul.nav-menu li:first-child {
-    border-left: none;
-}
-
-ul.nav-menu li:last-child {
-    border-right: none;
-}
-
-ul.nav-menu,
-ul.nav-menu * {
-    list-style: none;
-}
-
-/* Hides items under top menu */
-
-ul.nav-menu ul {
-    position: absolute;
-    z-index: 9999;
-    /* left offset of submenus need to match (see below) */
-}
-
-/* Hides all sub items (4 levels deep) */
-
-ul.nav-menu li:hover li ul,
-ul.nav-menu li.nav-hover li ul,
-ul.nav-menu li li:hover li ul,
-ul.nav-menu li li.nav-hover li ul,
-ul.nav-menu li li li:hover li ul,
-ul.nav-menu li li li.nav-hover li ul {
-    top: -999em;
-}
-
-/* On :hover, displays all sub items (4 levels deep) */
-
-ul.nav-menu li li:hover ul,
-ul.nav-menu li li.nav-hover ul,
-ul.nav-menu li li li:hover ul,
-ul.nav-menu li li li.nav-hover ul,
-ul.nav-menu li li li li:hover ul,
-ul.nav-menu li li li li.nav-hover ul {
-    /* match .nav ul width */
-    top: 0;
-}
-
-ul.nav-menu {
-    padding: 0 0 2px 0;
-}
-
-ul.nav-menu ul {
-    border: 1px solid #ccc;
-    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.1) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.1) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.1) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
-    -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.1) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.1) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-ul.nav-menu ul li a {
-    word-wrap: break-word;
-    font-size: .9em;
-    font-weight: normal;
-}
-
-ul.nav-menu ul li a:hover {
-    border-top-color: #ccc;
-}
-
-ul.nav-menu li a {
-    padding: 18px 10px;
-}
-
-ul.nav-menu li:hover > a {
-    text-decoration: none;
-}
-
-ul.nav-menu a {
-    -webkit-transition: all 0.1s ease-in;
-    -moz-transition: all 0.1s ease-in;
-    -ms-transition: all 0.1s ease-in;
-    -o-transition: all 0.1s ease-in;
-    transition: all 0.1s ease-in;
-    display: block;
-    position: relative;
-    padding: 8px 10px;
-    color: #c1c1c1;
-    text-shadow: 1px 1px 0 #ffffff;
-}
-
-ul.nav-menu li:hover ul,
-ul.nav-menu li.nav-hover ul {
-    z-index: 999999;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
-    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
-    -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
-    -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
-}
-
-ul.nav-menu li.current-menu-ancestor li.current-menu-item > a,
-ul.nav-menu li.current-menu-ancestor li.current-menu-parent > a {
-    border-top-color: #aaa;
-    text-decoration: none;
-}
-
-ul.nav-menu .sf-sub-indicator {
-    position: absolute;
-    z-index: 999;
-    right: 0.5em;
-    top: 45%;
-    width: 10px;
-    height: 10px;
-    overflow: hidden;
-}
-
-ul.nav-menu a::after {
-    content: ' ';
-    font-family: IcoMoon;
-    font-size: 8px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-ul.nav-menu .sf-with-ul:after {
-    content: '\e917';
-    font-family: IcoMoon;
-    margin-left: 5px;
-}
-
-ul.nav-menu li ul .sf-sub-indicator {
-    top: 41%;
-}
-
-ul.nav-menu ul.sub-menu .sf-with-ul:after {
-    content: '\e919';
-    font-family: IcoMoon;
-    position: absolute;
-    right: 1.6em;
-    top: 50%;
-    width: 5px;
-    font-size: 7px;
-    transform: translateY(-50%);
-}
-
-ul.nav-menu li.current-menu-item,
-ul.nav-menu li.current-menu-ancestor,
-ul.nav-menu li:hover {
-    border-right-color: #ddd;
-}
-
-ul.nav-menu li li a,
-ul.nav-menu li li li a,
-ul.nav-menu li li li li a {
-    padding: 10px;
-}
-
-ul.nav-menu li li,
-ul.nav-menu li li li,
-ul.nav-menu li li li li {
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid #F0F0F0;
-}
-
-ul.nav-menu li a.sf-with-ul {
-    padding-right: 25px;
-}
-
-.sticky-header ul.nav-menu .sf-with-ul:after {
-    content: '\e917';
-    margin-left: 5px;
-}
-
-/* Menu bugfix */
-
-.ie7 .nav:hover {
-    visibility: inherit;
-    /* fixes IE7 'sticky bug' */
-}
-
-body #header.sticky {
-    -webkit-animation: fadein 0.5s;
-    -moz-animation: fadein 0.5s;
-    -ms-animation: fadein 0.5s;
-    -o-animation: fadein 0.5s;
-    animation: fadein 0.5s;
-}
-
-/* ======================== Menu effect sticky menu ======================== */
-
-@keyframes fadein {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Firefox < 16 */
-
-@-moz-keyframes fadein {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-
-@-webkit-keyframes fadein {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Internet Explorer */
-
-@-ms-keyframes fadein {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Opera < 12.1 */
-
-@-o-keyframes fadein {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-body.admin-bar #header.sticky-header {
+body.admin-bar .sticky-header {
     top: 32px;
 }
 
-body #header.sticky-header img#logo-image {
+body .sticky-header img#logo-image {
     margin-top: 8px;
     margin-bottom: 8px;
     vertical-align: middle;
     height: auto;
     line-height: 65px;
-}
-
-body #header.sticky-header .nav ul.nav-menu ul li a {
-    padding-top: 3px;
-    padding-bottom: 3px;
 }
 
 .top-menu-social {
@@ -6626,6 +6321,7 @@ a:focus {
     color: #0bb697;
 }
 
+/* TODO remove */
 .center-menu ul.nav-menu li {
     text-align: left;
 }
@@ -6663,23 +6359,12 @@ form.top-searchform {
    Responsive
    ========================================================================== */
 
-/* webhook for chrom and safari browser */
-
-@media only screen and (-webkit-min-device-pixel-ratio: 0) {
-    ul.nav-menu {
-        float: left;
-    }
-}
-
 @media only screen and (max-width: 768px) {
     .header-logo-container .normal_logo,
     .sticky-header .normal_logo {
         display: inline-block;
     }
 
-    ul.nav-menu ul.sub-menu .sf-with-ul::after {
-        top: 10px;
-    }
 }
 
 /*!==========================================================================
@@ -6733,7 +6418,6 @@ form.top-searchform {
 .hentry .thumbnail-post {
     -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
     border: 6px solid rgba(255, 255, 255, 0.95);
@@ -6753,7 +6437,6 @@ form.top-searchform {
 .entry-content .wp-caption {
     -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
-    -ms-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
     -o-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
     height: auto;
@@ -6772,7 +6455,6 @@ form.top-searchform {
     display: block;
     -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
 }
@@ -6856,7 +6538,6 @@ form.top-searchform {
     background: #444;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
-    -ms-border-radius: 100%;
     border-radius: 100%;
     text-align: center;
     width: 50px;
@@ -6884,7 +6565,6 @@ form.top-searchform {
     background: yellowgreen;
     -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) inset;
     -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) inset;
-    -ms-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) inset;
     -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) inset;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) inset;
 }
@@ -7174,7 +6854,6 @@ form.top-searchform {
     border: 1px solid #e5e5e5;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
     border-radius: 3px;
 }
 
@@ -7203,7 +6882,6 @@ form.top-searchform {
     padding: 15px;
     -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
-    -ms-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     -o-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
     box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
@@ -7246,16 +6924,12 @@ form.top-searchform {
 a.comment-reply-link {
     -webkit-box-shadow: 0 2px 0 #1d6e72;
     -moz-box-shadow: 0 2px 0 #1d6e72;
-    -ms-box-shadow: 0 2px 0 #1d6e72;
     -o-box-shadow: 0 2px 0 #1d6e72;
     box-shadow: 0 2px 0 #1d6e72;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
     border-radius: 4px;
-    padding: 5px 10px;
     font-size: 11px;
-    border: none;
     text-decoration: none;
     padding: 8px 12px;
     border-width: 1px;
@@ -7342,11 +7016,9 @@ a.follow-replies:hover {
     font-size: 12px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
     border-radius: 3px;
     -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9);
     -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9);
-    -ms-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9);
     -o-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9);
     box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9);
     display: block;
@@ -7493,11 +7165,9 @@ a.follow-replies:hover {
     color: #999;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
     border-radius: 3px;
     -webkit-box-shadow: 0 1px 2px #ccc;
     -moz-box-shadow: 0 1px 2px #ccc;
-    -ms-box-shadow: 0 1px 2px #ccc;
     -o-box-shadow: 0 1px 2px #ccc;
     box-shadow: 0 1px 2px #ccc;
     text-decoration: none;
@@ -7643,11 +7313,9 @@ table#recaptcha_table::before {
 .similar-posts {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
     border-radius: 3px;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     clear: both;
@@ -7691,7 +7359,6 @@ table#recaptcha_table::before {
 #slide_holder .featured-thumbnail img {
     -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
-    -ms-box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
     -o-box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
 }
@@ -7759,11 +7426,9 @@ ul#slides {
     bottom: 0;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
     border-radius: 3px;
     -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29);
     -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29);
-    -ms-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29);
     -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29);
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29);
     color: #ffffff;
@@ -7844,7 +7509,7 @@ ul#slides {
         width: 100%;
     }
 
-    #header.sticky-header {
+    .sticky-header {
         max-width: 100%;
         width: 100%;
         left: 0;
@@ -7853,11 +7518,11 @@ ul#slides {
         margin-right: auto;
     }
 
-    body #header.sticky-header {
+    body .sticky-header {
         margin-left: auto !important;
     }
 
-    #header.sticky-header > .container {
+    .sticky-header > .container {
         display: flex;
         align-items: center;
         display: -webkit-flex;
@@ -8166,7 +7831,6 @@ ul.thumbNav li {
     cursor: pointer;
     -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 1px 1px 1px rgba(255, 255, 255, 0.1);
     -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 1px 1px 1px rgba(255, 255, 255, 0.1);
-    -ms-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 1px 1px 1px rgba(255, 255, 255, 0.1);
     -o-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 1px 1px 1px rgba(255, 255, 255, 0.1);
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, 1px 1px 1px rgba(255, 255, 255, 0.1);
 }
@@ -8191,7 +7855,6 @@ ul.thumbNav li .cur {
     left: 2px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
     border-radius: 50%;
     background: white;
     background: -moz-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
@@ -8394,11 +8057,9 @@ ul.thumbNav li span {
 .woocommerce-message {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
     border-radius: 4px;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 10px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.6) inset;
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 10px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.6) inset;
-    -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 10px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.6) inset;
     -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 10px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.6) inset;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 10px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.6) inset;
     font-weight: bold;
@@ -8419,11 +8080,9 @@ ul.woocommerce-error {
 .woocommerce-error {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
     border-radius: 4px;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 10px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.6) inset;
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 10px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.6) inset;
-    -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 10px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.6) inset;
     -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 10px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.6) inset;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 10px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.6) inset;
     font-weight: bold;
@@ -8501,7 +8160,6 @@ ol.commentlist {
 .login-box {
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     padding: 10px;
@@ -8664,18 +8322,15 @@ ol.commentlist {
     border: 1px solid #E0E0E0;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
     border-radius: 3px;
     -webkit-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.06) inset;
     -moz-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.06) inset;
-    -ms-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.06) inset;
     -o-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.06) inset;
     box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.06) inset;
     color: #AAAAAA;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
     cursor: pointer;
     display: block;
     font-size: 13px;
@@ -8848,7 +8503,6 @@ ol.commentlist {
 .evolve-myaccount-data .digital-downloads li::before {
     -webkit-border-radius: 75px;
     -moz-border-radius: 75px;
-    -ms-border-radius: 75px;
     border-radius: 75px;
     font-size: 9px;
     text-align: center;
@@ -8902,7 +8556,6 @@ ol.commentlist {
 .evolve-thank-you .order_details li::before {
     -webkit-border-radius: 75px;
     -moz-border-radius: 75px;
-    -ms-border-radius: 75px;
     border-radius: 75px;
     font-size: 9px;
     text-align: center;
@@ -8975,7 +8628,6 @@ ol.commentlist {
 .woocommerce-side-nav {
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     clear: both;
@@ -8988,7 +8640,6 @@ ol.commentlist {
 
 .woocommerce-side-nav-ul {
     margin: 0;
-    margin-left: 0;
     list-style-image: none;
 }
 
@@ -9816,7 +9467,6 @@ p.order-info mark {
     line-height: normal;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
@@ -9865,7 +9515,6 @@ p.order-info mark {
     border: 1px solid #E0DFDF;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
@@ -9984,12 +9633,10 @@ body .header-block .wooslider .slide-content p {
     background: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
-
     -o-box-shadow: none;
     box-shadow: none;
     -webkit-border-radius: none;
     -moz-border-radius: none;
-    -ms-border-radius: none;
     border-radius: none;
     margin: 0 auto;
     max-width: 940px;
@@ -10553,7 +10200,6 @@ body .header-block .wooslider .slide-content p {
     background-color: #222;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
     border-radius: 50%;
     -moz-background-clip: padding;
     -webkit-background-clip: padding-box;
@@ -10568,7 +10214,6 @@ body .header-block .wooslider .slide-content p {
     background-color: #222;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
     border-radius: 50%;
     -moz-background-clip: padding;
     -webkit-background-clip: padding-box;
@@ -10744,14 +10389,12 @@ body .header-block .wooslider .slide-content p {
 .catalog-ordering .order li a .t4p-icon {
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     border: 1px solid #e8e8e8;
     display: block;
     height: 29px;
     line-height: 29px;
-    padding: 0 13px;
     font-size: 12px;
     padding: 0 10px;
 }
@@ -10777,7 +10420,6 @@ body .header-block .wooslider .slide-content p {
 .order-dropdown .current-li {
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     border: 1px solid #e8e8e8;
@@ -10818,7 +10460,6 @@ body .header-block .wooslider .slide-content p {
 .order-dropdown ul {
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     display: none;
@@ -10878,7 +10519,6 @@ body .header-block .wooslider .slide-content p {
 .products li:hover {
     -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
@@ -10990,7 +10630,6 @@ body .header-block .wooslider .slide-content p {
     padding: 1px 10px;
     -webkit-border-radius: 0 2px 2px 0;
     -moz-border-radius: 0 2px 2px 0;
-    -ms-border-radius: 0 2px 2px 0;
     border-radius: 0 2px 2px 0;
 }
 
@@ -11168,7 +10807,6 @@ table.variations {
     background-clip: padding-box;
     -webkit-box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
     -moz-box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    -ms-box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
     -o-box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
     box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
     background-color: #ccc;
@@ -11200,7 +10838,6 @@ table.variations {
 .price_slider_wrapper .ui-widget-content {
     -webkit-border-radius: 1em;
     -moz-border-radius: 1em;
-    -ms-border-radius: 1em;
     border-radius: 1em;
     background-color: #F0F0F0;
 }
@@ -11496,7 +11133,6 @@ li.product:hover .show_details_button {
 .quantity {
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     border: 1px solid #e8e8e8;
@@ -11659,7 +11295,6 @@ form.cart {
     border: 1px solid #ddd;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
-    -ms-border-radius: 0;
     border-radius: 0;
 }
 
@@ -11773,7 +11408,6 @@ p.stars::after {
 p.stars a {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
     border-radius: 4px;
     width: 19%;
     display: block;
@@ -12093,7 +11727,6 @@ html[xmlns] .flexslider .slides {
     left: 0;
     -webkit-border-radius: 0 3px 3px 0;
     -moz-border-radius: 0 3px 3px 0;
-    -ms-border-radius: 0 3px 3px 0;
     border-radius: 0 3px 3px 0;
 }
 
@@ -12177,7 +11810,6 @@ html[xmlns] .flexslider .slides {
     text-indent: -9999px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
     border-radius: 20px;
     box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
 }
@@ -12327,7 +11959,7 @@ Button Shortcode
 @media screen and (max-width: 782px) {
     body.admin-bar #container-wrapper #slidingbar-area,
     .admin-bar p.demo_store,
-    body.admin-bar #header.sticky-header {
+    body.admin-bar .sticky-header {
         top: 46px;
     }
 

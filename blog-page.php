@@ -6,7 +6,7 @@
 
 get_header();
 
-$evolve_layout = evolve_get_option( 'evl_layout', '2cl' );
+$evolve_layout = evolve_theme_mod( 'evl_layout', '2cl' );
 
 if ( evolve_lets_get_sidebar_2() == true ):
 	get_sidebar( '2' );

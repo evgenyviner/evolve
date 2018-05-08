@@ -4,8 +4,8 @@
  * Template: content-page.php
  *******************************************************/
 
-$evolve_edit_post  = evolve_get_option( 'evl_edit_post', '0' );
-$evolve_share_this = evolve_get_option( 'evl_share_this', 'single' );
+$evolve_edit_post  = evolve_theme_mod( 'evl_edit_post', '0' );
+$evolve_share_this = evolve_theme_mod( 'evl_share_this', 'single' );
 ?>
 
     <div id="post-<?php the_ID(); ?>" class="<?php semantic_entries(); ?>">

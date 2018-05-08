@@ -16,17 +16,17 @@ if ( $evolve_frontpage_slider ):
 		switch ( $sliderkey ) {
 			case 'bootstrap_slider':
 				if ( $sliderval && ! isset( $evolve_frontpage_slider_status['bootstrap'] ) ) {
-					fp_bootstrap_slider();
+					evolve_frontpage_bootstrap_slider();
 				}
 				break;
 			case 'parallax_slider':
 				if ( $sliderval && ! isset( $evolve_frontpage_slider_status['parallax'] ) ) {
-					fp_parallax_slider();
+					evolve_frontpage_parallax_slider();
 				}
 				break;
 			case 'posts_slider':
 				if ( $sliderval && ! isset( $evolve_frontpage_slider_status['posts'] ) ) {
-					fp_post_slider();
+					evolve_frontpage_post_slider();
 				}
 				break;
 		}

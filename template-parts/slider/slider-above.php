@@ -17,17 +17,17 @@ if ( $evolve_frontpage_slider ):
 	foreach ( $evolve_frontpage_slider as $sliderkey => $sliderval ) {
 		if ( $sliderkey == 'bootstrap_slider' ) {
 			echo $evolve_slideblock_class_1;
-			fp_bootstrap_slider();
+			evolve_frontpage_bootstrap_slider();
 			echo $evolve_slideblock_class_2;
 			$evolve_frontpage_slider_status['bootstrap'] = false;
 		} elseif ( $sliderkey == 'parallax_slider' ) {
 			echo $evolve_slideblock_class_1;
-			fp_parallax_slider();
+			evolve_frontpage_parallax_slider();
 			echo $evolve_slideblock_class_2;
 			$evolve_frontpage_slider_status['parallax'] = false;
 		} elseif ( $sliderkey == 'posts_slider' ) {
 			echo $evolve_slideblock_class_1;
-			fp_post_slider();
+			evolve_frontpage_post_slider();
 			echo $evolve_slideblock_class_2;
 			$evolve_frontpage_slider_status['posts'] = false;
 		} elseif ( $sliderkey == 'header' ) {

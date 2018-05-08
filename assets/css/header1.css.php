@@ -101,8 +101,7 @@ $evolve_css_data = '
         float: none;
     }
     #righttopcolumn,
-    #social,
-    .header a,
+     .header a,
     #tagline,
     #logo {
         width: auto;

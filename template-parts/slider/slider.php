@@ -4,9 +4,7 @@
    Template: slider.php
    ======================================= */
 
-$evolve_slider_page_id     = '';
-$evolve_slideblock_class_1 = '<div class="header-block">';
-$evolve_slideblock_class_2 = '</div>';
+$evolve_slider_page_id = '';
 
 if ( ! empty( $post->ID ) ) {
 	if ( ! is_home() && ! is_front_page() && ! is_archive() ) {
@@ -24,32 +22,24 @@ if ( is_home() && ! is_front_page() ) {
    Bootstrap Slider
    ======================================= */
 
-if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && get_theme_mod( 'evl_bootstrap_slider_support', false ) ) || ( get_theme_mod( 'evl_bootstrap_slider', false ) && get_theme_mod( 'evl_bootstrap_slider_support', false ) ) ) {
-	echo $evolve_slideblock_class_1;
+if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', false ) ) || ( evolve_theme_mod( 'evl_bootstrap_slider', false ) && evolve_theme_mod( 'evl_bootstrap_slider_support', false ) ) ) {
 	evolve_bootstrap();
-	echo $evolve_slideblock_class_2;
 }
 
 /*
    Parallax Slider
    ======================================= */
 
-if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && get_theme_mod( 'evl_parallax_slider_support', false ) ) || ( get_theme_mod( 'evl_parallax_slider', false ) && get_theme_mod( 'evl_parallax_slider_support', false ) ) ) {
-	echo $evolve_slideblock_class_1;
+if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && evolve_theme_mod( 'evl_parallax_slider_support', false ) ) || ( evolve_theme_mod( 'evl_parallax_slider', false ) && evolve_theme_mod( 'evl_parallax_slider_support', false ) ) ) {
 	evolve_parallax();
-	echo $evolve_slideblock_class_2;
 }
 
 /*
    Posts Slider
    ======================================= */
 
-if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'posts' && get_theme_mod( 'evl_carousel_slider', false ) || ( get_theme_mod( 'evl_posts_slider', false ) && get_theme_mod( 'evl_carousel_slider', false ) ) ) ) {
-	echo $evolve_slideblock_class_1;
+if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'posts' && evolve_theme_mod( 'evl_carousel_slider', false ) || ( evolve_theme_mod( 'evl_posts_slider', false ) && evolve_theme_mod( 'evl_carousel_slider', false ) ) ) ) {
 	evolve_posts_slider();
-	echo $evolve_slideblock_class_2;
 }
-
-
 
 

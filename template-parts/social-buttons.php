@@ -1,17 +1,17 @@
 <?php
 
-$evolve_rss_feed   = evolve_get_option( 'evl_rss_feed', '' );
-$evolve_newsletter = evolve_get_option( 'evl_newsletter', '' );
-$evolve_facebook   = evolve_get_option( 'evl_facebook', '' );
-$evolve_twitter_id = evolve_get_option( 'evl_twitter_id', '' );
-$evolve_googleplus = evolve_get_option( 'evl_googleplus', '' );
-$evolve_instagram  = evolve_get_option( 'evl_instagram', '' );
-$evolve_skype      = evolve_get_option( 'evl_skype', '' );
-$evolve_youtube    = evolve_get_option( 'evl_youtube', '' );
-$evolve_flickr     = evolve_get_option( 'evl_flickr', '' );
-$evolve_linkedin   = evolve_get_option( 'evl_linkedin', '' );
-$evolve_pinterest  = evolve_get_option( 'evl_pinterest', '' );
-$evolve_tumblr     = evolve_get_option( 'evl_tumblr', '' );
+$evolve_rss_feed   = evolve_theme_mod( 'evl_rss_feed', '' );
+$evolve_newsletter = evolve_theme_mod( 'evl_newsletter', '' );
+$evolve_facebook   = evolve_theme_mod( 'evl_facebook', '' );
+$evolve_twitter_id = evolve_theme_mod( 'evl_twitter_id', '' );
+$evolve_googleplus = evolve_theme_mod( 'evl_googleplus', '' );
+$evolve_instagram  = evolve_theme_mod( 'evl_instagram', '' );
+$evolve_skype      = evolve_theme_mod( 'evl_skype', '' );
+$evolve_youtube    = evolve_theme_mod( 'evl_youtube', '' );
+$evolve_flickr     = evolve_theme_mod( 'evl_flickr', '' );
+$evolve_linkedin   = evolve_theme_mod( 'evl_linkedin', '' );
+$evolve_pinterest  = evolve_theme_mod( 'evl_pinterest', '' );
+$evolve_tumblr     = evolve_theme_mod( 'evl_tumblr', '' );
 
 ?>
 

@@ -1107,7 +1107,7 @@ ul#slides {
       }
     }
   }
-  #header.sticky-header {
+  evolve_theme_mod {
     max-width: 100%;
     width: 100%;
     left: 0;
@@ -1115,10 +1115,10 @@ ul#slides {
     margin-left: auto;
     margin-right: auto;
   }
-  body #header.sticky-header {
+  body evolve_theme_mod {
     margin-left: auto !important;
   }
-  #header.sticky-header > .container {
+  evolve_theme_mod > .container {
     display: flex;
     align-items: center;
     display: -webkit-flex;

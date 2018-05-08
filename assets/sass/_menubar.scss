@@ -84,7 +84,7 @@
     }
 }
 
-#header.sticky-header {
+evolve_theme_mod {
     background: rgba(242, 242, 242, 0.97) none repeat scroll 0 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
@@ -292,7 +292,7 @@ ul.nav-menu li a.sf-with-ul {
 }
 
 
-body #header.sticky {
+body .sticky-header {
     @include animation(fadein .5s);
 }
 
@@ -355,15 +355,15 @@ body #header.sticky {
     }
 }
 
-body.admin-bar #header.sticky-header {
+body.admin-bar evolve_theme_mod {
     top: 32px;
 }
 
-body #header.sticky-header.sticky {
+body evolve_theme_mod.sticky {
     display: block;
 }
 
-body #header.sticky-header {
+body evolve_theme_mod {
     img#logo-image{
         margin-top: 8px;
         margin-bottom: 8px;
@@ -373,7 +373,7 @@ body #header.sticky-header {
     }
 }
 
-body #header.sticky-header{
+body evolve_theme_mod{
     .nav{
         ul.nav-menu{
             ul{
@@ -490,7 +490,7 @@ ul.nav-menu li.nav-hover ul {
     }
 }
 
-#header.sticky-header {
+evolve_theme_mod {
     .link-effect{
         a{
             line-height: 2.5em;

@@ -1,25 +1,25 @@
 <?php
 /* Front Page Content Boxes */
 function evolve_content_boxes() {
-    $evolve_content_boxes = evolve_get_option('evl_content_boxes', '1');
+    $evolve_content_boxes = evolve_theme_mod('evl_content_boxes', '1');
 	
     if ($evolve_content_boxes == "1") {
         global $evolve_options; do_action('fix_evolve_options_data');
 		
         
-        $evolve_content_box1_enable = evolve_get_option('evl_content_box1_enable', '1');
+        $evolve_content_box1_enable = evolve_theme_mod('evl_content_box1_enable', '1');
         if ($evolve_content_box1_enable === false) {
             $evolve_content_box1_enable = '';
         }
-        $evolve_content_box2_enable = evolve_get_option('evl_content_box2_enable', '1');
+        $evolve_content_box2_enable = evolve_theme_mod('evl_content_box2_enable', '1');
         if ($evolve_content_box2_enable === false) {
             $evolve_content_box2_enable = '';
         }
-        $evolve_content_box3_enable = evolve_get_option('evl_content_box3_enable', '1');
+        $evolve_content_box3_enable = evolve_theme_mod('evl_content_box3_enable', '1');
         if ($evolve_content_box3_enable === false) {
             $evolve_content_box3_enable = '';
         }
-        $evolve_content_box4_enable = evolve_get_option('evl_content_box4_enable', '1');
+        $evolve_content_box4_enable = evolve_theme_mod('evl_content_box4_enable', '1');
         if ($evolve_content_box4_enable === false) {
             $evolve_content_box4_enable = '';
         }
@@ -27,11 +27,11 @@ function evolve_content_boxes() {
         $evolve_content_boxes_section_padding_bottom      = $evolve_options['evl_content_boxes_section_padding']['padding-bottom'];
         $evolve_content_boxes_section_padding_left        = $evolve_options['evl_content_boxes_section_padding']['padding-left'];
         $evolve_content_boxes_section_padding_right       = $evolve_options['evl_content_boxes_section_padding']['padding-right'];
-        $evolve_content_boxes_section_back_color          = evolve_get_option( 'evl_content_boxes_section_back_color', '' );
-        $evolve_content_boxes_section_image_src           = evolve_get_option('evl_content_boxes_section_background_image');
-        $evolve_content_boxes_section_image               = evolve_get_option('evl_content_boxes_section_image', 'cover');
-        $evolve_content_boxes_section_background_repeat   = evolve_get_option('evl_content_boxes_section_image_background_repeat', 'no-repeat');
-        $evolve_content_boxes_section_background_position = evolve_get_option('evl_content_boxes_section_image_background_position', 'center top');
+        $evolve_content_boxes_section_back_color          = evolve_theme_mod( 'evl_content_boxes_section_back_color', '' );
+        $evolve_content_boxes_section_image_src           = evolve_theme_mod('evl_content_boxes_section_background_image');
+        $evolve_content_boxes_section_image               = evolve_theme_mod('evl_content_boxes_section_image', 'cover');
+        $evolve_content_boxes_section_background_repeat   = evolve_theme_mod('evl_content_boxes_section_image_background_repeat', 'no-repeat');
+        $evolve_content_boxes_section_background_position = evolve_theme_mod('evl_content_boxes_section_image_background_position', 'center top');
         //html_attr
         $html_class = 't4p-fullwidth fullwidth-box hentry';
         $html_style = '';
@@ -66,26 +66,26 @@ function evolve_content_boxes() {
                 $html_style .= sprintf( 'padding-right:%s;', $evolve_content_boxes_section_padding_right );
         }
         echo "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
-        $evolve_content_box_section_title = evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind');
+        $evolve_content_box_section_title = evolve_theme_mod('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind');
         if ($evolve_content_box_section_title == false) {
             $evolve_content_box_section_title = '';
         } else {
-            $evolve_content_box_section_title = '<h2 class="content_box_section_title section_title">'.evolve_get_option('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind').'</h2>';
+            $evolve_content_box_section_title = '<h2 class="content_box_section_title section_title">'.evolve_theme_mod('evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind').'</h2>';
         }
         echo "<div class='home-content-boxes'><div class='row'>".$evolve_content_box_section_title;
-        $evolve_content_box1_title = evolve_get_option('evl_content_box1_title', 'Flat & Beautiful');
+        $evolve_content_box1_title = evolve_theme_mod('evl_content_box1_title', 'Flat & Beautiful');
         if ($evolve_content_box1_title === false) {
             $evolve_content_box1_title = '';
         }
-        $evolve_content_box1_desc = evolve_get_option('evl_content_box1_desc', 'Clean modern theme with smooth and pixel perfect design focused on details');
+        $evolve_content_box1_desc = evolve_theme_mod('evl_content_box1_desc', 'Clean modern theme with smooth and pixel perfect design focused on details');
         if ($evolve_content_box1_desc === false) {
             $evolve_content_box1_desc = '';
         }
-        $evolve_content_box1_button = evolve_get_option('evl_content_box1_button', '<a class="read-more btn t4p-button" href="#">Learn more</a>');
+        $evolve_content_box1_button = evolve_theme_mod('evl_content_box1_button', '<a class="read-more btn t4p-button" href="#">Learn more</a>');
         if ($evolve_content_box1_button === false) {
             $evolve_content_box1_button = '';
         }
-        $evolve_content_box1_icon = evolve_get_option('evl_content_box1_icon', 'fa-cube');
+        $evolve_content_box1_icon = evolve_theme_mod('evl_content_box1_icon', 'fa-cube');
         if ($evolve_content_box1_icon === false) {
             $evolve_content_box1_icon = '';
         }
@@ -132,19 +132,19 @@ function evolve_content_boxes() {
             echo "<div class='cntbox_btn sbtn1'>" . do_shortcode($evolve_content_box1_button) . "</div>";
             echo "</div>";
         }
-        $evolve_content_box2_title = evolve_get_option('evl_content_box2_title', 'Easy Customizable');
+        $evolve_content_box2_title = evolve_theme_mod('evl_content_box2_title', 'Easy Customizable');
         if ($evolve_content_box2_title === false) {
             $evolve_content_box2_title = '';
         }
-        $evolve_content_box2_desc = evolve_get_option('evl_content_box2_desc', 'Over a hundred theme options ready to make your website unique');
+        $evolve_content_box2_desc = evolve_theme_mod('evl_content_box2_desc', 'Over a hundred theme options ready to make your website unique');
         if ($evolve_content_box2_desc === false) {
             $evolve_content_box2_desc = '';
         }
-        $evolve_content_box2_button = evolve_get_option('evl_content_box2_button', '<a class="read-more btn t4p-button" href="#">Learn more</a>');
+        $evolve_content_box2_button = evolve_theme_mod('evl_content_box2_button', '<a class="read-more btn t4p-button" href="#">Learn more</a>');
         if ($evolve_content_box2_button === false) {
             $evolve_content_box2_button = '';
         }
-        $evolve_content_box2_icon = evolve_get_option('evl_content_box2_icon', 'fa-circle-o-notch');
+        $evolve_content_box2_icon = evolve_theme_mod('evl_content_box2_icon', 'fa-circle-o-notch');
         if ($evolve_content_box2_icon === false) {
             $evolve_content_box2_icon = '';
         }
@@ -156,19 +156,19 @@ function evolve_content_boxes() {
             echo "<div class='cntbox_btn sbtn2'>" . do_shortcode($evolve_content_box2_button) . "</div>";
             echo "</div>";
         }
-        $evolve_content_box3_title = evolve_get_option('evl_content_box3_title', 'WooCommerce Ready');
+        $evolve_content_box3_title = evolve_theme_mod('evl_content_box3_title', 'WooCommerce Ready');
         if ($evolve_content_box3_title === false) {
             $evolve_content_box3_title = '';
         }
-        $evolve_content_box3_desc = evolve_get_option('evl_content_box3_desc', 'Start selling your products within few minutes using the WooCommerce feature');
+        $evolve_content_box3_desc = evolve_theme_mod('evl_content_box3_desc', 'Start selling your products within few minutes using the WooCommerce feature');
         if ($evolve_content_box3_desc === false) {
             $evolve_content_box3_desc = '';
         }
-        $evolve_content_box3_button = evolve_get_option('evl_content_box3_button', '<a class="read-more btn t4p-button" href="#">Learn more</a>');
+        $evolve_content_box3_button = evolve_theme_mod('evl_content_box3_button', '<a class="read-more btn t4p-button" href="#">Learn more</a>');
         if ($evolve_content_box3_button === false) {
             $evolve_content_box3_button = '';
         }
-        $evolve_content_box3_icon = evolve_get_option('evl_content_box3_icon', 'fa-shopping-basket');
+        $evolve_content_box3_icon = evolve_theme_mod('evl_content_box3_icon', 'fa-shopping-basket');
         if ($evolve_content_box3_icon === false) {
             $evolve_content_box3_icon = '';
         }
@@ -180,19 +180,19 @@ function evolve_content_boxes() {
             echo "<div class='cntbox_btn sbtn3'>" . do_shortcode($evolve_content_box3_button) . "</div>";
             echo "</div>";
         }
-        $evolve_content_box4_title = evolve_get_option('evl_content_box4_title', 'Prebuilt Demos');
+        $evolve_content_box4_title = evolve_theme_mod('evl_content_box4_title', 'Prebuilt Demos');
         if ($evolve_content_box4_title === false) {
             $evolve_content_box4_title = '';
         }
-        $evolve_content_box4_desc = evolve_get_option('evl_content_box4_desc', 'Drag & Drop front page builder with many demos just perfect to start your new project');
+        $evolve_content_box4_desc = evolve_theme_mod('evl_content_box4_desc', 'Drag & Drop front page builder with many demos just perfect to start your new project');
         if ($evolve_content_box4_desc === false) {
             $evolve_content_box4_desc = '';
         }
-        $evolve_content_box4_button = evolve_get_option('evl_content_box4_button', '<a class="read-more btn t4p-button" href="#">Learn more</a>');
+        $evolve_content_box4_button = evolve_theme_mod('evl_content_box4_button', '<a class="read-more btn t4p-button" href="#">Learn more</a>');
         if ($evolve_content_box4_button === false) {
             $evolve_content_box4_button = '';
         }
-        $evolve_content_box4_icon = evolve_get_option('evl_content_box4_icon', 'fa-object-ungroup');
+        $evolve_content_box4_icon = evolve_theme_mod('evl_content_box4_icon', 'fa-object-ungroup');
         if ($evolve_content_box4_icon === false) {
             $evolve_content_box4_icon = '';
         }
@@ -214,12 +214,12 @@ function evolve_testimonials() {
     $testimonials_counter = 1;
     $backgroundcolor = $evolve_options["evl_fp_testimonials_bg_color"];
     $textcolor = $evolve_options["evl_fp_testimonials_text_color"];
-    $evolve_testimonials_section_back_color             = evolve_get_option( 'evl_testimonials_section_back_color', '' );
+    $evolve_testimonials_section_back_color             = evolve_theme_mod( 'evl_testimonials_section_back_color', '' );
 	// var_dump($evolve_testimonials_section_back_color);exit;
-    $evolve_testimonials_section_image_src              = evolve_get_option('evl_testimonials_section_background_image');
-    $evolve_testimonials_section_image                  = evolve_get_option('evl_testimonials_section_image', 'cover');
-    $evolve_testimonials_section_background_position    = evolve_get_option('evl_testimonials_section_image_background_position', 'center top');
-    $evolve_testimonials_section_background_repeat      = evolve_get_option('evl_testimonials_section_image_background_repeat', 'no-repeat');
+    $evolve_testimonials_section_image_src              = evolve_theme_mod('evl_testimonials_section_background_image');
+    $evolve_testimonials_section_image                  = evolve_theme_mod('evl_testimonials_section_image', 'cover');
+    $evolve_testimonials_section_background_position    = evolve_theme_mod('evl_testimonials_section_image_background_position', 'center top');
+    $evolve_testimonials_section_background_repeat      = evolve_theme_mod('evl_testimonials_section_image_background_repeat', 'no-repeat');
     $evolve_testimonials_section_padding_top            = $evolve_options['evl_testimonials_section_padding']['padding-top'];
     $evolve_testimonials_section_padding_bottom         = $evolve_options['evl_testimonials_section_padding']['padding-bottom'];
     $evolve_testimonials_section_padding_left           = $evolve_options['evl_testimonials_section_padding']['padding-left'];
@@ -263,11 +263,11 @@ function evolve_testimonials() {
     .t4p-testimonials.t4p-testimonials-{$testimonials_counter}  blockquote { background-color:{$backgroundcolor}; color:{$textcolor}; }
     </style>
     ";
-    $evolve_testimonials_section_title = evolve_get_option('evl_testimonials_title', 'Why people love our themes');
+    $evolve_testimonials_section_title = evolve_theme_mod('evl_testimonials_title', 'Why people love our themes');
     if ($evolve_testimonials_section_title == false) {
         $evolve_testimonials_section_title = '';
     } else {
-        $evolve_testimonials_section_title = '<h2 class="testimonials_section_title section_title">'.evolve_get_option('evl_testimonials_title', 'Why people love our themes').'</h2>';
+        $evolve_testimonials_section_title = '<h2 class="testimonials_section_title section_title">'.evolve_theme_mod('evl_testimonials_title', 'Why people love our themes').'</h2>';
     }
     $html .= "<div class='t4p-testimonials t4p-testimonials-$testimonials_counter'>$styles".$evolve_testimonials_section_title."<div class='reviews'>";
     for ($i = 1; $i <= 2; $i ++) {
@@ -358,11 +358,11 @@ function evolve_counter_circle() {
     $evolve_counter_circle_section_padding_bottom       = $evolve_options['evl_counter_circle_section_padding']['padding-bottom'];
     $evolve_counter_circle_section_padding_left         = $evolve_options['evl_counter_circle_section_padding']['padding-left'];
     $evolve_counter_circle_section_padding_right        = $evolve_options['evl_counter_circle_section_padding']['padding-right'];
-    $evolve_counter_circle_section_back_color           = evolve_get_option( 'evl_counter_circle_section_back_color', '' );
-    $evolve_counter_circle_section_image_src            = evolve_get_option('evl_counter_circle_section_background_image');
-    $evolve_counter_circle_section_image                = evolve_get_option('evl_counter_circle_section_image', 'cover');
-    $evolve_counter_circle_section_background_repeat    = evolve_get_option('evl_counter_circle_section_image_background_repeat', 'no-repeat');
-    $evolve_counter_circle_section_background_position  = evolve_get_option('evl_counter_circle_section_image_background_position', 'center top');
+    $evolve_counter_circle_section_back_color           = evolve_theme_mod( 'evl_counter_circle_section_back_color', '' );
+    $evolve_counter_circle_section_image_src            = evolve_theme_mod('evl_counter_circle_section_background_image');
+    $evolve_counter_circle_section_image                = evolve_theme_mod('evl_counter_circle_section_image', 'cover');
+    $evolve_counter_circle_section_background_repeat    = evolve_theme_mod('evl_counter_circle_section_image_background_repeat', 'no-repeat');
+    $evolve_counter_circle_section_background_position  = evolve_theme_mod('evl_counter_circle_section_image_background_position', 'center top');
     
     //html_attr
     $html_class = 't4p-fullwidth fullwidth-box hentry';
@@ -398,11 +398,11 @@ function evolve_counter_circle() {
             $html_style .= sprintf( 'padding-right:%s;', $evolve_counter_circle_section_padding_right );
     }
     $html = "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
-    $evolve_counter_circle_section_title = evolve_get_option('evl_counter_circle_title', 'Cooperation with many great brands is our mission');
+    $evolve_counter_circle_section_title = evolve_theme_mod('evl_counter_circle_title', 'Cooperation with many great brands is our mission');
     if ($evolve_counter_circle_section_title == false) {
         $evolve_counter_circle_section_title = '';
     } else {
-        $evolve_counter_circle_section_title = '<h2 class="counter_circle_section_title section_title">'.evolve_get_option('evl_counter_circle_title', 'Cooperation with many great brands is our mission').'</h2>';
+        $evolve_counter_circle_section_title = '<h2 class="counter_circle_section_title section_title">'.evolve_theme_mod('evl_counter_circle_title', 'Cooperation with many great brands is our mission').'</h2>';
     }
     $html   .=   "<div class='t4p-counters-circle counters-circle'>".$evolve_counter_circle_section_title;
     for ($i = 1; $i <= 3; $i ++) {
@@ -460,11 +460,11 @@ function evolve_google_map() {
     $evolve_googlemap_section_padding_bottom       = $evolve_options['evl_googlemap_section_padding']['padding-bottom'];
     $evolve_googlemap_section_padding_left         = $evolve_options['evl_googlemap_section_padding']['padding-left'];
     $evolve_googlemap_section_padding_right        = $evolve_options['evl_googlemap_section_padding']['padding-right'];
-    $evolve_googlemap_section_back_color           = evolve_get_option( 'evl_googlemap_section_back_color', '' );
-    $evolve_googlemap_section_image_src            = evolve_get_option('evl_googlemap_section_background_image');
-    $evolve_googlemap_section_image                = evolve_get_option('evl_googlemap_section_image', 'cover');
-    $evolve_googlemap_section_background_repeat    = evolve_get_option('evl_googlemap_section_image_background_repeat', 'no-repeat');
-    $evolve_googlemap_section_background_position  = evolve_get_option('evl_googlemap_section_image_background_position', 'center top');
+    $evolve_googlemap_section_back_color           = evolve_theme_mod( 'evl_googlemap_section_back_color', '' );
+    $evolve_googlemap_section_image_src            = evolve_theme_mod('evl_googlemap_section_background_image');
+    $evolve_googlemap_section_image                = evolve_theme_mod('evl_googlemap_section_image', 'cover');
+    $evolve_googlemap_section_background_repeat    = evolve_theme_mod('evl_googlemap_section_image_background_repeat', 'no-repeat');
+    $evolve_googlemap_section_background_position  = evolve_theme_mod('evl_googlemap_section_image_background_position', 'center top');
     //html_attr
     $html_class = 't4p-fullwidth fullwidth-box hentry';
     $html_style = '';
@@ -500,11 +500,11 @@ function evolve_google_map() {
     }
     $html = "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
     
-    $evolve_googlemap_section_title = evolve_get_option('evl_googlemap_title', 'Our Contact Place');
+    $evolve_googlemap_section_title = evolve_theme_mod('evl_googlemap_title', 'Our Contact Place');
     if ($evolve_googlemap_section_title == false) {
         $evolve_googlemap_section_title = '';
     } else {
-        $evolve_googlemap_section_title = '<h2 class="googlemap_section_title section_title">'.evolve_get_option('evl_googlemap_title', 'Our Contact Place').'</h2>';
+        $evolve_googlemap_section_title = '<h2 class="googlemap_section_title section_title">'.evolve_theme_mod('evl_googlemap_title', 'Our Contact Place').'</h2>';
     }
     $html   .=   "<div class='t4p-googlemap'>".$evolve_googlemap_section_title;
     if ( $gmap_alignment === 'right' ) {
@@ -638,11 +638,11 @@ function evolve_custom_content() {
     $evolve_custom_content_section_padding_bottom       = $evolve_options['evl_custom_content_section_padding']['padding-bottom'];
     $evolve_custom_content_section_padding_left         = $evolve_options['evl_custom_content_section_padding']['padding-left'];
     $evolve_custom_content_section_padding_right        = $evolve_options['evl_custom_content_section_padding']['padding-right'];
-    $evolve_custom_content_section_back_color           = evolve_get_option( 'evl_custom_content_section_back_color', '' );
-    $evolve_custom_content_section_image_src            = evolve_get_option('evl_custom_content_section_background_image');
-    $evolve_custom_content_section_image                = evolve_get_option('evl_custom_content_section_image', 'cover');
-    $evolve_custom_content_section_background_repeat    = evolve_get_option('evl_custom_content_section_image_background_repeat', 'no-repeat');
-    $evolve_custom_content_section_background_position  = evolve_get_option('evl_custom_content_section_image_background_position', 'center top');
+    $evolve_custom_content_section_back_color           = evolve_theme_mod( 'evl_custom_content_section_back_color', '' );
+    $evolve_custom_content_section_image_src            = evolve_theme_mod('evl_custom_content_section_background_image');
+    $evolve_custom_content_section_image                = evolve_theme_mod('evl_custom_content_section_image', 'cover');
+    $evolve_custom_content_section_background_repeat    = evolve_theme_mod('evl_custom_content_section_image_background_repeat', 'no-repeat');
+    $evolve_custom_content_section_background_position  = evolve_theme_mod('evl_custom_content_section_image_background_position', 'center top');
     //html_attr
     $html_class = 't4p-fullwidth fullwidth-box hentry';
     $html_style = '';
@@ -678,11 +678,11 @@ function evolve_custom_content() {
     }
     $html = "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
     
-    $evolve_custom_content_section_title = evolve_get_option('evl_custom_content_title', 'Your Custom Content Here');
+    $evolve_custom_content_section_title = evolve_theme_mod('evl_custom_content_title', 'Your Custom Content Here');
     if ($evolve_custom_content_section_title == false) {
         $evolve_custom_content_section_title = '';
     } else {
-        $evolve_custom_content_section_title = '<h2 class="custom_content_section_title section_title">'.evolve_get_option('evl_custom_content_title', 'Your Custom Content Here').'</h2>';
+        $evolve_custom_content_section_title = '<h2 class="custom_content_section_title section_title">'.evolve_theme_mod('evl_custom_content_title', 'Your Custom Content Here').'</h2>';
     }
     $html  .= "<div class='t4p-text' >".$evolve_custom_content_section_title;
     $html .= $content;
@@ -699,11 +699,11 @@ function evolve_woocommerce_products() {
     $evolve_woo_product_section_padding_bottom       = $evolve_options['evl_woo_product_section_padding']['padding-bottom'];
     $evolve_woo_product_section_padding_left         = $evolve_options['evl_woo_product_section_padding']['padding-left'];
     $evolve_woo_product_section_padding_right        = $evolve_options['evl_woo_product_section_padding']['padding-right'];
-    $evolve_woo_product_section_back_color           = evolve_get_option( 'evl_woo_product_section_back_color', '' );
-    $evolve_woo_product_section_image_src            = evolve_get_option('evl_woo_product_section_background_image');
-    $evolve_woo_product_section_image                = evolve_get_option('evl_woo_product_section_image', 'cover');
-    $evolve_woo_product_section_background_repeat    = evolve_get_option('evl_woo_product_section_image_background_repeat', 'no-repeat');
-    $evolve_woo_product_section_background_position  = evolve_get_option('evl_woo_product_section_image_background_position', 'center top');
+    $evolve_woo_product_section_back_color           = evolve_theme_mod( 'evl_woo_product_section_back_color', '' );
+    $evolve_woo_product_section_image_src            = evolve_theme_mod('evl_woo_product_section_background_image');
+    $evolve_woo_product_section_image                = evolve_theme_mod('evl_woo_product_section_image', 'cover');
+    $evolve_woo_product_section_background_repeat    = evolve_theme_mod('evl_woo_product_section_image_background_repeat', 'no-repeat');
+    $evolve_woo_product_section_background_position  = evolve_theme_mod('evl_woo_product_section_image_background_position', 'center top');
     //html_attr
     $html_class = 't4p-fullwidth fullwidth-box hentry';
     $html_style = '';
@@ -739,11 +739,11 @@ function evolve_woocommerce_products() {
     }
     $html = "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
     
-    $evolve_woo_product_section_title = evolve_get_option('evl_woo_product_title', 'New Arrival Product');
+    $evolve_woo_product_section_title = evolve_theme_mod('evl_woo_product_title', 'New Arrival Product');
     if ($evolve_woo_product_section_title == false) {
         $evolve_woo_product_section_title = '';
     } else {
-        $evolve_woo_product_section_title = '<h2 class="woo_product_section_title section_title">'.evolve_get_option('evl_woo_product_title', 'New Arrival Product').'</h2>';
+        $evolve_woo_product_section_title = '<h2 class="woo_product_section_title section_title">'.evolve_theme_mod('evl_woo_product_title', 'New Arrival Product').'</h2>';
     }
     $html  .= "<div class='t4p-woo-product' >".$evolve_woo_product_section_title;
     if ($product_cat) {
@@ -783,11 +783,11 @@ function evolve_blog_posts() {
     $evolve_blog_section_padding_bottom       = $evolve_options['evl_blog_section_padding']['padding-bottom'];
     $evolve_blog_section_padding_left         = $evolve_options['evl_blog_section_padding']['padding-left'];
     $evolve_blog_section_padding_right        = $evolve_options['evl_blog_section_padding']['padding-right'];
-    $evolve_blog_section_back_color           = evolve_get_option( 'evl_blog_section_back_color', '' );
-    $evolve_blog_section_image_src            = evolve_get_option('evl_blog_section_background_image');
-    $evolve_blog_section_image                = evolve_get_option('evl_blog_section_image', 'cover');
-    $evolve_blog_section_background_repeat    = evolve_get_option('evl_blog_section_image_background_repeat', 'no-repeat');
-    $evolve_blog_section_background_position  = evolve_get_option('evl_blog_section_image_background_position', 'center top');
+    $evolve_blog_section_back_color           = evolve_theme_mod( 'evl_blog_section_back_color', '' );
+    $evolve_blog_section_image_src            = evolve_theme_mod('evl_blog_section_background_image');
+    $evolve_blog_section_image                = evolve_theme_mod('evl_blog_section_image', 'cover');
+    $evolve_blog_section_background_repeat    = evolve_theme_mod('evl_blog_section_image_background_repeat', 'no-repeat');
+    $evolve_blog_section_background_position  = evolve_theme_mod('evl_blog_section_image_background_position', 'center top');
     //html_attr
     $html_class = 't4p-fullwidth fullwidth-box hentry';
     $html_style = '';
@@ -823,11 +823,11 @@ function evolve_blog_posts() {
     }
     $html = "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
     
-    $evolve_fp_blog_section_title = evolve_get_option('evl_blog_section_title', 'Read New Story Here');
+    $evolve_fp_blog_section_title = evolve_theme_mod('evl_blog_section_title', 'Read New Story Here');
     if ($evolve_fp_blog_section_title == false) {
         $evolve_fp_blog_section_title = '';
     } else {
-        $evolve_fp_blog_section_title = '<h2 class="fp_blog_section_title section_title">'.evolve_get_option('evl_blog_section_title', 'Read New Story Here').'</h2>';
+        $evolve_fp_blog_section_title = '<h2 class="fp_blog_section_title section_title">'.evolve_theme_mod('evl_blog_section_title', 'Read New Story Here').'</h2>';
     }
     $html  .= "<div class='t4p-fp-blog' >".$evolve_fp_blog_section_title;
             if ( is_front_page() || is_home() ) {
@@ -1495,33 +1495,33 @@ if( ! function_exists('t4p_content') ) {
 	}
 }
 /* Front Page Bootstrap Slider */
-function fp_bootstrap_slider() {
+function evolve_frontpage_bootstrap_slider() {
     // Bootstrap Slider
-    $evolve_bootstrap_on = evolve_get_option('evl_bootstrap_slider_support', '1');
+    $evolve_bootstrap_on = evolve_theme_mod('evl_bootstrap_slider_support', '1');
     if ( ($evolve_bootstrap_on == "1" && is_front_page()) || ($evolve_bootstrap_on == "1" && is_home()) ):
-	$evolve_bootstrap_slider = evolve_get_option('evl_bootstrap_slider_support', '1');
+	$evolve_bootstrap_slider = evolve_theme_mod('evl_bootstrap_slider_support', '1');
 		if ($evolve_bootstrap_slider == "1"):
 			evolve_bootstrap();
         endif;		
     endif;
 }
 /* Front Page Parallax Slider */
-function fp_parallax_slider() {
+function evolve_frontpage_parallax_slider() {
     // Parallax Slider
-    $evolve_parallax_on = evolve_get_option('evl_parallax_slider_support', '1');
+    $evolve_parallax_on = evolve_theme_mod('evl_parallax_slider_support', '1');
     if ( ($evolve_parallax_on == "1" && is_front_page()) || ($evolve_parallax_on == "1" && is_home()) ):
-        $evolve_parallax_slider = evolve_get_option('evl_parallax_slider_support', '1');
+        $evolve_parallax_slider = evolve_theme_mod('evl_parallax_slider_support', '1');
         if ($evolve_parallax_slider == "1"):
             evolve_parallax();
         endif;
     endif;
 }
 /* Front Page Posts Slider */
-function fp_post_slider() {
+function evolve_frontpage_post_slider() {
     // Posts Slider
-    $evolve_post_on = evolve_get_option('evl_carousel_slider', '1');
+    $evolve_post_on = evolve_theme_mod('evl_carousel_slider', '1');
     if ( ($evolve_post_on == "1" && is_front_page()) || ($evolve_post_on == "1" && is_home()) ):
-        $evolve_carousel_slider = evolve_get_option('evl_carousel_slider', '1');
+        $evolve_carousel_slider = evolve_theme_mod('evl_carousel_slider', '1');
         if ($evolve_carousel_slider == "1"):
             evolve_posts_slider();
         endif;
