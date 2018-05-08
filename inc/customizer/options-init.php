@@ -7277,10 +7277,9 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 						$plugin_options[ $key ] = $value;
 					}
 				}
-				$result = $value;
-				if ( $result && is_array($result) && count( $result ) && isset($result["enabled"]) && is_array($result["enabled"]) && count( $result["enabled"] ) ) {
+				if ( $value && is_array($value) && count( $value ) && isset($value["enabled"]) && is_array($value["enabled"]) && count( $value["enabled"] ) ) {
 					$enabled_temp = array();
-					foreach ( $result["enabled"] as $enabled_key => $items ) {
+					foreach ( $value["enabled"] as $enabled_key => $items ) {
 						if('placebo' != $enabled_key){
 							$enabled_temp[] = $enabled_key;
 						}
