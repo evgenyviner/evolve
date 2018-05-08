@@ -7292,7 +7292,7 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 					$value = $value["url"];
 				}
 				if ( $value && is_array($value) && count( $value ) && isset($value["color"]) ) {
-					$value = $value["color"];
+					// $value = $value["color"];
 				}
 				set_theme_mod($key, $value);
 			}
@@ -7304,6 +7304,7 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 		?>
         <script type='text/javascript'>
             jQuery(document).ready(function ($) {
+				alert('Please reload website to see the new layout!');
                 window.location.href = window.location.href;
             });
         </script>
