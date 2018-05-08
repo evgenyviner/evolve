@@ -474,7 +474,7 @@ function evolve_bootstrap() {
 				$active = " active";
 			}
 			echo "<div class='carousel-item" . $active . "'>";
-			echo "<img class='d-block w-100' src='" . $evolve_options["evl_bootstrap_slide{$i}_img"]['url'] . "' alt='" . $evolve_options["evl_bootstrap_slide{$i}_title"] . "' />";
+			echo "<img class='d-block w-100' src='" . $evolve_options["evl_bootstrap_slide{$i}_img"] . "' alt='" . $evolve_options["evl_bootstrap_slide{$i}_title"] . "' />";
 			echo '<div class="carousel-caption ' . evolve_bootstrap_layout_class() . '">';
 			if ( strlen( $evolve_options["evl_bootstrap_slide{$i}_title"] ) > 0 ) {
 				echo "<h2>" . esc_attr( $evolve_options["evl_bootstrap_slide{$i}_title"] ) . "</h2>";
