@@ -7302,6 +7302,14 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 				if ( $value && is_array($value) && count( $value ) && isset($value["color"]) ) {
 					// $value = $value["color"];
 				}
+				if ( isset( $value['font-style'] ) ) {
+					$value['variant'] = $value['font-style'];
+				}
+				if ( ! is_array( $value ) ) {
+					$value = str_replace( 'far fa-', '', $value );
+					$value = str_replace( 'fas fa-', '', $value );
+					$value = str_replace( 'fa fa-', '', $value );
+				}
 				set_theme_mod($key, $value);
 			}
 
