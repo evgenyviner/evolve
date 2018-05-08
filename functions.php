@@ -1,7 +1,5 @@
 <?php
-
 do_action( 'fix_evolve_options_data' );
-
 $evolve_similar_posts              = evolve_theme_mod( 'evl_similar_posts', 'disable' );
 $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerpt_title_length', '40' ) );
 $evolve_gmap                       = evolve_theme_mod( 'evl_status_gmap', '1' );
@@ -31,73 +29,54 @@ $evolve_fontawesome                = evolve_theme_mod( 'evl_fontawesome', '0' );
 $evolve_google_map_api             = evolve_theme_mod( 'evl_google_map_api', '' );
 $evolve_footer_reveal              = evolve_theme_mod( 'evl_footer_reveal' );
 $evolve_menu_back                  = evolve_theme_mod( 'evl_menu_back', 'dark' );
-
 /*
    Theme Setup
    ======================================= */
-
 function evolve_setup() {
-
 	$evolve_width_px_default = evolve_theme_mod( 'evl_width_px', '1200' );
 	$evolve_width_px         = apply_filters( 'evolve_header_image_width', $evolve_width_px_default );
 	$evolve_layout           = evolve_theme_mod( 'evl_layout', '2cr' );
 	$evolve_width_layout     = evolve_theme_mod( 'evl_width_layout', 'fixed' );
-
 	// Load Textdomain
 	load_theme_textdomain( 'evolve' );
-
 	// Feed Links
 	add_theme_support( 'automatic-feed-links' );
-
 	// Support For Post Thumbnails
 	add_theme_support( 'post-thumbnails' );
-
 	// Title Tags
 	add_theme_support( 'title-tag' );
-
 	// Supported Image Sizes
 	add_image_size( 'evolve-post-thumbnail', 680, 330, true );
 	add_image_size( 'evolve-slider-thumbnail', 400, 280, true );
 	add_image_size( 'evolve-tabs-img', 50, 50, true );
-
 	// Editor Style Support
 	add_editor_style( 'assets/css/editor-style.css' );
-
 	// Custom Titles
 	if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
-
 		function evolve_wp_title( $title, $sep ) {
 			if ( is_feed() ) {
 				return $title;
 			}
 			global $page, $paged;
-
 			// Add the blog name
 			$title .= get_bloginfo( 'name', 'display' );
-
 			// Add the blog description for the home/front page.
 			$site_description = get_bloginfo( 'description', 'display' );
 			if ( $site_description && ( is_home() || is_front_page() ) ) {
 				$title .= " $sep $site_description";
 			}
-
 			// Add a page number if necessary:
 			if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
 				$title .= " $sep " . sprintf( __( 'Page %s', 'evolve' ), max( $paged, $page ) );
 			}
-
 			return $title;
 		}
-
 		add_filter( 'wp_title', 'evolve_wp_title', 10, 2 );
-
 		function evolve_render_title() { ?>
             <title><?php wp_title( '-', true, 'right' ); ?></title>
 		<?php }
-
 		add_action( 'wp_head', 'evolve_render_title' );
 	endif;
-
 	// Custom Header Support
 	$args = array(
 		'flex-width'  => true,
@@ -107,7 +86,6 @@ function evolve_setup() {
 		'header-text' => false,
 	);
 	add_theme_support( 'custom-header', $args );
-
 	// Default Background
 	if ( $evolve_width_layout == "fixed" ) {
 		$defaults = array(
@@ -116,7 +94,6 @@ function evolve_setup() {
 		);
 		add_theme_support( 'custom-background', $defaults );
 	}
-
 	// Post Formats Support
 	add_theme_support( 'post-formats', array(
 		'aside',
@@ -129,7 +106,6 @@ function evolve_setup() {
 		'status',
 		'video'
 	) );
-
 	// Register Navigation Menu Locations
 	register_nav_menus(
 		array(
@@ -138,10 +114,8 @@ function evolve_setup() {
 			'sticky_navigation' => __( 'Sticky Header Menu', 'evolve' ),
 		)
 	);
-
 	// Define Content Width
 	global $content_width;
-
 	if ( $evolve_layout == "2cl" || $evolve_layout == "2cr" ) {
 		if ( ! isset( $content_width ) ) {
 			$content_width = 610;
@@ -159,24 +133,18 @@ function evolve_setup() {
 			$content_width = 955;
 		}
 	}
-
 	// Selective Refresh For Widgets
 	add_theme_support( 'customize-selective-refresh-widgets' );
 }
-
 add_action( 'after_setup_theme', 'evolve_setup' );
-
 /*
    Init Custom Definitions And Functions
    ======================================= */
-
 get_template_part( 'inc/custom-functions/theme-definitions' );
 evolve_theme_init::init();
-
 /*
    Truncate Function
    ======================================= */
-
 function evolve_truncate( $str, $length = 10, $trailing = '..' ) {
 	$length -= mb_strlen( $trailing );
 	if ( mb_strlen( $str ) > $length ) {
@@ -184,14 +152,11 @@ function evolve_truncate( $str, $length = 10, $trailing = '..' ) {
 	} else {
 		$res = $str;
 	}
-
 	return $res;
 }
-
 /*
    Custom Excerpt Length
    ======================================= */
-
 function evolve_excerpt_max_charlength( $num ) {
 	$limit   = $num + 1;
 	$excerpt = explode( ' ', get_the_excerpt(), $limit );
@@ -199,41 +164,32 @@ function evolve_excerpt_max_charlength( $num ) {
 	$excerpt = implode( " ", $excerpt ) . " [...]";
 	echo $excerpt;
 }
-
 /*
    Get First Image
    ======================================= */
-
 function evolve_get_first_image() {
 	global $post, $posts;
 	$first_img = '';
 	$output    = preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches );
 	if ( isset( $matches[1][0] ) ) {
 		$first_img = $matches [1][0];
-
 		return $first_img;
 	}
 }
-
 /*
    Tiny URL
    ======================================= */
-
 function evolve_tinyurl( $url ) {
 	$response = esc_url( wp_remote_retrieve_body( wp_remote_get( 'http://tinyurl.com/api-create.php?url=' . $url ) ) );
-
 	return $response;
 }
-
 /*
    Similar Posts Feature
    ======================================= */
-
 function evolve_similar_posts() {
 	$post      = '';
 	$orig_post = $post;
 	global $post, $evolve_similar_posts, $evolve_posts_excerpt_title_length;
-
 	if ( $evolve_similar_posts == "category" ) {
 		$matchby = get_the_category( $post->ID );
 		$matchin = 'category';
@@ -241,30 +197,25 @@ function evolve_similar_posts() {
 		$matchby = wp_get_post_tags( $post->ID );
 		$matchin = 'tag';
 	}
-
 	if ( $matchby ) {
 		$matchby_ids = array();
 		foreach ( $matchby as $individual_matchby ) {
 			$matchby_ids[] = $individual_matchby->term_id;
 		}
-
 		$args = array(
 			$matchin . '__in'     => $matchby_ids,
 			'post__not_in'        => array( $post->ID ),
 			'showposts'           => 5, // Number of related posts that will be shown.
 			'ignore_sticky_posts' => 1
 		);
-
 		$my_query = new wp_query( $args );
 		if ( $my_query->have_posts() ) {
 			echo '<div class="similar-posts"><h5>' . __( 'Similar posts', 'evolve' ) . '</h5><ul>';
 			while ( $my_query->have_posts() ) {
 				$my_query->the_post(); ?>
-
                 <li>
                     <a href="<?php the_permalink() ?>" rel="bookmark"
                        title="<?php _e( 'Permanent Link to', 'evolve' ); ?> <?php the_title(); ?>">
-
 						<?php if ( get_the_title() ) {
 							$title = the_title( '', '', false );
 							echo evolve_truncate( $title, $evolve_posts_excerpt_title_length, '...' );
@@ -282,17 +233,13 @@ function evolve_similar_posts() {
 	$post = $orig_post;
 	wp_reset_query();
 }
-
 /*
    Footer Hooks
    ======================================= */
-
 function evolve_footer_hooks() {
 	global $evolve_gmap, $evolve_gmap_address, $evolve_gmap_type, $evolve_map_zoom_level, $evolve_map_pop, $evolve_map_scrollwheel, $evolve_map_scale, $evolve_map_zoomcontrol, $evolve_map_pin;
 	if ( is_page_template( 'contact.php' ) ):
-
 		if ( $evolve_gmap ):
-
 			$evolve_gmap_address = addslashes( $evolve_gmap_address );
 			$addresses           = explode( '|', $evolve_gmap_address );
 			$markers             = '';
@@ -310,7 +257,6 @@ function evolve_footer_hooks() {
 			}
 		},";
 			} ?>
-
             <script type='text/javascript'>
                 jQuery(document).ready(
                     function ($) {
@@ -329,7 +275,6 @@ function evolve_footer_hooks() {
                 );</script>
 		<?php endif;
 	endif; ?>
-
     <script type="text/javascript">
         var $jx = jQuery.noConflict();
         $jx("div.post").mouseover(
@@ -368,7 +313,6 @@ function evolve_footer_hooks() {
                 $jx(this).find("span.edit-comment").css('visibility', 'hidden');
             }
         );</script>
-
 	<?php global $evolve_options, $evolve_slider_position, $evolve_front_elements_header_area, $evolve_sticky_header, $evolve_page_ID;
 	$evolve_header_pos = '';
 	if ( $evolve_front_elements_header_area ) {
@@ -381,14 +325,11 @@ function evolve_footer_hooks() {
 		}
 	}
 	$evolve_options['evl_front_elements_header_area']['enabled'] = $evolve_front_elements_header_area;
-
 	if ( isset( $evolve_options['evl_front_elements_header_area']['enabled'] ) ) {
 		$evolve_frontpage_slider = array_keys( $evolve_options['evl_front_elements_header_area']['enabled'] );
 		$evolve_header_pos       = array_search( "header", $evolve_frontpage_slider );
 	}
-
 	if ( evolve_theme_mod( 'evl_sticky_header', true ) ) { ?>
-
         <script type="text/javascript">
             jQuery(document).ready(
                 function ($) {
@@ -405,15 +346,11 @@ function evolve_footer_hooks() {
                     }
                 }
             );</script>
-
 	<?php }
-
 	// Animate CSS Feature
 	global $evolve_animate_css;
 	if ( $evolve_animate_css == "1" ) { ?>
-
         <script type="text/javascript">
-
             var $animated = jQuery.noConflict();
             $animated('.post-more').hover(
                 function () {
@@ -447,62 +384,47 @@ function evolve_footer_hooks() {
                     $animated(this).removeClass('animated pulse')
                 }
             )
-
         </script>
-
 	<?php }
-
 	// Posts Slider
 	global $evolve_carousel_slider;
 	if ( $evolve_carousel_slider == "1" ):
 		if ( empty( $evolve_carousel_speed ) ): $evolve_carousel_speed = '3500';
 		endif; ?>
-
         <script type="text/javascript">
             jQuery(function ($) {
                 $('#slides')
                     .anythingSlider({autoPlay: true, delay: <?php echo $evolve_carousel_speed; ?>,})
             });
         </script>
-
 	<?php
 	endif;
-
 	$evolve_bootstrap_speed = evolve_theme_mod( 'evl_bootstrap_speed', '7000' );
 	if ( empty( $evolve_bootstrap_speed ) ): $evolve_bootstrap_speed = '7000';
 	endif;
-
 }
-
 function evolve_hexDarker( $hex, $factor = 30 ) {
 	$new_hex = '';
-
 	// if hex code null than assign transparent for hide PHP warning /
 	$hex = empty( $hex ) ? 'ransparent' : $hex;
-
 	$base['R'] = hexdec( $hex{0} . $hex{1} );
 	$base['G'] = hexdec( $hex{2} . $hex{3} );
 	$base['B'] = hexdec( $hex{4} . $hex{5} );
-
 	foreach ( $base as $k => $v ) {
 		$amount      = $v / 100;
 		$amount      = round( $amount * $factor );
 		$new_decimal = $v - $amount;
-
 		$new_hex_component = dechex( $new_decimal );
 		if ( strlen( $new_hex_component ) < 2 ) {
 			$new_hex_component = "0" . $new_hex_component;
 		}
 		$new_hex .= $new_hex_component;
 	}
-
 	return $new_hex;
 }
-
 /*
    Share This Buttons
    ======================================= */
-
 function evolve_sharethis() {
 	global $post;
 	$image_url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
@@ -538,14 +460,11 @@ function evolve_sharethis() {
     </div>
 	<?php
 }
-
 /* Bootstrap Slider */
-
 function evolve_bootstrap() {
 	global $evolve_options;
 	$wrap = false;
 	for ( $i = 1; $i <= 5; $i ++ ) {
-
 		if ( $evolve_options["evl_bootstrap_slide{$i}"] == 1 ) {
 			$active = "";
 			if ( ! $wrap ) {
@@ -554,42 +473,30 @@ function evolve_bootstrap() {
 				echo "<div class='carousel-inner'>";
 				$active = " active";
 			}
-
 			echo "<div class='carousel-item" . $active . "'>";
 			echo "<img class='d-block w-100' src='" . $evolve_options["evl_bootstrap_slide{$i}_img"]['url'] . "' alt='" . $evolve_options["evl_bootstrap_slide{$i}_title"] . "' />";
-
 			echo '<div class="carousel-caption ' . evolve_bootstrap_layout_class() . '">';
-
 			if ( strlen( $evolve_options["evl_bootstrap_slide{$i}_title"] ) > 0 ) {
 				echo "<h2>" . esc_attr( $evolve_options["evl_bootstrap_slide{$i}_title"] ) . "</h2>";
 			}
-
 			if ( strlen( $evolve_options["evl_bootstrap_slide{$i}_desc"] ) > 0 ) {
 				echo "<p>" . esc_attr( $evolve_options["evl_bootstrap_slide{$i}_desc"] ) . "</p>";
 			}
-
 			echo do_shortcode( $evolve_options["evl_bootstrap_slide{$i}_button"] );
-
 			echo "</div>";
-
 			echo "</div>";
 		}
 	}
-
 	if ( $wrap ) {
 		echo "</div>
                 <a class='left carousel-control-prev' href='#bootstrap-slider' data-slide='prev'></a><a class='right carousel-control-next' href='#bootstrap-slider' data-slide='next'></a>
                 </div>";
 	}
 }
-
 /* Function use for add css class in Bootstrap Slider */
-
 function evolve_bootstrap_layout_class() {
 	$bootstrap_layout = '';
-
 	$evolve_bootstrap_layout = evolve_theme_mod( 'evl_bootstrap_layout', 'bootstrap_left' );
-
 	if ( $evolve_bootstrap_layout == "bootstrap_right" ) {
 		$bootstrap_layout = 'layout-right';
 	} elseif ( $evolve_bootstrap_layout == "bootstrap_center" ) {
@@ -597,39 +504,26 @@ function evolve_bootstrap_layout_class() {
 	} else {
 		$bootstrap_layout = 'layout-left';
 	}
-
 	return $bootstrap_layout;
 }
-
 /* Parallax Slider */
-
 function evolve_parallax() {
 	global $evolve_options;
 	if ( $evolve_options['evl_show_slide1'] == "1" || $evolve_options['evl_show_slide2'] == "1" || $evolve_options['evl_show_slide3'] == "1" || $evolve_options['evl_show_slide4'] == "1" || $evolve_options['evl_show_slide5'] == "1" ) {
 		echo "<div id='da-slider' class='da-slider'>";
-
 		for ( $i = 1; $i <= 5; $i ++ ) {
 			if ( $evolve_options["evl_show_slide{$i}"] == "1" ) {
-
 				echo "<div class='da-slide'>";
-
 				echo "<h2>" . esc_attr( $evolve_options["evl_slide{$i}_title"] ) . "</h2>";
-
 				echo "<p>" . esc_attr( $evolve_options["evl_slide{$i}_desc"] ) . "</p>";
-
 				echo do_shortcode( $evolve_options["evl_slide{$i}_button"] );
-
-				echo "<div class='da-img'><img class='img-responsive' src='" . $evolve_options["evl_slide{$i}_img"]['url'] . "' alt='" . $evolve_options["evl_slide{$i}_title"] . "' /></div>";
-
+				echo "<div class='da-img'><img class='img-responsive' src='" . $evolve_options["evl_slide{$i}_img"] . "' alt='" . $evolve_options["evl_slide{$i}_title"] . "' /></div>";
 				echo "</div>";
 			}
 		}
-
 		echo "<nav class='da-arrows'><span class='da-arrows-prev'></span><span class='da-arrows-next'></span></nav></div>";
 	}
 }
-
-
 /**
  * Set Custom Menu Walker For All Menus
  *
@@ -645,8 +539,6 @@ function evolve_parallax() {
  * add_filter( 'wp_nav_menu_args', 'evolve_modify_nav_menu_args' );
  *
  *  * */
-
-
 if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 	/**
 	 * WP_Bootstrap_Navwalker class.
@@ -704,7 +596,6 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 			}
 			$output .= "{$n}{$indent}<ul$class_names $labelledby role=\"menu\">{$n}";
 		}
-
 		/**
 		 * Starts the element output.
 		 *
@@ -901,7 +792,6 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 			 */
 			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 		}
-
 		/**
 		 * Traverse elements to create list from elements.
 		 *
@@ -934,7 +824,6 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 			}
 			parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
 		}
-
 		/**
 		 * Menu Fallback
 		 * =============
@@ -986,7 +875,6 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 				}
 			}
 		}
-
 		/**
 		 * Find any custom linkmod or icon classes and store in their holder
 		 * arrays then remove them from the main classes array.
@@ -1029,10 +917,8 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 					unset( $classes[ $key ] );
 				}
 			}
-
 			return $classes;
 		}
-
 		/**
 		 * Return a string containing a linkmod type and update $atts array
 		 * accordingly depending on the decided.
@@ -1060,10 +946,8 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 					}
 				}
 			}
-
 			return $linkmod_type;
 		}
-
 		/**
 		 * Update the attributes of a nav item depending on the limkmod classes.
 		 *
@@ -1096,10 +980,8 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 					}
 				}
 			}
-
 			return $atts;
 		}
-
 		/**
 		 * Wraps the passed text in a screen reader only class.
 		 *
@@ -1113,10 +995,8 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 			if ( $text ) {
 				$text = '<span class="sr-only">' . $text . '</span>';
 			}
-
 			return $text;
 		}
-
 		/**
 		 * Returns the correct opening element and attributes for a linkmod.
 		 *
@@ -1139,10 +1019,8 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 				// this is a divider.
 				$output .= '<div class="dropdown-divider"' . $attributes . '>';
 			}
-
 			return $output;
 		}
-
 		/**
 		 * Return the correct closing tag for the linkmod element.
 		 *
@@ -1162,28 +1040,20 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 				// this is a divider.
 				$output .= '</div>';
 			}
-
 			return $output;
 		}
 	}
 }
-
-
 // Breadcrumbs //
-
 function evolve_breadcrumb() {
 	global $data, $post;
-
 	echo '<ul class="breadcrumbs">';
-
 	echo '<li><a class="home" href="';
 	echo home_url();
 	echo '">' . __( 'Home', 'evolve' );
 	echo "</a></li>";
-
 	$params['link_none'] = '';
 	$separator           = '';
-
 	if ( is_category() ) {
 		$thisCat = get_category( get_query_var( 'cat' ), false );
 		if ( $thisCat->parent != 0 ) {
@@ -1197,12 +1067,10 @@ function evolve_breadcrumb() {
 		}
 		echo '<li>' . $thisCat->name . '</li>';
 	}
-
 	if ( is_tax() ) {
 		$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
 		echo '<li>' . $term->name . '</li>';
 	}
-
 	if ( is_home() ) {
 		echo '<li>' . __( 'Blog', 'evolve' ) . '</li>';
 	}
@@ -1270,17 +1138,13 @@ function evolve_breadcrumb() {
 		}
 		echo "<li>" . get_the_title() . "</li>";
 	}
-
 	echo "</ul>";
 }
-
 function evolve_posts_slider() {
 	?>
     <div id="slide_holder">
         <div class="slide-container">
-
             <ul id="slides">
-
 				<?php
 				$number_items            = evolve_theme_mod( 'evl_posts_number', '5' );
 				$slider_content          = evolve_theme_mod( 'evl_posts_slider_content', 'recent' );
@@ -1290,26 +1154,21 @@ function evolve_posts_slider() {
 				if ( is_array( $slider_content_category ) ) {
 					$slider_content_category = implode( ",", $slider_content_category );
 				}
-
 				if ( $slider_content == "category" && ! empty( $slider_content_category ) ) {
 					$slider_content_ID = $slider_content_category;
 				} else {
 					$slider_content_ID = '';
 				}
-
 				$args = array(
 					'cat'                 => $slider_content_ID,
 					'showposts'           => $number_items,
 					'ignore_sticky_posts' => 1,
 				);
 				query_posts( $args );
-
 				if ( have_posts() ) : $featured = new WP_Query( $args );
 					while ( $featured->have_posts() ) : $featured->the_post();
 						?>
-
                         <li class="slide">
-
 							<?php
 							if ( has_post_thumbnail() ) {
 								echo '<div class="featured-thumbnail"><a href="';
@@ -1328,7 +1187,6 @@ function evolve_posts_slider() {
 								endif;
 							}
 							?>
-
                             <h2 class="featured-title">
                                 <a class="title" href="<?php the_permalink() ?>">
 									<?php
@@ -1338,22 +1196,18 @@ function evolve_posts_slider() {
 									?>
                                 </a>
                             </h2>
-
                             <p><?php
 								$excerpt_length = evolve_theme_mod( 'evl_posts_slider_excerpt_length', 40 );
 								echo evolve_excerpt_max_charlength( $excerpt_length );
 								?></p>
                             <a class="button post-more"
                                href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
-
                         </li>
-
 					<?php
 					endwhile;
 				else:
 					?>
                     <li><?php _e( '<h2 style="color:#fff;">Oops, no posts to display! Please check your post slider Category (ID) settings</h2>', 'evolve' ); ?></li>
-
 				<?php
 				endif;
 				wp_reset_query();
@@ -1363,29 +1217,22 @@ function evolve_posts_slider() {
     </div>
 	<?php
 }
-
 if ( ! function_exists( 't4p_addURLParameter' ) ) {
-
 	function t4p_addURLParameter( $url, $paramName, $paramValue ) {
 		$url_data = parse_url( $url );
 		if ( ! isset( $url_data["query"] ) ) {
 			$url_data["query"] = "";
 		}
-
 		$params = array();
 		parse_str( $url_data['query'], $params );
 		$params[ $paramName ] = $paramValue;
-
 		if ( $paramName == 'product_count' ) {
 			$params['paged'] = '1';
 		}
 		$url_data['query'] = http_build_query( $params );
-
 		return t4p_build_url( $url_data );
 	}
-
 }
-
 function t4p_build_url( $url_data ) {
 	$url = "";
 	if ( isset( $url_data['host'] ) ) {
@@ -1411,17 +1258,14 @@ function t4p_build_url( $url_data ) {
 	if ( isset( $url_data['fragment'] ) ) {
 		$url .= '#' . $url_data['fragment'];
 	}
-
 	return $url;
 }
-
 /**
  * Infinite Scroll
  *
  * @since 3.2.0
  */
 add_action( 'wp_footer', 'evolve_infinite_scroll_blog' );
-
 function evolve_infinite_scroll_blog() {
 	echo '<script>
 jQuery(function ($) {
@@ -1432,7 +1276,6 @@ jQuery(function ($) {
                     pagination: "div.pagination",
                     next: "a.pagination-next",
                 });
-
                 ias.extension(new IASTriggerExtension({
                         text: "Load more items",
                         offset: 99999
@@ -1450,7 +1293,6 @@ jQuery(function ($) {
                              pagination: ".navigation-links",
                              next: ".nav-previous a",
                         });
-
                         ias.extension(new IASTriggerExtension({
                                 text: "Load more items",
                                 offset: 99999
@@ -1463,17 +1305,14 @@ jQuery(function ($) {
 });
     </script>';
 }
-
 /*
  * function to use get buddypress page id
  *
  *
  */
-
 function evolve_bp_get_id() {
 	$post_id    = '';
 	$bp_page_id = get_option( 'bp-pages' );
-
 	if ( is_buddypress() ) {
 		if ( bp_is_current_component( 'members' ) ) {
 			$post_id = $bp_page_id['members'];
@@ -1489,10 +1328,8 @@ function evolve_bp_get_id() {
 			$post_id = '';
 		}
 	}
-
 	return $post_id;
 }
-
 /*
  * function to print out css class according to layout or post meta
  * used in content-blog.php, index.php, buddypress.php, bbpress.php
@@ -1507,13 +1344,10 @@ function evolve_bp_get_id() {
  * added by Denzel
  *
  */
-
 function evolve_layout_class( $type = 1 ) {
 	global $post, $wp_query;
-
 	$evolve_layout      = evolve_theme_mod( 'evl_layout', '2cl' );
 	$evolve_post_layout = evolve_theme_mod( 'evl_post_layout', 'two' );
-
 	$post_id = '';
 	if ( $wp_query->is_posts_page ) {
 		$post_id = get_option( 'page_for_posts' );
@@ -1522,7 +1356,6 @@ function evolve_layout_class( $type = 1 ) {
 	} else {
 		$post_id = isset( $post->ID ) ? $post->ID : '';
 	}
-
 	$layout_css = '';
 	switch ( $evolve_layout ):
 		case "1c":
@@ -1544,16 +1377,13 @@ function evolve_layout_class( $type = 1 ) {
 			$layout_css = 'col-xs-12 col-sm-6 col-md-6 float-left';
 			break;
 	endswitch;
-
 	if ( is_single() || is_page() || $wp_query->is_posts_page || is_buddypress() || is_bbpress() ):
 		$evolve_sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
-
 		if ( ( $type == 1 && $evolve_sidebar_position == 'default' ) || ( $type == 2 && $evolve_sidebar_position == 'default' ) ) {
 			if ( get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
 				$layout_css = ' full-width container container-center';
 			}
 		}
-
 		switch ( $evolve_sidebar_position ):
 			case "default":
 				//do nothing
@@ -1575,10 +1405,8 @@ function evolve_layout_class( $type = 1 ) {
 				break;
 		endswitch;
 	endif;
-
 	if ( is_home() || is_front_page() ) {
 		$evolve_frontpage_layout = evolve_theme_mod( 'evl_frontpage_layout', '1c' );
-
 		switch ( $evolve_frontpage_layout ):
 			case "1c":
 				$layout_css = ' full-width container container-center';
@@ -1600,7 +1428,6 @@ function evolve_layout_class( $type = 1 ) {
 				break;
 		endswitch;
 	}
-
 	if ( $type == 1 ) {
 		if ( class_exists( 'Woocommerce' ) ):
 			if ( is_cart() || is_checkout() || is_account_page() || ( get_option( 'woocommerce_thanks_page_id' ) && is_page( get_option( 'woocommerce_thanks_page_id' ) ) ) ) {
@@ -1608,31 +1435,24 @@ function evolve_layout_class( $type = 1 ) {
 			}
 		endif;
 	}
-
 	if ( is_single() || is_page() || $wp_query->is_posts_page || is_buddypress() || is_bbpress() ) {
 		$layout_css .= ' col-single';
 	}
-
 	echo $layout_css;
 }
-
 /*
  * function to print out css class according to layout
  * used in content-blog.php, index.php.
  *
  * added by Denzel
  */
-
 function evolve_post_class( $xyz ) {
-
 	$evolve_post_layout = evolve_theme_mod( 'evl_post_layout', 'two' );
-
 	if ( $evolve_post_layout == "two" ) {
 		echo ' col-md-6 odd' . ( $xyz % 2 );
 	} else {
 		echo ' col-md-4 odd' . ( $xyz % 3 );
 	}
-
 	if ( has_post_format( array(
 		'aside',
 		'audio',
@@ -1647,14 +1467,12 @@ function evolve_post_class( $xyz ) {
 		echo ' formatted-post';
 	}
 }
-
 /*
  * function to print out css class according to post format
  * used in content-blog.php, index.php.
  *
  * added by Denzel
  */
-
 function evolve_post_class_2() {
 	if ( has_post_format( array(
 			'aside',
@@ -1671,16 +1489,13 @@ function evolve_post_class_2() {
 		echo 'formatted-post formatted-single margin-40';
 	}
 }
-
 /*
  * function to print out css class according to layout
  * used in sidebar.php
  *
  * added by Denzel
  */
-
 function evolve_sidebar_class() {
-
 	global $wp_query;
 	global $post;
 	$post_id = '';
@@ -1691,11 +1506,8 @@ function evolve_sidebar_class() {
 	} else {
 		$post_id = isset( $post->ID ) ? $post->ID : '';
 	}
-
 	$sidebar_css = '';
-
 	$evolve_layout = evolve_theme_mod( 'evl_layout', '2cl' );
-
 	switch ( $evolve_layout ):
 		case "1c":
 			//do nothing
@@ -1716,9 +1528,7 @@ function evolve_sidebar_class() {
 			$sidebar_css = 'col-xs-12 col-sm-6 col-md-3 float-left';
 			break;
 	endswitch;
-
 	$evolve_sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
-
 	if ( is_page() || is_single() ):
 		switch ( $evolve_sidebar_position ):
 			case "default":
@@ -1741,10 +1551,8 @@ function evolve_sidebar_class() {
 				break;
 		endswitch;
 	endif;
-
 	if ( is_home() || is_front_page() ) {
 		$evolve_frontpage_layout = evolve_theme_mod( 'evl_frontpage_layout', '1c' );
-
 		switch ( $evolve_frontpage_layout ):
 			case "1c":
 				$sidebar_css = '';
@@ -1765,13 +1573,10 @@ function evolve_sidebar_class() {
 				$sidebar_css = 'col-xs-12 col-sm-6 col-md-3 float-left';
 				break;
 		endswitch;
-
 		$sidebar_css .= ' homepage-sidebar';
 	}
-
 	echo $sidebar_css;
 }
-
 /*
  * function to determine whether to get_sidebar, depending on theme options layout and post meta layout.
  * used in 404.php, archive.php, attachment.php, author.php, bbpress.php, blog-page.php,...
@@ -1780,9 +1585,7 @@ function evolve_sidebar_class() {
  * @return boolean indicates whether to load sidebar.
  * added by Denzel
  */
-
 function evolve_lets_get_sidebar() {
-
 	global $wp_query, $post;
 	$post_id = '';
 	if ( $wp_query->is_posts_page ) {
@@ -1792,27 +1595,20 @@ function evolve_lets_get_sidebar() {
 	} else {
 		$post_id = isset( $post->ID ) ? $post->ID : '';
 	}
-
 	$get_sidebar = false;
-
 	$evolve_layout = evolve_theme_mod( 'evl_layout', '2cl' );
 	if ( $evolve_layout != "1c" ) {
 		$get_sidebar = true;
 	}
-
 	if ( ( is_page() || is_single() || $wp_query->is_posts_page || is_buddypress() || is_bbpress() ) && get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
 		$get_sidebar = false;
 	}
-
 	if ( is_single() || is_page() || $wp_query->is_posts_page || is_buddypress() || is_bbpress() ) {
-
 		$evolve_sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
 		if ( $evolve_sidebar_position != 'default' && $evolve_sidebar_position != '' ) {
 			$get_sidebar = true;
 		}
-
 	}
-
 	$evolve_frontpage_layout = evolve_theme_mod( 'evl_frontpage_layout', '1c' );
 	if ( is_home() || is_front_page() ) {
 		if ( $evolve_frontpage_layout != "1c" ) {
@@ -1821,10 +1617,8 @@ function evolve_lets_get_sidebar() {
 			$get_sidebar = false;
 		}
 	}
-
 	return $get_sidebar;
 }
-
 /*
  * function to determine whether to get_sidebar('2'), depending on theme options layout and post meta layout.
  * used in 404.php, archive.php, attachment.php, author.php, bbpress.php, blog-page.php,...
@@ -1833,9 +1627,7 @@ function evolve_lets_get_sidebar() {
  * @return boolean indicates whether to load sidebar.
  * added by Denzel
  */
-
 function evolve_lets_get_sidebar_2() {
-
 	global $wp_query, $post;
 	$post_id = '';
 	if ( $wp_query->is_posts_page ) {
@@ -1845,31 +1637,23 @@ function evolve_lets_get_sidebar_2() {
 	} else {
 		$post_id = isset( $post->ID ) ? $post->ID : '';
 	}
-
 	$get_sidebar = false;
-
 	$evolve_layout = evolve_theme_mod( 'evl_layout', '2cl' );
 	if ( $evolve_layout == "3cm" || $evolve_layout == "3cl" || $evolve_layout == "3cr" ) {
 		$get_sidebar = true;
 	}
-
 	if ( ( is_page() || is_single() || $wp_query->is_posts_page || is_buddypress() || is_bbpress() ) && get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
 		$get_sidebar = false;
 	}
-
 	if ( is_single() || is_page() || $wp_query->is_posts_page || is_buddypress() || is_bbpress() ) {
-
 		$evolve_sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
 		if ( $evolve_sidebar_position == '2cl' || $evolve_sidebar_position == '2cr' ) {
 			$get_sidebar = false;
 		}
-
 		if ( $evolve_sidebar_position == "3cm" || $evolve_sidebar_position == "3cl" || $evolve_sidebar_position == "3cr" ) {
 			$get_sidebar = true;
 		}
-
 	}
-
 	$evolve_frontpage_layout = evolve_theme_mod( 'evl_frontpage_layout', '1c' );
 	if ( is_home() || is_front_page() ) {
 		if ( $evolve_frontpage_layout == "3cm" || $evolve_frontpage_layout == "3cl" || $evolve_frontpage_layout == "3cr" ) {
@@ -1878,10 +1662,8 @@ function evolve_lets_get_sidebar_2() {
 			$get_sidebar = false;
 		}
 	}
-
 	return $get_sidebar;
 }
-
 function evolve_print_fonts( $name, $css_class, $additional_css = '', $additional_color_css_class = '', $imp = '' ) {
 	global $evolve_options;
 	$options     = $evolve_options;
@@ -1923,33 +1705,25 @@ function evolve_print_fonts( $name, $css_class, $additional_css = '', $additiona
 		$color = $options[ $name ]['color'];
 		$css   .= "$additional_color_css_class{color:" . $color . ";}";
 	}
-
 	return $css;
 }
-
 if ( ! function_exists( 'evolve_custom_number_paging_nav' ) ) :
-
 	function evolve_custom_number_paging_nav() {
 		// Don't print empty markup if there's only one page.
 		if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 			return;
 		}
-
 		$paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
 		$pagenum_link = html_entity_decode( get_pagenum_link() );
 		$query_args   = array();
 		$url_parts    = explode( '?', $pagenum_link );
-
 		if ( isset( $url_parts[1] ) ) {
 			wp_parse_str( $url_parts[1], $query_args );
 		}
-
 		$pagenum_link = remove_query_arg( array_keys( $query_args ), $pagenum_link );
 		$pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
-
 		$format = $GLOBALS['wp_rewrite']->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
 		$format .= $GLOBALS['wp_rewrite']->using_permalinks() ? user_trailingslashit( 'page/%#%', 'paged' ) : '?paged=%#%';
-
 		// Set up paginated links.
 		$links = paginate_links( array(
 			'base'      => $pagenum_link,
@@ -1962,66 +1736,46 @@ if ( ! function_exists( 'evolve_custom_number_paging_nav' ) ) :
 			'next_text' => sprintf( '%s <span class="t4p-icon-chevron-right"></span>', __( 'Next ', 'evolve' ) ),
 			'type'      => 'list',
 		) );
-
 		if ( $links ) :
-
 			echo $links;
-
 		endif;
 	}
-
 endif;
-
 /*
    Change in bbPress Breadcrumb
    ======================================= */
-
 function evolve_custom_bbp_breadcrumb() {
 	$args['sep'] = ' / ';
-
 	return $args;
 }
-
 add_filter( 'bbp_before_get_breadcrumb_parse_args', 'evolve_custom_bbp_breadcrumb' );
-
 /*
    Change Prefix pyre To evolve (For Older Versions)
    ======================================= */
-
 $evolve_change_metabox_prefix = get_option( 'evl_change_metabox_prefix', 0 );
 if ( $evolve_change_metabox_prefix != 1 ) {
 	add_action( 'admin_init', 'evolve_change_prefix' );
 	update_option( 'evl_change_metabox_prefix', 1 );
 }
-
 function evolve_change_prefix() {
 	global $wpdb;
-
 	$querystr = " SELECT meta_key FROM $wpdb->postmeta WHERE `meta_key` LIKE '%pyre_%' ";
-
 	$evolve_meta_key = $wpdb->get_results( $querystr );
 	foreach ( $evolve_meta_key as $meta_key ) {
 		$original_meta_key = $meta_key->meta_key;
-
 		$change_meta_key = str_replace( "pyre_", "evolve_", $original_meta_key );
-
 		$wpdb->query( "UPDATE $wpdb->postmeta SET meta_key = REPLACE(meta_key, '$original_meta_key', '$change_meta_key')" );
 	}
 }
-
 //filter added for buddypress-docs comment show
 add_filter( 'bp_docs_allow_comment_section', '__return_true', 100 );
-
 /*
    Blog Pagination
    ======================================= */
-
 if ( ! function_exists( 'evolve_pagination' ) ):
-
 	function evolve_pagination( $pages = '', $range = 2, $current_query = '' ) {
 		global $smof_data, $evolve_options;
 		$showitems = ( $range * 2 ) + 1;
-
 		if ( $current_query == '' ) {
 			global $paged;
 			if ( empty( $paged ) ) {
@@ -2030,7 +1784,6 @@ if ( ! function_exists( 'evolve_pagination' ) ):
 		} else {
 			$paged = $current_query->query_vars['paged'];
 		}
-
 		if ( $pages == '' ) {
 			if ( $current_query == '' ) {
 				global $wp_query;
@@ -2042,7 +1795,6 @@ if ( ! function_exists( 'evolve_pagination' ) ):
 				$pages = $current_query->max_num_pages;
 			}
 		}
-
 		if ( 1 != $pages ) {
 			if ( ( $evolve_options['evl_portfolio_pagination_type'] == 'infinite' && is_home() ) || ( $evolve_options['evl_portfolio_pagination_type'] == 'infinite' && is_page_template( 'portfolio-grid.php' ) ) ) {
 				echo "<div class='pagination infinite-scroll clearfix'>";
@@ -2053,13 +1805,11 @@ if ( ! function_exists( 'evolve_pagination' ) ):
 			if ( $paged > 1 ) {
 				echo "<a class='pagination-prev' href='" . get_pagenum_link( $paged - 1 ) . "'><span class='page-prev'></span>" . __( 'Previous', 'evolve' ) . "</a>";
 			}
-
 			for ( $i = 1; $i <= $pages; $i ++ ) {
 				if ( 1 != $pages && ( ! ( $i >= $paged + $range + 1 || $i <= $paged - $range - 1 ) || $pages <= $showitems ) ) {
 					echo ( $paged == $i ) ? "<span class='current'>" . $i . "</span>" : "<a href='" . get_pagenum_link( $i ) . "' class='inactive' >" . $i . "</a>";
 				}
 			}
-
 			if ( $paged < $pages ) {
 				echo "<a class='pagination-next' href='" . get_pagenum_link( $paged + 1 ) . "'>" . __( 'Next', 'evolve' ) . "<span class='page-next'></span></a>";
 			}
@@ -2067,51 +1817,40 @@ if ( ! function_exists( 'evolve_pagination' ) ):
 			echo "</div>\n";
 		}
 	}
-
 endif;
-
 /*
    Switch evolve Theme To Other Theme
    ======================================= */
-
 add_action( 'switch_theme', 'evolve_switch' );
-
 function evolve_switch() {
 	update_option( 'evolvelite_theme', 'true' );
 }
-
 /*
    Register Default Function When Plugin Not Activated
    ======================================= */
-
 add_action( 'wp_head', 'evolve_plugins_loaded' );
-
 function evolve_plugins_loaded() {
 	if ( ! function_exists( 'is_woocommerce' ) ) {
 		function is_woocommerce() {
 			return false;
 		}
 	}
-
 	if ( ! function_exists( 'is_product' ) ) {
 		function is_product() {
 			return false;
 		}
 	}
-
 	if ( ! function_exists( 'is_buddypress' ) ) {
 		function is_buddypress() {
 			return false;
 		}
 	}
-
 	if ( ! function_exists( 'is_bbpress' ) ) {
 		function is_bbpress() {
 			return false;
 		}
 	}
 }
-
 /**
  * Get Option.
  * Helper function to return the theme option value.
@@ -2121,14 +1860,11 @@ function evolve_plugins_loaded() {
  */
 function endsWith( $haystack, $needle, $case = true ) {
 	$expectedPosition = strlen( $haystack ) - strlen( $needle );
-
 	if ( $case ) {
 		return strrpos( $haystack, $needle, 0 ) === $expectedPosition;
 	}
-
 	return strripos( $haystack, $needle, 0 ) === $expectedPosition;
 }
-
 function binmaocom_fix_get_theme_mod( $array_in ) {
 	if ( $array_in && is_array( $array_in ) && count( $array_in ) ) {
 		$enabled_temp = array();
@@ -2137,16 +1873,12 @@ function binmaocom_fix_get_theme_mod( $array_in ) {
 				$enabled_temp[ $items ] = $items;
 			}
 		}
-
 		return $enabled_temp;
 	}
-
 	return $array_in;
 }
-
 global $bi_all_customize_fields;
 $bi_all_customize_fields = get_option( 'bi_all_customize_fields', false );
-
 function evolve_theme_mod( $name, $default = false ) {
 	global $bi_all_customize_fields;
 	if ( $default == false ) {
@@ -2164,7 +1896,6 @@ function evolve_theme_mod( $name, $default = false ) {
 			$result = 'fa-' . $result;
 		}
 	}
-
 	if ( $result && is_array( $result ) && count( $result ) && isset( $result["enabled"] ) && is_array( $result["enabled"] ) && count( $result["enabled"] ) ) {
 		$enabled_temp = array();
 		foreach ( $result["enabled"] as $enabled_key => $items ) {
@@ -2172,17 +1903,13 @@ function evolve_theme_mod( $name, $default = false ) {
 		}
 		$result = $enabled_temp;
 	}
-
 	return $result;
 	$config = get_option( 'evolve' );
-
 	if ( ! isset( $config['id'] ) ) {
 		//return $default;
 	}
 	global $evolve_options;
 	do_action( 'fix_evolve_options_data' );
-
-
 	$options = $evolve_options;
 	if ( isset( $GLOBALS['redux_compiler_options'] ) ) {
 		$options = $GLOBALS['redux_compiler_options'];
@@ -2215,38 +1942,28 @@ function evolve_theme_mod( $name, $default = false ) {
 				return $options[ $name ];
 			}
 		}
-
 		return $options[ $name ];
 	}
-
 	return $default;
 }
-
 get_template_part( 'inc/custom-functions/front-page' );
 get_template_part( 'inc/customizer/admin-init' );
 // Metaboxes
 get_template_part( 'inc/views/metaboxes/metaboxes' );
-
 // General Scripts To Enqueue
 function evolve_scripts() {
-
 	global $post, $evolve_slider_page_id, $evolve_frontpage_slider_status, $evolve_parallax_slider_all, $evolve_parallax_slider_support, $evolve_parallax_speed, $evolve_carousel_slider, $evolve_pos_button, $evolve_gmap, $evolve_google_map_api, $evolve_recaptcha_public, $evolve_recaptcha_private,
 	       $evolve_footer_reveal, $evolve_fontawesome, $evolve_css_data;
-
 	if ( $evolve_fontawesome != "1" ) {
 		// FontAwesome
 		wp_enqueue_style( 'fontawesomecss', get_template_directory_uri() . '/assets/fonts/fontawesome/css/font-awesome.min.css', false );
 	}
-
 	// Main Stylesheet
 	wp_enqueue_style( 'evolve', get_stylesheet_uri(), false );
-
 	// Bootstrap
 	wp_enqueue_script( 'evolve-bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array( 'jquery' ), '', true );
-
 	require get_parent_theme_file_path( '/inc/custom-functions/dynamic-css.php' );
 	wp_add_inline_style( 'evolve', $evolve_css_data );
-
 	$evolve_header_type = evolve_theme_mod( 'evl_header_type', 'none' );
 	switch ( $evolve_header_type ) {
 		case "none":
@@ -2257,7 +1974,6 @@ function evolve_scripts() {
 			break;
 	}
 	wp_add_inline_style( 'evolve', $evolve_css_data );
-
 	// Check If The Slider Is Enabled Globally or Per Post/Page
 	if ( ! empty( $post->ID ) ) {
 		if ( ! is_home() && ! is_front_page() && ! is_archive() ) {
@@ -2270,79 +1986,62 @@ function evolve_scripts() {
 	if ( is_home() && ! is_front_page() ) {
 		$evolve_slider_page_id = get_option( 'page_for_posts' );
 	}
-
 	// Enqueue Parallax Slider Style Where Required
 	if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && $evolve_parallax_slider_support == "1" ) || ( $evolve_parallax_slider_all == "1" && $evolve_parallax_slider_support == "1" ) || ( $evolve_parallax_slider_support == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) || ( $evolve_parallax_slider_support == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ):
 		wp_enqueue_style( 'evolve-parallax', EVOLVE_CSS . '/parallax.min.css' );
 	endif;
-
 	if ( $evolve_carousel_slider == "1" ) {
 		wp_enqueue_script( 'carousel', EVOLVE_JS . '/carousel.min.js', array( 'jquery' ), '', true );
 	}
-
 	wp_enqueue_script( 'evolve-tabs', EVOLVE_JS . '/tabs.min.js', array( 'jquery' ), '', true );
-
 	//if ($evolve_pagination_type == "infinite") {
 	wp_enqueue_script( 'evolve-infinite-scroll', EVOLVE_JS . '/jquery.infinite-scroll.min.js', array( 'jquery' ), '', true );
 	//}
-
 	// TODO
 	// remove this wp_enqueue_script( 'flexslidermin', EVOLVE_JS . '/jquery.flexslider.min.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'main', EVOLVE_JS . '/main.min.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'main_backend', EVOLVE_JS . '/main_backend.min.js', array( 'jquery' ), '', true );
-
 	if ( $evolve_gmap == "1" ) {
 		wp_enqueue_script( 'googlemaps', '//maps.googleapis.com/maps/api/js?key=' . $evolve_google_map_api . '&amp;language=' . mb_substr( get_locale(), 0, 2 ) );
 		wp_enqueue_script( 'gmap', EVOLVE_JS . '/gmap.min.js', array( 'jquery' ), '', true );
 	}
-
 	if ( $evolve_recaptcha_public && $evolve_recaptcha_private ) {
 		wp_enqueue_script( 'googlerecaptcha', 'https://www.google.com/recaptcha/api.js', '', '', true );
 	}
-
 	if ( $evolve_footer_reveal == '1' ) {
 		wp_enqueue_script( 'footer-reveal', get_template_directory_uri() . '/assets/js/footer-reveal.min.js', array( 'jquery' ), '', true );
 		wp_enqueue_script( 'footer-reveal-fix', get_template_directory_uri() . '/assets/js/footer-reveal-fix.min.js', array( 'jquery' ), '', true );
 		wp_enqueue_style( 'footer-revealcss', get_template_directory_uri() . '/assets/css/footer-reveal.min.css' );
 	}
-
 	wp_enqueue_script( 'evolve-bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array( 'jquery' ), '', true );
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-
 	// Media.css
 	// TODO
 	// Remove
 	// wp_enqueue_style( 'mediacss', get_template_directory_uri() . '/assets/css/media.min.css', array( 'maincss' ) );
-
 	/*
 	   Add Dynamic Data To main.js
 	   ======================================= */
-
 	$evolve_local_variables = array(
 		'infinite_blog_finished_msg' => '<em>' . __( 'All posts displayed', 'evolve' ) . '</em>',
 		'infinite_blog_text'         => '<em>' . __( 'Loading the next set of posts...', 'evolve' ) . '</em>',
 		'theme_url'                  => get_template_directory_uri(),
 		'order_actions'              => __( 'Details', 'evolve' ),
 	);
-
 	// Check WooCommerce Plugin & Version
 	global $woocommerce;
-
 	if ( class_exists( 'Woocommerce' ) ) {
 		if ( version_compare( $woocommerce->version, '2.3', '>=' ) ) {
 			$evolve_local_variables['woocommerce_23'] = true;
 		}
 		$evolve_local_variables['woocommerce'] = true;
 	}
-
 	// Back To Top Button (Scroll to Top)
 	if ( $evolve_pos_button !== "disable" && ! empty( $evolve_pos_button ) ) {
 		$evolve_local_variables['scroll_to_top'] = true;
 	}
-
 	// Parallax Slider
 	if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && $evolve_parallax_slider_support == "1" ) || ( $evolve_parallax_slider_all == "1" && $evolve_parallax_slider_support == "1" ) || ( $evolve_parallax_slider_support == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) || ( $evolve_parallax_slider_support == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ):
 		if ( ! is_numeric( $evolve_parallax_speed ) || $evolve_parallax_speed < 0 ): $evolve_local_variables['parallax_speed'] = '4000';
@@ -2350,24 +2049,19 @@ function evolve_scripts() {
 		endif;
 		$evolve_local_variables['parallax_slider'] = true;
 	endif;
-
 	wp_localize_script( 'main', 'evolve_js_local_vars', $evolve_local_variables );
 }
-
 add_action( 'wp_enqueue_scripts', 'evolve_scripts' );
-
 /*
    Migrate Custom CSS Code From Theme options
    From Theme options To Additional CSS
    ======================================= */
-
 if ( function_exists( 'wp_update_custom_css_post' ) && ! defined( 'DOING_AJAX' ) ) {
 	$custom_css = '';
 	$data       = get_option( 'evl_options' );
 	if ( isset( $data['evl_css_content'] ) ) {
 		$custom_css = $data['evl_css_content'];
 	}
-
 	if ( $custom_css ) {
 		$additional_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
 		$return         = wp_update_custom_css_post( $additional_css . $custom_css );
@@ -2378,13 +2072,10 @@ if ( function_exists( 'wp_update_custom_css_post' ) && ! defined( 'DOING_AJAX' )
 		}
 	}
 }
-
 add_filter( 'wp_calculate_image_srcset', '__return_false', PHP_INT_MAX );
-
 /*
    WooCommerce Support
    ======================================= */
-
 if ( class_exists( 'Woocommerce' ) ) {
 	require get_parent_theme_file_path( 'inc/custom-functions/woocommerce-support.php' );
 }
