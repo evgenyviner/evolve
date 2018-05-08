@@ -7165,6 +7165,15 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 	$evolve_imagepathfolder      = get_template_directory_uri() . '/assets/images/';
 
 	if ( $frontpage_prebuilt_new_demo != $frontpage_prebuilt_old_demo ) {
+		?>
+        <script type='text/javascript'>
+            jQuery(document).ready(function ($) {
+				wp.customize.preview.send('refresh');
+				//alert('Please reload website to see the new layout!');
+                //window.location.href = window.location.href;
+            });
+        </script>
+		<?php
 
 		switch ( $frontpage_prebuilt_new_demo ) {
 			case 'default':
@@ -7300,14 +7309,6 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 		}
 
 		update_option( 'frontpage_prebuilt_old_demo', $frontpage_prebuilt_new_demo );
-		?>
-        <script type='text/javascript'>
-            jQuery(document).ready(function ($) {
-				alert('Please reload website to see the new layout!');
-                window.location.href = window.location.href;
-            });
-        </script>
-		<?php
 	}
 }
 
