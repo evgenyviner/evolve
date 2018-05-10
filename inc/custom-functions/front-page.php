@@ -127,7 +127,7 @@ function evolve_content_boxes() {
 		endswitch;
 		if ( $evolve_content_box1_enable == true ) {
 			echo "<div class='col-sm-12 $BoxClass content-box content-box-1'>";
-			echo "<div class='icon-box'><i class='123 fa " . $evolve_content_box1_icon . "'></i></div>";
+			echo "<div class='icon-box'><i class='123 fa fa-" . $evolve_content_box1_icon . "'></i></div>";
 			echo "<h2>" . esc_attr( $evolve_content_box1_title ) . "</h2>";
 			echo "<p>" . do_shortcode( $evolve_content_box1_desc ) . "</p>";
 			echo "<div class='cntbox_btn sbtn1'>" . do_shortcode( $evolve_content_box1_button ) . "</div>";
@@ -151,7 +151,7 @@ function evolve_content_boxes() {
 		}
 		if ( $evolve_content_box2_enable == true ) {
 			echo "<div class='col-sm-12 $BoxClass content-box content-box-2'>";
-			echo "<div class='icon-box'><i class='fa " . $evolve_content_box2_icon . "'></i></div>";
+			echo "<div class='icon-box'><i class='fa fa-" . $evolve_content_box2_icon . "'></i></div>";
 			echo "<h2>" . esc_attr( $evolve_content_box2_title ) . "</h2>";
 			echo "<p>" . do_shortcode( $evolve_content_box2_desc ) . "</p>";
 			echo "<div class='cntbox_btn sbtn2'>" . do_shortcode( $evolve_content_box2_button ) . "</div>";
@@ -175,7 +175,7 @@ function evolve_content_boxes() {
 		}
 		if ( $evolve_content_box3_enable == true ) {
 			echo "<div class='col-sm-12 $BoxClass content-box content-box-3'>";
-			echo "<div class='icon-box'><i class='fa " . $evolve_content_box3_icon . "'></i></div>";
+			echo "<div class='icon-box'><i class='fa fa-" . $evolve_content_box3_icon . "'></i></div>";
 			echo "<h2>" . esc_attr( $evolve_content_box3_title ) . "</h2>";
 			echo "<p>" . do_shortcode( $evolve_content_box3_desc ) . "</p>";
 			echo "<div class='cntbox_btn sbtn3'>" . do_shortcode( $evolve_content_box3_button ) . "</div>";
@@ -199,7 +199,7 @@ function evolve_content_boxes() {
 		}
 		if ( $evolve_content_box4_enable == true ) {
 			echo "<div class='col-sm-12 $BoxClass content-box content-box-4'>";
-			echo "<div class='icon-box'><i class='fa " . $evolve_content_box4_icon . "'></i></div>";
+			echo "<div class='icon-box'><i class='fa fa-" . $evolve_content_box4_icon . "'></i></div>";
 			echo "<h2>" . esc_attr( $evolve_content_box4_title ) . "</h2>";
 			echo "<p>" . do_shortcode( $evolve_content_box4_desc ) . "</p>";
 			echo "<div class='cntbox_btn sbtn4'>" . do_shortcode( $evolve_content_box4_button ) . "</div>";
