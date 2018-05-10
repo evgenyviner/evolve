@@ -1995,12 +1995,12 @@ function evolve_theme_mod( $name, $default = false ) {
 	if ( $result && is_array( $result ) && isset( $bi_all_customize_fields[ $name ] ) && isset( $bi_all_customize_fields[ $name ]['value']['type'] ) && $bi_all_customize_fields[ $name ]['value']['type'] == 'sorter' ) {
 		$result = binmaocom_fix_get_theme_mod( $result );
 	}
-	if ( $result && is_string( $name ) && endsWith( $name, '_icon' ) ) {
-		if ( ! ( strpos( $result, 'fa-' ) === 0 ) ) {
-			// It starts with 'http'
-			$result = 'fa-' . $result;
-		}
-	}
+	// if ( $result && is_string( $name ) && endsWith( $name, '_icon' ) ) {
+		// if ( ! ( strpos( $result, 'fa-' ) === 0 ) ) {
+			// // It starts with 'http'
+			// $result = 'fa-' . $result;
+		// }
+	// }
 	if ( $result && is_array( $result ) && count( $result ) && isset( $result["enabled"] ) && is_array( $result["enabled"] ) && count( $result["enabled"] ) ) {
 		$enabled_temp = array();
 		foreach ( $result["enabled"] as $enabled_key => $items ) {
