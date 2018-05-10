@@ -94,6 +94,8 @@ class Binmaocom_Fix_Rd {
 					if ( ! is_array( $value['default'] ) ) {
 						$value_temp['default'] = str_replace( 'fas fa-', '', $value_temp['default'] );
 						$value_temp['default'] = str_replace( 'far fa-', '', $value_temp['default'] );
+						$value_temp['default'] = str_replace( 'fa fa-', '', $value_temp['default'] );
+						$value_temp['default'] = str_replace( 'fa-', '', $value_temp['default'] );
 					}
 				}
 				if ( isset( $value['type'] ) && $value['type'] == 'select' ) {
@@ -7255,7 +7257,7 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 		$imported_options  = json_decode( ( $theme_options_txt['body'] ), true );
 
 		if ( ! empty( $imported_options ) && is_array( $imported_options ) && isset( $imported_options['redux-backup'] ) && $imported_options['redux-backup'] == '1' ) {
-
+			
 			$changed_values = array();
 
 			foreach ( $imported_options as $key => $value ) {
@@ -7309,6 +7311,7 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 					$value = str_replace( 'far fa-', '', $value );
 					$value = str_replace( 'fas fa-', '', $value );
 					$value = str_replace( 'fa fa-', '', $value );
+					$value = str_replace( 'fa-', '', $value );
 				}
 				set_theme_mod($key, $value);
 			}
