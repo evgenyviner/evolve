@@ -1,91 +1,28 @@
 <?php
 
 /*
-   Template: footer.php
+   Display footer
    ======================================= */
 
 ?>
-<!--END #content-->
-</div>
-<!--END .container-->
-</div>
-<!--END .content-->
-</div>
-<!--BEGIN .content-bottom-->
-<div class="content-bottom">
-    <!--END .content-bottom-->
-</div>
-<!--BEGIN .footer-->
+
+</div><!-- .row -->
+</div><!-- .container -->
+</div><!-- .content -->
+
 <footer class="footer">
-    <!--BEGIN .container-->
-    <div class="container container-footer">
+    <div class="container">
 
 		<?php
-		// if Footer widgets exist
-		if ( ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) !== "" ) || ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) !== "disable" ) ) {
 
-			$evolve_footer_css = '';
-			if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "one" ) {
-				$evolve_footer_css = 'widget-one-column col-sm-12';
-			}
-			if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "two" ) {
-				$evolve_footer_css = 'col-sm-6 col-md-6';
-			}
-			if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "three" ) {
-				$evolve_footer_css = 'col-sm-6 col-md-4';
-			}
-			if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "four" ) {
-				$evolve_footer_css = 'col-sm-6 col-md-3';
-			}
-			?>
+		// Load The Footer Widgets If Enabled
+		get_template_part( 'template-parts/footer/footer', 'widgets' );
 
-            <div class="footer-widgets">
-                <div class="widgets-back-inside row">
-                    <div class="<?php echo $evolve_footer_css; ?>">
-
-						<?php
-						if ( ! dynamic_sidebar( 'footer-1' ) ) :
-						endif;
-						?>
-
-                    </div>
-                    <div class="<?php echo $evolve_footer_css; ?>">
-
-						<?php
-						if ( ! dynamic_sidebar( 'footer-2' ) ) :
-						endif;
-						?>
-
-                    </div>
-                    <div class="<?php echo $evolve_footer_css; ?>">
-
-						<?php
-						if ( ! dynamic_sidebar( 'footer-3' ) ) :
-						endif;
-						?>
-
-                    </div>
-                    <div class="<?php echo $evolve_footer_css; ?>">
-
-						<?php
-						if ( ! dynamic_sidebar( 'footer-4' ) ) :
-						endif;
-						?>
-
-                    </div>
-                </div><!-- .widgets-back-inside .row -->
-            </div><!-- .footer-widgets -->
-
-		<?php } ?>
-
-        <div class="clearfix"></div>
-
-		<?php
-		$footer_content = evolve_theme_mod( 'evl_footer_content', '<p id=\'copyright\'><span class=\'credits\'><a href=\'http://theme4press.com/evolve-multipurpose-wordpress-theme/\'>evolve</a> theme by Theme4Press&nbsp;&nbsp;&bull;&nbsp;&nbsp;Powered by <a href=\'http://wordpress.org\'>WordPress</a></span></p>' );
+		$footer_content = evolve_theme_mod( 'evl_footer_content', '<div id=\'copyright\'><span class=\'credits\'><a href=\'http://theme4press.com/evolve-multipurpose-wordpress-theme/\'>evolve</a> theme by Theme4Press&nbsp;&nbsp;&bull;&nbsp;&nbsp;Powered by <a href=\'http://wordpress.org\'>WordPress</a></span></div>' );
 		if ( $footer_content === false ) {
 			$footer_content = '';
 		}
-		echo do_shortcode( $footer_content );
+		echo '<div class="row"><div class="col">' . do_shortcode( $footer_content ) . '</div></div>';
 
 		// Theme Hook
 		evolve_footer_hooks(); ?>
@@ -101,7 +38,7 @@
 
 <?php } ?>
 
-</div><!-- #container-wrapper -->
+</div><!-- #wrapper -->
 
 <?php wp_footer(); ?>
 </body>

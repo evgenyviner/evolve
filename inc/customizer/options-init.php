@@ -3349,7 +3349,7 @@ if ( true ) {
 					'id'      => 'evl_footer_content',
 					'type'    => 'textarea',
 					'title'   => __( 'Custom footer', 'evolve' ),
-					'default' => '<p id="copyright"><span class="credits">' . sprintf( __( '<a href="%s">evolve</a> theme by Theme4Press&nbsp;&nbsp;&bull;&nbsp;&nbsp;Powered by <a href="http://wordpress.org">WordPress</a>', 'evolve' ), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/' ) . '</span></p>',
+					'default' => '<div id="copyright"><span class="credits">' . sprintf( __( '<a href="%s">evolve</a> theme by Theme4Press&nbsp;&nbsp;&bull;&nbsp;&nbsp;Powered by <a href="http://wordpress.org">WordPress</a>', 'evolve' ), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/' ) . '</span></div>',
 				),
 			),
 		)

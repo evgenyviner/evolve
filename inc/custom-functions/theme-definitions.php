@@ -1,4 +1,5 @@
 <?php
+
 class evolve_theme_init {
 
 	public static function init() {
@@ -25,8 +26,7 @@ class evolve_theme_init {
 	public static function evolve() {
 		get_template_part( 'inc/custom-functions/hooks' );
 		get_template_part( 'inc/custom-functions/custom-functions' );
-		get_template_part( 'inc/custom-functions/comments' ); 
-		get_template_part( 'inc/custom-functions/widgets' );
+		get_template_part( 'inc/custom-functions/comments' );
 		get_template_part( 'inc/custom-functions/tabs-widget' );
 	}
 
@@ -50,6 +50,12 @@ class evolve_theme_init {
 	}
 
 }
+
+/*
+   Register Widget Areas
+   ======================================= */
+
+get_template_part( 'inc/custom-functions/widgets' );
 
 
 /**

@@ -103,11 +103,7 @@ if (!class_exists('evolve_TemplateWoo')) {
                 } else {
                     $evolve_layout_css.= 'col-md-12 col-sm-' . $evolve_opt1_width_content . ' col-md-' . $evolve_opt1_width_content . '';
                 }
-
-                if (is_single() || is_page()) {
-                    $evolve_layout_css.= ' col-single';
-                }
-            }
+           }
 
             echo $evolve_layout_css;
             echo '">';
@@ -288,10 +284,9 @@ function evolve_product_search_form($form) {
 
 remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 
-
-/*******************************************************
- * Category page show shorting order
- *******************************************************/
+/*
+   Category Page Show Shorting Order
+   ======================================= */
 
 function evolve_woocommerce_catalog_ordering() {
 
@@ -324,12 +319,12 @@ function evolve_woocommerce_catalog_ordering() {
     $html .= '<li>';
     $html .= '<span class="current-li"><span class="current-li-content"><a>' . __('Sort by', 'evolve') . ' <strong>' . __('Default Order', 'evolve') . '</strong></a></span></span>';
     $html .= '<ul>';
-    $html .= '<li class="' . (($pob == 'default') ? 'current' : '') . '"><a href="' . t4p_addURLParameter($query_string, 'product_orderby', 'default') . '">' . __('Sort by', 'evolve') . ' <strong>' . __('Default Order', 'evolve') . '</strong></a></li>';
-    $html .= '<li class="' . (($pob == 'name') ? 'current' : '') . '"><a href="' . t4p_addURLParameter($query_string, 'product_orderby', 'name') . '">' . __('Sort by', 'evolve') . ' <strong>' . __('Name', 'evolve') . '</strong></a></li>';
-    $html .= '<li class="' . (($pob == 'price') ? 'current' : '') . '"><a href="' . t4p_addURLParameter($query_string, 'product_orderby', 'price') . '">' . __('Sort by', 'evolve') . ' <strong>' . __('Price', 'evolve') . '</strong></a></li>';
-    $html .= '<li class="' . (($pob == 'date') ? 'current' : '') . '"><a href="' . t4p_addURLParameter($query_string, 'product_orderby', 'date') . '">' . __('Sort by', 'evolve') . ' <strong>' . __('Date', 'evolve') . '</strong></a></li>';
-    $html .= '<li class="' . (($pob == 'popularity') ? 'current' : '') . '"><a href="' . t4p_addURLParameter($query_string, 'product_orderby', 'popularity') . '">' . __('Sort by', 'evolve') . ' <strong>' . __('Popularity', 'evolve') . '</strong></a></li>';
-    $html .= '<li class="' . (($pob == 'rating') ? 'current' : '') . '"><a href="' . t4p_addURLParameter($query_string, 'product_orderby', 'rating') . '">' . __('Sort by', 'evolve') . ' <strong>' . __('Rating', 'evolve') . '</strong></a></li>';
+    $html .= '<li class="' . (($pob == 'default') ? 'current' : '') . '"><a href="' . evolve_addURLParameter($query_string, 'product_orderby', 'default') . '">' . __('Sort by', 'evolve') . ' <strong>' . __('Default Order', 'evolve') . '</strong></a></li>';
+    $html .= '<li class="' . (($pob == 'name') ? 'current' : '') . '"><a href="' . evolve_addURLParameter($query_string, 'product_orderby', 'name') . '">' . __('Sort by', 'evolve') . ' <strong>' . __('Name', 'evolve') . '</strong></a></li>';
+    $html .= '<li class="' . (($pob == 'price') ? 'current' : '') . '"><a href="' . evolve_addURLParameter($query_string, 'product_orderby', 'price') . '">' . __('Sort by', 'evolve') . ' <strong>' . __('Price', 'evolve') . '</strong></a></li>';
+    $html .= '<li class="' . (($pob == 'date') ? 'current' : '') . '"><a href="' . evolve_addURLParameter($query_string, 'product_orderby', 'date') . '">' . __('Sort by', 'evolve') . ' <strong>' . __('Date', 'evolve') . '</strong></a></li>';
+    $html .= '<li class="' . (($pob == 'popularity') ? 'current' : '') . '"><a href="' . evolve_addURLParameter($query_string, 'product_orderby', 'popularity') . '">' . __('Sort by', 'evolve') . ' <strong>' . __('Popularity', 'evolve') . '</strong></a></li>';
+    $html .= '<li class="' . (($pob == 'rating') ? 'current' : '') . '"><a href="' . evolve_addURLParameter($query_string, 'product_orderby', 'rating') . '">' . __('Sort by', 'evolve') . ' <strong>' . __('Rating', 'evolve') . '</strong></a></li>';
     $html .= '</ul>';
     $html .= '</li>';
     $html .= '</ul>';
@@ -337,10 +332,10 @@ function evolve_woocommerce_catalog_ordering() {
 
     $html .= '<ul class="order">';
     if ($po == 'desc'):
-        $html .= '<li class="desc"><a href="' . t4p_addURLParameter($query_string, 'product_order', 'asc') . '"><i class="t4p-icon t4p-icon-chevron-up"></i></a></li>';
+        $html .= '<li class="desc"><a href="' . evolve_addURLParameter($query_string, 'product_order', 'asc') . '"><i class="t4p-icon t4p-icon-chevron-up"></i></a></li>';
     endif;
     if ($po == 'asc'):
-        $html .= '<li class="asc"><a href="' . t4p_addURLParameter($query_string, 'product_order', 'desc') . '"><i class="t4p-icon t4p-icon-chevron-down"></i></a></li>';
+        $html .= '<li class="asc"><a href="' . evolve_addURLParameter($query_string, 'product_order', 'desc') . '"><i class="t4p-icon t4p-icon-chevron-down"></i></a></li>';
     endif;
     $html .= '</ul>';
     $html .= '</div>';
@@ -349,9 +344,9 @@ function evolve_woocommerce_catalog_ordering() {
     $html .= '<li>';
     $html .= '<span class="current-li"><a>' . __('Show', 'evolve') . ' <strong>' . $per_page . ' ' . __(' Products', 'evolve') . '</strong></a></span>';
     $html .= '<ul>';
-    $html .= '<li class="' . (($pc == $per_page) ? 'current' : '') . '"><a href="' . t4p_addURLParameter($query_string, 'product_count', $per_page) . '">' . __('Show', 'evolve') . ' <strong>' . $per_page . ' ' . __('Products', 'evolve') . '</strong></a></li>';
-    $html .= '<li class="' . (($pc == $per_page * 2) ? 'current' : '') . '"><a href="' . t4p_addURLParameter($query_string, 'product_count', $per_page * 2) . '">' . __('Show', 'evolve') . ' <strong>' . ($per_page * 2) . ' ' . __('Products', 'evolve') . '</strong></a></li>';
-    $html .= '<li class="' . (($pc == $per_page * 3) ? 'current' : '') . '"><a href="' . t4p_addURLParameter($query_string, 'product_count', $per_page * 3) . '">' . __('Show', 'evolve') . ' <strong>' . ($per_page * 3) . ' ' . __('Products', 'evolve') . '</strong></a></li>';
+    $html .= '<li class="' . (($pc == $per_page) ? 'current' : '') . '"><a href="' . evolve_addURLParameter($query_string, 'product_count', $per_page) . '">' . __('Show', 'evolve') . ' <strong>' . $per_page . ' ' . __('Products', 'evolve') . '</strong></a></li>';
+    $html .= '<li class="' . (($pc == $per_page * 2) ? 'current' : '') . '"><a href="' . evolve_addURLParameter($query_string, 'product_count', $per_page * 2) . '">' . __('Show', 'evolve') . ' <strong>' . ($per_page * 2) . ' ' . __('Products', 'evolve') . '</strong></a></li>';
+    $html .= '<li class="' . (($pc == $per_page * 3) ? 'current' : '') . '"><a href="' . evolve_addURLParameter($query_string, 'product_count', $per_page * 3) . '">' . __('Show', 'evolve') . ' <strong>' . ($per_page * 3) . ' ' . __('Products', 'evolve') . '</strong></a></li>';
     $html .= '</ul>';
     $html .= '</li>';
     $html .= '</ul>';
@@ -2024,20 +2019,18 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
         <?php
     }
 
-
-/*******************************************************
- * Remove Double Cart Totals
- *******************************************************/
+/*
+   Remove Double Cart Totals
+   ======================================= */
 
     if (class_exists('Woocommerce')) {
         remove_action('woocommerce_cart_collaterals', 'woocommerce_cart_totals', 10); // Remove Duplicated Cart Totals
         remove_action('woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 20); // Remove Duplicated Checkout Button
     }
 
-
-/*******************************************************
- * Woo Products Shortcode Recode
- *******************************************************/
+/*
+   Woo Products Shortcode Recode
+   ======================================= */
 
     function evolve_woo_product($atts, $content = null) {
         global $woocommerce_loop;
@@ -2099,4 +2092,55 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
 
         return '<div class="woocommerce">' . ob_get_clean() . '</div>';
     }
+
+/*
+   WooCommerce Add URL Parameter
+   ======================================= */
+
+if ( ! function_exists( 'evolve_addURLParameter' ) ) {
+	function evolve_addURLParameter( $url, $paramName, $paramValue ) {
+		$url_data = parse_url( $url );
+		if ( ! isset( $url_data["query"] ) ) {
+			$url_data["query"] = "";
+		}
+		$params = array();
+		parse_str( $url_data['query'], $params );
+		$params[ $paramName ] = $paramValue;
+		if ( $paramName == 'product_count' ) {
+			$params['paged'] = '1';
+		}
+		$url_data['query'] = http_build_query( $params );
+
+		return evolve_build_url( $url_data );
+	}
+}
+
+function evolve_build_url( $url_data ) {
+	$url = "";
+	if ( isset( $url_data['host'] ) ) {
+		$url .= $url_data['scheme'] . '://';
+		if ( isset( $url_data['user'] ) ) {
+			$url .= $url_data['user'];
+			if ( isset( $url_data['pass'] ) ) {
+				$url .= ':' . $url_data['pass'];
+			}
+			$url .= '@';
+		}
+		$url .= $url_data['host'];
+		if ( isset( $url_data['port'] ) ) {
+			$url .= ':' . $url_data['port'];
+		}
+	}
+	if ( isset( $url_data['path'] ) ) {
+		$url .= $url_data['path'];
+	}
+	if ( isset( $url_data['query'] ) ) {
+		$url .= '?' . $url_data['query'];
+	}
+	if ( isset( $url_data['fragment'] ) ) {
+		$url .= '#' . $url_data['fragment'];
+	}
+
+	return $url;
+}
     

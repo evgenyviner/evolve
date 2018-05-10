@@ -21,10 +21,6 @@ $evolve_edit_post                  = evolve_theme_mod( 'evl_edit_post', '0' );
 $evolve_thumbnail_default_images   = evolve_theme_mod( 'evl_thumbnail_default_images', '0' );
 $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerpt_title_length', '40' ) );
 $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image', '0' );
-
-if ( evolve_lets_get_sidebar_2() == true ):
-	get_sidebar( '2' );
-endif;
 ?>
 
     <!--BEGIN #primary .hfeed-->
@@ -516,6 +512,10 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
     </div>
 
 <?php
+if ( evolve_lets_get_sidebar_2() == true ):
+	get_sidebar( '2' );
+endif;
+
 if ( evolve_lets_get_sidebar() == true ):
 	get_sidebar();
 endif;

@@ -158,7 +158,7 @@
     .share-box {
         height: auto;
     }
-    #container-wrapper .share-box h4 {
+    #wrapper .share-box h4 {
         float: none;
         line-height: 20px;
         padding-top: 25px;
@@ -217,7 +217,7 @@
         height: auto;
         width: 100%;
     }
-    #container-wrapper .page-title-container {
+    #wrapper .page-title-container {
         height: auto;
         max-height: 87px;
         padding-bottom: 20px;
@@ -233,16 +233,16 @@
     .header .woocommerce-menu li {
         margin-bottom: 0;
     }
-    #container-wrapper .mean-container .mean-nav ul li a {
+    #wrapper .mean-container .mean-nav ul li a {
         line-height: 1;
     }
-    #container-wrapper .ei-slider {
+    #wrapper .ei-slider {
         width: 100%;
     }
     .t4ps-slider .slides {
         width: auto;
     }
-    #container-wrapper .ei-slider {
+    #wrapper .ei-slider {
         height: 200px;
     }
     .large-alternate .post-content {
@@ -437,7 +437,7 @@
     #nav-uber #megaMenu {
         width: 100%;
     }
-    #container-wrapper .page-title-container {
+    #wrapper .page-title-container {
         max-height: inherit;
     }
     #reviews li .avatar {
@@ -449,7 +449,7 @@
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
-    #container-wrapper {
+    #wrapper {
         width: auto;
         overflow-x: hidden;
     }
@@ -660,13 +660,13 @@
         width: 100%;
         margin-bottom: 20px;
     }
-    #container-wrapper .ei-slider {
+    #wrapper .ei-slider {
         width: 100%;
     }
     .t4ps-slider .slides {
         width: auto;
     }
-    #container-wrapper .ei-slider {
+    #wrapper .ei-slider {
         height: 200px;
     }
     .content-boxes-icon-boxed .col {
@@ -750,13 +750,13 @@
         line-height: 20px;
         font-size: 10px;
     }
-    #container-wrapper .ei-slider {
+    #wrapper .ei-slider {
         width: 100%;
     }
     .t4ps-slider .slides {
         width: auto;
     }
-    #container-wrapper .ei-slider {
+    #wrapper .ei-slider {
         height: 200px;
     }
     .grid-layout .post,

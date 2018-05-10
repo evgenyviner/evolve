@@ -67,7 +67,7 @@
             }
         }
     }
-    #container-wrapper{
+    #wrapper{
         .primary-menu{
             .mean-nav.link-effect{
                 > ul.nav-menu{
@@ -393,7 +393,7 @@ body evolve_theme_mod{
 
 
 
-#container-wrapper {
+#wrapper {
     .dd-container{
         .dd-select{
             height: auto;
@@ -466,12 +466,12 @@ ul.nav-menu li.nav-hover ul {
     opacity: 1;
 }
 
-#container-wrapper ul.nav-menu li ul {
+#wrapper ul.nav-menu li ul {
     border: 0 none;
     @include box-shadow(0 0 0 0);
 }
 
-#container-wrapper {
+#wrapper {
     .primary-menu{
         .link-effect{
             a{
@@ -568,7 +568,7 @@ evolve_theme_mod {
                     }
                 }
             }
-            #container-wrapper {
+            #wrapper {
                 .evolve_mobile_menu{
                     display: none !important;
                 }

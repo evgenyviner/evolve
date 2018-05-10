@@ -1,10 +1,7 @@
 <?php
 get_header();
-$evolve_layout = evolve_theme_mod( 'evl_layout', '2cl' );
+$evolve_layout      = evolve_theme_mod( 'evl_layout', '2cl' );
 $evolve_post_layout = evolve_theme_mod( 'evl_post_layout', 'two' );
-if ( evolve_lets_get_sidebar_2() == true ):
-	get_sidebar( '2' );
-endif;
 ?>
 
     <div id="primary" class="<?php evolve_layout_class( $type = 2 ); ?>">
@@ -31,6 +28,10 @@ endif;
     </div>
 <?php
 wp_reset_query();
+
+if ( evolve_lets_get_sidebar_2() == true ):
+	get_sidebar( '2' );
+endif;
 
 if ( evolve_lets_get_sidebar() == true ):
 	get_sidebar();

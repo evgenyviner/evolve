@@ -24,10 +24,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image', '0' );
 $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' );
-
-if ( evolve_lets_get_sidebar_2() == true ):
-	get_sidebar( '2' );
-endif; ?>
+?>
 
     <div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?>">
 
@@ -399,7 +396,12 @@ endif; ?>
 
     </div><!-- #primary .hfeed -->
 
-<?php if ( evolve_lets_get_sidebar() == true ):
+<?php
+if ( evolve_lets_get_sidebar_2() == true ):
+	get_sidebar( '2' );
+endif;
+
+if ( evolve_lets_get_sidebar() == true ):
 	get_sidebar();
 endif;
 

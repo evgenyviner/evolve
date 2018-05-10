@@ -1,12 +1,11 @@
 <?php
 
 /*
-   Template: header.php
+   Display Header
    ======================================= */
 
-$evolve_page_ID          = get_queried_object_id();
-$evolve_header_pos       = '';
-$evolve_widget_this_page = get_post_meta( $evolve_page_ID, 'evolve_widget_page', true );
+$evolve_page_ID    = get_queried_object_id();
+$evolve_header_pos = '';
 ?>
 
     <!DOCTYPE html>
@@ -36,19 +35,20 @@ $evolve_widget_this_page = get_post_meta( $evolve_page_ID, 'evolve_widget_page',
 
 <?php } ?>
 
-<div id="container-wrapper">
+<div id="wrapper">
 
-<?php if ( evolve_theme_mod( 'evl_sticky_header', true ) ) {
-	// Include The Sticky Header If Enabled
-	get_template_part( 'template-parts/sticky-header' );
-}
+<?php
 
 global $evolve_options;
 do_action( 'fix_evolve_options_data' );
 
-if ( evolve_theme_mod( 'evl_sticky_header', true ) ) { ?>
-    <div class="header-height">
-<?php }
+if ( evolve_theme_mod( 'evl_sticky_header', true ) ) {
+	// Include The Sticky Header If Enabled
+	get_template_part( 'template-parts/header/header', 'sticky' );
+
+	echo '<div class="header-height">';
+
+}
 
 $evolve_frontpage_slider                                      = array();
 $evolve_options['evl_front_elements_content_area']['enabled'] = evolve_theme_mod( 'evl_front_elements_content_area' );
@@ -111,27 +111,26 @@ echo $evolve_slideblock_class_2;
 
 switch ( evolve_theme_mod( 'evl_header_type', 'none' ) ) {
 	case "none":
-		get_template_part( 'template-parts/header/header_v1' );
+		get_template_part( 'template-parts/header/header', 'v1' );
 		break;
 	case "h1":
-		get_template_part( 'template-parts/header/header_v2' );
+		get_template_part( 'template-parts/header/header', 'v2' );
 		break;
 }
 
 if ( evolve_theme_mod( 'evl_sticky_header', true ) ) { ?>
 
-    </div><!-- header-height -->
+</div><!-- header-height -->
 
 <?php }
 
 $evolve_current_post_slider_position = get_post_meta( $evolve_page_ID, 'evolve_slider_position', true );
 $evolve_current_post_slider_position = empty( $evolve_current_post_slider_position ) ? 'default' : $evolve_current_post_slider_position;
 
-
 $evolve_headerblock_class_1 = '';
 $evolve_headerblock_class_2 = '';
 
-if ( ( ( $evolve_current_post_slider_position == 'below' && ! is_front_page() ) || ( $evolve_current_post_slider_position == 'default' && evolve_theme_mod( 'evl_slider_position', 'below' ) == 'below' && ! is_front_page() ) ) || ( ( is_home() || is_front_page() ) && is_array( $evolve_frontpage_slider ) ) || ( evolve_theme_mod( 'evl_widgets_header', 'disable' ) != "disable" && ( ( ( is_home() || is_front_page() ) && evolve_theme_mod( 'evl_header_widgets_placement', 'home' ) == "home" ) || ( is_single() && evolve_theme_mod( 'evl_header_widgets_placement', 'home' ) == "single" ) || ( is_page() && evolve_theme_mod( 'evl_header_widgets_placement', 'home' ) == "page" ) || ( evolve_theme_mod( 'evl_header_widgets_placement', 'home' ) == "all" ) || ( $evolve_widget_this_page == "yes" && evolve_theme_mod( 'evl_header_widgets_placement', 'home' ) == "custom" ) ) ) ) {
+if ( ( ( $evolve_current_post_slider_position == 'below' && ! is_front_page() ) || ( $evolve_current_post_slider_position == 'default' && evolve_theme_mod( 'evl_slider_position', 'below' ) == 'below' && ! is_front_page() ) ) || ( ( is_home() || is_front_page() ) && is_array( $evolve_frontpage_slider ) ) || ( evolve_theme_mod( 'evl_widgets_header', 'disable' ) != "disable" && ( ( ( is_home() || is_front_page() ) && evolve_theme_mod( 'evl_header_widgets_placement', 'home' ) == "home" ) || ( is_single() && evolve_theme_mod( 'evl_header_widgets_placement', 'home' ) == "single" ) || ( is_page() && evolve_theme_mod( 'evl_header_widgets_placement', 'home' ) == "page" ) || ( evolve_theme_mod( 'evl_header_widgets_placement', 'home' ) == "all" ) || ( get_post_meta( $evolve_page_ID, 'evolve_widget_page', true ) == "yes" && evolve_theme_mod( 'evl_header_widgets_placement', 'home' ) == "custom" ) ) ) ) {
 	$evolve_headerblock_class_1 = '<div class="header-block">';
 	$evolve_headerblock_class_2 = '</div>';
 }
@@ -150,56 +149,11 @@ if ( ( is_home() || is_front_page() ) && is_array( $evolve_frontpage_slider ) ) 
 	get_template_part( 'template-parts/slider/slider' );
 }
 
-if ( ( ( is_home() || is_front_page() ) && evolve_theme_mod( 'evl_header_widgets_placement', 'home' ) == "home" ) || ( is_single() && evolve_theme_mod( 'evl_header_widgets_placement', 'home' ) == "single" ) || ( is_page() && evolve_theme_mod( 'evl_header_widgets_placement', 'home' ) == "page" ) || ( evolve_theme_mod( 'evl_header_widgets_placement', 'home' ) == "all" ) || ( $evolve_widget_this_page == "yes" && evolve_theme_mod( 'evl_header_widgets_placement', 'home' ) == "custom" ) ) {
+// Load The Header Widgets If Enabled
+get_template_part( 'template-parts/header/header', 'widgets' );
 
-	if ( ( evolve_theme_mod( 'evl_widgets_header', 'disable' ) == "" ) || ( evolve_theme_mod( 'evl_widgets_header', 'disable' ) == "disable" ) ) {
-
-	} else {
-
-		$evolve_header_css                  = '';
-		$evolve_headerblock_widgets_class_1 = '<div class="container header-widgets"><div class="row">';
-		$evolve_headerblock_widgets_class_2 = '</div>';
-
-		if ( evolve_theme_mod( 'evl_widgets_header', 'disable' ) == "one" ) {
-			$evolve_header_css = '<div class="col-12">';
-		}
-		if ( evolve_theme_mod( 'evl_widgets_header', 'disable' ) == "two" ) {
-			$evolve_header_css = '<div class="col-sm-12 col-md-6">';
-		}
-		if ( evolve_theme_mod( 'evl_widgets_header', 'disable' ) == "three" ) {
-			$evolve_header_css = '<div class="col-sm-12 col-md-6 col-lg-4">';
-		}
-		if ( evolve_theme_mod( 'evl_widgets_header', 'disable' ) == "four" ) {
-			$evolve_header_css = '<div class="col-sm-12 col-md-6 col-xl-3">';
-		}
-
-		echo $evolve_headerblock_widgets_class_1;
-
-		echo $evolve_header_css;
-		if ( ! dynamic_sidebar( 'header-1' ) ) :
-		endif;
-		echo $evolve_headerblock_widgets_class_2;
-
-		echo $evolve_header_css;
-		if ( ! dynamic_sidebar( 'header-2' ) ) :
-		endif;
-		echo $evolve_headerblock_widgets_class_2;
-
-		echo $evolve_header_css;
-		if ( ! dynamic_sidebar( 'header-3' ) ) :
-		endif;
-		echo $evolve_headerblock_widgets_class_2;
-
-		echo $evolve_header_css;
-		if ( ! dynamic_sidebar( 'header-4' ) ) :
-		endif;
-		echo $evolve_headerblock_widgets_class_2;
-
-		echo $evolve_headerblock_widgets_class_2;
-
-		echo $evolve_headerblock_class_2;// <!-- .header-block -->
-	}
-} ?>
+echo $evolve_headerblock_class_2; // <!-- .header-block -->
+?>
 
 <div class="content <?php semantic_body(); ?>">
 
@@ -209,8 +163,8 @@ if ( ( ( is_home() || is_front_page() ) && evolve_theme_mod( 'evl_header_widgets
 
 <?php endif; ?>
 
-    <div id="content">
-        <div class="container container-center row">
+    <div class="container">
+        <div class="row">
 
 <?php if ( is_front_page() && evolve_theme_mod( 'evl_content_boxes_pos', 'above' ) == 'above' && isset( $evolve_options['evl_front_elements_content_area']['enabled']['content_box'] ) ) {
 	evolve_content_boxes();

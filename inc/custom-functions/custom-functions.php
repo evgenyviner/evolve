@@ -54,46 +54,6 @@ function evolve_get_terms( $term = null, $glue = ', ' ) {
 }
 
 /**
- * evolve_get Gets template files
- *
- * @since 0.2.3
- * @needsdoc
- * @action evolve_get
- * @todo test this on child themes
- */
-function evolve_get( $file = null ) {
-	do_action( 'evolve_get' ); // Available action: evolve_get
-	$error = "Sorry, but <code>{$file}</code> does <em>not</em> seem to exist. Please make sure this file exist in <strong>" . get_stylesheet_directory() . "</strong>\n";
-	$error = apply_filters( 'evolve_get_error', (string) $error ); // Available filter: evolve_get_error
-	if ( isset( $file ) && file_exists( get_stylesheet_directory() . "/{$file}.php" ) ) {
-		locate_template( get_stylesheet_directory() . "/{$file}.php" );
-	} else {
-		echo $error;
-	}
-}
-
-/**
- * evolve_include_all() A function to include all files from a directory path
- *
- * @since 0.2.3
- * @credits k2
- */
-function evolve_include_all( $path, $ignore = false ) {
-
-	/* Open the directory */
-	$dir = @dir( $path ) or die( 'Could not open required directory ' . $path );
-
-	/* Get all the files from the directory */
-	while ( ( $file = $dir->read() ) !== false ) {
-		/* Check the file is a file, and is a PHP file */
-		if ( is_file( $path . $file ) and ( ! $ignore or ! in_array( $file, $ignore ) ) and preg_match( '/\.php$/i', $file ) ) {
-			require_once( $path . $file );
-		}
-	}
-	$dir->close(); // Close the directory, we're done.
-}
-
-/**
  * Remove title attribute from menu
  *
  */

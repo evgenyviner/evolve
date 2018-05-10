@@ -607,10 +607,6 @@ html {
     float: right;
 }
 
-.float-left {
-    float: left;
-}
-
 .video-shortcode iframe {
     width: 100%;
 }
@@ -629,14 +625,6 @@ video {
 .main {
     background: #eceeeb;
     padding: 53px 0 91px;
-}
-
-#primary.full-width {
-    width: 100%;
-}
-
-#content .searchform {
-    float: none;
 }
 
 p,
@@ -740,14 +728,6 @@ img {
 
 .content {
     padding-top: 35px;
-}
-
-.content .container-center {
-    margin: 0;
-}
-
-.content .container-center {
-    margin: 0 auto;
 }
 
 input[type="submit"],
@@ -1579,16 +1559,12 @@ input#submit:hover {
    Layout
    ========================================================================== */
 
+.container {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 /* ======================== Body & Wrapper ======================== */
-
-.container-center {
-    margin: 0 auto;
-}
-
-.container-footer {
-    margin-bottom: 0;
-    position: relative;
-}
 
 .header-widgets {
     padding-top: 35px;
@@ -1720,9 +1696,7 @@ input#submit:hover {
 /* ======================== Footer ======================== */
 
 .footer {
-    position: relative;
-    color: #000;
-    padding: 20px 0;
+    padding: 30px 0;
 }
 
 .footer small {
@@ -1738,17 +1712,17 @@ input#submit:hover {
     text-decoration: none;
 }
 
-p#copyright {
+#copyright {
     font-size: 15px;
     text-align: center;
 }
 
-p#copyright .credits {
+#copyright .credits {
     font-size: 11px;
     color: rgba(0, 0, 0, 0.3);
 }
 
-p#copyright .credits a {
+#copyright .credits a {
     font-size: 11px;
     color: rgba(0, 0, 0, 0.5);
 }
@@ -2226,10 +2200,6 @@ p#copyright .credits a {
 
 /* ======================== Basic 2 column (content)(aside) fixed layout ======================== */
 
-.footer {
-    clear: both;
-}
-
 .alignleft {
     float: left;
     margin: 5px 20px 10px 0;
@@ -2499,7 +2469,6 @@ p#copyright .credits a {
 
 /* ======================== WPML Plugin style ======================== */
 
-
 /* TODO remove */
 ul.nav-menu li.menu-item-language {
     position: relative;
@@ -2582,11 +2551,13 @@ a:hover {
     text-decoration: underline;
 }
 
+/* TODO remove
 #secondary,
 #secondary-2 {
     position: relative;
     z-index: 0;
 }
+*/
 
 #secondary a,
 #secondary-2 a,
@@ -6465,7 +6436,6 @@ form.top-searchform {
     background: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
-
     -o-box-shadow: none;
     box-shadow: none;
     display: block;
@@ -7271,14 +7241,6 @@ ul.breadcrumbs li a {
 
 .page-template-contact-php .content {
     padding-top: 0;
-}
-
-.content-bottom {
-    width: 100%;
-    height: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
 
 .full-width {
@@ -8458,7 +8420,7 @@ ol.commentlist {
     padding: 25px 0;
 }
 
-#container-wrapper .evolve-myaccount-data {
+#wrapper .evolve-myaccount-data {
     overflow: visible;
 }
 
@@ -10700,14 +10662,14 @@ table.variations {
     display: inline-block;
 }
 
-#container-wrapper .cart-loading {
+#wrapper .cart-loading {
     background-color: #333333;
     opacity: 0.9;
     -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=90)";
     filter: alpha(opacity=90);
 }
 
-.no-rgba #container-wrapper .cart-loading {
+.no-rgba #wrapper .cart-loading {
     background-color: #000;
 }
 
@@ -11957,7 +11919,7 @@ Button Shortcode
 }
 
 @media screen and (max-width: 782px) {
-    body.admin-bar #container-wrapper #slidingbar-area,
+    body.admin-bar #wrapper #slidingbar-area,
     .admin-bar p.demo_store,
     body.admin-bar .sticky-header {
         top: 46px;
@@ -12983,6 +12945,11 @@ Blog Shortcode
 /*
    Menu Bar
    ======================================= */
+
+.navbar {
+    padding-left: 0;
+    padding-right: 0;
+}
 
 .navbar-nav {
     flex-wrap: wrap;
