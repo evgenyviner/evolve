@@ -40,7 +40,6 @@ $evolve_header_pos = '';
 <?php
 
 global $evolve_options;
-do_action( 'fix_evolve_options_data' );
 
 if ( evolve_theme_mod( 'evl_sticky_header', true ) ) {
 	// Include The Sticky Header If Enabled
@@ -54,8 +53,15 @@ $evolve_frontpage_slider                                      = array();
 $evolve_options['evl_front_elements_content_area']['enabled'] = evolve_theme_mod( 'evl_front_elements_content_area' );
 $evolve_options['evl_front_elements_header_area']['enabled']  = evolve_theme_mod( 'evl_front_elements_header_area' );
 
-if ( isset( $evolve_options['evl_front_elements_header_area']['enabled'] ) ) {
-	$evolve_frontpage_slider = array_keys( $evolve_options['evl_front_elements_header_area']['enabled'] );
+if ( $evolve_options['evl_front_elements_header_area']['enabled'] && isset( $evolve_options['evl_front_elements_header_area']['enabled'] ) ) {
+	
+	$evolve_frontpage_temp = array();
+	if($evolve_options['evl_front_elements_header_area']['enabled'] && is_array($evolve_options['evl_front_elements_header_area']['enabled'])){
+		foreach($evolve_options['evl_front_elements_header_area']['enabled'] as $items){
+			$evolve_frontpage_temp[$items] = $items;
+		}
+	}
+	$evolve_frontpage_slider = array_keys( $evolve_frontpage_temp);
 	$evolve_header_pos       = array_search( "header", $evolve_frontpage_slider );
 }
 

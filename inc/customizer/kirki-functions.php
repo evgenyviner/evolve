@@ -13,7 +13,7 @@ wp_enqueue_script( 'js_import_customizer',
 add_action( 'customize_preview_init', 'call_js_import_customizer_live_preview' );
 
 
-add_filter('pre_option_evl_options', 'binmaocom_fix_pre_option_evl_options_function');
+// add_filter('pre_option_evl_options', 'binmaocom_fix_pre_option_evl_options_function');
 function binmaocom_fix_pre_option_evl_options_function($evolve_options){
 	if($evolve_options && is_array($evolve_options) && count($evolve_options)){
 		foreach($evolve_options as $key => $value){
@@ -78,6 +78,11 @@ li#customize-control-evl_theme_links a {
 }
 h3.accordion-section-title.dashicons-before.el {
     display: block;
+}
+.iris-picker .iris-strip {
+    right: 15px;
+    top: 0;
+    position: absolute;
 }
 </style>
 	<?php
