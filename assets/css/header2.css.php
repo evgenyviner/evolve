@@ -1,7 +1,4 @@
 <?php
-global $evolve_options; do_action('fix_evolve_options_data');
-
-$options = $evolve_options;
 
 $evolve_css_data = '
 .woocommerce-menu,
@@ -361,8 +358,9 @@ ul.t4p-navbar-nav > li {
 }
 ';
 
-if ($options['evl_menu_font']['color'] != '') {
-   $color = $options['evl_menu_font']['color'];
+$evl_menu_font = evolve_theme_mod('evl_menu_font');
+if ($evl_menu_font['color'] != '') {
+   $color = $evl_menu_font['color'];
 $evolve_css_data .= '
 .woocommerce-menu .my-cart-link:hover,
 .woocommerce-menu .empty-cart:hover,
@@ -373,8 +371,9 @@ $evolve_css_data .= '
 ';
 }
 
-if ($options['evl_tagline_font']['color'] !='') {
-$color = $options['evl_tagline_font']['color'];
+$evl_tagline_font = evolve_theme_mod('evl_tagline_font');
+if ($evl_tagline_font['color'] !='') {
+$color = $evl_tagline_font['color'];
 $evolve_css_data .= '
 .woocommerce-menu .cart > a,
 .woocommerce-menu .my-account > a {

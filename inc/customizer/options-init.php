@@ -91,6 +91,18 @@ class Binmaocom_Fix_Rd {
 					if ( isset( $value_temp['default']['font-style'] ) ) {
 						$value_temp['default']['variant'] = $value_temp['default']['font-style'];
 					}
+					if ( isset( $value_temp['default']['padding-top'] ) ) {
+						$value_temp['default']['top'] = $value_temp['default']['padding-top'];
+					}
+					if ( isset( $value_temp['default']['padding-right'] ) ) {
+						$value_temp['default']['right'] = $value_temp['default']['padding-right'];
+					}
+					if ( isset( $value_temp['default']['padding-bottom'] ) ) {
+						$value_temp['default']['bottom'] = $value_temp['default']['padding-bottom'];
+					}
+					if ( isset( $value_temp['default']['padding-left'] ) ) {
+						$value_temp['default']['left'] = $value_temp['default']['padding-left'];
+					}
 					if ( ! is_array( $value['default'] ) ) {
 						$value_temp['default'] = str_replace( 'fas fa-', '', $value_temp['default'] );
 						$value_temp['default'] = str_replace( 'far fa-', '', $value_temp['default'] );
@@ -153,7 +165,7 @@ class Binmaocom_Fix_Rd {
 					$active_callback = array();
 					if ( count( $value['required'] ) ) {
 						foreach ( $value['required'] as $required ) {
-							if ( $required[2] == '=' ) {
+							if ( isset($required[2]) && $required[2] == '=' ) {
 								$required[2] = '==';
 							}
 							$active_callback[] = array(
@@ -7171,6 +7183,73 @@ function binmaocom_trigger_import_function(){
 		}
 	}
 	exit();
+}
+
+add_action('init', 'update_theme_from_redux_to_kirki');
+
+function update_theme_from_redux_to_kirki(){
+	$update_theme_from_redux_to_kirki = get_option('update_theme_from_redux_to_kirki', false);
+	if($update_theme_from_redux_to_kirki == false){
+		$data_options = get_option('evl_options');
+		if($data_options){
+			foreach ( $data_options as $key => $value ) {
+				$bootstrapsliderKeys = array(
+					'evl_bootstrap_slide1_img',
+					'evl_bootstrap_slide2_img',
+					'evl_bootstrap_slide3_img',
+					'evl_bootstrap_slide4_img',
+					'evl_bootstrap_slide5_img',
+				);
+				$parallaxsliderKeys  = array(
+					'evl_slide1_img',
+					'evl_slide2_img',
+					'evl_slide3_img',
+					'evl_slide4_img',
+					'evl_slide5_img',
+				);
+
+				if ( in_array( $key, $bootstrapsliderKeys ) ) {
+					$img_name               = basename( $value['url'] );
+					$plugin_options[ $key ] = array( 'url' => "{$evolve_imagepathfolder}bootstrap-slider/{$img_name}" );
+				} elseif ( in_array( $key, $parallaxsliderKeys ) ) {
+					$img_name               = basename( $value['url'] );
+					$plugin_options[ $key ] = array( 'url' => "{$evolve_imagepathfolder}parallax/{$img_name}" );
+				} else {
+					if ( isset( $plugin_options[ $key ] ) && $plugin_options[ $key ] != $value ) {
+						$changed_values[ $key ] = $value;
+						$plugin_options[ $key ] = $value;
+					}
+				}
+				if ( $value && is_array($value) && count( $value ) && isset($value["enabled"]) && is_array($value["enabled"]) && count( $value["enabled"] ) ) {
+					$enabled_temp = array();
+					foreach ( $value["enabled"] as $enabled_key => $items ) {
+						if('placebo' != $enabled_key){
+							$enabled_temp[] = $enabled_key;
+						}
+					}
+					$value = $enabled_temp;
+				}
+				
+				if ( $value && is_array($value) && count( $value ) && isset($value["url"]) ) {
+					$value = $value["url"];
+				}
+				if ( $value && is_array($value) && count( $value ) && isset($value["color"]) ) {
+					// $value = $value["color"];
+				}
+				if ( isset( $value['font-style'] ) ) {
+					$value['variant'] = $value['font-style'];
+				}
+				if ( ! is_array( $value ) ) {
+					$value = str_replace( 'far fa-', '', $value );
+					$value = str_replace( 'fas fa-', '', $value );
+					$value = str_replace( 'fa fa-', '', $value );
+					$value = str_replace( 'fa-', '', $value );
+				}
+				set_theme_mod($key, $value);
+			}
+		}
+		update_option('update_theme_from_redux_to_kirki', time());
+	}
 }
 
 function evolve_import_demo_content_kirki( $wp_customize = null ) {
