@@ -79,6 +79,11 @@ li#customize-control-evl_theme_links a {
 h3.accordion-section-title.dashicons-before.el {
     display: block;
 }
+.iris-picker .iris-strip {
+    right: 15px;
+    top: 0;
+    position: absolute;
+}
 </style>
 	<?php
 	}
