@@ -2030,15 +2030,11 @@ body .header-block .wooslider .slide-content p {
 #primary.col-md-6{
     .product-buttons{
         .product-buttons-container{
-            input[type="submit"],
             button,
             .button,
             .bootstrap-button,
-            input#submit,
             .da-slide .da-link,
-            span.more a,
-            a.read-more,
-            .entry-content a.t4p-button-default{
+            span.more a{
                 font-size: 12px;
                 line-height: 1;
                 padding: 10px 8px;

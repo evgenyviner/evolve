@@ -98,7 +98,7 @@
                         </div>
 
                         <div class="bbp-submit-wrapper">
-                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_merge_topic_submit" name="bbp_merge_topic_submit" class="button submit small"><?php _e('Submit', 'evolve'); ?></button>
+                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_merge_topic_submit" name="bbp_merge_topic_submit" class="btn btn-sm"><?php _e('Submit', 'evolve'); ?></button>
                         </div>
                     </div>
 

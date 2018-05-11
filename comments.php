@@ -93,7 +93,7 @@ if ( post_password_required() ) {
 
     <div class="clearfix"></div>
 
-	<?php comment_form(); ?>
+	<?php comment_form( array( 'class_submit' => 'btn' ) ); ?>
     <!--END #comment-form-->
 
     <!--END #respond-->

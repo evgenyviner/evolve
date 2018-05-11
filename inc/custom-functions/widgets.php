@@ -111,6 +111,13 @@ function evolve_widgets_init() {
 	} else {
 		register_sidebars( $evolve_footer_widgets, $evolve_footer_widgets_args_more );
 	}
+
+	/*
+	   Tabs Widget
+	   ======================================= */
+
+	get_template_part( 'inc/custom-functions/tabs-widget' );
+
 }
 
 add_action( 'widgets_init', 'evolve_widgets_init' );

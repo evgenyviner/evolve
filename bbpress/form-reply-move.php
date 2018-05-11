@@ -73,7 +73,7 @@
                         </div>
 
                         <div class="bbp-submit-wrapper">
-                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_move_reply_submit" name="bbp_move_reply_submit" class="button submit small"><?php _e('Submit', 'evolve'); ?></button>
+                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_move_reply_submit" name="bbp_move_reply_submit" class="btn btn-sm"><?php _e('Submit', 'evolve'); ?></button>
                         </div>
                     </div>
 

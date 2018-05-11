@@ -21,7 +21,7 @@
 			return $content;
 		}
 		function evl_content_box1_button() {
-			$content = get_theme_mod( __FUNCTION__,'<a class="read-more btn t4p-button" href="#">Learn more</a>');
+			$content = get_theme_mod( __FUNCTION__,'<a class="btn btn-sm" href="#">Learn more</a>');
 			return $content;
 		}
 		function evl_content_box2_icon() {
@@ -37,7 +37,7 @@
 			return $content;
 		}
 		function evl_content_box2_button() {
-			$content = get_theme_mod( __FUNCTION__,'<a class="read-more btn t4p-button" href="#">Learn more</a>');
+			$content = get_theme_mod( __FUNCTION__,'<a class="btn btn-sm" href="#">Learn more</a>');
 			return $content;
 		}
 		function evl_content_box3_icon() {
@@ -53,7 +53,7 @@
 			return $content;
 		}
 		function evl_content_box3_button() {
-			$content = get_theme_mod( __FUNCTION__,'<a class="read-more btn t4p-button" href="#">Learn more</a>');
+			$content = get_theme_mod( __FUNCTION__,'<a class="btn btn-sm" href="#">Learn more</a>');
 			return $content;
 		}
 		function evl_content_box4_icon() {
@@ -69,7 +69,7 @@
 			return $content;
 		}
 		function evl_content_box4_button() {
-			$content = get_theme_mod( __FUNCTION__,'<a class="read-more btn t4p-button" href="#">Learn more</a>');
+			$content = get_theme_mod( __FUNCTION__,'<a class="btn btn-sm" href="#">Learn more</a>');
 			return $content;
 		}
     }

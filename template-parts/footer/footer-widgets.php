@@ -1,6 +1,8 @@
 <?php
 
-if ( ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) !== "" ) || ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) !== "disable" ) ) {
+if ( ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "" ) || ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "disable" ) ) {
+
+} else {
 
 	$evolve_footer_widgets_css = '';
 

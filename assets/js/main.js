@@ -1,4 +1,11 @@
 /*
+   Tabs Widget
+   ======================================= */
+jQuery(function ($) {
+    $('.nav-tabs li:first-child a').tab('show')
+});
+
+/*
    Make Mobile Menu Clickable
    ======================================= */
 
@@ -340,6 +347,7 @@ jQuery(window).load(function () {
             jQuery(".sbtn3").css('padding-top', btnpadding[2]);
             jQuery(".sbtn4").css('padding-top', btnpadding[3]);
         }
+
         setHeight();
 
         jQuery(window).resize(function () {
@@ -1108,6 +1116,7 @@ if (evolve_js_local_vars.parallax_slider === '1') {
         function is(obj, type) {
             return typeof obj === type;
         }
+
         /**
          * Run through all tests and detect their support in the current UA.
          *
@@ -1176,6 +1185,7 @@ if (evolve_js_local_vars.parallax_slider === '1') {
                 }
             }
         }
+
         /**
          * docElement is a convenience wrapper to grab the root element of the document
          *
@@ -1293,6 +1303,7 @@ if (evolve_js_local_vars.parallax_slider === '1') {
                 return m1 + m2.toUpperCase();
             }).replace(/^-/, '');
         }
+
         /**
          * contains checks to see if a string contains another string
          *
@@ -1425,6 +1436,7 @@ if (evolve_js_local_vars.parallax_slider === '1') {
                 return '-' + m1.toLowerCase();
             }).replace(/^ms-/, '-ms-');
         }
+
         /**
          * wrapper around getComputedStyle, to fix issues with Firefox returning null when
          * called inside of a hidden iframe
@@ -1595,6 +1607,7 @@ if (evolve_js_local_vars.parallax_slider === '1') {
             }
             return undefined;
         }
+
         // testProps is a generic CSS / DOM property test.
 
         // In testing support for a given CSS property, it's legit to test:
@@ -1834,3 +1847,4 @@ if (evolve_js_local_vars.parallax_slider === '1') {
     });
 
 }
+

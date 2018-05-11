@@ -387,15 +387,7 @@ function evolve_footer_hooks() {
 	if ( $evolve_animate_css == "1" ) { ?>
         <script type="text/javascript">
             var $animated = jQuery.noConflict();
-            $animated('.post-more').hover(
-                function () {
-                    $animated(this).addClass('animated pulse')
-                },
-                function () {
-                    $animated(this).removeClass('animated pulse')
-                }
-            )
-            $animated('.read-more').hover(
+            $animated('.btn').hover(
                 function () {
                     $animated(this).addClass('animated pulse')
                 },
@@ -1282,7 +1274,7 @@ function evolve_posts_slider() {
 								$excerpt_length = evolve_theme_mod( 'evl_posts_slider_excerpt_length', 40 );
 								echo evolve_excerpt_max_charlength( $excerpt_length );
 								?></p>
-                            <a class="button post-more"
+                            <a class="btn post-more"
                                href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
                         </li>
 					<?php
@@ -1996,10 +1988,10 @@ function evolve_theme_mod( $name, $default = false ) {
 		$result = binmaocom_fix_get_theme_mod( $result );
 	}
 	// if ( $result && is_string( $name ) && endsWith( $name, '_icon' ) ) {
-		// if ( ! ( strpos( $result, 'fa-' ) === 0 ) ) {
-			// // It starts with 'http'
-			// $result = 'fa-' . $result;
-		// }
+	// if ( ! ( strpos( $result, 'fa-' ) === 0 ) ) {
+	// // It starts with 'http'
+	// $result = 'fa-' . $result;
+	// }
 	// }
 	if ( $result && is_array( $result ) && count( $result ) && isset( $result["enabled"] ) && is_array( $result["enabled"] ) && count( $result["enabled"] ) ) {
 		$enabled_temp = array();
@@ -2117,8 +2109,6 @@ function evolve_scripts() {
 	if ( $evolve_carousel_slider == "1" ) {
 		wp_enqueue_script( 'carousel', EVOLVE_JS . '/carousel.min.js', array( 'jquery' ), '', true );
 	}
-
-	wp_enqueue_script( 'evolve-tabs', EVOLVE_JS . '/tabs.min.js', array( 'jquery' ), '', true );
 
 	//if ($evolve_pagination_type == "infinite") {
 	wp_enqueue_script( 'evolve-infinite-scroll', EVOLVE_JS . '/jquery.infinite-scroll.min.js', array( 'jquery' ), '', true );

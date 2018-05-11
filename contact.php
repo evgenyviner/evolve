@@ -221,7 +221,7 @@ while ( have_posts() ) :
 
         <div class="input-group">
 
-            <input class="btn btn-primary" name="submit" type="submit" id="submit" tabindex="5"
+            <input class="btn" name="submit" type="submit" id="submit" tabindex="5"
                    value="<?php _e( 'Send Message', 'evolve' ); ?>">
 
         </div>

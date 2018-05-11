@@ -1,7 +1,7 @@
 <?php
 
 /*
-   Display Header
+   Displays Header
    ======================================= */
 
 $evolve_page_ID    = get_queried_object_id();

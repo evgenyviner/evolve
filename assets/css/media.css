@@ -213,10 +213,6 @@
         height: 30px;
         line-height: 30px;
     }
-    .tab-holder .tabs {
-        height: auto;
-        width: 100%;
-    }
     #wrapper .page-title-container {
         height: auto;
         max-height: 87px;
@@ -647,10 +643,6 @@
         height: 30px;
         line-height: 30px;
         font-size: 10px;
-    }
-    .tab-holder .tabs {
-        height: auto;
-        width: 100%;
     }
     .error_page .useful_links {
         width: 100%;

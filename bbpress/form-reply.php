@@ -102,7 +102,7 @@ if (bbp_is_reply_edit()) :
                             bbp_cancel_reply_to_link();
                             ?>
 
-                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_reply_submit" name="bbp_reply_submit" class="button submit small default"><?php _e('Submit', 'evolve'); ?></button>
+                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_reply_submit" name="bbp_reply_submit" class="btn btn-sm"><?php _e('Submit', 'evolve'); ?></button>
 
                             <?php do_action('bbp_theme_after_reply_form_submit_button'); ?>
 

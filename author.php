@@ -172,7 +172,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 
                         <div class="entry-meta entry-footer">
 
-                            <a class="read-more btn t4p-button-default"
+                            <a class="btn btn-sm"
                                href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
 
 							<?php if ( comments_open() ) : ?>
@@ -342,7 +342,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 							the_excerpt();
 							?>
 
-                            <a class="read-more btn t4p-button-default"
+                            <a class="btn btn-sm"
                                href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
 
 							<?php

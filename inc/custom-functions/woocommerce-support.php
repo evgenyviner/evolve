@@ -904,7 +904,7 @@ function evolve_cart_shipping_calc() {
 
             <?php endif; ?>
 
-            <p><button type="submit" name="calc_shipping" value="1" class="button"><?php _e('Update Totals', 'evolve'); ?></button></p>
+            <p><button type="submit" name="calc_shipping" value="1" class="btn"><?php _e('Update Totals', 'evolve'); ?></button></p>
 
             <?php wp_nonce_field('woocommerce-cart'); ?>
         </div>
@@ -932,7 +932,7 @@ function evolve_woocommerce_cart_collaterals($args) {
                 <h2><?php _e('Have A Promotional Code?', 'evolve'); ?></h2>
 
                 <input name="coupon_code" type="text" class="input-text" id="coupon_code" value="" placeholder="<?php _e('Coupon code', 'evolve'); ?>" />
-                <input type="submit" class="button medium default" name="apply_coupon" value="<?php _e('Apply', 'evolve'); ?>" />
+                <input type="submit" class="btn btn-sm float-md-right" name="apply_coupon" value="<?php _e('Apply', 'evolve'); ?>" />
 
                 <?php do_action('woocommerce_cart_coupon'); ?>
 
@@ -1001,7 +1001,7 @@ function evolve_woocommerce_checkout_coupon_form($args) {
             </div>
 
             <div class="form-row form-row-last alignleft coupon-button">
-                <input type="submit" class="button" name="apply_coupon" value="<?php _e('Apply Coupon', 'evolve'); ?>" />
+                <input type="submit" class="btn btn-sm float-md-right" name="apply_coupon" value="<?php _e('Apply Coupon', 'evolve'); ?>" />
             </div>
 
             <div class="clear"></div>
@@ -1136,7 +1136,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
         if (!$evolve_woocommerce_one_page_checkout) {
             ?>
 
-            <a data-name="<?php echo $data_name; ?>" href="#" class="button default medium submit t4p-button-default continue-checkout"><?php _e('Continue', 'evolve'); ?></a>
+            <button data-name="<?php echo $data_name; ?>" href="#" class="btn float-md-right"><?php _e('Continue', 'evolve'); ?></button>
             <div class="clearboth"></div>
 
             <?php
@@ -1153,7 +1153,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
         if (!$evolve_woocommerce_one_page_checkout) {
             ?>
 
-            <a data-name="#order_review" href="#" class="button default medium submit t4p-button-default continue-checkout"><?php _e('Continue', 'evolve'); ?></a>
+            <button data-name="#order_review" href="#" class="btn float-md-right"><?php _e('Continue', 'evolve'); ?></button>
             <div class="clearboth"></div>
 
             <?php
@@ -1214,32 +1214,42 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
         $woo_acc_msg_2 = evolve_theme_mod('evl_woo_acc_msg_2', 'Email us - <i class="t4p-icon-envelope-o"></i> contact@example.com');
         ?>
 
-        <p class="evolve_myaccount_user">
-            <span class="myaccount_user_container">
-                <span class="username">
-                    <?php
-                    printf(
-                            __('Hello, %s', 'evolve'), $current_user->display_name
-                    );
-                    ?>
-                </span>
-                <?php if ($woo_acc_msg_1): ?>
-                    <span class="msg">
-                        <?php echo $woo_acc_msg_1; ?>
-                    </span>
-                    <?php
-                endif;
-                if ($woo_acc_msg_2):
-                    ?>
-                    <span class="msg">
-                        <?php echo $woo_acc_msg_2; ?>
-                    </span>
-                <?php endif; ?>
-                <span class="view-cart">
-                    <a class="button default medium submit t4p-button-default" href="<?php echo get_permalink(get_option('woocommerce_cart_page_id')); ?>"><?php _e('View Cart', 'evolve'); ?></a>
-                </span>
-            </span>
-        </p>
+  <div class="container myaccount_user_container">
+        <div class="row">
+            <div class="col">
+                 <h3><?php
+					printf(
+						__( 'Hello, %s', 'evolve' ), $current_user->display_name
+					);
+					?></h3>
+            </div>
+
+			<?php if ( $woo_acc_msg_1 ): ?>
+
+                <div class="col">
+
+					<?php echo $woo_acc_msg_1; ?>
+
+                </div>
+
+			<?php endif;
+			if ( $woo_acc_msg_2 ): ?>
+
+                <div class="col">
+
+					<?php echo $woo_acc_msg_2; ?>
+
+                </div>
+
+			<?php endif; ?>
+
+            <div class="col">
+                <form action="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
+                    <button type="submit" class="btn float-md-right"><?php _e( 'View Cart', 'evolve' ); ?></button>
+                </form>
+            </div>
+        </div>
+    </div>
         <div class="woocommerce-side-nav">
             <ul class="woocommerce-side-nav-ul evolve-myaccount-nav">
                 <li <?php
@@ -1411,7 +1421,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
 
                                             if ($actions = apply_filters('woocommerce_my_account_my_orders_actions', $actions, $order)) {
                                                 foreach ($actions as $key => $action) {
-                                                    echo '<a href="' . esc_url($action['url']) . '" class="button ' . sanitize_html_class($key) . '">' . esc_html($action['name']) . '</a>';
+                                                    echo '<a href="' . esc_url($action['url']) . '" class="btn ' . sanitize_html_class($key) . '">' . esc_html($action['name']) . '</a>';
                                                 }
                                             }
                                             ?>
@@ -1424,7 +1434,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                 </table>
             <?php else : ?>
                 <div class="woocommerce-Message woocommerce-Message--info woocommerce-info my_account_orders">
-                    <a class="woocommerce-Button button" href="<?php echo esc_url(apply_filters('woocommerce_return_to_shop_redirect', wc_get_page_permalink('shop'))); ?>">
+                    <a class="btn" href="<?php echo esc_url(apply_filters('woocommerce_return_to_shop_redirect', wc_get_page_permalink('shop'))); ?>">
                         <?php _e('Go Shop', 'evolve') ?>
                     </a>
                     <?php _e('No order has been made yet.', 'evolve'); ?>
@@ -1597,7 +1607,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                         ?>
 
                         <p>
-                            <input type="submit" class="button small default alignright" id="saveaddress" name="save_address" value="<?php _e('Save Address', 'evolve'); ?>" />
+                            <input type="submit" class="btn btn-sm float-md-right" id="saveaddress" name="save_address" value="<?php _e('Save Address', 'evolve'); ?>" />
                             <?php wp_nonce_field('woocommerce-edit_address'); ?>
                             <input type="hidden" name="action" value="edit_address" />
                             <input type="hidden" name="formvalue" value="billing" />
@@ -1656,7 +1666,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                         ?>
 
                         <p>
-                            <input type="submit" class="button small default alignright" id="saveaddress" name="save_address" value="<?php _e('Save Address', 'evolve'); ?>" />
+                            <input type="submit" class="btn btn-sm float-md-right" id="saveaddress" name="save_address" value="<?php _e('Save Address', 'evolve'); ?>" />
                             <?php wp_nonce_field('woocommerce-edit_address'); ?>
                             <input type="hidden" name="action" value="edit_address" />
                             <input type="hidden" name="formvalue" value="shipping" />
@@ -1830,7 +1840,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                 </fieldset>
                 <div class="clear"></div>
 
-                <p><input type="submit" class="button small default alignright" name="save_account_details" value="<?php _e('Save changes', 'evolve'); ?>" /></p>
+                <p><input type="submit" class="btn btn-sm float-md-right" name="save_account_details" value="<?php _e('Save changes', 'evolve'); ?>" /></p>
 
                 <?php wp_nonce_field('save_account_details'); ?>
                 <input type="hidden" name="action" value="save_account_details" />

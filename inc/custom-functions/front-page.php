@@ -82,7 +82,7 @@ function evolve_content_boxes() {
 		if ( $evolve_content_box1_desc === false ) {
 			$evolve_content_box1_desc = '';
 		}
-		$evolve_content_box1_button = evolve_theme_mod( 'evl_content_box1_button', '<a class="read-more btn t4p-button" href="#">Learn more</a>' );
+		$evolve_content_box1_button = evolve_theme_mod( 'evl_content_box1_button', '<a class="btn btn-sm" href="#">Learn more</a>' );
 		if ( $evolve_content_box1_button === false ) {
 			$evolve_content_box1_button = '';
 		}
@@ -141,7 +141,7 @@ function evolve_content_boxes() {
 		if ( $evolve_content_box2_desc === false ) {
 			$evolve_content_box2_desc = '';
 		}
-		$evolve_content_box2_button = evolve_theme_mod( 'evl_content_box2_button', '<a class="read-more btn t4p-button" href="#">Learn more</a>' );
+		$evolve_content_box2_button = evolve_theme_mod( 'evl_content_box2_button', '<a class="btn btn-sm" href="#">Learn more</a>' );
 		if ( $evolve_content_box2_button === false ) {
 			$evolve_content_box2_button = '';
 		}
@@ -165,7 +165,7 @@ function evolve_content_boxes() {
 		if ( $evolve_content_box3_desc === false ) {
 			$evolve_content_box3_desc = '';
 		}
-		$evolve_content_box3_button = evolve_theme_mod( 'evl_content_box3_button', '<a class="read-more btn t4p-button" href="#">Learn more</a>' );
+		$evolve_content_box3_button = evolve_theme_mod( 'evl_content_box3_button', '<a class="btn btn-sm" href="#">Learn more</a>' );
 		if ( $evolve_content_box3_button === false ) {
 			$evolve_content_box3_button = '';
 		}
@@ -189,7 +189,7 @@ function evolve_content_boxes() {
 		if ( $evolve_content_box4_desc === false ) {
 			$evolve_content_box4_desc = '';
 		}
-		$evolve_content_box4_button = evolve_theme_mod( 'evl_content_box4_button', '<a class="read-more btn t4p-button" href="#">Learn more</a>' );
+		$evolve_content_box4_button = evolve_theme_mod( 'evl_content_box4_button', '<a class="btn btn-sm" href="#">Learn more</a>' );
 		if ( $evolve_content_box4_button === false ) {
 			$evolve_content_box4_button = '';
 		}
@@ -1427,7 +1427,7 @@ function read_more() {
 		$inner_content .= "<p class='entry-read-more'>";
 		$btn_text      = __( 'Read More', 'evolve' );
 		$link          = get_permalink();
-		$inner_content .= "<a class='read-more btn t4p-button-default' href='$link'>$btn_text</a>";
+		$inner_content .= "<a class='btn btn-sm' href='$link'>$btn_text</a>";
 		$inner_content .= '</p>';
 
 		return $inner_content;

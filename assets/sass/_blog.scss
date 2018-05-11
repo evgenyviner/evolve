@@ -50,9 +50,6 @@
     position: relative;
     width: 100%;
   }
-  .read-more {
-    text-transform: none;
-  }
 }
 
 .entry-content img,
@@ -509,23 +506,6 @@
   padding: 15px;
 }
 
-a.comment-reply-link {
-  @include box-shadow(0px 2px 0px #1d6e72);
-  @include border-radius(4px);
-  padding: 5px 10px;
-  font-size: 11px;
-  border: none;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-width: 1px;
-  border-style: solid;
-  font-weight: normal;
-  border-color: #0bb697;
-  text-align: center;
-  color: $full-white-colour;
-  background: #0bb697;
-}
-
 a#cancel-comment-reply-link {
   margin-left: 5px;
   &::before {
@@ -910,11 +890,6 @@ table#recaptcha_table {
   padding-left: 0;
 }
 
-#comment-submit {
-  div {
-    margin: 0 15px;
-  }
-}
 
 /*!==========================================================================
    Slider Posts

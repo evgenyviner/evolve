@@ -168,7 +168,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
                 <div class="entry-meta entry-footer">
 
 
-                    <a class="read-more btn t4p-button-default"
+                    <a class="btn btn-sm"
                        href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
 
 
@@ -391,7 +391,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 					the_excerpt();
 					?>
 
-                    <a class="read-more btn t4p-button-default"
+                    <a class="btn btn-sm"
                        href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
 
 					<?php

@@ -27,7 +27,6 @@ class evolve_theme_init {
 		get_template_part( 'inc/custom-functions/hooks' );
 		get_template_part( 'inc/custom-functions/custom-functions' );
 		get_template_part( 'inc/custom-functions/comments' );
-		get_template_part( 'inc/custom-functions/tabs-widget' );
 	}
 
 	/**

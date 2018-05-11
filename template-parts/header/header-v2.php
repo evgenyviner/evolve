@@ -125,7 +125,7 @@ $evolve_sticky_header                  = evolve_theme_mod( 'evl_sticky_header', 
                                                 </p>
                                                 <p class="submit">
                                                     <input type="submit" name="wp-submit" id="wp-submit"
-                                                           class="button small default comment-submit"
+                                                           class="btn btn-sm"
                                                            value="<?php _e( 'Log In', 'evolve' ); ?>">
                                                     <input type="hidden" name="redirect_to"
                                                            value="<?php if ( isset( $_SERVER['HTTP_REFERER'] ) ) {

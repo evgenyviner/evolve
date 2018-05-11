@@ -1,13 +1,13 @@
 <?php
 
-require get_parent_theme_file_path('inc/customizer/kirki-functions.php' );
+require get_parent_theme_file_path( 'inc/customizer/kirki-functions.php' );
 // add_filter('kirki_load_fontawesome', 'remove_font_awesome_from_kirki', 999);
 // function remove_font_awesome_from_kirki(){
 //	return false;
 // }
-add_action( 'wp_loaded', 'call_function_fillter_to_get_real_value_from_kirki_customize');
+add_action( 'wp_loaded', 'call_function_fillter_to_get_real_value_from_kirki_customize' );
 function call_function_fillter_to_get_real_value_from_kirki_customize() {
-   if ( is_customize_preview() && ! is_admin() ) {
+	if ( is_customize_preview() && ! is_admin() ) {
 		bin_get_new_option();
 	}
 }
@@ -175,14 +175,14 @@ class Binmaocom_Fix_Rd {
 					if ( isset( $value["options"]['enabled'] ) && is_array( $value["options"]['enabled'] ) && count( $value["options"]['enabled'] ) ) {
 						$value_temp['default'] = array();
 						foreach ( $value["options"]['enabled'] as $default_key => $default_value ) {
-							if($default_key != 'placebo'){
-								$value_temp['default'][]		= $default_key;
-								$choices_array[ $default_key ]	= $default_value;
+							if ( $default_key != 'placebo' ) {
+								$value_temp['default'][]       = $default_key;
+								$choices_array[ $default_key ] = $default_value;
 							}
 						}
 					}
-					if($choices_array && is_array($choices_array) && isset($choices_array['placebo'])){
-						unset($choices_array['placebo']);
+					if ( $choices_array && is_array( $choices_array ) && isset( $choices_array['placebo'] ) ) {
+						unset( $choices_array['placebo'] );
 					}
 					$value_temp['choices'] = $choices_array;
 				}
@@ -659,11 +659,11 @@ if ( true ) {
 					'notice'   => false,
 				),
 				array(
-					'subtitle' => __( 'Select the type of prebuilt demo layout for the home/front page.', 'evolve' ),
-					'id'       => 'evl_frontpage_prebuilt_demo',
-					'type'     => 'image_select',
-					'compiler' => true,
-					'options'  => array(
+					'subtitle'        => __( 'Select the type of prebuilt demo layout for the home/front page.', 'evolve' ),
+					'id'              => 'evl_frontpage_prebuilt_demo',
+					'type'            => 'image_select',
+					'compiler'        => true,
+					'options'         => array(
 						'default'            => $evolve_imagepath . 'demo-default.jpg',
 						'blog'               => $evolve_imagepath . 'demo-blog.jpg',
 						'woocommerce'        => $evolve_imagepath . 'demo-woocommerce.jpg',
@@ -674,8 +674,8 @@ if ( true ) {
 						'woocommerce-2'      => $evolve_imagepath . 'demo-woocommerce-2.jpg',
 						'bbpress-buddypress' => $evolve_imagepath . 'demo-bbpress-buddypress.jpg',
 					),
-					'title'    => __( 'Select the prebuilt demo for home/front page', 'evolve' ),
-					'default'  => 'default',
+					'title'           => __( 'Select the prebuilt demo for home/front page', 'evolve' ),
+					'default'         => 'default',
 					'render_callback' => 'evolve_call_customize_import',
 					'selector'        => 'body',
 					// 'transport' => 'postMessage'
@@ -1179,7 +1179,7 @@ if ( true ) {
 					'title'           => __( 'Content Box 1 Button', 'evolve' ),
 					'selector'        => '.content-box.content-box-1 .cntbox_btn',
 					'render_callback' => 'evl_content_box1_button',
-					'default'         => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
+					'default'         => '<a class="btn btn-sm" href="#">Learn more</a>',
 					'required'        => array(
 						array( 'evl_content_box1_enable', '=', '1' )
 					),
@@ -1275,7 +1275,7 @@ if ( true ) {
 					'title'           => __( 'Content Box 2 Button', 'evolve' ),
 					'selector'        => '.content-box.content-box-2 .cntbox_btn',
 					'render_callback' => 'evl_content_box2_button',
-					'default'         => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
+					'default'         => '<a class="btn btn-sm" href="#">Learn more</a>',
 					'required'        => array(
 						array( 'evl_content_box2_enable', '=', '1' )
 					),
@@ -1371,7 +1371,7 @@ if ( true ) {
 					'title'           => __( 'Content Box 3 Button', 'evolve' ),
 					'selector'        => '.content-box.content-box-3 .cntbox_btn',
 					'render_callback' => 'evl_content_box3_button',
-					'default'         => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
+					'default'         => '<a class="btn btn-sm" href="#">Learn more</a>',
 					'required'        => array(
 						array( 'evl_content_box3_enable', '=', '1' )
 					),
@@ -1467,7 +1467,7 @@ if ( true ) {
 					'title'           => __( 'Content Box 4 Button', 'evolve' ),
 					'selector'        => '.content-box.content-box-4 .cntbox_btn',
 					'render_callback' => 'evl_content_box4_button',
-					'default'         => '<a class="read-more btn t4p-button" href="#">Learn more</a>',
+					'default'         => '<a class="btn btn-sm" href="#">Learn more</a>',
 					'required'        => array(
 						array( 'evl_content_box4_enable', '=', '1' )
 					),
@@ -2055,10 +2055,10 @@ if ( true ) {
 			),
 		)
 	);
-	
+
 // Testimonials Dynamic Fields
 	$testimonialfields = array();
-	$slide_defaults = array(
+	$slide_defaults    = array(
 		array(
 			'image'       => "{$evolve_imagepathfolder}frontpage-builder/team-1.png",
 			'title'       => __( ' Blunderdog', 'evolve' ),
@@ -3574,7 +3574,7 @@ if ( true ) {
 					'line-height' => false,
 					'title'       => __( 'Widget content font', 'evolve' ),
 					'default'     => array(
-						'font-size'   => '13px',
+						'font-size'   => '.9rem',
 						'font-family' => 'Roboto',
 						'color'       => '#333',
 						'font-weight' => '300',
@@ -3722,7 +3722,7 @@ if ( true ) {
 					'line-height' => false,
 					'title'       => __( 'H3 font', 'evolve' ),
 					'default'     => array(
-						'font-size'   => '34px',
+						'font-size'   => '1.75rem',
 						'font-family' => 'Roboto',
 						'color'       => '#333',
 						'font-weight' => '400',
@@ -4316,7 +4316,6 @@ if ( true ) {
 					'type'     => 'color',
 					'compiler' => true,
 					'title'    => __( 'Or Custom content color', 'evolve' ),
-					'default'  => '#ffffff',
 				),
 			),
 		)
@@ -6084,7 +6083,7 @@ if ( true ) {
 			"type"     => "textarea",
 			"rows"     => 3,
 			'required' => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
-			"default"  => '<a class="bootstrap-button" href="#">' . __( 'Learn more', 'evolve' ) . '</a>',
+			"default"  => '<a class="btn bootstrap-button" href="#">' . __( 'Learn more', 'evolve' ) . '</a>',
 		);
 
 
@@ -6340,7 +6339,7 @@ if ( true ) {
 			"id"       => "{$evolve_shortname}_slide{$i}_button",
 			"type"     => "textarea",
 			'required' => array( array( "{$evolve_shortname}_show_slide{$i}", '=', '1' ) ),
-			"default"  => '<a class="da-link" href="#">' . __( 'Learn more', 'evolve' ) . '</a>'
+			"default"  => '<a class="btn da-link" href="#">' . __( 'Learn more', 'evolve' ) . '</a>'
 		);
 
 
@@ -7109,7 +7108,7 @@ function bin_get_new_option( $geted_for_preview_in = false ) {
 				foreach ( $bi_all_customize_fields as $control ) {
 					if ( $control['value']['type'] == 'sorter' ) {
 						$enabled = evolve_theme_mod( $control['value_temp']['settings'], false );
-						if ( $enabled && is_array($enabled) && count( $enabled ) && isset($enabled["enabled"]) && is_array($enabled["enabled"]) && count( $enabled["enabled"] ) ) {
+						if ( $enabled && is_array( $enabled ) && count( $enabled ) && isset( $enabled["enabled"] ) && is_array( $enabled["enabled"] ) && count( $enabled["enabled"] ) ) {
 							$enabled_temp = array();
 							foreach ( $enabled["enabled"] as $enabled_key => $items ) {
 								$enabled_temp[] = $enabled_key;
@@ -7159,14 +7158,14 @@ add_action( 'customize_register', 'evolve_register_custom_section' );
  * Import Demo Content
  *
  * ************************************************************************************************************ */
-add_action('wp_ajax_binmaocom_trigger_import_function', 'binmaocom_trigger_import_function');
-add_action('wp_ajax_nopriv_binmaocom_trigger_import_function', 'binmaocom_trigger_import_function');
-function binmaocom_trigger_import_function(){
-	if(is_admin() && isset($_REQUEST['evl_frontpage_prebuilt_demo']) && isset($_REQUEST['binmaocom_trigger_import_key']) && $_REQUEST['binmaocom_trigger_import_key'] == md5('binmaocom')){
+add_action( 'wp_ajax_binmaocom_trigger_import_function', 'binmaocom_trigger_import_function' );
+add_action( 'wp_ajax_nopriv_binmaocom_trigger_import_function', 'binmaocom_trigger_import_function' );
+function binmaocom_trigger_import_function() {
+	if ( is_admin() && isset( $_REQUEST['evl_frontpage_prebuilt_demo'] ) && isset( $_REQUEST['binmaocom_trigger_import_key'] ) && $_REQUEST['binmaocom_trigger_import_key'] == md5( 'binmaocom' ) ) {
 		$evl_frontpage_prebuilt_demo = $_REQUEST['evl_frontpage_prebuilt_demo'];
-		if($evl_frontpage_prebuilt_demo){
-			$evl_frontpage_prebuilt_demo = str_replace('evl_frontpage_prebuilt_demo', '', $evl_frontpage_prebuilt_demo);
-			set_theme_mod('evl_frontpage_prebuilt_demo', $evl_frontpage_prebuilt_demo);
+		if ( $evl_frontpage_prebuilt_demo ) {
+			$evl_frontpage_prebuilt_demo = str_replace( 'evl_frontpage_prebuilt_demo', '', $evl_frontpage_prebuilt_demo );
+			set_theme_mod( 'evl_frontpage_prebuilt_demo', $evl_frontpage_prebuilt_demo );
 			evolve_import_demo_content_kirki();
 		}
 	}
@@ -7184,12 +7183,12 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 		?>
         <script type='text/javascript'>
             jQuery(document).ready(function ($) {
-				window.onbeforeunload = function () {
-				  // blank function do nothing
-				}
-				// wp.customize.previewer.refresh();
-				// wp.customize.preview.send('refresh');
-				//alert('Please reload website to see the new layout!');
+                window.onbeforeunload = function () {
+                    // blank function do nothing
+                }
+                // wp.customize.previewer.refresh();
+                // wp.customize.preview.send('refresh');
+                //alert('Please reload website to see the new layout!');
                 //window.location.href = window.location.href;
             });
         </script>
@@ -7249,7 +7248,7 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 		}
 
 		if ( $frontpage_prebuilt_new_demo == 'woocommerce-2' ) {
-			$theme_name = basename( get_stylesheet_directory() );
+			$theme_name                     = basename( get_stylesheet_directory() );
 			$theme_mods                     = get_option( 'theme_mods_' . $theme_name, false );
 			$theme_mods['background_color'] = "ffffff";
 			update_option( 'theme_mods_' . $theme_name, $theme_mods );
@@ -7275,7 +7274,7 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 		$imported_options  = json_decode( ( $theme_options_txt['body'] ), true );
 
 		if ( ! empty( $imported_options ) && is_array( $imported_options ) && isset( $imported_options['redux-backup'] ) && $imported_options['redux-backup'] == '1' ) {
-			
+
 			$changed_values = array();
 
 			foreach ( $imported_options as $key => $value ) {
@@ -7306,20 +7305,20 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 						$plugin_options[ $key ] = $value;
 					}
 				}
-				if ( $value && is_array($value) && count( $value ) && isset($value["enabled"]) && is_array($value["enabled"]) && count( $value["enabled"] ) ) {
+				if ( $value && is_array( $value ) && count( $value ) && isset( $value["enabled"] ) && is_array( $value["enabled"] ) && count( $value["enabled"] ) ) {
 					$enabled_temp = array();
 					foreach ( $value["enabled"] as $enabled_key => $items ) {
-						if('placebo' != $enabled_key){
+						if ( 'placebo' != $enabled_key ) {
 							$enabled_temp[] = $enabled_key;
 						}
 					}
 					$value = $enabled_temp;
 				}
-				
-				if ( $value && is_array($value) && count( $value ) && isset($value["url"]) ) {
+
+				if ( $value && is_array( $value ) && count( $value ) && isset( $value["url"] ) ) {
 					$value = $value["url"];
 				}
-				if ( $value && is_array($value) && count( $value ) && isset($value["color"]) ) {
+				if ( $value && is_array( $value ) && count( $value ) && isset( $value["color"] ) ) {
 					// $value = $value["color"];
 				}
 				if ( isset( $value['font-style'] ) ) {
@@ -7331,7 +7330,7 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 					$value = str_replace( 'fa fa-', '', $value );
 					$value = str_replace( 'fa-', '', $value );
 				}
-				set_theme_mod($key, $value);
+				set_theme_mod( $key, $value );
 			}
 
 			update_option( 'evl_options', $plugin_options );
