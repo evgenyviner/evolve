@@ -7159,6 +7159,20 @@ add_action( 'customize_register', 'evolve_register_custom_section' );
  * Import Demo Content
  *
  * ************************************************************************************************************ */
+add_action('wp_ajax_binmaocom_trigger_import_function', 'binmaocom_trigger_import_function');
+add_action('wp_ajax_nopriv_binmaocom_trigger_import_function', 'binmaocom_trigger_import_function');
+function binmaocom_trigger_import_function(){
+	if(is_admin() && isset($_REQUEST['evl_frontpage_prebuilt_demo']) && isset($_REQUEST['binmaocom_trigger_import_key']) && $_REQUEST['binmaocom_trigger_import_key'] == md5('binmaocom')){
+		$evl_frontpage_prebuilt_demo = $_REQUEST['evl_frontpage_prebuilt_demo'];
+		if($evl_frontpage_prebuilt_demo){
+			$evl_frontpage_prebuilt_demo = str_replace('evl_frontpage_prebuilt_demo', '', $evl_frontpage_prebuilt_demo);
+			set_theme_mod('evl_frontpage_prebuilt_demo', $evl_frontpage_prebuilt_demo);
+			evolve_import_demo_content_kirki();
+		}
+	}
+	exit();
+}
+
 function evolve_import_demo_content_kirki( $wp_customize = null ) {
 	$evolve_opt_name             = "evl_options";
 	$plugin_options              = get_option( 'evl_options', false );
@@ -7170,7 +7184,11 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 		?>
         <script type='text/javascript'>
             jQuery(document).ready(function ($) {
-				wp.customize.preview.send('refresh');
+				window.onbeforeunload = function () {
+				  // blank function do nothing
+				}
+				// wp.customize.previewer.refresh();
+				// wp.customize.preview.send('refresh');
 				//alert('Please reload website to see the new layout!');
                 //window.location.href = window.location.href;
             });

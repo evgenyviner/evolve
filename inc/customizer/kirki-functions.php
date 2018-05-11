@@ -25,7 +25,7 @@ function binmaocom_fix_pre_option_evl_options_function($evolve_options){
 
 add_action( 'customize_controls_enqueue_scripts', array( 'Binmaocom_Add_some_thing_Customize' , 'custom_customize_enqueue' ) );
 add_action( 'customize_controls_print_styles' , array( 'Binmaocom_Add_some_thing_Customize' , 'addInlineCss' ) );
-add_action( 'customize_controls_print_script' , array( 'Binmaocom_Add_some_thing_Customize' , 'addInlineJs' ) );
+add_action( 'customize_controls_print_scripts' , array( 'Binmaocom_Add_some_thing_Customize' , 'addInlineJs' ) );
 class Binmaocom_Add_some_thing_Customize{
 	public function custom_customize_enqueue(){
 		//*****************************************************************
@@ -86,8 +86,31 @@ h3.accordion-section-title.dashicons-before.el {
 	?>
 <script type="text/javascript">
 	jQuery(document).ready(function($){
-		$('body').on('change', '#input_evl_frontpage_prebuilt_demo input', function(){
-			window.location.href="google.com";
+		$(document).on('click', '#input_evl_frontpage_prebuilt_demo input:checked + label', function(event){
+			event.preventDefault();
+		});
+		
+		$(document).on('click', '#input_evl_frontpage_prebuilt_demo input:not(:checked) + label', function(event){
+			event.preventDefault();
+			//evl_frontpage_prebuilt_demo
+			var evl_frontpage_prebuilt_demo = $(this).attr('class');
+			
+			var confirmation = window.confirm( "WARNING: This function will delete all of the current control settings to new value. Continue?" );
+			if(confirmation){
+				 $.ajax({
+					data: {
+						action: 'binmaocom_trigger_import_function',
+						binmaocom_trigger_import_key: '<?php echo md5('binmaocom'); ?>',
+						evl_frontpage_prebuilt_demo: evl_frontpage_prebuilt_demo
+					},
+					//binmaocom|6415ccabd5b4c10cedb3edd72c579236
+					url: "<?php echo admin_url( 'admin-ajax.php' ) ; ?>",
+					success: function( data ) {						
+						window.location.reload();
+					}
+				});
+				wp.customize.previewer.refresh();
+			}
 		});
 	});
 </script>
