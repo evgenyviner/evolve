@@ -37,7 +37,8 @@ class Binmaocom_Add_some_thing_Customize{
 			array(),
 			'1.1',
 			'all'
-		);	
+		);
+		wp_enqueue_script('evolve-colorpalettes', get_template_directory_uri() . '/inc/customizer/colorpalettes/colorpalettes.min.js', array(), '', true);
 	}
 	public function addInlineCss(){
 	?>

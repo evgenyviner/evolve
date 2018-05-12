@@ -367,21 +367,25 @@ var ColorPalettes = {
     ,
     bind: function () {
 
-        var t = this;
-        //var watchName = 'input[name="'+ t.baseName+ '[' + t.colorpalettesFieldName + ']"]';
-        var watchName = '#' + t.baseName + '-' + t.colorpalettesFieldName + ' input';
-
-        jQuery(document).on('change', watchName, function (event) {
-            var currentValue = jQuery(watchName + ":checked").val();
-
+        var t = this;			
+		$(document).on('click', '#input_evl_color_palettes input:checked + label', function(event){
+			event.preventDefault();
+		});
+		
+		$(document).on('click', '#input_evl_color_palettes input:not(:checked) + label', function(event){
+			event.preventDefault();
+			var currentValue = jQuery(this).attr('for');
+			currentValue = currentValue.replace('evl_color_palettes', '');
+			wp.customize.value( 'evl_color_palettes' )(currentValue);
             if (t.colorpalettesValue.hasOwnProperty(currentValue)) {
-                //console.log('do changes');
+                console.log('do changes');
                 var cgs = t.colorpalettesValue[currentValue];
                 jQuery.each(cgs, function (i, v) {
-                        jQuery('#' + v.fieldName + '-color').val(v.fieldValue).trigger('change');
+					wp.customize.value( v.fieldName )(v.fieldValue);
                 })
             }
-        });
+			
+		});
     }
 
 };
