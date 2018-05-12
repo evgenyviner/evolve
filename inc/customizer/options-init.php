@@ -12,8 +12,28 @@ function call_function_fillter_to_get_real_value_from_kirki_customize() {
 	}
 }
 /* Convert hexdec color string to rgb(a) string */
- 
-function evolve_hex2rgba($color, $opacity = false) { 
+function evolve_hex2rgba( $hex, $alpha = '' ) {
+	$hex = str_replace( "#", "", $hex );
+	if ( strlen( $hex ) == 3 ) {
+		$r = hexdec( substr( $hex, 0, 1 ) . substr( $hex, 0, 1 ) );
+		$g = hexdec( substr( $hex, 1, 1 ) . substr( $hex, 1, 1 ) );
+		$b = hexdec( substr( $hex, 2, 1 ) . substr( $hex, 2, 1 ) );
+	} else {
+		$r = hexdec( substr( $hex, 0, 2 ) );
+		$g = hexdec( substr( $hex, 2, 2 ) );
+		$b = hexdec( substr( $hex, 4, 2 ) );
+	}
+	$rgb = $r . ',' . $g . ',' . $b;
+
+	if ( '' == $alpha ) {
+		return $rgb;
+	} else {
+		$alpha = floatval( $alpha );
+
+		return 'rgba(' . $rgb . ',' . $alpha . ')';
+	}
+}
+function evolve_hex2rgba1($color, $opacity = false) { 
 	$default = 'rgb(0,0,0)'; 
 	//Return default if no color provided
 	if(empty($color))
@@ -7215,72 +7235,92 @@ function binmaocom_trigger_import_function() {
 	}
 	exit();
 }
-
+// update_option('update_theme_from_redux_to_kirki', false);
 add_action('init', 'update_theme_from_redux_to_kirki');
-
 function update_theme_from_redux_to_kirki(){
 	$update_theme_from_redux_to_kirki = get_option('update_theme_from_redux_to_kirki', false);
 	if($update_theme_from_redux_to_kirki == false){
 		$data_options = get_option('evl_options');
 		if($data_options){
 			foreach ( $data_options as $key => $value ) {
-				$bootstrapsliderKeys = array(
-					'evl_bootstrap_slide1_img',
-					'evl_bootstrap_slide2_img',
-					'evl_bootstrap_slide3_img',
-					'evl_bootstrap_slide4_img',
-					'evl_bootstrap_slide5_img',
-				);
-				$parallaxsliderKeys  = array(
-					'evl_slide1_img',
-					'evl_slide2_img',
-					'evl_slide3_img',
-					'evl_slide4_img',
-					'evl_slide5_img',
-				);
-
-				if ( in_array( $key, $bootstrapsliderKeys ) ) {
-					$img_name               = basename( $value['url'] );
-					$plugin_options[ $key ] = array( 'url' => "{$evolve_imagepathfolder}bootstrap-slider/{$img_name}" );
-				} elseif ( in_array( $key, $parallaxsliderKeys ) ) {
-					$img_name               = basename( $value['url'] );
-					$plugin_options[ $key ] = array( 'url' => "{$evolve_imagepathfolder}parallax/{$img_name}" );
-				} else {
-					if ( isset( $plugin_options[ $key ] ) && $plugin_options[ $key ] != $value ) {
-						$changed_values[ $key ] = $value;
-						$plugin_options[ $key ] = $value;
-					}
-				}
-				if ( $value && is_array($value) && count( $value ) && isset($value["enabled"]) && is_array($value["enabled"]) && count( $value["enabled"] ) ) {
-					$enabled_temp = array();
-					foreach ( $value["enabled"] as $enabled_key => $items ) {
-						if('placebo' != $enabled_key){
-							$enabled_temp[] = $enabled_key;
-						}
-					}
-					$value = $enabled_temp;
-				}
-				
-				if ( $value && is_array($value) && count( $value ) && isset($value["url"]) ) {
-					$value = $value["url"];
-				}
-				if ( $value && is_array($value) && count( $value ) && isset($value["color"]) ) {
-					// $value = $value["color"];
-				}
-				if ( isset( $value['font-style'] ) ) {
-					$value['variant'] = $value['font-style'];
-				}
-				if ( ! is_array( $value ) ) {
-					$value = str_replace( 'far fa-', '', $value );
-					$value = str_replace( 'fas fa-', '', $value );
-					$value = str_replace( 'fa fa-', '', $value );
-					$value = str_replace( 'fa-', '', $value );
-				}
+				$value = fix_data_from_redux_to_kirki($value);
 				set_theme_mod($key, $value);
 			}
 		}
 		update_option('update_theme_from_redux_to_kirki', time());
 	}
+}
+
+function fix_data_from_redux_to_kirki($value){
+	$evolve_imagepathfolder      = get_template_directory_uri() . '/assets/images/';
+	$bootstrapsliderKeys = array(
+		'evl_bootstrap_slide1_img',
+		'evl_bootstrap_slide2_img',
+		'evl_bootstrap_slide3_img',
+		'evl_bootstrap_slide4_img',
+		'evl_bootstrap_slide5_img',
+	);
+	$parallaxsliderKeys  = array(
+		'evl_slide1_img',
+		'evl_slide2_img',
+		'evl_slide3_img',
+		'evl_slide4_img',
+		'evl_slide5_img',
+	);
+
+	if ( in_array( $key, $bootstrapsliderKeys ) ) {
+		$img_name               = basename( $value['url'] );
+		$plugin_options[ $key ] = array( 'url' => "{$evolve_imagepathfolder}bootstrap-slider/{$img_name}" );
+	} elseif ( in_array( $key, $parallaxsliderKeys ) ) {
+		$img_name               = basename( $value['url'] );
+		$plugin_options[ $key ] = array( 'url' => "{$evolve_imagepathfolder}parallax/{$img_name}" );
+	} else {
+		if ( isset( $plugin_options[ $key ] ) && $plugin_options[ $key ] != $value ) {
+			$changed_values[ $key ] = $value;
+			$plugin_options[ $key ] = $value;
+		}
+	}
+	if ( $value && is_array($value) && count( $value ) && isset($value["enabled"]) && is_array($value["enabled"]) && count( $value["enabled"] ) ) {
+		$enabled_temp = array();
+		foreach ( $value["enabled"] as $enabled_key => $items ) {
+			if('placebo' != $enabled_key){
+				$enabled_temp[] = $enabled_key;
+			}
+		}
+		$value = $enabled_temp;
+	}
+	
+	if ( $value && is_array($value) && count( $value ) && isset($value["url"]) ) {
+		$value = $value["url"];
+	}
+	if ( $value && is_array($value) && count( $value ) && isset($value["color"]) ) {
+		// $value = $value["color"];
+	}
+	if ( isset( $value['rgba'] ) ) {
+		$value = $value['rgba'];
+	}
+	if ( isset( $value['font-style'] ) ) {
+		$value['variant'] = $value['font-style'];
+		if ( isset( $value['padding-top'] ) ) {
+			$value['top'] = $value['padding-top'];
+		}
+		if ( isset( $value['padding-right'] ) ) {
+			$value['right'] = $value['padding-right'];
+		}
+		if ( isset( $value['padding-bottom'] ) ) {
+			$value['bottom'] = $value['padding-bottom'];
+		}
+		if ( isset( $value['padding-left'] ) ) {
+			$value['left'] = $value['padding-left'];
+		}
+	}
+	if ( ! is_array( $value ) ) {
+		$value = str_replace( 'far fa-', '', $value );
+		$value = str_replace( 'fas fa-', '', $value );
+		$value = str_replace( 'fa fa-', '', $value );
+		$value = str_replace( 'fa-', '', $value );
+	}
+	return $value;
 }
 
 function evolve_import_demo_content_kirki( $wp_customize = null ) {
@@ -7389,58 +7429,7 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 			$changed_values = array();
 
 			foreach ( $imported_options as $key => $value ) {
-				$bootstrapsliderKeys = array(
-					'evl_bootstrap_slide1_img',
-					'evl_bootstrap_slide2_img',
-					'evl_bootstrap_slide3_img',
-					'evl_bootstrap_slide4_img',
-					'evl_bootstrap_slide5_img',
-				);
-				$parallaxsliderKeys  = array(
-					'evl_slide1_img',
-					'evl_slide2_img',
-					'evl_slide3_img',
-					'evl_slide4_img',
-					'evl_slide5_img',
-				);
-
-				if ( in_array( $key, $bootstrapsliderKeys ) ) {
-					$img_name               = basename( $value['url'] );
-					$plugin_options[ $key ] = array( 'url' => "{$evolve_imagepathfolder}bootstrap-slider/{$img_name}" );
-				} elseif ( in_array( $key, $parallaxsliderKeys ) ) {
-					$img_name               = basename( $value['url'] );
-					$plugin_options[ $key ] = array( 'url' => "{$evolve_imagepathfolder}parallax/{$img_name}" );
-				} else {
-					if ( isset( $plugin_options[ $key ] ) && $plugin_options[ $key ] != $value ) {
-						$changed_values[ $key ] = $value;
-						$plugin_options[ $key ] = $value;
-					}
-				}
-				if ( $value && is_array( $value ) && count( $value ) && isset( $value["enabled"] ) && is_array( $value["enabled"] ) && count( $value["enabled"] ) ) {
-					$enabled_temp = array();
-					foreach ( $value["enabled"] as $enabled_key => $items ) {
-						if ( 'placebo' != $enabled_key ) {
-							$enabled_temp[] = $enabled_key;
-						}
-					}
-					$value = $enabled_temp;
-				}
-
-				if ( $value && is_array( $value ) && count( $value ) && isset( $value["url"] ) ) {
-					$value = $value["url"];
-				}
-				if ( $value && is_array( $value ) && count( $value ) && isset( $value["color"] ) ) {
-					// $value = $value["color"];
-				}
-				if ( isset( $value['font-style'] ) ) {
-					$value['variant'] = $value['font-style'];
-				}
-				if ( ! is_array( $value ) ) {
-					$value = str_replace( 'far fa-', '', $value );
-					$value = str_replace( 'fas fa-', '', $value );
-					$value = str_replace( 'fa fa-', '', $value );
-					$value = str_replace( 'fa-', '', $value );
-				}
+				$value = fix_data_from_redux_to_kirki($value);
 				set_theme_mod( $key, $value );
 			}
 
@@ -7546,33 +7535,7 @@ function evolve_import_demo_content( $wp_customize ) {
 			$changed_values = array();
 
 			foreach ( $imported_options as $key => $value ) {
-				$bootstrapsliderKeys = array(
-					'evl_bootstrap_slide1_img',
-					'evl_bootstrap_slide2_img',
-					'evl_bootstrap_slide3_img',
-					'evl_bootstrap_slide4_img',
-					'evl_bootstrap_slide5_img',
-				);
-				$parallaxsliderKeys  = array(
-					'evl_slide1_img',
-					'evl_slide2_img',
-					'evl_slide3_img',
-					'evl_slide4_img',
-					'evl_slide5_img',
-				);
-
-				if ( in_array( $key, $bootstrapsliderKeys ) ) {
-					$img_name               = basename( $value['url'] );
-					$plugin_options[ $key ] = array( 'url' => "{$evolve_imagepathfolder}bootstrap-slider/{$img_name}" );
-				} elseif ( in_array( $key, $parallaxsliderKeys ) ) {
-					$img_name               = basename( $value['url'] );
-					$plugin_options[ $key ] = array( 'url' => "{$evolve_imagepathfolder}parallax/{$img_name}" );
-				} else {
-					if ( isset( $plugin_options[ $key ] ) && $plugin_options[ $key ] != $value ) {
-						$changed_values[ $key ] = $value;
-						$plugin_options[ $key ] = $value;
-					}
-				}
+				$value = fix_data_from_redux_to_kirki($value);
 			}
 
 			update_option( 'evl_options', $plugin_options );
