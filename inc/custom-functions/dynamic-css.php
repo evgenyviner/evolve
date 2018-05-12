@@ -428,13 +428,13 @@ if ( get_header_image() ) {
 }
 
 if ( ! empty( $evolve_padding_top ) ) {
-	return $evolve_padding_top;
+	//return $evolve_padding_top;
 } else {
 	$evolve_padding_top = '40px';
 }
 
 if ( ! empty( $evolve_padding_bottom ) ) {
-	return $evolve_padding_top;
+	//return $evolve_padding_top;
 } else {
 	$evolve_padding_bottom = '40px';
 }
