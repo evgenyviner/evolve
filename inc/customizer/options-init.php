@@ -144,15 +144,20 @@ class Binmaocom_Fix_Rd {
 					}
 					if ( isset( $value_temp['default']['padding-top'] ) ) {
 						$value_temp['default']['top'] = $value_temp['default']['padding-top'];
+						unset($value_temp['default']['units']);
+						unset($value_temp['default']['padding-top']);
 					}
 					if ( isset( $value_temp['default']['padding-right'] ) ) {
 						$value_temp['default']['right'] = $value_temp['default']['padding-right'];
+						unset($value_temp['default']['padding-right']);
 					}
 					if ( isset( $value_temp['default']['padding-bottom'] ) ) {
 						$value_temp['default']['bottom'] = $value_temp['default']['padding-bottom'];
+						unset($value_temp['default']['padding-bottom']);
 					}
 					if ( isset( $value_temp['default']['padding-left'] ) ) {
 						$value_temp['default']['left'] = $value_temp['default']['padding-left'];
+						unset($value_temp['default']['padding-left']);
 					}
 					if ( ! is_array( $value['default'] ) ) {
 						$value_temp['default'] = str_replace( 'fas fa-', '', $value_temp['default'] );
