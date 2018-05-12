@@ -83,7 +83,7 @@ h3.accordion-section-title.dashicons-before.el {
 .iris-picker .iris-strip {
     right: 15px;
     top: 0;
-    position: absolute;
+    position: absolute!important;
 }
 </style>
 	<?php

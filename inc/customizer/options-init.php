@@ -11,7 +11,38 @@ function call_function_fillter_to_get_real_value_from_kirki_customize() {
 		bin_get_new_option();
 	}
 }
-
+/* Convert hexdec color string to rgb(a) string */
+ 
+function evolve_hex2rgba($color, $opacity = false) { 
+	$default = 'rgb(0,0,0)'; 
+	//Return default if no color provided
+	if(empty($color))
+          return $default;  
+	//Sanitize $color if "#" is provided 
+	if ($color[0] == '#' ) {
+		$color = substr( $color, 1 );
+	} 
+	//Check if color has 6 or 3 characters and get values
+	if (strlen($color) == 6) {
+			$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+	} elseif ( strlen( $color ) == 3 ) {
+			$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+	} else {
+			return $default;
+	} 
+	//Convert hexadec to rgb
+	$rgb =  array_map('hexdec', $hex); 
+	//Check if opacity is set(rgba or rgb)
+	if($opacity){
+		if(abs($opacity) > 1)
+			$opacity = 1.0;
+		$output = 'rgba('.implode(",",$rgb).','.$opacity.')';
+	} else {
+		$output = 'rgb('.implode(",",$rgb).')';
+	} 
+	//Return rgb(a) color string
+	return $output;
+}
 global $name_of_panel, $bi_all_customize_fields, $bi_index_control;
 $name_of_panel           = '';
 $bi_index_control        = 0;
@@ -132,7 +163,8 @@ class Binmaocom_Fix_Rd {
 				if ( isset( $value['type'] ) && $value['type'] == 'color_rgba' ) {
 					$value_temp['type'] = 'color';
 					if ( isset( $value['default']['color'] ) ) {
-						$value_temp['default'] = $value['default']['color'];
+						$value_temp['default'] = evolve_hex2rgba($value['default']['color'], $value['default']['alpha']);
+						$value_temp['choices']['alpha'] = true;
 					}
 				}
 				if ( isset( $value['type'] ) && $value['type'] == 'slider' ) {
