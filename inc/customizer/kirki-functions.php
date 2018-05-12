@@ -85,6 +85,16 @@ h3.accordion-section-title.dashicons-before.el {
     top: 0;
     position: absolute!important;
 }
+.customize-control-kirki-switch label:after {
+    height: 12px;
+    width: 12px;
+}
+.customize-control-kirki-switch label {
+    margin-bottom: 0px;
+}
+.customize-control-kirki-switch .switch-off, .customize-control-kirki-switch .switch-on {
+    line-height: 5px;
+}
 </style>
 	<?php
 	}
