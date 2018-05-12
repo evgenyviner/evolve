@@ -644,6 +644,8 @@ if ( true ) {
 		}
 	}
 	$theme_options['evl_bootstrap_slider_support'] = evolve_theme_mod( 'evl_bootstrap_slider_support' );
+	$theme_options['evl_parallax_slider_support'] = evolve_theme_mod( 'evl_parallax_slider_support' );
+	$theme_options['evl_carousel_slider'] = evolve_theme_mod( 'evl_carousel_slider' );
 
 	( isset( $theme_options['evl_bootstrap_slider_support'] ) && $theme_options['evl_bootstrap_slider_support'] == '1' ) ? $bootstrapslider_status = ' (ACTIVE)' : $bootstrapslider_status = ' (INACTIVE)';
 	( $theme_options['evl_parallax_slider_support'] == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)';
@@ -2985,7 +2987,7 @@ if ( true ) {
 			'iconfix' => 'dashicons-download',
 		)
 	);
-
+	
 	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-header-subsec-header-tab',
 			'title'      => __( 'Header', 'evolve' ),
