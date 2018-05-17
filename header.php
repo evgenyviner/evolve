@@ -104,7 +104,7 @@ if ( is_home() || is_front_page() ) {
 			get_template_part( 'template-parts/slider/slider' );
 		}
 	} else {
-		if ( $evolve_header_pos != 1 && $evolve_header_pos != false ) {
+		if ( $evolve_header_pos != 0 && $evolve_header_pos != false ) {
 			get_template_part( 'template-parts/slider/slider-above' );
 		}
 	}
