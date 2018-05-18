@@ -5,10 +5,10 @@ require get_parent_theme_file_path( 'inc/customizer/kirki-functions.php' );
 // function remove_font_awesome_from_kirki(){
 //	return false;
 // }
-add_action( 'wp_loaded', 'call_function_fillter_to_get_real_value_from_kirki_customize' );
+// add_action( 'wp_loaded', 'call_function_fillter_to_get_real_value_from_kirki_customize' );
 function call_function_fillter_to_get_real_value_from_kirki_customize() {
 	if ( is_customize_preview() && ! is_admin() ) {
-		bin_get_new_option();
+		evl_get_new_option();
 	}
 }
 /* Convert hexdec color string to rgb(a) string */
@@ -63,15 +63,15 @@ function evolve_hex2rgba1($color, $opacity = false) {
 	//Return rgb(a) color string
 	return $output;
 }
-global $name_of_panel, $bi_all_customize_fields, $bi_index_control;
+global $name_of_panel, $evl_all_customize_fields, $evl_index_control;
 $name_of_panel           = '';
-$bi_index_control        = 0;
-$bi_all_customize_fields = array();
+$evl_index_control        = 0;
+$evl_all_customize_fields = array();
 
-class Binmaocom_Fix_Rd {
+class Evolve_Fix_Rd {
 	static function setSection( $param1, $param2 ) {
-		global $name_of_panel, $bi_all_customize_fields, $bi_index_control;
-		$bi_index_control ++;
+		global $name_of_panel, $evl_all_customize_fields, $evl_index_control;
+		$evl_index_control ++;
 		if ( isset( $param2['iconfix'] ) && ! empty( $param2['iconfix'] ) ) {
 			$param2['icon'] = $param2['iconfix'];
 		}
@@ -80,30 +80,30 @@ class Binmaocom_Fix_Rd {
 				$name_of_panel = $param2['id'];
 				Kirki::add_section( $param2['id'], array(
 					'title'    => $param2['title'],
-					'priority' => $bi_index_control,
+					'priority' => $evl_index_control,
 					'icon'     => $param2['icon'],
 				) );
 			} else {
 				Kirki::add_section( $param2['id'], array(
 					'title'    => $param2['title'],
 					'panel'    => $name_of_panel,
-					'priority' => $bi_index_control,
+					'priority' => $evl_index_control,
 					'icon'     => $param2['icon'],
 				) );
 			}
-			Binmaocom_Fix_Rd::bin_call_kirki_from_old_field( $param2['fields'], $param2['id'] );
+			Evolve_Fix_Rd::evl_call_kirki_from_old_field( $param2['fields'], $param2['id'] );
 		} else {
 			$name_of_panel = $param2['id'];
 			Kirki::add_panel( $param2['id'], array(
 				'title'    => $param2['title'],
-				'priority' => $bi_index_control,
+				'priority' => $evl_index_control,
 				'icon'     => $param2['icon'],
 			) );
 		}
 	}
 
-	static function bin_call_kirki_from_old_field( $array_items, $section = 'kirki_frontpage-content-boxes-tab', $setting = 'kirki_evolve_options' ) {
-		global $name_of_panel, $bi_all_customize_fields, $bi_index_control;
+	static function evl_call_kirki_from_old_field( $array_items, $section = 'kirki_frontpage-content-boxes-tab', $setting = 'kirki_evolve_options' ) {
+		global $name_of_panel, $evl_all_customize_fields, $evl_index_control;
 		foreach ( $array_items as $value ) {
 			if (
 				isset( $value['type'] ) && (
@@ -262,7 +262,7 @@ class Binmaocom_Fix_Rd {
 					);
 				}
 
-				$bi_all_customize_fields[ $value['id'] ] = array(
+				$evl_all_customize_fields[ $value['id'] ] = array(
 					'value'      => $value,
 					'value_temp' => $value_temp,
 				);
@@ -271,7 +271,7 @@ class Binmaocom_Fix_Rd {
 					$value_temp['partial_refresh'] = array(
 						$value['id'] => array(
 							'selector'        => $value['selector'],
-							'render_callback' => array( 'BinmaocomRefresh', $value['render_callback'] )
+							'render_callback' => array( 'EvolveRefresh', $value['render_callback'] )
 						)
 					);
 				}
@@ -611,8 +611,11 @@ foreach ( $options_pages_obj as $page ) {
 // </div>
 // <div>',
 // ));
-if ( true ) {
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+// add_action( 'customize_register', 'evolve_theme_kirki_add_controls', 10, 3 );
+// function evolve_theme_kirki_add_controls(){
+	
+if ( is_customize_preview() ) {
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 		'id'      => 'evl-theme-links-main-tab',
 		'title'   => __( 'Theme Links', 'evolve' ),
 		'icon'    => 'el el-brush',
@@ -627,7 +630,7 @@ if ( true ) {
 		)
 	) );
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-frontpage-main-tab',
 			'title'   => __( 'Custom Home/Front Page Builder', 'evolve' ),
 			'icon'    => 't4p-icon-hammer',
@@ -651,7 +654,7 @@ if ( true ) {
 	( $theme_options['evl_parallax_slider_support'] == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)';
 	( $theme_options['evl_carousel_slider'] == '1' ) ? $postslider_status = ' (ACTIVE)' : $postslider_status = ' (INACTIVE)';
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-frontpage-general-tab',
 			'title'      => __( 'General & Layout Settings', 'evolve' ),
 			'subsection' => true,
@@ -797,7 +800,7 @@ if ( true ) {
 	);
 
 // Front Page Blog Sections
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-fp-blog-general-tab',
 			'title'      => __( 'Blog', 'evolve' ),
 			'subsection' => true,
@@ -1101,7 +1104,7 @@ if ( true ) {
 	);
 
 // Front Page Content Boxes
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-frontpage-content-boxes-tab',
 			'title'      => __( 'Content Boxes', 'evolve' ),
 			'subsection' => true,
@@ -1759,7 +1762,7 @@ if ( true ) {
  */
 
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-front-page-counter-circle-tab',
 			'title'      => __( 'Counter Circle', 'evolve' ),
 			'subsection' => true,
@@ -1923,7 +1926,7 @@ if ( true ) {
 	);
 
 // Front Page Google Map Sections
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-fp-googlemap-general-tab',
 			'title'      => __( 'Google Map', 'evolve' ),
 			'subsection' => true,
@@ -2195,7 +2198,7 @@ if ( true ) {
  */
 
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-front-page-testimonials-tab',
 			'title'      => __( 'Testimonials', 'evolve' ),
 			'subsection' => true,
@@ -2375,7 +2378,7 @@ if ( true ) {
 
 // Front Page WooCommerce Products Sections
 	if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) :
-		Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+		Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 				'id'         => 'evl-fp-woo-product-general-tab',
 				'title'      => __( 'WooCommerce Products', 'evolve' ),
 				'subsection' => true,
@@ -2525,7 +2528,7 @@ if ( true ) {
 
 
 // Front Page Custom Content Sections
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-fp-custom-content-general-tab',
 			'title'      => __( 'Custom Content', 'evolve' ),
 			'subsection' => true,
@@ -2663,7 +2666,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-general-main-tab',
 			'title'   => __( 'General', 'evolve' ),
 			'icon'    => 't4p-icon-appbartools',
@@ -2672,7 +2675,7 @@ if ( true ) {
 	);
 
 
-	/* Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+	/* Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-general-subsec-general-tab',
   'title' => __('General', 'evolve'),
   'subsection' => true,
@@ -2692,7 +2695,7 @@ if ( true ) {
  */
 
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-general-subsec-fav-tab',
 			'title'      => __( 'Favicon', 'evolve' ),
 			'subsection' => true,
@@ -2745,7 +2748,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-general-subsec-lay-tab',
 			'title'      => __( 'Layout', 'evolve' ),
 			'subsection' => true,
@@ -2980,7 +2983,7 @@ if ( true ) {
 
 
 // Header Main Sections
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-header-main-tab',
 			'title'   => __( 'Header', 'evolve' ),
 			'icon'    => 't4p-icon-file3',
@@ -2988,7 +2991,7 @@ if ( true ) {
 		)
 	);
 	
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-header-subsec-header-tab',
 			'title'      => __( 'Header', 'evolve' ),
 			'subsection' => true,
@@ -3076,7 +3079,7 @@ if ( true ) {
 	);
 
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-header-subsec-sticky-header-tab',
 			'title'      => __( 'Sticky Header', 'evolve' ),
 			'subsection' => true,
@@ -3125,7 +3128,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-header-subsec-logo-tab',
 			'title'      => __( 'Logo', 'evolve' ),
 			'subsection' => true,
@@ -3215,7 +3218,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-header-subsec-title-tagline-tab',
 			'title'      => __( 'Title & Tagline', 'evolve' ),
 			'subsection' => true,
@@ -3245,7 +3248,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-header-subsec-menu-tab',
 			'title'      => __( 'Menu', 'evolve' ),
 			'subsection' => true,
@@ -3344,7 +3347,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-header-subsec-header-widgets-tab',
 			'title'      => __( 'Header Widgets', 'evolve' ),
 			'subsection' => true,
@@ -3381,7 +3384,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-footer-main-tab',
 			'title'   => __( 'Footer', 'evolve' ),
 			'icon'    => 't4p-icon-file4',
@@ -3389,7 +3392,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-footer-subsec-footer-widgets-tab',
 			'title'      => __( 'Footer Widgets', 'evolve' ),
 			'subsection' => true,
@@ -3412,7 +3415,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-footer-subsec-custom-footer-tab',
 			'title'      => __( 'Custom Footer', 'evolve' ),
 			'subsection' => true,
@@ -3428,7 +3431,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-typography-main-tab',
 			'title'   => __( 'Typography', 'evolve' ),
 			'icon'    => 't4p-icon-appbartextserif',
@@ -3437,7 +3440,7 @@ if ( true ) {
 	);
 
 
-	/* Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+	/* Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-typography-custom',
   'title' => __('Custom Fonts', 'evolve'),
   'subsection' => true,
@@ -3496,7 +3499,7 @@ if ( true ) {
  */
 
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-typography-subsec-title-tagline-tab',
 			'title'      => __( 'Title & Tagline', 'evolve' ),
 			'subsection' => true,
@@ -3555,7 +3558,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-typography-subsec-menu-tab',
 			'title'      => __( 'Menu', 'evolve' ),
 			'subsection' => true,
@@ -3610,7 +3613,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-typography-subsec-widget-tab',
 			'title'      => __( 'Widget', 'evolve' ),
 			'subsection' => true,
@@ -3654,7 +3657,7 @@ if ( true ) {
 			),
 		)
 	);
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-typography-subsec-post-tab',
 			'title'      => __( 'Post Title & Content', 'evolve' ),
 			'subsection' => true,
@@ -3699,7 +3702,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-front-page-content-boxes',
 			'title'      => __( 'Front Page Content Boxes', 'evolve' ),
 			'subsection' => true,
@@ -3744,7 +3747,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-typography-subsec-headings-tab',
 			'title'      => __( 'Headings', 'evolve' ),
 			'subsection' => true,
@@ -3844,13 +3847,13 @@ if ( true ) {
 			),
 		)
 	);
-// Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+// Evolve_Fix_Rd::setSection($evolve_opt_name, array(
 	// 'id' => 'evl-pagetitlebar-tab',
 	// 'title' => __('Page Title / Breadcrumbs / Page Title Bar', 'evolve'),
 	// 'icon' => 't4p-icon-titlebar',
 	// )
 // );
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-pagetitlebar-tab',
 			'title'   => __( 'Page Title / Breadcrumbs / Page Title Bar', 'evolve' ),
 			'icon'    => 't4p-icon-titlebar',
@@ -3969,7 +3972,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-styling-main-tab',
 			'title'   => __( 'Styling', 'evolve' ),
 			'icon'    => 't4p-icon-appbardrawpaintbrush',
@@ -3977,7 +3980,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-styling-subsec-main-scheme-tab',
 			'title'      => __( 'Main Color Scheme', 'evolve' ),
 			'subsection' => true,
@@ -4049,7 +4052,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-styling-subsec-header-footer-tab',
 			'title'      => __( 'Header & Footer', 'evolve' ),
 			'subsection' => true,
@@ -4204,7 +4207,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-styling-subsec-menu-tab',
 			'title'      => __( 'Menu', 'evolve' ),
 			'subsection' => true,
@@ -4268,7 +4271,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-styling-subsec-slideshow-widgets-tab',
 			'title'      => __( 'Slideshow & Widgets Area', 'evolve' ),
 			'subsection' => true,
@@ -4345,7 +4348,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-styling-subsec-content-tab',
 			'title'      => __( 'Content', 'evolve' ),
 			'subsection' => true,
@@ -4392,7 +4395,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-styling-subsec-links-buttons-tab',
 			'title'      => __( 'Links', 'evolve' ),
 			'subsection' => true,
@@ -4409,7 +4412,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-styling-subsec-shadows-tab',
 			'title'      => __( 'Shadows', 'evolve' ),
 			'subsection' => true,
@@ -4430,7 +4433,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-element-colors',
 			'title'      => __( 'Element Colors', 'evolve' ),
 			'subsection' => true,
@@ -4460,7 +4463,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-shortcode-main-tab',
 			'title'   => __( 'Shortcodes', 'evolve' ),
 			'icon'    => 't4p-icon-appbardrawbrush',
@@ -4469,7 +4472,7 @@ if ( true ) {
 	);
 
 
-	/* Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+	/* Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-section-tab',
   'title' => __('Accordion', 'evolve'),
   'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4488,7 +4491,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-blog-tab',
   'title' => __('Blog', 'evolve'),
   'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4508,7 +4511,7 @@ if ( true ) {
   ); */
 
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-shortcode-subsec-shortcodes-button-tab',
 			'title'      => __( 'Button', 'evolve' ),
 			'subsection' => true,
@@ -4648,7 +4651,7 @@ if ( true ) {
 	);
 
 
-	/* Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+	/* Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-content-box-tab',
   'title' => __('Content Box', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4667,7 +4670,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-checklist-tab',
   'title' => __('Checklist', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4699,7 +4702,7 @@ if ( true ) {
   ),
   ),
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-blog-main-tab',
   'title' => __('Blog', 'evolve'),
   'icon' => 't4p-icon-appbarclipboardvariantedit',
@@ -4707,7 +4710,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-blog-subsec-general-tab',
   'title' => __('General', 'evolve'),
   'subsection' => true,
@@ -4773,7 +4776,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-blog-subsec-post-tab',
   'title' => __('Posts', 'evolve'),
   'subsection' => true,
@@ -4831,7 +4834,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-icon-tab',
   'title' => __('Icon', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4874,7 +4877,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-image-frame-tab',
   'title' => __('Image Frame', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4908,7 +4911,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-modal-tab',
   'title' => __('Modal', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4935,7 +4938,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-person-tab',
   'title' => __('Person', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -4969,7 +4972,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-popover-tab',
   'title' => __('Popover', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -5026,7 +5029,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-pricing-table-tab',
   'title' => __('Pricing Table', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -5085,7 +5088,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-progress-bar-tab',
   'title' => __('Progress Bar', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -5120,7 +5123,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-separator-tab',
   'title' => __('Separator', 'evolve'),
   'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -5139,7 +5142,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-section-separator-tab',
   'title' => __('Section Separator', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -5173,7 +5176,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-sharing-box-tab',
   'title' => __('Sharing Box', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -5200,7 +5203,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-social-links-tab',
   'title' => __('Social Links', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -5261,7 +5264,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-tabs-tab',
   'title' => __('Tabs', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -5288,7 +5291,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-tagline-tab',
   'title' => __('Tagline', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -5315,7 +5318,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-testimonials-tab',
   'title' => __('Testimonials', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -5349,7 +5352,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-shortcode-subsec-shortcodes-title-tab',
   'title' => __('Title', 'evolve'),
   'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -5369,7 +5372,7 @@ if ( true ) {
   );
  */
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-blog-main-tab',
 			'title'   => __( 'Blog', 'evolve' ),
 			'icon'    => 't4p-icon-appbarclipboardvariantedit',
@@ -5377,7 +5380,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-blog-subsec-general-tab',
 			'title'      => __( 'General', 'evolve' ),
 			'subsection' => true,
@@ -5454,7 +5457,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-blog-subsec-post-tab',
 			'title'      => __( 'Posts', 'evolve' ),
 			'subsection' => true,
@@ -5523,7 +5526,7 @@ if ( true ) {
 			),
 		)
 	);
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-blog-subsec-featured-tab',
 			'title'      => __( 'Featured Image', 'evolve' ),
 			'subsection' => true,
@@ -5554,7 +5557,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-post-format',
 			'title'      => __( 'Post Format', 'evolve' ),
 			'subsection' => true,
@@ -5653,7 +5656,7 @@ if ( true ) {
 		)
 	);
 
-	/* Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+	/* Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-portfolio-main-tab',
   'title' => __('Portfolio', 'evolve'),
   'icon' => 't4p-icon-appbarimagemultiple',
@@ -5661,7 +5664,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-portfolio-subsec-general-tab',
   'title' => __('General', 'evolve'),
   'locked' => sprintf(__('These options are only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
@@ -5768,7 +5771,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-blog-subsec-featured-tab',
   'title' => __('Featured Image', 'evolve'),
   'subsection' => true,
@@ -5799,7 +5802,7 @@ if ( true ) {
   )
   );
 
-  Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+  Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-post-format',
   'title' => __('Post Format', 'evolve'),
   'subsection' => true,
@@ -5900,7 +5903,7 @@ if ( true ) {
  */
 
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 		'id'      => 'evl-social-links-main-tab',
 		'title'   => __( 'Social Media Links', 'evolve' ),
 		'icon'    => 't4p-icon-appbarsocialtwitter',
@@ -6172,7 +6175,7 @@ if ( true ) {
 	}
 
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-bootstrap-slider-main-tab',
 			'title'   => __( 'Bootstrap Slider', 'evolve' ),
 			'icon'    => 't4p-icon-appbarimageselect',
@@ -6180,7 +6183,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-bootstrap-slider-subsec-general-tab',
 			'title'      => __( 'General', 'evolve' ),
 			'subsection' => true,
@@ -6329,7 +6332,7 @@ if ( true ) {
 	);
 
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-bootstrap-slider-subsec-slides-tab',
 			'title'      => __( 'Slides', 'evolve' ),
 			'subsection' => true,
@@ -6427,7 +6430,7 @@ if ( true ) {
      */
 	}
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-parallax-slider-main-tab',
 			'title'   => __( 'Parallax Slider', 'evolve' ),
 			'icon'    => 't4p-icon-appbarmonitor',
@@ -6435,7 +6438,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-parallax-slider-subsec-general-tab',
 			'title'      => __( 'General', 'evolve' ),
 			'subsection' => true,
@@ -6515,7 +6518,7 @@ if ( true ) {
 	);
 
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-parallax-slider-subsec-slides-tab',
 			'title'      => __( 'Slides', 'evolve' ),
 			'subsection' => true,
@@ -6523,7 +6526,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-posts-slider-main-tab',
 			'title'   => __( 'Posts Slider', 'evolve' ),
 			'icon'    => 't4p-icon-appbarvideogallery',
@@ -6660,7 +6663,7 @@ if ( true ) {
 	);
 
 
-	/* Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+	/* Evolve_Fix_Rd::setSection($evolve_opt_name, array(
   'id' => 'evl-lightbox-main-tab',
   'title' => __('Lightbox', 'evolve'),
   'icon' => 't4p-icon-appbarwindowmaximize',
@@ -6739,7 +6742,7 @@ if ( true ) {
  */
 
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-contact-main-tab',
 			'title'   => __( 'Contact', 'evolve' ),
 			'icon'    => 't4p-icon-appbarlocationcheckin',
@@ -6872,7 +6875,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-extra-main-tab',
 			'title'   => __( 'Extra', 'evolve' ),
 			'icon'    => 't4p-icon-appbarsettings',
@@ -6955,7 +6958,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-advanced-main-tab',
 			'title'   => __( 'Advanced', 'evolve' ),
 			'icon'    => 't4p-icon-appbarlistcheck',
@@ -7033,7 +7036,7 @@ if ( true ) {
 		)
 	);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-woocommerce-main-tab',
 			'title'   => __( 'WooCommerce', 'evolve' ),
 			'icon'    => 't4p-icon-appbarcart',
@@ -7112,7 +7115,7 @@ if ( true ) {
 	);
 
 
-//Binmaocom_Fix_Rd::setSection($evolve_opt_name, array(
+//Evolve_Fix_Rd::setSection($evolve_opt_name, array(
 //    'id' => 'evl-custom-css-main-tab',
 //    'title' => __('Custom CSS', 'evolve'),
 //    'icon' => 't4p-icon-appbarsymbolbraces',
@@ -7128,7 +7131,7 @@ if ( true ) {
 //        )
 //);
 
-	Binmaocom_Fix_Rd::setSection( $evolve_opt_name, array(
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-import-export-main-tab',
 			'title'      => __( 'Import / Export', 'evolve' ),
 			'icon'       => 't4p-icon-appbarinbox',
@@ -7148,6 +7151,8 @@ if ( true ) {
 
 }
 
+// }
+
 // Function to test the compiler hook and demo CSS output.
 // Above 10 is a priority, but 2 in necessary to include the dynamically generated CSS to be sent to the function.
 
@@ -7158,25 +7163,15 @@ if ( true ) {
 
 global $evolve_options, $geted_for_preview;
 $geted_for_preview = false;
-function bin_get_new_option( $geted_for_preview_in = false ) {
+function evl_get_new_option( $geted_for_preview_in = false ) {
 	global $evolve_options, $geted_for_preview;
 	if ( $geted_for_preview == false ) {
-		// $bt = debug_backtrace();
-		// if($bt){foreach($bt as $bts){
-		// // var_dump($bts);
-		// // $geted_for_preview = true;
-		// if (strpos($bts["file"], "\\themes\\") !== false) {
-		// var_dump($bts["file"]);
-		// var_dump($bts["line"]);
-		// echo '<br />';
-		// }
-		// }}
 		$evolve_options = get_option( $evolve_opt_name, false ); // Get saved options
 		if ( ! $evolve_options ) {
-			global $bi_all_customize_fields;
-			$bi_all_customize_fields = get_option( 'bi_all_customize_fields', $bi_all_customize_fields );
-			if ( $bi_all_customize_fields ) {
-				foreach ( $bi_all_customize_fields as $control ) {
+			global $evl_all_customize_fields;
+			$evl_all_customize_fields = get_option( 'evl_all_customize_fields', $evl_all_customize_fields );
+			if ( $evl_all_customize_fields ) {
+				foreach ( $evl_all_customize_fields as $control ) {
 					if ( $control['value']['type'] == 'sorter' ) {
 						$enabled = evolve_theme_mod( $control['value_temp']['settings'], false );
 						if ( $enabled && is_array( $enabled ) && count( $enabled ) && isset( $enabled["enabled"] ) && is_array( $enabled["enabled"] ) && count( $enabled["enabled"] ) ) {
@@ -7201,11 +7196,11 @@ function bin_get_new_option( $geted_for_preview_in = false ) {
 	}
 }
 
-add_action( 'init', 'bin_get_new_option' );
+// add_action( 'init', 'evl_get_new_option' );
 add_action( 'fix_evolve_options_data', 'fix_evolve_options_data' );
 function fix_evolve_options_data() {
 	if ( is_customize_preview() && ! is_admin() ) {
-		// bin_get_new_option();
+		// evl_get_new_option();
 	}
 }
 
@@ -7229,10 +7224,10 @@ add_action( 'customize_register', 'evolve_register_custom_section' );
  * Import Demo Content
  *
  * ************************************************************************************************************ */
-add_action( 'wp_ajax_binmaocom_trigger_import_function', 'binmaocom_trigger_import_function' );
-add_action( 'wp_ajax_nopriv_binmaocom_trigger_import_function', 'binmaocom_trigger_import_function' );
-function binmaocom_trigger_import_function() {
-	if ( is_admin() && isset( $_REQUEST['evl_frontpage_prebuilt_demo'] ) && isset( $_REQUEST['binmaocom_trigger_import_key'] ) && $_REQUEST['binmaocom_trigger_import_key'] == md5( 'binmaocom' ) ) {
+add_action( 'wp_ajax_evolve_trigger_import_function', 'evolve_trigger_import_function' );
+add_action( 'wp_ajax_nopriv_evolve_trigger_import_function', 'evolve_trigger_import_function' );
+function evolve_trigger_import_function() {
+	if ( is_admin() && isset( $_REQUEST['evl_frontpage_prebuilt_demo'] ) && isset( $_REQUEST['evolve_trigger_import_key'] ) && $_REQUEST['evolve_trigger_import_key'] == md5( 'evolve' ) ) {
 		$evl_frontpage_prebuilt_demo = $_REQUEST['evl_frontpage_prebuilt_demo'];
 		if ( $evl_frontpage_prebuilt_demo ) {
 			$evl_frontpage_prebuilt_demo = str_replace( 'evl_frontpage_prebuilt_demo', '', $evl_frontpage_prebuilt_demo );
@@ -7429,6 +7424,7 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 		}
 
 		$theme_options_txt = wp_remote_get( $theme_options_txt );
+		$theme_options_txt['body'] = str_replace( 'http://localhost/wordpress/' , trailingslashit(home_url()) , $theme_options_txt['body']);
 		$imported_options  = json_decode( ( $theme_options_txt['body'] ), true );
 
 		if ( ! empty( $imported_options ) && is_array( $imported_options ) && isset( $imported_options['redux-backup'] ) && $imported_options['redux-backup'] == '1' ) {
@@ -7858,6 +7854,7 @@ if ( get_option( 'old_new_upgrade_themeoptions', 'false' ) == 'false' ) {
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function evolve_customize_register( $wp_customize ) {
+	global $evl_index_control;
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
@@ -7869,9 +7866,6 @@ function evolve_customize_register( $wp_customize ) {
 		'selector'        => '#tagline',
 		'render_callback' => 'evolve_customize_partial_blogdescription',
 	) );
-}
-
-add_action( 'customize_register', 'evolve_customize_register' );
 
 
 // Kirki::remove_panel('nav_menus');
@@ -7933,22 +7927,25 @@ $array_default_customize = array(
 	),
 );
 foreach ( $array_default_customize as $value ) {
-	$bi_index_control ++;
+	$evl_index_control ++;
 	if ( $value['type'] == 2 ) {
 		Kirki::add_panel( $value['value'], array(
 			'title'    => $value['title'],
 			'icon'     => $value['icon'],
-			'priority' => $bi_index_control,
+			'priority' => $evl_index_control,
 		) );
 	} else {
 		Kirki::add_section( $value['value'], array(
 			'title'    => $value['title'],
 			'icon'     => $value['icon'],
-			'priority' => $bi_index_control,
+			'priority' => $evl_index_control,
 		) );
 	}
 }
 
+}
+
+add_action( 'customize_register', 'evolve_customize_register', 10, 3 );
 /**
  * Render the site title for the selective refresh partial.
  */
@@ -7968,6 +7965,6 @@ function evolve_customize_partial_blogdescription() {
  */
 add_theme_support( 'customize-selective-refresh-widgets' );
 
-if ( true || $bi_all_customize_fields === false ) {
-	update_option( 'bi_all_customize_fields', $bi_all_customize_fields );
+if ( $evl_all_customize_fields === false ) {
+	update_option( 'evl_all_customize_fields', $evl_all_customize_fields );
 }

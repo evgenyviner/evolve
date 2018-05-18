@@ -1,7 +1,16 @@
 <?php
-
-require get_parent_theme_file_path('inc/customizer/kirki-framework/kirki.php' );
 require get_parent_theme_file_path('inc/customizer/kirki-function-render-customize.php');
+if( is_user_logged_in()){
+	require get_parent_theme_file_path('inc/customizer/kirki-framework/kirki.php' );
+
+	##############################################
+	# SETUP THEME CONFIG
+	##############################################
+	Kirki::add_config( 'kirki_evolve_options', array(
+		'option_type' => 'theme_mod',
+		'capability'  => 'edit_theme_options'
+	) );
+}
 
 //begin coding for import function
 function call_js_import_customizer_live_preview() {
@@ -13,8 +22,8 @@ wp_enqueue_script( 'js_import_customizer',
 add_action( 'customize_preview_init', 'call_js_import_customizer_live_preview' );
 
 
-// add_filter('pre_option_evl_options', 'binmaocom_fix_pre_option_evl_options_function');
-function binmaocom_fix_pre_option_evl_options_function($evolve_options){
+// add_filter('pre_option_evl_options', 'evolve_fix_pre_option_evl_options_function');
+function evolve_fix_pre_option_evl_options_function($evolve_options){
 	if($evolve_options && is_array($evolve_options) && count($evolve_options)){
 		foreach($evolve_options as $key => $value){
 			$evolve_options[$key] = get_theme_mod($key, $value);
@@ -23,10 +32,10 @@ function binmaocom_fix_pre_option_evl_options_function($evolve_options){
 	}
 }
 
-add_action( 'customize_controls_enqueue_scripts', array( 'Binmaocom_Add_some_thing_Customize' , 'custom_customize_enqueue' ) );
-add_action( 'customize_controls_print_styles' , array( 'Binmaocom_Add_some_thing_Customize' , 'addInlineCss' ) );
-add_action( 'customize_controls_print_scripts' , array( 'Binmaocom_Add_some_thing_Customize' , 'addInlineJs' ) );
-class Binmaocom_Add_some_thing_Customize{
+add_action( 'customize_controls_enqueue_scripts', array( 'Evolve_Add_some_thing_Customize' , 'custom_customize_enqueue' ) );
+add_action( 'customize_controls_print_styles' , array( 'Evolve_Add_some_thing_Customize' , 'addInlineCss' ) );
+add_action( 'customize_controls_print_scripts' , array( 'Evolve_Add_some_thing_Customize' , 'addInlineJs' ) );
+class Evolve_Add_some_thing_Customize{
 	public function custom_customize_enqueue(){
 		//*****************************************************************
 		// Elusive Icon CSS
@@ -115,11 +124,11 @@ h3.accordion-section-title.dashicons-before.el {
 			if(confirmation){
 				 $.ajax({
 					data: {
-						action: 'binmaocom_trigger_import_function',
-						binmaocom_trigger_import_key: '<?php echo md5('binmaocom'); ?>',
+						action: 'evolve_trigger_import_function',
+						evolve_trigger_import_key: '<?php echo md5('evolve'); ?>',
 						evl_frontpage_prebuilt_demo: evl_frontpage_prebuilt_demo
 					},
-					//binmaocom|6415ccabd5b4c10cedb3edd72c579236
+					//evolve|6415ccabd5b4c10cedb3edd72c579236
 					url: "<?php echo admin_url( 'admin-ajax.php' ) ; ?>",
 					success: function( data ) {						
 						window.location.reload();
@@ -133,18 +142,3 @@ h3.accordion-section-title.dashicons-before.el {
 	<?php
 	}
 }
-
-##############################################
-# SETUP THEME CONFIG
-##############################################
-    Kirki::add_config( 'kirki_evolve_options', array(
-        'option_type' => 'theme_mod',
-        'capability'  => 'edit_theme_options'
-    ) );
-#########################################################
-# SITE IDENTITY PANEL
-#########################################################
-    // Kirki::add_panel( 'kirki_frontpage_main_tab', array(
-        // 'title'         => __( '[Kirki]Custom Home/Front Page Builder	', 'evolve' )
-    // ) );
-	

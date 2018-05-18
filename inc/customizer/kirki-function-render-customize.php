@@ -1,5 +1,5 @@
 <?php
-	class BinmaocomRefresh{
+	class EvolveRefresh{
 		function evolve_call_customize_import() {
 			ob_start();
 			evolve_import_demo_content_kirki();
