@@ -5,12 +5,7 @@ require get_parent_theme_file_path( 'inc/customizer/kirki-functions.php' );
 // function remove_font_awesome_from_kirki(){
 //	return false;
 // }
-// add_action( 'wp_loaded', 'call_function_fillter_to_get_real_value_from_kirki_customize' );
-function call_function_fillter_to_get_real_value_from_kirki_customize() {
-	if ( is_customize_preview() && ! is_admin() ) {
-		evl_get_new_option();
-	}
-}
+
 /* Convert hexdec color string to rgb(a) string */
 function evolve_hex2rgba( $hex, $alpha = '' ) {
 	$hex = str_replace( "#", "", $hex );
@@ -70,35 +65,43 @@ $evl_all_customize_fields = array();
 
 class Evolve_Fix_Rd {
 	static function setSection( $param1, $param2 ) {
-		global $name_of_panel, $evl_all_customize_fields, $evl_index_control;
-		$evl_index_control ++;
-		if ( isset( $param2['iconfix'] ) && ! empty( $param2['iconfix'] ) ) {
-			$param2['icon'] = $param2['iconfix'];
-		}
-		if ( isset( $param2['fields'] ) && is_array( $param2['fields'] ) && count( $param2['fields'] ) ) {
-			if ( ! isset( $param2['subsection'] ) ) {
-				$name_of_panel = $param2['id'];
-				Kirki::add_section( $param2['id'], array(
-					'title'    => $param2['title'],
-					'priority' => $evl_index_control,
-					'icon'     => $param2['icon'],
-				) );
-			} else {
-				Kirki::add_section( $param2['id'], array(
-					'title'    => $param2['title'],
-					'panel'    => $name_of_panel,
-					'priority' => $evl_index_control,
-					'icon'     => $param2['icon'],
-				) );
+		if (true || is_user_logged_in() ) {
+			global $name_of_panel, $evl_all_customize_fields, $evl_index_control;
+			$evl_index_control ++;
+			if ( isset( $param2['iconfix'] ) && ! empty( $param2['iconfix'] ) ) {
+				$param2['icon'] = $param2['iconfix'];
 			}
-			Evolve_Fix_Rd::evl_call_kirki_from_old_field( $param2['fields'], $param2['id'] );
-		} else {
-			$name_of_panel = $param2['id'];
-			Kirki::add_panel( $param2['id'], array(
-				'title'    => $param2['title'],
-				'priority' => $evl_index_control,
-				'icon'     => $param2['icon'],
-			) );
+			if ( isset( $param2['fields'] ) && is_array( $param2['fields'] ) && count( $param2['fields'] ) ) {
+				if ( ! isset( $param2['subsection'] ) ) {
+					$name_of_panel = $param2['id'];
+					if ( is_user_logged_in() ) {
+					Kirki::add_section( $param2['id'], array(
+						'title'    => $param2['title'],
+						'priority' => $evl_index_control,
+						'icon'     => $param2['icon'],
+					) );
+					}
+				} else {
+					if ( is_user_logged_in() ) {
+					Kirki::add_section( $param2['id'], array(
+						'title'    => $param2['title'],
+						'panel'    => $name_of_panel,
+						'priority' => $evl_index_control,
+						'icon'     => $param2['icon'],
+					) );
+					}
+				}
+				Evolve_Fix_Rd::evl_call_kirki_from_old_field( $param2['fields'], $param2['id'] );
+			} else {
+				$name_of_panel = $param2['id'];
+				if ( is_user_logged_in() ) {
+					Kirki::add_panel( $param2['id'], array(
+						'title'    => $param2['title'],
+						'priority' => $evl_index_control,
+						'icon'     => $param2['icon'],
+					) );
+				}
+			}
 		}
 	}
 
@@ -283,7 +286,9 @@ class Evolve_Fix_Rd {
 				if ( isset( $value['js_vars'] ) ) {
 					$value_temp['js_vars'] = $value['js_vars'];
 				}
-				Kirki::add_field( $setting, $value_temp );
+				if ( is_user_logged_in() ) {
+					Kirki::add_field( $setting, $value_temp );
+				}
 			} else {
 				//import_export
 				if ( 'import_export' == $value['type'] ) {
@@ -444,10 +449,6 @@ function evolve_shortcodes_range( $range, $all = true, $default = false, $range_
 	}
 
 	return $number_of_posts;
-}
-
-if ( ! class_exists( 'Kirki' ) ) {
-	return;
 }
 
 //Get Page Title List
@@ -614,7 +615,7 @@ foreach ( $options_pages_obj as $page ) {
 // add_action( 'customize_register', 'evolve_theme_kirki_add_controls', 10, 3 );
 // function evolve_theme_kirki_add_controls(){
 	
-if ( is_customize_preview() ) {
+if ( true || is_customize_preview() ) {
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 		'id'      => 'evl-theme-links-main-tab',
 		'title'   => __( 'Theme Links', 'evolve' ),
@@ -639,13 +640,13 @@ if ( is_customize_preview() ) {
 	);
 
 //Check status of parallax and post slider
-	$theme_options = get_option( 'evl_options', false );
-	if ( ! $theme_options ) {
-		$bi_evolve_options = get_option( 'bi_evolve_options', false );
-		if ( $bi_evolve_options ) {
-			$theme_options = $bi_evolve_options;
-		}
-	}
+	// $theme_options = get_option( 'evl_options', false );
+	// if ( ! $theme_options ) {
+		// $bi_evolve_options = get_option( 'bi_evolve_options', false );
+		// if ( $bi_evolve_options ) {
+			// $theme_options = $bi_evolve_options;
+		// }
+	// }
 	$theme_options['evl_bootstrap_slider_support'] = evolve_theme_mod( 'evl_bootstrap_slider_support' );
 	$theme_options['evl_parallax_slider_support'] = evolve_theme_mod( 'evl_parallax_slider_support' );
 	$theme_options['evl_carousel_slider'] = evolve_theme_mod( 'evl_carousel_slider' );
@@ -7196,13 +7197,6 @@ function evl_get_new_option( $geted_for_preview_in = false ) {
 	}
 }
 
-// add_action( 'init', 'evl_get_new_option' );
-add_action( 'fix_evolve_options_data', 'fix_evolve_options_data' );
-function fix_evolve_options_data() {
-	if ( is_customize_preview() && ! is_admin() ) {
-		// evl_get_new_option();
-	}
-}
 
 /* * ************************************************************************************************************
  * Register theme options section in Customizer
@@ -7238,7 +7232,9 @@ function evolve_trigger_import_function() {
 	exit();
 }
 // update_option('update_theme_from_redux_to_kirki', false);
-add_action('init', 'update_theme_from_redux_to_kirki');
+if( is_user_logged_in()){
+	add_action('init', 'update_theme_from_redux_to_kirki');
+}
 function update_theme_from_redux_to_kirki(){
 	$update_theme_from_redux_to_kirki = get_option('update_theme_from_redux_to_kirki', false);
 	if($update_theme_from_redux_to_kirki == false){
@@ -7425,6 +7421,8 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 
 		$theme_options_txt = wp_remote_get( $theme_options_txt );
 		$theme_options_txt['body'] = str_replace( 'http://localhost/wordpress/' , trailingslashit(home_url()) , $theme_options_txt['body']);
+		$theme_options_txt['body'] = str_replace( 'team-1.jpg' , 'team-1.png' , $theme_options_txt['body']);
+		$theme_options_txt['body'] = str_replace( 'team-2.jpg' , 'team-2.png' , $theme_options_txt['body']);
 		$imported_options  = json_decode( ( $theme_options_txt['body'] ), true );
 
 		if ( ! empty( $imported_options ) && is_array( $imported_options ) && isset( $imported_options['redux-backup'] ) && $imported_options['redux-backup'] == '1' ) {
@@ -7564,7 +7562,7 @@ add_action( 'redux/options/' . $evolve_opt_name . '/saved', 'evolve_import_demo_
  *
  * ************************************************************************************************************ */
 
-if ( get_option( 'old_new_upgrade_themeoptions', 'false' ) == 'false' ) {
+if (is_user_logged_in() && get_option( 'old_new_upgrade_themeoptions', 'false' ) == 'false' ) {
 	//homepage and fronpage conditions and get frontpage ID
 	$is_homepage  = get_option( 'show_on_front' );
 	$frontpage_id = get_option( 'page_on_front' );

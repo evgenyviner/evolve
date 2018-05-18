@@ -1981,8 +1981,8 @@ $evl_all_customize_fields = get_option( 'evl_all_customize_fields', false );
 function evolve_theme_mod( $name, $default = false ) {
 	global $evl_all_customize_fields;
 	if ( $default == false ) {
-		if ( $evl_all_customize_fields === false && isset( $evl_all_customize_fields[ $name ] ) && isset( $evl_all_customize_fields[ $name ]['default'] ) ) {
-			$default = $evl_all_customize_fields[ $name ]['default'];
+		if ( $evl_all_customize_fields === false && isset( $evl_all_customize_fields[ $name ] ) && isset( $evl_all_customize_fields[ $name ]['value_temp'] ) && isset( $evl_all_customize_fields[ $name ]['value_temp']['default'] ) ) {
+			$default = $evl_all_customize_fields[ $name ]['value_temp']['default'];
 		}
 	}
 	$result = get_theme_mod( $name, $default );
