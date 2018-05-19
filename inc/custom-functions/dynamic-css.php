@@ -125,18 +125,18 @@ $evolve_post_font           = evolve_theme_mod( 'evl_post_font', '' );
 $evolve_frontpage_layout = evolve_theme_mod( 'evl_frontpage_layout', '1c' );
 
 $evolve_header_padding         = evolve_theme_mod( 'evl_content_top_bottom_padding' );
-$evolve_content_top_padding    = $evolve_header_padding['padding-top'];
-$evolve_content_bottom_padding = $evolve_header_padding['padding-bottom'];
+$evolve_content_top_padding    = $evolve_header_padding['top'];
+$evolve_content_bottom_padding = $evolve_header_padding['bottom'];
 
 /*
    Content Boxes Section
    ======================================= */
 
 $evolve_content_boxes_section_padding             = evolve_theme_mod( 'evl_content_boxes_section_padding' );
-$evolve_content_boxes_section_padding_top         = $evolve_content_boxes_section_padding['padding-top'];
-$evolve_content_boxes_section_padding_bottom      = $evolve_content_boxes_section_padding['padding-bottom'];
-$evolve_content_boxes_section_padding_left        = $evolve_content_boxes_section_padding['padding-left'];
-$evolve_content_boxes_section_padding_right       = $evolve_content_boxes_section_padding['padding-right'];
+$evolve_content_boxes_section_padding_top         = $evolve_content_boxes_section_padding['top'];
+$evolve_content_boxes_section_padding_bottom      = $evolve_content_boxes_section_padding['bottom'];
+$evolve_content_boxes_section_padding_left        = $evolve_content_boxes_section_padding['left'];
+$evolve_content_boxes_section_padding_right       = $evolve_content_boxes_section_padding['right'];
 $evolve_content_boxes_section_back_color          = evolve_theme_mod( 'evl_content_boxes_section_back_color', '' );
 $evolve_content_boxes_section_image_src           = evolve_theme_mod( 'evl_content_boxes_section_background_image' );
 $evolve_content_boxes_section_image               = evolve_theme_mod( 'evl_content_boxes_section_image', 'cover' );
