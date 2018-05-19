@@ -1,5 +1,5 @@
 <?php
-
+// var_dump(get_theme_mod('evl_header_padding'));
 require get_parent_theme_file_path( 'inc/customizer/kirki-functions.php' );
 // add_filter('kirki_load_fontawesome', 'remove_font_awesome_from_kirki', 999);
 // function remove_font_awesome_from_kirki(){
@@ -7299,18 +7299,18 @@ function fix_data_from_redux_to_kirki($value){
 	}
 	if ( isset( $value['font-style'] ) ) {
 		$value['variant'] = $value['font-style'];
-		if ( isset( $value['padding-top'] ) ) {
-			$value['top'] = $value['padding-top'];
-		}
-		if ( isset( $value['padding-right'] ) ) {
-			$value['right'] = $value['padding-right'];
-		}
-		if ( isset( $value['padding-bottom'] ) ) {
-			$value['bottom'] = $value['padding-bottom'];
-		}
-		if ( isset( $value['padding-left'] ) ) {
-			$value['left'] = $value['padding-left'];
-		}
+	}
+	if ( isset( $value['padding-top'] ) ) {
+		$value['top'] = $value['padding-top'];
+	}
+	if ( isset( $value['padding-right'] ) ) {
+		$value['right'] = $value['padding-right'];
+	}
+	if ( isset( $value['padding-bottom'] ) ) {
+		$value['bottom'] = $value['padding-bottom'];
+	}
+	if ( isset( $value['padding-left'] ) ) {
+		$value['left'] = $value['padding-left'];
 	}
 	if ( ! is_array( $value ) ) {
 		$value = str_replace( 'far fa-', '', $value );
