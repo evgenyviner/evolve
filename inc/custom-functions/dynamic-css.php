@@ -678,8 +678,8 @@ if ( $evolve_bootstrap_layout == "bootstrap_center" ) {
 	$evolve_css_data .= '#bootstrap-slider .layout-left { left: 0; right: 50%; margin-left: 60px; } #bootstrap-slider .carousel-caption { bottom: 12%; }';
 	
 	$evl_bootstrap_slide_subtitle_font_rgba = evolve_theme_mod('evl_bootstrap_slide_subtitle_font_rgba');
-	if ( isset( $evl_bootstrap_slide_subtitle_font_rgba['rgba'] ) && $evl_bootstrap_slide_subtitle_font_rgba['rgba'] ) {
-		$evolve_bootstrap_slide_subtitle_font_rgba = $evl_bootstrap_slide_subtitle_font_rgba['rgba'];
+	if ( isset( $evl_bootstrap_slide_subtitle_font_rgba ) && $evl_bootstrap_slide_subtitle_font_rgba ) {
+		$evolve_bootstrap_slide_subtitle_font_rgba = $evl_bootstrap_slide_subtitle_font_rgba;
 	}
 	if ( ! empty( $evolve_bootstrap_slide_subtitle_font_rgba ) ) {
 		$evolve_css_data .= '#bootstrap-slider .carousel-caption p { background: ' . $evolve_bootstrap_slide_subtitle_font_rgba . '; }';
@@ -691,8 +691,8 @@ if ( $evolve_bootstrap_layout == "bootstrap_center" ) {
 }
 
 $evl_bootstrap_slide_title_font_rgba = evolve_theme_mod('evl_bootstrap_slide_title_font_rgba');
-if ( isset( $evl_bootstrap_slide_title_font_rgba['rgba'] ) && $evl_bootstrap_slide_title_font_rgba['rgba'] ) {
-	$evolve_bootstrap_slide_title_font_rgba = $evl_bootstrap_slide_title_font_rgba['rgba'];
+if ( isset( $evl_bootstrap_slide_title_font_rgba ) && $evl_bootstrap_slide_title_font_rgba ) {
+	$evolve_bootstrap_slide_title_font_rgba = $evl_bootstrap_slide_title_font_rgba;
 }
 if ( ! empty( $evolve_bootstrap_slide_title_font_rgba ) ) {
 	$evolve_css_data .= '#bootstrap-slider .carousel-caption h2 { background: ' . $evolve_bootstrap_slide_title_font_rgba . '; }';
