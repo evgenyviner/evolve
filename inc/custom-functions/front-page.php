@@ -22,7 +22,7 @@ function evolve_content_boxes() {
 		if ( $evolve_content_box4_enable === false ) {
 			$evolve_content_box4_enable = '';
 		}
-		$evl_content_boxes_section_padding 				= evolve_theme_mod('evl_content_boxes_section_padding');
+		$evl_content_boxes_section_padding                = evolve_theme_mod( 'evl_content_boxes_section_padding' );
 		$evolve_content_boxes_section_padding_top         = $evl_content_boxes_section_padding['padding-top'];
 		$evolve_content_boxes_section_padding_bottom      = $evl_content_boxes_section_padding['padding-bottom'];
 		$evolve_content_boxes_section_padding_left        = $evl_content_boxes_section_padding['padding-left'];
@@ -33,7 +33,7 @@ function evolve_content_boxes() {
 		$evolve_content_boxes_section_background_repeat   = evolve_theme_mod( 'evl_content_boxes_section_image_background_repeat', 'no-repeat' );
 		$evolve_content_boxes_section_background_position = evolve_theme_mod( 'evl_content_boxes_section_image_background_position', 'center top' );
 		//html_attr
-		$html_class = 't4p-fullwidth fullwidth-box hentry';
+		$html_class = '';
 		$html_style = '';
 		if ( $evolve_content_boxes_section_back_color ) {
 			$html_style .= sprintf( 'background-color:%s;', $evolve_content_boxes_section_back_color );
@@ -65,14 +65,14 @@ function evolve_content_boxes() {
 		if ( $evolve_content_boxes_section_padding_right ) {
 			$html_style .= sprintf( 'padding-right:%s;', $evolve_content_boxes_section_padding_right );
 		}
-		echo "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
+		echo "<div style='$html_style'><div class='container'>";
 		$evolve_content_box_section_title = evolve_theme_mod( 'evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind' );
 		if ( $evolve_content_box_section_title == false ) {
 			$evolve_content_box_section_title = '';
 		} else {
-			$evolve_content_box_section_title = '<h2 class="content_box_section_title section_title">' . evolve_theme_mod( 'evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind' ) . '</h2>';
+			$evolve_content_box_section_title = '<h4 class="content_box_section_title section_title">' . evolve_theme_mod( 'evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind' ) . '</h4>';
 		}
-		echo "<div class='home-content-boxes'><div class='row'>" . $evolve_content_box_section_title;
+		echo "<div class='row'><div class='card-deck home-content-boxes'>" . $evolve_content_box_section_title;
 		$evolve_content_box1_title = evolve_theme_mod( 'evl_content_box1_title', 'Flat & Beautiful' );
 		if ( $evolve_content_box1_title === false ) {
 			$evolve_content_box1_title = '';
@@ -110,27 +110,27 @@ function evolve_content_boxes() {
 		}
 		switch ( $BoxCount ):
 			case $BoxCount == 1:
-				$BoxClass = 'col-md-12';
+				$BoxClass = '';
 				break;
 			case $BoxCount == 2:
-				$BoxClass = 'col-md-6';
+				$BoxClass = 'col-sm-12 col-md-6';
 				break;
 			case $BoxCount == 3:
-				$BoxClass = 'col-md-4';
+				$BoxClass = 'col-sm-12 col-lg-4';
 				break;
 			case $BoxCount == 4:
-				$BoxClass = 'col-md-3';
+				$BoxClass = 'col-sm-12 col-md-6 col-lg-3';
 				break;
 			default:
-				$BoxClass = 'col-md-3';
+				$BoxClass = ' col-md-3';
 		endswitch;
 		if ( $evolve_content_box1_enable == true ) {
-			echo "<div class='col-sm-12 $BoxClass content-box content-box-1'>";
-			echo "<div class='icon-box'><i class='123 fa fa-" . $evolve_content_box1_icon . "'></i></div>";
-			echo "<h2>" . esc_attr( $evolve_content_box1_title ) . "</h2>";
-			echo "<p>" . do_shortcode( $evolve_content_box1_desc ) . "</p>";
-			echo "<div class='cntbox_btn sbtn1'>" . do_shortcode( $evolve_content_box1_button ) . "</div>";
-			echo "</div>";
+			echo "<div class='$BoxClass content-box content-box-1 text-center mb-3'><div class='card'><div class='icon-box card-img-top'><i class='123 fa fa-" . $evolve_content_box1_icon . "'></i></div>";
+			echo "<div class='card-body'>";
+			echo "<h5 class='card-title'>" . esc_attr( $evolve_content_box1_title ) . "</h5>";
+			echo "<p class='card-text'>" . do_shortcode( $evolve_content_box1_desc ) . "</p>";
+			echo "</div><div class='card-footer'>" . do_shortcode( $evolve_content_box1_button ) . "</div>";
+			echo "</div></div>";
 		}
 		$evolve_content_box2_title = evolve_theme_mod( 'evl_content_box2_title', 'Easy Customizable' );
 		if ( $evolve_content_box2_title === false ) {
@@ -149,12 +149,12 @@ function evolve_content_boxes() {
 			$evolve_content_box2_icon = '';
 		}
 		if ( $evolve_content_box2_enable == true ) {
-			echo "<div class='col-sm-12 $BoxClass content-box content-box-2'>";
-			echo "<div class='icon-box'><i class='fa fa-" . $evolve_content_box2_icon . "'></i></div>";
-			echo "<h2>" . esc_attr( $evolve_content_box2_title ) . "</h2>";
-			echo "<p>" . do_shortcode( $evolve_content_box2_desc ) . "</p>";
-			echo "<div class='cntbox_btn sbtn2'>" . do_shortcode( $evolve_content_box2_button ) . "</div>";
-			echo "</div>";
+			echo "<div class='$BoxClass content-box content-box-2 text-center mb-3'><div class='card'><div class='icon-box card-img-top'><i class='123 fa fa-" . $evolve_content_box2_icon . "'></i></div>";
+			echo "<div class='card-body'>";
+			echo "<h5 class='card-title'>" . esc_attr( $evolve_content_box2_title ) . "</h5>";
+			echo "<p class='card-text'>" . do_shortcode( $evolve_content_box2_desc ) . "</p>";
+			echo "</div><div class='card-footer'>" . do_shortcode( $evolve_content_box2_button ) . "</div>";
+			echo "</div></div>";
 		}
 		$evolve_content_box3_title = evolve_theme_mod( 'evl_content_box3_title', 'WooCommerce Ready' );
 		if ( $evolve_content_box3_title === false ) {
@@ -173,12 +173,12 @@ function evolve_content_boxes() {
 			$evolve_content_box3_icon = '';
 		}
 		if ( $evolve_content_box3_enable == true ) {
-			echo "<div class='col-sm-12 $BoxClass content-box content-box-3'>";
-			echo "<div class='icon-box'><i class='fa fa-" . $evolve_content_box3_icon . "'></i></div>";
-			echo "<h2>" . esc_attr( $evolve_content_box3_title ) . "</h2>";
-			echo "<p>" . do_shortcode( $evolve_content_box3_desc ) . "</p>";
-			echo "<div class='cntbox_btn sbtn3'>" . do_shortcode( $evolve_content_box3_button ) . "</div>";
-			echo "</div>";
+			echo "<div class='$BoxClass content-box content-box-3 text-center mb-3'><div class='card'><div class='icon-box card-img-top'><i class='123 fa fa-" . $evolve_content_box3_icon . "'></i></div>";
+			echo "<div class='card-body'>";
+			echo "<h5 class='card-title'>" . esc_attr( $evolve_content_box3_title ) . "</h5>";
+			echo "<p class='card-text'>" . do_shortcode( $evolve_content_box3_desc ) . "</p>";
+			echo "</div><div class='card-footer'>" . do_shortcode( $evolve_content_box3_button ) . "</div>";
+			echo "</div></div>";
 		}
 		$evolve_content_box4_title = evolve_theme_mod( 'evl_content_box4_title', 'Prebuilt Demos' );
 		if ( $evolve_content_box4_title === false ) {
@@ -197,14 +197,14 @@ function evolve_content_boxes() {
 			$evolve_content_box4_icon = '';
 		}
 		if ( $evolve_content_box4_enable == true ) {
-			echo "<div class='col-sm-12 $BoxClass content-box content-box-4'>";
-			echo "<div class='icon-box'><i class='fa fa-" . $evolve_content_box4_icon . "'></i></div>";
-			echo "<h2>" . esc_attr( $evolve_content_box4_title ) . "</h2>";
-			echo "<p>" . do_shortcode( $evolve_content_box4_desc ) . "</p>";
-			echo "<div class='cntbox_btn sbtn4'>" . do_shortcode( $evolve_content_box4_button ) . "</div>";
-			echo "</div>";
+			echo "<div class='$BoxClass content-box content-box-4 text-center mb-3'><div class='card'><div class='icon-box card-img-top'><i class='123 fa fa-" . $evolve_content_box4_icon . "'></i></div>";
+			echo "<div class='card-body'>";
+			echo "<h5 class='card-title'>" . esc_attr( $evolve_content_box4_title ) . "</h5>";
+			echo "<p class='card-text'>" . do_shortcode( $evolve_content_box4_desc ) . "</p>";
+			echo "</div><div class='card-footer'>" . do_shortcode( $evolve_content_box4_button ) . "</div>";
+			echo "</div></div>";
 		}
-		echo "</div></div><div class='clearfix'></div></div></div>";
+		echo "</div></div></div></div>";
 	}
 }
 
@@ -212,15 +212,15 @@ function evolve_content_boxes() {
 function evolve_testimonials() {
 
 	$testimonials_counter                   = 1;
-	$backgroundcolor                        = evolve_theme_mod("evl_fp_testimonials_bg_color");
-	$textcolor                              = evolve_theme_mod("evl_fp_testimonials_text_color");
+	$backgroundcolor                        = evolve_theme_mod( "evl_fp_testimonials_bg_color" );
+	$textcolor                              = evolve_theme_mod( "evl_fp_testimonials_text_color" );
 	$evolve_testimonials_section_back_color = evolve_theme_mod( 'evl_testimonials_section_back_color', '' );
 	// var_dump($evolve_testimonials_section_back_color);exit;
 	$evolve_testimonials_section_image_src           = evolve_theme_mod( 'evl_testimonials_section_background_image' );
 	$evolve_testimonials_section_image               = evolve_theme_mod( 'evl_testimonials_section_image', 'cover' );
 	$evolve_testimonials_section_background_position = evolve_theme_mod( 'evl_testimonials_section_image_background_position', 'center top' );
 	$evolve_testimonials_section_background_repeat   = evolve_theme_mod( 'evl_testimonials_section_image_background_repeat', 'no-repeat' );
-	$evl_testimonials_section_padding 				= evolve_theme_mod('evl_testimonials_section_padding');
+	$evl_testimonials_section_padding                = evolve_theme_mod( 'evl_testimonials_section_padding' );
 	$evolve_testimonials_section_padding_top         = $evl_testimonials_section_padding['top'];
 	$evolve_testimonials_section_padding_bottom      = $evl_testimonials_section_padding['bottom'];
 	$evolve_testimonials_section_padding_left        = $evl_testimonials_section_padding['left'];
@@ -268,22 +268,22 @@ function evolve_testimonials() {
 	if ( $evolve_testimonials_section_title == false ) {
 		$evolve_testimonials_section_title = '';
 	} else {
-		$evolve_testimonials_section_title = '<h2 class="testimonials_section_title section_title">' . evolve_theme_mod( 'evl_testimonials_title', 'Why people love our themes' ) . '</h2>';
+		$evolve_testimonials_section_title = '<h4 class="testimonials_section_title section_title">' . evolve_theme_mod( 'evl_testimonials_title', 'Why people love our themes' ) . '</h4>';
 	}
 	$html .= "<div class='t4p-testimonials t4p-testimonials-$testimonials_counter'>$styles" . $evolve_testimonials_section_title . "<div class='reviews'>";
 	for ( $i = 1; $i <= 2; $i ++ ) {
-		$enabled = evolve_theme_mod("evl_fp_testimonial{$i}");
+		$enabled = evolve_theme_mod( "evl_fp_testimonial{$i}" );
 		if ( $enabled == 1 ) {
-			$name   = evolve_theme_mod("evl_fp_testimonial{$i}_name");
+			$name   = evolve_theme_mod( "evl_fp_testimonial{$i}_name" );
 			$avatar = 'image';
-			$image  =  evolve_theme_mod("evl_fp_testimonial{$i}_avatar");
+			$image  = evolve_theme_mod( "evl_fp_testimonial{$i}_avatar" );
 			if ( isset( $image['url'] ) ) {
 				$image = $image['url'];
 			}
 			$company = '';
 			$link    = '';
 			$target  = '';
-			$content = evolve_theme_mod("evl_fp_testimonial{$i}_content");
+			$content = evolve_theme_mod( "evl_fp_testimonial{$i}_content" );
 
 			$sub_htmls = array();
 
@@ -357,7 +357,7 @@ function evolve_get_attachment_id_from_url( $attachment_url = '' ) {
 /* Front Page Counter Circle */
 function evolve_counter_circle() {
 
-	$evl_counter_circle_section_padding 				= evolve_theme_mod('evl_counter_circle_section_padding');
+	$evl_counter_circle_section_padding                = evolve_theme_mod( 'evl_counter_circle_section_padding' );
 	$evolve_counter_circle_section_padding_top         = $evl_counter_circle_section_padding['top'];
 	$evolve_counter_circle_section_padding_bottom      = $evl_counter_circle_section_padding['bottom'];
 	$evolve_counter_circle_section_padding_left        = $evl_counter_circle_section_padding['left'];
@@ -406,20 +406,20 @@ function evolve_counter_circle() {
 	if ( $evolve_counter_circle_section_title == false ) {
 		$evolve_counter_circle_section_title = '';
 	} else {
-		$evolve_counter_circle_section_title = '<h2 class="counter_circle_section_title section_title">' . evolve_theme_mod( 'evl_counter_circle_title', 'Cooperation with many great brands is our mission' ) . '</h2>';
+		$evolve_counter_circle_section_title = '<h4 class="counter_circle_section_title section_title">' . evolve_theme_mod( 'evl_counter_circle_title', 'Cooperation with many great brands is our mission' ) . '</h4>';
 	}
 	$html .= "<div class='t4p-counters-circle counters-circle'>" . $evolve_counter_circle_section_title;
 	for ( $i = 1; $i <= 3; $i ++ ) {
-		$enabled = evolve_theme_mod("evl_fp_counter_circle{$i}");
+		$enabled = evolve_theme_mod( "evl_fp_counter_circle{$i}" );
 		if ( $enabled == 1 ) {
 			$description   = '';
-			$title         = evolve_theme_mod("evl_fp_counter_circle{$i}_text");
-			$value         = evolve_theme_mod("evl_fp_counter_circle{$i}_percentage");
-			$filledcolor   = evolve_theme_mod("evl_fp_counter_circle{$i}_filledcolor");
-			$unfilledcolor = evolve_theme_mod("evl_fp_counter_circle{$i}_unfilledcolor");
+			$title         = evolve_theme_mod( "evl_fp_counter_circle{$i}_text" );
+			$value         = evolve_theme_mod( "evl_fp_counter_circle{$i}_percentage" );
+			$filledcolor   = evolve_theme_mod( "evl_fp_counter_circle{$i}_filledcolor" );
+			$unfilledcolor = evolve_theme_mod( "evl_fp_counter_circle{$i}_unfilledcolor" );
 			$size          = '220';
 			$font_size     = '30';
-			$icon          = "<i class='fa ". evolve_theme_mod("evl_fp_counter_circle{$i}_icon")."'></i>";
+			$icon          = "<i class='fa " . evolve_theme_mod( "evl_fp_counter_circle{$i}_icon" ) . "'></i>";
 			$scales        = 'no';
 			$countdown     = 'no';
 			$speed         = '1500';
@@ -449,18 +449,18 @@ function evolve_counter_circle() {
 /* Front Page Google Map */
 function evolve_google_map() {
 
-	$address                                      = evolve_theme_mod("evl_fp_googlemap_address");
+	$address                                      = evolve_theme_mod( "evl_fp_googlemap_address" );
 	$gmap_alignment                               = 'center';
 	$map_style                                    = 'default';
-	$type                                         = evolve_theme_mod("evl_fp_googlemap_type");
-	$width                                        = evolve_theme_mod("evl_fp_googlemap_width");
-	$height                                       = evolve_theme_mod("evl_fp_googlemap_height");
-	$zoom                                         = evolve_theme_mod("evl_fp_googlemap_zoom_level");
-	$scrollwheel                                  = evolve_theme_mod("evl_fp_googlemap_scrollwheel");
-	$scale                                        = evolve_theme_mod("evl_fp_googlemap_scale");
-	$zoom_pancontrol                              = evolve_theme_mod("evl_fp_googlemap_zoomcontrol");
+	$type                                         = evolve_theme_mod( "evl_fp_googlemap_type" );
+	$width                                        = evolve_theme_mod( "evl_fp_googlemap_width" );
+	$height                                       = evolve_theme_mod( "evl_fp_googlemap_height" );
+	$zoom                                         = evolve_theme_mod( "evl_fp_googlemap_zoom_level" );
+	$scrollwheel                                  = evolve_theme_mod( "evl_fp_googlemap_scrollwheel" );
+	$scale                                        = evolve_theme_mod( "evl_fp_googlemap_scale" );
+	$zoom_pancontrol                              = evolve_theme_mod( "evl_fp_googlemap_zoomcontrol" );
 	$popup                                        = 'yes';
-	$evl_googlemap_section_padding					= evolve_theme_mod('evl_googlemap_section_padding');
+	$evl_googlemap_section_padding                = evolve_theme_mod( 'evl_googlemap_section_padding' );
 	$evolve_googlemap_section_padding_top         = $evl_googlemap_section_padding['top'];
 	$evolve_googlemap_section_padding_bottom      = $evl_googlemap_section_padding['bottom'];
 	$evolve_googlemap_section_padding_left        = $evl_googlemap_section_padding['left'];
@@ -509,7 +509,7 @@ function evolve_google_map() {
 	if ( $evolve_googlemap_section_title == false ) {
 		$evolve_googlemap_section_title = '';
 	} else {
-		$evolve_googlemap_section_title = '<h2 class="googlemap_section_title section_title">' . evolve_theme_mod( 'evl_googlemap_title', 'Our Contact Place' ) . '</h2>';
+		$evolve_googlemap_section_title = '<h4 class="googlemap_section_title section_title">' . evolve_theme_mod( 'evl_googlemap_title', 'Our Contact Place' ) . '</h4>';
 	}
 	$html .= "<div class='t4p-googlemap'>" . $evolve_googlemap_section_title;
 	if ( $gmap_alignment === 'right' ) {
@@ -644,8 +644,8 @@ function get_coordinates( $address, $force_refresh = false ) {
 /* Front Page Custom Content */
 function evolve_custom_content() {
 
-	$content                                           = evolve_theme_mod("evl_fp_custom_content_editor");
-	$evl_custom_content_section_padding 				= evolve_theme_mod('evl_custom_content_section_padding');
+	$content                                           = evolve_theme_mod( "evl_fp_custom_content_editor" );
+	$evl_custom_content_section_padding                = evolve_theme_mod( 'evl_custom_content_section_padding' );
 	$evolve_custom_content_section_padding_top         = $evl_custom_content_section_padding['top'];
 	$evolve_custom_content_section_padding_bottom      = $evl_custom_content_section_padding['bottom'];
 	$evolve_custom_content_section_padding_left        = $evl_custom_content_section_padding['left'];
@@ -694,7 +694,7 @@ function evolve_custom_content() {
 	if ( $evolve_custom_content_section_title == false ) {
 		$evolve_custom_content_section_title = '';
 	} else {
-		$evolve_custom_content_section_title = '<h2 class="custom_content_section_title section_title">' . evolve_theme_mod( 'evl_custom_content_title', 'Your Custom Content Here' ) . '</h2>';
+		$evolve_custom_content_section_title = '<h4 class="custom_content_section_title section_title">' . evolve_theme_mod( 'evl_custom_content_title', 'Your Custom Content Here' ) . '</h4>';
 	}
 	$html .= "<div class='t4p-text' >" . $evolve_custom_content_section_title;
 	$html .= $content;
@@ -705,9 +705,9 @@ function evolve_custom_content() {
 /* Front Page WooCommerce Product */
 function evolve_woocommerce_products() {
 
-	$product_cat                                    = evolve_theme_mod("evl_fp_woo_product");
-	$product_number                                 = evolve_theme_mod("evl_fp_woo_product_number");
-	$evl_woo_product_section_padding				= evolve_theme_mod('evl_woo_product_section_padding');
+	$product_cat                                    = evolve_theme_mod( "evl_fp_woo_product" );
+	$product_number                                 = evolve_theme_mod( "evl_fp_woo_product_number" );
+	$evl_woo_product_section_padding                = evolve_theme_mod( 'evl_woo_product_section_padding' );
 	$evolve_woo_product_section_padding_top         = $evl_woo_product_section_padding['top'];
 	$evolve_woo_product_section_padding_bottom      = $evl_woo_product_section_padding['bottom'];
 	$evolve_woo_product_section_padding_left        = $evl_woo_product_section_padding['left'];
@@ -756,7 +756,7 @@ function evolve_woocommerce_products() {
 	if ( $evolve_woo_product_section_title == false ) {
 		$evolve_woo_product_section_title = '';
 	} else {
-		$evolve_woo_product_section_title = '<h2 class="woo_product_section_title section_title">' . evolve_theme_mod( 'evl_woo_product_title', 'New Arrival Product' ) . '</h2>';
+		$evolve_woo_product_section_title = '<h4 class="woo_product_section_title section_title">' . evolve_theme_mod( 'evl_woo_product_title', 'New Arrival Product' ) . '</h4>';
 	}
 	$html .= "<div class='t4p-woo-product' >" . $evolve_woo_product_section_title;
 	if ( $product_cat ) {
@@ -771,28 +771,28 @@ function evolve_woocommerce_products() {
 /* Front Page Blog Content */
 function evolve_blog_posts() {
 
-	$layout            = evolve_theme_mod("evl_fp_blog_layout");
-	$number_posts      = ( ! evolve_theme_mod("evl_fp_blog_number_posts") ) ? '-1' : evolve_theme_mod("evl_fp_blog_number_posts");
-	$cat_slug          = ( empty( evolve_theme_mod("evl_fp_blog_cat_slug") ) ) ? '' : $evolve_theme_mod("evl_fp_blog_cat_slug");
-	$exclude_cats      = ( empty( evolve_theme_mod("evl_fp_blog_exclude_cats") ) ) ? '' : evolve_theme_mod("evl_fp_blog_exclude_cats");
-	$show_title        = evolve_theme_mod("evl_fp_blog_show_title");
-	$title_link        = evolve_theme_mod("evl_fp_blog_title_link");
-	$thumbnail         = evolve_theme_mod("evl_fp_blog_thumbnail");
-	$excerpt           = evolve_theme_mod("evl_fp_blog_excerpt");
-	$excerpt_length    = evolve_theme_mod("evl_fp_blog_excerpt_length");
-	$meta_all          = evolve_theme_mod("evl_fp_blog_meta_all");
-	$meta_author       = evolve_theme_mod("evl_fp_blog_meta_author");
-	$meta_categories   = evolve_theme_mod("evl_fp_blog_meta_categories");
-	$meta_comments     = evolve_theme_mod("evl_fp_blog_meta_comments");
-	$meta_date         = evolve_theme_mod("evl_fp_blog_meta_date");
-	$meta_link         = evolve_theme_mod("evl_fp_blog_meta_link");
-	$meta_tags         = evolve_theme_mod("evl_fp_blog_meta_tags");
-	$paging            = evolve_theme_mod("evl_fp_blog_paging");
-	$scrolling         = evolve_theme_mod("evl_fp_blog_scrolling");
-	$blog_grid_columns = evolve_theme_mod("evl_fp_blog_blog_grid_columns");
-	$strip_html        = evolve_theme_mod("evl_fp_blog_strip_html");
+	$layout            = evolve_theme_mod( "evl_fp_blog_layout" );
+	$number_posts      = ( ! evolve_theme_mod( "evl_fp_blog_number_posts" ) ) ? '-1' : evolve_theme_mod( "evl_fp_blog_number_posts" );
+	$cat_slug          = ( empty( evolve_theme_mod( "evl_fp_blog_cat_slug" ) ) ) ? '' : $evolve_theme_mod( "evl_fp_blog_cat_slug" );
+	$exclude_cats      = ( empty( evolve_theme_mod( "evl_fp_blog_exclude_cats" ) ) ) ? '' : evolve_theme_mod( "evl_fp_blog_exclude_cats" );
+	$show_title        = evolve_theme_mod( "evl_fp_blog_show_title" );
+	$title_link        = evolve_theme_mod( "evl_fp_blog_title_link" );
+	$thumbnail         = evolve_theme_mod( "evl_fp_blog_thumbnail" );
+	$excerpt           = evolve_theme_mod( "evl_fp_blog_excerpt" );
+	$excerpt_length    = evolve_theme_mod( "evl_fp_blog_excerpt_length" );
+	$meta_all          = evolve_theme_mod( "evl_fp_blog_meta_all" );
+	$meta_author       = evolve_theme_mod( "evl_fp_blog_meta_author" );
+	$meta_categories   = evolve_theme_mod( "evl_fp_blog_meta_categories" );
+	$meta_comments     = evolve_theme_mod( "evl_fp_blog_meta_comments" );
+	$meta_date         = evolve_theme_mod( "evl_fp_blog_meta_date" );
+	$meta_link         = evolve_theme_mod( "evl_fp_blog_meta_link" );
+	$meta_tags         = evolve_theme_mod( "evl_fp_blog_meta_tags" );
+	$paging            = evolve_theme_mod( "evl_fp_blog_paging" );
+	$scrolling         = evolve_theme_mod( "evl_fp_blog_scrolling" );
+	$blog_grid_columns = evolve_theme_mod( "evl_fp_blog_blog_grid_columns" );
+	$strip_html        = evolve_theme_mod( "evl_fp_blog_strip_html" );
 
-	$evl_blog_section_padding				= evolve_theme_mod('evl_blog_section_padding');	
+	$evl_blog_section_padding                = evolve_theme_mod( 'evl_blog_section_padding' );
 	$evolve_blog_section_padding_top         = $evl_blog_section_padding['top'];
 	$evolve_blog_section_padding_bottom      = $evl_blog_section_padding['bottom'];
 	$evolve_blog_section_padding_left        = $evl_blog_section_padding['left'];
@@ -841,7 +841,7 @@ function evolve_blog_posts() {
 	if ( $evolve_fp_blog_section_title == false ) {
 		$evolve_fp_blog_section_title = '';
 	} else {
-		$evolve_fp_blog_section_title = '<h2 class="fp_blog_section_title section_title">' . evolve_theme_mod( 'evl_blog_section_title', 'Read New Story Here' ) . '</h2>';
+		$evolve_fp_blog_section_title = '<h4 class="fp_blog_section_title section_title">' . evolve_theme_mod( 'evl_blog_section_title', 'Read New Story Here' ) . '</h4>';
 	}
 	$html .= "<div class='t4p-fp-blog' >" . $evolve_fp_blog_section_title;
 	if ( is_front_page() || is_home() ) {
@@ -990,7 +990,7 @@ function wrap_loop_open() {
 function wrap_loop_close() {
 
 	$wrapper = '';
-	if ( evolve_theme_mod('evl_fp_blog_layout') == 'grid' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) == 'grid' ) {
 		$wrapper .= '<div class="t4p-clearfix"></div>';
 	}
 	echo $wrapper;
@@ -1011,11 +1011,11 @@ function before_loop( $post_id ) {
 	$post_count         = $args['post_count'];
 	$loop_attr_id       = 'post-' . $post_id;
 	$extra_classes      = array();
-	if ( evolve_theme_mod('evl_fp_blog_layout') == 'large' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) == 'large' ) {
 		$extra_classes[] = 'blog-large';
 	}
-	if ( evolve_theme_mod('evl_fp_blog_layout') == 'grid' ) {
-		$column_width    = 12 / evolve_theme_mod('evl_fp_blog_blog_grid_columns');
+	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) == 'grid' ) {
+		$column_width    = 12 / evolve_theme_mod( 'evl_fp_blog_blog_grid_columns' );
 		$extra_classes[] = 'blog-grid';
 		$extra_classes[] = sprintf( 'col-lg-%s col-md-%s col-sm-%s', $column_width, $column_width, $column_width );
 	}
@@ -1062,11 +1062,11 @@ function before_loop_timeline( $args ) {
 	$post_count         = $args['post_count'];
 	$loop_attr_id       = 'post-' . $post_id;
 	$extra_classes      = array();
-	if ( evolve_theme_mod('evl_fp_blog_layout') == 'large' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) == 'large' ) {
 		$extra_classes[] = 'blog-large';
 	}
-	if ( evolve_theme_mod('evl_fp_blog_layout') == 'grid' ) {
-		$column_width    = 12 / evolve_theme_mod('evl_fp_blog_blog_grid_columns');
+	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) == 'grid' ) {
+		$column_width    = 12 / evolve_theme_mod( 'evl_fp_blog_blog_grid_columns' );
 		$extra_classes[] = 'blog-grid';
 		$extra_classes[] = sprintf( 'col-lg-%s col-md-%s col-sm-%s', $column_width, $column_width, $column_width );
 	}
@@ -1143,25 +1143,25 @@ function loop_header( $header ) {
 	$meta_data         = '';
 	$content_sep       = '';
 	$link              = '';
-	if ( evolve_theme_mod('evl_fp_blog_thumbnail') == 'yes' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_thumbnail' ) == 'yes' ) {
 		$pre_title_content = get_slideshow();
 	}
 
-	if ( evolve_theme_mod('evl_fp_blog_layout') == 'large' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) == 'large' ) {
 		ob_start();
 		entry_meta_alternate();
 		$meta_data = ob_get_contents();
 		ob_get_clean();
 	}
-	if ( evolve_theme_mod('evl_fp_blog_layout') == 'grid' ) {
-		if ( ( ! evolve_theme_mod('evl_fp_blog_meta_all') == 'yes' && evolve_theme_mod('evl_fp_blog_excerpt_length') == '0' ) ||
-		     ( ! evolve_theme_mod('evl_fp_blog_meta_author') == 'yes' && ! evolve_theme_mod('evl_fp_blog_meta_date') == 'yes' && ! evolve_theme_mod('evl_fp_blog_meta_categories') == 'yes' && ! evolve_theme_mod('evl_fp_blog_meta_tags') == 'yes' && ! evolve_theme_mod('evl_fp_blog_meta_comments') == 'yes' && ! evolve_theme_mod('evl_fp_blog_meta_link') == 'yes' && evolve_theme_mod('evl_fp_blog_excerpt_length') == '0' )
+	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) == 'grid' ) {
+		if ( ( ! evolve_theme_mod( 'evl_fp_blog_meta_all' ) == 'yes' && evolve_theme_mod( 'evl_fp_blog_excerpt_length' ) == '0' ) ||
+		     ( ! evolve_theme_mod( 'evl_fp_blog_meta_author' ) == 'yes' && ! evolve_theme_mod( 'evl_fp_blog_meta_date' ) == 'yes' && ! evolve_theme_mod( 'evl_fp_blog_meta_categories' ) == 'yes' && ! evolve_theme_mod( 'evl_fp_blog_meta_tags' ) == 'yes' && ! evolve_theme_mod( 'evl_fp_blog_meta_comments' ) == 'yes' && ! evolve_theme_mod( 'evl_fp_blog_meta_link' ) == 'yes' && evolve_theme_mod( 'evl_fp_blog_excerpt_length' ) == '0' )
 		) {
 			$content_sep = "<div class='no-content-sep'></div>";
 		} else {
 			$content_sep = "<div class='content-sep'></div>";
 		}
-		if ( evolve_theme_mod('evl_fp_blog_meta_all') == 'yes' ) {
+		if ( evolve_theme_mod( 'evl_fp_blog_meta_all' ) == 'yes' ) {
 			ob_start();
 			entry_meta_grid_timeline();
 			$meta_data = ob_get_contents();
@@ -1169,8 +1169,8 @@ function loop_header( $header ) {
 		}
 	}
 	$pre_title_content .= "<div class='post-content-container'>";
-	if ( evolve_theme_mod('evl_fp_blog_show_title') == 'yes' ) {
-		if ( evolve_theme_mod('evl_fp_blog_title_link') == 'yes' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_show_title' ) == 'yes' ) {
+		if ( evolve_theme_mod( 'evl_fp_blog_title_link' ) == 'yes' ) {
 			$link = sprintf( '<a href="%s">%s</a>', get_permalink(), get_the_title() );
 		} else {
 			$link = get_the_title();
@@ -1187,10 +1187,10 @@ function loop_header( $header ) {
 function loop_footer() {
 
 
-	if ( evolve_theme_mod('evl_fp_blog_meta_all') == 'yes' && evolve_theme_mod('evl_fp_blog_layout') == 'large' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_meta_all' ) == 'yes' && evolve_theme_mod( 'evl_fp_blog_layout' ) == 'large' ) {
 		entry_meta_default();
 	}
-	if ( evolve_theme_mod('evl_fp_blog_meta_all') == 'yes' && evolve_theme_mod('evl_fp_blog_layout') == 'grid' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_meta_all' ) == 'yes' && evolve_theme_mod( 'evl_fp_blog_layout' ) == 'grid' ) {
 		echo read_more();
 		echo grid_timeline_comments();
 		echo '<div class="t4p-clearfix"></div>';
@@ -1253,8 +1253,8 @@ function entry_meta_default() {
 
 	$inner_content = '';
 	$inner_content .= read_more();
-	if ( evolve_theme_mod('evl_fp_blog_layout') == 'large' ) {
-		if ( evolve_theme_mod('evl_fp_blog_meta_categories') == 'yes' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) == 'large' ) {
+		if ( evolve_theme_mod( 'evl_fp_blog_meta_categories' ) == 'yes' ) {
 			$categories       = get_the_category();
 			$no_of_categories = count( $categories );
 			$separator        = ', ';
@@ -1269,12 +1269,12 @@ function entry_meta_default() {
 			}
 			$inner_content .= sprintf( '<span class="entry-categories">%s</span><span class="meta-separator">|</span>', $output );
 		}
-		if ( evolve_theme_mod('evl_fp_blog_meta_tags') == 'yes' ) {
+		if ( evolve_theme_mod( 'evl_fp_blog_meta_tags' ) == 'yes' ) {
 			$inner_content .= sprintf( '%s<span class="meta-separator">|</span>', post_meta_tags() );
 		}
 	}
 	//blog-shortcode-entry-meta
-	if ( evolve_theme_mod('evl_fp_blog_layout') == 'grid' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) == 'grid' ) {
 		$blog_shortcode_entry_meta = 'entry-meta-single';
 	} else {
 		$blog_shortcode_entry_meta = 'entry-meta';
@@ -1287,7 +1287,7 @@ function entry_meta_alternate() {
 
 	$inner_content = post_meta_data( true );
 	//blog-shortcode-entry-meta
-	if ( evolve_theme_mod('evl_fp_blog_layout') == 'grid' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) == 'grid' ) {
 		$blog_shortcode_entry_meta = 'entry-meta-single';
 	} else {
 		$blog_shortcode_entry_meta = 'entry-meta';
@@ -1300,7 +1300,7 @@ function entry_meta_grid_timeline() {
 
 	$inner_content = post_meta_data( false );
 	//blog-shortcode-entry-meta
-	if ( evolve_theme_mod('evl_fp_blog_layout') == 'grid' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) == 'grid' ) {
 		$blog_shortcode_entry_meta = 'entry-meta-single';
 	} else {
 		$blog_shortcode_entry_meta = 'entry-meta';
@@ -1340,14 +1340,14 @@ function post_meta_data( $return_all_meta = false ) {
 		$meta_author_link_rel      = 'author';
 	}
 	$meta_author = get_the_author_meta( 'display_name' );
-	if ( evolve_theme_mod('evl_fp_blog_meta_date') == 'yes' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_meta_date' ) == 'yes' ) {
 		$inner_content .= "<span class='entry-time'><span class='updated' style='display:none;'>$meta_time</span><time class='$meta_date_class'>$meta_date</time></span><span class='meta-separator'>|</span>";
 	}
-	if ( evolve_theme_mod('evl_fp_blog_meta_author') == 'yes' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_meta_author' ) == 'yes' ) {
 		$inner_content .= "<span class='$meta_author_class' itemprop='$meta_author_itemprop' itemscope='$meta_author_itemscope' itemtype='$meta_author_itemtype'>" . __( 'Written By', 'evolve' ) . " <a href='$meta_author_link_href' itemprop='$meta_author_link_itemprop' rel='$meta_author_link_rel'>$meta_author</a>" . "</span><span class='meta-separator'>|</span>";
 	}
-	if ( evolve_theme_mod('evl_fp_blog_layout') != 'grid' && evolve_theme_mod('evl_fp_blog_layout') != 'timeline' ) {
-		if ( evolve_theme_mod('evl_fp_blog_meta_comments') == 'yes' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) != 'grid' && evolve_theme_mod( 'evl_fp_blog_layout' ) != 'timeline' ) {
+		if ( evolve_theme_mod( 'evl_fp_blog_meta_comments' ) == 'yes' ) {
 			ob_start();
 			comments_popup_link( __( '0 Comments', 'evolve' ), __( '1 Comment', 'evolve' ), __( '% Comments', 'evolve' ) );
 			$comments = ob_get_contents();
@@ -1362,7 +1362,7 @@ function post_meta_data( $return_all_meta = false ) {
 
 function grid_timeline_comments() {
 
-	if ( evolve_theme_mod('evl_fp_blog_meta_comments') == 'yes' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_meta_comments' ) == 'yes' ) {
 		$comments_icon = "<i class='t4p-icon-comment'></i>&nbsp";
 		ob_start();
 		comments_popup_link( $comments_icon . __( '0', 'evolve' ), $comments_icon . __( '1', 'evolve' ), $comments_icon . __( '%', 'evolve' ) );
@@ -1378,7 +1378,7 @@ function post_meta_tags() {
 
 	if ( has_tag() ) {
 		$inner_content = '';
-		if ( evolve_theme_mod('evl_fp_blog_meta_tags') == 'yes' ) {
+		if ( evolve_theme_mod( 'evl_fp_blog_meta_tags' ) == 'yes' ) {
 			ob_start();
 			echo ' ';
 			the_tags( '' );
@@ -1393,7 +1393,7 @@ function post_meta_tags() {
 
 function read_more() {
 
-	if ( evolve_theme_mod('evl_fp_blog_meta_link') == 'yes' ) {
+	if ( evolve_theme_mod( 'evl_fp_blog_meta_link' ) == 'yes' ) {
 		$inner_content = '';
 		$inner_content .= "<p class='entry-read-more'>";
 		$btn_text      = __( 'Read More', 'evolve' );
@@ -1408,8 +1408,8 @@ function read_more() {
 function loop_content() {
 
 	// get the post content according to the chosen kind of delivery
-	if ( evolve_theme_mod('evl_fp_blog_excerpt') == 'yes' ) {
-		$content = t4p_content( evolve_theme_mod('evl_fp_blog_excerpt_length'), evolve_theme_mod('evl_fp_blog_strip_html') );
+	if ( evolve_theme_mod( 'evl_fp_blog_excerpt' ) == 'yes' ) {
+		$content = t4p_content( evolve_theme_mod( 'evl_fp_blog_excerpt_length' ), evolve_theme_mod( 'evl_fp_blog_strip_html' ) );
 	} else {
 		$content = get_the_content();
 		//$content = apply_filters('the_content', $content);

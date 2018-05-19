@@ -901,9 +901,9 @@ span.more a {
    Headings
    ========================================================================== */
 
-h2.section_title {
+h4.section_title {
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 3rem;
 }
 
 /*!==========================================================================
@@ -1967,153 +1967,55 @@ input.input-website,
     right: 25px;
 }
 
-/* ======================== Four Blocks ======================== */
+/*
+   Front Page Content Boxes
+   ======================================= */
 
 .home-content-boxes {
-    overflow: hidden;
+    margin-bottom: 1rem;
 }
 
-.home-content-boxes .row {
-    padding: 0 15px;
+.home-content-boxes [class*="col-"] {
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
 
-.home-content-boxes .content-box {
-    text-align: center;
+.home-content-boxes,
+.home-content-boxes .card {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.home-content-boxes .card,
+.home-content-boxes .card-footer {
+    border: none;
+    border-radius: 0;
+}
+
+.home-content-boxes .card-footer {
+    background: none;
+    padding-bottom: 2rem;
 }
 
 .home-content-boxes .content-box i {
     font-size: 50px;
     text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.05);
-    z-index: 99;
-    position: relative;
+    margin-top: 1.25rem;
 }
 
-.home-content-boxes .content-box h2 {
-    padding: 5px 0;
-    z-index: 99;
-    position: relative;
-}
-
-.home-content-boxes .content-box p {
-    z-index: 99;
-    position: relative;
-}
-
-.home-content-boxes .cntbox_btn {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    display: -webkit-flex;
-    -webkit-align-items: flex-end;
-    -webkit-justify-content: center;
-    height: 100%;
-    margin: 0 auto;
-    text-align: center;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: -30px;
-}
-
-/* ======================== Home Content Boxes ======================== */
-
-.home-content-boxes {
-    width: 100%;
-    clear: both;
-    margin: 0 0 25px;
-}
-
-.home-content-boxes .row {
-    padding: 0 15px;
-}
-
-.content-box {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.content-box h2 {
+.home-content-boxes .content-box h5 {
     color: #6b6b6b;
 }
 
-.content-box i {
-    font-size: 50px;
-    text-shadow: rgba(0, 0, 0, 0.05) 3px 3px 0;
-}
-
-.content-box p {
+.home-content-boxes .content-box p {
     color: #888;
-    margin: 25px 0;
     font-size: 140%;
 }
 
-.content-box img {
+.home-content-boxes .content-box img {
     margin: 0 auto;
-}
-
-@media (min-width: 992px) {
-    .cntbox_btn {
-        text-align: center;
-        margin: 0 auto;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        position: absolute;
-        top: -30px;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        align-items: flex-end;
-        -webkit-align-items: flex-end;
-        justify-content: center;
-    }
-
-    .cntbox_btn a {
-        position: initial;
-    }
-}
-
-@media (max-width: 991px) and (min-width: 768px) {
-    .cntbox_btn {
-        text-align: center;
-        margin: 0 auto;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        position: absolute;
-        top: -30px;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        align-items: flex-end;
-        -webkit-align-items: flex-end;
-        justify-content: center;
-    }
-
-    .cntbox_btn a {
-        position: initial;
-    }
-}
-
-@media (min-width: 768px) {
-    .home-content-boxes .row {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .home-content-boxes [class*="col-"] {
-        display: flex;
-        flex-direction: column;
-        display: -webkit-flex;
-        -webkit-flex-direction: column;
-    }
 }
 
 @media (max-width: 991px) {
@@ -2295,12 +2197,6 @@ input.input-website,
     #search-text-box #search_label_top {
         top: 0;
         height: 50px;
-    }
-}
-
-@media only screen and (max-width: 1190px) {
-    .home-content-boxes .content-box h2 {
-        font-size: 23px;
     }
 }
 
@@ -5774,10 +5670,6 @@ ul.nav-tabs {
 }
 
 @media (max-width: 1000px) {
-    .home-content-boxes .content-box {
-        width: 100%;
-    }
-
     .home .type-post .entry-footer,
     .archive .type-post .entry-footer,
     .search .type-post .entry-footer,
