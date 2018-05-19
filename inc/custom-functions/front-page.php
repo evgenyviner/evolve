@@ -374,8 +374,8 @@ function evolve_counter_circle() {
 	if ( $evolve_counter_circle_section_back_color ) {
 		$html_style .= sprintf( 'background-color:%s;', $evolve_counter_circle_section_back_color );
 	}
-	if ( isset( $evolve_counter_circle_section_image_src['url'] ) && $evolve_counter_circle_section_image_src['url'] ) {
-		$html_style .= sprintf( 'background-image: url(%s);', $evolve_counter_circle_section_image_src['url'] );
+	if ( isset( $evolve_counter_circle_section_image_src ) && $evolve_counter_circle_section_image_src ) {
+		$html_style .= sprintf( 'background-image: url(%s);', $evolve_counter_circle_section_image_src );
 	}
 	if ( $evolve_counter_circle_section_image ) {
 		$html_style .= sprintf( 'background-size:%s;', $evolve_counter_circle_section_image );
@@ -476,8 +476,8 @@ function evolve_google_map() {
 	if ( $evolve_googlemap_section_back_color ) {
 		$html_style .= sprintf( 'background-color:%s;', $evolve_googlemap_section_back_color );
 	}
-	if ( isset( $evolve_googlemap_section_image_src['url'] ) && $evolve_googlemap_section_image_src['url'] ) {
-		$html_style .= sprintf( 'background-image: url(%s);', $evolve_googlemap_section_image_src['url'] );
+	if ( isset( $evolve_googlemap_section_image_src ) && $evolve_googlemap_section_image_src ) {
+		$html_style .= sprintf( 'background-image: url(%s);', $evolve_googlemap_section_image_src );
 	}
 	if ( $evolve_googlemap_section_image ) {
 		$html_style .= sprintf( 'background-size:%s;', $evolve_googlemap_section_image );
@@ -661,8 +661,8 @@ function evolve_custom_content() {
 	if ( $evolve_custom_content_section_back_color ) {
 		$html_style .= sprintf( 'background-color:%s;', $evolve_custom_content_section_back_color );
 	}
-	if ( isset( $evolve_custom_content_section_image_src['url'] ) && $evolve_custom_content_section_image_src['url'] ) {
-		$html_style .= sprintf( 'background-image: url(%s);', $evolve_custom_content_section_image_src['url'] );
+	if ( isset( $evolve_custom_content_section_image_src ) && $evolve_custom_content_section_image_src ) {
+		$html_style .= sprintf( 'background-image: url(%s);', $evolve_custom_content_section_image_src );
 	}
 	if ( $evolve_custom_content_section_image ) {
 		$html_style .= sprintf( 'background-size:%s;', $evolve_custom_content_section_image );
@@ -723,8 +723,8 @@ function evolve_woocommerce_products() {
 	if ( $evolve_woo_product_section_back_color ) {
 		$html_style .= sprintf( 'background-color:%s;', $evolve_woo_product_section_back_color );
 	}
-	if ( isset( $evolve_woo_product_section_image_src['url'] ) && $evolve_woo_product_section_image_src['url'] ) {
-		$html_style .= sprintf( 'background-image: url(%s);', $evolve_woo_product_section_image_src['url'] );
+	if ( isset( $evolve_woo_product_section_image_src ) && $evolve_woo_product_section_image_src ) {
+		$html_style .= sprintf( 'background-image: url(%s);', $evolve_woo_product_section_image_src );
 	}
 	if ( $evolve_woo_product_section_image ) {
 		$html_style .= sprintf( 'background-size:%s;', $evolve_woo_product_section_image );
@@ -808,8 +808,8 @@ function evolve_blog_posts() {
 	if ( $evolve_blog_section_back_color ) {
 		$html_style .= sprintf( 'background-color:%s;', $evolve_blog_section_back_color );
 	}
-	if ( isset( $evolve_blog_section_image_src['url'] ) && $evolve_blog_section_image_src['url'] ) {
-		$html_style .= sprintf( 'background-image: url(%s);', $evolve_blog_section_image_src['url'] );
+	if ( isset( $evolve_blog_section_image_src ) && $evolve_blog_section_image_src ) {
+		$html_style .= sprintf( 'background-image: url(%s);', $evolve_blog_section_image_src );
 	}
 	if ( $evolve_blog_section_image ) {
 		$html_style .= sprintf( 'background-size:%s;', $evolve_blog_section_image );
