@@ -74,7 +74,7 @@ class Evolve_Fix_Rd {
 			if ( isset( $param2['fields'] ) && is_array( $param2['fields'] ) && count( $param2['fields'] ) ) {
 				if ( ! isset( $param2['subsection'] ) ) {
 					$name_of_panel = $param2['id'];
-					if ( is_user_logged_in() ) {
+					if ( is_user_logged_in() && is_customize_preview() ) {
 					Kirki::add_section( $param2['id'], array(
 						'title'    => $param2['title'],
 						'priority' => $evl_index_control,
@@ -82,7 +82,7 @@ class Evolve_Fix_Rd {
 					) );
 					}
 				} else {
-					if ( is_user_logged_in() ) {
+					if ( is_user_logged_in() && is_customize_preview() ) {
 					Kirki::add_section( $param2['id'], array(
 						'title'    => $param2['title'],
 						'panel'    => $name_of_panel,
@@ -94,7 +94,7 @@ class Evolve_Fix_Rd {
 				Evolve_Fix_Rd::evl_call_kirki_from_old_field( $param2['fields'], $param2['id'] );
 			} else {
 				$name_of_panel = $param2['id'];
-				if ( is_user_logged_in() ) {
+				if ( is_user_logged_in() && is_customize_preview() ) {
 					Kirki::add_panel( $param2['id'], array(
 						'title'    => $param2['title'],
 						'priority' => $evl_index_control,
@@ -286,7 +286,7 @@ class Evolve_Fix_Rd {
 				if ( isset( $value['js_vars'] ) ) {
 					$value_temp['js_vars'] = $value['js_vars'];
 				}
-				if ( is_user_logged_in() ) {
+				if ( is_user_logged_in() && is_customize_preview() ) {
 					Kirki::add_field( $setting, $value_temp );
 				}
 			} else {
