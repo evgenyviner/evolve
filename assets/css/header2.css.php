@@ -358,9 +358,9 @@ ul.t4p-navbar-nav > li {
 }
 ';
 
-$evl_menu_font = evolve_theme_mod('evl_menu_font');
-if ($evl_menu_font['color'] != '') {
-   $color = $evl_menu_font['color'];
+$evolve_menu_font = evolve_theme_mod('evl_menu_font');
+if ($evolve_menu_font['color'] != '') {
+   $color = $evolve_menu_font['color'];
 $evolve_css_data .= '
 .woocommerce-menu .my-cart-link:hover,
 .woocommerce-menu .empty-cart:hover,
@@ -371,9 +371,9 @@ $evolve_css_data .= '
 ';
 }
 
-$evl_tagline_font = evolve_theme_mod('evl_tagline_font');
-if ($evl_tagline_font['color'] !='') {
-$color = $evl_tagline_font['color'];
+$evolve_tagline_font = evolve_theme_mod('evl_tagline_font');
+if ($evolve_tagline_font['color'] !='') {
+$color = $evolve_tagline_font['color'];
 $evolve_css_data .= '
 .woocommerce-menu .cart > a,
 .woocommerce-menu .my-account > a {

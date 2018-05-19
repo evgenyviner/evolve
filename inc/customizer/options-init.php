@@ -58,35 +58,35 @@ function evolve_hex2rgba1($color, $opacity = false) {
 	//Return rgb(a) color string
 	return $output;
 }
-global $name_of_panel, $evl_all_customize_fields, $evl_index_control;
+global $name_of_panel, $evolve_all_customize_fields, $evolve_index_control;
 $name_of_panel           = '';
-$evl_index_control        = 0;
-$evl_all_customize_fields = array();
+$evolve_index_control        = 0;
+$evolve_all_customize_fields = array();
 
 class Evolve_Fix_Rd {
 	static function setSection( $param1, $param2 ) {
 		if (true || is_user_logged_in() ) {
-			global $name_of_panel, $evl_all_customize_fields, $evl_index_control;
-			$evl_index_control ++;
+			global $name_of_panel, $evolve_all_customize_fields, $evolve_index_control;
+			$evolve_index_control ++;
 			if ( isset( $param2['iconfix'] ) && ! empty( $param2['iconfix'] ) ) {
 				$param2['icon'] = $param2['iconfix'];
 			}
 			if ( isset( $param2['fields'] ) && is_array( $param2['fields'] ) && count( $param2['fields'] ) ) {
 				if ( ! isset( $param2['subsection'] ) ) {
 					$name_of_panel = $param2['id'];
-					if ( is_user_logged_in() ) {
+					if ( is_user_logged_in() && is_customize_preview() ) {
 					Kirki::add_section( $param2['id'], array(
 						'title'    => $param2['title'],
-						'priority' => $evl_index_control,
+						'priority' => $evolve_index_control,
 						'icon'     => $param2['icon'],
 					) );
 					}
 				} else {
-					if ( is_user_logged_in() ) {
+					if ( is_user_logged_in() && is_customize_preview() ) {
 					Kirki::add_section( $param2['id'], array(
 						'title'    => $param2['title'],
 						'panel'    => $name_of_panel,
-						'priority' => $evl_index_control,
+						'priority' => $evolve_index_control,
 						'icon'     => $param2['icon'],
 					) );
 					}
@@ -94,10 +94,10 @@ class Evolve_Fix_Rd {
 				Evolve_Fix_Rd::evl_call_kirki_from_old_field( $param2['fields'], $param2['id'] );
 			} else {
 				$name_of_panel = $param2['id'];
-				if ( is_user_logged_in() ) {
+				if ( is_user_logged_in() && is_customize_preview() ) {
 					Kirki::add_panel( $param2['id'], array(
 						'title'    => $param2['title'],
-						'priority' => $evl_index_control,
+						'priority' => $evolve_index_control,
 						'icon'     => $param2['icon'],
 					) );
 				}
@@ -106,7 +106,7 @@ class Evolve_Fix_Rd {
 	}
 
 	static function evl_call_kirki_from_old_field( $array_items, $section = 'kirki_frontpage-content-boxes-tab', $setting = 'kirki_evolve_options' ) {
-		global $name_of_panel, $evl_all_customize_fields, $evl_index_control;
+		global $name_of_panel, $evolve_all_customize_fields, $evolve_index_control;
 		foreach ( $array_items as $value ) {
 			if (
 				isset( $value['type'] ) && (
@@ -265,7 +265,7 @@ class Evolve_Fix_Rd {
 					);
 				}
 
-				$evl_all_customize_fields[ $value['id'] ] = array(
+				$evolve_all_customize_fields[ $value['id'] ] = array(
 					'value'      => $value,
 					'value_temp' => $value_temp,
 				);
@@ -286,7 +286,7 @@ class Evolve_Fix_Rd {
 				if ( isset( $value['js_vars'] ) ) {
 					$value_temp['js_vars'] = $value['js_vars'];
 				}
-				if ( is_user_logged_in() ) {
+				if ( is_user_logged_in() && is_customize_preview() ) {
 					Kirki::add_field( $setting, $value_temp );
 				}
 			} else {
@@ -7169,10 +7169,10 @@ function evl_get_new_option( $geted_for_preview_in = false ) {
 	if ( $geted_for_preview == false ) {
 		$evolve_options = get_option( $evolve_opt_name, false ); // Get saved options
 		if ( ! $evolve_options ) {
-			global $evl_all_customize_fields;
-			$evl_all_customize_fields = get_option( 'evl_all_customize_fields', $evl_all_customize_fields );
-			if ( $evl_all_customize_fields ) {
-				foreach ( $evl_all_customize_fields as $control ) {
+			global $evolve_all_customize_fields;
+			$evolve_all_customize_fields = get_option( 'evl_all_customize_fields', $evolve_all_customize_fields );
+			if ( $evolve_all_customize_fields ) {
+				foreach ( $evolve_all_customize_fields as $control ) {
 					if ( $control['value']['type'] == 'sorter' ) {
 						$enabled = evolve_theme_mod( $control['value_temp']['settings'], false );
 						if ( $enabled && is_array( $enabled ) && count( $enabled ) && isset( $enabled["enabled"] ) && is_array( $enabled["enabled"] ) && count( $enabled["enabled"] ) ) {
@@ -7222,10 +7222,10 @@ add_action( 'wp_ajax_evolve_trigger_import_function', 'evolve_trigger_import_fun
 add_action( 'wp_ajax_nopriv_evolve_trigger_import_function', 'evolve_trigger_import_function' );
 function evolve_trigger_import_function() {
 	if ( is_admin() && isset( $_REQUEST['evl_frontpage_prebuilt_demo'] ) && isset( $_REQUEST['evolve_trigger_import_key'] ) && $_REQUEST['evolve_trigger_import_key'] == md5( 'evolve' ) ) {
-		$evl_frontpage_prebuilt_demo = $_REQUEST['evl_frontpage_prebuilt_demo'];
-		if ( $evl_frontpage_prebuilt_demo ) {
-			$evl_frontpage_prebuilt_demo = str_replace( 'evl_frontpage_prebuilt_demo', '', $evl_frontpage_prebuilt_demo );
-			set_theme_mod( 'evl_frontpage_prebuilt_demo', $evl_frontpage_prebuilt_demo );
+		$evolve_frontpage_prebuilt_demo = $_REQUEST['evl_frontpage_prebuilt_demo'];
+		if ( $evolve_frontpage_prebuilt_demo ) {
+			$evolve_frontpage_prebuilt_demo = str_replace( 'evl_frontpage_prebuilt_demo', '', $evolve_frontpage_prebuilt_demo );
+			set_theme_mod( 'evl_frontpage_prebuilt_demo', $evolve_frontpage_prebuilt_demo );
 			evolve_import_demo_content_kirki();
 		}
 	}
@@ -7852,7 +7852,7 @@ if (is_user_logged_in() && get_option( 'old_new_upgrade_themeoptions', 'false' )
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function evolve_customize_register( $wp_customize ) {
-	global $evl_index_control;
+	global $evolve_index_control;
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
@@ -7925,18 +7925,18 @@ $array_default_customize = array(
 	),
 );
 foreach ( $array_default_customize as $value ) {
-	$evl_index_control ++;
+	$evolve_index_control ++;
 	if ( $value['type'] == 2 ) {
 		Kirki::add_panel( $value['value'], array(
 			'title'    => $value['title'],
 			'icon'     => $value['icon'],
-			'priority' => $evl_index_control,
+			'priority' => $evolve_index_control,
 		) );
 	} else {
 		Kirki::add_section( $value['value'], array(
 			'title'    => $value['title'],
 			'icon'     => $value['icon'],
-			'priority' => $evl_index_control,
+			'priority' => $evolve_index_control,
 		) );
 	}
 }
@@ -7963,6 +7963,6 @@ function evolve_customize_partial_blogdescription() {
  */
 add_theme_support( 'customize-selective-refresh-widgets' );
 
-if ( $evl_all_customize_fields === false ) {
-	update_option( 'evl_all_customize_fields', $evl_all_customize_fields );
+if ( $evolve_all_customize_fields === false ) {
+	update_option( 'evl_all_customize_fields', $evolve_all_customize_fields );
 }

@@ -348,7 +348,7 @@ function evolve_footer_hooks() {
                 $jx(this).find("span.edit-comment").css('visibility', 'hidden');
             }
         );</script>
-	<?php 
+	<?php
 	global $evolve_options, $evolve_slider_position, $evolve_front_elements_header_area, $evolve_sticky_header, $evolve_page_ID;
 	$evolve_header_pos = '';
 	if ( $evolve_front_elements_header_area ) {
@@ -501,7 +501,7 @@ function evolve_bootstrap() {
 	global $evolve_options;
 	$wrap = false;
 	for ( $i = 1; $i <= 5; $i ++ ) {
-		if ( evolve_theme_mod("evl_bootstrap_slide{$i}") == 1 ) {
+		if ( evolve_theme_mod( "evl_bootstrap_slide{$i}" ) == 1 ) {
 			$active = "";
 			if ( ! $wrap ) {
 				$wrap = true;
@@ -510,15 +510,15 @@ function evolve_bootstrap() {
 				$active = " active";
 			}
 			echo "<div class='carousel-item" . $active . "'>";
-			echo "<img class='d-block w-100' src='" . evolve_theme_mod("evl_bootstrap_slide{$i}_img") . "' alt='" . evolve_theme_mod("evl_bootstrap_slide{$i}_title") . "' />";
+			echo "<img class='d-block w-100' src='" . evolve_theme_mod( "evl_bootstrap_slide{$i}_img" ) . "' alt='" . evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) . "' />";
 			echo '<div class="carousel-caption ' . evolve_bootstrap_layout_class() . '">';
-			if ( strlen( evolve_theme_mod("evl_bootstrap_slide{$i}_title") ) > 0 ) {
-				echo "<h2>" . esc_attr( evolve_theme_mod("evl_bootstrap_slide{$i}_title") ) . "</h2>";
+			if ( strlen( evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) ) > 0 ) {
+				echo "<h2>" . esc_attr( evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) ) . "</h2>";
 			}
-			if ( strlen( evolve_theme_mod("evl_bootstrap_slide{$i}_desc") ) > 0 ) {
-				echo "<p>" . esc_attr( evolve_theme_mod("evl_bootstrap_slide{$i}_desc") ) . "</p>";
+			if ( strlen( evolve_theme_mod( "evl_bootstrap_slide{$i}_desc" ) ) > 0 ) {
+				echo "<p>" . esc_attr( evolve_theme_mod( "evl_bootstrap_slide{$i}_desc" ) ) . "</p>";
 			}
-			echo do_shortcode( evolve_theme_mod("evl_bootstrap_slide{$i}_button") );
+			echo do_shortcode( evolve_theme_mod( "evl_bootstrap_slide{$i}_button" ) );
 			echo "</div>";
 			echo "</div>";
 		}
@@ -554,15 +554,15 @@ function evolve_bootstrap_layout_class() {
 
 function evolve_parallax() {
 	global $evolve_options;
-	if ( evolve_theme_mod('evl_show_slide1') == "1" || evolve_theme_mod('evl_show_slide2') == "1" || evolve_theme_mod('evl_show_slide3') == "1" || evolve_theme_mod('evl_show_slide4') == "1" || evolve_theme_mod('evl_show_slide5') == "1" ) {
+	if ( evolve_theme_mod( 'evl_show_slide1' ) == "1" || evolve_theme_mod( 'evl_show_slide2' ) == "1" || evolve_theme_mod( 'evl_show_slide3' ) == "1" || evolve_theme_mod( 'evl_show_slide4' ) == "1" || evolve_theme_mod( 'evl_show_slide5' ) == "1" ) {
 		echo "<div id='da-slider' class='da-slider'>";
 		for ( $i = 1; $i <= 5; $i ++ ) {
-			if ( evolve_theme_mod("evl_show_slide{$i}") == "1" ) {
+			if ( evolve_theme_mod( "evl_show_slide{$i}" ) == "1" ) {
 				echo "<div class='da-slide'>";
-				echo "<h2>" . esc_attr( evolve_theme_mod("evl_slide{$i}_title") ) . "</h2>";
-				echo "<p>" . esc_attr( evolve_theme_mod("evl_slide{$i}_desc") ) . "</p>";
-				echo do_shortcode( evolve_theme_mod("evl_slide{$i}_button") );
-				echo "<div class='da-img'><img class='img-responsive' src='" . evolve_theme_mod("evl_slide{$i}_img") . "' alt='" . evolve_theme_mod("evl_slide{$i}_title") . "' /></div>";
+				echo "<h2>" . esc_attr( evolve_theme_mod( "evl_slide{$i}_title" ) ) . "</h2>";
+				echo "<p>" . esc_attr( evolve_theme_mod( "evl_slide{$i}_desc" ) ) . "</p>";
+				echo do_shortcode( evolve_theme_mod( "evl_slide{$i}_button" ) );
+				echo "<div class='da-img'><img class='img-responsive' src='" . evolve_theme_mod( "evl_slide{$i}_img" ) . "' alt='" . evolve_theme_mod( "evl_slide{$i}_title" ) . "' /></div>";
 				echo "</div>";
 			}
 		}
@@ -1381,7 +1381,7 @@ function evolve_layout_class( $type = 1 ) {
 	$layout_css = '';
 	switch ( evolve_theme_mod( 'evl_layout', '2cl' ) ):
 		case "1c":
-			$layout_css = 'col';
+			$layout_css = 'col-12';
 			break;
 		case "2cl":
 			$layout_css = 'col-sm-12 col-md-8';
@@ -1430,7 +1430,7 @@ function evolve_layout_class( $type = 1 ) {
 	if ( is_home() || is_front_page() ) {
 		switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
 			case "1c":
-				$layout_css = 'col';
+				$layout_css = 'col-12';
 				break;
 			case "2cl":
 				$layout_css = 'col-sm-12 col-md-8';
@@ -1458,6 +1458,10 @@ function evolve_layout_class( $type = 1 ) {
 		endif;
 	}
 
+	if ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "two" || evolve_theme_mod( 'evl_post_layout', 'two' ) == "three" ) {
+		$layout_css .= " card-columns";
+	}
+
 	echo $layout_css;
 }
 
@@ -1465,11 +1469,9 @@ function evolve_layout_class( $type = 1 ) {
    Function To Print Out CSS Class According To Blog Layout
    ======================================= */
 
-function evolve_post_class( $xyz ) {
-	if ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "two" ) {
-		echo ' col-md-6 odd' . ( $xyz % 2 );
-	} else {
-		echo ' col-md-4 odd' . ( $xyz % 3 );
+function evolve_post_class() {
+	if ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "two" || evolve_theme_mod( 'evl_post_layout', 'two' ) == "three" ) {
+		echo ' card';
 	}
 	if ( has_post_format( array(
 		'aside',
@@ -1735,8 +1737,8 @@ function evolve_lets_get_sidebar_2() {
 
 function evolve_print_fonts( $name, $css_class, $additional_css = '', $additional_color_css_class = '', $imp = '' ) {
 	global $evolve_options;
-	$options[ $name ]     = evolve_theme_mod($name);
-	
+	$options[ $name ] = evolve_theme_mod( $name );
+
 	$css         = '';
 	$font_size   = '';
 	$font_family = '';
@@ -1884,7 +1886,7 @@ if ( ! function_exists( 'evolve_pagination' ) ):
 			}
 		}
 		if ( 1 != $pages ) {
-			if ( ( evolve_theme_mod('evl_portfolio_pagination_type') == 'infinite' && is_home() ) || ( evolve_theme_mod('evl_portfolio_pagination_type') == 'infinite' && is_page_template( 'portfolio-grid.php' ) ) ) {
+			if ( ( evolve_theme_mod( 'evl_portfolio_pagination_type' ) == 'infinite' && is_home() ) || ( evolve_theme_mod( 'evl_portfolio_pagination_type' ) == 'infinite' && is_page_template( 'portfolio-grid.php' ) ) ) {
 				echo "<div class='pagination infinite-scroll clearfix'>";
 			} else {
 				echo "<div class='pagination clearfix'>";
@@ -1976,17 +1978,17 @@ function evl_fix_get_theme_mod( $array_in ) {
 	return $array_in;
 }
 
-global $evl_all_customize_fields;
-$evl_all_customize_fields = get_option( 'evl_all_customize_fields', false );
+global $evolve_all_customize_fields;
+$evolve_all_customize_fields = get_option( 'evl_all_customize_fields', false );
 function evolve_theme_mod( $name, $default = false ) {
-	global $evl_all_customize_fields;
+	global $evolve_all_customize_fields;
 	if ( $default == false ) {
-		if ( $evl_all_customize_fields === false && isset( $evl_all_customize_fields[ $name ] ) && isset( $evl_all_customize_fields[ $name ]['value_temp'] ) && isset( $evl_all_customize_fields[ $name ]['value_temp']['default'] ) ) {
-			$default = $evl_all_customize_fields[ $name ]['value_temp']['default'];
+		if ( $evolve_all_customize_fields === false && isset( $evolve_all_customize_fields[ $name ] ) && isset( $evolve_all_customize_fields[ $name ]['value_temp'] ) && isset( $evolve_all_customize_fields[ $name ]['value_temp']['default'] ) ) {
+			$default = $evolve_all_customize_fields[ $name ]['value_temp']['default'];
 		}
 	}
 	$result = get_theme_mod( $name, $default );
-	if ( $result && is_array( $result ) && isset( $evl_all_customize_fields[ $name ] ) && isset( $evl_all_customize_fields[ $name ]['value']['type'] ) && $evl_all_customize_fields[ $name ]['value']['type'] == 'sorter' ) {
+	if ( $result && is_array( $result ) && isset( $evolve_all_customize_fields[ $name ] ) && isset( $evolve_all_customize_fields[ $name ]['value']['type'] ) && $evolve_all_customize_fields[ $name ]['value']['type'] == 'sorter' ) {
 		$result = evl_fix_get_theme_mod( $result );
 	}
 	// if ( $result && is_string( $name ) && endsWith( $name, '_icon' ) ) {

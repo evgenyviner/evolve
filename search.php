@@ -99,7 +99,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 
 			<?php } else { ?>
 
-                <h1 class="entry-title">
+                <h2 class="entry-title">
                     <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
 						<?php
 						if ( get_the_title() ) {
@@ -108,7 +108,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 						}
 						?>
                     </a>
-                </h1>
+                </h2>
 				<?php
 				if ( $evolve_edit_post == "1" ) {
 					if ( current_user_can( 'edit_post', $post->ID ) ):
@@ -207,8 +207,8 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 
             <!--BEGIN #post-0-->
             <div id="post-0" class="<?php semantic_entries(); ?>">
-                <h1 class="entry-title"><?php _e( 'Your search for', 'evolve' ); ?> "<?php echo the_search_query(); ?>
-                    " <?php _e( 'did not match any entries', 'evolve' ); ?></h1>
+                <h2 class="entry-title"><?php _e( 'Your search for', 'evolve' ); ?> "<?php echo the_search_query(); ?>
+                    " <?php _e( 'did not match any entries', 'evolve' ); ?></h2>
                 <!--BEGIN .entry-content-->
                 <div class="entry-content">
                     <br/>
@@ -229,7 +229,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 
             <!--BEGIN #post-0-->
             <div id="post-0" class="<?php semantic_entries(); ?>">
-                <h1 class="entry-title"><?php _e( 'Not Found', 'evolve' ); ?></h1>
+                <h2 class="entry-title"><?php _e( 'Not Found', 'evolve' ); ?></h2>
                 <!--BEGIN .entry-content-->
                 <div class="entry-content">
                     <p><?php _e( 'Sorry, but you are looking for something that isn\'t here.', 'evolve' ); ?></p>
@@ -277,7 +277,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 			<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) {
 				?>
 
-                <h1 class="entry-title">
+                <h2 class="entry-title">
                     <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
 						<?php
 						if ( get_the_title() ) {
@@ -285,7 +285,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 						}
 						?>
                     </a>
-                </h1>
+                </h2>
 
                 <!--BEGIN .entry-meta .entry-header-->
                 <div class="entry-meta entry-header">
@@ -324,7 +324,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 
 			<?php } else { ?>
 
-                <h1 class="entry-title">
+                <h2 class="entry-title">
                     <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
 						<?php
 						if ( get_the_title() ) {
@@ -332,7 +332,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 						}
 						?>
                     </a>
-                </h1>
+                </h2>
 
 				<?php
 				if ( $evolve_edit_post == "1" ) {
@@ -463,8 +463,8 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 			?>
             <!--BEGIN #post-0-->
             <div id="post-0" class="<?php semantic_entries(); ?>">
-                <h1 class="entry-title"><?php _e( 'Your search for', 'evolve' ); ?> "<?php echo the_search_query(); ?>
-                    " <?php _e( 'did not match any entries', 'evolve' ); ?></h1>
+                <h2 class="entry-title"><?php _e( 'Your search for', 'evolve' ); ?> "<?php echo the_search_query(); ?>
+                    " <?php _e( 'did not match any entries', 'evolve' ); ?></h2>
                 <!--BEGIN .entry-content-->
                 <div class="entry-content">
                     <br/>
@@ -483,7 +483,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 		<?php } else { ?>
             <!--BEGIN #post-0-->
             <div id="post-0" class="<?php semantic_entries(); ?>">
-                <h1 class="entry-title"><?php _e( 'Not Found', 'evolve' ); ?></h1>
+                <h2 class="entry-title"><?php _e( 'Not Found', 'evolve' ); ?></h2>
                 <!--BEGIN .entry-content-->
                 <div class="entry-content">
                     <p><?php _e( 'Sorry, but you are looking for something that isn\'t here.', 'evolve' ); ?></p>

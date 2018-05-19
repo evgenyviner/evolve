@@ -6,9 +6,9 @@
 
 global $evolve_options, $evolve_frontpage_slider_status;
 $evolve_frontpage_slider = array();
-$evl_front_elements_header_area = evolve_theme_mod('evl_front_elements_header_area');
-if ( $evl_front_elements_header_area  ) {
-	$evolve_frontpage_slider = $evl_front_elements_header_area;
+$evolve_front_elements_header_area = evolve_theme_mod('evl_front_elements_header_area');
+if ( $evolve_front_elements_header_area  ) {
+	$evolve_frontpage_slider = $evolve_front_elements_header_area;
 }
 
 if ( $evolve_frontpage_slider ):

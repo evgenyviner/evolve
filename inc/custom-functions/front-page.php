@@ -22,57 +22,15 @@ function evolve_content_boxes() {
 		if ( $evolve_content_box4_enable === false ) {
 			$evolve_content_box4_enable = '';
 		}
-		$evl_content_boxes_section_padding                = evolve_theme_mod( 'evl_content_boxes_section_padding' );
-		$evolve_content_boxes_section_padding_top         = $evl_content_boxes_section_padding['padding-top'];
-		$evolve_content_boxes_section_padding_bottom      = $evl_content_boxes_section_padding['padding-bottom'];
-		$evolve_content_boxes_section_padding_left        = $evl_content_boxes_section_padding['padding-left'];
-		$evolve_content_boxes_section_padding_right       = $evl_content_boxes_section_padding['padding-right'];
-		$evolve_content_boxes_section_back_color          = evolve_theme_mod( 'evl_content_boxes_section_back_color', '' );
-		$evolve_content_boxes_section_image_src           = evolve_theme_mod( 'evl_content_boxes_section_background_image' );
-		$evolve_content_boxes_section_image               = evolve_theme_mod( 'evl_content_boxes_section_image', 'cover' );
-		$evolve_content_boxes_section_background_repeat   = evolve_theme_mod( 'evl_content_boxes_section_image_background_repeat', 'no-repeat' );
-		$evolve_content_boxes_section_background_position = evolve_theme_mod( 'evl_content_boxes_section_image_background_position', 'center top' );
-		//html_attr
-		$html_class = '';
-		$html_style = '';
-		if ( $evolve_content_boxes_section_back_color ) {
-			$html_style .= sprintf( 'background-color:%s;', $evolve_content_boxes_section_back_color );
-		}
-		if ( $evolve_content_boxes_section_image_src ) {
-			$html_style .= sprintf( 'background-image: url(%s);', $evolve_content_boxes_section_image_src );
-		}
-		if ( $evolve_content_boxes_section_image ) {
-			$html_style .= sprintf( 'background-size:%s;', $evolve_content_boxes_section_image );
-			$html_style .= sprintf( '-webkit-background-size:%s;', $evolve_content_boxes_section_image );
-			$html_style .= sprintf( '-moz-background-size:%s;', $evolve_content_boxes_section_image );
-			$html_style .= sprintf( '-o-background-size:%s;', $evolve_content_boxes_section_image );
-		}
-		if ( $evolve_content_boxes_section_background_position ) {
-			$html_style .= sprintf( 'background-position:%s;', $evolve_content_boxes_section_background_position );
-		}
-		if ( $evolve_content_boxes_section_background_repeat ) {
-			$html_style .= sprintf( 'background-repeat:%s;', $evolve_content_boxes_section_background_repeat );
-		}
-		if ( $evolve_content_boxes_section_padding_top ) {
-			$html_style .= sprintf( 'padding-top:%s;', $evolve_content_boxes_section_padding_top );
-		}
-		if ( $evolve_content_boxes_section_padding_bottom ) {
-			$html_style .= sprintf( 'padding-bottom:%s;', $evolve_content_boxes_section_padding_bottom );
-		}
-		if ( $evolve_content_boxes_section_padding_left ) {
-			$html_style .= sprintf( 'padding-left:%s;', $evolve_content_boxes_section_padding_left );
-		}
-		if ( $evolve_content_boxes_section_padding_right ) {
-			$html_style .= sprintf( 'padding-right:%s;', $evolve_content_boxes_section_padding_right );
-		}
-		echo "<div style='$html_style'><div class='container'>";
+
+		echo "<div class='home-content-boxes'><div class='container'>";
 		$evolve_content_box_section_title = evolve_theme_mod( 'evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind' );
 		if ( $evolve_content_box_section_title == false ) {
 			$evolve_content_box_section_title = '';
 		} else {
 			$evolve_content_box_section_title = '<h4 class="content_box_section_title section_title">' . evolve_theme_mod( 'evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind' ) . '</h4>';
 		}
-		echo "<div class='row'><div class='card-deck home-content-boxes'>" . $evolve_content_box_section_title;
+		echo "<div class='row'><div class='card-deck'>" . $evolve_content_box_section_title;
 		$evolve_content_box1_title = evolve_theme_mod( 'evl_content_box1_title', 'Flat & Beautiful' );
 		if ( $evolve_content_box1_title === false ) {
 			$evolve_content_box1_title = '';
@@ -220,11 +178,11 @@ function evolve_testimonials() {
 	$evolve_testimonials_section_image               = evolve_theme_mod( 'evl_testimonials_section_image', 'cover' );
 	$evolve_testimonials_section_background_position = evolve_theme_mod( 'evl_testimonials_section_image_background_position', 'center top' );
 	$evolve_testimonials_section_background_repeat   = evolve_theme_mod( 'evl_testimonials_section_image_background_repeat', 'no-repeat' );
-	$evl_testimonials_section_padding                = evolve_theme_mod( 'evl_testimonials_section_padding' );
-	$evolve_testimonials_section_padding_top         = $evl_testimonials_section_padding['top'];
-	$evolve_testimonials_section_padding_bottom      = $evl_testimonials_section_padding['bottom'];
-	$evolve_testimonials_section_padding_left        = $evl_testimonials_section_padding['left'];
-	$evolve_testimonials_section_padding_right       = $evl_testimonials_section_padding['right'];
+	$evolve_testimonials_section_padding                = evolve_theme_mod( 'evl_testimonials_section_padding' );
+	$evolve_testimonials_section_padding_top         = $evolve_testimonials_section_padding['top'];
+	$evolve_testimonials_section_padding_bottom      = $evolve_testimonials_section_padding['bottom'];
+	$evolve_testimonials_section_padding_left        = $evolve_testimonials_section_padding['left'];
+	$evolve_testimonials_section_padding_right       = $evolve_testimonials_section_padding['right'];
 	//html_attr
 	$html_class = 't4p-fullwidth fullwidth-box hentry';
 	$html_style = '';
@@ -357,11 +315,11 @@ function evolve_get_attachment_id_from_url( $attachment_url = '' ) {
 /* Front Page Counter Circle */
 function evolve_counter_circle() {
 
-	$evl_counter_circle_section_padding                = evolve_theme_mod( 'evl_counter_circle_section_padding' );
-	$evolve_counter_circle_section_padding_top         = $evl_counter_circle_section_padding['top'];
-	$evolve_counter_circle_section_padding_bottom      = $evl_counter_circle_section_padding['bottom'];
-	$evolve_counter_circle_section_padding_left        = $evl_counter_circle_section_padding['left'];
-	$evolve_counter_circle_section_padding_right       = $evl_counter_circle_section_padding['right'];
+	$evolve_counter_circle_section_padding                = evolve_theme_mod( 'evl_counter_circle_section_padding' );
+	$evolve_counter_circle_section_padding_top         = $evolve_counter_circle_section_padding['top'];
+	$evolve_counter_circle_section_padding_bottom      = $evolve_counter_circle_section_padding['bottom'];
+	$evolve_counter_circle_section_padding_left        = $evolve_counter_circle_section_padding['left'];
+	$evolve_counter_circle_section_padding_right       = $evolve_counter_circle_section_padding['right'];
 	$evolve_counter_circle_section_back_color          = evolve_theme_mod( 'evl_counter_circle_section_back_color', '' );
 	$evolve_counter_circle_section_image_src           = evolve_theme_mod( 'evl_counter_circle_section_background_image' );
 	$evolve_counter_circle_section_image               = evolve_theme_mod( 'evl_counter_circle_section_image', 'cover' );
@@ -374,8 +332,8 @@ function evolve_counter_circle() {
 	if ( $evolve_counter_circle_section_back_color ) {
 		$html_style .= sprintf( 'background-color:%s;', $evolve_counter_circle_section_back_color );
 	}
-	if ( isset( $evolve_counter_circle_section_image_src['url'] ) && $evolve_counter_circle_section_image_src['url'] ) {
-		$html_style .= sprintf( 'background-image: url(%s);', $evolve_counter_circle_section_image_src['url'] );
+	if ( isset( $evolve_counter_circle_section_image_src ) && $evolve_counter_circle_section_image_src ) {
+		$html_style .= sprintf( 'background-image: url(%s);', $evolve_counter_circle_section_image_src );
 	}
 	if ( $evolve_counter_circle_section_image ) {
 		$html_style .= sprintf( 'background-size:%s;', $evolve_counter_circle_section_image );
@@ -460,11 +418,11 @@ function evolve_google_map() {
 	$scale                                        = evolve_theme_mod( "evl_fp_googlemap_scale" );
 	$zoom_pancontrol                              = evolve_theme_mod( "evl_fp_googlemap_zoomcontrol" );
 	$popup                                        = 'yes';
-	$evl_googlemap_section_padding                = evolve_theme_mod( 'evl_googlemap_section_padding' );
-	$evolve_googlemap_section_padding_top         = $evl_googlemap_section_padding['top'];
-	$evolve_googlemap_section_padding_bottom      = $evl_googlemap_section_padding['bottom'];
-	$evolve_googlemap_section_padding_left        = $evl_googlemap_section_padding['left'];
-	$evolve_googlemap_section_padding_right       = $evl_googlemap_section_padding['right'];
+	$evolve_googlemap_section_padding                = evolve_theme_mod( 'evl_googlemap_section_padding' );
+	$evolve_googlemap_section_padding_top         = $evolve_googlemap_section_padding['top'];
+	$evolve_googlemap_section_padding_bottom      = $evolve_googlemap_section_padding['bottom'];
+	$evolve_googlemap_section_padding_left        = $evolve_googlemap_section_padding['left'];
+	$evolve_googlemap_section_padding_right       = $evolve_googlemap_section_padding['right'];
 	$evolve_googlemap_section_back_color          = evolve_theme_mod( 'evl_googlemap_section_back_color', '' );
 	$evolve_googlemap_section_image_src           = evolve_theme_mod( 'evl_googlemap_section_background_image' );
 	$evolve_googlemap_section_image               = evolve_theme_mod( 'evl_googlemap_section_image', 'cover' );
@@ -476,8 +434,8 @@ function evolve_google_map() {
 	if ( $evolve_googlemap_section_back_color ) {
 		$html_style .= sprintf( 'background-color:%s;', $evolve_googlemap_section_back_color );
 	}
-	if ( isset( $evolve_googlemap_section_image_src['url'] ) && $evolve_googlemap_section_image_src['url'] ) {
-		$html_style .= sprintf( 'background-image: url(%s);', $evolve_googlemap_section_image_src['url'] );
+	if ( isset( $evolve_googlemap_section_image_src ) && $evolve_googlemap_section_image_src ) {
+		$html_style .= sprintf( 'background-image: url(%s);', $evolve_googlemap_section_image_src );
 	}
 	if ( $evolve_googlemap_section_image ) {
 		$html_style .= sprintf( 'background-size:%s;', $evolve_googlemap_section_image );
@@ -645,11 +603,11 @@ function get_coordinates( $address, $force_refresh = false ) {
 function evolve_custom_content() {
 
 	$content                                           = evolve_theme_mod( "evl_fp_custom_content_editor" );
-	$evl_custom_content_section_padding                = evolve_theme_mod( 'evl_custom_content_section_padding' );
-	$evolve_custom_content_section_padding_top         = $evl_custom_content_section_padding['top'];
-	$evolve_custom_content_section_padding_bottom      = $evl_custom_content_section_padding['bottom'];
-	$evolve_custom_content_section_padding_left        = $evl_custom_content_section_padding['left'];
-	$evolve_custom_content_section_padding_right       = $evl_custom_content_section_padding['right'];
+	$evolve_custom_content_section_padding                = evolve_theme_mod( 'evl_custom_content_section_padding' );
+	$evolve_custom_content_section_padding_top         = $evolve_custom_content_section_padding['top'];
+	$evolve_custom_content_section_padding_bottom      = $evolve_custom_content_section_padding['bottom'];
+	$evolve_custom_content_section_padding_left        = $evolve_custom_content_section_padding['left'];
+	$evolve_custom_content_section_padding_right       = $evolve_custom_content_section_padding['right'];
 	$evolve_custom_content_section_back_color          = evolve_theme_mod( 'evl_custom_content_section_back_color', '' );
 	$evolve_custom_content_section_image_src           = evolve_theme_mod( 'evl_custom_content_section_background_image' );
 	$evolve_custom_content_section_image               = evolve_theme_mod( 'evl_custom_content_section_image', 'cover' );
@@ -661,8 +619,8 @@ function evolve_custom_content() {
 	if ( $evolve_custom_content_section_back_color ) {
 		$html_style .= sprintf( 'background-color:%s;', $evolve_custom_content_section_back_color );
 	}
-	if ( isset( $evolve_custom_content_section_image_src['url'] ) && $evolve_custom_content_section_image_src['url'] ) {
-		$html_style .= sprintf( 'background-image: url(%s);', $evolve_custom_content_section_image_src['url'] );
+	if ( isset( $evolve_custom_content_section_image_src ) && $evolve_custom_content_section_image_src ) {
+		$html_style .= sprintf( 'background-image: url(%s);', $evolve_custom_content_section_image_src );
 	}
 	if ( $evolve_custom_content_section_image ) {
 		$html_style .= sprintf( 'background-size:%s;', $evolve_custom_content_section_image );
@@ -707,11 +665,11 @@ function evolve_woocommerce_products() {
 
 	$product_cat                                    = evolve_theme_mod( "evl_fp_woo_product" );
 	$product_number                                 = evolve_theme_mod( "evl_fp_woo_product_number" );
-	$evl_woo_product_section_padding                = evolve_theme_mod( 'evl_woo_product_section_padding' );
-	$evolve_woo_product_section_padding_top         = $evl_woo_product_section_padding['top'];
-	$evolve_woo_product_section_padding_bottom      = $evl_woo_product_section_padding['bottom'];
-	$evolve_woo_product_section_padding_left        = $evl_woo_product_section_padding['left'];
-	$evolve_woo_product_section_padding_right       = $evl_woo_product_section_padding['right'];
+	$evolve_woo_product_section_padding                = evolve_theme_mod( 'evl_woo_product_section_padding' );
+	$evolve_woo_product_section_padding_top         = $evolve_woo_product_section_padding['top'];
+	$evolve_woo_product_section_padding_bottom      = $evolve_woo_product_section_padding['bottom'];
+	$evolve_woo_product_section_padding_left        = $evolve_woo_product_section_padding['left'];
+	$evolve_woo_product_section_padding_right       = $evolve_woo_product_section_padding['right'];
 	$evolve_woo_product_section_back_color          = evolve_theme_mod( 'evl_woo_product_section_back_color', '' );
 	$evolve_woo_product_section_image_src           = evolve_theme_mod( 'evl_woo_product_section_background_image' );
 	$evolve_woo_product_section_image               = evolve_theme_mod( 'evl_woo_product_section_image', 'cover' );
@@ -723,8 +681,8 @@ function evolve_woocommerce_products() {
 	if ( $evolve_woo_product_section_back_color ) {
 		$html_style .= sprintf( 'background-color:%s;', $evolve_woo_product_section_back_color );
 	}
-	if ( isset( $evolve_woo_product_section_image_src['url'] ) && $evolve_woo_product_section_image_src['url'] ) {
-		$html_style .= sprintf( 'background-image: url(%s);', $evolve_woo_product_section_image_src['url'] );
+	if ( isset( $evolve_woo_product_section_image_src ) && $evolve_woo_product_section_image_src ) {
+		$html_style .= sprintf( 'background-image: url(%s);', $evolve_woo_product_section_image_src );
 	}
 	if ( $evolve_woo_product_section_image ) {
 		$html_style .= sprintf( 'background-size:%s;', $evolve_woo_product_section_image );
@@ -792,11 +750,11 @@ function evolve_blog_posts() {
 	$blog_grid_columns = evolve_theme_mod( "evl_fp_blog_blog_grid_columns" );
 	$strip_html        = evolve_theme_mod( "evl_fp_blog_strip_html" );
 
-	$evl_blog_section_padding                = evolve_theme_mod( 'evl_blog_section_padding' );
-	$evolve_blog_section_padding_top         = $evl_blog_section_padding['top'];
-	$evolve_blog_section_padding_bottom      = $evl_blog_section_padding['bottom'];
-	$evolve_blog_section_padding_left        = $evl_blog_section_padding['left'];
-	$evolve_blog_section_padding_right       = $evl_blog_section_padding['right'];
+	$evolve_blog_section_padding                = evolve_theme_mod( 'evl_blog_section_padding' );
+	$evolve_blog_section_padding_top         = $evolve_blog_section_padding['top'];
+	$evolve_blog_section_padding_bottom      = $evolve_blog_section_padding['bottom'];
+	$evolve_blog_section_padding_left        = $evolve_blog_section_padding['left'];
+	$evolve_blog_section_padding_right       = $evolve_blog_section_padding['right'];
 	$evolve_blog_section_back_color          = evolve_theme_mod( 'evl_blog_section_back_color', '' );
 	$evolve_blog_section_image_src           = evolve_theme_mod( 'evl_blog_section_background_image' );
 	$evolve_blog_section_image               = evolve_theme_mod( 'evl_blog_section_image', 'cover' );
@@ -808,8 +766,8 @@ function evolve_blog_posts() {
 	if ( $evolve_blog_section_back_color ) {
 		$html_style .= sprintf( 'background-color:%s;', $evolve_blog_section_back_color );
 	}
-	if ( isset( $evolve_blog_section_image_src['url'] ) && $evolve_blog_section_image_src['url'] ) {
-		$html_style .= sprintf( 'background-image: url(%s);', $evolve_blog_section_image_src['url'] );
+	if ( isset( $evolve_blog_section_image_src ) && $evolve_blog_section_image_src ) {
+		$html_style .= sprintf( 'background-image: url(%s);', $evolve_blog_section_image_src );
 	}
 	if ( $evolve_blog_section_image ) {
 		$html_style .= sprintf( 'background-size:%s;', $evolve_blog_section_image );

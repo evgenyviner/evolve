@@ -1681,6 +1681,10 @@ input.input-website,
     float: right;
 }
 
+#search-text-box .searchfield {
+    margin-bottom: 0;
+}
+
 .widget-content #search-text-box {
     float: none;
     width: 100%;
@@ -1740,10 +1744,8 @@ input.input-website,
     padding: 0 25px 0 25px;
     height: 50px;
     position: relative;
-    border-color: transparent;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
-
     -o-box-shadow: none;
     box-shadow: none;
     background: none;
@@ -1772,14 +1774,13 @@ input.input-website,
 
 #search-button-box {
     position: absolute;
-    right: 0px;
+    right: 0;
     z-index: 99;
 }
 
 #search-button {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
-
     -o-box-shadow: none;
     box-shadow: none;
     font-weight: normal;
@@ -1971,7 +1972,7 @@ input.input-website,
    Front Page Content Boxes
    ======================================= */
 
-.home-content-boxes {
+.home-content-boxes .card-deck {
     margin-bottom: 1rem;
 }
 
@@ -1982,7 +1983,7 @@ input.input-website,
     flex-direction: column;
 }
 
-.home-content-boxes,
+.home-content-boxes .card-deck,
 .home-content-boxes .card {
     margin-left: 0;
     margin-right: 0;
@@ -2005,27 +2006,9 @@ input.input-website,
     margin-top: 1.25rem;
 }
 
-.home-content-boxes .content-box h5 {
-    color: #6b6b6b;
-}
-
 .home-content-boxes .content-box p {
     color: #888;
     font-size: 140%;
-}
-
-.home-content-boxes .content-box img {
-    margin: 0 auto;
-}
-
-@media (max-width: 991px) {
-    .home .odd1,
-    .archive .odd1,
-    .search .odd1,
-    .blog .odd1,
-    .page-template-blog-page-php .odd1 {
-        clear: both;
-    }
 }
 
 /* ======================== Basic 2 column (content)(aside) fixed layout ======================== */
@@ -5738,20 +5721,6 @@ ul.nav-tabs {
     color: #ccc;
 }
 
-.odd0 .entry-footer,
-.odd1 .entry-footer,
-.odd2 .entry-footer {
-    background: none;
-}
-
-.blog .odd0 {
-    clear: both;
-}
-
-.archive .odd0 {
-    clear: both;
-}
-
 .edit-comment {
     visibility: hidden;
     font-size: 12px;
@@ -5797,10 +5766,14 @@ a.post-edit-link:before {
     margin-bottom: 0;
 }
 
-.margin-40,
 .home .formatted-single,
 .page-template-blog-page-php .formatted-single {
     margin-bottom: 20px;
+}
+
+.home .card-columns .card,
+.blog .card-columns .card {
+    border: none;
 }
 
 /* ==========================================================================
@@ -6059,10 +6032,6 @@ form.top-searchform {
 
 #primary.full-width h1 {
     margin: 0 0 15px;
-}
-
-.hentry h2 {
-    margin-top: 20px;
 }
 
 .hentry .entry-meta {
