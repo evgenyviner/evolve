@@ -33,9 +33,9 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 		endif; ?>
 
         <div id="post-0">
-            <h1 class="entry-title"><?php _e( 'Not Found', 'evolve' ); ?></h1>
+            <h1 class="entry-title"><?php esc_html_e( 'Not Found', 'evolve' ); ?></h1>
             <div class="entry-content">
-                <p><?php _e( 'Sorry, but you are looking for something that isn\'t here.', 'evolve' ); ?></p>
+                <p><?php esc_html_e( 'Sorry, but you are looking for something that isn\'t here.', 'evolve' ); ?></p>
                 <form role="search" method="get" action="<?php echo home_url( '/' ); ?>">
                     <input type="search" id="search-text" placeholder="<?php echo __( 'Search ...', 'evolve' ) ?>"
                            value="<?php echo esc_attr( get_search_query() ) ?>" name="s"
