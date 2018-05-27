@@ -156,15 +156,15 @@ while ( have_posts() ) :
 
 			if ( isset( $hasError ) ) { //If errors are found
 				?>
-                <div class="alert alert-danger"><?php echo __( "Please check if you've filled all the fields with valid information. Thank you.", 'evolve' ); ?></div>
+                <div class="alert alert-danger"><?php echo esc_html__( "Please check if you've filled all the fields with valid information. Thank you.", 'evolve' ); ?></div>
                 <br/>
 				<?php
 			}
 
 			if ( isset( $emailSent ) && $emailSent == true ) { //If email is sent
 			?>
-            <div class="alert alert-success"><?php echo __( 'Thank you', 'evolve' ); ?>
-                <strong><?php echo $name; ?></strong> <?php echo __( 'for using my contact form! Your email was successfully sent!', 'evolve' ); ?>
+            <div class="alert alert-success"><?php echo esc_html__( 'Thank you', 'evolve' ); ?>
+                <strong><?php echo $name; ?></strong> <?php echo esc_html__( 'for using my contact form! Your email was successfully sent!', 'evolve' ); ?>
             </div>
         </div>
     <br/>
