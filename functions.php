@@ -1458,7 +1458,7 @@ function evolve_layout_class( $type = 1 ) {
 		endif;
 	}
 
-	if ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "two" || evolve_theme_mod( 'evl_post_layout', 'two' ) == "three" ) {
+	if ( is_home() && ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "two" || evolve_theme_mod( 'evl_post_layout', 'two' ) == "three" ) ) {
 		$layout_css .= " card-columns";
 	}
 

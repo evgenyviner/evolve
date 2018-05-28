@@ -16,16 +16,13 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerpt_title_length', '40' ) );
 ?>
 
-<!--BEGIN #primary .hfeed-->
 <div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?>">
 
 	<?php
 	if ( is_home() || is_front_page() ) {
 		get_template_part( 'template-parts/front-page-builder/front-page-builder' );
 	}
-	?>
 
-	<?php
 	if ( $evolve_breadcrumbs == "1" ):
 		if ( is_home() || is_front_page() ) {
 

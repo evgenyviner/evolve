@@ -1,10 +1,12 @@
 <?php
 
-/*******************************************************
- * Template: Index.php
- *******************************************************/
+/*
+   Main Index To Display Content
+   ======================================= */
 
 get_header();
+
+global $authordata;
 
 $evolve_layout                     = evolve_theme_mod( 'evl_layout', '2cl' );
 $evolve_post_layout                = evolve_theme_mod( 'evl_post_layout', 'two' );
@@ -22,417 +24,368 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image', '0' );
 ?>
 
-<div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?>">
+    <div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?>">
 
-<?php
-if ( is_home() || is_front_page() ) {
-	get_template_part( 'template-parts/front-page-builder/front-page-builder' );
-}
+		<?php
+		if ( is_home() || is_front_page() ) {
+			get_template_part( 'template-parts/front-page-builder/front-page-builder' );
+		}
 
-$evolve_breadcrumbs = evolve_theme_mod( 'evl_breadcrumbs', '1' );
-if ( $evolve_breadcrumbs == "1" ):
-	if ( is_home() || is_front_page() ):
-    elseif ( ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == 'no' ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == 'no' ) ):
-	else:evolve_breadcrumb();
-	endif;
-endif;
-?>
+		if ( evolve_theme_mod( 'evl_breadcrumbs', '1' ) == "1" ):
+			if ( is_home() || is_front_page() ):
+            elseif ( ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == 'no' ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == 'no' ) ):
+			else:evolve_breadcrumb();
+			endif;
+		endif;
 
-    <!-- 2 or 3 columns begin -->
+		/*
+		   2 / 3 Columns Begin
+		   ======================================= */
 
-<?php
-if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
+		if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 
-	if ( ( $evolve_nav_links == "before" ) || ( $evolve_nav_links == "both" ) ) {
-		?>
+			if ( ( $evolve_nav_links == "before" ) || ( $evolve_nav_links == "both" ) ) { ?>
 
-        <span class="nav-top">
+                <span class="nav-top">
                 <?php get_template_part( 'template-parts/navigation/navigation', 'index' ); ?>
             </span>
 
-		<?php
-	} else {
+			<?php }
 
-	}
+			if ( have_posts() ) :
 
-	if ( have_posts() ) :
+				while ( have_posts() ) : the_post(); ?>
 
-		while ( have_posts() ) : the_post();
-			?>
+                    <div id="post-<?php the_ID(); ?>" class="<?php semantic_entries();
+					evolve_post_class(); ?>">
 
+						<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) { ?>
 
-            <!--BEGIN .hentry-->
-            <div id="post-<?php the_ID(); ?>" class="<?php
-			semantic_entries();
-			evolve_post_class();
-			?>">
+                            <h2 class="entry-title">
+                                <a href="<?php the_permalink() ?>" rel="bookmark"
+                                   title="Permanent Link to <?php the_title(); ?>">
 
-				<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) {
-					?>
+									<?php if ( get_the_title() ) {
+										$title = the_title( '', '', false );
+										echo evolve_truncate( $title, $evolve_posts_excerpt_title_length, '...' );
+									} ?>
 
-                    <h2 class="entry-title">
-                        <a href="<?php the_permalink() ?>" rel="bookmark"
-                           title="Permanent Link to <?php the_title(); ?>">
-							<?php
-							if ( get_the_title() ) {
-								$title = the_title( '', '', false );
-								echo evolve_truncate( $title, $evolve_posts_excerpt_title_length, '...' );
-							}
-							?>
-                        </a>
-                    </h2>
+                                </a>
+                            </h2>
 
-                    <!--BEGIN .entry-meta .entry-header-->
-                    <div class="entry-meta entry-header">
+                            <div class="entry-meta entry-header">
+                                <a href="<?php the_permalink() ?>"><span
+                                            class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
 
-                        <a href="<?php the_permalink() ?>"><span
-                                    class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
-
-                        <span class="author vcard">
+                                <span class="author vcard">
                                             <?php _e( 'Written by', 'evolve' ); ?>
-                            <strong><?php printf( '<a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'evolve' ), $authordata->display_name ) ) . '">' . get_the_author() . '</a>' ) ?></strong>
+                                    <strong><?php printf( '<a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'evolve' ), $authordata->display_name ) ) . '">' . get_the_author() . '</a>' ) ?></strong>
                                         </span>
-						<?php
-						if ( $evolve_edit_post == "1" ) {
-							if ( current_user_can( 'edit_post', $post->ID ) ):
-								edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post">', '</span>' );
-							endif;
-						}
-						?>
-                        <!--END .entry-meta .entry-header-->
-                    </div>
 
-				<?php } else { ?>
+								<?php if ( $evolve_edit_post == "1" ) {
+									if ( current_user_can( 'edit_post', $post->ID ) ):
+										edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post">', '</span>' );
+									endif;
+								} ?>
 
-                    <h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"
-                                               title="Permanent Link to <?php the_title(); ?>">
+                            </div><!-- .entry-meta .entry-header -->
 
-							<?php
-							if ( get_the_title() ) {
-								$title = the_title( '', '', false );
-								echo evolve_truncate( $title, $evolve_posts_excerpt_title_length, '...' );
+						<?php } else { ?>
+
+                            <h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"
+                                                       title="Permanent Link to <?php the_title(); ?>">
+
+									<?php if ( get_the_title() ) {
+										$title = the_title( '', '', false );
+										echo evolve_truncate( $title, $evolve_posts_excerpt_title_length, '...' );
+									} ?>
+
+                                </a></h2>
+
+							<?php if ( $evolve_edit_post == "1" ) {
+								if ( current_user_can( 'edit_post', $post->ID ) ):
+									edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post edit-attach">', '</span>' );
+								endif;
 							}
-							?></a></h2>
-					<?php
-					if ( $evolve_edit_post == "1" ) {
-						if ( current_user_can( 'edit_post', $post->ID ) ):
-							edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post edit-attach">', '</span>' );
-						endif;
-					}
-				}
-				?>
+						} ?>
 
-                <!--BEGIN .entry-content .article-->
-                <div class="entry-content article">
+                        <div class="entry-content article">
 
-					<?php
-					if ( $evolve_featured_images == "1" ) {
+							<?php if ( $evolve_featured_images == "1" ) {
 
-						if ( has_post_thumbnail() ) {
-							echo '<span class="thumbnail-post"><a href="';
-							the_permalink();
-							echo '">';
-							the_post_thumbnail( 'post-thumbnail' );
-							echo '
+								if ( has_post_thumbnail() ) {
+									echo '<span class="thumbnail-post"><a href="';
+									the_permalink();
+									echo '">';
+									the_post_thumbnail( 'post-thumbnail' );
+									echo '
 				<span class="mask">
 				<span class="icon"></span>
 				</span>
 			</a></span>';
-						} else {
+								} else {
 
-							$image = evolve_get_first_image();
+									$image = evolve_get_first_image();
 
-							if ( $image ):
-								echo '<span class="thumbnail-post"><a href="';
-								the_permalink();
-								echo '"><img src="' . $image . '" alt="';
-								the_title();
-								echo '" />
+									if ( $image ):
+										echo '<span class="thumbnail-post"><a href="';
+										the_permalink();
+										echo '"><img src="' . $image . '" alt="';
+										the_title();
+										echo '" />
 				<span class="mask">
 				<span class="icon"></span>
 				</span>
 				</a></span>';
 
-							else:
-								if ( $evolve_thumbnail_default_images == 0 ) {
-									echo '<span class="thumbnail-post"><a href="';
-									the_permalink();
-									echo '"><img src="' . get_template_directory_uri() . '/assets/images/no-thumbnail.jpg" alt="';
-									the_title();
-									echo '" />
+									else:
+										if ( $evolve_thumbnail_default_images == 0 ) {
+											echo '<span class="thumbnail-post"><a href="';
+											the_permalink();
+											echo '"><img src="' . get_template_directory_uri() . '/assets/images/no-thumbnail.jpg" alt="';
+											the_title();
+											echo '" />
 				<span class="mask">
 				<span class="icon"></span>
 				</span>
 				</a></span>';
+										}
+
+									endif;
 								}
+							}
 
-							endif;
-						}
-					}
+							the_excerpt(); ?>
 
-					the_excerpt();
-					?>
+                            <div class="clearfix"></div>
+                        </div><!-- .entry-content .article -->
 
-                    <!--END .entry-content .article-->
-                    <div class="clearfix"></div>
-                </div>
+                        <div class="entry-meta entry-footer">
 
-                <div class="entry-meta entry-footer">
-					<?php if ( evolve_get_terms( 'cats' ) ) { ?>
-                        <div class="clearfix">
-                            <div class="entry-categories"> <?php echo evolve_get_terms( 'cats' ); ?></div>
+							<?php if ( evolve_get_terms( 'cats' ) ) { ?>
+                                <div class="clearfix">
+                                    <div class="entry-categories"><?php echo evolve_get_terms( 'cats' ); ?></div>
+                                </div>
+
+							<?php } ?>
+
+                            <a class="btn btn-sm"
+                               href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
+
+							<?php if ( comments_open() ) : ?>
+                                <span class="comment-count"><?php comments_popup_link( __( 'Leave a Comment', 'evolve' ), __( '1 Comment', 'evolve' ), __( '% Comments', 'evolve' ) ); ?></span>
+							<?php endif; ?>
+
                         </div>
-					<?php } ?>
+                    </div><!-- #post -->
 
-                    <a class="btn btn-sm"
-                       href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
+				<?php endwhile;
 
-					<?php if ( comments_open() ) : ?>
-                        <span class="comment-count"><?php comments_popup_link( __( 'Leave a Comment', 'evolve' ), __( '1 Comment', 'evolve' ), __( '% Comments', 'evolve' ) ); ?></span>
-					<?php
-					else : // comments are closed
-					endif;
-					?>
-                </div>
+				get_template_part( 'template-parts/navigation/navigation', 'index' );
 
-                <!--END .hentry-->
-            </div>
+			endif;
 
-			<?php
-			$i = '';
-			$i ++;
+			/*
+			   2 / 3 Columns End
+			   ======================================= */
 
-		endwhile;
-		?>
+			/*
+			   1 Column Begin
+			   ======================================= */
 
-        </div><!--END .row-->
+		} else {
 
-		<?php
-		get_template_part( 'template-parts/navigation/navigation', 'index' );
+			if ( ( $evolve_nav_links == "before" ) || ( $evolve_nav_links == "both" ) ) { ?>
 
-	endif;
-	?>
-
-
-    <!-- 2 or 3 columns end -->
-
-
-    <!-- 1 column begin -->
-
-
-	<?php
-} else {
-
-	if ( ( $evolve_nav_links == "before" ) || ( $evolve_nav_links == "both" ) ) {
-		?>
-
-        <span class="nav-top">
+                <span class="nav-top">
                 <?php get_template_part( 'template-parts/navigation/navigation', 'index' ); ?>
             </span>
 
-		<?php
-	} else {
+			<?php }
+			if ( have_posts() ) :
 
-	}
+				while ( have_posts() ) : the_post(); ?>
 
-	if ( have_posts() ) :
+                    <div id="post-<?php the_ID(); ?>"
+                         class="<?php semantic_entries(); ?> <?php evolve_post_class_2(); ?>">
 
-		while ( have_posts() ) : the_post();
-			?>
+						<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) { ?>
 
-            <!--BEGIN .hentry-->
-            <div id="post-<?php the_ID(); ?>"
-                 class="<?php semantic_entries(); ?> <?php evolve_post_class_2(); ?>">
+                            <h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"
+                                                       title="Permanent Link to <?php the_title(); ?>"><?php
+									if ( get_the_title() ) {
+										the_title();
+									}
+									?>
 
-				<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) {
-					?>
+                                </a>
+                            </h2>
 
-                    <h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"
-                                               title="Permanent Link to <?php the_title(); ?>"><?php
-							if ( get_the_title() ) {
-								the_title();
-							}
-							?></a>
-                    </h2>
+                            <div class="entry-meta entry-header">
+                                <a href="<?php the_permalink() ?>"><span
+                                            class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
 
-                    <!--BEGIN .entry-meta .entry-header-->
-                    <div class="entry-meta entry-header">
-                        <a href="<?php the_permalink() ?>"><span
-                                    class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
+								<?php if ( comments_open() ) : ?>
 
-						<?php if ( comments_open() ) : ?>
-                            <span class="comment-count"><a href="<?php comments_link(); ?>">
+                                    <span class="comment-count"><a href="<?php comments_link(); ?>">
                                                     <?php comments_popup_link( __( 'Leave a Comment', 'evolve' ), __( '1 Comment', 'evolve' ), __( '% Comments', 'evolve' ) ); ?></a>
                                             </span>
-						<?php
-						else : // comments are closed
-						endif;
-						?>
 
-                        <span class="author vcard">
+								<?php endif; ?>
 
-                                            <?php
-                                            $evolve_author_avatar = evolve_theme_mod( 'evl_author_avatar', '0' );
+                                <span class="author vcard">
+
+                                            <?php $evolve_author_avatar = evolve_theme_mod( 'evl_author_avatar', '0' );
                                             if ( $evolve_author_avatar == "1" ) {
 	                                            echo get_avatar( get_the_author_meta( 'email' ), '30' );
                                             }
 
-                                            _e( 'Written by', 'evolve' );
-                                            ?>
-                            <strong><?php printf( '<a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'evolve' ), $authordata->display_name ) ) . '">' . get_the_author() . '</a>' ) ?></strong></span>
-						<?php
-						if ( $evolve_edit_post == "1" ) {
-							if ( current_user_can( 'edit_post', $post->ID ) ):
-								edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post">', '</span>' );
-							endif;
-						}
-						?>
-                        <!--END .entry-meta .entry-header-->
-                    </div>
+                                            _e( 'Written by', 'evolve' ); ?>
 
-				<?php } else { ?>
+                                    <strong><?php printf( '<a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'evolve' ), $authordata->display_name ) ) . '">' . get_the_author() . '</a>' ) ?></strong></span>
 
-                    <h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"
-                                               title="Permanent Link to <?php the_title(); ?>"><?php
-							if ( get_the_title() ) {
-								the_title();
+								<?php if ( $evolve_edit_post == "1" ) {
+									if ( current_user_can( 'edit_post', $post->ID ) ):
+										edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post">', '</span>' );
+									endif;
+								} ?>
+
+                            </div><!-- .entry-meta .entry-header -->
+
+						<?php } else { ?>
+
+                            <h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"
+                                                       title="Permanent Link to <?php the_title(); ?>"><?php
+									if ( get_the_title() ) {
+										the_title();
+									}
+									?></a></h2>
+
+							<?php if ( $evolve_edit_post == "1" ) {
+								if ( current_user_can( 'edit_post', $post->ID ) ):
+									edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post edit-attach">', '</span>' );
+								endif;
 							}
-							?></a></h2>
+						} ?>
 
-					<?php
-					if ( $evolve_edit_post == "1" ) {
-						if ( current_user_can( 'edit_post', $post->ID ) ):
-							edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post edit-attach">', '</span>' );
-						endif;
-					}
-				}
-				?>
+                        <div class="entry-content article">
 
-                <!--BEGIN .entry-content .article-->
-                <div class="entry-content article">
+							<?php if ( $evolve_featured_images == "1" ) {
 
-					<?php
-					if ( $evolve_featured_images == "1" ) {
-
-						if ( has_post_thumbnail() ) {
-							echo '<span class="thumbnail-post"><a href="';
-							the_permalink();
-							echo '">';
-							the_post_thumbnail( 'post-thumbnail' );
-							echo '
-				<span class="mask">
-				<span class="icon"></span>
-				</span>
-				</a></span>';
-						} else {
-
-							$image = evolve_get_first_image();
-
-							if ( $image ):
-								echo '<span class="thumbnail-post"><a href="';
-								the_permalink();
-								echo '"><img src="' . $image . '" alt="';
-								the_title();
-								echo '" />
-				<span class="mask">
-				<span class="icon"></span>
-				</span>
-				</a></span>';
-
-							else:
-								if ( $evolve_thumbnail_default_images == 0 ) {
+								if ( has_post_thumbnail() ) {
 									echo '<span class="thumbnail-post"><a href="';
 									the_permalink();
-									echo '"><img src="' . get_template_directory_uri() . '/assets/images/no-thumbnail.jpg" alt="';
-									the_title();
-									echo '" />
+									echo '">';
+									the_post_thumbnail( 'post-thumbnail' );
+									echo '
 				<span class="mask">
 				<span class="icon"></span>
 				</span>
 				</a></span>';
+								} else {
+
+									$image = evolve_get_first_image();
+
+									if ( $image ):
+										echo '<span class="thumbnail-post"><a href="';
+										the_permalink();
+										echo '"><img src="' . $image . '" alt="';
+										the_title();
+										echo '" />
+				<span class="mask">
+				<span class="icon"></span>
+				</span>
+				</a></span>';
+
+									else:
+										if ( $evolve_thumbnail_default_images == 0 ) {
+											echo '<span class="thumbnail-post"><a href="';
+											the_permalink();
+											echo '"><img src="' . get_template_directory_uri() . '/assets/images/no-thumbnail.jpg" alt="';
+											the_title();
+											echo '" />
+				<span class="mask">
+				<span class="icon"></span>
+				</span>
+				</a></span>';
+										}
+
+									endif;
 								}
+							}
 
-							endif;
-						}
-					}
+							if ( ( $evolve_excerpt_thumbnail == "1" ) ) {
 
-					if ( ( $evolve_excerpt_thumbnail == "1" ) ) {
+								the_excerpt();
+								?>
 
-						the_excerpt();
-						?>
+                                <a class="btn btn-sm"
+                                   href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
 
-                        <a class="btn btn-sm"
-                           href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
+								<?php
+							} else {
 
-						<?php
-					} else {
+								the_content( __( 'Read More &raquo;', 'evolve' ) );
 
-						the_content( __( 'Read More &raquo;', 'evolve' ) );
+								wp_link_pages( array(
+									'before' => '<div id="page-links"><p>' . __( '<strong>Pages:</strong>', 'evolve' ),
+									'after'  => '</p></div>'
+								) );
+							} ?>
 
-						wp_link_pages( array(
-							'before' => '<div id="page-links"><p>' . __( '<strong>Pages:</strong>', 'evolve' ),
-							'after'  => '</p></div>'
-						) );
-					}
-					?>
+                            <div class="clearfix"></div>
+                        </div><!-- .entry-content .article -->
 
-                    <!--END .entry-content .article-->
-                    <div class="clearfix"></div>
-                </div>
+                        <div class="entry-meta entry-footer row">
+                            <div class="col-md-6">
 
+								<?php if ( evolve_get_terms( 'cats' ) ) { ?>
 
-                <!--BEGIN .entry-meta .entry-footer-->
+                                    <div class="entry-categories"> <?php echo evolve_get_terms( 'cats' ); ?></div>
 
-                <div class="entry-meta entry-footer row">
-                    <div class="col-md-6">
-						<?php if ( evolve_get_terms( 'cats' ) ) { ?>
-                            <div class="entry-categories"> <?php echo evolve_get_terms( 'cats' ); ?></div>
-							<?php
-						}
+								<?php }
 
-						if ( evolve_get_terms( 'tags' ) ) {
-							?>
+								if ( evolve_get_terms( 'tags' ) ) { ?>
 
-                            <div class="entry-tags"> <?php echo evolve_get_terms( 'tags' ); ?></div>
-						<?php } ?>
-                        <!--END .entry-meta .entry-footer-->
-                    </div>
+                                    <div class="entry-tags"> <?php echo evolve_get_terms( 'tags' ); ?></div>
 
-                    <div class="col-md-6">
-						<?php
-						if ( ( $evolve_share_this == "single_archive" ) || ( $evolve_share_this == "all" ) ) {
-							evolve_sharethis();
-						} else {
-							?>
-                            <div class="margin-40"></div>
-						<?php } ?>
-                    </div>
-                </div>
+								<?php } ?>
 
-                <!--END .hentry-->
-            </div>
+                            </div><!-- .entry-meta .entry-footer -->
 
+                            <div class="col-md-6">
 
-			<?php
-			comments_template();
+								<?php if ( ( $evolve_share_this == "single_archive" ) || ( $evolve_share_this == "all" ) ) {
+									evolve_sharethis();
+								} else { ?>
 
-		endwhile;
+                                    <div class="margin-40"></div>
 
-		if ( ( $evolve_nav_links == "" ) || ( $evolve_nav_links == "after" ) || ( $evolve_nav_links == "both" ) ) {
+								<?php } ?>
 
-			get_template_part( 'template-parts/navigation/navigation', 'index' );
-		} else {
+                            </div>
+                        </div><!-- .entry-meta .entry-footer -->
+                    </div><!-- #post -->
 
+					<?php comments_template();
+
+				endwhile;
+
+				if ( ( $evolve_nav_links == "" ) || ( $evolve_nav_links == "after" ) || ( $evolve_nav_links == "both" ) ) {
+
+					get_template_part( 'template-parts/navigation/navigation', 'index' );
+				}
+
+			endif;
 		}
 
-	endif;
-}
-?>
+		/*
+		   1 Column End
+		   ======================================= */
 
-    <!-- 1 column end -->
+		?>
 
-    <!--END #primary .hfeed-->
-    </div>
+    </div><!-- #primary -->
 
 <?php
 

@@ -12,7 +12,6 @@ if ( is_singular() and ! is_page() ) { ?>
         <div class="col-sm-6 col-md-6 nav-previous"><?php previous_post_link( '%link', '%title' ); ?></div>
         <div class="col-sm-6 col-md-6 nav-next"><?php next_post_link( '%link', '%title' ); ?></div>
     </div>
-    <div class="clearfix"></div>
 
 <?php } else { ?>
 

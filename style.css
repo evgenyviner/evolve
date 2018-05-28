@@ -662,10 +662,6 @@ form,
     height: auto;
 }
 
-.clearfix {
-    clear: both;
-}
-
 #wp-toolbar > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input {
     background-color: rgba(255, 255, 255, 0);
 }
@@ -1304,10 +1300,8 @@ span.more a {
     line-height: 41px;
     padding: 0 25px;
     cursor: pointer;
-    border-width: 1px;
-    border-style: solid;
     font-weight: normal;
-    border-color: #0bb697;
+    border: 1px solid #0bb697;
     text-align: center;
     color: #ffffff;
     background: #0bb697;
@@ -6108,7 +6102,6 @@ form.top-searchform {
     -o-box-shadow: none;
     box-shadow: none;
     display: block;
-    max-width: auto;
     width: 100%;
     -webkit-transition: all 0.2s linear;
     -moz-transition: all 0.2s linear;
@@ -7070,24 +7063,11 @@ ul#slides {
     line-height: 20px;
 }
 
-.t4p-blog-timeline .blog-timeline-layout {
-    background: transparent url("assets/images/timeline_line.png") repeat-y center center;
-    margin: 0 auto;
-    padding-top: 60px;
-    position: relative;
-    width: 775px;
-}
-
 /* ==========================================================================
    Responsive
    ========================================================================== */
 
 @media (max-width: 769px) {
-    #primary .t4p-blog-timeline .blog-timeline-layout {
-        background: none;
-        width: 100%;
-    }
-
     #primary .post {
         width: 100%;
     }
@@ -7098,9 +7078,6 @@ ul#slides {
 }
 
 @media (min-width: 769px) and (max-width: 1200px) {
-    #primary .t4p-blog-timeline .blog-timeline-layout {
-        width: 100%;
-    }
 
     .sticky-header {
         max-width: 100%;
@@ -9194,9 +9171,9 @@ body .header-block .wooslider .slide-content p {
     -moz-box-shadow: none;
     -o-box-shadow: none;
     box-shadow: none;
-    -webkit-border-radius: none;
-    -moz-border-radius: none;
-    border-radius: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
     margin: 0 auto;
     max-width: 940px;
 }
@@ -9542,7 +9519,6 @@ body .header-block .wooslider .slide-content p {
 .simple-products-slider .price .amount {
     font-weight: normal;
     font-size: 14px;
-    line-height: normal;
     color: #333333;
     text-align: center;
     line-height: 15px;
