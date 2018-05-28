@@ -61,12 +61,12 @@ $evolve_helper_tagline_class_2 = '';
                                             <p>
                                                 <input type="text" class="input-text" name="log"
                                                        id="username" value=""
-                                                       placeholder="<?php echo __( 'Username', 'evolve' ); ?>"/>
+                                                       placeholder="<?php echo esc_html__( 'Username', 'evolve' ); ?>"/>
                                             </p>
                                             <p>
                                                 <input type="password" class="input-text" name="pwd"
                                                        id="pasword" value=""
-                                                       placeholder="<?php echo __( 'Password', 'evolve' ); ?>"/>
+                                                       placeholder="<?php echo esc_html__( 'Password', 'evolve' ); ?>"/>
                                             </p>
                                             <p class="forgetmenot">
                                                 <label for="rememberme"><input name="rememberme"

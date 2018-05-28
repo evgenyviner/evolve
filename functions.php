@@ -253,7 +253,7 @@ function evolve_similar_posts() {
 							$title = the_title( '', '', false );
 							echo evolve_truncate( $title, $evolve_posts_excerpt_title_length, '...' );
 						} else {
-							echo __( "Untitled", "evolve" );
+							echo esc_html__( "Untitled", "evolve" );
 						} ?>
                     </a>
 					<?php if ( get_the_content() ) { ?> &mdash;
