@@ -82,11 +82,6 @@ function evolve_setup() {
 		}
 
 		add_filter( 'wp_title', 'evolve_wp_title', 10, 2 );
-		function evolve_render_title() { ?>
-            <title><?php wp_title( '-', true, 'right' ); ?></title>
-		<?php }
-
-		add_action( 'wp_head', 'evolve_render_title' );
 	endif;
 
 	// Custom Header Support
@@ -220,8 +215,6 @@ function evolve_tinyurl( $url ) {
    ======================================= */
 
 function evolve_similar_posts() {
-	$post      = '';
-	$orig_post = $post;
 	global $post, $evolve_similar_posts, $evolve_posts_excerpt_title_length;
 	if ( $evolve_similar_posts == "category" ) {
 		$matchby = get_the_category( $post->ID );
@@ -248,7 +241,7 @@ function evolve_similar_posts() {
 				$my_query->the_post(); ?>
                 <li>
                     <a href="<?php the_permalink() ?>" rel="bookmark"
-                       title="<?php _e( 'Permanent Link to', 'evolve' ); ?> <?php the_title(); ?>">
+                       title="<?php esc_html_e( 'Permanent Link to', 'evolve' ); ?> <?php the_title(); ?>">
 						<?php if ( get_the_title() ) {
 							$title = the_title( '', '', false );
 							echo evolve_truncate( $title, $evolve_posts_excerpt_title_length, '...' );
@@ -263,7 +256,6 @@ function evolve_similar_posts() {
 			echo '</ul></div>';
 		}
 	}
-	$post = $orig_post;
 	wp_reset_query();
 }
 
@@ -466,26 +458,26 @@ function evolve_sharethis() {
 	?>
     <div class="share-this">
         <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-           title="<?php _e( 'Share on Twitter', 'evolve' ); ?>" target="_blank"
+           title="<?php esc_html_e( 'Share on Twitter', 'evolve' ); ?>" target="_blank"
            href="http://twitter.com/intent/tweet?status=<?php echo $post->post_title; ?>+&raquo;+<?php echo esc_url( evolve_tinyurl( get_permalink() ) ); ?>"><i
                     class="t4p-icon-social-twitter"></i></a>
         <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-           title="<?php _e( 'Share on Facebook', 'evolve' ); ?>" target="_blank"
+           title="<?php esc_html_e( 'Share on Facebook', 'evolve' ); ?>" target="_blank"
            href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&amp;t=<?php echo $post->post_title; ?>"><i
                     class="t4p-icon-social-facebook"></i></a>
         <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-           title="<?php _e( 'Share on Google Plus', 'evolve' ); ?>" target="_blank"
+           title="<?php esc_html_e( 'Share on Google Plus', 'evolve' ); ?>" target="_blank"
            href="https://plus.google.com/share?url=<?php the_permalink(); ?>"><i
                     class="t4p-icon-social-google-plus"></i></a>
         <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-           title="<?php _e( 'Share on Pinterest', 'evolve' ); ?>" target="_blank"
+           title="<?php esc_html_e( 'Share on Pinterest', 'evolve' ); ?>" target="_blank"
            href="http://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $image_url; ?>&description=<?php echo $post->post_title; ?>"><i
                     class="t4p-icon-social-pinterest"></i></a>
         <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-           title="<?php _e( 'Share by Email', 'evolve' ); ?>" target="_blank"
+           title="<?php esc_html_e( 'Share by Email', 'evolve' ); ?>" target="_blank"
            href="http://www.addtoany.com/email?linkurl=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>"><i
                     class="t4p-icon-social-envelope-o"></i></a>
-        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom" title="<?php _e( 'More options', 'evolve' ); ?>"
+        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom" title="<?php esc_html_e( 'More options', 'evolve' ); ?>"
            target="_blank"
            href="http://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>"><i
                     class="t4p-icon-redo"></i></a>
@@ -1276,13 +1268,13 @@ function evolve_posts_slider() {
 								echo evolve_excerpt_max_charlength( $excerpt_length );
 								?></p>
                             <a class="btn post-more"
-                               href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
+                               href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
                         </li>
 					<?php
 					endwhile;
 				else:
 					?>
-                    <li><?php _e( '<h2 style="color:#fff;">Oops, no posts to display! Please check your post slider Category (ID) settings</h2>', 'evolve' ); ?></li>
+                    <li><?php esc_html_e( '<h2 style="color:#fff;">Oops, no posts to display! Please check your post slider Category (ID) settings</h2>', 'evolve' ); ?></li>
 				<?php
 				endif;
 				wp_reset_query();
@@ -1859,57 +1851,6 @@ function evolve_change_prefix() {
 add_filter( 'bp_docs_allow_comment_section', '__return_true', 100 );
 
 /*
-   Blog Pagination
-   ======================================= */
-
-if ( ! function_exists( 'evolve_pagination' ) ):
-	function evolve_pagination( $pages = '', $range = 2, $current_query = '' ) {
-		global $smof_data, $evolve_options;
-		$showitems = ( $range * 2 ) + 1;
-		if ( $current_query == '' ) {
-			global $paged;
-			if ( empty( $paged ) ) {
-				$paged = 1;
-			}
-		} else {
-			$paged = $current_query->query_vars['paged'];
-		}
-		if ( $pages == '' ) {
-			if ( $current_query == '' ) {
-				global $wp_query;
-				$pages = $wp_query->max_num_pages;
-				if ( ! $pages ) {
-					$pages = 1;
-				}
-			} else {
-				$pages = $current_query->max_num_pages;
-			}
-		}
-		if ( 1 != $pages ) {
-			if ( ( evolve_theme_mod( 'evl_portfolio_pagination_type' ) == 'infinite' && is_home() ) || ( evolve_theme_mod( 'evl_portfolio_pagination_type' ) == 'infinite' && is_page_template( 'portfolio-grid.php' ) ) ) {
-				echo "<div class='pagination infinite-scroll clearfix'>";
-			} else {
-				echo "<div class='pagination clearfix'>";
-			}
-			//if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'><span class='arrows'>&laquo;</span> First</a>";
-			if ( $paged > 1 ) {
-				echo "<a class='pagination-prev' href='" . get_pagenum_link( $paged - 1 ) . "'><span class='page-prev'></span>" . __( 'Previous', 'evolve' ) . "</a>";
-			}
-			for ( $i = 1; $i <= $pages; $i ++ ) {
-				if ( 1 != $pages && ( ! ( $i >= $paged + $range + 1 || $i <= $paged - $range - 1 ) || $pages <= $showitems ) ) {
-					echo ( $paged == $i ) ? "<span class='current'>" . $i . "</span>" : "<a href='" . get_pagenum_link( $i ) . "' class='inactive' >" . $i . "</a>";
-				}
-			}
-			if ( $paged < $pages ) {
-				echo "<a class='pagination-next' href='" . get_pagenum_link( $paged + 1 ) . "'>" . __( 'Next', 'evolve' ) . "<span class='page-next'></span></a>";
-			}
-			//if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>Last <span class='arrows'>&raquo;</span></a>";
-			echo "</div>\n";
-		}
-	}
-endif;
-
-/*
    Switch evolve Theme To Other Theme
    ======================================= */
 
@@ -2024,7 +1965,6 @@ function evolve_theme_mod( $name, $default = false ) {
 			'evl_bootstrap_slide4_img',
 			'evl_bootstrap_slide5_img',
 			'evl_content_background_image',
-			'evl_favicon',
 			'evl_footer_background_image',
 			'evl_header_logo',
 			'evl_scheme_background',
@@ -2055,13 +1995,13 @@ get_template_part( 'inc/custom-functions/front-page' );
 get_template_part( 'inc/customizer/admin-init' );
 
 /*
-   GMetaboxes
+   Metaboxes
    ======================================= */
 
 get_template_part( 'inc/views/metaboxes/metaboxes' );
 
 /*
-   General Scripts To Enqueue
+   General Styles/Scripts To Enqueue
    ======================================= */
 
 function evolve_scripts() {
@@ -2074,12 +2014,16 @@ function evolve_scripts() {
 	}
 
 	// Main Stylesheet
-	wp_enqueue_style( 'evolve', get_stylesheet_uri(), false );
+	wp_enqueue_style( 'evolve-style', get_stylesheet_uri(), false );
+
+	// Load The IE 9 Stylesheet
+	wp_enqueue_style( 'evolve-ie9', get_theme_file_uri( '/assets/css/ie.min.css' ), array( 'evolve-style' ), '1.0' );
+	wp_style_add_data( 'evolve-ie9', 'conditional', 'lt IE 9' );
 
 	// Bootstrap
 	wp_enqueue_script( 'evolve-bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array( 'jquery' ), '', true );
 	require get_parent_theme_file_path( '/inc/custom-functions/dynamic-css.php' );
-	wp_add_inline_style( 'evolve', $evolve_css_data );
+	wp_add_inline_style( 'evolve-style', $evolve_css_data );
 
 	$evolve_header_type = evolve_theme_mod( 'evl_header_type', 'none' );
 	switch ( $evolve_header_type ) {
@@ -2090,7 +2034,7 @@ function evolve_scripts() {
 			require get_parent_theme_file_path( '/assets/css/header2.css.min.php' );
 			break;
 	}
-	wp_add_inline_style( 'evolve', $evolve_css_data );
+	wp_add_inline_style( 'evolve-style', $evolve_css_data );
 
 	// Check If The Slider Is Enabled Globally or Per Post/Page
 	if ( ! empty( $post->ID ) ) {

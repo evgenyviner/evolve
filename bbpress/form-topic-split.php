@@ -29,15 +29,15 @@
                     <div>
 
                         <div class="bbp-template-notice info">
-                            <p><?php _e('When you split a topic, you are slicing it in half starting with the reply you just selected. Choose to use that reply as a new topic with a new title, or merge those replies into an existing topic.', 'evolve'); ?></p>
+                            <p><?php esc_html_e('When you split a topic, you are slicing it in half starting with the reply you just selected. Choose to use that reply as a new topic with a new title, or merge those replies into an existing topic.', 'evolve'); ?></p>
                         </div>
 
                         <div class="bbp-template-notice">
-                            <p><?php _e('If you use the existing topic option, replies within both topics will be merged chronologically. The order of the merged replies is based on the time and date they were posted.', 'evolve'); ?></p>
+                            <p><?php esc_html_e('If you use the existing topic option, replies within both topics will be merged chronologically. The order of the merged replies is based on the time and date they were posted.', 'evolve'); ?></p>
                         </div>
 
                         <fieldset class="bbp-form">
-                            <legend><?php _e('Split Method', 'evolve'); ?></legend>
+                            <legend><?php esc_html_e('Split Method', 'evolve'); ?></legend>
 
                             <div>
                                 <input name="bbp_topic_split_option" id="bbp_topic_split_option_reply" type="radio" checked="checked" value="reply" tabindex="<?php bbp_tab_index(); ?>" />
@@ -49,7 +49,7 @@
 
                                 <div>
                                     <input name="bbp_topic_split_option" id="bbp_topic_split_option_existing" type="radio" value="existing" tabindex="<?php bbp_tab_index(); ?>" />
-                                    <label for="bbp_topic_split_option_existing"><?php _e('Use an existing topic in this forum:', 'evolve'); ?></label>
+                                    <label for="bbp_topic_split_option_existing"><?php esc_html_e('Use an existing topic in this forum:', 'evolve'); ?></label>
 
                                     <?php
                                     bbp_dropdown(array(
@@ -69,24 +69,24 @@
                         </fieldset>
 
                         <fieldset class="bbp-form">
-                            <legend><?php _e('Topic Extras', 'evolve'); ?></legend>
+                            <legend><?php esc_html_e('Topic Extras', 'evolve'); ?></legend>
 
                             <div>
 
                                 <?php if (bbp_is_subscriptions_active()) : ?>
 
                                     <input name="bbp_topic_subscribers" id="bbp_topic_subscribers" type="checkbox" value="1" checked="checked" tabindex="<?php bbp_tab_index(); ?>" />
-                                    <label for="bbp_topic_subscribers"><?php _e('Copy subscribers to the new topic', 'evolve'); ?></label><br />
+                                    <label for="bbp_topic_subscribers"><?php esc_html_e('Copy subscribers to the new topic', 'evolve'); ?></label><br />
 
                                 <?php endif; ?>
 
                                 <input name="bbp_topic_favoriters" id="bbp_topic_favoriters" type="checkbox" value="1" checked="checked" tabindex="<?php bbp_tab_index(); ?>" />
-                                <label for="bbp_topic_favoriters"><?php _e('Copy favoriters to the new topic', 'evolve'); ?></label><br />
+                                <label for="bbp_topic_favoriters"><?php esc_html_e('Copy favoriters to the new topic', 'evolve'); ?></label><br />
 
                                 <?php if (bbp_allow_topic_tags()) : ?>
 
                                     <input name="bbp_topic_tags" id="bbp_topic_tags" type="checkbox" value="1" checked="checked" tabindex="<?php bbp_tab_index(); ?>" />
-                                    <label for="bbp_topic_tags"><?php _e('Copy topic tags to the new topic', 'evolve'); ?></label><br />
+                                    <label for="bbp_topic_tags"><?php esc_html_e('Copy topic tags to the new topic', 'evolve'); ?></label><br />
 
                                 <?php endif; ?>
 
@@ -94,11 +94,11 @@
                         </fieldset>
 
                         <div class="bbp-template-notice error">
-                            <p><?php _e('<strong>WARNING:</strong> This process cannot be undone.', 'evolve'); ?></p>
+                            <p><?php esc_html_e('<strong>WARNING:</strong> This process cannot be undone.', 'evolve'); ?></p>
                         </div>
 
                         <div class="bbp-submit-wrapper">
-                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_merge_topic_submit" name="bbp_merge_topic_submit" class="btn btn-sm"><?php _e('Submit', 'evolve'); ?></button>
+                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_merge_topic_submit" name="bbp_merge_topic_submit" class="btn btn-sm"><?php esc_html_e('Submit', 'evolve'); ?></button>
                         </div>
                     </div>
 
@@ -111,7 +111,7 @@
     <?php else : ?>
 
         <div id="no-topic-<?php bbp_topic_id(); ?>" class="bbp-no-topic">
-            <div class="entry-content"><?php is_user_logged_in() ? _e('You do not have the permissions to edit this topic!', 'evolve') : _e('You cannot edit this topic.', 'evolve'); ?></div>
+            <div class="entry-content"><?php is_user_logged_in() ? esc_html_e('You do not have the permissions to edit this topic!', 'evolve') : esc_html_e('You cannot edit this topic.', 'evolve'); ?></div>
         </div>
 
     <?php endif; ?>

@@ -146,8 +146,8 @@ do_action( 'woocommerce_before_cart' ); ?>
         <div class="cart-totals-buttons">
             <?php woocommerce_cart_totals(); ?>
 
-            <input type="submit" class="btn mt-3" name="update_cart" value="<?php _e('Update Cart', 'evolve'); ?>" />
-            <input type="submit" class="btn mt-3 float-md-right" name="proceed" value="<?php _e('Proceed to Checkout', 'evolve'); ?> &rarr;" />
+            <input type="submit" class="btn mt-3" name="update_cart" value="<?php esc_html_e('Update Cart', 'evolve'); ?>" />
+            <input type="submit" class="btn mt-3 float-md-right" name="proceed" value="<?php esc_html_e('Proceed to Checkout', 'evolve'); ?> &rarr;" />
 
             <?php do_action('woocommerce_cart_actions'); ?>
         </div>  

@@ -29,15 +29,15 @@
                     <div>
 
                         <div class="bbp-template-notice info">
-                            <p><?php _e('You can either make this reply a new topic with a new title, or merge it into an existing topic.', 'evolve'); ?></p>
+                            <p><?php esc_html_e('You can either make this reply a new topic with a new title, or merge it into an existing topic.', 'evolve'); ?></p>
                         </div>
 
                         <div class="bbp-template-notice">
-                            <p><?php _e('If you choose an existing topic, replies will be ordered by the time and date they were created.', 'evolve'); ?></p>
+                            <p><?php esc_html_e('If you choose an existing topic, replies will be ordered by the time and date they were created.', 'evolve'); ?></p>
                         </div>
 
                         <fieldset class="bbp-form">
-                            <legend><?php _e('Move Method', 'evolve'); ?></legend>
+                            <legend><?php esc_html_e('Move Method', 'evolve'); ?></legend>
 
                             <div>
                                 <input name="bbp_reply_move_option" id="bbp_reply_move_option_reply" type="radio" checked="checked" value="topic" tabindex="<?php bbp_tab_index(); ?>" />
@@ -49,7 +49,7 @@
 
                                 <div>
                                     <input name="bbp_reply_move_option" id="bbp_reply_move_option_existing" type="radio" value="existing" tabindex="<?php bbp_tab_index(); ?>" />
-                                    <label for="bbp_reply_move_option_existing"><?php _e('Use an existing topic in this forum:', 'evolve'); ?></label>
+                                    <label for="bbp_reply_move_option_existing"><?php esc_html_e('Use an existing topic in this forum:', 'evolve'); ?></label>
 
                                     <?php
                                     bbp_dropdown(array(
@@ -69,11 +69,11 @@
                         </fieldset>
 
                         <div class="bbp-template-notice error">
-                            <p><?php _e('<strong>WARNING:</strong> This process cannot be undone.', 'evolve'); ?></p>
+                            <p><?php esc_html_e('<strong>WARNING:</strong> This process cannot be undone.', 'evolve'); ?></p>
                         </div>
 
                         <div class="bbp-submit-wrapper">
-                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_move_reply_submit" name="bbp_move_reply_submit" class="btn btn-sm"><?php _e('Submit', 'evolve'); ?></button>
+                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_move_reply_submit" name="bbp_move_reply_submit" class="btn btn-sm"><?php esc_html_e('Submit', 'evolve'); ?></button>
                         </div>
                     </div>
 
@@ -86,7 +86,7 @@
     <?php else : ?>
 
         <div id="no-reply-<?php bbp_reply_id(); ?>" class="bbp-no-reply">
-            <div class="entry-content"><?php is_user_logged_in() ? _e('You do not have the permissions to edit this reply!', 'evolve') : _e('You cannot edit this reply.', 'evolve'); ?></div>
+            <div class="entry-content"><?php is_user_logged_in() ? esc_html_e('You do not have the permissions to edit this reply!', 'evolve') : esc_html_e('You cannot edit this reply.', 'evolve'); ?></div>
         </div>
 
     <?php endif; ?>

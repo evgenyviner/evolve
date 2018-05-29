@@ -48,7 +48,7 @@ $woo_acc_msg_2 = evolve_theme_mod( 'evl_woo_acc_msg_2', 'Email us - <i class="t4
 
             <div class="col">
                 <form action="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
-                    <button type="submit" class="btn float-md-right"><?php _e( 'View Cart', 'evolve' ); ?></button>
+                    <button type="submit" class="btn float-md-right"><?php esc_html_e( 'View Cart', 'evolve' ); ?></button>
                 </form>
             </div>
         </div>
@@ -95,7 +95,7 @@ $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', wc_get_checko
 
 			<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 
-            <h3 id="order_review_heading"><?php _e( 'Your order', 'evolve' ); ?></h3>
+            <h3 id="order_review_heading"><?php esc_html_e( 'Your order', 'evolve' ); ?></h3>
 
 		<?php
 		endif;

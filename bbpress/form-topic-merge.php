@@ -29,20 +29,20 @@
                     <div>
 
                         <div class="bbp-template-notice info">
-                            <p><?php _e('Select the topic to merge this one into. The destination topic will remain the lead topic, and this one will change into a reply.', 'evolve'); ?></p>
-                            <p><?php _e('To keep this topic as the lead, go to the other topic and use the merge tool from there instead.', 'evolve'); ?></p>
+                            <p><?php esc_html_e('Select the topic to merge this one into. The destination topic will remain the lead topic, and this one will change into a reply.', 'evolve'); ?></p>
+                            <p><?php esc_html_e('To keep this topic as the lead, go to the other topic and use the merge tool from there instead.', 'evolve'); ?></p>
                         </div>
 
                         <div class="bbp-template-notice">
-                            <p><?php _e('All replies within both topics will be merged chronologically. The order of the merged replies is based on the time and date they were posted. If the destination topic was created after this one, it\'s post date will be updated to second earlier than this one.', 'evolve'); ?></p>
+                            <p><?php esc_html_e('All replies within both topics will be merged chronologically. The order of the merged replies is based on the time and date they were posted. If the destination topic was created after this one, it\'s post date will be updated to second earlier than this one.', 'evolve'); ?></p>
                         </div>
 
                         <fieldset class="bbp-form">
-                            <legend><?php _e('Destination', 'evolve'); ?></legend>
+                            <legend><?php esc_html_e('Destination', 'evolve'); ?></legend>
                             <div>
                                 <?php if (bbp_has_topics(array('show_stickies' => false, 'post_parent' => bbp_get_topic_forum_id(bbp_get_topic_id()), 'post__not_in' => array(bbp_get_topic_id())))) : ?>
 
-                                    <label for="bbp_destination_topic"><?php _e('Merge with this topic:', 'evolve'); ?></label>
+                                    <label for="bbp_destination_topic"><?php esc_html_e('Merge with this topic:', 'evolve'); ?></label>
 
                                     <?php
                                     bbp_dropdown(array(
@@ -57,7 +57,7 @@
 
                                 <?php else : ?>
 
-                                    <label><?php _e('There are no other topics in this forum to merge with.', 'evolve'); ?></label>
+                                    <label><?php esc_html_e('There are no other topics in this forum to merge with.', 'evolve'); ?></label>
 
                                 <?php endif; ?>
 
@@ -65,24 +65,24 @@
                         </fieldset>
 
                         <fieldset class="bbp-form">
-                            <legend><?php _e('Topic Extras', 'evolve'); ?></legend>
+                            <legend><?php esc_html_e('Topic Extras', 'evolve'); ?></legend>
 
                             <div>
 
                                 <?php if (bbp_is_subscriptions_active()) : ?>
 
                                     <input name="bbp_topic_subscribers" id="bbp_topic_subscribers" type="checkbox" value="1" checked="checked" tabindex="<?php bbp_tab_index(); ?>" />
-                                    <label for="bbp_topic_subscribers"><?php _e('Merge topic subscribers', 'evolve'); ?></label><br />
+                                    <label for="bbp_topic_subscribers"><?php esc_html_e('Merge topic subscribers', 'evolve'); ?></label><br />
 
                                 <?php endif; ?>
 
                                 <input name="bbp_topic_favoriters" id="bbp_topic_favoriters" type="checkbox" value="1" checked="checked" tabindex="<?php bbp_tab_index(); ?>" />
-                                <label for="bbp_topic_favoriters"><?php _e('Merge topic favoriters', 'evolve'); ?></label><br />
+                                <label for="bbp_topic_favoriters"><?php esc_html_e('Merge topic favoriters', 'evolve'); ?></label><br />
 
                                 <?php if (bbp_allow_topic_tags()) : ?>
 
                                     <input name="bbp_topic_tags" id="bbp_topic_tags" type="checkbox" value="1" checked="checked" tabindex="<?php bbp_tab_index(); ?>" />
-                                    <label for="bbp_topic_tags"><?php _e('Merge topic tags', 'evolve'); ?></label><br />
+                                    <label for="bbp_topic_tags"><?php esc_html_e('Merge topic tags', 'evolve'); ?></label><br />
 
                                 <?php endif; ?>
 
@@ -90,11 +90,11 @@
                         </fieldset>
 
                         <div class="bbp-template-notice error">
-                            <p><?php _e('<strong>WARNING:</strong> This process cannot be undone.', 'evolve'); ?></p>
+                            <p><?php esc_html_e('<strong>WARNING:</strong> This process cannot be undone.', 'evolve'); ?></p>
                         </div>
 
                         <div class="bbp-submit-wrapper">
-                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_merge_topic_submit" name="bbp_merge_topic_submit" class="btn"><?php _e('Submit', 'evolve'); ?></button>
+                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_merge_topic_submit" name="bbp_merge_topic_submit" class="btn"><?php esc_html_e('Submit', 'evolve'); ?></button>
                         </div>
                     </div>
 
@@ -107,7 +107,7 @@
     <?php else : ?>
 
         <div id="no-topic-<?php bbp_topic_id(); ?>" class="bbp-no-topic">
-            <div class="entry-content"><?php is_user_logged_in() ? _e('You do not have the permissions to edit this topic!', 'evolve') : _e('You cannot edit this topic.', 'evolve'); ?></div>
+            <div class="entry-content"><?php is_user_logged_in() ? esc_html_e('You do not have the permissions to edit this topic!', 'evolve') : esc_html_e('You cannot edit this topic.', 'evolve'); ?></div>
         </div>
 
     <?php endif; ?>

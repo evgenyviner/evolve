@@ -44,20 +44,20 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 		<?php if ( is_date() ) {
 			if ( is_day() ) { ?>
 
-                <h2 class="page-title archive-title"><?php __( 'Daily archives for', 'evolve' ); ?>
-                    <span class="daily-title updated"><?php printf( __( '%s', 'evolve' ), get_the_date( _x( 'F jS, Y', 'daily archives date format', 'evolve' ) ) ); ?></span>
+                <h2 class="page-title archive-title"><?php esc_html_e( 'Daily archives for', 'evolve' ); ?>
+                    <span class="daily-title updated"><?php echo get_the_date( 'F jS, Y' ); ?></span>
                 </h2>
 
 			<?php } elseif ( is_month() ) { ?>
 
-                <h2 class="page-title archive-title"><?php __( 'Monthly archives for', 'evolve' ); ?>
-                    <span class="monthly-title updated"><?php printf( __( '%s', 'evolve' ), get_the_date( _x( 'F, Y', 'monthly archives date format', 'evolve' ) ) ); ?></span>
+                <h2 class="page-title archive-title"><?php esc_html_e( 'Monthly archives for', 'evolve' ); ?>
+                    <span class="monthly-title updated"><?php echo get_the_date( 'F, Y' ); ?></span>
                 </h2>
 
 			<?php } elseif ( is_year() ) { ?>
 
-                <h2 class="page-title archive-title"><?php __( 'Yearly archives for', 'evolve' ); ?>
-                    <span class="yearly-title updated"><?php printf( __( '%s', 'evolve' ), get_the_date( _x( 'Y', 'yearly archives date format', 'evolve' ) ) ); ?></span>
+                <h2 class="page-title archive-title"><?php esc_html_e( 'Yearly archives for', 'evolve' ); ?>
+                    <span class="yearly-title updated"><?php echo get_the_date( 'Y' ); ?></span>
                 </h2>
 
 			<?php }
@@ -114,7 +114,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
                                         class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
                             <span class="author vcard">
 
-                                <?php _e( 'Written by', 'evolve' ); ?>
+                                <?php esc_html_e( 'Written by', 'evolve' ); ?>
 
                                 <strong><?php printf( '<a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'evolve' ), $authordata->display_name ) ) . '">' . get_the_author() . '</a>' ) ?></strong>
                             </span>
@@ -184,7 +184,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 
                         <div class="entry-meta entry-footer">
                             <a class="btn btn-sm"
-                               href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
+                               href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
 
 							<?php if ( comments_open() ) : ?>
                                 <span class="comment-count"><?php comments_popup_link( __( 'Leave a Comment', 'evolve' ), __( '1 Comment', 'evolve' ), __( '% Comments', 'evolve' ) ); ?></span>

@@ -28,44 +28,49 @@ function evolve_hex2rgba( $hex, $alpha = '' ) {
 		return 'rgba(' . $rgb . ',' . $alpha . ')';
 	}
 }
-function evolve_hex2rgba1($color, $opacity = false) { 
-	$default = 'rgb(0,0,0)'; 
+
+function evolve_hex2rgba1( $color, $opacity = false ) {
+	$default = 'rgb(0,0,0)';
 	//Return default if no color provided
-	if(empty($color))
-          return $default;  
+	if ( empty( $color ) ) {
+		return $default;
+	}
 	//Sanitize $color if "#" is provided 
-	if ($color[0] == '#' ) {
+	if ( $color[0] == '#' ) {
 		$color = substr( $color, 1 );
-	} 
+	}
 	//Check if color has 6 or 3 characters and get values
-	if (strlen($color) == 6) {
-			$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+	if ( strlen( $color ) == 6 ) {
+		$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
 	} elseif ( strlen( $color ) == 3 ) {
-			$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+		$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
 	} else {
-			return $default;
-	} 
+		return $default;
+	}
 	//Convert hexadec to rgb
-	$rgb =  array_map('hexdec', $hex); 
+	$rgb = array_map( 'hexdec', $hex );
 	//Check if opacity is set(rgba or rgb)
-	if($opacity){
-		if(abs($opacity) > 1)
+	if ( $opacity ) {
+		if ( abs( $opacity ) > 1 ) {
 			$opacity = 1.0;
-		$output = 'rgba('.implode(",",$rgb).','.$opacity.')';
+		}
+		$output = 'rgba(' . implode( ",", $rgb ) . ',' . $opacity . ')';
 	} else {
-		$output = 'rgb('.implode(",",$rgb).')';
-	} 
+		$output = 'rgb(' . implode( ",", $rgb ) . ')';
+	}
+
 	//Return rgb(a) color string
 	return $output;
 }
+
 global $name_of_panel, $evolve_all_customize_fields, $evolve_index_control;
-$name_of_panel           = '';
+$name_of_panel               = '';
 $evolve_index_control        = 0;
 $evolve_all_customize_fields = array();
 
 class Evolve_Fix_Rd {
 	static function setSection( $param1, $param2 ) {
-		if (true || is_user_logged_in() ) {
+		if ( true || is_user_logged_in() ) {
 			global $name_of_panel, $evolve_all_customize_fields, $evolve_index_control;
 			$evolve_index_control ++;
 			if ( isset( $param2['iconfix'] ) && ! empty( $param2['iconfix'] ) ) {
@@ -75,20 +80,20 @@ class Evolve_Fix_Rd {
 				if ( ! isset( $param2['subsection'] ) ) {
 					$name_of_panel = $param2['id'];
 					if ( is_user_logged_in() && is_customize_preview() ) {
-					Kirki::add_section( $param2['id'], array(
-						'title'    => $param2['title'],
-						'priority' => $evolve_index_control,
-						'icon'     => $param2['icon'],
-					) );
+						Kirki::add_section( $param2['id'], array(
+							'title'    => $param2['title'],
+							'priority' => $evolve_index_control,
+							'icon'     => $param2['icon'],
+						) );
 					}
 				} else {
 					if ( is_user_logged_in() && is_customize_preview() ) {
-					Kirki::add_section( $param2['id'], array(
-						'title'    => $param2['title'],
-						'panel'    => $name_of_panel,
-						'priority' => $evolve_index_control,
-						'icon'     => $param2['icon'],
-					) );
+						Kirki::add_section( $param2['id'], array(
+							'title'    => $param2['title'],
+							'panel'    => $name_of_panel,
+							'priority' => $evolve_index_control,
+							'icon'     => $param2['icon'],
+						) );
 					}
 				}
 				Evolve_Fix_Rd::evl_call_kirki_from_old_field( $param2['fields'], $param2['id'] );
@@ -147,20 +152,20 @@ class Evolve_Fix_Rd {
 					}
 					if ( isset( $value_temp['default']['padding-top'] ) ) {
 						$value_temp['default']['top'] = $value_temp['default']['padding-top'];
-						unset($value_temp['default']['units']);
-						unset($value_temp['default']['padding-top']);
+						unset( $value_temp['default']['units'] );
+						unset( $value_temp['default']['padding-top'] );
 					}
 					if ( isset( $value_temp['default']['padding-right'] ) ) {
 						$value_temp['default']['right'] = $value_temp['default']['padding-right'];
-						unset($value_temp['default']['padding-right']);
+						unset( $value_temp['default']['padding-right'] );
 					}
 					if ( isset( $value_temp['default']['padding-bottom'] ) ) {
 						$value_temp['default']['bottom'] = $value_temp['default']['padding-bottom'];
-						unset($value_temp['default']['padding-bottom']);
+						unset( $value_temp['default']['padding-bottom'] );
 					}
 					if ( isset( $value_temp['default']['padding-left'] ) ) {
 						$value_temp['default']['left'] = $value_temp['default']['padding-left'];
-						unset($value_temp['default']['padding-left']);
+						unset( $value_temp['default']['padding-left'] );
 					}
 					if ( ! is_array( $value['default'] ) ) {
 						$value_temp['default'] = str_replace( 'fas fa-', '', $value_temp['default'] );
@@ -191,7 +196,7 @@ class Evolve_Fix_Rd {
 				if ( isset( $value['type'] ) && $value['type'] == 'color_rgba' ) {
 					$value_temp['type'] = 'color';
 					if ( isset( $value['default']['color'] ) ) {
-						$value_temp['default'] = evolve_hex2rgba($value['default']['color'], $value['default']['alpha']);
+						$value_temp['default']          = evolve_hex2rgba( $value['default']['color'], $value['default']['alpha'] );
 						$value_temp['choices']['alpha'] = true;
 					}
 				}
@@ -225,7 +230,7 @@ class Evolve_Fix_Rd {
 					$active_callback = array();
 					if ( count( $value['required'] ) ) {
 						foreach ( $value['required'] as $required ) {
-							if ( isset($required[2]) && $required[2] == '=' ) {
+							if ( isset( $required[2] ) && $required[2] == '=' ) {
 								$required[2] = '==';
 							}
 							$active_callback[] = array(
@@ -468,7 +473,7 @@ foreach ( $pages as $key => $page_instance ) {
 	$page_title[ $page_instance->ID ] = $page_instance->post_title;
 }
 
-if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+if ( class_exists( 'Woocommerce' ) ) {
 	//Get Product Categories List
 	global $wpdb;
 	$term_query = "SELECT * from " . $wpdb->prefix . "terms as wpt, " . $wpdb->prefix . "term_taxonomy as wptt where wpt.term_id = wptt.term_id AND wptt.taxonomy = 'product_cat'";
@@ -614,7 +619,7 @@ foreach ( $options_pages_obj as $page ) {
 // ));
 // add_action( 'customize_register', 'evolve_theme_kirki_add_controls', 10, 3 );
 // function evolve_theme_kirki_add_controls(){
-	
+
 if ( true || is_customize_preview() ) {
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 		'id'      => 'evl-theme-links-main-tab',
@@ -642,14 +647,14 @@ if ( true || is_customize_preview() ) {
 //Check status of parallax and post slider
 	// $theme_options = get_option( 'evl_options', false );
 	// if ( ! $theme_options ) {
-		// $bi_evolve_options = get_option( 'bi_evolve_options', false );
-		// if ( $bi_evolve_options ) {
-			// $theme_options = $bi_evolve_options;
-		// }
+	// $bi_evolve_options = get_option( 'bi_evolve_options', false );
+	// if ( $bi_evolve_options ) {
+	// $theme_options = $bi_evolve_options;
+	// }
 	// }
 	$theme_options['evl_bootstrap_slider_support'] = evolve_theme_mod( 'evl_bootstrap_slider_support' );
-	$theme_options['evl_parallax_slider_support'] = evolve_theme_mod( 'evl_parallax_slider_support' );
-	$theme_options['evl_carousel_slider'] = evolve_theme_mod( 'evl_carousel_slider' );
+	$theme_options['evl_parallax_slider_support']  = evolve_theme_mod( 'evl_parallax_slider_support' );
+	$theme_options['evl_carousel_slider']          = evolve_theme_mod( 'evl_carousel_slider' );
 
 	( isset( $theme_options['evl_bootstrap_slider_support'] ) && $theme_options['evl_bootstrap_slider_support'] == '1' ) ? $bootstrapslider_status = ' (ACTIVE)' : $bootstrapslider_status = ' (INACTIVE)';
 	( $theme_options['evl_parallax_slider_support'] == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)';
@@ -2378,7 +2383,7 @@ if ( true || is_customize_preview() ) {
 	);
 
 // Front Page WooCommerce Products Sections
-	if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) :
+	if ( class_exists( 'Woocommerce' ) ) :
 		Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 				'id'         => 'evl-fp-woo-product-general-tab',
 				'title'      => __( 'WooCommerce Products', 'evolve' ),
@@ -2696,19 +2701,12 @@ if ( true || is_customize_preview() ) {
  */
 
 
-	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
+	/* Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-general-subsec-fav-tab',
 			'title'      => __( 'Favicon', 'evolve' ),
 			'subsection' => true,
 			'fields'     => array(
-				array(
-					'subtitle' => __( 'Upload custom favicon.', 'evolve' ),
-					'id'       => 'evl_favicon',
-					'type'     => 'media',
-					'title'    => __( 'Custom Favicon', 'evolve' ),
-					'url'      => true,
-				),
-				/*        array(
+      array(
       'subtitle' => __('Favicon for Apple iPhone (57px x 57px).', 'evolve'),
       'id' => 'evl_iphone_icon',
       'type' => 'media',
@@ -2744,10 +2742,10 @@ if ( true || is_customize_preview() ) {
       'url' => true,
       'class' => $evolve_prem_class,
       ),
-     */
-			),
-		)
-	);
+
+),
+)
+); */
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-general-subsec-lay-tab',
@@ -2991,7 +2989,7 @@ if ( true || is_customize_preview() ) {
 			'iconfix' => 'dashicons-download',
 		)
 	);
-	
+
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-header-subsec-header-tab',
 			'title'      => __( 'Header', 'evolve' ),
@@ -5948,32 +5946,32 @@ if ( true || is_customize_preview() ) {
 				'type'     => "select",
 				'options'  => array(
 					'disabled' => __( 'Disabled', 'evolve' ),
-					'0'        => __( '0', 'evolve' ),
-					'1'        => __( '1', 'evolve' ),
-					'2'        => __( '2', 'evolve' ),
-					'3'        => __( '3', 'evolve' ),
-					'4'        => __( '4', 'evolve' ),
-					'5'        => __( '5', 'evolve' ),
-					'6'        => __( '6', 'evolve' ),
-					'7'        => __( '7', 'evolve' ),
-					'8'        => __( '8', 'evolve' ),
-					'9'        => __( '9', 'evolve' ),
-					'10'       => __( '10', 'evolve' ),
-					'11'       => __( '11', 'evolve' ),
-					'12'       => __( '12', 'evolve' ),
-					'13'       => __( '13', 'evolve' ),
-					'14'       => __( '14', 'evolve' ),
-					'15'       => __( '15', 'evolve' ),
-					'16'       => __( '16', 'evolve' ),
-					'17'       => __( '17', 'evolve' ),
-					'18'       => __( '18', 'evolve' ),
-					'19'       => __( '19', 'evolve' ),
-					'20'       => __( '20', 'evolve' ),
-					'21'       => __( '21', 'evolve' ),
-					'22'       => __( '22', 'evolve' ),
-					'23'       => __( '23', 'evolve' ),
-					'24'       => __( '24', 'evolve' ),
-					'25'       => __( '25', 'evolve' ),
+					'0'        => '0',
+					'1'        => '1',
+					'2'        => '2',
+					'3'        => '3',
+					'4'        => '4',
+					'5'        => '5',
+					'6'        => '6',
+					'7'        => '7',
+					'8'        => '8',
+					'9'        => '9',
+					'10'       => '10',
+					'11'       => '11',
+					'12'       => '12',
+					'13'       => '13',
+					'14'       => '14',
+					'15'       => '15',
+					'16'       => '16',
+					'17'       => '17',
+					'18'       => '18',
+					'19'       => '19',
+					'20'       => '20',
+					'21'       => '21',
+					'22'       => '22',
+					'23'       => '23',
+					'24'       => '24',
+					'25'       => '25',
 				),
 				'default'  => 'disabled',
 			),
@@ -7231,34 +7229,35 @@ function evolve_trigger_import_function() {
 	}
 	exit();
 }
+
 // update_option('update_theme_from_redux_to_kirki', false);
-if( is_user_logged_in()){
-	add_action('init', 'update_theme_from_redux_to_kirki');
+if ( is_user_logged_in() ) {
+	add_action( 'init', 'update_theme_from_redux_to_kirki' );
 }
-function update_theme_from_redux_to_kirki(){
-	$update_theme_from_redux_to_kirki = get_option('update_theme_from_redux_to_kirki', false);
-	if($update_theme_from_redux_to_kirki == false){
-		$data_options = get_option('evl_options');
-		if($data_options){
+function update_theme_from_redux_to_kirki() {
+	$update_theme_from_redux_to_kirki = get_option( 'update_theme_from_redux_to_kirki', false );
+	if ( $update_theme_from_redux_to_kirki == false ) {
+		$data_options = get_option( 'evl_options' );
+		if ( $data_options ) {
 			foreach ( $data_options as $key => $value ) {
-				$value = fix_data_from_redux_to_kirki($value);
-				set_theme_mod($key, $value);
+				$value = fix_data_from_redux_to_kirki( $value );
+				set_theme_mod( $key, $value );
 			}
 		}
-		update_option('update_theme_from_redux_to_kirki', time());
+		update_option( 'update_theme_from_redux_to_kirki', time() );
 	}
 }
 
-function fix_data_from_redux_to_kirki($value){
-	$evolve_imagepathfolder      = get_template_directory_uri() . '/assets/images/';
-	$bootstrapsliderKeys = array(
+function fix_data_from_redux_to_kirki( $value ) {
+	$evolve_imagepathfolder = get_template_directory_uri() . '/assets/images/';
+	$bootstrapsliderKeys    = array(
 		'evl_bootstrap_slide1_img',
 		'evl_bootstrap_slide2_img',
 		'evl_bootstrap_slide3_img',
 		'evl_bootstrap_slide4_img',
 		'evl_bootstrap_slide5_img',
 	);
-	$parallaxsliderKeys  = array(
+	$parallaxsliderKeys     = array(
 		'evl_slide1_img',
 		'evl_slide2_img',
 		'evl_slide3_img',
@@ -7278,20 +7277,20 @@ function fix_data_from_redux_to_kirki($value){
 			$plugin_options[ $key ] = $value;
 		}
 	}
-	if ( $value && is_array($value) && count( $value ) && isset($value["enabled"]) && is_array($value["enabled"]) && count( $value["enabled"] ) ) {
+	if ( $value && is_array( $value ) && count( $value ) && isset( $value["enabled"] ) && is_array( $value["enabled"] ) && count( $value["enabled"] ) ) {
 		$enabled_temp = array();
 		foreach ( $value["enabled"] as $enabled_key => $items ) {
-			if('placebo' != $enabled_key){
+			if ( 'placebo' != $enabled_key ) {
 				$enabled_temp[] = $enabled_key;
 			}
 		}
 		$value = $enabled_temp;
 	}
-	
-	if ( $value && is_array($value) && count( $value ) && isset($value["url"]) ) {
+
+	if ( $value && is_array( $value ) && count( $value ) && isset( $value["url"] ) ) {
 		$value = $value["url"];
 	}
-	if ( $value && is_array($value) && count( $value ) && isset($value["color"]) ) {
+	if ( $value && is_array( $value ) && count( $value ) && isset( $value["color"] ) ) {
 		// $value = $value["color"];
 	}
 	if ( isset( $value['rgba'] ) ) {
@@ -7318,6 +7317,7 @@ function fix_data_from_redux_to_kirki($value){
 		$value = str_replace( 'fa fa-', '', $value );
 		$value = str_replace( 'fa-', '', $value );
 	}
+
 	return $value;
 }
 
@@ -7419,18 +7419,18 @@ function evolve_import_demo_content_kirki( $wp_customize = null ) {
 			wp_insert_post( $defaults, false );
 		}
 
-		$theme_options_txt = wp_remote_get( $theme_options_txt );
-		$theme_options_txt['body'] = str_replace( 'http://localhost/wordpress/' , trailingslashit(home_url()) , $theme_options_txt['body']);
-		$theme_options_txt['body'] = str_replace( 'team-1.jpg' , 'team-1.png' , $theme_options_txt['body']);
-		$theme_options_txt['body'] = str_replace( 'team-2.jpg' , 'team-2.png' , $theme_options_txt['body']);
-		$imported_options  = json_decode( ( $theme_options_txt['body'] ), true );
+		$theme_options_txt         = wp_remote_get( $theme_options_txt );
+		$theme_options_txt['body'] = str_replace( 'http://localhost/wordpress/', trailingslashit( home_url() ), $theme_options_txt['body'] );
+		$theme_options_txt['body'] = str_replace( 'team-1.jpg', 'team-1.png', $theme_options_txt['body'] );
+		$theme_options_txt['body'] = str_replace( 'team-2.jpg', 'team-2.png', $theme_options_txt['body'] );
+		$imported_options          = json_decode( ( $theme_options_txt['body'] ), true );
 
 		if ( ! empty( $imported_options ) && is_array( $imported_options ) && isset( $imported_options['redux-backup'] ) && $imported_options['redux-backup'] == '1' ) {
 
 			$changed_values = array();
 
 			foreach ( $imported_options as $key => $value ) {
-				$value = fix_data_from_redux_to_kirki($value);
+				$value = fix_data_from_redux_to_kirki( $value );
 				set_theme_mod( $key, $value );
 			}
 
@@ -7536,7 +7536,7 @@ function evolve_import_demo_content( $wp_customize ) {
 			$changed_values = array();
 
 			foreach ( $imported_options as $key => $value ) {
-				$value = fix_data_from_redux_to_kirki($value);
+				$value = fix_data_from_redux_to_kirki( $value );
 			}
 
 			update_option( 'evl_options', $plugin_options );
@@ -7562,7 +7562,7 @@ add_action( 'redux/options/' . $evolve_opt_name . '/saved', 'evolve_import_demo_
  *
  * ************************************************************************************************************ */
 
-if (is_user_logged_in() && get_option( 'old_new_upgrade_themeoptions', 'false' ) == 'false' ) {
+if ( is_user_logged_in() && get_option( 'old_new_upgrade_themeoptions', 'false' ) == 'false' ) {
 	//homepage and fronpage conditions and get frontpage ID
 	$is_homepage  = get_option( 'show_on_front' );
 	$frontpage_id = get_option( 'page_on_front' );
@@ -7874,72 +7874,72 @@ function evolve_customize_register( $wp_customize ) {
 // Kirki::remove_section('static_front_page');
 // Kirki::remove_panel('widgets');
 // Kirki::remove_section('custom_css');
-$array_default_customize = array(
-	array(
-		'type'  => 2,
-		'value' => 'nav_menus',
-		'title' => 'Menus',
-		'icon'  => 'dashicons-menu'
-	),
-	array(
-		'type'  => 1,
-		'value' => 'title_tagline',
-		'title' => 'Site Identity',
-		'icon'  => 'dashicons-format-quote'
-	),
-	array(
-		'type'  => 1,
-		'value' => 'colors',
-		'title' => 'Colors',
-		'icon'  => 'dashicons-art'
-	),
-	array(
-		'type'  => 1,
-		'value' => 'header_image',
-		'title' => 'Header Image',
-		'icon'  => 'dashicons-format-image'
-	),
-	array(
-		'type'  => 1,
-		'value' => 'background_image',
-		'title' => 'Background Image',
-		'icon'  => 'dashicons-format-gallery'
-	),
-	array(
-		'type'  => 1,
-		'value' => 'static_front_page',
-		'title' => 'Homepage Settings',
-		'icon'  => 'dashicons-welcome-write-blog'
-	),
-	array(
-		'type'  => 2,
-		'value' => 'widgets',
-		'title' => 'Widgets',
-		'icon'  => 'dashicons-welcome-widgets-menus'
-	),
-	array(
-		'type'  => 1,
-		'value' => 'custom_css',
-		'title' => 'Additional CSS',
-		'icon'  => 'dashicons-edit'
-	),
-);
-foreach ( $array_default_customize as $value ) {
-	$evolve_index_control ++;
-	if ( $value['type'] == 2 ) {
-		Kirki::add_panel( $value['value'], array(
-			'title'    => $value['title'],
-			'icon'     => $value['icon'],
-			'priority' => $evolve_index_control,
-		) );
-	} else {
-		Kirki::add_section( $value['value'], array(
-			'title'    => $value['title'],
-			'icon'     => $value['icon'],
-			'priority' => $evolve_index_control,
-		) );
+	$array_default_customize = array(
+		array(
+			'type'  => 2,
+			'value' => 'nav_menus',
+			'title' => 'Menus',
+			'icon'  => 'dashicons-menu'
+		),
+		array(
+			'type'  => 1,
+			'value' => 'title_tagline',
+			'title' => 'Site Identity',
+			'icon'  => 'dashicons-format-quote'
+		),
+		array(
+			'type'  => 1,
+			'value' => 'colors',
+			'title' => 'Colors',
+			'icon'  => 'dashicons-art'
+		),
+		array(
+			'type'  => 1,
+			'value' => 'header_image',
+			'title' => 'Header Image',
+			'icon'  => 'dashicons-format-image'
+		),
+		array(
+			'type'  => 1,
+			'value' => 'background_image',
+			'title' => 'Background Image',
+			'icon'  => 'dashicons-format-gallery'
+		),
+		array(
+			'type'  => 1,
+			'value' => 'static_front_page',
+			'title' => 'Homepage Settings',
+			'icon'  => 'dashicons-welcome-write-blog'
+		),
+		array(
+			'type'  => 2,
+			'value' => 'widgets',
+			'title' => 'Widgets',
+			'icon'  => 'dashicons-welcome-widgets-menus'
+		),
+		array(
+			'type'  => 1,
+			'value' => 'custom_css',
+			'title' => 'Additional CSS',
+			'icon'  => 'dashicons-edit'
+		),
+	);
+	foreach ( $array_default_customize as $value ) {
+		$evolve_index_control ++;
+		if ( $value['type'] == 2 ) {
+			Kirki::add_panel( $value['value'], array(
+				'title'    => $value['title'],
+				'icon'     => $value['icon'],
+				'priority' => $evolve_index_control,
+			) );
+		} else {
+			Kirki::add_section( $value['value'], array(
+				'title'    => $value['title'],
+				'icon'     => $value['icon'],
+				'priority' => $evolve_index_control,
+			) );
+		}
 	}
-}
 
 }
 

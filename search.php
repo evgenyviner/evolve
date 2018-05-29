@@ -36,7 +36,7 @@ if ( $evolve_breadcrumbs == "1" ):
 endif;
 ?>
 
-    <h2 class="page-title search-title"><?php _e( 'Search results for', 'evolve' ); ?><?php echo '<span class="search-term">' . the_search_query() . '</span>'; ?></h2>
+    <h2 class="page-title search-title"><?php esc_html_e( 'Search results for', 'evolve' ); ?><?php echo '<span class="search-term">' . the_search_query() . '</span>'; ?></h2>
 
 <?php
 if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
@@ -84,7 +84,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
                                 class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
 
                     <span class="author vcard">
-                                        <?php _e( 'Written by', 'evolve' ); ?>
+                                        <?php esc_html_e( 'Written by', 'evolve' ); ?>
                         <strong><?php printf( '<a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'evolve' ), $authordata->display_name ) ) . '">' . get_the_author() . '</a>' ) ?></strong>
                                     </span>
 					<?php
@@ -169,7 +169,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 
 
                     <a class="btn btn-sm"
-                       href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
+                       href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
 
 
 					<?php if ( comments_open() ) : ?>
@@ -207,16 +207,16 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 
             <!--BEGIN #post-0-->
             <div id="post-0" class="<?php semantic_entries(); ?>">
-                <h2 class="entry-title"><?php _e( 'Your search for', 'evolve' ); ?> "<?php echo the_search_query(); ?>
-                    " <?php _e( 'did not match any entries', 'evolve' ); ?></h2>
+                <h2 class="entry-title"><?php esc_html_e( 'Your search for', 'evolve' ); ?> "<?php echo the_search_query(); ?>
+                    " <?php esc_html_e( 'did not match any entries', 'evolve' ); ?></h2>
                 <!--BEGIN .entry-content-->
                 <div class="entry-content">
                     <br/>
-                    <p><?php _e( 'Suggestions:', 'evolve' ); ?></p>
+                    <p><?php esc_html_e( 'Suggestions:', 'evolve' ); ?></p>
                     <ul>
-                        <li><?php _e( 'Make sure all words are spelled correctly.', 'evolve' ); ?></li>
-                        <li><?php _e( 'Try different keywords.', 'evolve' ); ?></li>
-                        <li><?php _e( 'Try more general keywords.', 'evolve' ); ?></li>
+                        <li><?php esc_html_e( 'Make sure all words are spelled correctly.', 'evolve' ); ?></li>
+                        <li><?php esc_html_e( 'Try different keywords.', 'evolve' ); ?></li>
+                        <li><?php esc_html_e( 'Try more general keywords.', 'evolve' ); ?></li>
                     </ul>
                     <!--END .entry-content-->
                 </div>
@@ -229,10 +229,10 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 
             <!--BEGIN #post-0-->
             <div id="post-0" class="<?php semantic_entries(); ?>">
-                <h2 class="entry-title"><?php _e( 'Not Found', 'evolve' ); ?></h2>
+                <h2 class="entry-title"><?php esc_html_e( 'Not Found', 'evolve' ); ?></h2>
                 <!--BEGIN .entry-content-->
                 <div class="entry-content">
-                    <p><?php _e( 'Sorry, but you are looking for something that isn\'t here.', 'evolve' ); ?></p>
+                    <p><?php esc_html_e( 'Sorry, but you are looking for something that isn\'t here.', 'evolve' ); ?></p>
                     <!--END .entry-content-->
                 </div>
                 <!--END #post-0-->
@@ -308,7 +308,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 	                                    echo get_avatar( get_the_author_meta( 'email' ), '30' );
                                     }
 
-                                    _e( 'Written by', 'evolve' );
+                                    esc_html_e( 'Written by', 'evolve' );
                                     ?>
                         <strong><?php printf( '<a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'evolve' ), $authordata->display_name ) ) . '">' . get_the_author() . '</a>' ) ?></strong>
                                 </span>
@@ -392,7 +392,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 					?>
 
                     <a class="btn btn-sm"
-                       href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
+                       href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
 
 					<?php
 				} else {
@@ -463,16 +463,16 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 			?>
             <!--BEGIN #post-0-->
             <div id="post-0" class="<?php semantic_entries(); ?>">
-                <h2 class="entry-title"><?php _e( 'Your search for', 'evolve' ); ?> "<?php echo the_search_query(); ?>
-                    " <?php _e( 'did not match any entries', 'evolve' ); ?></h2>
+                <h2 class="entry-title"><?php esc_html_e( 'Your search for', 'evolve' ); ?> "<?php echo the_search_query(); ?>
+                    " <?php esc_html_e( 'did not match any entries', 'evolve' ); ?></h2>
                 <!--BEGIN .entry-content-->
                 <div class="entry-content">
                     <br/>
-                    <p><?php _e( 'Suggestions:', 'evolve' ); ?></p>
+                    <p><?php esc_html_e( 'Suggestions:', 'evolve' ); ?></p>
                     <ul>
-                        <li><?php _e( 'Make sure all words are spelled correctly.', 'evolve' ); ?></li>
-                        <li><?php _e( 'Try different keywords.', 'evolve' ); ?></li>
-                        <li><?php _e( 'Try more general keywords.', 'evolve' ); ?></li>
+                        <li><?php esc_html_e( 'Make sure all words are spelled correctly.', 'evolve' ); ?></li>
+                        <li><?php esc_html_e( 'Try different keywords.', 'evolve' ); ?></li>
+                        <li><?php esc_html_e( 'Try more general keywords.', 'evolve' ); ?></li>
                     </ul>
                     <!--END .entry-content-->
                 </div>
@@ -483,10 +483,10 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 		<?php } else { ?>
             <!--BEGIN #post-0-->
             <div id="post-0" class="<?php semantic_entries(); ?>">
-                <h2 class="entry-title"><?php _e( 'Not Found', 'evolve' ); ?></h2>
+                <h2 class="entry-title"><?php esc_html_e( 'Not Found', 'evolve' ); ?></h2>
                 <!--BEGIN .entry-content-->
                 <div class="entry-content">
-                    <p><?php _e( 'Sorry, but you are looking for something that isn\'t here.', 'evolve' ); ?></p>
+                    <p><?php esc_html_e( 'Sorry, but you are looking for something that isn\'t here.', 'evolve' ); ?></p>
                     <!--END .entry-content-->
                 </div>
                 <!--END #post-0-->

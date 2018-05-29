@@ -14,19 +14,19 @@ if ($order) :
     if ( $order->has_status( 'failed' ) ) :
         ?>
 
-        <p><?php _e('Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction.', 'evolve'); ?></p>
+        <p><?php esc_html_e('Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction.', 'evolve'); ?></p>
 
         <p><?php
             if (is_user_logged_in())
-                _e('Please attempt your purchase again or go to your account page.', 'evolve');
+                esc_html_e('Please attempt your purchase again or go to your account page.', 'evolve');
             else
-                _e('Please attempt your purchase again.', 'evolve');
+                esc_html_e('Please attempt your purchase again.', 'evolve');
             ?></p>
 
         <p>
-            <a href="<?php echo esc_url($order->get_checkout_payment_url()); ?>" class="btn"><?php _e('Pay', 'evolve') ?></a>
+            <a href="<?php echo esc_url($order->get_checkout_payment_url()); ?>" class="btn"><?php esc_html_e('Pay', 'evolve') ?></a>
             <?php if (is_user_logged_in()) : ?>
-                <a href="<?php echo esc_url(get_permalink(wc_get_page_id('myaccount'))); ?>" class="btn"><?php _e('My Account', 'evolve'); ?></a>
+                <a href="<?php echo esc_url(get_permalink(wc_get_page_id('myaccount'))); ?>" class="btn"><?php esc_html_e('My Account', 'evolve'); ?></a>
             <?php endif; ?>
         </p>
 
@@ -36,20 +36,20 @@ if ($order) :
 
         <ul class="order_details">
             <li class="order">
-                <?php _e('Order:', 'evolve'); ?>
+                <?php esc_html_e('Order:', 'evolve'); ?>
                 <strong><?php echo $order->get_order_number(); ?></strong>
             </li>
             <li class="date">
-                <?php _e('Date:', 'evolve'); ?>
+                <?php esc_html_e('Date:', 'evolve'); ?>
                 <strong><?php echo wc_format_datetime( $order->get_date_created() ); ?></strong>
             </li>
             <li class="total">
-                <?php _e('Total:', 'evolve'); ?>
+                <?php esc_html_e('Total:', 'evolve'); ?>
                 <strong><?php echo $order->get_formatted_order_total(); ?></strong>
             </li>
             <?php if ( $order->get_payment_method_title() ) : ?>
                 <li class="method">
-                    <?php _e('Payment method:', 'evolve'); ?>
+                    <?php esc_html_e('Payment method:', 'evolve'); ?>
                     <strong><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></strong>
                 </li>
             <?php endif; ?>

@@ -34,19 +34,19 @@ if (bbp_allow_search()) :
             <ul>
                 <li class="<?php if (bbp_is_single_user_profile()) : ?>current<?php endif; ?>">
                     <span class="vcard bbp-user-profile-link">
-                        <a class="url fn n" href="<?php bbp_user_profile_url(); ?>" title="<?php printf(esc_attr__("%s's Profile", 'evolve'), bbp_get_displayed_user_field('display_name')); ?>" rel="me"><?php _e('Profile', 'evolve'); ?></a>
+                        <a class="url fn n" href="<?php bbp_user_profile_url(); ?>" title="<?php printf(esc_attr__("%s's Profile", 'evolve'), bbp_get_displayed_user_field('display_name')); ?>" rel="me"><?php esc_html_e('Profile', 'evolve'); ?></a>
                     </span>
                 </li>
 
                 <li class="<?php if (bbp_is_single_user_topics()) : ?>current<?php endif; ?>">
                     <span class='bbp-user-topics-created-link'>
-                        <a href="<?php bbp_user_topics_created_url(); ?>" title="<?php printf(esc_attr__("%s's Topics Started", 'evolve'), bbp_get_displayed_user_field('display_name')); ?>"><?php _e('Topics Started', 'evolve'); ?></a>
+                        <a href="<?php bbp_user_topics_created_url(); ?>" title="<?php printf(esc_attr__("%s's Topics Started", 'evolve'), bbp_get_displayed_user_field('display_name')); ?>"><?php esc_html_e('Topics Started', 'evolve'); ?></a>
                     </span>
                 </li>
 
                 <li class="<?php if (bbp_is_single_user_replies()) : ?>current<?php endif; ?>">
                     <span class='bbp-user-replies-created-link'>
-                        <a href="<?php bbp_user_replies_created_url(); ?>" title="<?php printf(esc_attr__("%s's Replies Created", 'evolve'), bbp_get_displayed_user_field('display_name')); ?>"><?php _e('Replies Created', 'evolve'); ?></a>
+                        <a href="<?php bbp_user_replies_created_url(); ?>" title="<?php printf(esc_attr__("%s's Replies Created", 'evolve'), bbp_get_displayed_user_field('display_name')); ?>"><?php esc_html_e('Replies Created', 'evolve'); ?></a>
                     </span>
                 </li>
 
@@ -57,7 +57,7 @@ if (bbp_allow_search()) :
                 <?php if (bbp_is_favorites_active()) : ?>
                     <li class="<?php if (bbp_is_favorites()) : ?>current<?php endif; ?>">
                         <span class="bbp-user-favorites-link">
-                            <a href="<?php bbp_favorites_permalink(); ?>" title="<?php printf(esc_attr__("%s's Favorites", 'evolve'), bbp_get_displayed_user_field('display_name')); ?>"><?php _e('Favorites', 'evolve'); ?></a>
+                            <a href="<?php bbp_favorites_permalink(); ?>" title="<?php printf(esc_attr__("%s's Favorites", 'evolve'), bbp_get_displayed_user_field('display_name')); ?>"><?php esc_html_e('Favorites', 'evolve'); ?></a>
                         </span>
                     </li>
                     <?php
@@ -69,14 +69,14 @@ if (bbp_allow_search()) :
                         ?>
                         <li class="<?php if (bbp_is_subscriptions()) : ?>current<?php endif; ?>">
                             <span class="bbp-user-subscriptions-link">
-                                <a href="<?php bbp_subscriptions_permalink(); ?>" title="<?php printf(esc_attr__("%s's Subscriptions", 'evolve'), bbp_get_displayed_user_field('display_name')); ?>"><?php _e('Subscriptions', 'evolve'); ?></a>
+                                <a href="<?php bbp_subscriptions_permalink(); ?>" title="<?php printf(esc_attr__("%s's Subscriptions", 'evolve'), bbp_get_displayed_user_field('display_name')); ?>"><?php esc_html_e('Subscriptions', 'evolve'); ?></a>
                             </span>
                         </li>
                     <?php endif; ?>
 
                     <li class="<?php if (bbp_is_single_user_edit()) : ?>current<?php endif; ?>">
                         <span class="bbp-user-edit-link">
-                            <a href="<?php bbp_user_profile_edit_url(); ?>" title="<?php printf(esc_attr__("Edit %s's Profile", 'evolve'), bbp_get_displayed_user_field('display_name')); ?>"><?php _e('Edit', 'evolve'); ?></a>
+                            <a href="<?php bbp_user_profile_edit_url(); ?>" title="<?php printf(esc_attr__("Edit %s's Profile", 'evolve'), bbp_get_displayed_user_field('display_name')); ?>"><?php esc_html_e('Edit', 'evolve'); ?></a>
                         </span>
                     </li>
 

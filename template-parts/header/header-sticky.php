@@ -69,7 +69,7 @@
                     <div id="stickysearch-text-box">
                         <label class="searchfield" id="stickysearch_label" for="search-stickyfix"><input
                                     id="search-stickyfix" type="text" tabindex="1" name="s" class="search"
-                                    placeholder="<?php _e( 'Type your search', 'evolve' ); ?>"/></label>
+                                    placeholder="<?php esc_html_e( 'Type your search', 'evolve' ); ?>"/></label>
                     </div>
                 </form>
 

@@ -14,8 +14,8 @@ if (!defined('ABSPATH')) {
 <table class="shop_table woocommerce-checkout-review-order-table">
     <thead>
         <tr>
-            <th class="product-name"><?php _e('Product', 'evolve'); ?></th>
-            <th class="product-total"><?php _e('Total', 'evolve'); ?></th>
+            <th class="product-name"><?php esc_html_e('Product', 'evolve'); ?></th>
+            <th class="product-total"><?php esc_html_e('Total', 'evolve'); ?></th>
         </tr>
     </thead>
     <tbody>
@@ -63,7 +63,7 @@ if (!defined('ABSPATH')) {
     <tfoot>
 
         <tr class="cart-subtotal">
-            <th><?php _e('Cart Subtotal', 'evolve'); ?></th>
+            <th><?php esc_html_e('Cart Subtotal', 'evolve'); ?></th>
             <td><?php wc_cart_totals_subtotal_html(); ?></td>
         </tr>
 
@@ -118,7 +118,7 @@ if (!defined('ABSPATH')) {
         ?>
 
         <tr class="order-total">
-            <th><?php _e('Order Total', 'evolve'); ?></th>
+            <th><?php esc_html_e('Order Total', 'evolve'); ?></th>
             <td><?php wc_cart_totals_order_total_html(); ?></td>
         </tr>
 

@@ -41,7 +41,7 @@ class evolve_Tabs_Widget extends WP_Widget {
                 <li class="flex-sm-fill text-center nav-item"><a class="nav-link" id="popular-tab" data-toggle="tab"
                                                                  role="tab"
                                                                  href="#tab-popular"
-                                                                 aria-controls="popular"><?php _e( 'Popular', 'evolve' ); ?></a>
+                                                                 aria-controls="popular"><?php esc_html_e( 'Popular', 'evolve' ); ?></a>
                 </li>
 
 			<?php endif;
@@ -49,7 +49,7 @@ class evolve_Tabs_Widget extends WP_Widget {
 
                 <li class="flex-sm-fill text-center nav-item"><a class="nav-link" id="recent-tab" data-toggle="tab"
                                                                  role="tab" href="#tab-recent"
-                                                                 aria-controls="recent"><?php _e( 'Recent', 'evolve' ); ?></a>
+                                                                 aria-controls="recent"><?php esc_html_e( 'Recent', 'evolve' ); ?></a>
                 </li>
 
 			<?php endif;
@@ -58,7 +58,7 @@ class evolve_Tabs_Widget extends WP_Widget {
                 <li class="flex-sm-fill text-center nav-item"><a class="nav-link" id="comments-tab" data-toggle="tab"
                                                                  role="tab"
                                                                  href="#tab-comments"
-                                                                 aria-controls="comments"><?php _e( 'Comments', 'evolve' ); ?></a>
+                                                                 aria-controls="comments"><?php esc_html_e( 'Comments', 'evolve' ); ?></a>
                 </li>
 
 			<?php endif; ?>
@@ -181,7 +181,7 @@ class evolve_Tabs_Widget extends WP_Widget {
                                 <div class="post-holder">
                                     <a class="comment-text-side"
                                        href="<?php echo get_permalink( $comment->ID ); ?>#comment-<?php echo $comment->comment_ID; ?>"
-                                       title="<?php echo strip_tags( $comment->comment_author ); ?> on <?php echo $comment->post_title; ?>"><?php echo strip_tags( $comment->comment_author ); ?><?php _e( ' says', 'evolve' ); ?></a>
+                                       title="<?php echo strip_tags( $comment->comment_author ); ?> on <?php echo $comment->post_title; ?>"><?php echo strip_tags( $comment->comment_author ); ?><?php esc_html_e( ' says', 'evolve' ); ?></a>
                                     <div class="meta">
 
 										<?php echo evolve_truncate( strip_tags( $comment->com_excerpt ), 70 ); ?>
@@ -233,7 +233,7 @@ class evolve_Tabs_Widget extends WP_Widget {
 		?>
 
         <p>
-            <label for="<?php echo $this->get_field_id( 'orderby' ); ?>"><?php _e( 'Popular Posts Order By', 'evolve' ); ?>
+            <label for="<?php echo $this->get_field_id( 'orderby' ); ?>"><?php esc_html_e( 'Popular Posts Order By', 'evolve' ); ?>
                 :</label>
             <select id="<?php echo $this->get_field_id( 'orderby' ); ?>"
                     name="<?php echo $this->get_field_name( 'orderby' ); ?>" class="widefat" style="width:100%;">
@@ -241,28 +241,28 @@ class evolve_Tabs_Widget extends WP_Widget {
 				if ( 'Highest Comments' == $instance['orderby'] ) {
 					echo 'selected="selected"';
 				}
-				?>><?php _e( 'Highest Comments', 'evolve' ); ?></option>
+				?>><?php esc_html_e( 'Highest Comments', 'evolve' ); ?></option>
                 <option <?php
 				if ( 'Highest Views' == $instance['orderby'] ) {
 					echo 'selected="selected"';
 				}
-				?>><?php _e( 'Highest Views', 'evolve' ); ?></option>
+				?>><?php esc_html_e( 'Highest Views', 'evolve' ); ?></option>
             </select>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'posts' ); ?>"><?php _e( 'Number of popular posts', 'evolve' ); ?>
+            <label for="<?php echo $this->get_field_id( 'posts' ); ?>"><?php esc_html_e( 'Number of popular posts', 'evolve' ); ?>
                 :</label>
             <input class="widefat" type="text" style="width: 30px;" id="<?php echo $this->get_field_id( 'posts' ); ?>"
                    name="<?php echo $this->get_field_name( 'posts' ); ?>" value="<?php echo $instance['posts']; ?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'tags' ); ?>"><?php _e( 'Number of recent posts', 'evolve' ); ?>
+            <label for="<?php echo $this->get_field_id( 'tags' ); ?>"><?php esc_html_e( 'Number of recent posts', 'evolve' ); ?>
                 :</label>
             <input class="widefat" type="text" style="width: 30px;" id="<?php echo $this->get_field_id( 'tags' ); ?>"
                    name="<?php echo $this->get_field_name( 'tags' ); ?>" value="<?php echo $instance['tags']; ?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'comments' ); ?>"><?php _e( 'Number of comments', 'evolve' ); ?>
+            <label for="<?php echo $this->get_field_id( 'comments' ); ?>"><?php esc_html_e( 'Number of comments', 'evolve' ); ?>
                 :</label>
             <input class="widefat" type="text" style="width: 30px;"
                    id="<?php echo $this->get_field_id( 'comments' ); ?>"
@@ -273,17 +273,17 @@ class evolve_Tabs_Widget extends WP_Widget {
             <input class="checkbox" type="checkbox" <?php checked( $instance['show_popular_posts'], 'on' ); ?>
                    id="<?php echo $this->get_field_id( 'show_popular_posts' ); ?>"
                    name="<?php echo $this->get_field_name( 'show_popular_posts' ); ?>"/>
-            <label for="<?php echo $this->get_field_id( 'show_popular_posts' ); ?>"><?php _e( 'Show popular posts', 'evolve' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'show_popular_posts' ); ?>"><?php esc_html_e( 'Show popular posts', 'evolve' ); ?></label>
             <br/>
             <input class="checkbox" type="checkbox" <?php checked( $instance['show_recent_posts'], 'on' ); ?>
                    id="<?php echo $this->get_field_id( 'show_recent_posts' ); ?>"
                    name="<?php echo $this->get_field_name( 'show_recent_posts' ); ?>"/>
-            <label for="<?php echo $this->get_field_id( 'show_recent_posts' ); ?>"><?php _e( 'Show recent posts', 'evolve' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'show_recent_posts' ); ?>"><?php esc_html_e( 'Show recent posts', 'evolve' ); ?></label>
             <br/>
             <input class="checkbox" type="checkbox" <?php checked( $instance['show_comments'], 'on' ); ?>
                    id="<?php echo $this->get_field_id( 'show_comments' ); ?>"
                    name="<?php echo $this->get_field_name( 'show_comments' ); ?>"/>
-            <label for="<?php echo $this->get_field_id( 'show_comments' ); ?>"><?php _e( 'Show comments', 'evolve' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'show_comments' ); ?>"><?php esc_html_e( 'Show comments', 'evolve' ); ?></label>
         </p>
 
 		<?php

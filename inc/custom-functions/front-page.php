@@ -178,7 +178,7 @@ function evolve_testimonials() {
 	$evolve_testimonials_section_image               = evolve_theme_mod( 'evl_testimonials_section_image', 'cover' );
 	$evolve_testimonials_section_background_position = evolve_theme_mod( 'evl_testimonials_section_image_background_position', 'center top' );
 	$evolve_testimonials_section_background_repeat   = evolve_theme_mod( 'evl_testimonials_section_image_background_repeat', 'no-repeat' );
-	$evolve_testimonials_section_padding                = evolve_theme_mod( 'evl_testimonials_section_padding' );
+	$evolve_testimonials_section_padding             = evolve_theme_mod( 'evl_testimonials_section_padding' );
 	$evolve_testimonials_section_padding_top         = $evolve_testimonials_section_padding['top'];
 	$evolve_testimonials_section_padding_bottom      = $evolve_testimonials_section_padding['bottom'];
 	$evolve_testimonials_section_padding_left        = $evolve_testimonials_section_padding['left'];
@@ -315,7 +315,7 @@ function evolve_get_attachment_id_from_url( $attachment_url = '' ) {
 /* Front Page Counter Circle */
 function evolve_counter_circle() {
 
-	$evolve_counter_circle_section_padding                = evolve_theme_mod( 'evl_counter_circle_section_padding' );
+	$evolve_counter_circle_section_padding             = evolve_theme_mod( 'evl_counter_circle_section_padding' );
 	$evolve_counter_circle_section_padding_top         = $evolve_counter_circle_section_padding['top'];
 	$evolve_counter_circle_section_padding_bottom      = $evolve_counter_circle_section_padding['bottom'];
 	$evolve_counter_circle_section_padding_left        = $evolve_counter_circle_section_padding['left'];
@@ -418,7 +418,7 @@ function evolve_google_map() {
 	$scale                                        = evolve_theme_mod( "evl_fp_googlemap_scale" );
 	$zoom_pancontrol                              = evolve_theme_mod( "evl_fp_googlemap_zoomcontrol" );
 	$popup                                        = 'yes';
-	$evolve_googlemap_section_padding                = evolve_theme_mod( 'evl_googlemap_section_padding' );
+	$evolve_googlemap_section_padding             = evolve_theme_mod( 'evl_googlemap_section_padding' );
 	$evolve_googlemap_section_padding_top         = $evolve_googlemap_section_padding['top'];
 	$evolve_googlemap_section_padding_bottom      = $evolve_googlemap_section_padding['bottom'];
 	$evolve_googlemap_section_padding_left        = $evolve_googlemap_section_padding['left'];
@@ -603,7 +603,7 @@ function get_coordinates( $address, $force_refresh = false ) {
 function evolve_custom_content() {
 
 	$content                                           = evolve_theme_mod( "evl_fp_custom_content_editor" );
-	$evolve_custom_content_section_padding                = evolve_theme_mod( 'evl_custom_content_section_padding' );
+	$evolve_custom_content_section_padding             = evolve_theme_mod( 'evl_custom_content_section_padding' );
 	$evolve_custom_content_section_padding_top         = $evolve_custom_content_section_padding['top'];
 	$evolve_custom_content_section_padding_bottom      = $evolve_custom_content_section_padding['bottom'];
 	$evolve_custom_content_section_padding_left        = $evolve_custom_content_section_padding['left'];
@@ -665,7 +665,7 @@ function evolve_woocommerce_products() {
 
 	$product_cat                                    = evolve_theme_mod( "evl_fp_woo_product" );
 	$product_number                                 = evolve_theme_mod( "evl_fp_woo_product_number" );
-	$evolve_woo_product_section_padding                = evolve_theme_mod( 'evl_woo_product_section_padding' );
+	$evolve_woo_product_section_padding             = evolve_theme_mod( 'evl_woo_product_section_padding' );
 	$evolve_woo_product_section_padding_top         = $evolve_woo_product_section_padding['top'];
 	$evolve_woo_product_section_padding_bottom      = $evolve_woo_product_section_padding['bottom'];
 	$evolve_woo_product_section_padding_left        = $evolve_woo_product_section_padding['left'];
@@ -731,7 +731,7 @@ function evolve_blog_posts() {
 
 	$layout            = evolve_theme_mod( "evl_fp_blog_layout" );
 	$number_posts      = ( ! evolve_theme_mod( "evl_fp_blog_number_posts" ) ) ? '-1' : evolve_theme_mod( "evl_fp_blog_number_posts" );
-	$cat_slug          = ( empty( evolve_theme_mod( "evl_fp_blog_cat_slug" ) ) ) ? '' : $evolve_theme_mod( "evl_fp_blog_cat_slug" );
+	$cat_slug          = ( empty( evolve_theme_mod( "evl_fp_blog_cat_slug" ) ) ) ? '' : evolve_theme_mod( "evl_fp_blog_cat_slug" );
 	$exclude_cats      = ( empty( evolve_theme_mod( "evl_fp_blog_exclude_cats" ) ) ) ? '' : evolve_theme_mod( "evl_fp_blog_exclude_cats" );
 	$show_title        = evolve_theme_mod( "evl_fp_blog_show_title" );
 	$title_link        = evolve_theme_mod( "evl_fp_blog_title_link" );
@@ -750,7 +750,7 @@ function evolve_blog_posts() {
 	$blog_grid_columns = evolve_theme_mod( "evl_fp_blog_blog_grid_columns" );
 	$strip_html        = evolve_theme_mod( "evl_fp_blog_strip_html" );
 
-	$evolve_blog_section_padding                = evolve_theme_mod( 'evl_blog_section_padding' );
+	$evolve_blog_section_padding             = evolve_theme_mod( 'evl_blog_section_padding' );
 	$evolve_blog_section_padding_top         = $evolve_blog_section_padding['top'];
 	$evolve_blog_section_padding_bottom      = $evolve_blog_section_padding['bottom'];
 	$evolve_blog_section_padding_left        = $evolve_blog_section_padding['left'];
@@ -930,7 +930,7 @@ function evolve_blog_posts() {
 	$html .= '</div>';
 	if ( $paging == 'yes' ) {
 		ob_start();
-		evolve_pagination( $query->max_num_pages, $range = 2, $query );
+		evolve_custom_number_paging_nav();
 		$pagination = ob_get_contents();
 		ob_get_clean();
 		$html .= $pagination;
@@ -1323,7 +1323,7 @@ function grid_timeline_comments() {
 	if ( evolve_theme_mod( 'evl_fp_blog_meta_comments' ) == 'yes' ) {
 		$comments_icon = "<i class='t4p-icon-comment'></i>&nbsp";
 		ob_start();
-		comments_popup_link( $comments_icon . __( '0', 'evolve' ), $comments_icon . __( '1', 'evolve' ), $comments_icon . __( '%', 'evolve' ) );
+		comments_popup_link( $comments_icon . '0', $comments_icon . '1', $comments_icon . '%' );
 		$comments = ob_get_contents();
 		ob_get_clean();
 		$inner_content = sprintf( '<span class="comment-number">%s</span>', $comments );
@@ -1367,7 +1367,7 @@ function loop_content() {
 
 	// get the post content according to the chosen kind of delivery
 	if ( evolve_theme_mod( 'evl_fp_blog_excerpt' ) == 'yes' ) {
-		$content = t4p_content( evolve_theme_mod( 'evl_fp_blog_excerpt_length' ), evolve_theme_mod( 'evl_fp_blog_strip_html' ) );
+		$content = evolve_content( evolve_theme_mod( 'evl_fp_blog_excerpt_length' ), evolve_theme_mod( 'evl_fp_blog_strip_html' ) );
 	} else {
 		$content = get_the_content();
 		//$content = apply_filters('the_content', $content);
@@ -1383,8 +1383,8 @@ function page_links() {
 	) );
 }
 
-if ( ! function_exists( 't4p_content' ) ) {
-	function t4p_content( $limit, $strip_html ) {
+if ( ! function_exists( 'evolve_content' ) ) {
+	function evolve_content( $limit, $strip_html ) {
 		global $smof_data, $more;
 		$content = '';
 		if ( ! $limit && $limit != 0 ) {
@@ -1410,13 +1410,11 @@ if ( ! function_exists( 't4p_content' ) ) {
 			$readmore = '';
 		}
 		if ( $test_strip_html ) {
-			$more        = 0;
 			$raw_content = strip_tags( get_the_content( $readmore ) );
 
 			if ( $post->post_excerpt ||
 			     $pos !== false
 			) {
-				$more = 0;
 				if ( ! $pos ) {
 					$raw_content = strip_tags( rtrim( get_the_excerpt(), '[&hellip;]' ) . $readmore );
 				}
@@ -1425,7 +1423,6 @@ if ( ! function_exists( 't4p_content' ) ) {
 		} else {
 			$raw_content = get_the_content( $readmore );
 			if ( $post->post_excerpt ) {
-				$more           = 0;
 				$raw_content    = rtrim( get_the_excerpt(), '[&hellip;]' ) . $readmore;
 				$custom_excerpt = true;
 			}

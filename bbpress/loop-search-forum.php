@@ -21,7 +21,7 @@
 
                     <?php do_action('bbp_theme_before_forum_title'); ?>
 
-                    <span class="bbp-forum"><?php _e('Forum: ', 'evolve'); ?><a href="<?php bbp_forum_permalink(); ?>"><?php bbp_forum_title(); ?></a></span>
+                    <span class="bbp-forum"><?php esc_html_e('Forum: ', 'evolve'); ?><a href="<?php bbp_forum_permalink(); ?>"><?php bbp_forum_title(); ?></a></span>
 
                     <?php do_action('bbp_theme_after_forum_title'); ?>
 

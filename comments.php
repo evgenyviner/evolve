@@ -6,7 +6,7 @@
 
 if ( post_password_required() ) {
 	?>
-    <p class="password-protected alert"><?php _e( 'This post is password protected. Enter the password to view comments.', 'evolve' ); ?></p>
+    <p class="password-protected alert"><?php esc_html_e( 'This post is password protected. Enter the password to view comments.', 'evolve' ); ?></p>
 	<?php
 	return;
 }
@@ -27,7 +27,7 @@ if ( post_password_required() ) {
 				if ( comments_open() ) :
 					// If comments are open, but there are no comments.
 					echo '<div class="comments-title-back"><h3 class="comment-title"><span class="comment-title-meta no-comment">';
-					_e( 'No Comments Yet', 'evolve' );
+					esc_html_e( 'No Comments Yet', 'evolve' );
 					echo '</span></h3>';
 					echo evolve_discussion_rss();
 					echo '<div class="clearfix"></div>';
@@ -87,9 +87,6 @@ if ( post_password_required() ) {
     </div>
 
 <?php if ( comments_open() ) : // show comment form  ?>
-    <!--BEGIN #respond-->
-
-    <!--BEGIN #comment-form-->
 
     <div class="clearfix"></div>
 

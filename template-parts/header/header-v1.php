@@ -51,7 +51,7 @@ $evolve_helper_tagline_class_2 = '';
 
                             <li class="my-account">
                                 <a href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>"
-                                   class="my-account-link"><?php _e( 'My Account', 'evolve' ); ?></a>
+                                   class="my-account-link"><?php esc_html_e( 'My Account', 'evolve' ); ?></a>
 
 								<?php if ( ! is_user_logged_in() ): ?>
 
@@ -72,13 +72,13 @@ $evolve_helper_tagline_class_2 = '';
                                                 <label for="rememberme"><input name="rememberme"
                                                                                type="checkbox"
                                                                                id="rememberme"
-                                                                               value="forever"> <?php _e( 'Remember Me', 'evolve' ); ?>
+                                                                               value="forever"> <?php esc_html_e( 'Remember Me', 'evolve' ); ?>
                                                 </label>
                                             </p>
                                             <p class="submit">
                                                 <input type="submit" name="wp-submit" id="wp-submit"
                                                        class="btn btn-sm"
-                                                       value="<?php _e( 'Log In', 'evolve' ); ?>">
+                                                       value="<?php esc_html_e( 'Log In', 'evolve' ); ?>">
                                                 <input type="hidden" name="redirect_to"
                                                        value="<?php if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
 													       echo $_SERVER['HTTP_REFERER'];
@@ -93,7 +93,7 @@ $evolve_helper_tagline_class_2 = '';
 
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="<?php echo wp_logout_url( get_permalink() ); ?>"><?php _e( 'Logout', 'evolve' ); ?></a>
+                                            <a href="<?php echo wp_logout_url( get_permalink() ); ?>"><?php esc_html_e( 'Logout', 'evolve' ); ?></a>
                                         </li>
                                     </ul>
 
@@ -118,7 +118,7 @@ $evolve_helper_tagline_class_2 = '';
                                             <div class="cart-contents">
                                                 <div class="cart-content">
                                                     <strong style="padding:7px 10px;line-height:35px;">
-														<?php _e( 'Your cart is currently empty.', 'evolve' ); ?>
+														<?php esc_html_e( 'Your cart is currently empty.', 'evolve' ); ?>
                                                     </strong>
                                                 </div>
                                             </div>
@@ -163,10 +163,10 @@ $evolve_helper_tagline_class_2 = '';
 
                                         <div class="cart-checkout">
                                             <div class="cart-link">
-                                                <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php _e( 'View Cart', 'evolve' ); ?></a>
+                                                <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
                                             </div>
                                             <div class="checkout-link">
-                                                <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php _e( 'Checkout', 'evolve' ); ?></a>
+                                                <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
                                             </div>
                                         </div>
                                     </div><!-- .cart-contents -->
@@ -361,7 +361,7 @@ $evolve_helper_tagline_class_2 = '';
                                for="search-text-top"><input id="search-text-top" type="text"
                                                             tabindex="1"
                                                             name="s" class="search"
-                                                            placeholder="<?php _e( 'Type your search', 'evolve' ); ?>"/></label>
+                                                            placeholder="<?php esc_html_e( 'Type your search', 'evolve' ); ?>"/></label>
                     </div>
                 </form>
 

@@ -66,7 +66,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 	                            echo get_avatar( get_the_author_meta( 'email' ), '30' );
                             }
 
-                            _e( 'By', 'evolve' );
+                            esc_html_e( 'By', 'evolve' );
                             ?>
                             <strong><?php printf( '<a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'evolve' ), $authordata->display_name ) ) . '">' . get_the_author() . '</a>' ) ?></strong>
                         </span>

@@ -13,10 +13,10 @@ do_action('bbp_template_before_forums_loop');
     <li class="bbp-header">
 
         <ul class="forum-titles">
-            <li class="bbp-forum-info"><?php _e('Forum', 'evolve'); ?></li>
-            <li class="bbp-forum-topic-count"><?php _e('Topics', 'evolve'); ?></li>
-            <li class="bbp-forum-reply-count"><?php bbp_show_lead_topic() ? _e('Replies', 'evolve') : _e('Posts', 'evolve'); ?></li>
-            <li class="bbp-forum-freshness"><?php _e('Freshness', 'evolve'); ?></li>
+            <li class="bbp-forum-info"><?php esc_html_e('Forum', 'evolve'); ?></li>
+            <li class="bbp-forum-topic-count"><?php esc_html_e('Topics', 'evolve'); ?></li>
+            <li class="bbp-forum-reply-count"><?php bbp_show_lead_topic() ? esc_html_e('Replies', 'evolve') : esc_html_e('Posts', 'evolve'); ?></li>
+            <li class="bbp-forum-freshness"><?php esc_html_e('Freshness', 'evolve'); ?></li>
         </ul>
 
     </li><!-- .bbp-header -->

@@ -47,7 +47,7 @@ if (bbp_is_reply_edit()) :
                             ?>
 
                             <p class="form-allowed-tags">
-                                <label><?php _e('You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'evolve'); ?></label><br />
+                                <label><?php esc_html_e('You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'evolve'); ?></label><br />
                                 <code><?php bbp_allowed_tags(); ?></code>
                             </p>
 
@@ -60,7 +60,7 @@ if (bbp_is_reply_edit()) :
                             ?>
 
                             <p>
-                                <label for="bbp_topic_tags"><?php _e('Tags:', 'evolve'); ?></label><br />
+                                <label for="bbp_topic_tags"><?php esc_html_e('Tags:', 'evolve'); ?></label><br />
                                 <input type="text" value="<?php bbp_form_topic_tags(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled(bbp_is_topic_spam()); ?> />
                             </p>
 
@@ -77,7 +77,7 @@ if (bbp_is_reply_edit()) :
                             <fieldset class="bbp-form">
                                 <legend>
                                     <input name="bbp_log_reply_edit" id="bbp_log_reply_edit" type="checkbox" value="1" <?php bbp_form_reply_log_edit(); ?> tabindex="<?php bbp_tab_index(); ?>" />
-                                    <label for="bbp_log_reply_edit"><?php _e('Keep a log of this edit:', 'evolve'); ?></label><br />
+                                    <label for="bbp_log_reply_edit"><?php esc_html_e('Keep a log of this edit:', 'evolve'); ?></label><br />
                                 </legend>
 
                                 <div>
@@ -102,7 +102,7 @@ if (bbp_is_reply_edit()) :
                             bbp_cancel_reply_to_link();
                             ?>
 
-                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_reply_submit" name="bbp_reply_submit" class="btn btn-sm"><?php _e('Submit', 'evolve'); ?></button>
+                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_reply_submit" name="bbp_reply_submit" class="btn btn-sm"><?php esc_html_e('Submit', 'evolve'); ?></button>
 
                             <?php do_action('bbp_theme_after_reply_form_submit_button'); ?>
 
@@ -122,11 +122,11 @@ if (bbp_is_reply_edit()) :
 
                                     <?php if (bbp_is_reply_edit() && ( bbp_get_reply_author_id() !== bbp_get_current_user_id() )) : ?>
 
-                                        <label for="bbp_topic_subscription"><?php _e('Notify the author of follow-up replies via email', 'evolve'); ?></label>
+                                        <label for="bbp_topic_subscription"><?php esc_html_e('Notify the author of follow-up replies via email', 'evolve'); ?></label>
 
                                     <?php else : ?>
 
-                                        <label for="bbp_topic_subscription"><?php _e('Notify me of follow-up replies via email', 'evolve'); ?></label>
+                                        <label for="bbp_topic_subscription"><?php esc_html_e('Notify me of follow-up replies via email', 'evolve'); ?></label>
 
                                     <?php endif; ?>
 
@@ -173,7 +173,7 @@ if (bbp_is_reply_edit()) :
 
         <div id="no-reply-<?php bbp_topic_id(); ?>" class="bbp-no-reply">
             <div class="bbp-template-notice">
-                <p><?php is_user_logged_in() ? _e('You cannot reply to this topic.', 'evolve') : _e('You must be logged in to reply to this topic.', 'evolve'); ?></p>
+                <p><?php is_user_logged_in() ? esc_html_e('You cannot reply to this topic.', 'evolve') : esc_html_e('You must be logged in to reply to this topic.', 'evolve'); ?></p>
             </div>
         </div>
 

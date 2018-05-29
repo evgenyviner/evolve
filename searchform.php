@@ -10,7 +10,7 @@
     <div id="search-text-box">
         <label class="searchfield" id="search_label" for="search-text">
             <input id="search-text" type="text" tabindex="3" name="s" class="search"
-                   placeholder="<?php _e( 'Type your search', 'evolve' ); ?>"/>
+                   placeholder="<?php esc_html_e( 'Type your search', 'evolve' ); ?>"/>
         </label>
     </div>
     <div id="search-button-box">

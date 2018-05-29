@@ -12,12 +12,12 @@ do_action('bbp_template_before_lead_topic');
 
     <li class="bbp-header">
 
-        <div class="bbp-topic-author"><?php _e('Creator', 'evolve'); ?></div><!-- .bbp-topic-author -->
+        <div class="bbp-topic-author"><?php esc_html_e('Creator', 'evolve'); ?></div><!-- .bbp-topic-author -->
 
         <div class="bbp-topic-content">
 
             <?php
-            _e('Topic', 'evolve');
+            esc_html_e('Topic', 'evolve');
 
             bbp_user_subscribe_link();
 
@@ -94,11 +94,11 @@ do_action('bbp_template_before_lead_topic');
 
     <li class="bbp-footer">
 
-        <div class="bbp-topic-author"><?php _e('Creator', 'evolve'); ?></div>
+        <div class="bbp-topic-author"><?php esc_html_e('Creator', 'evolve'); ?></div>
 
         <div class="bbp-topic-content">
 
-            <?php _e('Topic', 'evolve'); ?>
+            <?php esc_html_e('Topic', 'evolve'); ?>
 
         </div><!-- .bbp-topic-content -->
 

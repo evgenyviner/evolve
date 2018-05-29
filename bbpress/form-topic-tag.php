@@ -16,25 +16,25 @@ if (current_user_can('edit_topic_tags')) :
 
             <fieldset class="bbp-form" id="tag-rename">
 
-                <legend><?php _e('Rename', 'evolve'); ?></legend>
+                <legend><?php esc_html_e('Rename', 'evolve'); ?></legend>
 
                 <div class="bbp-template-notice info">
-                    <p><?php _e('Leave the slug empty to have one automatically generated.', 'evolve'); ?></p>
+                    <p><?php esc_html_e('Leave the slug empty to have one automatically generated.', 'evolve'); ?></p>
                 </div>
 
                 <div class="bbp-template-notice">
-                    <p><?php _e('Changing the slug affects its permalink. Any links to the old slug will stop working.', 'evolve'); ?></p>
+                    <p><?php esc_html_e('Changing the slug affects its permalink. Any links to the old slug will stop working.', 'evolve'); ?></p>
                 </div>
 
                 <form id="rename_tag" name="rename_tag" method="post" action="<?php the_permalink(); ?>">
 
                     <div>
-                        <label for="tag-name"><?php _e('Name:', 'evolve'); ?></label>
+                        <label for="tag-name"><?php esc_html_e('Name:', 'evolve'); ?></label>
                         <input type="text" id="tag-name" name="tag-name" size="20" maxlength="40" tabindex="<?php bbp_tab_index(); ?>" value="<?php echo esc_attr(bbp_get_topic_tag_name()); ?>" />
                     </div>
 
                     <div>
-                        <label for="tag-slug"><?php _e('Slug:', 'evolve'); ?></label>
+                        <label for="tag-slug"><?php esc_html_e('Slug:', 'evolve'); ?></label>
                         <input type="text" id="tag-slug" name="tag-slug" size="20" maxlength="40" tabindex="<?php bbp_tab_index(); ?>" value="<?php echo esc_attr(apply_filters('editable_slug', bbp_get_topic_tag_slug())); ?>" />
                     </div>
 
@@ -53,16 +53,16 @@ if (current_user_can('edit_topic_tags')) :
 
             <fieldset class="bbp-form" id="tag-merge">
 
-                <legend><?php _e('Merge', 'evolve'); ?></legend>
+                <legend><?php esc_html_e('Merge', 'evolve'); ?></legend>
 
                 <div class="bbp-template-notice">
-                    <p><?php _e('Merging tags together cannot be undone.', 'evolve'); ?></p>
+                    <p><?php esc_html_e('Merging tags together cannot be undone.', 'evolve'); ?></p>
                 </div>
 
                 <form id="merge_tag" name="merge_tag" method="post" action="<?php the_permalink(); ?>">
 
                     <div>
-                        <label for="tag-existing-name"><?php _e('Existing tag:', 'evolve'); ?></label>
+                        <label for="tag-existing-name"><?php esc_html_e('Existing tag:', 'evolve'); ?></label>
                         <input type="text" id="tag-existing-name" name="tag-existing-name" size="22" tabindex="<?php bbp_tab_index(); ?>" maxlength="40" />
                     </div>
 
@@ -82,14 +82,14 @@ if (current_user_can('edit_topic_tags')) :
 
                 <fieldset class="bbp-form" id="delete-tag">
 
-                    <legend><?php _e('Delete', 'evolve'); ?></legend>
+                    <legend><?php esc_html_e('Delete', 'evolve'); ?></legend>
 
                     <div class="bbp-template-notice info">
-                        <p><?php _e('This does not delete your topics. Only the tag itself is deleted.', 'evolve'); ?></p>
+                        <p><?php esc_html_e('This does not delete your topics. Only the tag itself is deleted.', 'evolve'); ?></p>
                     </div>
                     <div class="bbp-template-notice">
-                        <p><?php _e('Deleting a tag cannot be undone.', 'evolve'); ?></p>
-                        <p><?php _e('Any links to this tag will no longer function.', 'evolve'); ?></p>
+                        <p><?php esc_html_e('Deleting a tag cannot be undone.', 'evolve'); ?></p>
+                        <p><?php esc_html_e('Any links to this tag will no longer function.', 'evolve'); ?></p>
                     </div>
 
                     <form id="delete_tag" name="delete_tag" method="post" action="<?php the_permalink(); ?>">

@@ -22,7 +22,7 @@ do_action('bbp_template_before_replies_loop');
 
         else :
 
-            _e('Replies', 'evolve');
+            esc_html_e('Replies', 'evolve');
 
         endif;
         ?>

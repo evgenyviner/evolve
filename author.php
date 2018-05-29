@@ -36,7 +36,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 		endif;
 		?>
 
-        <h2 class="page-title archive-title"><?php _e( 'Posts by', 'evolve' ); ?> <span class="author-title"><?php
+        <h2 class="page-title archive-title"><?php esc_html_e( 'Posts by', 'evolve' ); ?> <span class="author-title"><?php
 				the_post();
 				echo $authordata->display_name;
 				rewind_posts();
@@ -88,7 +88,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
                                         class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
 
                             <span class="author vcard">
-                                <?php _e( 'Written by', 'evolve' ); ?>
+                                <?php esc_html_e( 'Written by', 'evolve' ); ?>
                                 <strong><?php printf( '<a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'evolve' ), $authordata->display_name ) ) . '">' . get_the_author() . '</a>' ) ?></strong>
                             </span>
 							<?php
@@ -173,7 +173,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
                         <div class="entry-meta entry-footer">
 
                             <a class="btn btn-sm"
-                               href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
+                               href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
 
 							<?php if ( comments_open() ) : ?>
                                 <span class="comment-count"><?php comments_popup_link( __( 'Leave a Comment', 'evolve' ), __( '1 Comment', 'evolve' ), __( '% Comments', 'evolve' ) ); ?></span>
@@ -259,7 +259,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 	                                echo get_avatar( get_the_author_meta( 'email' ), '30' );
                                 }
 
-                                _e( 'Written by', 'evolve' );
+                                esc_html_e( 'Written by', 'evolve' );
                                 ?>
                                 <strong><?php printf( '<a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'evolve' ), $authordata->display_name ) ) . '">' . get_the_author() . '</a>' ) ?></strong>
                             </span>
@@ -343,7 +343,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 							?>
 
                             <a class="btn btn-sm"
-                               href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'evolve' ); ?></a>
+                               href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
 
 							<?php
 						} else {

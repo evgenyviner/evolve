@@ -9,7 +9,7 @@ do_action('bbp_template_before_user_profile');
 ?>
 
 <div id="bbp-user-profile" class="bbp-user-profile">
-    <h2 class="entry-title"><?php _e('Profile', 'evolve'); ?></h2>
+    <h2 class="entry-title"><?php esc_html_e('Profile', 'evolve'); ?></h2>
     <div class="bbp-user-section">
 
         <?php if (bbp_get_displayed_user_field('description')) : ?>

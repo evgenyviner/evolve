@@ -12,8 +12,8 @@
             ), '', 'default'
     );
     ?>
-    <span class="description"><?php _e('Use this setting to select and set position of sidebar', 'evolve'); ?></span>
-    <span class="description"><?php _e('If "No Sidebar" is selected, this layout will follow the settings of Theme Options -> General -> Select a layout.', 'evolve'); ?></span>
+    <span class="description"><?php esc_html_e('Use this setting to select and set position of sidebar', 'evolve'); ?></span>
+    <span class="description"><?php esc_html_e('If "No Sidebar" is selected, this layout will follow the settings of Theme Options -> General -> Select a layout.', 'evolve'); ?></span>
     <?php
     $this->evolve_select('full_width', __('Full Width', 'evolve'), array(
         'no' => __('No', 'evolve'),
@@ -21,5 +21,5 @@
             ), ''
     );
     ?>
-    <span class="description" style="position:relative;top:5px"><?php _e('If setting full width, Please set the above Sidebar Position to "No Sidebar".', 'evolve'); ?></span>
+    <span class="description" style="position:relative;top:5px"><?php esc_html_e('If setting full width, Please set the above Sidebar Position to "No Sidebar".', 'evolve'); ?></span>
 </div>

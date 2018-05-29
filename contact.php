@@ -179,7 +179,7 @@ while ( have_posts() ) :
 				if ( isset( $_POST['contact_name'] ) && ! empty( $_POST['contact_name'] ) ) {
 					echo esc_html( $_POST['contact_name'] );
 				}
-				?>" placeholder="<?php _e( 'Name (required)', 'evolve' ); ?>" size="22" tabindex="1"
+				?>" placeholder="<?php esc_html_e( 'Name (required)', 'evolve' ); ?>" size="22" tabindex="1"
                        aria-required="true" class="form-control">
             </div>
 
@@ -188,7 +188,7 @@ while ( have_posts() ) :
 				if ( isset( $_POST['email'] ) && ! empty( $_POST['email'] ) ) {
 					echo esc_html( $_POST['email'] );
 				}
-				?>" placeholder="<?php _e( 'Email (required)', 'evolve' ); ?>" size="22" tabindex="2"
+				?>" placeholder="<?php esc_html_e( 'Email (required)', 'evolve' ); ?>" size="22" tabindex="2"
                        aria-required="true" class="form-control">
             </div>
 
@@ -197,14 +197,14 @@ while ( have_posts() ) :
 				if ( isset( $_POST['url'] ) && ! empty( $_POST['url'] ) ) {
 					echo esc_html( $_POST['url'] );
 				}
-				?>" placeholder="<?php _e( 'Subject', 'evolve' ); ?>" size="22" tabindex="3" class="form-control">
+				?>" placeholder="<?php esc_html_e( 'Subject', 'evolve' ); ?>" size="22" tabindex="3" class="form-control">
             </div>
 
         </div>
 
         <div class="col input-group">
                     <textarea class="form-control" name="msg" id="comment" cols="39" rows="4" tabindex="4"
-                              placeholder="<?php _e( 'Message', 'evolve' ); ?>"><?php
+                              placeholder="<?php esc_html_e( 'Message', 'evolve' ); ?>"><?php
 	                    if ( isset( $_POST['msg'] ) && ! empty( $_POST['msg'] ) ) {
 		                    echo esc_html( $_POST['msg'] );
 	                    }
@@ -222,7 +222,7 @@ while ( have_posts() ) :
         <div class="input-group">
 
             <input class="btn" name="submit" type="submit" id="submit" tabindex="5"
-                   value="<?php _e( 'Send Message', 'evolve' ); ?>">
+                   value="<?php esc_html_e( 'Send Message', 'evolve' ); ?>">
 
         </div>
 

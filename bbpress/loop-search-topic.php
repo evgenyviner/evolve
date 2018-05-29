@@ -49,17 +49,17 @@
 
                 <div class="bbp-topic-title-meta">
 
-                    <span class="bbp-search-topic"><?php _e('Topic: ', 'evolve'); ?>
+                    <span class="bbp-search-topic"><?php esc_html_e('Topic: ', 'evolve'); ?>
                         <a href="<?php bbp_topic_permalink(); ?>"><?php bbp_topic_title(); ?></a></span>
 
                     <?php
                     if (function_exists('bbp_is_forum_group_forum') && bbp_is_forum_group_forum(bbp_get_topic_forum_id())) :
 
-                        _e('in group forum ', 'evolve');
+                        esc_html_e('in group forum ', 'evolve');
 
                     else :
 
-                        _e('in forum ', 'evolve');
+                        esc_html_e('in forum ', 'evolve');
 
                     endif;
                     ?>

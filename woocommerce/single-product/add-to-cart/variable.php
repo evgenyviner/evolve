@@ -32,7 +32,7 @@ do_action('woocommerce_before_add_to_cart_form');
 
     if (empty($available_variations) && false !== $available_variations) :
         ?>
-        <p class="stock out-of-stock"><?php _e('This product is currently out of stock and unavailable.', 'evolve'); ?></p>
+        <p class="stock out-of-stock"><?php esc_html_e('This product is currently out of stock and unavailable.', 'evolve'); ?></p>
     <?php else : ?>
         <table class="variations" cellspacing="0">
             <tbody>
