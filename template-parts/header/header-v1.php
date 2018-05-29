@@ -202,8 +202,8 @@ $evolve_helper_tagline_class_2 = '';
 				}
 			}
 
-			if ( ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "next" && empty( evolve_theme_mod( 'evl_header_logo', '' ) ) ) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ||
-			     ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "disable" && empty( evolve_theme_mod( 'evl_header_logo', '' ) ) ) ) {
+			if ( ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) )) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ||
+			     ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "disable" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) )) ) {
 				$evolve_title_tagline_class_1 = '<div class="col-md-auto order-1 order-sm-2 order-md-1">';
 				$evolve_title_tagline_class_2 = '</div>';
 			}
@@ -213,7 +213,7 @@ $evolve_helper_tagline_class_2 = '';
 				$evolve_title_tagline_class_2 = '';
 			}
 
-			if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "next" && empty( evolve_theme_mod( 'evl_header_logo', '' ) ) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
+			if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
 				echo $evolve_title_tagline_class_1;
 			}
 
@@ -273,13 +273,13 @@ $evolve_helper_tagline_class_2 = '';
 				if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" ) {
 					$evolve_title_class_1 = '<div class="col-md-auto order-1 order-sm-2 order-md-2">';
 					$evolve_title_class_2 = '</div>';
-				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "disable" && empty( evolve_theme_mod( 'evl_header_logo', '' ) ) ) {
+				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "disable" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) ) {
 					$evolve_title_class_1 = "<div class='col-md-auto order-1 order-sm-2 order-md-1'>";
 					$evolve_title_class_2 = "</div>";
 				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" && evolve_theme_mod( 'evl_header_logo', '' ) ) {
 					$evolve_title_class_1 = "<div class='col-md-auto order-3 order-md-1'>";
 					$evolve_title_class_2 = "</div>";
-				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" && empty( evolve_theme_mod( 'evl_header_logo', '' ) ) ) {
+				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) ) {
 					$evolve_title_class_1 = "<div class='col-md-auto order-2 order-md-1'>";
 					$evolve_title_class_2 = "</div>";
 				} else {
@@ -308,7 +308,7 @@ $evolve_helper_tagline_class_2 = '';
 				echo $evolve_tagline;
 			}
 
-			if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "next" && empty( evolve_theme_mod( 'evl_header_logo', '' ) ) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
+			if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
 				echo $evolve_title_tagline_class_2;
 			}
 

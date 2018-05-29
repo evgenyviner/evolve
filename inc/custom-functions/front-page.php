@@ -731,8 +731,8 @@ function evolve_blog_posts() {
 
 	$layout            = evolve_theme_mod( "evl_fp_blog_layout" );
 	$number_posts      = ( ! evolve_theme_mod( "evl_fp_blog_number_posts" ) ) ? '-1' : evolve_theme_mod( "evl_fp_blog_number_posts" );
-	$cat_slug          = ( empty( evolve_theme_mod( "evl_fp_blog_cat_slug" ) ) ) ? '' : evolve_theme_mod( "evl_fp_blog_cat_slug" );
-	$exclude_cats      = ( empty( evolve_theme_mod( "evl_fp_blog_exclude_cats" ) ) ) ? '' : evolve_theme_mod( "evl_fp_blog_exclude_cats" );
+	$cat_slug          = ( !( evolve_theme_mod( "evl_fp_blog_cat_slug" ) ) ) ? '' : evolve_theme_mod( "evl_fp_blog_cat_slug" );
+	$exclude_cats      = ( !( evolve_theme_mod( "evl_fp_blog_exclude_cats" ) ) ) ? '' : evolve_theme_mod( "evl_fp_blog_exclude_cats" );
 	$show_title        = evolve_theme_mod( "evl_fp_blog_show_title" );
 	$title_link        = evolve_theme_mod( "evl_fp_blog_title_link" );
 	$thumbnail         = evolve_theme_mod( "evl_fp_blog_thumbnail" );
