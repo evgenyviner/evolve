@@ -138,10 +138,10 @@ class Evolve_Fix_Rd {
 				$value_temp = array(
 					'type'        => $value['type'],
 					'settings'    => $value['id'],
-					'label'       => $value['title'] ? $value['title'] : ' ',
-					'description' => $value['subtitle'] ? $value['subtitle'] : ' ',
+					'label'       => isset($value['title']) ? $value['title'] : ' ',
+					'description' => isset($value['subtitle']) ? $value['subtitle'] : ' ',
 					'section'     => $section,
-					'default'     => $value['default'] ? $value['default'] : null,
+					'default'     => isset($value['default']) ? $value['default'] : null,
 					'priority'    => 10,
 				);
 
@@ -265,8 +265,8 @@ class Evolve_Fix_Rd {
 				}
 				if ( $value['type'] == 'switch' ) {
 					$value_temp['choices'] = array(
-						'on'  => $value['on'],
-						'off' => $value['off'],
+						'on'  => isset($value['on']) ? $value['on'] : __( 'Disabled', 'evolve' ),
+						'off' => isset($value['off']) ? $value['off'] : __( 'Enabled', 'evolve' ),
 					);
 				}
 

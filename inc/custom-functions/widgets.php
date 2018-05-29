@@ -27,7 +27,7 @@ function evolve_widgets_init() {
 	/*
 	   Register Header Widgets
 	   ======================================= */
-
+	$evolve_header_widgets = '1';
 	if ( ( evolve_theme_mod( 'evl_widgets_header', 'disable' ) == "one" ) ) {
 		$evolve_header_widgets = '1';
 	}
@@ -71,7 +71,7 @@ function evolve_widgets_init() {
 	/*
 	   Register Footer Widgets
 	   ======================================= */
-
+	$evolve_footer_widgets = '1';
 	if ( ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "one" ) ) {
 		$evolve_footer_widgets = '1';
 	}

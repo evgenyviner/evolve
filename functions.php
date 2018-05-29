@@ -44,6 +44,8 @@ function evolve_setup() {
 
 	// Feed Links
 	add_theme_support( 'automatic-feed-links' );
+	
+	add_theme_support( 'woocommerce' );
 
 	// Support For Post Thumbnails
 	add_theme_support( 'post-thumbnails' );
