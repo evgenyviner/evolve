@@ -25,7 +25,7 @@ $evolve_sticky_header                  = evolve_theme_mod( 'evl_sticky_header', 
                         <!--BEGIN #subscribe-follow-->
                         <div class="top-menu-social">
 							<?php
-							get_template_part( 'template-parts/social-buttons', 'header' );
+							get_template_part( 'template-parts/header/header', 'social-buttons' );
 							?>
                         </div>
                     </div>

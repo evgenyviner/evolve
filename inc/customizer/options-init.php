@@ -138,10 +138,10 @@ class Evolve_Fix_Rd {
 				$value_temp = array(
 					'type'        => $value['type'],
 					'settings'    => $value['id'],
-					'label'       => isset($value['title']) ? $value['title'] : ' ',
-					'description' => isset($value['subtitle']) ? $value['subtitle'] : ' ',
+					'label'       => isset( $value['title'] ) ? $value['title'] : ' ',
+					'description' => isset( $value['subtitle'] ) ? $value['subtitle'] : ' ',
 					'section'     => $section,
-					'default'     => isset($value['default']) ? $value['default'] : null,
+					'default'     => isset( $value['default'] ) ? $value['default'] : null,
 					'priority'    => 10,
 				);
 
@@ -265,8 +265,8 @@ class Evolve_Fix_Rd {
 				}
 				if ( $value['type'] == 'switch' ) {
 					$value_temp['choices'] = array(
-						'on'  => isset($value['on']) ? $value['on'] : __( 'Disabled', 'evolve' ),
-						'off' => isset($value['off']) ? $value['off'] : __( 'Enabled', 'evolve' ),
+						'on'  => isset( $value['on'] ) ? $value['on'] : __( 'Disabled', 'evolve' ),
+						'off' => isset( $value['off'] ) ? $value['off'] : __( 'Enabled', 'evolve' ),
 					);
 				}
 
@@ -637,6 +637,342 @@ if ( true || is_customize_preview() ) {
 	) );
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
+			'id'      => 'evl-general-main-tab',
+			'title'   => __( 'General', 'evolve' ),
+			'icon'    => 't4p-icon-appbartools',
+			'iconfix' => 'dashicons-admin-tools',
+		)
+	);
+
+
+	/* Evolve_Fix_Rd::setSection($evolve_opt_name, array(
+  'id' => 'evl-general-subsec-general-tab',
+  'title' => __('General', 'evolve'),
+  'subsection' => true,
+  'class' => $evolve_prem_class,
+  'fields' => array(
+  array(
+  'desc' => __('Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. Please make sure you have the Theme4Press Core and WooCommerce plugins installed and activated to receive that portion of the content. WARNING: clicking this button will replace your current theme options, sliders and widgets. It can also take a minute to complete. <br /><br /><b>IMPORTANT: The Revolution Slider, Layer Slider and any other content which is a part of premium plugins as shown on our demo page won\'t be imported as they are not a part of the theme\'s package. This theme is only compatible with them.</b>', 'evolve'),
+  'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+  'id' => 'demo_data',
+  'type' => 'import_button',
+  'title' => __('Import Demo Content', 'evolve'),
+  'class' => $evolve_prem_class,
+  ),
+  ),
+  )
+  );
+ */
+
+
+	/* Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
+			'id'         => 'evl-general-subsec-fav-tab',
+			'title'      => __( 'Favicon', 'evolve' ),
+			'subsection' => true,
+			'fields'     => array(
+      array(
+      'subtitle' => __('Favicon for Apple iPhone (57px x 57px).', 'evolve'),
+      'id' => 'evl_iphone_icon',
+      'type' => 'media',
+      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+      'title' => __('Apple iPhone Icon Upload', 'evolve'),
+      'url' => true,
+      'class' => $evolve_prem_class,
+      ),
+      array(
+      'subtitle' => __('Favicon for Apple iPhone Retina Version (114px x 114px).', 'evolve'),
+      'id' => 'evl_iphone_icon_retina',
+      'type' => 'media',
+      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+      'title' => __('Apple iPhone Retina Icon Upload', 'evolve'),
+      'url' => true,
+      'class' => $evolve_prem_class,
+      ),
+      array(
+      'subtitle' => __('Favicon for Apple iPad (72px x 72px).', 'evolve'),
+      'id' => 'evl_ipad_icon',
+      'type' => 'media',
+      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+      'title' => __('Apple iPad Icon Upload', 'evolve'),
+      'url' => true,
+      'class' => $evolve_prem_class,
+      ),
+      array(
+      'subtitle' => __('Favicon for Apple iPad Retina Version (144px x 144px).', 'evolve'),
+      'id' => 'evl_ipad_icon_retina',
+      'type' => 'media',
+      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+      'title' => __('Apple iPad Retina Icon Upload', 'evolve'),
+      'url' => true,
+      'class' => $evolve_prem_class,
+      ),
+
+),
+)
+); */
+
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
+			'id'         => 'evl-general-subsec-lay-tab',
+			'title'      => __( 'Layout', 'evolve' ),
+			'subsection' => true,
+			'fields'     => array(
+				array(
+					'subtitle' => __( 'Select general content and sidebar alignment.', 'evolve' ),
+					'id'       => 'evl_layout',
+					'type'     => 'image_select',
+					'compiler' => true,
+					'options'  => array(
+						'1c'  => $evolve_imagepath . '1c.png',
+						'2cl' => $evolve_imagepath . '2cl.png',
+						'2cr' => $evolve_imagepath . '2cr.png',
+						'3cm' => $evolve_imagepath . '3cm.png',
+						'3cr' => $evolve_imagepath . '3cr.png',
+						'3cl' => $evolve_imagepath . '3cl.png',
+					),
+					'title'    => __( 'Select general layout', 'evolve' ),
+					'default'  => '2cl',
+				),
+				array(
+					'subtitle' => __( '<strong>Boxed version</strong> automatically enables custom background', 'evolve' ),
+					'id'       => 'evl_width_layout',
+					'type'     => 'select',
+					'compiler' => true,
+					'options'  => array(
+						'fixed' => __( 'Boxed', 'evolve' ),
+						'fluid' => __( 'Wide', 'evolve' ),
+					),
+					'title'    => __( 'General layout width style', 'evolve' ),
+					'default'  => 'fixed',
+				),
+				array(
+					'subtitle' => __( 'Select content and sidebar alignment for Home/Front Page', 'evolve' ),
+					'id'       => 'evl_frontpage_layout',
+					'type'     => 'image_select',
+					'compiler' => true,
+					'options'  => array(
+						'1c'  => $evolve_imagepath . '1c.png',
+						'2cl' => $evolve_imagepath . '2cl.png',
+						'2cr' => $evolve_imagepath . '2cr.png',
+						'3cm' => $evolve_imagepath . '3cm.png',
+						'3cr' => $evolve_imagepath . '3cr.png',
+						'3cl' => $evolve_imagepath . '3cl.png',
+					),
+					'title'    => __( 'Select Home/Front Page layout', 'evolve' ),
+					'default'  => '1c',
+				),
+				array(
+					'subtitle' => __( '<strong>Boxed version</strong> automatically enables custom background', 'evolve' ),
+					'id'       => 'evl_frontpage_width_layout',
+					'type'     => 'select',
+					'compiler' => true,
+					'options'  => array(
+						'fixed' => __( 'Boxed', 'evolve' ),
+						'fluid' => __( 'Wide', 'evolve' ),
+					),
+					'title'    => __( 'Home/Front Page layout width style', 'evolve' ),
+					'default'  => 'fixed',
+				),
+				array(
+					'subtitle' => __( 'Select the width for your website', 'evolve' ),
+					'id'       => 'evl_width_px',
+					'compiler' => true,
+					'type'     => 'select',
+					'options'  => array(
+						720  => '720px',
+						960  => '960px',
+						1200 => '1200px',
+						1600 => '1600px',
+					),
+					'title'    => __( 'Layout Width', 'evolve' ),
+					'default'  => '1200',
+				),
+				/*        array(
+          'title' => __('Custom Layout Width', 'evolve'),
+          'subtitle' => __('Add the custom width in px (ex: 1024)', 'evolve'),
+          'id' => "evl_custom_width_px",
+          'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+          'type' => "text",
+          'default' => '',
+          'class' => $evolve_prem_class,
+          ),
+          array(
+          'subtitle' => __('Select the left and right padding for the 100% width template main content area. Enter value in px. ex: 20px', 'evolve'),
+          'id' => 'evl_hundredp_padding',
+          'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+          'type' => 'text',
+          'title' => __('100% Width Template Left/Right Padding', 'evolve'),
+          'default' => '20px',
+          'class' => $evolve_prem_class,
+          ),
+         */
+				array(
+					'subtitle' => __( 'Enter the page content top & bottom padding.', 'evolve' ),
+					'id'       => 'evl_content_top_bottom_padding',
+					'type'     => 'spacing',
+					'units'    => array( 'px', 'em' ),
+					'title'    => __( 'Content Top & Bottom Padding', 'evolve' ),
+					'left'     => false,
+					'right'    => false,
+					'default'  => array(
+						'padding-top'    => '35px',
+						'padding-bottom' => '0px',
+						'units'          => 'px',
+					),
+				),
+				/*        array(
+      'id' => 'evl_info_consid1',
+      'type' => 'info',
+      'subtitle' => __('<h3>Content and One Sidebar Width</h3>', 'evolve'),
+      'class' => $evolve_prem_class
+      ),
+      array(
+      'subtitle' => sprintf(__('These options apply for the following layouts <img style="float:left, display:inline" src="%s2cl.png" /> <img style="float:left, display:inline" src="%s2cr.png" />', 'evolve'), $evolve_imagepath, $evolve_imagepath),
+      'id' => 'evl_info_consid1_widths',
+      'style' => 'notice',
+      'type' => 'info',
+      'notice' => false,
+      'class' => $evolve_prem_class
+      ),
+      array(
+      'subtitle' => __('Select the width for your content', 'evolve'),
+      'id' => 'evl_opt1_width_content',
+      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+      'compiler' => true,
+      'type' => 'select',
+      'options' => array(
+      1 => '1/12',
+      2 => '2/12',
+      3 => '3/12',
+      4 => '4/12',
+      5 => '5/12',
+      6 => '6/12',
+      7 => '7/12',
+      8 => '8/12',
+      9 => '9/12',
+      10 => '10/12',
+      11 => '11/12',
+      12 => '12/12',
+      ),
+      'title' => __('Content Width', 'evolve'),
+      'default' => '8',
+      'class' => $evolve_prem_class,
+      ),
+      array(
+      'subtitle' => __('Select the width for your Sidebar 1', 'evolve'),
+      'id' => 'evl_opt1_width_sidebar1',
+      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+      'compiler' => true,
+      'class' => $evolve_prem_class,
+      'type' => 'select',
+      'options' => array(
+      1 => '1/12',
+      2 => '2/12',
+      3 => '3/12',
+      4 => '4/12',
+      5 => '5/12',
+      6 => '6/12',
+      7 => '7/12',
+      8 => '8/12',
+      9 => '9/12',
+      10 => '10/12',
+      11 => '11/12',
+      12 => '12/12',
+      ),
+      'title' => __('Sidebar 1 Width', 'evolve'),
+      'default' => '4',
+      ),
+      array(
+      'id' => 'evl_info_consid2',
+      'type' => 'info',
+      'subtitle' => __('<h3>Content and Two Sidebars Width</h3>', 'evolve'),
+      'class' => $evolve_prem_class
+      ),
+      array(
+      'subtitle' => sprintf(__('These options apply for the following layouts <img style="float:left, display:inline" src="%s3cm.png" /> <img style="float:left, display:inline" src="%s3cr.png" /> <img style="float:left, display:inline" src="%s3cl.png" />', 'evolve'), $evolve_imagepath, $evolve_imagepath, $evolve_imagepath),
+      'id' => 'evl_info_consid2_widths',
+      'style' => 'notice',
+      'type' => 'info',
+      'notice' => false,
+      'class' => $evolve_prem_class
+      ),
+      array(
+      'subtitle' => __('Select the width for your content', 'evolve'),
+      'id' => 'evl_opt2_width_content',
+      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+      'compiler' => true,
+      'class' => $evolve_prem_class,
+      'type' => 'select',
+      'options' => array(
+      1 => '1/12',
+      2 => '2/12',
+      3 => '3/12',
+      4 => '4/12',
+      5 => '5/12',
+      6 => '6/12',
+      7 => '7/12',
+      8 => '8/12',
+      9 => '9/12',
+      10 => '10/12',
+      11 => '11/12',
+      12 => '12/12',
+      ),
+      'title' => __('Content Width', 'evolve'),
+      'default' => '6',
+      ),
+      array(
+      'subtitle' => __('Select the width for your Sidebar 1', 'evolve'),
+      'id' => 'evl_opt2_width_sidebar1',
+      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+      'compiler' => true,
+      'class' => $evolve_prem_class,
+      'type' => 'select',
+      'options' => array(
+      1 => '1/12',
+      2 => '2/12',
+      3 => '3/12',
+      4 => '4/12',
+      5 => '5/12',
+      6 => '6/12',
+      7 => '7/12',
+      8 => '8/12',
+      9 => '9/12',
+      10 => '10/12',
+      11 => '11/12',
+      12 => '12/12',
+      ),
+      'title' => __('Sidebar 1 Width', 'evolve'),
+      'default' => '3',
+      ),
+      array(
+      'subtitle' => __('Select the width for your Sidebar 2', 'evolve'),
+      'id' => 'evl_opt2_width_sidebar2',
+      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
+      'compiler' => true,
+      'class' => $evolve_prem_class,
+      'type' => 'select',
+      'options' => array(
+      1 => '1/12',
+      2 => '2/12',
+      3 => '3/12',
+      4 => '4/12',
+      5 => '5/12',
+      6 => '6/12',
+      7 => '7/12',
+      8 => '8/12',
+      9 => '9/12',
+      10 => '10/12',
+      11 => '11/12',
+      12 => '12/12',
+      ),
+      'title' => __('Sidebar 2 Width', 'evolve'),
+      'default' => '3',
+      ),
+     */
+			),
+		)
+	);
+
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-frontpage-main-tab',
 			'title'   => __( 'Custom Home/Front Page Builder', 'evolve' ),
 			'icon'    => 't4p-icon-hammer',
@@ -665,34 +1001,6 @@ if ( true || is_customize_preview() ) {
 			'title'      => __( 'General & Layout Settings', 'evolve' ),
 			'subsection' => true,
 			'fields'     => array(
-				array(
-					'subtitle' => __( 'Select main content and sidebar alignment.', 'evolve' ),
-					'id'       => 'evl_frontpage_layout',
-					'type'     => 'image_select',
-					'compiler' => true,
-					'options'  => array(
-						'1c'  => $evolve_imagepath . '1c.png',
-						'2cl' => $evolve_imagepath . '2cl.png',
-						'2cr' => $evolve_imagepath . '2cr.png',
-						'3cm' => $evolve_imagepath . '3cm.png',
-						'3cr' => $evolve_imagepath . '3cr.png',
-						'3cl' => $evolve_imagepath . '3cl.png',
-					),
-					'title'    => __( 'Select a layout for home/front page', 'evolve' ),
-					'default'  => '1c',
-				),
-				array(
-					'subtitle' => __( '<strong>Boxed version</strong> automatically enables custom background', 'evolve' ),
-					'id'       => 'evl_frontpage_width_layout',
-					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
-						'fixed' => __( 'Boxed', 'evolve' ),
-						'fluid' => __( 'Wide', 'evolve' ),
-					),
-					'title'    => __( 'Layout Style of home/front page', 'evolve' ),
-					'default'  => 'fixed',
-				),
 				array(
 					'id'     => 'evl-front-page-elements',
 					'type'   => 'section',
@@ -1931,211 +2239,6 @@ if ( true || is_customize_preview() ) {
 		)
 	);
 
-// Front Page Google Map Sections
-	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
-			'id'         => 'evl-fp-googlemap-general-tab',
-			'title'      => __( 'Google Map', 'evolve' ),
-			'subsection' => true,
-			'fields'     => array(
-				array(
-					'subtitle' => __( 'Example: 775 New York Ave, Brooklyn, Kings, New York 11203.<br /> For multiple markers, separate the addresses with the | symbol. ex: Address 1|Address 2|Address 3.', 'evolve' ),
-					'id'       => 'evl_fp_googlemap_address',
-					'compiler' => true,
-					'type'     => 'text',
-					'title'    => __( 'Google Map Address', 'evolve' ),
-					'default'  => 'Via dei Fori Imperiali',
-				),
-				array(
-					'subtitle' => __( 'Select the type of google map to show on the contact page.', 'evolve' ),
-					'id'       => 'evl_fp_googlemap_type',
-					'type'     => 'select',
-					'options'  => array(
-						'roadmap'   => __( 'roadmap', 'evolve' ),
-						'satellite' => __( 'satellite', 'evolve' ),
-						'hybrid'    => __( 'hybrid (default)', 'evolve' ),
-						'terrain'   => __( 'terrain', 'evolve' ),
-					),
-					'title'    => __( 'Google Map Type', 'evolve' ),
-					'default'  => 'hybrid',
-				),
-				array(
-					'subtitle' => __( '(in pixels or percentage, e.g.:100% or 100px)', 'evolve' ),
-					'id'       => 'evl_fp_googlemap_width',
-					'compiler' => true,
-					'type'     => 'text',
-					'title'    => __( 'Google Map Width', 'evolve' ),
-					'default'  => '100%',
-				),
-				array(
-					'subtitle' => __( '(in pixels, e.g.: 100px)', 'evolve' ),
-					'id'       => 'evl_fp_googlemap_height',
-					'compiler' => true,
-					'type'     => 'text',
-					'title'    => __( 'Google Map Height', 'evolve' ),
-					'default'  => '415px',
-				),
-				array(
-					'subtitle' => __( 'Higher number will be more zoomed in.', 'evolve' ),
-					'id'       => 'evl_fp_googlemap_zoom_level',
-					'type'     => 'slider',
-					'min'      => 0,
-					'max'      => 25,
-					'title'    => __( 'Map Zoom Level', 'evolve' ),
-					'default'  => '18',
-				),
-				array(
-					'subtitle' => __( 'Disable scrollwheel on google maps.', 'evolve' ),
-					'id'       => 'evl_fp_googlemap_scrollwheel',
-					'on'       => __( 'Disabled', 'evolve' ),
-					'off'      => __( 'Enabled', 'evolve' ),
-					'type'     => 'switch',
-					'title'    => __( 'Disable Map Scrollwheel', 'evolve' ),
-					'default'  => false,
-				),
-				array(
-					'subtitle' => __( 'Disable scale on google maps.', 'evolve' ),
-					'id'       => 'evl_fp_googlemap_scale',
-					'type'     => 'switch',
-					'on'       => __( 'Disabled', 'evolve' ),
-					'off'      => __( 'Enabled', 'evolve' ),
-					'title'    => __( 'Disable Map Scale', 'evolve' ),
-					'default'  => false,
-				),
-				array(
-					'subtitle' => __( 'Check the box to disable zoom control icon and pan control icon on google maps.', 'evolve' ),
-					'id'       => 'evl_fp_googlemap_zoomcontrol',
-					'type'     => 'switch',
-					'on'       => __( 'Disabled', 'evolve' ),
-					'off'      => __( 'Enabled', 'evolve' ),
-					'title'    => __( 'Disable Map Zoom & Pan Control Icons', 'evolve' ),
-					'default'  => false,
-				),
-				// Section settings
-				array(
-					'id'     => 'evl-front-page-subsec-googlemap-section-start',
-					'type'   => 'section',
-					'title'  => 'Section Settings',
-					'indent' => true
-				),
-				array(
-					'id'      => 'evl_googlemap_title',
-					'type'    => 'text',
-					'title'   => __( 'Title of Google Map Section', 'evolve' ),
-					'default' => 'Our Contact Place',
-				),
-				array(
-					'id'     => 'evl_reduxinfo_5',
-					'type'   => $redux_info_box,
-					'notice' => false,
-					'style'  => 'warning',
-					'icon'   => 'el el-info-circle',
-					'desc'   => __( 'The following required plugin for the font options is currently inactive: <b>Kirki Framework</b>', 'evolve' )
-				),
-				array(
-					'subtitle'    => __( 'Select the font, alignment and color of the section title. * non web-safe font.', 'evolve' ),
-					'id'          => 'evl_googlemap_title_alignment',
-					'type'        => 'typography',
-					'title'       => __( 'Title Font, Alignment and Color', 'evolve' ),
-					'text-align'  => true,
-					'line-height' => false,
-					'default'     => array(
-						'font-size'   => '30px',
-						'color'       => '#ffffff',
-						'font-family' => 'Roboto',
-						'font-style'  => '700',
-						'text-align'  => 'center',
-					),
-				),
-				array(
-					'subtitle' => __( 'Enter the section padding.', 'evolve' ),
-					'id'       => 'evl_googlemap_section_padding',
-					'type'     => 'spacing',
-					'units'    => array( 'px', 'em' ),
-					'title'    => __( 'Section Padding', 'evolve' ),
-					'default'  => array(
-						'padding-top'    => '40px',
-						'padding-right'  => '0px',
-						'padding-bottom' => '40px',
-						'padding-left'   => '0px',
-						'units'          => 'px',
-					),
-				),
-				array(
-					'subtitle' => __( 'Upload a section background image for your theme, or specify an image URL directly.', 'evolve' ),
-					'id'       => 'evl_googlemap_section_background_image',
-					'type'     => 'media',
-					'title'    => __( 'Section Image', 'evolve' ),
-					'url'      => true,
-				),
-				array(
-					'subtitle' => __( 'Select if the section background image should be displayed in cover or contain size.', 'evolve' ),
-					'id'       => 'evl_googlemap_section_image',
-					'type'     => 'select',
-					'options'  => array(
-						'cover'   => __( 'Cover', 'evolve' ),
-						'contain' => __( 'Contain', 'evolve' ),
-						'none'    => __( 'None', 'evolve' ),
-					),
-					'title'    => __( 'Section Image Background Responsiveness Style', 'evolve' ),
-					'default'  => 'cover',
-				),
-				array(
-					'id'      => 'evl_googlemap_section_image_background_repeat',
-					'type'    => 'select',
-					'options' => array(
-						'no-repeat' => __( 'no-repeat', 'evolve' ),
-						'repeat'    => __( 'repeat', 'evolve' ),
-						'repeat-x'  => __( 'repeat-x', 'evolve' ),
-						'repeat-y'  => __( 'repeat-y', 'evolve' ),
-					),
-					'title'   => __( 'Background Repeat', 'evolve' ),
-					'default' => 'no-repeat',
-				),
-				array(
-					'id'      => 'evl_googlemap_section_image_background_position',
-					'type'    => 'select',
-					'options' => array(
-						'center top'    => __( 'center top', 'evolve' ),
-						'center center' => __( 'center center', 'evolve' ),
-						'center bottom' => __( 'center bottom', 'evolve' ),
-						'left top'      => __( 'left top', 'evolve' ),
-						'left center'   => __( 'left center', 'evolve' ),
-						'left bottom'   => __( 'left bottom', 'evolve' ),
-						'right top'     => __( 'right top', 'evolve' ),
-						'right center'  => __( 'right center', 'evolve' ),
-						'right bottom'  => __( 'right bottom', 'evolve' ),
-					),
-					'title'   => __( 'Background Position', 'evolve' ),
-					'default' => 'center top',
-				),
-				/*        array(
-          'subtitle' => __('Check to enable parallax background image when scrolling.', 'evolve'),
-          'id' => 'evl_googlemap_section_background_parallax',
-          'compiler' => true,
-          'type' => 'checkbox',
-          'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-          'class' => $evolve_prem_class,
-          'title' => __('Parallax Background Image', 'evolve'),
-          'default' => '0',
-          ),
-         */
-				array(
-					'subtitle' => __( 'Custom background color of section', 'evolve' ),
-					'id'       => 'evl_googlemap_section_back_color',
-					'type'     => 'color',
-					'compiler' => true,
-					'title'    => __( 'Section Background Color', 'evolve' ),
-					'default'  => '#8997bf',
-				),
-				array(
-					'id'     => 'evl-front-page-subsec-googlemap-section-end',
-					'type'   => 'section',
-					'indent' => false,
-				),
-			),
-		)
-	);
-
 // Testimonials Dynamic Fields
 	$testimonialfields = array();
 	$slide_defaults    = array(
@@ -2671,315 +2774,6 @@ if ( true || is_customize_preview() ) {
 			),
 		)
 	);
-
-	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
-			'id'      => 'evl-general-main-tab',
-			'title'   => __( 'General', 'evolve' ),
-			'icon'    => 't4p-icon-appbartools',
-			'iconfix' => 'dashicons-admin-tools',
-		)
-	);
-
-
-	/* Evolve_Fix_Rd::setSection($evolve_opt_name, array(
-  'id' => 'evl-general-subsec-general-tab',
-  'title' => __('General', 'evolve'),
-  'subsection' => true,
-  'class' => $evolve_prem_class,
-  'fields' => array(
-  array(
-  'desc' => __('Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. Please make sure you have the Theme4Press Core and WooCommerce plugins installed and activated to receive that portion of the content. WARNING: clicking this button will replace your current theme options, sliders and widgets. It can also take a minute to complete. <br /><br /><b>IMPORTANT: The Revolution Slider, Layer Slider and any other content which is a part of premium plugins as shown on our demo page won\'t be imported as they are not a part of the theme\'s package. This theme is only compatible with them.</b>', 'evolve'),
-  'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-  'id' => 'demo_data',
-  'type' => 'import_button',
-  'title' => __('Import Demo Content', 'evolve'),
-  'class' => $evolve_prem_class,
-  ),
-  ),
-  )
-  );
- */
-
-
-	/* Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
-			'id'         => 'evl-general-subsec-fav-tab',
-			'title'      => __( 'Favicon', 'evolve' ),
-			'subsection' => true,
-			'fields'     => array(
-      array(
-      'subtitle' => __('Favicon for Apple iPhone (57px x 57px).', 'evolve'),
-      'id' => 'evl_iphone_icon',
-      'type' => 'media',
-      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-      'title' => __('Apple iPhone Icon Upload', 'evolve'),
-      'url' => true,
-      'class' => $evolve_prem_class,
-      ),
-      array(
-      'subtitle' => __('Favicon for Apple iPhone Retina Version (114px x 114px).', 'evolve'),
-      'id' => 'evl_iphone_icon_retina',
-      'type' => 'media',
-      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-      'title' => __('Apple iPhone Retina Icon Upload', 'evolve'),
-      'url' => true,
-      'class' => $evolve_prem_class,
-      ),
-      array(
-      'subtitle' => __('Favicon for Apple iPad (72px x 72px).', 'evolve'),
-      'id' => 'evl_ipad_icon',
-      'type' => 'media',
-      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-      'title' => __('Apple iPad Icon Upload', 'evolve'),
-      'url' => true,
-      'class' => $evolve_prem_class,
-      ),
-      array(
-      'subtitle' => __('Favicon for Apple iPad Retina Version (144px x 144px).', 'evolve'),
-      'id' => 'evl_ipad_icon_retina',
-      'type' => 'media',
-      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-      'title' => __('Apple iPad Retina Icon Upload', 'evolve'),
-      'url' => true,
-      'class' => $evolve_prem_class,
-      ),
-
-),
-)
-); */
-
-	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
-			'id'         => 'evl-general-subsec-lay-tab',
-			'title'      => __( 'Layout', 'evolve' ),
-			'subsection' => true,
-			'fields'     => array(
-				array(
-					'subtitle' => __( 'Select main content and sidebar alignment.', 'evolve' ),
-					'id'       => 'evl_layout',
-					'type'     => 'image_select',
-					'compiler' => true,
-					'options'  => array(
-						'1c'  => $evolve_imagepath . '1c.png',
-						'2cl' => $evolve_imagepath . '2cl.png',
-						'2cr' => $evolve_imagepath . '2cr.png',
-						'3cm' => $evolve_imagepath . '3cm.png',
-						'3cr' => $evolve_imagepath . '3cr.png',
-						'3cl' => $evolve_imagepath . '3cl.png',
-					),
-					'title'    => __( 'Select a layout', 'evolve' ),
-					'default'  => '2cl',
-				),
-				array(
-					'subtitle' => __( '<strong>Boxed version</strong> automatically enables custom background', 'evolve' ),
-					'id'       => 'evl_width_layout',
-					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
-						'fixed' => __( 'Boxed', 'evolve' ),
-						'fluid' => __( 'Wide', 'evolve' ),
-					),
-					'title'    => __( 'Layout Style', 'evolve' ),
-					'default'  => 'fixed',
-				),
-				array(
-					'subtitle' => __( 'Select the width for your website', 'evolve' ),
-					'id'       => 'evl_width_px',
-					'compiler' => true,
-					'type'     => 'select',
-					'options'  => array(
-						720  => '720px',
-						960  => '960px',
-						1200 => '1200px',
-						1600 => '1600px',
-					),
-					'title'    => __( 'Layout Width', 'evolve' ),
-					'default'  => '1200',
-				),
-				/*        array(
-          'title' => __('Custom Layout Width', 'evolve'),
-          'subtitle' => __('Add the custom width in px (ex: 1024)', 'evolve'),
-          'id' => "evl_custom_width_px",
-          'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-          'type' => "text",
-          'default' => '',
-          'class' => $evolve_prem_class,
-          ),
-          array(
-          'subtitle' => __('Select the left and right padding for the 100% width template main content area. Enter value in px. ex: 20px', 'evolve'),
-          'id' => 'evl_hundredp_padding',
-          'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-          'type' => 'text',
-          'title' => __('100% Width Template Left/Right Padding', 'evolve'),
-          'default' => '20px',
-          'class' => $evolve_prem_class,
-          ),
-         */
-				array(
-					'subtitle' => __( 'Enter the page content top & bottom padding.', 'evolve' ),
-					'id'       => 'evl_content_top_bottom_padding',
-					'type'     => 'spacing',
-					'units'    => array( 'px', 'em' ),
-					'title'    => __( 'Content Top & Bottom Padding', 'evolve' ),
-					'left'     => false,
-					'right'    => false,
-					'default'  => array(
-						'padding-top'    => '35px',
-						'padding-bottom' => '0px',
-						'units'          => 'px',
-					),
-				),
-				/*        array(
-      'id' => 'evl_info_consid1',
-      'type' => 'info',
-      'subtitle' => __('<h3>Content and One Sidebar Width</h3>', 'evolve'),
-      'class' => $evolve_prem_class
-      ),
-      array(
-      'subtitle' => sprintf(__('These options apply for the following layouts <img style="float:left, display:inline" src="%s2cl.png" /> <img style="float:left, display:inline" src="%s2cr.png" />', 'evolve'), $evolve_imagepath, $evolve_imagepath),
-      'id' => 'evl_info_consid1_widths',
-      'style' => 'notice',
-      'type' => 'info',
-      'notice' => false,
-      'class' => $evolve_prem_class
-      ),
-      array(
-      'subtitle' => __('Select the width for your content', 'evolve'),
-      'id' => 'evl_opt1_width_content',
-      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-      'compiler' => true,
-      'type' => 'select',
-      'options' => array(
-      1 => '1/12',
-      2 => '2/12',
-      3 => '3/12',
-      4 => '4/12',
-      5 => '5/12',
-      6 => '6/12',
-      7 => '7/12',
-      8 => '8/12',
-      9 => '9/12',
-      10 => '10/12',
-      11 => '11/12',
-      12 => '12/12',
-      ),
-      'title' => __('Content Width', 'evolve'),
-      'default' => '8',
-      'class' => $evolve_prem_class,
-      ),
-      array(
-      'subtitle' => __('Select the width for your Sidebar 1', 'evolve'),
-      'id' => 'evl_opt1_width_sidebar1',
-      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-      'compiler' => true,
-      'class' => $evolve_prem_class,
-      'type' => 'select',
-      'options' => array(
-      1 => '1/12',
-      2 => '2/12',
-      3 => '3/12',
-      4 => '4/12',
-      5 => '5/12',
-      6 => '6/12',
-      7 => '7/12',
-      8 => '8/12',
-      9 => '9/12',
-      10 => '10/12',
-      11 => '11/12',
-      12 => '12/12',
-      ),
-      'title' => __('Sidebar 1 Width', 'evolve'),
-      'default' => '4',
-      ),
-      array(
-      'id' => 'evl_info_consid2',
-      'type' => 'info',
-      'subtitle' => __('<h3>Content and Two Sidebars Width</h3>', 'evolve'),
-      'class' => $evolve_prem_class
-      ),
-      array(
-      'subtitle' => sprintf(__('These options apply for the following layouts <img style="float:left, display:inline" src="%s3cm.png" /> <img style="float:left, display:inline" src="%s3cr.png" /> <img style="float:left, display:inline" src="%s3cl.png" />', 'evolve'), $evolve_imagepath, $evolve_imagepath, $evolve_imagepath),
-      'id' => 'evl_info_consid2_widths',
-      'style' => 'notice',
-      'type' => 'info',
-      'notice' => false,
-      'class' => $evolve_prem_class
-      ),
-      array(
-      'subtitle' => __('Select the width for your content', 'evolve'),
-      'id' => 'evl_opt2_width_content',
-      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-      'compiler' => true,
-      'class' => $evolve_prem_class,
-      'type' => 'select',
-      'options' => array(
-      1 => '1/12',
-      2 => '2/12',
-      3 => '3/12',
-      4 => '4/12',
-      5 => '5/12',
-      6 => '6/12',
-      7 => '7/12',
-      8 => '8/12',
-      9 => '9/12',
-      10 => '10/12',
-      11 => '11/12',
-      12 => '12/12',
-      ),
-      'title' => __('Content Width', 'evolve'),
-      'default' => '6',
-      ),
-      array(
-      'subtitle' => __('Select the width for your Sidebar 1', 'evolve'),
-      'id' => 'evl_opt2_width_sidebar1',
-      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-      'compiler' => true,
-      'class' => $evolve_prem_class,
-      'type' => 'select',
-      'options' => array(
-      1 => '1/12',
-      2 => '2/12',
-      3 => '3/12',
-      4 => '4/12',
-      5 => '5/12',
-      6 => '6/12',
-      7 => '7/12',
-      8 => '8/12',
-      9 => '9/12',
-      10 => '10/12',
-      11 => '11/12',
-      12 => '12/12',
-      ),
-      'title' => __('Sidebar 1 Width', 'evolve'),
-      'default' => '3',
-      ),
-      array(
-      'subtitle' => __('Select the width for your Sidebar 2', 'evolve'),
-      'id' => 'evl_opt2_width_sidebar2',
-      'locked' => sprintf(__('This option is only available with the <a href="%s" target="_blank">evolve+ Premium</a> version.', 'evolve'), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/'),
-      'compiler' => true,
-      'class' => $evolve_prem_class,
-      'type' => 'select',
-      'options' => array(
-      1 => '1/12',
-      2 => '2/12',
-      3 => '3/12',
-      4 => '4/12',
-      5 => '5/12',
-      6 => '6/12',
-      7 => '7/12',
-      8 => '8/12',
-      9 => '9/12',
-      10 => '10/12',
-      11 => '11/12',
-      12 => '12/12',
-      ),
-      'title' => __('Sidebar 2 Width', 'evolve'),
-      'default' => '3',
-      ),
-     */
-			),
-		)
-	);
-
 
 // Header Main Sections
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
@@ -4212,23 +4006,11 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'subtitle' => __( 'Background color of main menu. Only Header #1 is supported.', 'evolve' ),
-					'id'       => 'evl_menu_back',
-					'compiler' => true,
-					'type'     => 'select',
-					'options'  => array(
-						'light' => __( 'Light', 'evolve' ),
-						'dark'  => __( 'Dark', 'evolve' ),
-					),
-					'title'    => __( 'Main menu color', 'evolve' ),
-					'default'  => 'dark',
-				),
-				array(
 					'subtitle' => __( 'Custom background color of main menu.', 'evolve' ),
 					'id'       => 'evl_menu_back_color',
 					'type'     => 'color',
 					'compiler' => true,
-					'title'    => __( 'Or custom main menu color', 'evolve' ),
+					'title'    => __( 'Main menu color', 'evolve' ),
 					'default'  => '#273039',
 				),
 				array(
@@ -4238,6 +4020,21 @@ if ( true || is_customize_preview() ) {
 					'type'     => 'checkbox',
 					'title'    => __( 'Disable main menu background gradient, shadow and borders', 'evolve' ),
 					'default'  => '1',
+				),
+				array(
+					'subtitle' => __( 'Enables the text shadow effect on the menu items', 'evolve' ),
+					'id'       => 'evl_menu_back',
+					'compiler' => true,
+					'type'     => 'select',
+					'options'  => array(
+						'light' => __( 'Light', 'evolve' ),
+						'dark'  => __( 'Dark', 'evolve' ),
+					),
+					'title'    => __( 'Text Shadow Effect Color', 'evolve' ),
+					'default'  => 'dark',
+					'required' => array(
+						array( 'evl_disable_menu_back', '=', '0' )
+					),
 				),
 				array(
 					'subtitle' => __( 'Background color of top menu for Header #2', 'evolve' ),
@@ -6740,139 +6537,6 @@ if ( true || is_customize_preview() ) {
   );
  */
 
-
-	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
-			'id'      => 'evl-contact-main-tab',
-			'title'   => __( 'Contact', 'evolve' ),
-			'icon'    => 't4p-icon-appbarlocationcheckin',
-			'iconfix' => 'dashicons-admin-users',
-			'fields'  => array(
-				array(
-					'desc'    => __( 'Get your Google Maps API key <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">here</a>', 'evolve' ),
-					'id'      => 'evl_google_map_api',
-					'type'    => 'text',
-					'title'   => __( 'Google Maps API', 'evolve' ),
-					'default' => '',
-				),
-				array(
-					'subtitle' => __( 'Select the type of google map to show on the contact page.', 'evolve' ),
-					'id'       => 'evl_gmap_type',
-					'type'     => 'select',
-					'options'  => array(
-						'roadmap'   => __( 'roadmap', 'evolve' ),
-						'satellite' => __( 'satellite', 'evolve' ),
-						'hybrid'    => __( 'hybrid (default)', 'evolve' ),
-						'terrain'   => __( 'terrain', 'evolve' ),
-					),
-					'title'    => __( 'Google Map Type', 'evolve' ),
-					'default'  => 'hybrid',
-				),
-				array(
-					'subtitle' => __( '(in pixels or percentage, e.g.:100% or 100px)', 'evolve' ),
-					'id'       => 'evl_gmap_width',
-					'compiler' => true,
-					'type'     => 'text',
-					'title'    => __( 'Google Map Width', 'evolve' ),
-					'default'  => '100%',
-				),
-				array(
-					'subtitle' => __( '(in pixels, e.g.: 100px)', 'evolve' ),
-					'id'       => 'evl_gmap_height',
-					'compiler' => true,
-					'type'     => 'text',
-					'title'    => __( 'Google Map Height', 'evolve' ),
-					'default'  => '415px',
-				),
-				array(
-					'subtitle' => __( 'Example: 775 New York Ave, Brooklyn, Kings, New York 11203.<br /> For multiple markers, separate the addresses with the | symbol. ex: Address 1|Address 2|Address 3.', 'evolve' ),
-					'id'       => 'evl_gmap_address',
-					'compiler' => true,
-					'type'     => 'text',
-					'title'    => __( 'Google Map Address', 'evolve' ),
-					'default'  => 'Via dei Fori Imperiali',
-				),
-				array(
-					'subtitle' => __( 'Insert name of header which will be in the header of sent email.', 'evolve' ),
-					'id'       => 'evl_sent_email_header',
-					'type'     => 'text',
-					'title'    => __( 'Sent Email Header (From)', 'evolve' ),
-					'default'  => 'Evolve',
-				),
-				array(
-					'subtitle' => __( 'Enter the email adress the form will be sent to.', 'evolve' ),
-					'id'       => 'evl_email_address',
-					'type'     => 'text',
-					'title'    => __( 'Email Address', 'evolve' ),
-				),
-				array(
-					'subtitle' => __( 'Higher number will be more zoomed in.', 'evolve' ),
-					'id'       => 'evl_map_zoom_level',
-					'type'     => 'slider',
-					'min'      => 0,
-					'max'      => 25,
-					'title'    => __( 'Map Zoom Level', 'evolve' ),
-					'default'  => '18',
-				),
-				array(
-					'subtitle' => __( 'Display the address pin.', 'evolve' ),
-					'id'       => 'evl_map_pin',
-					'type'     => 'switch',
-					'on'       => __( 'Hide', 'evolve' ),
-					'off'      => __( 'Show', 'evolve' ),
-					'title'    => __( 'Hide Address Pin', 'evolve' ),
-				),
-				array(
-					'subtitle' => __( 'Keep the popup graphic with address info hidden when the google map loads. It will only show when the pin on the map is clicked.', 'evolve' ),
-					'id'       => 'evl_map_popup',
-					'type'     => 'switch',
-					'title'    => __( 'Show Map Popup On Click', 'evolve' ),
-				),
-				array(
-					'subtitle' => __( 'Disable scrollwheel on google maps.', 'evolve' ),
-					'id'       => 'evl_map_scrollwheel',
-					'on'       => __( 'Disabled', 'evolve' ),
-					'off'      => __( 'Enabled', 'evolve' ),
-					'type'     => 'switch',
-					'title'    => __( 'Disable Map Scrollwheel', 'evolve' ),
-				),
-				array(
-					'subtitle' => __( 'Disable scale on google maps.', 'evolve' ),
-					'id'       => 'evl_map_scale',
-					'type'     => 'switch',
-					'on'       => __( 'Disabled', 'evolve' ),
-					'off'      => __( 'Enabled', 'evolve' ),
-					'title'    => __( 'Disable Map Scale', 'evolve' ),
-				),
-				array(
-					'subtitle' => __( 'Check the box to disable zoom control icon and pan control icon on google maps.', 'evolve' ),
-					'id'       => 'evl_map_zoomcontrol',
-					'type'     => 'switch',
-					'on'       => __( 'Disabled', 'evolve' ),
-					'off'      => __( 'Enabled', 'evolve' ),
-					'title'    => __( 'Disable Map Zoom & Pan Control Icons', 'evolve' ),
-				),
-				array(
-					'subtitle' => sprintf( __( 'Get Google reCAPTCHA keys <a href="%s">here</a>  to enable spam protection on the contact page.', 'evolve' ), 'https://www.google.com/recaptcha/admin' ),
-					'id'       => 'evl_captcha_plugin',
-					'style'    => 'warning',
-					'type'     => 'info',
-					'notice'   => false,
-				),
-				array(
-					'subtitle' => __( 'Follow the steps in our docs to get your key', 'evolve' ),
-					'id'       => 'evl_recaptcha_public',
-					'type'     => 'text',
-					'title'    => __( 'Google reCAPTCHA Site Key', 'evolve' ),
-				),
-				array(
-					'subtitle' => __( 'Follow the steps in our docs to get your key', 'evolve' ),
-					'id'       => 'evl_recaptcha_private',
-					'type'     => 'text',
-					'title'    => __( 'Google reCAPTCHA Secret key', 'evolve' ),
-				),
-			),
-		)
-	);
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-extra-main-tab',

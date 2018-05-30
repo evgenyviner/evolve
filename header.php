@@ -157,12 +157,5 @@ if ( is_front_page() && evolve_theme_mod( 'evl_content_boxes_pos', 'above' ) == 
 } ?>
 
 <div class="content <?php semantic_body(); ?>">
-
-	<?php if ( is_page_template( 'contact.php' ) ): ?>
-
-        <div class="gmap" id="gmap"></div>
-
-	<?php endif; ?>
-
     <div class="container">
         <div class="row">

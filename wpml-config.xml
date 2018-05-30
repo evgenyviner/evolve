@@ -48,9 +48,6 @@
             <key name="evl_slide3_button"/>
             <key name="evl_slide4_button"/>
             <key name="evl_slide5_button"/>
-            <key name="evl_gmap_address"/>
-            <key name="evl_sent_email_header"/>
-            <key name="evl_email_address"/>
             <key name="evl_woo_acc_msg_1"/>
             <key name="evl_woo_acc_msg_2"/>
         </key>

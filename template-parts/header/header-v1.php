@@ -37,7 +37,7 @@ $evolve_helper_tagline_class_2 = '';
 			echo '<div class="col-md-auto ml-auto ' . $evolve_social_class . '">';
 
 			if ( evolve_theme_mod( 'evl_social_links', true ) ) {
-				get_template_part( 'template-parts/social-buttons', 'header' );
+				get_template_part( 'template-parts/header/header', 'social-buttons' );
 			}
 
 			if ( class_exists( 'Woocommerce' ) && ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', false ) || evolve_theme_mod( 'evl_woocommerce_cart_link_main_nav', false ) ) ) {

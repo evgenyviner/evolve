@@ -27,11 +27,6 @@ if ( $evolve_frontpage_elements ):
 					evolve_blog_posts();
 				}
 				break;
-			case 'google_map':
-				if ( $elementval ) {
-					evolve_google_map();
-				}
-				break;
 			case 'woocommerce_product':
 				if ( $elementval ) {
 					if ( class_exists( 'Woocommerce' ) ) {

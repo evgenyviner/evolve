@@ -222,10 +222,6 @@
         width: 100%;
         padding-left: 0;
     }
-    #gmap {
-        width: 100%;
-        margin-bottom: 20px;
-    }
     .header .woocommerce-menu li {
         margin-bottom: 0;
     }
@@ -648,10 +644,6 @@
         width: 100%;
         padding-left: 0;
     }
-    #gmap {
-        width: 100%;
-        margin-bottom: 20px;
-    }
     #wrapper .ei-slider {
         width: 100%;
     }
@@ -812,9 +804,6 @@
     }
     .content-boxes-icon-boxed .col .more {
         margin-top: 12px;
-    }
-    .page-template-contact-php #gmap {
-        height: 270px;
     }
     .timeline-icon {
         display: none;

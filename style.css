@@ -586,6 +586,7 @@ I. Evolve components
 
 body {
     color: #888;
+    background-color: #ecebe9;
 }
 
 body,
@@ -1367,7 +1368,13 @@ input.input-website,
    Button Styles
    ========================================================================== */
 
-.btn {
+.btn,
+.button,
+button,
+input#submit,
+input[type=submit],
+#buddypress input[type=submit],
+#buddypress .button {
     -webkit-box-shadow: 0 2px 0 #1d6e72;
     -moz-box-shadow: 0 2px 0 #1d6e72;
     -o-box-shadow: 0 2px 0 #1d6e72;
@@ -2385,13 +2392,6 @@ a:hover {
 .footer-widgets .flickr_badge_image a:hover,
 .header-widgets .flickr_badge_image a:hover {
     padding-left: 0;
-}
-
-#secondary .tagcloud a:hover,
-#secondary-2 .tagcloud a:hover,
-.footer-widgets .tagcloud a:hover,
-.header-widgets .tagcloud a:hover {
-    padding-right: 5px;
 }
 
 .entry-content a:hover {
@@ -5765,9 +5765,9 @@ a.post-edit-link:before {
     margin-bottom: 20px;
 }
 
-.home .card-columns .card,
-.blog .card-columns .card {
-    border: none;
+.card {
+    background-color: transparent;
+    border-color: transparent;
 }
 
 /* ==========================================================================
@@ -5924,15 +5924,19 @@ a.post-edit-link:before {
 
 }
 
+.sticky-header {
+    text-shadow: 0 1px 0 #ffffff;
+}
+
 .menu-header {
     -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.1) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.1) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.1) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 2px rgba(255, 255, 255, 0.3) inset, 0 0 10px rgba(0, 0, 0, 0.1) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
     background: #f5f5f5;
     border: 1px solid #e0dddd;
     color: #c1c1c1;
-    text-shadow: 0 1px 0 #ffffff;
     display: block;
     width: 100%;
 }
@@ -6894,7 +6898,7 @@ ul.breadcrumbs li a {
     padding-right: 15px;
 }
 
-.contact-page input[type="submit"] {
+.contact-page input[type=submit] {
     margin: 0 15px;
 }
 
@@ -7209,19 +7213,6 @@ ul#slides {
    bbPress Styling
    ========================================================================== */
 
-#buddypress a.button,
-#buddypress input[type=submit],
-#buddypress .standard-form div.submit input {
-    font-weight: bold;
-    background-color: #eee;
-    border: 0 none;
-    color: #555;
-    text-shadow: none;
-    box-shadow: none;
-    border-radius: 0;
-    padding: 5px 10px;
-}
-
 #buddypress #avatar-upload-form #upload {
     margin-top: 10px;
 }
@@ -7461,11 +7452,6 @@ ul.thumbNav li span {
 
 .woocommerce-pagination ul.page-numbers li {
     display: inline-block;
-}
-
-.woocommerce-pagination .page-numbers .current {
-    background: #555;
-    color: #ffffff;
 }
 
 .pagination a.inactive,
@@ -7851,8 +7837,7 @@ ol.commentlist {
     padding: 0;
     font-size: 13px;
     text-indent: 10px;
-    margin: 0;
-    margin-left: 5px;
+    margin: 0 0 0 5px;
     height: 35px;
     line-height: 25px;
 }
@@ -9376,7 +9361,7 @@ body .header-block .wooslider .slide-content p {
     margin: 0 0 0 0;
 }
 
-#primary.col-md-6 .product-buttons .product-buttons-container input[type="submit"],
+#primary.col-md-6 .product-buttons .product-buttons-container input[type=submit],
 #primary.col-md-6 .product-buttons .product-buttons-container button,
 #primary.col-md-6 .product-buttons .product-buttons-container .button,
 #primary.col-md-6 .product-buttons .product-buttons-container .bootstrap-button,
@@ -9434,7 +9419,6 @@ body .header-block .wooslider .slide-content p {
 }
 
 #secondary .widget_shopping_cart .buttons a {
-    color: #ffffff;
     height: auto;
     padding: 6px 8px;
 }
@@ -10040,13 +10024,11 @@ body .header-block .wooslider .slide-content p {
 
 .products li {
     border: 1px solid #e3e3e3;
-    border-bottom-size: 2px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
-    -ms-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
@@ -10207,7 +10189,6 @@ table.variations {
 }
 
 .cart-loading {
-    display: block;
     height: 50px;
     width: 50px;
     line-height: 50px;
@@ -10229,7 +10210,6 @@ table.variations {
 .cart-loading .t4p-icon-repeat {
     -webkit-animation: mask 3.5s infinite alternate;
     -moz-animation: mask 3.5s infinite alternate;
-    -ms-animation: mask 3.5s infinite alternate;
     -o-animation: mask 3.5s infinite alternate;
     animation: mask 3.5s infinite alternate;
     display: inline-block;
@@ -10474,9 +10454,10 @@ table.variations {
     min-height: 50px;
 }
 
-.product-buttons .add_to_cart_button {
+.product-buttons .button {
     text-align: center;
     display: block;
+    margin-top: 12px;
 }
 
 .product-buttons .add_to_cart_button::before {
@@ -10485,15 +10466,13 @@ table.variations {
     margin-right: 6px;
 }
 
-#sidebar .product-buttons .add_to_cart_button:hover,
-.product-buttons .add_to_cart_button:hover {
+#sidebar .product-buttons .add_to_cart_button:hover {
     color: #ffffff;
 }
 
 .product-images .show_details_button {
     font-size: 12px;
     line-height: 40px;
-    text-align: center;
     background: #333333;
     bottom: -30px;
     color: #ffffff;
@@ -10532,15 +10511,6 @@ li.product:hover .show_details_button {
     margin-right: 6px;
 }
 
-.product-buttons .button.product_type_simple,
-.product-buttons .button.product_type_variable,
-.product-buttons .button.product_type_grouped,
-.product-buttons .button.product_type_external {
-    text-align: center;
-    display: block;
-    color: #ffffff;
-}
-
 .product-buttons .button.product_type_simple::before {
     font-family: "IcoMoon";
     content: '\e90c';
@@ -10550,10 +10520,6 @@ li.product:hover .show_details_button {
 .product-buttons .added_to_cart {
     display: none;
     color: #333333;
-}
-
-.product-buttons .button {
-    margin-top: 12px;
 }
 
 .product-images .crossfade-images {
@@ -10782,7 +10748,6 @@ form.cart {
 .woocommerce-tabs .tabs li.active {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
-
     -o-box-shadow: none;
     box-shadow: none;
     font-weight: bold;
@@ -11039,7 +11004,6 @@ p.stars a.star-5:after {
 
 .woocommerce-MyAccount-content .woocommerce-Message .woocommerce-Button {
     margin-right: 10px;
-    color: #fff;
 }
 
 .entry-content ul.products-4 {
@@ -11606,7 +11570,6 @@ html[xmlns] .flexslider .slides {
     font-family: IcoMoon;
     -webkit-border-radius: 3px 0 0 3px;
     -moz-border-radius: 3px 0 0 3px;
-    -border-radius: 3px 0 0 3px;
     border-radius: 3px 0 0 3px;
     height: 45px;
     margin: -20px 0 0;
@@ -11636,7 +11599,6 @@ html[xmlns] .flexslider .slides {
     text-indent: -2px;
     -webkit-border-radius: 0 3px 3px 0;
     -moz-border-radius: 0 3px 3px 0;
-    -border-radius: 0 3px 3px 0;
     border-radius: 0 3px 3px 0;
 }
 
@@ -11647,12 +11609,12 @@ html[xmlns] .flexslider .slides {
 
 .flexslider:hover .flex-next {
     opacity: 0.8;
-    right: 0px;
+    right: 0;
 }
 
 .flexslider:hover .flex-prev {
     opacity: 0.8;
-    left: 0px;
+    left: 0;
 }
 
 .flexslider:hover .flex-next:hover,
@@ -11662,12 +11624,12 @@ html[xmlns] .flexslider .slides {
 
 .t4press-flexslider:hover .flex-next {
     opacity: 0.8;
-    right: 0px;
+    right: 0;
 }
 
 .t4press-flexslider:hover .flex-prev {
     opacity: 0.8;
-    left: 0px;
+    left: 0;
 }
 
 .t4press-flexslider:hover .flex-next:hover,
@@ -11684,7 +11646,7 @@ html[xmlns] .flexslider .slides {
 .flex-control-nav {
     width: 100%;
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     text-align: center;
 }
 
@@ -11707,7 +11669,6 @@ html[xmlns] .flexslider .slides {
     text-indent: -9999px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
-    -o-border-radius: 20px;
     border-radius: 20px;
     box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
 }
@@ -11801,12 +11762,11 @@ Testimonials Shortcode
 
 .t4p-testimonials blockquote {
     margin-bottom: 0;
-    /* border: none; */
     background-color: #f6f6f6;
-    border-left: 0px;
+    border-left: 0;
     border-radius: 4px;
-    padding: 0px;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .t4p-testimonials blockquote q {
@@ -11869,11 +11829,11 @@ Testimonials Shortcode
 
 .t4p-testimonials .testimonial-image {
     max-width: 40px;
-    padding: 0px;
+    padding: 0;
 }
 
 .t4p-testimonials blockquote {
-    border-bottom: 0px;
+    border-bottom: 0;
 }
 
 /*
@@ -11881,7 +11841,7 @@ Counters Circle Shortcode
 -----------------------------------------------------------------------------*/
 
 body.home .t4p-counters-circle {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .t4p-counters-circle {
@@ -11989,7 +11949,7 @@ Blog Shortcode
 }
 
 .t4p-blog-shortcode .entry-meta .entry-time .published {
-    border-right: 0px;
+    border-right: 0;
 }
 
 .t4p-blog-shortcode .entry-meta .meta-tags,
@@ -12001,7 +11961,7 @@ Blog Shortcode
 .t4p-blog-large .entry-meta .meta-tags {
     float: left;
     clear: none;
-    padding: 10px 0px 10px 20px;
+    padding: 10px 0 10px 20px;
     color: #ccc;
 }
 
@@ -12019,7 +11979,7 @@ Blog Shortcode
 }
 
 .t4p-blog-shortcode .entry-meta .entry-meta-details {
-    margin: 0px;
+    margin: 0;
 }
 
 .t4p-blog-shortcode .entry-meta .entry-read-more {
@@ -12029,7 +11989,6 @@ Blog Shortcode
     padding: 0;
     border: 0;
     box-shadow: none;
-    -box-shadow: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
 }
@@ -12040,7 +11999,7 @@ Blog Shortcode
 
 .blog-timeline-layout .post-slideshow,
 .blog-grid-layout .post-slideshow {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .t4p-blog-shortcode .entry-title {
@@ -12234,7 +12193,7 @@ Blog Shortcode
     line-height: 20px;
     font-size: 12px;
     padding: 0;
-    margin: 0px 0px;
+    margin: 0 0;
 }
 
 .t4p-blog-medium-alternate .entry-read-more {
@@ -12252,7 +12211,7 @@ Blog Shortcode
 
 .post .entry-read-more {
     text-align: right;
-    padding: 5px 0px;
+    padding: 5px 0;
 }
 
 .t4p-blog-grid .post,
@@ -12303,12 +12262,12 @@ Blog Shortcode
 .t4p-blog-grid .entry-read-more {
     float: left;
     font-size: 12px;
-    padding: 5px 0px;
+    padding: 5px 0;
     clear: both;
 }
 
 .t4p-blog-grid .image-extras-content h3 {
-    letter-spacing: 0px;
+    letter-spacing: 0;
 }
 
 .t4p-blog-grid .image-extras-content .cats {
@@ -12322,7 +12281,7 @@ Blog Shortcode
 .t4p-blog-timeline .entry-read-more {
     float: left;
     font-size: 12px;
-    padding: 5px 0px;
+    padding: 5px 0;
     clear: both;
 }
 
@@ -12331,7 +12290,7 @@ Blog Shortcode
     float: right;
     margin-bottom: 0;
     font-size: 12px;
-    padding: 5px 0px;
+    padding: 5px 0;
 }
 
 .t4p-blog-grid .blog-timeline-layout,
@@ -12399,7 +12358,7 @@ Blog Shortcode
 .has-sidebar .t4p-blog-timeline .timeline-title {
     display: block;
     font-size: 13px;
-    padding: 0px 5px;
+    padding: 0 5px;
     margin-bottom: 20px;
 }
 
@@ -12457,7 +12416,7 @@ Blog Shortcode
     }
 
     .t4p-blog-medium-alternate .post-content-container {
-        margin-left: 0px;
+        margin-left: 0;
     }
 
     .t4p-blog-timeline .timeline-arrow {
@@ -12527,7 +12486,7 @@ Blog Shortcode
     left: 100%;
     margin: 0;
     right: auto;
-    top: 0px;
+    top: 0;
 }
 
 .navbar-nav .dropdown-item,
@@ -12672,7 +12631,7 @@ Blog Shortcode
     }
 }
 
-}
+
 
 
 

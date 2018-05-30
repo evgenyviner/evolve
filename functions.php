@@ -2,15 +2,6 @@
 
 $evolve_similar_posts              = evolve_theme_mod( 'evl_similar_posts', 'disable' );
 $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerpt_title_length', '40' ) );
-$evolve_gmap                       = evolve_theme_mod( 'evl_status_gmap', '1' );
-$evolve_gmap_address               = evolve_theme_mod( 'evl_gmap_address', 'Via dei Fori Imperiali' );
-$evolve_gmap_type                  = evolve_theme_mod( 'evl_gmap_type', 'hybrid' );
-$evolve_map_zoom_level             = evolve_theme_mod( 'evl_map_zoom_level', '18' );
-$evolve_map_scrollwheel            = evolve_theme_mod( 'evl_map_scrollwheel', '0' );
-$evolve_map_scale                  = evolve_theme_mod( 'evl_map_scale', '0' );
-$evolve_map_zoomcontrol            = evolve_theme_mod( 'evl_map_zoomcontrol', '0' );
-$evolve_map_pin                    = evolve_theme_mod( 'evl_map_pin', '0' );
-$evolve_map_pop                    = evolve_theme_mod( 'evl_map_popup', '0' );
 $evolve_front_elements_header_area = evolve_theme_mod( 'evl_front_elements_header_area' );
 $evolve_page_ID                    = get_queried_object_id();
 $evolve_slider_position            = evolve_theme_mod( 'evl_slider_position', 'below' );
@@ -26,7 +17,6 @@ $evolve_parallax_speed             = evolve_theme_mod( 'evl_parallax_speed', '40
 $evolve_recaptcha_public           = evolve_theme_mod( 'evl_recaptcha_public', '' );
 $evolve_recaptcha_private          = evolve_theme_mod( 'evl_recaptcha_private', '' );
 $evolve_fontawesome                = evolve_theme_mod( 'evl_fontawesome', '0' );
-$evolve_google_map_api             = evolve_theme_mod( 'evl_google_map_api', '' );
 $evolve_footer_reveal              = evolve_theme_mod( 'evl_footer_reveal' );
 $evolve_menu_back                  = evolve_theme_mod( 'evl_menu_back', 'dark' );
 
@@ -44,7 +34,7 @@ function evolve_setup() {
 
 	// Feed Links
 	add_theme_support( 'automatic-feed-links' );
-	
+
 	add_theme_support( 'woocommerce' );
 
 	// Support For Post Thumbnails
@@ -96,14 +86,12 @@ function evolve_setup() {
 	);
 	add_theme_support( 'custom-header', $args );
 
-	// Default Background
-	if ( $evolve_width_layout == "fixed" ) {
-		$defaults = array(
-			'default-color' => 'e5e5e5',
-			'default-image' => ''
-		);
-		add_theme_support( 'custom-background', $defaults );
-	}
+	// Custom Background
+	$evolve_background_defaults = array(
+		'default-color' => 'e5e5e5',
+		'default-image' => ''
+	);
+	add_theme_support( 'custom-background', $evolve_background_defaults );
 
 	// Post Formats Support
 	add_theme_support( 'post-formats', array(
@@ -265,45 +253,7 @@ function evolve_similar_posts() {
    Footer Hooks
    ======================================= */
 
-function evolve_footer_hooks() {
-	global $evolve_gmap, $evolve_gmap_address, $evolve_gmap_type, $evolve_map_zoom_level, $evolve_map_pop, $evolve_map_scrollwheel, $evolve_map_scale, $evolve_map_zoomcontrol, $evolve_map_pin;
-	if ( is_page_template( 'contact.php' ) ):
-		if ( $evolve_gmap ):
-			$evolve_gmap_address = addslashes( $evolve_gmap_address );
-			$addresses           = explode( '|', $evolve_gmap_address );
-			$markers             = '';
-			if ( $evolve_map_pop == '0' ) {
-				$map_popup = "false";
-			} else {
-				$map_popup = "true";
-			}
-			foreach ( $addresses as $address_string ) {
-				$markers .= "{
-			address: '{$address_string}',
-			html: {
-				content: '{$address_string}',
-				popup: {$map_popup}
-			}
-		},";
-			} ?>
-            <script type='text/javascript'>
-                jQuery(document).ready(
-                    function ($) {
-                        jQuery('#gmap').goMap(
-                            {
-                                address: '<?php echo $addresses[0]; ?>',
-                                maptype: '<?php echo $evolve_gmap_type; ?>',
-                                zoom: <?php echo $evolve_map_zoom_level; ?>,
-                                scrollwheel: <?php if ($evolve_map_scrollwheel): ?>false<?php else: ?>true<?php endif; ?>,
-                                scaleControl: <?php if ($evolve_map_scale): ?>false<?php else: ?>true<?php endif; ?>,
-                                navigationControl: <?php if ($evolve_map_zoomcontrol): ?>false<?php else: ?>true<?php endif; ?>,
-								<?php if (! $evolve_map_pin): ?>markers: [<?php echo $markers; ?>], <?php endif; ?>
-                            }
-                        );
-                    }
-                );</script>
-		<?php endif;
-	endif; ?>
+function evolve_footer_hooks() { ?>
     <script type="text/javascript">
         var $jx = jQuery.noConflict();
         $jx("div.post").mouseover(
@@ -479,7 +429,8 @@ function evolve_sharethis() {
            title="<?php esc_html_e( 'Share by Email', 'evolve' ); ?>" target="_blank"
            href="http://www.addtoany.com/email?linkurl=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>"><i
                     class="t4p-icon-social-envelope-o"></i></a>
-        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom" title="<?php esc_html_e( 'More options', 'evolve' ); ?>"
+        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+           title="<?php esc_html_e( 'More options', 'evolve' ); ?>"
            target="_blank"
            href="http://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>"><i
                     class="t4p-icon-redo"></i></a>
@@ -2007,8 +1958,7 @@ get_template_part( 'inc/views/metaboxes/metaboxes' );
    ======================================= */
 
 function evolve_scripts() {
-	global $post, $evolve_slider_page_id, $evolve_frontpage_slider_status, $evolve_parallax_slider_all, $evolve_parallax_slider_support, $evolve_parallax_speed, $evolve_carousel_slider, $evolve_pos_button, $evolve_gmap, $evolve_google_map_api, $evolve_recaptcha_public, $evolve_recaptcha_private,
-	       $evolve_footer_reveal, $evolve_fontawesome, $evolve_css_data;
+	global $post, $evolve_slider_page_id, $evolve_frontpage_slider_status, $evolve_parallax_slider_all, $evolve_parallax_slider_support, $evolve_parallax_speed, $evolve_carousel_slider, $evolve_pos_button, $evolve_footer_reveal, $evolve_fontawesome, $evolve_css_data;
 	if ( $evolve_fontawesome != "1" ) {
 
 		// FontAwesome
@@ -2067,15 +2017,6 @@ function evolve_scripts() {
 	// remove this wp_enqueue_script( 'flexslidermin', EVOLVE_JS . '/jquery.flexslider.min.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'main', EVOLVE_JS . '/main.min.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'main_backend', EVOLVE_JS . '/main_backend.min.js', array( 'jquery' ), '', true );
-
-	if ( $evolve_gmap == "1" ) {
-		wp_enqueue_script( 'googlemaps', '//maps.googleapis.com/maps/api/js?key=' . $evolve_google_map_api . '&amp;language=' . mb_substr( get_locale(), 0, 2 ) );
-		wp_enqueue_script( 'gmap', EVOLVE_JS . '/gmap.min.js', array( 'jquery' ), '', true );
-	}
-
-	if ( $evolve_recaptcha_public && $evolve_recaptcha_private ) {
-		wp_enqueue_script( 'googlerecaptcha', 'https://www.google.com/recaptcha/api.js', '', '', true );
-	}
 
 	if ( $evolve_footer_reveal == '1' ) {
 		wp_enqueue_script( 'footer-reveal', get_template_directory_uri() . '/assets/js/footer-reveal.min.js', array( 'jquery' ), '', true );
