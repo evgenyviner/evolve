@@ -5728,13 +5728,13 @@ if ( true || is_customize_preview() ) {
 				'type'     => 'select',
 				'compiler' => true,
 				'options'  => array(
-					'normal'  => __( 'Normal', 'evolve' ),
-					'small'   => __( 'Small', 'evolve' ),
-					'large'   => __( 'Large', 'evolve' ),
-					'x-large' => __( 'X-Large', 'evolve' ),
+					'1rem'  => __( 'Normal', 'evolve' ),
+					'.8rem'   => __( 'Small', 'evolve' ),
+					'1.2rem'   => __( 'Large', 'evolve' ),
+					'1.4rem' => __( 'X-Large', 'evolve' ),
 				),
 				'title'    => __( 'Subscribe/Social icons size', 'evolve' ),
-				'default'  => 'normal',
+				'default'  => '1rem',
 			),
 			array(
 				'title'    => __( 'Enable social media links border/radius', 'evolve' ),

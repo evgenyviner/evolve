@@ -1697,7 +1697,7 @@ function evolve_print_fonts( $name, $css_class, $additional_css = '', $additiona
 	}
 	if ( isset( $options[ $name ]['font-family'] ) && $options[ $name ]['font-family'] != '' ) {
 		$font_family = $options[ $name ]['font-family'];
-		$css         .= "$css_class{font-family:" . $font_family . ";}";
+		$css         .= "$css_class{font-family:" . $font_family . ", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";}";
 	}
 	if ( isset( $options[ $name ]['font-style'] ) && $options[ $name ]['font-style'] != '' ) {
 		$font_style = $options[ $name ]['font-style'];

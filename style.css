@@ -1533,6 +1533,7 @@ input[type=submit],
 }
 
 .sticky-header {
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -5922,10 +5923,6 @@ a.post-edit-link:before {
         display: table-header-group;
     }
 
-}
-
-.sticky-header {
-    text-shadow: 0 1px 0 #ffffff;
 }
 
 .menu-header {
