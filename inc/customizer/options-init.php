@@ -63,10 +63,11 @@ function evolve_hex2rgba1( $color, $opacity = false ) {
 	return $output;
 }
 
-global $name_of_panel, $evolve_all_customize_fields, $evolve_index_control;
+global $name_of_panel, $evolve_all_customize_fields, $evolve_index_control, $evolve_list_google_fonts;
 $name_of_panel               = '';
 $evolve_index_control        = 0;
 $evolve_all_customize_fields = array();
+$evolve_list_google_fonts = array();
 
 class Evolve_Fix_Rd {
 	static function setSection( $param1, $param2 ) {
@@ -109,9 +110,45 @@ class Evolve_Fix_Rd {
 			}
 		}
 	}
+	static function kirkiMakeGoogleWebfontLink( $fonts ) {
+		$link    = "";
+		$subsets = array();
+		foreach ( $fonts as $family => $font ) {
+			$family = $font['font-family'];
+			if ( ( $link != "" ) ) {
+				$link .= "|"; // Append a new font to the string
+			}
+			$link .= $family;
 
+			if ( isset( $font['font-style'] ) || isset( $font['all-styles'] ) ) {
+				$link .= ':';
+				if ( isset( $font['all-styles'] ) ) {
+					$link .= implode( ',', $font['all-styles'] );
+				} else if ( isset( $font['font-style'] ) && $font['font-style'] !='' ) {
+					if(is_array($font['font-style'])){
+						$link .= implode( ',', $font['font-style'] );
+					}else{
+						$link .=  ',' . $font['font-style'] ;
+					}
+				}
+			}
+
+			if ( isset( $font['subset'] ) ) {
+				foreach ( $font['subset'] as $subset ) {
+					if ( ! in_array( $subset, $subsets ) ) {
+						array_push( $subsets, $subset );
+					}
+				}
+			}
+		}
+
+		if ( isset( $subsets ) ) {
+			$link .= "&subset=" . implode( ',', $subsets );
+		}
+		return '//fonts.googleapis.com/css?family=' . str_replace( '|', '|', $link );
+	}
 	static function evl_call_kirki_from_old_field( $array_items, $section = 'kirki_frontpage-content-boxes-tab', $setting = 'kirki_evolve_options' ) {
-		global $name_of_panel, $evolve_all_customize_fields, $evolve_index_control;
+		global $name_of_panel, $evolve_all_customize_fields, $evolve_index_control, $evolve_list_google_fonts;
 		foreach ( $array_items as $value ) {
 			if (
 				isset( $value['type'] ) && (
@@ -144,6 +181,9 @@ class Evolve_Fix_Rd {
 					'default'     => isset( $value['default'] ) ? $value['default'] : null,
 					'priority'    => 10,
 				);
+				if('typography' == $value['type'] && !is_customize_preview() ){
+					$evolve_list_google_fonts[] = evolve_theme_mod($value['id'], $value['default']);
+				}
 
 				if ( isset( $value['default'] ) ) {
 					$value_temp['default'] = $value['default'];
@@ -7629,4 +7669,13 @@ add_theme_support( 'customize-selective-refresh-widgets' );
 
 if ( $evolve_all_customize_fields === false ) {
 	update_option( 'evl_all_customize_fields', $evolve_all_customize_fields );
+}
+if(!is_customize_preview()){
+	add_action( 'wp_enqueue_scripts', 'kirki_enqueue_frontend_scripts' );
+}
+function kirki_enqueue_frontend_scripts(){
+	$protocol = is_ssl() ? "https:" : "http:";
+	global $evolve_list_google_fonts;
+	wp_register_style( 'kirki-google-fonts-frontend', $protocol . Evolve_Fix_Rd::kirkiMakeGoogleWebfontLink( $evolve_list_google_fonts ), '' );
+	wp_enqueue_style( 'kirki-google-fonts-frontend' );
 }
