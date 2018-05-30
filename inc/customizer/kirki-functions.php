@@ -13,18 +13,22 @@ if( is_user_logged_in()){
 }
 
 //begin coding for import function
-function call_js_import_customizer_live_preview() {
-wp_enqueue_script( 'js_import_customizer', 
-					 get_template_directory_uri().'/inc/customizer/assets/js/js-preview.js', 
-					 array( 'customize-preview', 'jquery' ), '', true 
-				   );
-}
-add_action( 'customize_preview_init', 'call_js_import_customizer_live_preview' );
 
-add_action( 'customize_controls_enqueue_scripts', array( 'Evolve_Add_some_thing_to_Customize' , 'custom_customize_enqueue' ) );
-add_action( 'customize_controls_print_styles' , array( 'Evolve_Add_some_thing_to_Customize' , 'addInlineCss' ) );
-add_action( 'customize_controls_print_scripts' , array( 'Evolve_Add_some_thing_to_Customize' , 'addInlineJs' ) );
+
 class Evolve_Add_some_thing_to_Customize{
+	
+	function __construct(){
+		add_action( 'customize_preview_init', array( $this, 'call_js_import_customizer_live_preview') );
+		add_action( 'customize_controls_enqueue_scripts', array( $this, 'custom_customize_enqueue' ) );
+		add_action( 'customize_controls_print_styles' , array( $this, 'addInlineCss' ) );
+		add_action( 'customize_controls_print_scripts' , array( $this, 'addInlineJs' ) );
+	}
+	function call_js_import_customizer_live_preview() {
+		wp_enqueue_script( 'js_import_customizer', 
+			get_template_directory_uri().'/inc/customizer/assets/js/js-preview.js', 
+			array( 'customize-preview', 'jquery' ), '', true 
+	   );
+	}
 	public function custom_customize_enqueue(){
 		//*****************************************************************
 		// Elusive Icon CSS
@@ -131,3 +135,4 @@ h3.accordion-section-title.dashicons-before.el {
 	<?php
 	}
 }
+$Evolve_Add_some_thing_to_Customize = new Evolve_Add_some_thing_to_Customize();

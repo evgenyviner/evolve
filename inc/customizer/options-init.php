@@ -83,7 +83,7 @@ class Evolve_Fix_Rd {
 						Kirki::add_section( $param2['id'], array(
 							'title'    => $param2['title'],
 							'priority' => $evolve_index_control,
-							'icon'     => $param2['icon'],
+							'icon'     => isset($param2['icon']) ? $param2['icon'] : '',
 						) );
 					}
 				} else {
@@ -92,7 +92,7 @@ class Evolve_Fix_Rd {
 							'title'    => $param2['title'],
 							'panel'    => $name_of_panel,
 							'priority' => $evolve_index_control,
-							'icon'     => $param2['icon'],
+							'icon'     => isset($param2['icon']) ? $param2['icon'] : '',
 						) );
 					}
 				}
