@@ -1701,7 +1701,7 @@ function evolve_print_fonts( $name, $css_class, $additional_css = '', $additiona
 	}
 	if ( isset( $options[ $name ]['font-style'] ) && $options[ $name ]['font-style'] != '' ) {
 		$font_style = $options[ $name ]['font-style'];
-		$css        .= "$css_class{font-weight:" . $font_style . ";}";
+		$css        .= "$css_class{font-style:" . $font_style . ";}";
 	}
 	if ( isset( $options[ $name ]['font-weight'] ) && $options[ $name ]['font-weight'] != '' ) {
 		$font_weight = $options[ $name ]['font-weight'];
