@@ -118,6 +118,9 @@ class Evolve_Fix_Rd {
 			// if( !isset($font['google']) || $font['google'] != 1 ){
 			// continue;
 			// }
+			if( !isset($font['font-family']) || $font['font-family'] == '' ){
+				continue;
+			}
 			$family = $font['font-family'];
 			if ( ( $link != "" ) ) {
 				$link .= "|"; // Append a new font to the string
