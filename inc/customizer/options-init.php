@@ -114,9 +114,9 @@ class Evolve_Fix_Rd {
 		$link    = "";
 		$subsets = array();
 		foreach ( $fonts as $family => $font ) {
-			if( !isset($font['google']) || $font['google'] != 1 ){
-				continue;
-			}
+			// if( !isset($font['google']) || $font['google'] != 1 ){
+				// continue;
+			// }
 			$family = $font['font-family'];
 			if ( ( $link != "" ) ) {
 				$link .= "|"; // Append a new font to the string
