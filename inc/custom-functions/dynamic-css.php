@@ -78,6 +78,15 @@ $evolve_footer_background_repeat     = evolve_theme_mod( 'evl_footer_image_backg
 $evolve_footer_background_position   = evolve_theme_mod( 'evl_footer_image_background_position', 'center top' );
 
 /*
+   Fonts
+   ======================================= */
+
+$evolve_parallax_slide_title_font    = evolve_theme_mod( 'evl_parallax_slide_title_font' );
+$evolve_parallax_slide_subtitle_font = evolve_theme_mod( 'evl_parallax_slide_subtitle_font' );
+$evolve_carousel_slide_title_font    = evolve_theme_mod( 'evl_carousel_slide_title_font' );
+$evolve_carousel_slide_subtitle_font = evolve_theme_mod( 'evl_carousel_slide_subtitle_font' );
+
+/*
    Button
    ======================================= */
 
@@ -206,12 +215,6 @@ $evolve_image_patten_array = array(
 if ( ! empty( $evolve_main_pattern ) && $evolve_main_pattern != 'none' && in_array( $evolve_main_pattern, $evolve_image_patten_array ) ) {
 	$evolve_main_pattern = $evolve_template_url . '/assets/images/pattern/' . $evolve_main_pattern;
 	$evolve_css_data     .= ' .header-pattern, .footer { background-image: url(' . $evolve_main_pattern . '); }';
-}
-
-// Header Slider and Widgets Area Background Color
-if ( $evolve_scheme_widgets != "" ) {
-	$evolve_scheme_color = mb_substr( $evolve_scheme_widgets, 1 );
-	$evolve_css_data     .= ' .header-block { background-color: ' . $evolve_scheme_widgets . '; background: -webkit-radial-gradient(circle, ' . $evolve_scheme_widgets . ', #' . evolve_hexDarker( $evolve_scheme_color, 40 ) . '); background: -moz-radial-gradient(circle, ' . $evolve_scheme_widgets . ', #' . evolve_hexDarker( $evolve_scheme_color, 40 ) . '); background: -o-radial-gradient(circle, ' . $evolve_scheme_widgets . ', #' . evolve_hexDarker( $evolve_scheme_color, 40 ) . '); background: -ms-radial-gradient(circle, ' . $evolve_scheme_widgets . ', #' . evolve_hexDarker( $evolve_scheme_color, 40 ) . '); } .da-dots span { background: #' . evolve_hexDarker( $evolve_scheme_color ) . ' }';
 }
 
 // Blog Title Font
@@ -378,230 +381,190 @@ if ( $evolve_widget_background == "1" ) {
 		$evolve_css_data           .= ' #content h3.widget-title, h3.widget-title { color: #fff; text-shadow: 1px 1px 0 #000; } .widget-title-background { position: absolute; top: -1px; bottom: 0; left: -16px; right: -16px; -webkit-border-radius: 3px 3px 0 0; -moz-border-radius: 3px 3px 0 0; border-radius: 3px 3px 0 0; border: 1px solid; border-color: ' . $evolve_widget_bgcolor . '; background: ' . $evolve_widget_bgcolor . '; -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 5px rgba(0, 0, 0, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29); -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 5px rgba(0, 0, 0, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 5px rgba(0, 0, 0, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29); color: #fff; }';
 	}
 }
-
 if ( $evolve_widget_background_image == "1" ) {
 	$evolve_css_data .= ' .widget-content { background: none; border: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; } .widget:after, .widgets-holder .widget:after { content: none; }';
 }
 
-if ( $evolve_layout == "2cr" && ( $evolve_post_layout == "one" ) || $evolve_layout == "2cl" && ( $evolve_post_layout == "one" ) ) {
-	$evolve_css_data .= ' .col-md-8 { padding-left: 15px; padding-right: 15px; }';
-}
-
+// Content Links Custom Color
 if ( ! empty( $evolve_general_link ) ) {
-	$evolve_css_data .= ' .entry-content a:link, .entry-content a:active, .entry-content a:focus, .entry-content a:visited, .aside a:hover,.tooltip-shortcode, #jtwt .jtwt_tweet a:hover, .contact_info a:hover, .widget .wooslider h2.slide-title a, .widget .wooslider h2.slide-title a:hover { color: ' . $evolve_general_link . '; }';
+	$evolve_css_data .= ' .entry-content a:link, .entry-content a:active, .entry-content a:focus, .entry-content a:visited, .aside a:hover,.tooltip-shortcode, .widget .wooslider h2.slide-title a, .widget .wooslider h2.slide-title a:hover { color: ' . $evolve_general_link . '; }';
 }
 
-if ( ! empty( $evolve_button_color_2 ) ) {
-	$evolve_button_color_2_border = mb_substr( $evolve_button_color_2, 1 );
-	$evolve_css_data              .= ' a.more-link { background: ' . $evolve_button_color_2 . '; border-color: #' . evolve_hexDarker( $evolve_button_color_2_border ) . ' }';
-}
-
-$evolve_header_image_src = '';
-if ( get_header_image() ) {
-	$evolve_header_image_src = get_header_image();
-}
-
-if ( ! empty( $evolve_padding_top ) ) {
-} else {
-	$evolve_padding_top = '40px';
-}
-
-if ( ! empty( $evolve_padding_bottom ) ) {
-} else {
-	$evolve_padding_bottom = '40px';
-}
-
+// Header Padding
 $evolve_css_data .= ' .header { padding-top: ' . $evolve_padding_top . '; padding-bottom: ' . $evolve_padding_bottom . '; } .header.container { padding-left: ' . $evolve_padding_left . '; padding-right: ' . $evolve_padding_right . '; } .navbar-nav > li { padding: 0 ' . $evolve_menu_padding . 'px; }';
 
-if ( $evolve_header_image_src ) {
-	$evolve_css_data .= ' .custom-header {
-	background-image: url(' . esc_url( $evolve_header_image_src ) . ');
-    background-position: ' . $evolve_background_position . ';
-    background-repeat: ' . $evolve_background_repeat . ';
-    position: relative;
-    background-size: ' . $evolve_header_image . ';
-    width: 100%;
-    height: 100%;
-}
-';
+// Custom Header Image
+if ( get_header_image() ) {
+	$evolve_css_data .= ' .custom-header {	background-image: url(' . esc_url( get_header_image() ) . '); background-position: ' . $evolve_background_position . '; background-repeat: ' . $evolve_background_repeat . '; position: relative; background-size: ' . $evolve_header_image . '; width: 100%; height: 100%; }';
 }
 
-/* TODO
-remove this
-if ( is_home() || is_front_page() ) {
-   if ( $evolve_frontpage_width_layout == "fluid" || is_page_template( '100-width.php' ) ) {
-	   $evolve_css_data .= '.custom-header { position: relative; background: url(' . esc_url( $evolve_header_image_src ) . ') top center no-repeat; border-bottom: 0; }';
-   }
-} elseif ( $evolve_width_layout == "fluid" || is_page_template( '100-width.php' ) ) {
-   $evolve_css_data .= '.custom-header { position: relative; background: url(' . esc_url( $evolve_header_image_src ) . ') top center no-repeat; border-bottom: 0; }';
-} */
-
+// Custom Footer Image
 if ( $evolve_footer_image_src ) {
 	$evolve_css_data .= ' .footer { background: url(' . esc_url( $evolve_footer_image_src ) . ') ' . $evolve_footer_background_position . ' ' . $evolve_footer_background_repeat . '; border-bottom: 0; background-size: ' . $evolve_footer_image . '; width: 100%; }';
 }
 
-if ( is_home() || is_front_page() ) {
-	if ( $evolve_frontpage_width_layout == "fluid" || is_page_template( '100-width.php' ) ) {
-		$evolve_css_data .= ' body .sticky-header{ margin: 0; left: 0; width: 100%; }';
+// Social Media Links
+if ( evolve_theme_mod( 'evl_social_links', true ) ) {
+	if ( ( ! empty( $evolve_social_color ) || ! empty( $evolve_social_icons_size ) ) ) {
+		$evolve_css_data .= ' #rss, #email-newsletter, #facebook, #twitter, #instagram, #skype, #youtube, #flickr, #linkedin, #plus, #pinterest, #tumblr {';
+		if ( ! empty( $evolve_social_color ) ) {
+			$evolve_css_data .= ' color: ' . $evolve_social_color . ';';
+		}
+		if ( ! empty( $evolve_social_color ) ) {
+			$evolve_css_data .= ' font-size: ' . $evolve_social_icons_size . ';';
+		}
+		$evolve_css_data .= ' }';
 	}
-} elseif ( $evolve_width_layout == "fluid" || is_page_template( '100-width.php' ) ) {
-	$evolve_css_data .= ' body .sticky-header{ margin: 0; left: 0; width: 100%; }';
+	if ( $evolve_social_box_radius != 'disabled' ) {
+		$evolve_css_data .= ' .sc_menu li a { border: 1px solid; border-radius: ' . $evolve_social_box_radius . 'px; padding: 8px; }';
+	}
 }
 
-if ( ! empty( $evolve_social_color ) ) {
-	$evolve_css_data .= ' #rss, #email-newsletter, #facebook, #twitter, #instagram, #skype, #youtube, #flickr, #linkedin, #plus, #pinterest, #tumblr { color: ' . $evolve_social_color . '; } .sc_menu li a { color: ' . $evolve_social_color . '; }';
-}
-
-if ( ! empty( $evolve_social_icons_size ) ) {
-	$evolve_css_data .= ' #rss, #email-newsletter, #facebook, #twitter, #instagram, #skype, #youtube, #flickr, #linkedin, #plus, #pinterest, #tumblr { font-size: ' . $evolve_social_icons_size . '; } .sc_menu li a { font-size: ' . $evolve_social_icons_size . '; }';
-}
-
-if ( $evolve_social_box_radius != 'disabled' ) {
-	$evolve_css_data .= ' .sc_menu li a { border: 1px solid; border-radius: ' . $evolve_social_box_radius . 'px; padding: 8px; }';
-}
-
-if ( $evolve_scheme_background ) {
-	$evolve_css_data .= ' .header-block { background-image: url(' . $evolve_scheme_background . '); background-position: top center; }';
-}
-
-if ( $evolve_scheme_background_100 == '1' ) {
-	$evolve_css_data .= ' .header-block { background-attachment: fixed; background-position: center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }';
-}
-
-if ( $evolve_scheme_background_repeat ) {
-	$evolve_css_data .= ' .header-block { background-repeat: ' . $evolve_scheme_background_repeat . '; }';
+// Header Block Background
+if ( $evolve_scheme_widgets != "" || $evolve_scheme_background || $evolve_scheme_background_100 == '1' || $evolve_scheme_background_repeat ) {
+	$evolve_scheme_color = mb_substr( $evolve_scheme_widgets, 1 );
+	$evolve_css_data     .= ' .header-block {';
+	if ( $evolve_scheme_widgets != "" ) {
+		$evolve_css_data .= ' background-color: ' . $evolve_scheme_widgets . '; background: -webkit-radial-gradient(circle, ' . $evolve_scheme_widgets . ', #' . evolve_hexDarker( $evolve_scheme_color, 40 ) . '); background: -moz-radial-gradient(circle, ' . $evolve_scheme_widgets . ', #' . evolve_hexDarker( $evolve_scheme_color, 40 ) . '); background: -o-radial-gradient(circle, ' . $evolve_scheme_widgets . ', #' . evolve_hexDarker( $evolve_scheme_color, 40 ) . '); background: -ms-radial-gradient(circle, ' . $evolve_scheme_widgets . ', #' . evolve_hexDarker( $evolve_scheme_color, 40 ) . ');';
+	}
+	if ( $evolve_scheme_background ) {
+		$evolve_css_data .= ' background-image: url(' . $evolve_scheme_background . ');';
+	}
+	if ( $evolve_scheme_background_100 == '1' ) {
+		$evolve_css_data .= ' background-attachment: fixed; background-position: center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;';
+	} else {
+		if ( $evolve_scheme_background ) {
+			$evolve_css_data .= ' background-position: top center;';
+		}
+	}
+	if ( $evolve_scheme_background_repeat ) {
+		$evolve_css_data .= ' background-repeat: ' . $evolve_scheme_background_repeat . ';';
+	}
+	$evolve_css_data .= ' } .da-dots span { background: #' . evolve_hexDarker( $evolve_scheme_color ) . '; }';
 }
 
 // Button
-if ( $evolve_shortcode_button_type == '3d' && $evolve_shortcode_button_bevel_color ) {
-	$evolve_css_data .= ' .btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button { -webkit-box-shadow: 0 2px 0 ' . $evolve_shortcode_button_bevel_color . '; -moz-box-shadow: 0 2px 0 ' . $evolve_shortcode_button_bevel_color . '; box-shadow: 0 2px 0 ' . $evolve_shortcode_button_bevel_color . '; } .btn:hover, button:hover, .button:hover, input#submit:hover, input[type=submit]:hover, #buddypress input[type=submit]:hover, #buddypress .button:hover, #buddypress a.button:hover { -webkit-box-shadow: 0 2px 0 ' . $evolve_shortcode_button_border_hover_color . '; -moz-box-shadow: 0 2px 0 ' . $evolve_shortcode_button_border_hover_color . '; box-shadow: 0 2px 0 ' . $evolve_shortcode_button_border_hover_color . '; }';
-}
-
-if ( $evolve_shortcode_button_accent_color ) {
-	$evolve_css_data .= ' .btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button, .woocommerce-pagination .page-numbers .current { color: ' . $evolve_shortcode_button_accent_color . '; }';
-}
-
-if ( $evolve_shortcode_button_accent_hover_color ) {
-	$evolve_css_data .= ' .btn:hover, button:hover, .button:hover, input#submit:hover, input[type=submit]:hover, #buddypress input[type=submit]:hover, #buddypress .button, #buddypress .button:hover, #buddypress a.button, #buddypress a.button:hover { color: ' . $evolve_shortcode_button_accent_hover_color . '; }';
-}
-
-if ( $evolve_shortcode_button_shadow == '1' && $evolve_shortcode_button_type == 'Flat' ) {
-	$evolve_css_data .= ' .btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button { text-shadow: none; box-shadow: none; }';
-}
-
-if ( $evolve_shortcode_button_shadow == '1' && $evolve_shortcode_button_type == '3d' ) {
-	$evolve_css_data .= ' .btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button { text-shadow: none; }';
-}
-
-if ( $evolve_shortcode_button_border_width ) {
-	$evolve_css_data .= ' .btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button, .btn:hover, button:hover, .button:hover, input#submit:hover, input[type=submit]:hover, #buddypress input[type=submit]:hover, #buddypress .button, #buddypress .button:hover, #buddypress a.button, #buddypress a.button:hover { border-width: ' . $evolve_shortcode_button_border_width . '; border-style: solid; }';
-}
-
-if ( $evolve_shortcode_button_border_width && $evolve_shortcode_button_border_color ) {
-	$evolve_css_data .= ' .btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button { border-color: ' . $evolve_shortcode_button_border_color . '; }';
-}
-
-if ( $evolve_shortcode_button_border_width && $evolve_shortcode_button_border_hover_color ) {
-	$evolve_css_data .= ' .btn:hover, button:hover, .button:hover, input#submit:hover, input[type=submit]:hover, #buddypress input[type=submit]:hover, #buddypress .button, #buddypress .button:hover, #buddypress a.button, #buddypress a.button:hover { border-color: ' . $evolve_shortcode_button_border_hover_color . '; }';
-}
-
-if ( $evolve_shortcode_button_shape == 'Pill' ) {
-	$evolve_css_data .= ' .btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button { border-radius: 2em; }';
-}
-
-if ( $evolve_shortcode_button_shape == 'Round' ) {
-	$evolve_css_data .= ' .btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button { border-radius: .3em; }';
-}
-
-if ( $evolve_shortcode_button_shape == 'Square' ) {
-	$evolve_css_data .= ' .btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button { border-radius: 0; }';
-}
-
-if ( $evolve_shortcode_button_gradient_top_color ) {
-	$evolve_css_data .= ' .btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button, .woocommerce-pagination .page-numbers .current { background: ' . $evolve_shortcode_button_gradient_top_color . '; ';
+if ( $evolve_shortcode_button_border_width || ( $evolve_shortcode_button_type == '3d' && $evolve_shortcode_button_bevel_color ) || $evolve_shortcode_button_accent_color || $evolve_shortcode_button_gradient_top_color || $evolve_shortcode_button_gradient_bottom_color || ( $evolve_shortcode_button_shadow == '1' && $evolve_shortcode_button_type == 'Flat' ) || ( $evolve_shortcode_button_shadow == '1' && $evolve_shortcode_button_type == '3d' ) || ( $evolve_shortcode_button_border_width && $evolve_shortcode_button_border_color ) || $evolve_shortcode_button_shape == 'Pill' || $evolve_shortcode_button_shape == 'Round' || $evolve_shortcode_button_shape == 'Square' ) {
+	$evolve_css_data .= ' .btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button, .woocommerce-pagination .page-numbers .current {';
+	if ( $evolve_shortcode_button_gradient_top_color ) {
+		$evolve_css_data .= ' background: ' . $evolve_shortcode_button_gradient_top_color . ';';
+	}
 	if ( $evolve_shortcode_button_gradient_bottom_color ) {
 		$evolve_css_data .= ' background-image: -webkit-gradient( linear, left bottom, left top, from( ' . $evolve_shortcode_button_gradient_bottom_color . ' ), to( ' . $evolve_shortcode_button_gradient_top_color . ' ) ); background-image: -webkit-linear-gradient( bottom, ' . $evolve_shortcode_button_gradient_bottom_color . ', ' . $evolve_shortcode_button_gradient_top_color . ' ); background-image: -moz-linear-gradient( bottom, ' . $evolve_shortcode_button_gradient_bottom_color . ', ' . $evolve_shortcode_button_gradient_top_color . ' ); background-image: -o-linear-gradient( bottom, ' . $evolve_shortcode_button_gradient_bottom_color . ', ' . $evolve_shortcode_button_gradient_top_color . ' ); background-image: linear-gradient( to top, ' . $evolve_shortcode_button_gradient_bottom_color . ', ' . $evolve_shortcode_button_gradient_top_color . ' ); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'' . $evolve_shortcode_button_gradient_top_color . '\', endColorstr=\'' . $evolve_shortcode_button_gradient_bottom_color . '\' );';
 	}
-	$evolve_css_data .= '}';
-}
-
-if ( $evolve_shortcode_button_gradient_top_hover_color && $evolve_shortcode_button_accent_hover_color ) {
-	$evolve_css_data .= ' .btn:hover, button:hover, .button:hover, input#submit:hover, input[type=submit]:hover, #buddypress input[type=submit]:hover, #buddypress .button:hover, #buddypress a.button:hover { background: ' . $evolve_shortcode_button_gradient_top_hover_color . ';';
-	if ( $evolve_shortcode_button_gradient_bottom_hover_color ) {
-		$evolve_css_data .= 'background-image: -webkit-gradient( linear, left bottom, left top, from( ' . $evolve_shortcode_button_gradient_bottom_hover_color . ' ), to( ' . $evolve_shortcode_button_gradient_top_hover_color . ' ) ); background-image: -webkit-linear-gradient( bottom, ' . $evolve_shortcode_button_gradient_bottom_hover_color . ', ' . $evolve_shortcode_button_gradient_top_hover_color . ' ); background-image: -moz-linear-gradient( bottom, ' . $evolve_shortcode_button_gradient_bottom_hover_color . ', ' . $evolve_shortcode_button_gradient_top_hover_color . ' ); background-image: -o-linear-gradient( bottom, ' . $evolve_shortcode_button_gradient_bottom_hover_color . ', ' . $evolve_shortcode_button_gradient_top_hover_color . ' ); background-image: linear-gradient( to top, ' . $evolve_shortcode_button_gradient_bottom_hover_color . ', ' . $evolve_shortcode_button_gradient_top_hover_color . ' ); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'' . $evolve_shortcode_button_gradient_top_hover_color . '\', endColorstr=\'' . $evolve_shortcode_button_gradient_bottom_hover_color . '\');';
+	if ( $evolve_shortcode_button_accent_color ) {
+		$evolve_css_data .= ' color: ' . $evolve_shortcode_button_accent_color . ';';
 	}
-	$evolve_css_data .= '}';
+	if ( $evolve_shortcode_button_shadow == '1' && $evolve_shortcode_button_type == 'Flat' ) {
+		$evolve_css_data .= ' text-shadow: none; box-shadow: none;';
+	}
+	if ( $evolve_shortcode_button_shadow == '1' && $evolve_shortcode_button_type == '3d' ) {
+		$evolve_css_data .= ' text-shadow: none;';
+	}
+	if ( $evolve_shortcode_button_border_width && $evolve_shortcode_button_border_color ) {
+		$evolve_css_data .= ' border-color: ' . $evolve_shortcode_button_border_color . ';';
+	}
+	if ( $evolve_shortcode_button_shape == 'Pill' ) {
+		$evolve_css_data .= ' border-radius: 2em;';
+	}
+	if ( $evolve_shortcode_button_shape == 'Round' ) {
+		$evolve_css_data .= ' border-radius: .3em;';
+	}
+	if ( $evolve_shortcode_button_shape == 'Square' ) {
+		$evolve_css_data .= ' border-radius: 0;';
+	}
+	if ( $evolve_shortcode_button_border_width ) {
+		$evolve_css_data .= ' border-width: ' . $evolve_shortcode_button_border_width . '; border-style: solid;';
+	}
+	if ( $evolve_shortcode_button_type == '3d' && $evolve_shortcode_button_bevel_color ) {
+		$evolve_css_data .= ' -webkit-box-shadow: 0 2px 0 ' . $evolve_shortcode_button_bevel_color . '; -moz-box-shadow: 0 2px 0 ' . $evolve_shortcode_button_bevel_color . '; box-shadow: 0 2px 0 ' . $evolve_shortcode_button_bevel_color . ';';
+	}
+	$evolve_css_data .= ' }';
 }
 
-$evolve_parallax_slide_title_font    = evolve_theme_mod( 'evl_parallax_slide_title_font' );
-$evolve_carousel_slide_title_font    = evolve_theme_mod( 'evl_carousel_slide_title_font' );
-$evolve_parallax_slide_subtitle_font = evolve_theme_mod( 'evl_parallax_slide_subtitle_font' );
-$evolve_carousel_slide_subtitle_font = evolve_theme_mod( 'evl_carousel_slide_subtitle_font' );
+if ( $evolve_shortcode_button_border_width || ( $evolve_shortcode_button_type == '3d' && $evolve_shortcode_button_bevel_color ) || ( $evolve_shortcode_button_gradient_top_hover_color && $evolve_shortcode_button_accent_hover_color ) || $evolve_shortcode_button_gradient_bottom_hover_color || $evolve_shortcode_button_accent_hover_color || ( $evolve_shortcode_button_border_width && $evolve_shortcode_button_border_hover_color ) ) {
+	$evolve_css_data .= ' .btn:hover, button:hover, .button:hover, input#submit:hover, input[type=submit]:hover, #buddypress input[type=submit]:hover, #buddypress .button, #buddypress .button:hover, #buddypress a.button, #buddypress a.button:hover {';
+	if ( $evolve_shortcode_button_accent_hover_color ) {
+		$evolve_css_data .= ' color: ' . $evolve_shortcode_button_accent_hover_color . ';';
+	}
+	if ( $evolve_shortcode_button_border_width && $evolve_shortcode_button_border_hover_color ) {
+		$evolve_css_data .= ' border-color: ' . $evolve_shortcode_button_border_hover_color . ';';
+	}
+	if ( $evolve_shortcode_button_gradient_top_hover_color && $evolve_shortcode_button_accent_hover_color ) {
+		$evolve_css_data .= ' background: ' . $evolve_shortcode_button_gradient_top_hover_color . ';';
+	}
+	if ( $evolve_shortcode_button_gradient_bottom_hover_color ) {
+		$evolve_css_data .= ' background-image: -webkit-gradient( linear, left bottom, left top, from( ' . $evolve_shortcode_button_gradient_bottom_hover_color . ' ), to( ' . $evolve_shortcode_button_gradient_top_hover_color . ' ) ); background-image: -webkit-linear-gradient( bottom, ' . $evolve_shortcode_button_gradient_bottom_hover_color . ', ' . $evolve_shortcode_button_gradient_top_hover_color . ' ); background-image: -moz-linear-gradient( bottom, ' . $evolve_shortcode_button_gradient_bottom_hover_color . ', ' . $evolve_shortcode_button_gradient_top_hover_color . ' ); background-image: -o-linear-gradient( bottom, ' . $evolve_shortcode_button_gradient_bottom_hover_color . ', ' . $evolve_shortcode_button_gradient_top_hover_color . ' ); background-image: linear-gradient( to top, ' . $evolve_shortcode_button_gradient_bottom_hover_color . ', ' . $evolve_shortcode_button_gradient_top_hover_color . ' ); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'' . $evolve_shortcode_button_gradient_top_hover_color . '\', endColorstr=\'' . $evolve_shortcode_button_gradient_bottom_hover_color . '\');';
+	}
+	if ( $evolve_shortcode_button_type == '3d' && $evolve_shortcode_button_bevel_color ) {
+		$evolve_css_data .= ' -webkit-box-shadow: 0 2px 0 ' . $evolve_shortcode_button_border_hover_color . '; -moz-box-shadow: 0 2px 0 ' . $evolve_shortcode_button_border_hover_color . '; box-shadow: 0 2px 0 ' . $evolve_shortcode_button_border_hover_color . ';';
+	}
+	if ( $evolve_shortcode_button_border_width ) {
+		$evolve_css_data .= ' border-width: ' . $evolve_shortcode_button_border_width . '; border-style: solid;';
+	}
+	$evolve_css_data .= ' }';
+}
 
 $evolve_css_data .= ' .woocommerce form.checkout .col-2, .woocommerce form.checkout #order_review_heading, .woocommerce form.checkout #order_review { display: none; }';
 
+// Shadow Effect
 if ( $evolve_shadow_effect == 'disable' ) {
 	$evolve_css_data .= ' #wrapper, .entry-content .thumbnail-post, #search-text, #search-text-top:focus, ul.breadcrumbs, .entry-content .wp-caption, thead, thead th, thead td, .home .type-post.sticky, .home .formatted-post, .page-template-blog-page-php .type-post.sticky, .page-template-blog-page-php .formatted-post, .nav-tabs .nav-link, .tab-content .tab-pane li, #wrapper:before, #bbpress-forums .bbp-search-form #bbp_search, .bbp-search-form #bbp_search, .bbp-topic-form input#bbp_topic_title, .bbp-topic-form input#bbp_topic_tags, .bbp-topic-form select#bbp_stick_topic_select, .bbp-topic-form select#bbp_topic_status_select, .bbp-reply-form input#bbp_topic_tags, .widget-title-background, .widget-content, .widget:after { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; } .new_menu_class ul.menu a, .entry-title, .entry-title a, p#copyright .credits, p#copyright .credits a, .home .type-post.sticky .entry-header a, .home .formatted-post .entry-header a, .home .type-post.sticky .entry-meta, .home .formatted-post .entry-meta, .home .type-post.sticky .entry-footer a, .home .formatted-post .entry-footer a, .page-template-blog-page-php .type-post.sticky .entry-header a, .page-template-blog-page-php .type-post.sticky .entry-meta, .page-template-blog-page-php .formatted-post .entry-header a, .page-template-blog-page-php .formatted-post .entry-meta, .page-template-blog-page-php .type-post.sticky .entry-footer a, .page-template-blog-page-php .formatted-post .entry-footer a, .home .type-post.sticky .entry-title a, .home .formatted-post .entry-title a, .page-template-blog-page-php .type-post.sticky .entry-title a, .page-template-blog-page-php .formatted-post .entry-title a, .entry-meta, thead, thead th, thead td, .content-box i, .carousel-caption, .close, #content h3.widget-title, h3.widget-title { text-shadow: none; }';
 }
 
-if ( ! empty( $evolve_form_bg_color ) ):
-	$evolve_css_data .= ' #search-text, input#s, #respond input#author, #respond input#url, #respond input#email, #respond textarea, #comment-input input, #comment-textarea textarea, .comment-form-comment textarea, .input-text, .post-password-form .password, .wpcf7-form .wpcf7-text, .wpcf7-form .wpcf7-quiz, .wpcf7-form .wpcf7-number, .wpcf7-form textarea, .wpcf7-form .wpcf7-select, .wpcf7-captchar, .wpcf7-form .wpcf7-date, .gform_wrapper .gfield input[type=text], .gform_wrapper .gfield input[type=email], .gform_wrapper .gfield textarea, .gform_wrapper .gfield select, #bbpress-forums .bbp-search-form #bbp_search, .bbp-reply-form input#bbp_topic_tags, .bbp-topic-form input#bbp_topic_title, .bbp-topic-form input#bbp_topic_tags, .bbp-topic-form select#bbp_stick_topic_select, .bbp-topic-form select#bbp_topic_status_select, #bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content, .main-nav-search-form input, .search-page-search-form input, .chzn-container-single .chzn-single, .chzn-container .chzn-drop, .evolve-select-parent, .evolve-select-parent select, .evolve-select-parent .evolve-select-arrow, .evolve-select-parent .country_to_state, .evolve-select-parent .state_select, #wrapper .select-arrow, #lang_sel_click a.lang_sel_sel, #lang_sel_click ul ul a, #lang_sel_click ul ul a:visited, #lang_sel_click a, #lang_sel_click a:visited, #wrapper .search-field input, input[type=text], input[type=email], input[type=password], input[type=file], textarea, select { background-color: ' . $evolve_form_bg_color . '; }';
-
+// Form Custom Colors
+if ( ! empty( $evolve_form_bg_color ) || ! empty( $evolve_form_text_color ) || ! empty( $evolve_form_border_color ) ) :
+	$evolve_css_data .= ' #search-text, input#s, #respond input#author, #respond input#url, #respond input#email, #respond textarea, #comment-input input, #comment-textarea textarea, .comment-form-comment textarea, .input-text, .post-password-form .password, .wpcf7-form .wpcf7-text, .wpcf7-form .wpcf7-quiz, .wpcf7-form .wpcf7-number, .wpcf7-form textarea, .wpcf7-form .wpcf7-select, .wpcf7-select-parent .select-arrow, .wpcf7-captchar, .wpcf7-form .wpcf7-date, .gform_wrapper .gfield input[type=text], .gform_wrapper .gfield input[type=email], .gform_wrapper .gfield textarea, .gform_wrapper .gfield_select[multiple=multiple], .gform_wrapper .gfield select, .gravity-select-parent .select-arrow, .select-arrow, #bbpress-forums .quicktags-toolbar, #bbpress-forums .bbp-search-form #bbp_search, .bbp-reply-form input#bbp_topic_tags, .bbp-topic-form input#bbp_topic_title, .bbp-topic-form input#bbp_topic_tags, .bbp-topic-form select#bbp_stick_topic_select, .bbp-topic-form select#bbp_topic_status_select, #bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content, #wp-bbp_topic_content-editor-container, #wp-bbp_reply_content-editor-container, .main-nav-search-form input, .search-page-search-form input, .chzn-container-single .chzn-single, .chzn-container .chzn-drop, .evolve-select-parent, .evolve-select-parent select, .evolve-select-parent .select2-container, .evolve-select-parent .evolve-select-arrow, .evolve-select-parent .country_to_state, .evolve-select-parent .state_select, #lang_sel_click a.lang_sel_sel, #lang_sel_click ul ul a, #lang_sel_click ul ul a:visited, #lang_sel_click a, #lang_sel_click a:visited, #wrapper .search-field input, input[type=text], input[type=email], input[type=password], input[type=file], textarea, select {';
+	if ( ! empty( $evolve_form_bg_color ) ) {
+		$evolve_css_data .= ' background-color: ' . $evolve_form_bg_color . ';';
+	}
+	if ( ! empty( $evolve_form_border_color ) ):
+		$evolve_css_data .= ' border-color: ' . $evolve_form_border_color . ';';
+	endif;
+	if ( ! empty( $evolve_form_text_color ) ):
+		$evolve_css_data .= ' color: ' . $evolve_form_text_color . ';';
+	endif;
+	$evolve_css_data .= ' }';
+	if ( ! empty( $evolve_form_text_color ) ):
+		$evolve_css_data .= ' input#s::-webkit-input-placeholder, #comment-input input::-webkit-input-placeholder, .post-password-form .password::-webkit-input-placeholder, #comment-textarea textarea::-webkit-input-placeholder, .comment-form-comment textarea::-webkit-input-placeholder, .input-text::-webkit-input-placeholder, input#s:-moz-placeholder, #comment-input input:-moz-placeholder, #comment-textarea textarea:-moz-placeholder, .comment-form-comment textarea:-moz-placeholder, .input-text:-moz-placeholder, input#s:-ms-input-placeholder, #comment-input input:-ms-input-placeholder, .post-password-form .password::-ms-input-placeholder, #comment-textarea textarea:-moz-placeholder, .comment-form-comment textarea:-ms-input-placeholder, .input-text:-ms-input-placeholder { color: ' . $evolve_form_text_color . '; }';
+	endif;
 endif;
-if ( ! empty( $evolve_form_text_color ) ):
-	$evolve_css_data .= ' #search-text, input#s, input#s .placeholder, #comment-input input, #comment-textarea textarea, #comment-input .placeholder, #comment-textarea .placeholder, .comment-form-comment textarea, .input-text, .post-password-form .password, .wpcf7-form .wpcf7-text, .wpcf7-form .wpcf7-quiz, .wpcf7-form .wpcf7-number, .wpcf7-form textarea, .wpcf7-form .wpcf7-select, .wpcf7-select-parent .select-arrow, .wpcf7-captchar, .wpcf7-form .wpcf7-date, .gform_wrapper .gfield input[type=text], .gform_wrapper .gfield input[type=email], .gform_wrapper .gfield textarea, .gform_wrapper .gfield select, #bbpress-forums .bbp-search-form #bbp_search, .bbp-reply-form input#bbp_topic_tags, .bbp-topic-form input#bbp_topic_title, .bbp-topic-form input#bbp_topic_tags, .bbp-topic-form select#bbp_stick_topic_select, .bbp-topic-form select#bbp_topic_status_select, #bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content, .main-nav-search-form input, .search-page-search-form input, .chzn-container-single .chzn-single, .chzn-container .chzn-drop, .evolve-select-parent, .evolve-select-parent select, .evolve-select-parent .country_to_state, .evolve-select-parent .state_select, .select2-container .select2-choice>.select2-chosen, #wrapper .search-field input, input[type=text], input[type=email], input[type=password], input[type=file], textarea, select { color: ' . $evolve_form_text_color . '; } input#s::-webkit-input-placeholder, #comment-input input::-webkit-input-placeholder, .post-password-form .password::-webkit-input-placeholder, #comment-textarea textarea::-webkit-input-placeholder, .comment-form-comment textarea::-webkit-input-placeholder, .input-text::-webkit-input-placeholder { color: ' . $evolve_form_text_color . '; } input#s:-moz-placeholder, #comment-input input:-moz-placeholder, #comment-textarea textarea:-moz-placeholder, .comment-form-comment textarea:-moz-placeholder, .input-text:-moz-placeholder, input#s:-ms-input-placeholder, #comment-input input:-ms-input-placeholder, .post-password-form .password::-ms-input-placeholder, #comment-textarea textarea:-moz-placeholder, .comment-form-comment textarea:-ms-input-placeholder, .input-text:-ms-input-placeholder { color: ' . $evolve_form_text_color . '; }';
 
-endif;
-if ( ! empty( $evolve_form_border_color ) ):
-	$evolve_css_data .= ' #search-text, input#s, #respond input#author, #respond input#url, #respond input#email, #respond textarea, #comment-input input, #comment-textarea textarea, .comment-form-comment textarea, .input-text, .post-password-form .password, .wpcf7-form .wpcf7-text, .wpcf7-form .wpcf7-quiz, .wpcf7-form .wpcf7-number, .wpcf7-form textarea, .wpcf7-form .wpcf7-select, .wpcf7-select-parent .select-arrow, .wpcf7-captchar, .wpcf7-form .wpcf7-date, .gform_wrapper .gfield input[type=text], .gform_wrapper .gfield input[type=email], .gform_wrapper .gfield textarea, .gform_wrapper .gfield_select[multiple=multiple], .gform_wrapper .gfield select, .gravity-select-parent .select-arrow, .select-arrow, #bbpress-forums .quicktags-toolbar, #bbpress-forums .bbp-search-form #bbp_search, .bbp-reply-form input#bbp_topic_tags, .bbp-topic-form input#bbp_topic_title, .bbp-topic-form input#bbp_topic_tags, .bbp-topic-form select#bbp_stick_topic_select, .bbp-topic-form select#bbp_topic_status_select, #bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content, #wp-bbp_topic_content-editor-container, #wp-bbp_reply_content-editor-container, .main-nav-search-form input, .search-page-search-form input, .chzn-container-single .chzn-single, .chzn-container .chzn-drop, .evolve-select-parent, .evolve-select-parent select, .evolve-select-parent .select2-container, .evolve-select-parent .evolve-select-arrow, .evolve-select-parent .country_to_state, .evolve-select-parent .state_select, #lang_sel_click a.lang_sel_sel, #lang_sel_click ul ul a, #lang_sel_click ul ul a:visited, #lang_sel_click a, #lang_sel_click a:visited, #wrapper .search-field input, input[type=text], input[type=email], input[type=password], input[type=file], textarea, select { border-color: ' . $evolve_form_border_color . '; }';
-
-endif;
-if ( $evolve_sticky_post_format == '0' ):
+// Post Formats
+if ( $evolve_sticky_post_format == '0' ) {
 	$evolve_css_data .= ' .home .type-post.sticky, .page-template-blog-page-php .type-post.sticky { background: transparent; } .home .type-post.sticky .entry-title a, .page-template-blog-page-php .type-post.sticky .entry-title a { color: ' . $evolve_post_font['color'] . '; } .home .type-post.sticky .entry-meta, .page-template-blog-page-php .type-post.sticky .entry-meta, .home .type-post.sticky .entry-header a, .page-template-blog-page-php .type-post.sticky .entry-header a, .home .type-post.sticky .entry-categories a, .page-template-blog-page-php .type-post.sticky .entry-categories a, .home .type-post.sticky .comment-count a, .page-template-blog-page-php .type-post.sticky .comment-count a { color: #ccc; } .home .type-post.sticky .entry-header a:hover, .page-template-blog-page-php .type-post.sticky .entry-header a:hover { color: ' . $evolve_general_link . '; } .home .type-post.sticky .entry-categories a:hover, .page-template-blog-page-php .type-post.sticky .entry-categories a:hover, .home .type-post.sticky .comment-count a:hover, .page-template-blog-page-php .type-post.sticky .comment-count a:hover { color: #333; }';
-
-endif;
-if ( $evolve_aside_post_format == '0' ):
+}
+if ( $evolve_aside_post_format == '0' ) {
 	$evolve_css_data .= ' .home .format-aside, .page-template-blog-page-php .format-aside { background: transparent; } .home .format-aside .entry-title a, .page-template-blog-page-php .format-aside .entry-title a { color: ' . $evolve_post_font['color'] . '; } .home .format-aside .entry-meta, .page-template-blog-page-php .format-aside .entry-meta, .home .format-aside .entry-header a, .page-template-blog-page-php .format-aside .entry-header a, .home .format-aside .entry-categories a, .page-template-blog-page-php .format-aside .entry-categories a, .home .format-aside .comment-count a, .page-template-blog-page-php .format-aside .comment-count a { color: #ccc; } .home .format-aside .entry-header a:hover, .page-template-blog-page-php .format-aside .entry-header a:hover { color: ' . $evolve_general_link . '; } .home .format-aside .entry-categories a:hover, .page-template-blog-page-php .format-aside .entry-categories a:hover, .home .format-aside .comment-count a:hover, .page-template-blog-page-php .format-aside .comment-count a:hover { color: #333; }';
-
-endif;
-if ( $evolve_audio_post_format == '0' ):
+}
+if ( $evolve_audio_post_format == '0' ) {
 	$evolve_css_data .= ' .home .format-audio, .page-template-blog-page-php .format-audio { background: transparent; } .home .format-audio .entry-title a, .page-template-blog-page-php .format-audio .entry-title a { color: ' . $evolve_post_font['color'] . '; } .home .format-audio .entry-meta, .page-template-blog-page-php .format-audio .entry-meta, .home .format-audio .entry-header a, .page-template-blog-page-php .format-audio .entry-header a, .home .format-audio .entry-categories a, .page-template-blog-page-php .format-audio .entry-categories a, .home .format-audio .comment-count a, .page-template-blog-page-php .format-audio .comment-count a { color: #ccc; } .home .format-audio .entry-header a:hover, .page-template-blog-page-php .format-audio.entry-header a:hover { color: ' . $evolve_general_link . '; } .home .format-audio .entry-categories a:hover, .page-template-blog-page-php .format-audio .entry-categories a:hover, .home .format-audio .comment-count a:hover, .page-template-blog-page-php .format-audio .comment-count a:hover { color: #333; }';
-
-endif;
-if ( $evolve_chat_post_format == '0' ):
+}
+if ( $evolve_chat_post_format == '0' ) {
 	$evolve_css_data .= ' .home .format-chat, .page-template-blog-page-php .format-chat { background: transparent; } .home .format-chat .entry-title a, .page-template-blog-page-php .format-chat .entry-title a { color: ' . $evolve_post_font['color'] . '; } .home .format-chat .entry-meta, .page-template-blog-page-php .format-chat .entry-meta, .home .format-chat .entry-header a, .page-template-blog-page-php .format-chat .entry-header a, .home .format-chat .entry-categories a, .page-template-blog-page-php .format-chat .entry-categories a, .home .format-chat .comment-count a, .page-template-blog-page-php .format-chat .comment-count a { color: #ccc; } .home .format-chat .entry-header a:hover, .page-template-blog-page-php .format-chat .entry-header a:hover { color: ' . $evolve_general_link . '; } .home .format-chat .entry-categories a:hover, .page-template-blog-page-php .format-chat .entry-categories a:hover, .home .format-chat .comment-count a:hover, .page-template-blog-page-php .format-chat .comment-count a:hover { color: #333; }';
-
-endif;
-if ( $evolve_gallery_post_format == '0' ):
+}
+if ( $evolve_gallery_post_format == '0' ) {
 	$evolve_css_data .= ' .home .format-gallery, .page-template-blog-page-php .format-gallery { background: transparent; } .home .format-gallery .entry-title a, .page-template-blog-page-php .format-gallery .entry-title a { color: ' . $evolve_post_font['color'] . '; } .home .format-gallery .entry-meta, .page-template-blog-page-php .format-gallery .entry-meta, .home .format-gallery .entry-header a, .page-template-blog-page-php .format-gallery .entry-header a, .home .format-gallery .entry-categories a, .page-template-blog-page-php .format-gallery .entry-categories a, .home .format-gallery .comment-count a, .page-template-blog-page-php .format-gallery .comment-count a { color: #ccc; } .home .format-gallery .entry-header a:hover, .page-template-blog-page-php .format-gallery .entry-header a:hover { color: ' . $evolve_general_link . '; } .home .format-gallery .entry-categories a:hover, .page-template-blog-page-php .format-gallery .entry-categories a:hover, .home .format-gallery .comment-count a:hover, .page-template-blog-page-php .format-gallery .comment-count a:hover { color: #333; }';
-
-endif;
-if ( $evolve_image_post_format == '0' ):
+}
+if ( $evolve_image_post_format == '0' ) {
 	$evolve_css_data .= ' .home .format-image, .page-template-blog-page-php .format-image { background: transparent; } .home .format-image .entry-title a, .page-template-blog-page-php .format-image .entry-title a { color: ' . $evolve_post_font['color'] . '; } .home .format-image .entry-meta, .page-template-blog-page-php .format-image .entry-meta, .home .format-image .entry-header a, .page-template-blog-page-php .format-image .entry-header a, .home .format-image .entry-categories a, .page-template-blog-page-php .format-image .entry-categories a, .home .format-image .comment-count a, .page-template-blog-page-php .format-image .comment-count a { color: #ccc; } .home .format-image .entry-header a:hover, .page-template-blog-page-php .format-image .entry-header a:hover { color: ' . $evolve_general_link . '; } .home .format-image .entry-categories a:hover, .page-template-blog-page-php .format-image .entry-categories a:hover, .home .format-image .comment-count a:hover, .page-template-blog-page-php .format-image .comment-count a:hover { color: #333; }';
-
-endif;
-if ( $evolve_link_post_format == '0' ):
+}
+if ( $evolve_link_post_format == '0' ) {
 	$evolve_css_data .= ' .home .format-link, .page-template-blog-page-php .format-link { background: transparent; } .home .format-link .entry-title a, .page-template-blog-page-php .format-link .entry-title a { color: ' . $evolve_post_font['color'] . '; } .home .format-link .entry-meta, .page-template-blog-page-php .format-link .entry-meta, .home .format-link .entry-header a, .page-template-blog-page-php .format-link .entry-header a, .home .format-link .entry-categories a, .page-template-blog-page-php .format-link .entry-categories a, .home .format-link .comment-count a, .page-template-blog-page-php .format-link .comment-count a { color: #ccc; } .home .format-link .entry-header a:hover, .page-template-blog-page-php .format-link .entry-header a:hover { color: ' . $evolve_general_link . '; } .home .format-link .entry-categories a:hover, .page-template-blog-page-php .format-link .entry-categories a:hover, .home .format-link .comment-count a:hover, .page-template-blog-page-php .format-link .comment-count a:hover { color: #333; }';
-
-endif;
-if ( $evolve_quote_post_format == '0' ):
+}
+if ( $evolve_quote_post_format == '0' ) {
 	$evolve_css_data .= ' .home .format-quote, .page-template-blog-page-php .format-quote { background: transparent; } .home .format-quote .entry-title a, .page-template-blog-page-php .format-quote .entry-title a { color: ' . $evolve_post_font['color'] . '; } .home .format-quote .entry-meta, .page-template-blog-page-php .format-quote .entry-meta, .home .format-quote .entry-header a, .page-template-blog-page-php .format-quote .entry-header a, .home .format-quote .entry-categories a, .page-template-blog-page-php .format-quote .entry-categories a, .home .format-quote .comment-count a, .page-template-blog-page-php .format-quote .comment-count a { color: #ccc; } .home .format-quote .entry-header a:hover, .page-template-blog-page-php .format-quote .entry-header a:hover { color: ' . $evolve_general_link . '; } .home .format-quote .entry-categories a:hover, .page-template-blog-page-php .format-quote .entry-categories a:hover, .home .format-quote .comment-count a:hover, .page-template-blog-page-php .format-quote .comment-count a:hover { color: #333; }';
-
-endif;
-if ( $evolve_status_post_format == '0' ):
+}
+if ( $evolve_status_post_format == '0' ) {
 	$evolve_css_data .= ' .home .format-status, .page-template-blog-page-php .format-status { background: transparent; } .home .format-status .entry-title a, .page-template-blog-page-php .format-status .entry-title a { color: ' . $evolve_post_font['color'] . '; } .home .format-status .entry-meta, .page-template-blog-page-php .format-status .entry-meta, .home .format-status .entry-header a, .page-template-blog-page-php .format-status .entry-header a, .home .format-status .entry-categories a, .page-template-blog-page-php .format-status .entry-categories a, .home .format-status .comment-count a, .page-template-blog-page-php .format-status .comment-count a { color: #ccc; } .home .format-status .entry-header a:hover, .page-template-blog-page-php .format-status .entry-header a:hover { color: ' . $evolve_general_link . '; } .home .format-status .entry-categories a:hover, .page-template-blog-page-php .format-status .entry-categories a:hover, .home .format-status .comment-count a:hover, .page-template-blog-page-php .format-status .comment-count a:hover { color: #333; }';
-
-endif;
-if ( $evolve_video_post_format == '0' ):
+}
+if ( $evolve_video_post_format == '0' ) {
 	$evolve_css_data .= ' .home .format-video, .page-template-blog-page-php .format-video { background: transparent; } .home .format-video .entry-title a, .page-template-blog-page-php .format-video .entry-title a { color: ' . $evolve_post_font['color'] . '; } .home .format-video .entry-meta, .page-template-blog-page-php .format-video .entry-meta, .home .format-video .entry-header a, .page-template-blog-page-php .format-video .entry-header a, .home .format-video .entry-categories a, .page-template-blog-page-php .format-video .entry-categories a, .home .format-video .comment-count a, .page-template-blog-page-php .format-video .comment-count a { color: #ccc; } .home .format-video .entry-header a:hover, .page-template-blog-page-php .format-video .entry-header a:hover { color: ' . $evolve_general_link . '; } .home .format-video .entry-categories a:hover, .page-template-blog-page-php .format-video .entry-categories a:hover, .home .format-video .comment-count a:hover, .page-template-blog-page-php .format-video .comment-count a:hover { color: #333; }';
+}
 
-endif;
-
-/* Bootstrap slider style */
-
+// Bootstrap Slider Style
 if ( $evolve_bootstrap_layout == "bootstrap_center" ) {
 	$evolve_css_data .= ' #bootstrap-slider .layout-center { text-align: center; width: 100%; left: 0; right: 0; bottom: -8px; padding-bottom: 20px; background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; } #bootstrap-slider .carousel-caption h2 { padding: 17px 25px; background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; } #bootstrap-slider .right.carousel-control { right: 30px; } #bootstrap-slider .left.carousel-control { left: 30px; } #bootstrap-slider .carousel-control { bottom: 43%; } #bootstrap-slider .layout-center a { margin: 0; } #bootstrap-slider .carousel-caption p { margin: 20px 0 10px; padding: 0; } #bootstrap-slider a.left::before, #bootstrap-slider a.right::before { font-size: 14px; font-weight: bold; } #bootstrap-slider .carousel-caption .bootstrap-button { bottom: 0; } #bootstrap-slider .carousel-control { bottom: 46%; }';
-
 } else {
 	$evolve_css_data .= ' #bootstrap-slider .layout-left { left: 0; right: 50%; margin-left: 60px; } #bootstrap-slider .carousel-caption { bottom: 12%; }';
 

@@ -57,9 +57,9 @@ class Evolve_Add_some_thing_to_Customize{
     font-size: 13px;
 }
 .customize-control-kirki-custom  {
-	background-color: #fba1a3;
-	border: 1px solid #b84f5b;
-	color: #981225;
+	background-color: #fbeba4;
+	border: 1px solid #d7c281;
+	color: #958234;
 	padding: 10px;
 	border-radius: 3px;
 	margin-right: 10px;

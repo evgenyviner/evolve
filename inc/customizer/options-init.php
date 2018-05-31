@@ -4112,23 +4112,23 @@ if ( true || is_customize_preview() ) {
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-styling-subsec-slideshow-widgets-tab',
-			'title'      => __( 'Slideshow & Widgets Area', 'evolve' ),
+			'title'      => __( 'Header Block', 'evolve' ),
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'subtitle' => __( 'Choose the color scheme for the area below header menu', 'evolve' ),
+					'subtitle' => __( 'Choose the color scheme for the Header Block area', 'evolve' ),
 					'id'       => 'evl_scheme_widgets',
 					'compiler' => true,
 					'type'     => 'color',
-					'title'    => __( 'Color scheme of the slideshow and widgets area', 'evolve' ),
+					'title'    => __( 'Color scheme of the Header Block area', 'evolve' ),
 					'default'  => '#273039',
 				),
 				array(
-					'subtitle' => __( 'Upload an image for the area below header menu', 'evolve' ),
+					'subtitle' => __( 'Upload an image for the Header Block area', 'evolve' ),
 					'id'       => 'evl_scheme_background',
 					'compiler' => true,
 					'type'     => 'media',
-					'title'    => __( 'Background Image of the slideshow and widgets area', 'evolve' ),
+					'title'    => __( 'Background Image of the Header Block area', 'evolve' ),
 					'url'      => true,
 				),
 				array(
@@ -4153,35 +4153,6 @@ if ( true || is_customize_preview() ) {
 					),
 					'title'    => __( 'Background Repeat', 'evolve' ),
 					'default'  => 'no-repeat',
-				),
-				array(
-					'subtitle' => __( 'Check this box if you want to enable custom background for widget titles', 'evolve' ),
-					'compiler' => true,
-					'id'       => 'evl_widget_background',
-					'type'     => 'switch',
-					'on'       => __( 'Enabled', 'evolve' ),
-					'off'      => __( 'Disabled', 'evolve' ),
-					'title'    => __( 'Enable Widget Title Custom Background', 'evolve' ),
-					'default'  => 0,
-				),
-				array(
-					'subtitle' => __( 'Choose the color scheme for widgets background', 'evolve' ),
-					'id'       => 'evl_widget_bgcolor',
-					'compiler' => true,
-					'type'     => 'color',
-					'title'    => __( 'Widget Title Custom Background', 'evolve' ),
-					'required' => array(
-						array( 'evl_widget_background', '=', '1' )
-					),
-					'default'  => '#273039',
-				),
-				array(
-					'subtitle' => __( 'Check this box if you want to disable widget content boxed background', 'evolve' ),
-					'id'       => 'evl_widget_background_image',
-					'type'     => 'checkbox',
-					'compiler' => true,
-					'title'    => __( 'Disable Widget Content Boxed Background', 'evolve' ),
-					'default'  => 1,
 				),
 			),
 		)
@@ -4235,6 +4206,44 @@ if ( true || is_customize_preview() ) {
 	);
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
+			'id'         => 'evl-styling-subsec-widgets-tab',
+			'title'      => __( 'Widgets', 'evolve' ),
+			'subsection' => true,
+			'fields'     => array(
+				array(
+					'subtitle' => __( 'Check this box if you want to enable custom background for widget titles', 'evolve' ),
+					'compiler' => true,
+					'id'       => 'evl_widget_background',
+					'type'     => 'switch',
+					'on'       => __( 'Enabled', 'evolve' ),
+					'off'      => __( 'Disabled', 'evolve' ),
+					'title'    => __( 'Enable Widget Title Custom Background', 'evolve' ),
+					'default'  => 0,
+				),
+				array(
+					'subtitle' => __( 'Choose the color scheme for widgets background', 'evolve' ),
+					'id'       => 'evl_widget_bgcolor',
+					'compiler' => true,
+					'type'     => 'color',
+					'title'    => __( 'Widget Title Custom Background', 'evolve' ),
+					'required' => array(
+						array( 'evl_widget_background', '=', '1' )
+					),
+					'default'  => '#273039',
+				),
+				array(
+					'subtitle' => __( 'Check this box if you want to disable widget content boxed background', 'evolve' ),
+					'id'       => 'evl_widget_background_image',
+					'type'     => 'checkbox',
+					'compiler' => true,
+					'title'    => __( 'Disable Widget Content Boxed Background', 'evolve' ),
+					'default'  => 1,
+				),
+			),
+		)
+	);
+
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-styling-subsec-links-buttons-tab',
 			'title'      => __( 'Links', 'evolve' ),
 			'subsection' => true,
@@ -4274,7 +4283,7 @@ if ( true || is_customize_preview() ) {
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-element-colors',
-			'title'      => __( 'Element Colors', 'evolve' ),
+			'title'      => __( 'Form Colors', 'evolve' ),
 			'subsection' => true,
 			'fields'     => array(
 				array(
