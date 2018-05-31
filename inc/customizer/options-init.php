@@ -114,23 +114,23 @@ class Evolve_Fix_Rd {
 		$link    = "";
 		$subsets = array();
 		foreach ( $fonts as $family => $font ) {
+			if( !isset($font['google']) || $font['google'] != 1 ){
+				continue;
+			}
 			$family = $font['font-family'];
 			if ( ( $link != "" ) ) {
 				$link .= "|"; // Append a new font to the string
 			}
 			$link .= $family;
 
-			if ( isset( $font['font-style'] ) || isset( $font['all-styles'] ) ) {
-				$link .= ':';
-				if ( isset( $font['all-styles'] ) ) {
-					$link .= implode( ',', $font['all-styles'] );
-				} else if ( isset( $font['font-style'] ) && $font['font-style'] !='' ) {
-					if(is_array($font['font-style'])){
-						$link .= implode( ',', $font['font-style'] );
-					}else{
-						$link .=  ',' . $font['font-style'] ;
-					}
-				}
+			// if ( isset( $font['font-style'] ) && ( $font['font-style'] != '' ) ) {
+				// $link .= ':'.$font['font-style'];
+			// }
+			if ( isset( $font['font-weight'] ) && ( $font['font-weight'] != '' ) ) {
+				$link .= ':'.$font['font-weight'];
+			}
+			if ( isset( $font['variant'] ) && ( $font['variant'] != '' ) ) {
+				$link .= ':'.$font['variant'];
 			}
 
 			if ( isset( $font['subset'] ) ) {
@@ -142,11 +142,13 @@ class Evolve_Fix_Rd {
 			}
 		}
 
-		if ( isset( $subsets ) ) {
+		if ( isset( $subsets ) && count($subsets) ) {
 			$link .= "&subset=" . implode( ',', $subsets );
 		}
+		
 		return '//fonts.googleapis.com/css?family=' . str_replace( '|', '|', $link );
 	}
+	
 	static function evl_call_kirki_from_old_field( $array_items, $section = 'kirki_frontpage-content-boxes-tab', $setting = 'kirki_evolve_options' ) {
 		global $name_of_panel, $evolve_all_customize_fields, $evolve_index_control, $evolve_list_google_fonts;
 		foreach ( $array_items as $value ) {
