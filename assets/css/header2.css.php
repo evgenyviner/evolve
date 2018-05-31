@@ -239,17 +239,9 @@ div#search-text-box {
     padding: 8.7px 8px;
 }
 
-.title-container #logo {
-    float: none;
-}
-
 .searchform {
     float: right;
     clear: none;
-}
-
-.title-container #logo a {
-    padding: 0px;
 }
 
 .header .woocommerce-menu li {
@@ -312,12 +304,6 @@ div#search-text-box {
         position: fixed;
         top: 54%;
         left: 45%;
-    }
-}
-
-@media only screen and (min-width: 769px) and (max-width: 992px) {
-    .header .title-container #tagline {
-        padding: 20px 0px;
     }
 }
 

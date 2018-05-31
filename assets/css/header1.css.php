@@ -69,9 +69,6 @@ $evolve_css_data = '
 }
 
 @media (max-width: 768px) {
-    .header_v0 .title-container #logo a {
-        padding: 0px;
-    }
     #search-text-top {
         background: #fff;
         font-size: 15px;
@@ -97,9 +94,6 @@ $evolve_css_data = '
         float: none;
         margin-right: 0;
     }
-    .title-container #logo {
-        float: none;
-    }
     #righttopcolumn,
      .header a,
     #tagline,
@@ -116,9 +110,6 @@ $evolve_css_data = '
     }
     .header #righttopcolumn {
       margin-bottom: 0;
-    }
-    .title-container{
-        display: block;
     }
     .woocommerce-menu .dd-select{
         width: auto!important;

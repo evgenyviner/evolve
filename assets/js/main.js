@@ -602,24 +602,21 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
 if (evolve_js_local_vars.scroll_to_top === '1') {
 
     jQuery(function ($) {
-        $(document).ready(function () {
-
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 100) {
-                    $('#backtotop').fadeIn().stop(true, true).fadeIn(200);
-                } else {
-                    $('#backtotop').stop(true, true).fadeOut(200);
-                }
-            });
-
-            $('#backtotop').click(function () {
-                $("html, body").animate({scrollTop: 0}, 600);
-                $('#backtotop').stop().animate({scrollTop: 0}, 600);
-                return false;
-            });
-
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 50) {
+                $('#backtotop').fadeIn();
+            } else {
+                $('#backtotop').fadeOut();
+            }
+        });
+        $('#backtotop').click(function () {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 600);
+            return false;
         });
     });
+
 }
 
 /*

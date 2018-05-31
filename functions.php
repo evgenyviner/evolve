@@ -1684,7 +1684,7 @@ function evolve_print_fonts( $name, $css_class, $additional_css = '', $additiona
 	global $evolve_options;
 	$options[ $name ] = evolve_theme_mod( $name );
 
-	$css         = "$css_class{";
+	$css         = "$css_class {";
 	$font_size   = '';
 	$font_family = '';
 	$font_style  = '';
@@ -1693,39 +1693,40 @@ function evolve_print_fonts( $name, $css_class, $additional_css = '', $additiona
 	$color       = '';
 	if ( isset( $options[ $name ]['font-size'] ) && $options[ $name ]['font-size'] != '' ) {
 		$font_size = $options[ $name ]['font-size'];
-		$css       .= "font-size:" . $font_size . " " . $imp . ";";
+		$css       .= " font-size: " . $font_size . "" . $imp . ";";
 	}
 	if ( isset( $options[ $name ]['font-family'] ) && $options[ $name ]['font-family'] != '' ) {
 		$font_family = $options[ $name ]['font-family'];
-		$css         .= "font-family:" . $font_family . ", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";";
+		$css         .= " font-family: " . $font_family . ", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";";
 	}
 	if ( isset( $options[ $name ]['font-style'] ) && $options[ $name ]['font-style'] != '' ) {
 		$font_style = $options[ $name ]['font-style'];
-		$css        .= "font-style:" . $font_style . ";";
+		$css        .= " font-style: " . $font_style . ";";
 	}
 	if ( isset( $options[ $name ]['font-weight'] ) && $options[ $name ]['font-weight'] != '' ) {
 		$font_weight = $options[ $name ]['font-weight'];
-		$css         .= "font-weight:" . $font_weight . ";";
+		$css         .= " font-weight: " . $font_weight . ";";
 	}
 	if ( isset( $options[ $name ]['text-align'] ) && $options[ $name ]['text-align'] != '' ) {
 		$font_align = $options[ $name ]['text-align'];
-		$css        .= "text-align:" . $font_align . ";";
+		$css        .= " text-align: " . $font_align . ";";
 	}
 	if ( isset( $options[ $name ]['color'] ) && $options[ $name ]['color'] != '' ) {
 		$color = $options[ $name ]['color'];
-		$css   .= "color:" . $color . ";";
+		$css   .= " color: " . $color . ";";
 	}
 	if ( $additional_css != '' ) {
 		$css .= "" . $additional_css . ";";
 	}
-	$css .= "}";
+	$css .= " }";
 	if ( isset( $options[ $name ]['color'] ) && $additional_color_css_class != '' ) {
 		$color = $options[ $name ]['color'];
-		$css   .= "$additional_color_css_class{color:" . $color . ";}";
+		$css   .= "$additional_color_css_class{ color:" . $color . "; }";
 	}
 
 	return $css;
 }
+
 function evolve_print_fonts_old( $name, $css_class, $additional_css = '', $additional_color_css_class = '', $imp = '' ) {
 	global $evolve_options;
 	$options[ $name ] = evolve_theme_mod( $name );
@@ -1739,30 +1740,30 @@ function evolve_print_fonts_old( $name, $css_class, $additional_css = '', $addit
 	$color       = '';
 	if ( isset( $options[ $name ]['font-size'] ) && $options[ $name ]['font-size'] != '' ) {
 		$font_size = $options[ $name ]['font-size'];
-		$css       .= "$css_class{font-size:" . $font_size . " " . $imp . ";}";
+		$css       .= "$css_class { font-size: " . $font_size . " " . $imp . "; }";
 	}
 	if ( isset( $options[ $name ]['font-family'] ) && $options[ $name ]['font-family'] != '' ) {
 		$font_family = $options[ $name ]['font-family'];
-		$css         .= "$css_class{font-family:" . $font_family . ", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";}";
+		$css         .= "$css_class{ font-family: " . $font_family . ", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"; }";
 	}
 	if ( isset( $options[ $name ]['font-style'] ) && $options[ $name ]['font-style'] != '' ) {
 		$font_style = $options[ $name ]['font-style'];
-		$css        .= "$css_class{font-style:" . $font_style . ";}";
+		$css        .= "$css_class{ font-style: " . $font_style . "; }";
 	}
 	if ( isset( $options[ $name ]['font-weight'] ) && $options[ $name ]['font-weight'] != '' ) {
 		$font_weight = $options[ $name ]['font-weight'];
-		$css         .= "$css_class{font-weight:" . $font_weight . ";}";
+		$css         .= "$css_class{ font-weight: " . $font_weight . "; }";
 	}
 	if ( isset( $options[ $name ]['text-align'] ) && $options[ $name ]['text-align'] != '' ) {
 		$font_align = $options[ $name ]['text-align'];
-		$css        .= "$css_class{text-align:" . $font_align . ";}";
+		$css        .= "$css_class{ text-align: " . $font_align . "; }";
 	}
 	if ( isset( $options[ $name ]['color'] ) && $options[ $name ]['color'] != '' ) {
 		$color = $options[ $name ]['color'];
-		$css   .= "$css_class{color:" . $color . ";}";
+		$css   .= "$css_class{ color: " . $color . "; }";
 	}
 	if ( $additional_css != '' ) {
-		$css .= "$css_class{" . $additional_css . ";}";
+		$css .= "$css_class{ " . $additional_css . "; }";
 	}
 	if ( isset( $options[ $name ]['color'] ) && $additional_color_css_class != '' ) {
 		$color = $options[ $name ]['color'];

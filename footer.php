@@ -32,9 +32,7 @@
 
 <?php if ( evolve_theme_mod( 'evl_pos_button', 'right' ) !== "disable" ) { ?>
 
-    <a href="#top" id="top-link">
-        <div id="backtotop"></div>
-    </a>
+    <a href="#" id="backtotop" class="btn" role="button">&nbsp;</a>
 
 <?php } ?>
 

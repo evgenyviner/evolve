@@ -190,7 +190,7 @@ $evolve_helper_tagline_class_2 = '';
 
 				if ( evolve_theme_mod( 'evl_header_logo', '' ) ) {
 					if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "center" ) {
-						$evolve_logo_class = 'col-12 order-2 header-logo-container clearfix';
+						$evolve_logo_class = 'col-12 order-2 header-logo-container';
 					}
 					if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "left" ) {
 						$evolve_logo_class = 'col-md-auto order-2 header-logo-container';

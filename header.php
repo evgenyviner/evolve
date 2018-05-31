@@ -21,12 +21,6 @@ $evolve_header_pos = '';
 </head>
 <body <?php body_class(); ?>>
 
-<?php if ( evolve_theme_mod( 'evl_pos_button', 'right' ) !== "disable" ) { ?>
-
-    <div id="top"></div>
-
-<?php } ?>
-
 <div id="wrapper">
 
 	<?php
