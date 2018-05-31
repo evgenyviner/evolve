@@ -1924,7 +1924,7 @@ $evolve_all_customize_fields = get_option( 'evl_all_customize_fields', false );
 function evolve_theme_mod( $name, $default = false ) {
 	global $evolve_all_customize_fields;
 	if ( $default == false ) {
-		if ( $evolve_all_customize_fields === false && isset( $evolve_all_customize_fields[ $name ] ) && isset( $evolve_all_customize_fields[ $name ]['value_temp'] ) && isset( $evolve_all_customize_fields[ $name ]['value_temp']['default'] ) ) {
+		if ( $evolve_all_customize_fields != false && isset( $evolve_all_customize_fields[ $name ] ) && isset( $evolve_all_customize_fields[ $name ]['value_temp'] ) && isset( $evolve_all_customize_fields[ $name ]['value_temp']['default'] ) ) {
 			$default = $evolve_all_customize_fields[ $name ]['value_temp']['default'];
 		}
 	}
