@@ -83,7 +83,7 @@ function evolve_content_boxes() {
 				$BoxClass = ' col-md-3';
 		endswitch;
 		if ( $evolve_content_box1_enable == true ) {
-			echo "<div class='$BoxClass content-box content-box-1 text-center mb-3'><div class='card'><div class='icon-box card-img-top'><i class='123 fa fa-" . $evolve_content_box1_icon . "'></i></div>";
+			echo "<div class='$BoxClass content-box content-box-1 text-center mb-3'><div class='card'><div class='icon-box card-img-top'><i class='fa fa-" . $evolve_content_box1_icon . "'></i></div>";
 			echo "<div class='card-body'>";
 			echo "<h5 class='card-title'>" . esc_attr( $evolve_content_box1_title ) . "</h5>";
 			echo "<p class='card-text'>" . do_shortcode( $evolve_content_box1_desc ) . "</p>";
@@ -107,7 +107,7 @@ function evolve_content_boxes() {
 			$evolve_content_box2_icon = '';
 		}
 		if ( $evolve_content_box2_enable == true ) {
-			echo "<div class='$BoxClass content-box content-box-2 text-center mb-3'><div class='card'><div class='icon-box card-img-top'><i class='123 fa fa-" . $evolve_content_box2_icon . "'></i></div>";
+			echo "<div class='$BoxClass content-box content-box-2 text-center mb-3'><div class='card'><div class='icon-box card-img-top'><i class='fa fa-" . $evolve_content_box2_icon . "'></i></div>";
 			echo "<div class='card-body'>";
 			echo "<h5 class='card-title'>" . esc_attr( $evolve_content_box2_title ) . "</h5>";
 			echo "<p class='card-text'>" . do_shortcode( $evolve_content_box2_desc ) . "</p>";
@@ -131,7 +131,7 @@ function evolve_content_boxes() {
 			$evolve_content_box3_icon = '';
 		}
 		if ( $evolve_content_box3_enable == true ) {
-			echo "<div class='$BoxClass content-box content-box-3 text-center mb-3'><div class='card'><div class='icon-box card-img-top'><i class='123 fa fa-" . $evolve_content_box3_icon . "'></i></div>";
+			echo "<div class='$BoxClass content-box content-box-3 text-center mb-3'><div class='card'><div class='icon-box card-img-top'><i class='fa fa-" . $evolve_content_box3_icon . "'></i></div>";
 			echo "<div class='card-body'>";
 			echo "<h5 class='card-title'>" . esc_attr( $evolve_content_box3_title ) . "</h5>";
 			echo "<p class='card-text'>" . do_shortcode( $evolve_content_box3_desc ) . "</p>";
@@ -155,7 +155,7 @@ function evolve_content_boxes() {
 			$evolve_content_box4_icon = '';
 		}
 		if ( $evolve_content_box4_enable == true ) {
-			echo "<div class='$BoxClass content-box content-box-4 text-center mb-3'><div class='card'><div class='icon-box card-img-top'><i class='123 fa fa-" . $evolve_content_box4_icon . "'></i></div>";
+			echo "<div class='$BoxClass content-box content-box-4 text-center mb-3'><div class='card'><div class='icon-box card-img-top'><i class='fa fa-" . $evolve_content_box4_icon . "'></i></div>";
 			echo "<div class='card-body'>";
 			echo "<h5 class='card-title'>" . esc_attr( $evolve_content_box4_title ) . "</h5>";
 			echo "<p class='card-text'>" . do_shortcode( $evolve_content_box4_desc ) . "</p>";
@@ -515,11 +515,11 @@ function evolve_woocommerce_products() {
 	}
 	$html = "<div class='$html_class' style='$html_style' ><div class='t4p-row'>";
 
-	$evolve_woo_product_section_title = evolve_theme_mod( 'evl_woo_product_title', 'New Arrival Product' );
+	$evolve_woo_product_section_title = evolve_theme_mod( 'evl_woo_product_title', esc_attr__( 'Trending Products In Our Store', 'evolve' ) );
 	if ( $evolve_woo_product_section_title == false ) {
 		$evolve_woo_product_section_title = '';
 	} else {
-		$evolve_woo_product_section_title = '<h4 class="woo_product_section_title section_title">' . evolve_theme_mod( 'evl_woo_product_title', 'New Arrival Product' ) . '</h4>';
+		$evolve_woo_product_section_title = '<h4 class="woo_product_section_title section_title">' . evolve_theme_mod( 'evl_woo_product_title', esc_attr__( 'Trending Products In Our Store', 'evolve' ) ) . '</h4>';
 	}
 	$html .= "<div class='t4p-woo-product' >" . $evolve_woo_product_section_title;
 	if ( $product_cat ) {

@@ -110,7 +110,6 @@ function evolve_setup() {
 	register_nav_menus(
 		array(
 			'primary-menu'      => __( 'Primary Menu', 'evolve' ),
-			'boot-menu'         => __( 'Boot Menu', 'evolve' ),
 			'sticky_navigation' => __( 'Sticky Header Menu', 'evolve' ),
 		)
 	);
@@ -1935,7 +1934,7 @@ function evolve_theme_mod( $name, $default = false ) {
 	if ( $result && is_string( $name ) && endsWith( $name, '_icon' ) ) {
 		if ( ( strpos( $result, 'fa-' ) === 0 ) ) {
 			// It starts with 'fa-'
-			$result = trim($result, 'fa-');
+			$result = trim( $result, 'fa-' );
 		}
 	}
 	if ( $result && is_array( $result ) && count( $result ) && isset( $result["enabled"] ) && is_array( $result["enabled"] ) && count( $result["enabled"] ) ) {

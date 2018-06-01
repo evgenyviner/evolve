@@ -52,10 +52,10 @@ $evolve_scheme_background            = evolve_theme_mod( 'evl_scheme_background'
 $evolve_scheme_background_100        = evolve_theme_mod( 'evl_scheme_background_100', '0' );
 $evolve_scheme_background_repeat     = evolve_theme_mod( 'evl_scheme_background_repeat', 'repeat' );
 $evolve_general_link                 = evolve_theme_mod( 'evl_general_link', '#0bb697' );
-$evolve_content_box1_icon_color      = evolve_theme_mod( 'evl_content_box1_icon_color', '#afbbc1' );
-$evolve_content_box2_icon_color      = evolve_theme_mod( 'evl_content_box2_icon_color', '#afbbc1' );
-$evolve_content_box3_icon_color      = evolve_theme_mod( 'evl_content_box3_icon_color', '#afbbc1' );
-$evolve_content_box4_icon_color      = evolve_theme_mod( 'evl_content_box4_icon_color', '#afbbc1' );
+$evolve_content_box1_icon_color      = evolve_theme_mod( 'evl_content_box1_icon_color', '#8bb9c1' );
+$evolve_content_box2_icon_color      = evolve_theme_mod( 'evl_content_box2_icon_color', '#8ba3c1' );
+$evolve_content_box3_icon_color      = evolve_theme_mod( 'evl_content_box3_icon_color', '#8dc4b8' );
+$evolve_content_box4_icon_color      = evolve_theme_mod( 'evl_content_box4_icon_color', '#92bf89' );
 $evolve_header_image                 = evolve_theme_mod( 'evl_header_image', 'cover' );
 $evolve_content_background_image     = evolve_theme_mod( 'evl_content_background_image' );
 $evolve_content_background_color     = evolve_theme_mod( 'evl_content_background_color', '' );
@@ -169,7 +169,7 @@ if ( $evolve_content_back == "dark" ) {
 }
 
 // Main Menu Background Color Scheme
-if ( ! empty( evolve_theme_mod( 'evl_menu_back_color', '#273039' ) ) ) {
+if ( ! ( '' == evolve_theme_mod( 'evl_menu_back_color', '#273039' ) ) ) {
 	$evolve_menu_back_color = mb_substr( evolve_theme_mod( 'evl_menu_back_color', '#273039' ), 1 );
 	$evolve_css_data        .= ' .navbar-nav .dropdown-menu, .navbar-nav .dropdown-item:focus, .navbar-nav .dropdown-item:hover { background: #' . $evolve_menu_back_color . '; } .menu-header, .sticky-header { background: #' . $evolve_menu_back_color . '; background: -moz-linear-gradient(top, #' . $evolve_menu_back_color . ' 50%, #' . evolve_hexDarker( $evolve_menu_back_color ) . ' 100%); background: -webkit-linear-gradient(top, #' . $evolve_menu_back_color . ' 50%, #' . evolve_hexDarker( $evolve_menu_back_color ) . ' 100%); background: linear-gradient(to bottom, #' . $evolve_menu_back_color . ' 50%, #' . evolve_hexDarker( $evolve_menu_back_color ) . ' 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'#' . $evolve_menu_back_color . '\', endColorstr=\'#' . evolve_hexDarker( $evolve_menu_back_color ) . '\'); border-color: #' . evolve_hexDarker( $evolve_menu_back_color ) . '; }';
 }
@@ -636,7 +636,7 @@ $evolve_css_data .= '}';
 
 // Max-Width 767px
 $evolve_css_data .= ' @media (max-width: 767px) {';
-if ( ! empty( evolve_theme_mod( 'evl_menu_back_color', '#273039' ) ) ) {
+if ( ! ( '' == evolve_theme_mod( 'evl_menu_back_color', '#273039' ) ) ) {
 	$evolve_menu_back_color = mb_substr( evolve_theme_mod( 'evl_menu_back_color', '#273039' ), 1 );
 	$evolve_css_data        .= ' .navbar-nav li, .navbar-nav, .navbar-nav .dropdown-menu, .navbar-toggler { border-color: #' . evolve_hexDarker( $evolve_menu_back_color, 30 ) . '; } .navbar-toggler, .navbar-nav li, .navbar-nav, .navbar-nav .dropdown-menu { background: #' . evolve_hexDarker( $evolve_menu_back_color, 20 ) . '; }';
 }
