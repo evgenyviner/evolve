@@ -311,8 +311,8 @@ class Evolve_Fix_Rd {
 				}
 				if ( $value['type'] == 'switch' ) {
 					$value_temp['choices'] = array(
-						'on'  => isset( $value['on'] ) ? $value['on'] : esc_attr__( 'Disabled', 'evolve' ),
-						'off' => isset( $value['off'] ) ? $value['off'] : esc_attr__( 'Enabled', 'evolve' ),
+						'on'  => isset( $value['on'] ) ? $value['on'] : esc_attr__( 'Enabled', 'evolve' ),
+						'off' => isset( $value['off'] ) ? $value['off'] : esc_attr__( 'Disabled', 'evolve' ),
 					);
 				}
 
