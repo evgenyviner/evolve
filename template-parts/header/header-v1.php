@@ -36,7 +36,7 @@ $evolve_helper_tagline_class_2 = '';
 			}
 			echo '<div class="col-md-auto ml-auto ' . $evolve_social_class . '">';
 
-			if ( evolve_theme_mod( 'evl_social_links', true ) ) {
+			if ( evolve_theme_mod( 'evl_social_links', 0 ) ) {
 				get_template_part( 'template-parts/header/header', 'social-buttons' );
 			}
 

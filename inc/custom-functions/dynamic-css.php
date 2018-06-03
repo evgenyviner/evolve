@@ -404,7 +404,7 @@ if ( $evolve_footer_image_src ) {
 }
 
 // Social Media Links
-if ( evolve_theme_mod( 'evl_social_links', true ) ) {
+if ( evolve_theme_mod( 'evl_social_links', 0 ) ) {
 	if ( ( ! empty( $evolve_social_color ) || ! empty( $evolve_social_icons_size ) ) ) {
 		$evolve_css_data .= ' #rss, #email-newsletter, #facebook, #twitter, #instagram, #skype, #youtube, #flickr, #linkedin, #plus, #pinterest, #tumblr {';
 		if ( ! empty( $evolve_social_color ) ) {
