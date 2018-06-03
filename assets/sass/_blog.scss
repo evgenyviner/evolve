@@ -532,15 +532,6 @@ a.follow-replies {
   }
 }
 
-.comment-unapproved {
-  font-weight: bold;
-  color: #333;
-  clear: both;
-  background: #f0dfa5;
-  padding: 13px 15px;
-  margin: 18px;
-}
-
 .comment,
 .navigation-links {
   margin-bottom: 40px;
@@ -549,12 +540,6 @@ a.follow-replies {
 /*!==========================================================================
    Comment Reply
    ========================================================================== */
-#reply-title {
-  letter-spacing: 0;
-  margin-bottom: 0;
-  font-size: 26px;
-  font-weight: bold;
-}
 
 #respond {
   clear: both;
@@ -767,51 +752,12 @@ a.follow-replies {
   font-weight: bold;
 }
 
-/*!==========================================================================
-   Breadcrumbs
-   ========================================================================== */
-ul.breadcrumbs {
-  float: left;
-  position: relative;
-  z-index: 0;
-  list-style: none outside none;
-  margin: 0 0 25px 0;
-  padding: 0;
-  width: 100%;
-  li {
-    display: inline;
-    font-size: 13px;
-    margin: 0 0 0 5px;
-    padding: 0 2px;
-    &:first-child {
-      padding-left: 0;
-      margin-left: 0;
-    }
-    &::after {
-      color: rgba(0, 0, 0, 0.2);
-      content: '/';
-      font-size: 12px;
-    }
-    &:last-child {
-      &::after {
-        content: "";
-      }
-    }
-    a {
-      padding-right: 10px;
-    }
-  }
-}
-
 .page-title {
   font-size: 26px;
   font-weight: bold;
   letter-spacing: -1px;
   span {
     font-weight: normal;
-  }
-  .breadcrumbs {
-    letter-spacing: 0px;
   }
 }
 

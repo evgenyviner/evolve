@@ -1061,8 +1061,8 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 
 function evolve_breadcrumb() {
 	global $data, $post;
-	echo '<ul class="breadcrumbs">';
-	echo '<li><a class="home" href="';
+	echo '<nav aria-label="breadcrumb"><ol class="breadcrumb">';
+	echo '<li class="breadcrumb-item"><a class="home" href="';
 	echo home_url();
 	echo '">' . __( 'Home', 'evolve' );
 	echo "</a></li>";
@@ -1079,14 +1079,14 @@ function evolve_breadcrumb() {
 				}
 			}
 		}
-		echo '<li>' . $thisCat->name . '</li>';
+		echo '<li class="breadcrumb-item active">' . $thisCat->name . '</li>';
 	}
 	if ( is_tax() ) {
 		$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-		echo '<li>' . $term->name . '</li>';
+		echo '<li class="breadcrumb-item active">' . $term->name . '</li>';
 	}
 	if ( is_home() ) {
-		echo '<li>' . __( 'Blog', 'evolve' ) . '</li>';
+		echo '<li class="breadcrumb-item active">' . __( 'Blog', 'evolve' ) . '</li>';
 	}
 	if ( is_page() && ! is_front_page() ) {
 		$parents   = array();
@@ -1096,13 +1096,13 @@ function evolve_breadcrumb() {
 			if ( $params["link_none"] ) {
 				$parents[] = get_the_title( $page->ID );
 			} else {
-				$parents[] = '<li><a href="' . get_permalink( $page->ID ) . '" title="' . get_the_title( $page->ID ) . '">' . get_the_title( $page->ID ) . '</a></li>' . $separator;
+				$parents[] = '<li class="breadcrumb-item"><a href="' . get_permalink( $page->ID ) . '" title="' . get_the_title( $page->ID ) . '">' . get_the_title( $page->ID ) . '</a></li>' . $separator;
 			}
 			$parent_id = $page->post_parent;
 		endwhile;
 		$parents = array_reverse( $parents );
 		echo join( ' ', $parents );
-		echo '<li>' . get_the_title() . '</li>';
+		echo '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
 	}
 	if ( is_single() && ! is_attachment() ) {
 		$cat_1_line   = '';
@@ -1119,40 +1119,40 @@ function evolve_breadcrumb() {
 		) );
 		if ( $categories ) :
 			foreach ( $categories as $cat ) :
-				$cats[] = '<li><a href="' . get_category_link( $cat->term_id ) . '" title="' . $cat->name . '">' . $cat->name . '</a></li>';
+				$cats[] = '<li class="breadcrumb-item"><a href="' . get_category_link( $cat->term_id ) . '" title="' . $cat->name . '">' . $cat->name . '</a></li>';
 			endforeach;
 			echo join( ' ', $cats );
 		endif;
-		echo '<li>' . get_the_title() . '</li>';
+		echo '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
 	}
 	if ( is_tag() ) {
-		echo '<li>' . "Tag: " . single_tag_title( '', false ) . '</li>';
+		echo '<li class="breadcrumb-item active">' . "Tag: " . single_tag_title( '', false ) . '</li>';
 	}
 	if ( is_404() ) {
-		echo '<li>' . __( "404 - Page not Found", 'evolve' ) . '</li>';
+		echo '<li class="breadcrumb-item active">' . __( "404 - Page not Found", 'evolve' ) . '</li>';
 	}
 	if ( is_search() ) {
-		echo '<li>' . __( "Search", 'evolve' ) . '</li>';
+		echo '<li class="breadcrumb-item active">' . __( "Search", 'evolve' ) . '</li>';
 	}
 	if ( is_day() ) {
-		echo '<li><a href="' . get_year_link( get_the_time( 'Y' ) ) . '">' . get_the_time( 'Y' ) . "</a></li>";
-		echo '<li><a href="' . get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ) . '">' . get_the_time( 'F' ) . "</a></li>";
-		echo '<li>' . get_the_time( 'd' ) . '</li>';
+		echo '<li class="breadcrumb-item"><a href="' . get_year_link( get_the_time( 'Y' ) ) . '">' . get_the_time( 'Y' ) . "</a></li>";
+		echo '<li class="breadcrumb-item"><a href="' . get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ) . '">' . get_the_time( 'F' ) . "</a></li>";
+		echo '<li class="breadcrumb-item active">' . get_the_time( 'd' ) . '</li>';
 	}
 	if ( is_month() ) {
-		echo '<li><a href="' . get_year_link( get_the_time( 'Y' ) ) . '">' . get_the_time( 'Y' ) . "</a></li>";
-		echo '<li>' . get_the_time( 'F' ) . '</li>';
+		echo '<li class="breadcrumb-item"><a href="' . get_year_link( get_the_time( 'Y' ) ) . '">' . get_the_time( 'Y' ) . "</a></li>";
+		echo '<li class="breadcrumb-item active">' . get_the_time( 'F' ) . '</li>';
 	}
 	if ( is_year() ) {
-		echo '<li>' . get_the_time( 'Y' ) . '</li>';
+		echo '<li class="breadcrumb-item active">' . get_the_time( 'Y' ) . '</li>';
 	}
 	if ( is_attachment() ) {
 		if ( ! empty( $post->post_parent ) ) {
-			echo "<li><a href='" . get_permalink( $post->post_parent ) . "'>" . get_the_title( $post->post_parent ) . "</a></li>";
+			echo "<li class=\"breadcrumb-item\"><a href='" . get_permalink( $post->post_parent ) . "'>" . get_the_title( $post->post_parent ) . "</a></li>";
 		}
-		echo "<li>" . get_the_title() . "</li>";
+		echo "<li class=\"breadcrumb-item active\">" . get_the_title() . "</li>";
 	}
-	echo "</ul>";
+	echo "</ul></nav>";
 }
 
 /*
@@ -2078,11 +2078,6 @@ function evolve_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-
-	// Media.css
-	// TODO
-	// Remove
-	// wp_enqueue_style( 'mediacss', get_template_directory_uri() . '/assets/css/media.min.css', array( 'maincss' ) );
 
 	/*
 	   Add Dynamic Data To main.js

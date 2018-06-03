@@ -273,7 +273,7 @@ jQuery(function ($) {
    ======================================= */
 
 jQuery(function ($) {
-    $("#primary img").addClass("img-responsive");
+    $("#primary img").addClass("img-fluid");
 });
 
 /*
@@ -412,13 +412,13 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
 
             var data_name = $(this).attr('data-name');
             var name = data_name;
-            if (data_name != '#order_review') {
+            if (data_name != '#order-review') {
                 name = '.' + data_name;
             }
 
-            jQuery('form.checkout .col-1, form.checkout .col-2, form.checkout #order_review_heading, form.checkout #order_review').hide();
+            jQuery('form.checkout .checkout-billing, form.checkout .checkout-shipping, form.checkout #order_review_heading, form.checkout #order-review').hide();
             jQuery('form.checkout').find(name).fadeIn();
-            if (name == '#order_review') {
+            if (name == '#order-review') {
                 jQuery('form.checkout').find('#order_review_heading').fadeIn();
             }
 

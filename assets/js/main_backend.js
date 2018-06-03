@@ -1896,18 +1896,6 @@ jQuery(document).ready(function ($) {
 //
 //
 // 
-// Responsive Images
-//
-//
-//
-
-var $addmenueffect = jQuery.noConflict();
-$addmenueffect("#primary img").addClass("img-responsive");
-
-
-//
-//
-// 
 // Carousel Slider Arrows
 //
 //

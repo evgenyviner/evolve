@@ -17,9 +17,9 @@ $woo_acc_msg_1 = evolve_theme_mod( 'evl_woo_acc_msg_1', 'Call us - <i class="t4p
 $woo_acc_msg_2 = evolve_theme_mod( 'evl_woo_acc_msg_2', 'Email us - <i class="t4p-icon-envelope-o"></i> contact@example.com' );
 ?>
 
-    <div class="container myaccount_user_container">
-        <div class="row">
-            <div class="col">
+    <div class="myaccount_user_container">
+        <div class="row align-items-center">
+            <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                 <h3><?php
 					printf(
 						__( 'Hello, %s', 'evolve' ), $current_user->display_name
@@ -29,7 +29,7 @@ $woo_acc_msg_2 = evolve_theme_mod( 'evl_woo_acc_msg_2', 'Email us - <i class="t4
 
 			<?php if ( $woo_acc_msg_1 ): ?>
 
-                <div class="col">
+                <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
 
 					<?php echo $woo_acc_msg_1; ?>
 
@@ -38,7 +38,7 @@ $woo_acc_msg_2 = evolve_theme_mod( 'evl_woo_acc_msg_2', 'Email us - <i class="t4
 			<?php endif;
 			if ( $woo_acc_msg_2 ): ?>
 
-                <div class="col">
+                <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
 
 					<?php echo $woo_acc_msg_2; ?>
 
@@ -46,9 +46,10 @@ $woo_acc_msg_2 = evolve_theme_mod( 'evl_woo_acc_msg_2', 'Email us - <i class="t4
 
 			<?php endif; ?>
 
-            <div class="col">
+            <div class="col-sm-12 col-md-6 col-lg-3">
                 <form action="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
-                    <button type="submit" class="btn float-md-right"><?php esc_html_e( 'View Cart', 'evolve' ); ?></button>
+                    <button type="submit"
+                            class="btn btn-sm float-lg-right"><?php esc_html_e( 'View Cart', 'evolve' ); ?></button>
                 </form>
             </div>
         </div>
@@ -77,21 +78,15 @@ $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', wc_get_checko
 
 			<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
 
-            <div class="col2-set" id="customer_details">
 
-                <div class="col-1">
-
-					<?php do_action( 'woocommerce_checkout_billing' ); ?>
-
-                </div>
-
-                <div class="col-2">
-
-					<?php do_action( 'woocommerce_checkout_shipping' ); ?>
-
-                </div>
-
+            <div class="checkout-billing">
+				<?php do_action( 'woocommerce_checkout_billing' ); ?>
             </div>
+
+            <div class="checkout-shipping">
+				<?php do_action( 'woocommerce_checkout_shipping' ); ?>
+            </div>
+
 
 			<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 
@@ -103,7 +98,7 @@ $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', wc_get_checko
 		do_action( 'woocommerce_checkout_before_order_review' );
 		?>
 
-        <div id="order_review" class="woocommerce-checkout-review-order">
+        <div id="order-review" class="woocommerce-checkout-review-order">
 
 			<?php do_action( 'woocommerce_checkout_order_review' ); ?>
 

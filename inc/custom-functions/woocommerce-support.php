@@ -801,9 +801,9 @@ add_action('woocommerce_before_cart_table', 'evolve_woocommerce_before_cart_tabl
 function evolve_woocommerce_before_cart_table($args) {
     global $woocommerce;
 
-    $html = '<div class="woocommerce-content-box full-width clearfix">';
+    $html = '<div class="woocommerce-content-box mb-4">';
 
-    $html .= '<h2>' . sprintf(__('You Have %d Items In Your Cart', 'evolve'), $woocommerce->cart->cart_contents_count) . '</h2>';
+    $html .= '<h4>' . sprintf(__('You Have %d Items In Your Cart', 'evolve'), $woocommerce->cart->cart_contents_count) . '</h4>';
 
     echo $html;
 }
@@ -920,7 +920,7 @@ function evolve_woocommerce_cart_collaterals($args) {
     global $woocommerce;
     ?>
 
-    <div class="shipping-coupon">
+    <div class="shipping-coupon col mb-4">
 
         <?php
         echo evolve_cart_shipping_calc();
@@ -929,10 +929,13 @@ function evolve_woocommerce_cart_collaterals($args) {
             ?>
             <div class="coupon">
 
-                <h2><?php esc_html_e('Have A Promotional Code?', 'evolve'); ?></h2>
-
-                <input name="coupon_code" type="text" class="input-text" id="coupon_code" value="" placeholder="<?php esc_html_e('Coupon code', 'evolve'); ?>" />
-                <input type="submit" class="btn btn-sm float-md-right" name="apply_coupon" value="<?php esc_html_e('Apply', 'evolve'); ?>" />
+                <h4><?php esc_html_e('Have A Promotional Code?', 'evolve'); ?></h4>
+                <div class="form-inline">
+                    <div class="form-group mb-2 mr-3">
+                         <input name="coupon_code" type="text" class="form-control" id="coupon_code" value="" placeholder="<?php esc_html_e('Coupon code', 'evolve'); ?>" />
+                    </div>
+                    <input type="submit" class="btn btn-sm mb-2" name="apply_coupon" value="<?php esc_html_e('Apply', 'evolve'); ?>" />
+                </div>
 
                 <?php do_action('woocommerce_cart_coupon'); ?>
 
@@ -1021,15 +1024,17 @@ function evolve_woocommerce_before_checkout_form($args) {
     global $woocommerce;
     ?>
 
+<div class="row mt-4">
+<div class="col">
     <ul class="woocommerce-side-nav woocommerce-checkout-nav">
         <li class="active">
-            <a data-name="col-1" href="#">
+            <a data-name="checkout-billing" href="#">
                 <?php esc_html_e('Billing Address', 'evolve'); ?>
             </a>
         </li>
         <?php if (WC()->cart->needs_shipping() && !WC()->cart->ship_to_billing_address_only()) : ?>
             <li>
-                <a data-name="col-2" href="#">
+                <a data-name="checkout-shipping" href="#">
                     <?php esc_html_e('Shipping Address', 'evolve'); ?>
                 </a>
             </li>
@@ -1040,7 +1045,7 @@ function evolve_woocommerce_before_checkout_form($args) {
                 ?>
 
                 <li>
-                    <a data-name="col-2" href="#">
+                    <a data-name="checkout-shipping" href="#">
                         <?php esc_html_e('Additional Information', 'evolve'); ?>
                     </a>
                 </li>
@@ -1050,13 +1055,15 @@ function evolve_woocommerce_before_checkout_form($args) {
         ?>
 
         <li>
-            <a data-name="#order_review" href="#">
+            <a data-name="#order-review" href="#">
                 <?php esc_html_e('Review &amp; Payment', 'evolve'); ?>
             </a>
         </li>
     </ul>
+    </div>
 
-    <div class="woocommerce-content-box evolve-checkout">
+    <div class="col-9">
+        <div class="woocommerce-content-box evolve-checkout">
 
         <?php
     }
@@ -1068,7 +1075,9 @@ function evolve_woocommerce_before_checkout_form($args) {
     function evolve_woocommerce_after_checkout_form($args) {
         ?>
 
+        </div>
     </div>
+</div><!-- .row -->
 
     <?php
 }
@@ -1114,7 +1123,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
 
     <?php } ?>
 
-    <div class="woocommerce-content-box full-width clearfix">
+    <div class="woocommerce-content-box clearfix mb-4">
 
         <?php
     }
@@ -1214,7 +1223,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
         $woo_acc_msg_2 = evolve_theme_mod('evl_woo_acc_msg_2', 'Email us - <i class="t4p-icon-envelope-o"></i> contact@example.com');
         ?>
 
-  <div class="container myaccount_user_container">
+  <div class="myaccount_user_container">
         <div class="row">
             <div class="col">
                  <h3><?php
@@ -1245,7 +1254,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
 
             <div class="col">
                 <form action="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
-                    <button type="submit" class="btn float-md-right"><?php esc_html_e( 'View Cart', 'evolve' ); ?></button>
+                    <button type="submit" class="btn btn-sm float-md-right"><?php esc_html_e( 'View Cart', 'evolve' ); ?></button>
                 </form>
             </div>
         </div>
@@ -1807,7 +1816,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
             $user = wp_get_current_user();
             ?>
 
-            <h2 class="edit-account-heading"><?php esc_html_e('Edit Account', 'evolve'); ?></h2>
+            <h4 class="edit-account-heading"><?php esc_html_e('Edit Account', 'evolve'); ?></h4>
 
             <form class="edit-account-form" action="" method="post">
                 <p class="form-row form-row-first">

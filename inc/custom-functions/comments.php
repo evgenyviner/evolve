@@ -216,7 +216,7 @@ function evolve_comment_text() {
 function evolve_comment_moderation() {
 	global $comment;
 	if ( $comment->comment_approved == '0' ) {
-		echo '<p class="comment-unapproved moderation alert">' . __( 'Your comment is awaiting moderation', 'evolve' ) . '</p>';
+		echo '<p class="alert alert-warning" role="alert">' . __( 'Your comment is awaiting moderation', 'evolve' ) . '</p>';
 	}
 }
 
@@ -323,3 +323,34 @@ function evolve_pings_endcallback() {
 	echo "</" . $tag . ">\n";
 	do_action( 'evolve_hook_inside_pings_list' ); // Available action: evolve_hook_inside_pings_list
 }
+
+function evolve_comment_form_fields() {
+
+	$evolve_commenter = wp_get_current_commenter();
+	$evolve_req       = get_option( 'require_name_email' );
+	$evolve_aria_req  = ( $evolve_req ? " aria-required='true'" : '' );
+
+	$fields = array(
+		'author'  =>
+			'<p class="comment-form-author"><label for="author">' . __( 'Name', 'evolve' ) .
+			( $evolve_req ? '<span class="required">*</span>' : '' ) . '</label>' .
+			'<input id="author" name="author" class="form-control" type="text" value="' . esc_attr( $evolve_commenter['comment_author'] ) .
+			'" size="30" ' . $evolve_aria_req . ' /></p>',
+		'email'   =>
+			'<p class="comment-form-email"><label for="email">' . __( 'Email', 'evolve' ) .
+			( $evolve_req ? '<span class="required">*</span>' : '' ) . '</label>' .
+			'<input id="email" name="email" class="form-control" type="text" value="' . esc_attr( $evolve_commenter['comment_author_email'] ) .
+			'" size="30" ' . $evolve_aria_req . ' /></p>',
+		'url'     =>
+			'<p class="comment-form-url"><label for="url">' . __( 'Website', 'evolve' ) . '</label>' .
+			'<input id="url" name="url" class="form-control" type="text" value="' . esc_attr( $evolve_commenter['comment_author_url'] ) .
+			'" size="30" /></p>',
+		'cookies' =>
+			'<p class="comment-form-cookies-consent custom-control custom-checkbox">' .
+			'<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" class="custom-control-input" type="checkbox" value="yes" /><label for="wp-comment-cookies-consent"  class="custom-control-label">' . __( 'Save my name, email, and website in this browser for the next time I comment.', 'evolve' ) . '</label></p>',
+	);
+
+	return $fields;
+}
+
+add_filter( 'comment_form_default_fields', 'evolve_comment_form_fields' );

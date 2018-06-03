@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
 }
 ?>
 
-<table class="shop_table woocommerce-checkout-review-order-table">
+<table class="shop_table woocommerce-checkout-review-order-table table">
     <thead>
         <tr>
             <th class="product-name"><?php esc_html_e('Product', 'evolve'); ?></th>

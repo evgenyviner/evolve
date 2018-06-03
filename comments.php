@@ -1,8 +1,8 @@
 <?php
 
-/*******************************************************
- * Template: Comments.php
- *******************************************************/
+/*
+   Displays Comments
+   ======================================= */
 
 if ( post_password_required() ) {
 	?>
@@ -14,7 +14,6 @@ if ( post_password_required() ) {
 
     <div id="comments">
 		<?php if ( have_comments() ) : // If comments exist for this entry, continue    ?>
-            <!--BEGIN #comments-->
 
 			<?php if ( ! empty( $comments_by_type['comment'] ) ) : ?>
                 <div class="comments-title-back"><?php evolve_discussion_title( 'comment' ); ?>
@@ -86,15 +85,13 @@ if ( post_password_required() ) {
 		?>
     </div>
 
-<?php if ( comments_open() ) : // show comment form  ?>
+<?php if ( comments_open() ) :
 
-    <div class="clearfix"></div>
+	$evolve_comments_args = array(
+		'class_submit'  => 'btn',
+		'comment_field' => '<p class="comment-form-comment"><textarea id="comment" name="comment" class="form-control" cols="45" rows="8" aria-required="true"></textarea></p>',
 
-	<?php comment_form( array( 'class_submit' => 'btn' ) ); ?>
-    <!--END #comment-form-->
+	);
+	comment_form( $evolve_comments_args );
 
-    <!--END #respond-->
-
-<?php
-
-endif; // ( comments_open() )
+endif;
