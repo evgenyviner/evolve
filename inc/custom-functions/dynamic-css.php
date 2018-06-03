@@ -14,7 +14,7 @@ $evolve_frontpage_width_layout = evolve_theme_mod( 'evl_frontpage_width_layout',
 $evolve_post_layout            = evolve_theme_mod( 'evl_post_layout', 'two' );
 $evolve_pos_logo               = evolve_theme_mod( 'evl_pos_logo', 'left' );
 $evolve_pos_button             = evolve_theme_mod( 'evl_pos_button', 'right' );
-$evolve_tagline_pos            = evolve_theme_mod( 'evl_tagline_pos', 'next' );
+$evolve_tagline_pos            = evolve_theme_mod( 'evl_tagline_pos', 'disable' );
 $evolve_social_icons_size      = evolve_theme_mod( 'evl_social_icons_size', '1rem' );
 $evolve_animatecss             = evolve_theme_mod( 'evl_animatecss', '1' );
 $evolve_width_px               = (int) evolve_theme_mod( 'evl_width_px', '1200' );
@@ -404,7 +404,7 @@ if ( $evolve_footer_image_src ) {
 }
 
 // Social Media Links
-if ( evolve_theme_mod( 'evl_social_links', true ) ) {
+if ( evolve_theme_mod( 'evl_social_links', 0 ) ) {
 	if ( ( ! empty( $evolve_social_color ) || ! empty( $evolve_social_icons_size ) ) ) {
 		$evolve_css_data .= ' #rss, #email-newsletter, #facebook, #twitter, #instagram, #skype, #youtube, #flickr, #linkedin, #plus, #pinterest, #tumblr {';
 		if ( ! empty( $evolve_social_color ) ) {

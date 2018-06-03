@@ -1,12 +1,12 @@
 <?php
 
-$evolve_social_links                   = evolve_theme_mod( 'evl_social_links', '1' );
+$evolve_social_links                   = evolve_theme_mod( 'evl_social_links', 0 );
 $evolve_responsive_menu_layout         = evolve_theme_mod( 'evl_responsive_menu_layout', 'basic' );
 $evolve_woocommerce_cart_link_main_nav = evolve_theme_mod( 'evl_woocommerce_cart_link_main_nav', '0' );
 $evolve_woocommerce_acc_link_main_nav  = evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', '0' );
 $evolve_width_layout                   = evolve_theme_mod( 'evl_width_layout', 'fixed' );
 $evolve_header_logo                    = evolve_theme_mod( 'evl_header_logo', '' );
-$evolve_tagline_pos                    = evolve_theme_mod( 'evl_tagline_pos', 'next' );
+$evolve_tagline_pos                    = evolve_theme_mod( 'evl_tagline_pos', 'disable' );
 $evolve_blog_title                     = evolve_theme_mod( 'evl_blog_title', '0' );
 $evolve_main_menu                      = evolve_theme_mod( 'evl_main_menu', '0' );
 $evolve_searchbox                      = evolve_theme_mod( 'evl_searchbox', '1' );

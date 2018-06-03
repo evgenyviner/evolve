@@ -17,7 +17,7 @@ $evolve_helper_tagline_class_2 = '';
         <div class="row align-items-center">
 
 			<?php
-			if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" ) {
+			if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" ) {
 				$evolve_social_class = 'col order-1 order-sm-1 order-md-3';
 			} else {
 				$evolve_social_class = 'col order-1 order-sm-1 order-md-2';
@@ -36,7 +36,7 @@ $evolve_helper_tagline_class_2 = '';
 			}
 			echo '<div class="col-md-auto ml-auto ' . $evolve_social_class . '">';
 
-			if ( evolve_theme_mod( 'evl_social_links', true ) ) {
+			if ( evolve_theme_mod( 'evl_social_links', 0 ) ) {
 				get_template_part( 'template-parts/header/header', 'social-buttons' );
 			}
 
@@ -202,18 +202,18 @@ $evolve_helper_tagline_class_2 = '';
 				}
 			}
 
-			if ( ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) )) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ||
-			     ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "disable" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) )) ) {
+			if ( ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) )) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ||
+			     ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "disable" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) )) ) {
 				$evolve_title_tagline_class_1 = '<div class="col-md-auto order-1 order-sm-2 order-md-1">';
 				$evolve_title_tagline_class_2 = '</div>';
 			}
 
-			if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" && evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
+			if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" && evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
 				$evolve_title_tagline_class_1 = '';
 				$evolve_title_tagline_class_2 = '';
 			}
 
-			if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
+			if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
 				echo $evolve_title_tagline_class_1;
 			}
 
@@ -238,14 +238,14 @@ $evolve_helper_tagline_class_2 = '';
 				}
 			}
 
-			if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" && evolve_theme_mod( 'evl_pos_logo', 'left' ) == 'disable' ) {
+			if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" && evolve_theme_mod( 'evl_pos_logo', 'left' ) == 'disable' ) {
 				$evolve_tagline_class_1        = '';
 				$evolve_tagline_class_2        = '';
 				$evolve_helper_tagline_class_1 = '';
 				$evolve_helper_tagline_class_2 = '';
 			}
 
-			if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" ) {
+			if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" ) {
 				$evolve_tagline_class_1 = '<div class="col-md-auto order-2 order-md-2">';
 				$evolve_tagline_class_2 = '</div>';
 			} else {
@@ -253,7 +253,7 @@ $evolve_helper_tagline_class_2 = '';
 				$evolve_tagline_class_2 = "";
 			}
 
-			if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'center' && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' ) {
+			if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'center' && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' ) {
 				$evolve_row_class_1 = '<div class="row align-items-center">';
 				$evolve_row_class_2 = '</div>';
 			} else {
@@ -264,22 +264,22 @@ $evolve_helper_tagline_class_2 = '';
 			echo $evolve_helper_tagline_class_1 . $evolve_row_class_1;
 
 			$evolve_tagline = $evolve_tagline_class_1 . '<div id="tagline">' . get_bloginfo( 'description' ) . '</div>' . $evolve_tagline_class_2;
-			if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "above" ) {
+			if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "above" ) {
 				echo $evolve_tagline;
 			}
 
 			if ( evolve_theme_mod( 'evl_blog_title', false ) == "0" || ! evolve_theme_mod( 'evl_blog_title', false ) ) {
 
-				if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" ) {
+				if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" ) {
 					$evolve_title_class_1 = '<div class="col-md-auto order-1 order-sm-2 order-md-2">';
 					$evolve_title_class_2 = '</div>';
-				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "disable" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) ) {
+				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "disable" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) ) {
 					$evolve_title_class_1 = "<div class='col-md-auto order-1 order-sm-2 order-md-1'>";
 					$evolve_title_class_2 = "</div>";
-				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" && evolve_theme_mod( 'evl_header_logo', '' ) ) {
+				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" && evolve_theme_mod( 'evl_header_logo', '' ) ) {
 					$evolve_title_class_1 = "<div class='col-md-auto order-3 order-md-1'>";
 					$evolve_title_class_2 = "</div>";
-				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) ) {
+				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) ) {
 					$evolve_title_class_1 = "<div class='col-md-auto order-2 order-md-1'>";
 					$evolve_title_class_2 = "</div>";
 				} else {
@@ -304,15 +304,15 @@ $evolve_helper_tagline_class_2 = '';
 				endif;
 			}
 
-			if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "disable" && ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "" || evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" || evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "under" ) ) {
+			if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "disable" && ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "" || evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" || evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "under" ) ) {
 				echo $evolve_tagline;
 			}
 
-			if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
+			if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
 				echo $evolve_title_tagline_class_2;
 			}
 
-			if ( ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' ) || ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" ) ) {
+			if ( ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' ) || ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" ) ) {
 				echo $evolve_row_class_2 . $evolve_helper_tagline_class_2;
 			}
 			?>
