@@ -432,9 +432,6 @@ ol.commentlist {
     }
 }
 
-.evolve-select-parent select,
-.evolve-select-parent .country_to_state,
-.evolve-select-parent .state_select,
 .evolve-select-parent #billing_state_chosen,
 .evolve-select-parent #shipping_country_chosen,
 .evolve-select-parent #shipping_state_chosen {
@@ -506,7 +503,6 @@ ol.commentlist {
     }
 }
 
-.woocommerce .evolve-select-parent select,
 #bbpress-forums .evolve-select-parent select {
     width: 100%;
 }
@@ -568,12 +564,6 @@ ol.commentlist {
     .remember-box{
         padding-left: 20px;
         padding-right: 20px;
-    }
-}
-
-#customer_login {
-    .one_half.last{
-        padding-top: 29px;
     }
 }
 
@@ -814,15 +804,6 @@ ol.commentlist {
     float: none;
 }
 
-.woocommerce-content-box.one_half {
-    margin-left: 0;
-    width: 48%;
-    margin-right: 4%;
-    float: left;
-    margin-bottom: 20px;
-    position: relative;
-}
-
 .woocommerce-content-box.evolve-checkout {
     overflow: visible;
 }
@@ -1014,73 +995,6 @@ form.checkout {
     }
 }
 
-.one_half_container {
-    float: left;
-}
-
-.cart-collaterals {
-    margin-top: 30px;
-    overflow: hidden;
-}
-
-.cart-collaterals {
-    .one_half{
-        .woocommerce-content-box{
-            margin-bottom: 30px;
-        }
-    }
-    .form-row{
-        input{
-            padding: 9px 15px;
-        }
-    }
-    ul.products{
-        li{
-            margin-bottom: 0;        
-        }
-    }
-    .cross-sells{
-        margin-bottom: 30px;
-    }
-}
-
-.shipping-calculator-form-nohide {
-    #calc_shipping_state{
-        min-width: 100%;    
-    }
-}
-
-.shipping-calculator-form-nohide {
-    .button{
-        float: right;    
-    }
-}
-
-.coupon {
-    overflow: hidden;
-    label{
-        float: left;    
-    }
-    .input-text{
-        float: left;
-        width: 290px;
-        margin: 0 0 10px 0;
-        height: 38px;
-        padding: 8px 15px;
-    }
-    .button{
-        float: right;
-        display: block;
-        margin-top: 0;
-    }
-}
-
-.shipping-coupon {
-    float: left;
-    width: 48%;
-    margin-right: 4%;
-}
-
 .shipping_calculator {
     margin-bottom: 30px;
 }
@@ -1089,35 +1003,9 @@ form.checkout {
     display: block;
 }
 
-.shipping-calculator-form {
-    .one_half{
-        .evolve-select-parent{
-            margin-bottom: 0;        
-        }
-    }
-}
-
 .shipping-calculator-button:hover {
     color: inherit;
     cursor: auto;
-}
-
-.cart-collaterals {
-    .shipping_calculator {
-        #calc_shipping_state {
-            min-width: 150px;        
-        }
-        #calc_shipping_postcode{
-            height: 36px;        
-        }
-    }
-}
-
-.woocommerce {
-    p.one_half{
-        margin-left: 0;
-        margin-right: 4%;    
-    }
 }
 
 .order-total {
@@ -1483,7 +1371,6 @@ p.order-info {
 }
 
 .shipping_calculator,
-.coupon,
 .cart-totals-buttons {
     border: 1px solid #E8E8E8;
     padding: 30px;
@@ -1548,7 +1435,6 @@ p.order-info {
         
     }
     .shipping_calculator,
-    .coupon,
     .cart-totals-buttons {
         overflow: hidden;
     }

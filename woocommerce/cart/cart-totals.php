@@ -21,11 +21,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="cart_totals <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'calculated_shipping' : ''; ?>">
+<div class="cart_totals border p-4 <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'calculated_shipping' : ''; ?>">
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
 
-	<h4><?php _e( 'Cart totals', 'evolve' ); ?></h4>
+	<h4 class="mb-4"><?php _e( 'Cart totals', 'evolve' ); ?></h4>
 
 	<table cellspacing="0" class="shop_table shop_table_responsive table">
 

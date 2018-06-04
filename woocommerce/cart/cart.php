@@ -136,7 +136,7 @@ do_action( 'woocommerce_before_cart' ); ?>
     </div>
 
 <?php do_action( 'woocommerce_after_cart_table' ); ?>
-    <div class="cart-collaterals row">
+    <div class="row">
 		<?php
 
 		/**
@@ -148,12 +148,12 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 		do_action( 'woocommerce_cart_collaterals' ); ?>
 
-        <div class="cart-totals-buttons col mb-4">
+        <div class="cart-totals-buttons col-md-6 mb-4">
 			<?php woocommerce_cart_totals(); ?>
 
-            <input type="submit" class="btn mt-3 mr-3" name="update_cart"
+            <input type="submit" class="btn mt-4 mr-3" name="update_cart"
                    value="<?php esc_html_e( 'Update Cart', 'evolve' ); ?>"/>
-            <input type="submit" class="btn mt-3 float-lg-right" name="proceed"
+            <input type="submit" class="btn mt-4 float-lg-right" name="proceed"
                    value="<?php esc_html_e( 'Proceed to Checkout', 'evolve' ); ?> &rarr;"/>
 
 			<?php do_action( 'woocommerce_cart_actions' ); ?>

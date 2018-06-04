@@ -801,9 +801,9 @@ add_action('woocommerce_before_cart_table', 'evolve_woocommerce_before_cart_tabl
 function evolve_woocommerce_before_cart_table($args) {
     global $woocommerce;
 
-    $html = '<div class="woocommerce-content-box mb-4">';
+    $html = '<div class="border p-4 mb-4">';
 
-    $html .= '<h4>' . sprintf(__('You Have %d Items In Your Cart', 'evolve'), $woocommerce->cart->cart_contents_count) . '</h4>';
+    $html .= '<h4 class="mb-4">' . sprintf(_n('You have %s item in your cart', 'You have %s items in your cart', $woocommerce->cart->cart_contents_count, 'evolve'), $woocommerce->cart->cart_contents_count) . '</h4>';
 
     echo $html;
 }
@@ -840,26 +840,24 @@ function evolve_cart_shipping_calc() {
         return;
     }
 
-    do_action('woocommerce_before_shipping_calculator');
-    ?>
+    do_action('woocommerce_before_shipping_calculator'); ?>
 
-    <div class="shipping_calculator" action="<?php echo esc_url(wc_get_cart_url()); ?>" method="post">
+    <div class="shipping_calculator border p-4 mb-4">
 
-        <h2><?php esc_html_e('Calculate Shipping', 'evolve'); ?></h2>
+        <h4 class="mb-4"><?php esc_html_e('Calculate shipping', 'evolve'); ?></h4>
 
-        <div class="evolve-shipping-calculator-form">
-
-            <p class="form-row form-row-wide">
-                <select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state" rel="calc_shipping_state">
+            <div class="form-row mb-2">
+                <select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state form-control" rel="calc_shipping_state">
                     <option value=""><?php esc_html_e('Select a country&hellip;', 'evolve'); ?></option>
                     <?php
                     foreach (WC()->countries->get_shipping_countries() as $key => $value)
                         {echo '<option value="' . esc_attr($key) . '"' . selected(WC()->customer->get_shipping_country(), esc_attr($key), false) . '>' . esc_html($value) . '</option>';}
                     ?>
                 </select>
-            </p>
+            </div>
 
-            <p class="form-row form-row-wide">
+            <div class="form-row mt-3 mb-3">
+
                 <?php
                 $current_cc = WC()->customer->get_shipping_country();
                 $current_r = WC()->customer->get_shipping_state();
@@ -881,16 +879,17 @@ function evolve_cart_shipping_calc() {
                     </span><?php
                     // Standard Input
                 } else {
-                            ?><input type="text" class="input-text" value="<?php echo esc_attr($current_r); ?>" placeholder="<?php esc_html_e('State / county', 'evolve'); ?>" name="calc_shipping_state" id="calc_shipping_state" /><?php
+                            ?><input type="text" class="form-control" value="<?php echo esc_attr($current_r); ?>" placeholder="<?php esc_html_e('State / county', 'evolve'); ?>" name="calc_shipping_state" id="calc_shipping_state" /><?php
                 }
                 ?>
-            </p>
+
+            </div>
 
             <?php if (apply_filters('woocommerce_shipping_calculator_enable_city', false)) : ?>
 
-                <p class="form-row form-row-wide">
-                    <input type="text" class="input-text" value="<?php echo esc_attr(WC()->customer->get_shipping_city()); ?>" placeholder="<?php esc_html_e('City', 'evolve'); ?>" name="calc_shipping_city" id="calc_shipping_city" />
-                </p>
+                <div class="form-row mt-2 mb-2">
+                    <input type="text" class="form-control" value="<?php echo esc_attr(WC()->customer->get_shipping_city()); ?>" placeholder="<?php esc_html_e('City', 'evolve'); ?>" name="calc_shipping_city" id="calc_shipping_city" />
+                </div>
 
                 <?php
             endif;
@@ -898,17 +897,17 @@ function evolve_cart_shipping_calc() {
             if (apply_filters('woocommerce_shipping_calculator_enable_postcode', true)) :
                 ?>
 
-                <p class="form-row form-row-wide">
-                    <input type="text" class="input-text" value="<?php echo esc_attr(WC()->customer->get_shipping_postcode()); ?>" placeholder="<?php esc_html_e('Postcode / Zip', 'evolve'); ?>" name="calc_shipping_postcode" id="calc_shipping_postcode" />
-                </p>
+                <div class="form-row mt-2 mb-4">
+                    <input type="text" class="form-control" value="<?php echo esc_attr(WC()->customer->get_shipping_postcode()); ?>" placeholder="<?php esc_html_e('Postcode / Zip', 'evolve'); ?>" name="calc_shipping_postcode" id="calc_shipping_postcode" />
+                </div>
 
             <?php endif; ?>
 
-            <p><button type="submit" name="calc_shipping" value="1" class="btn"><?php esc_html_e('Update Totals', 'evolve'); ?></button></p>
+                    <button type="submit" name="calc_shipping" value="1" class="btn btn-sm"><?php esc_html_e('Update Totals', 'evolve'); ?></button>
 
             <?php wp_nonce_field('woocommerce-cart'); ?>
-        </div>
-    </div>
+
+       </div>
 
     <?php
     do_action('woocommerce_after_shipping_calculator');
@@ -920,21 +919,21 @@ function evolve_woocommerce_cart_collaterals($args) {
     global $woocommerce;
     ?>
 
-    <div class="shipping-coupon col mb-4">
+    <div class="col-md-6 mb-4">
 
         <?php
         echo evolve_cart_shipping_calc();
 
         if (WC()->cart->coupons_enabled()) {
             ?>
-            <div class="coupon">
+            <div class="border p-4">
 
-                <h4><?php esc_html_e('Have A Promotional Code?', 'evolve'); ?></h4>
+                <h4 class="mb-4"><?php esc_html_e('Have a promotional code?', 'evolve'); ?></h4>
                 <div class="form-inline">
-                    <div class="form-group mb-2 mr-3">
+                    <div class="form-group mb-4 mr-3">
                          <input name="coupon_code" type="text" class="form-control" id="coupon_code" value="" placeholder="<?php esc_html_e('Coupon code', 'evolve'); ?>" />
                     </div>
-                    <input type="submit" class="btn btn-sm mb-2" name="apply_coupon" value="<?php esc_html_e('Apply', 'evolve'); ?>" />
+                    <input type="submit" class="btn btn-sm mb-4" name="apply_coupon" value="<?php esc_html_e('Apply', 'evolve'); ?>" />
                 </div>
 
                 <?php do_action('woocommerce_cart_coupon'); ?>
@@ -994,13 +993,13 @@ function evolve_woocommerce_checkout_coupon_form($args) {
         {return;}
     ?>
 
-    <form class="woocommerce-content-box full-width checkout_coupon" method="post">
+    <form class="woocommerce-content-box checkout_coupon" method="post">
 
-        <h2 class="promo-code-heading alignleft"><?php esc_html_e('Have A Promotional Code?', 'evolve'); ?></h2>
+        <h4 class="mb-4"><?php esc_html_e('Have a promotional code?', 'evolve'); ?></h4>
 
         <div class="coupon-contents alignright">
             <div class="form-row form-row-first alignleft coupon-input">
-                <input type="text" name="coupon_code" class="input-text" placeholder="<?php esc_html_e('Coupon code', 'evolve'); ?>" id="coupon_code" value="" />
+                <input type="text" name="coupon_code" class="form-control" placeholder="<?php esc_html_e('Coupon code', 'evolve'); ?>" id="coupon_code" value="" />
             </div>
 
             <div class="form-row form-row-last alignleft coupon-button">
@@ -1011,6 +1010,70 @@ function evolve_woocommerce_checkout_coupon_form($args) {
         </div>
     </form>
     <?php
+}
+
+/*
+   Add Bootstrap Style To The WooCommerce Fields
+   ======================================= */
+
+add_filter('woocommerce_form_field_args','evolve_wc_form_field_args',10,3);
+
+function evolve_wc_form_field_args( $args, $key, $value = null ) {
+
+// Start field type switch case
+
+switch ( $args['type'] ) {
+
+    case "select" :  /* Targets all select input type elements, except the country and state select input types */
+        $args['class'][] = 'form-group'; // Add a class to the field's html element wrapper - woocommerce input types (fields) are often wrapped within a <p></p> tag
+        $args['input_class'] = array('form-control'); // Add a class to the form input itself
+        //$args['custom_attributes']['data-plugin'] = 'select2';
+        $args['label_class'] = array('col-sm-4 col-form-label');
+        $args['custom_attributes'] = array( 'data-plugin' => 'select2', 'data-allow-clear' => 'true', 'aria-hidden' => 'true',  ); // Add custom data attributes to the form input itself
+    break;
+
+    case 'country' : /* By default WooCommerce will populate a select with the country names - $args defined for this specific input type targets only the country select element */
+        $args['class'][] = 'form-group single-country';
+        $args['label_class'] = array('col-sm-4 col-form-label');
+    break;
+
+    case "state" : /* By default WooCommerce will populate a select with state names - $args defined for this specific input type targets only the country select element */
+        $args['class'][] = 'form-group'; // Add class to the field's html element wrapper
+        $args['input_class'] = array('form-control'); // add class to the form input itself
+        //$args['custom_attributes']['data-plugin'] = 'select2';
+        $args['label_class'] = array('col-sm-4 col-form-label');
+        $args['custom_attributes'] = array( 'data-plugin' => 'select2', 'data-allow-clear' => 'true', 'aria-hidden' => 'true',  );
+    break;
+
+    case "password" :
+    case "text" :
+    case "email" :
+    case "tel" :
+    case "number" :
+        $args['class'][] = 'form-group';
+        $args['input_class'] = array('form-control');
+        $args['label_class'] = array('col-sm-4 col-form-label');
+    break;
+
+    case 'textarea' :
+        $args['input_class'] = array('form-control');
+        $args['label_class'] = array('col-sm-4 col-form-label');
+    break;
+
+    case 'checkbox' :
+    break;
+
+    case 'radio' :
+    break;
+
+    default :
+        $args['class'][] = 'form-group';
+        $args['input_class'] = array('form-control');
+        $args['label_class'] = array('col-sm-4 col-form-label');
+    break;
+    }
+
+    return $args;
 }
 
 $evolve_woocommerce_option = get_option('evl_options');
@@ -1025,7 +1088,7 @@ function evolve_woocommerce_before_checkout_form($args) {
     ?>
 
 <div class="row mt-4">
-<div class="col">
+<div class="col mb-4">
     <ul class="woocommerce-side-nav woocommerce-checkout-nav">
         <li class="active">
             <a data-name="checkout-billing" href="#">
@@ -1062,7 +1125,7 @@ function evolve_woocommerce_before_checkout_form($args) {
     </ul>
     </div>
 
-    <div class="col-9">
+    <div class="col-lg-9 mb-4">
         <div class="woocommerce-content-box evolve-checkout">
 
         <?php
@@ -1136,16 +1199,16 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
         if (WC()->cart->needs_shipping() && !WC()->cart->ship_to_billing_address_only() ||
                 apply_filters('woocommerce_enable_order_notes_field', get_option('woocommerce_enable_order_comments', 'yes') === 'yes') && (!WC()->cart->needs_shipping() || WC()->cart->ship_to_billing_address_only() )
         ) {
-            $data_name = 'col-2';
+            $data_name = 'checkout-shipping';
         } else {
-            $data_name = '#order_review';
+            $data_name = '#order-review';
         }
         $evolve_woocommerce_option = get_option('evl_options');
         $evolve_woocommerce_one_page_checkout = $evolve_woocommerce_option['evl_evolve_woocommerce_one_page_checkout'];
         if (!$evolve_woocommerce_one_page_checkout) {
             ?>
 
-            <button data-name="<?php echo $data_name; ?>" href="#" class="btn float-md-right"><?php esc_html_e('Continue', 'evolve'); ?></button>
+            <button data-name="<?php echo $data_name; ?>" href="#" class="btn float-md-right mt-4"><?php esc_html_e('Continue', 'evolve'); ?></button>
             <div class="clearboth"></div>
 
             <?php
@@ -1162,7 +1225,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
         if (!$evolve_woocommerce_one_page_checkout) {
             ?>
 
-            <button data-name="#order_review" href="#" class="btn float-md-right"><?php esc_html_e('Continue', 'evolve'); ?></button>
+            <button data-name="#order-review" href="#" class="btn float-md-right mt-4"><?php esc_html_e('Continue', 'evolve'); ?></button>
             <div class="clearboth"></div>
 
             <?php
@@ -1224,8 +1287,8 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
         ?>
 
   <div class="myaccount_user_container">
-        <div class="row">
-            <div class="col">
+        <div class="row align-items-center">
+            <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                  <h3><?php
 					printf(
 						__( 'Hello, %s', 'evolve' ), $current_user->display_name
@@ -1235,7 +1298,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
 
 			<?php if ( $woo_acc_msg_1 ): ?>
 
-                <div class="col">
+                <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
 
 					<?php echo $woo_acc_msg_1; ?>
 
@@ -1244,7 +1307,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
 			<?php endif;
 			if ( $woo_acc_msg_2 ): ?>
 
-                <div class="col">
+                <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
 
 					<?php echo $woo_acc_msg_2; ?>
 
@@ -1252,9 +1315,9 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
 
 			<?php endif; ?>
 
-            <div class="col">
+         <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                 <form action="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
-                    <button type="submit" class="btn btn-sm float-md-right"><?php esc_html_e( 'View Cart', 'evolve' ); ?></button>
+                    <button type="submit" class="btn btn-sm float-lg-right"><?php esc_html_e( 'View Cart', 'evolve' ); ?></button>
                 </form>
             </div>
         </div>
@@ -1821,30 +1884,30 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
             <form class="edit-account-form" action="" method="post">
                 <p class="form-row form-row-first">
                     <label for="account_first_name"><?php esc_html_e('First name', 'evolve'); ?> <span class="required">*</span></label>
-                    <input type="text" class="input-text" name="account_first_name" id="account_first_name" value="<?php esc_attr($user->first_name); ?>" />
+                    <input type="text" class="form-control" name="account_first_name" id="account_first_name" value="<?php esc_attr($user->first_name); ?>" />
                 </p>
                 <p class="form-row form-row-last">
                     <label for="account_last_name"><?php esc_html_e('Last name', 'evolve'); ?> <span class="required">*</span></label>
-                    <input type="text" class="input-text" name="account_last_name" id="account_last_name" value="<?php esc_attr($user->last_name); ?>" />
+                    <input type="text" class="form-control" name="account_last_name" id="account_last_name" value="<?php esc_attr($user->last_name); ?>" />
                 </p>
                 <p class="form-row form-row-wide">
                     <label for="account_email"><?php esc_html_e('Email address', 'evolve'); ?> <span class="required">*</span></label>
-                    <input type="email" class="input-text" name="account_email" id="account_email" value="<?php esc_attr($user->user_email); ?>" />
+                    <input type="email" class="form-control" name="account_email" id="account_email" value="<?php esc_attr($user->user_email); ?>" />
                 </p>
                 <fieldset>
                     <legend><?php esc_html_e('Password Change', 'evolve'); ?></legend>
 
                     <p class="form-row form-row-wide">
                         <label for="password_current"><?php esc_html_e('Current Password (leave blank to leave unchanged)', 'evolve'); ?></label>
-                        <input type="password" class="input-text" name="password_current" id="password_current" />
+                        <input type="password" class="form-control" name="password_current" id="password_current" />
                     </p>
                     <p class="form-row form-row-wide">
                         <label for="password_1"><?php esc_html_e('New Password (leave blank to leave unchanged)', 'evolve'); ?></label>
-                        <input type="password" class="input-text" name="password_1" id="password_1" />
+                        <input type="password" class="form-control" name="password_1" id="password_1" />
                     </p>
                     <p class="form-row form-row-wide">
                         <label for="password_2"><?php esc_html_e('Confirm New Password', 'evolve'); ?></label>
-                        <input type="password" class="input-text" name="password_2" id="password_2" />
+                        <input type="password" class="form-control" name="password_2" id="password_2" />
                     </p>
                 </fieldset>
                 <div class="clear"></div>
@@ -1905,6 +1968,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                             <tr class="<?php echo esc_attr(apply_filters('woocommerce_order_item_class', 'order_item', $item, $order)); ?>">
                                 <td class="product-name">
                                     <span class="product-thumbnail">
+
                                         <?php
                                         $cart_item = '';
                                         $cart_item_key = '';
@@ -1915,8 +1979,10 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                                         else
                                             {printf('<a href="%s">%s</a>', $_product->get_permalink(), $thumbnail);}
                                         ?>
+
                                     </span>
                                     <div class="product-info">
+
                                         <?php
                                         if ($_product && !$_product->is_visible())
                                             {echo apply_filters('woocommerce_order_item_name', $item['name'], $item);}
@@ -1940,23 +2006,31 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                                             echo '<br/>' . implode('<br/>', $links);
                                         }
                                         ?>
+
                                     </div>
                                 </td>
                                 <td class="product-quantity">
+
                                     <?php echo apply_filters('woocommerce_order_item_quantity_html', $item['qty'], $item); ?>
+
                                 </td>
                                 <td class="product-total">
+
                                     <?php echo $order->get_formatted_line_subtotal($item); ?>
+
                                 </td>
                             </tr>
+
                             <?php
                             $show_purchase_note = $order->has_status(apply_filters('woocommerce_purchase_note_order_statuses', array('completed', 'processing')));
                             $purchase_note = $product ? $product->get_purchase_note() : '';
                             if ($show_purchase_note && $purchase_note) {
                                 ?>
+
                                 <tr class="product-purchase-note">
                                     <td colspan="3"><?php echo wpautop(do_shortcode(wp_kses_post($purchase_note))); ?></td>
                                 </tr>
+
                                 <?php
                             }
                         }
@@ -1964,10 +2038,12 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
 
                     do_action('woocommerce_order_items_table', $order);
                     ?>
+
                 </tbody>
             </table>
 
             <?php do_action('woocommerce_order_details_after_order_table', $order); ?>
+
         </div>
 
         <div class="evolve-customer-details woocommerce-content-box full-width">
@@ -1975,6 +2051,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                 <h2><?php esc_html_e('Customer details', 'evolve'); ?></h2>
             </header>
             <dl class="customer_details">
+
                 <?php
                 if ($order->get_customer_note())
                     {echo '<dt>' . __('Note:', 'evolve') . '</dt> <dd>' . $order->get_customer_note() . '</dd>';}
@@ -1985,13 +2062,12 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
 
                 do_action('woocommerce_order_details_after_customer_details', $order);
                 ?>
+
             </dl>
 
             <?php if (get_option('woocommerce_ship_to_billing_address_only') === 'no' && get_option('woocommerce_calc_shipping') !== 'no') : ?>
 
-                <div class="col2-set addresses">
-
-                    <div class="col-1">
+                    <div class="checkout-billing">
 
                     <?php endif; ?>
 
@@ -2009,12 +2085,12 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
 
                     <?php if (get_option('woocommerce_ship_to_billing_address_only') === 'no' && get_option('woocommerce_calc_shipping') !== 'no') : ?>
 
-                    </div><!-- /.col-1 -->
+                    </div>
 
-                    <div class="col-2">
+                    <div class="checkout-shipping">
 
                         <header class="title">
-                            <h3><?php esc_html_e('Shipping Address', 'evolve'); ?></h3>
+                            <h4><?php esc_html_e('Shipping Address', 'evolve'); ?></h4>
                         </header>
                         <address><p>
                                 <?php
@@ -2025,9 +2101,7 @@ function evolve_woocommerce_checkout_before_customer_details($args) {
                                 ?>
                             </p></address>
 
-                    </div><!-- /.col-2 -->
-
-                </div><!-- /.col2-set -->
+                    </div><!-- .checkout-shipping -->
 
             <?php endif; ?>
 

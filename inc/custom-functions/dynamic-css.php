@@ -505,7 +505,7 @@ if ( $evolve_shortcode_button_border_width || ( $evolve_shortcode_button_type ==
 	$evolve_css_data .= ' }';
 }
 
-$evolve_css_data .= ' .woocommerce form.checkout .col-2, .woocommerce form.checkout #order_review_heading, .woocommerce form.checkout #order_review { display: none; }';
+$evolve_css_data .= ' .woocommerce form.checkout .col-2, .woocommerce form.checkout #order_review_heading, .woocommerce form.checkout #order-review { display: none; }';
 
 // Shadow Effect
 if ( $evolve_shadow_effect == 'disable' ) {
@@ -526,6 +526,10 @@ if ( ! empty( $evolve_form_bg_color ) || ! empty( $evolve_form_text_color ) || !
 	endif;
 	$evolve_css_data .= ' }';
 endif;
+
+if ( $evolve_shortcode_button_gradient_top_color ) {
+	$evolve_css_data .= '.custom-checkbox .custom-control-input:checked~.custom-control-label::before { background: ' . $evolve_shortcode_button_gradient_top_color . '; } .form-control:focus { border-color: ' . $evolve_shortcode_button_gradient_top_color . '; box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_shortcode_button_gradient_top_color, .25 ) . '; } .custom-control-input:focus~.custom-control-label::before { box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem  ' . evolve_hex2rgba( $evolve_shortcode_button_gradient_top_color, .25 ) . '; } .btn.focus, .btn:focus { box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_shortcode_button_gradient_top_color, .25 ) . '; } :focus { outline-color: ' . evolve_hex2rgba( $evolve_shortcode_button_gradient_top_color, .25 ) . '; }';
+}
 
 // Post Formats
 if ( $evolve_sticky_post_format == '0' ) {

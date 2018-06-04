@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /** @global WC_Checkout $checkout */
 
 ?>
-<div class="woocommerce-billing-fields">
+<div class="border p-4">
 	<?php if ( wc_ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : ?>
 
 		<h4><?php _e( 'Billing &amp; Shipping', 'evolve' ); ?></h4>
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
 
-	<div class="woocommerce-billing-fields__field-wrapper">
+	<div class="woocommerce-billing-fields_field-wrapper">
 		<?php
 		$fields = $checkout->get_checkout_fields( 'billing' );
 

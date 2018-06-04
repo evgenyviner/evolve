@@ -332,12 +332,9 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
             jQuery('.woocommerce-menu .cart-content a .cart-desc').css("width", jQuery('.woocommerce-menu .cart').width() - 82);
         }
 
-        // Woocommerce
-
         jQuery('.catalog-ordering .orderby .current-li a').html(jQuery('.catalog-ordering .orderby ul li.current a').html());
         jQuery('.catalog-ordering .sort-count .current-li a').html(jQuery('.catalog-ordering .sort-count ul li.current a').html());
-        jQuery('.woocommerce #calc_shipping_state').parent().addClass('one_half');
-        jQuery('.woocommerce #calc_shipping_postcode').parent().addClass('one_half last');
+        jQuery('.woocommerce .woocommerce-input-wrapper').addClass('col-sm-8');
         jQuery('.woocommerce .shop_table .variation dd').after('<br />');
         jQuery('.woocommerce .evolve-myaccount-data th.order-actions').text(evolve_js_local_vars.order_actions);
 
@@ -474,9 +471,6 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
         jQuery('.sep-boxed-pricing,.full-boxed-pricing').each(function () {
             jQuery(this).addClass('columns-' + jQuery(this).find('.column').length);
         });
-
-        // wrap woo select and add arrow
-        jQuery('.woocommerce #calc_shipping_country, .woocommerce .country_select, #bbp_stick_topic_select, #bbp_topic_status_select, #bbp_forum_id, #bbp_destination_topic,.woocommerce select#calc_shipping_state, .woocommerce select.state_select').wrap('<div class="evolve-select-parent"></div>').after('<div class="select-arrow t4p-icon-angle-down"></div>');
 
     });
 
