@@ -143,6 +143,28 @@ wp.customize.controlConstructor['kirki-image'] = wp.customize.Control.extend( {
 				defaultButton.hide();
 			}
 		} );
+		control.container.on( 'change', '.actions input', function( e ) {
+
+			var preview,
+				removeButton,
+				defaultButton;
+
+			e.preventDefault();
+
+			control.saveValue( 'url', this.value );
+
+			preview       = control.container.find( '.placeholder, .thumbnail' );
+			removeButton  = control.container.find( '.image-upload-remove-button' );
+			defaultButton = control.container.find( '.image-default-button' );
+
+			if ( preview.length ) {
+				preview.removeClass().addClass( 'thumbnail thumbnail-image' ).html( '<img src="' + this.value + '" alt="" />' );
+			}
+			if ( removeButton.length ) {
+				removeButton.show();
+				defaultButton.hide();
+			}
+		} );
 	},
 
 	/**
@@ -179,6 +201,7 @@ wp.customize.controlConstructor['kirki-image'] = wp.customize.Control.extend( {
 			return;
 		}
 		control.setting.set( value );
+		control.container.find('.actions input').val(value);
 		control.container.find( 'button' ).trigger( 'change' );
 	}
 } );
