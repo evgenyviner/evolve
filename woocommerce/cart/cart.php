@@ -34,7 +34,7 @@ do_action( 'woocommerce_before_cart' ); ?>
             <tr>
                 <th colspan="2" scope="col" class="product-name"><?php esc_html_e( 'Product', 'evolve' ); ?></th>
                 <th scope="col" class="product-price text-center"><?php esc_html_e( 'Price', 'evolve' ); ?></th>
-                <th scope="col" class="product-quantity"><?php esc_html_e( 'Quantity', 'evolve' ); ?></th>
+                <th scope="col" class="product-quantity text-center"><?php esc_html_e( 'Quantity', 'evolve' ); ?></th>
                 <th scope="col" class="product-subtotal text-center"><?php esc_html_e( 'Total', 'evolve' ); ?></th>
                 <th scope="col" class="product-remove text-center"><?php esc_html_e( 'Action', 'evolve' ); ?></th>
             </tr>
@@ -91,7 +91,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 							?>
                         </td>
 
-                        <td class="product-quantity">
+                        <td class="product-quantity text-center">
 							<?php
 							if ( $_product->is_sold_individually() ) {
 								$product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );

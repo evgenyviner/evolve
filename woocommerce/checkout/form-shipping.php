@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                        type="checkbox" name="ship_to_different_address" value="1"/>
                 <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox custom-control-label"
                        for="ship-to-different-address-checkbox check-different-address">
-					<?php _e( 'Ship to a different address?', 'woocommerce' ); ?>
+					<?php _e( 'Ship to a different address?', 'evolve' ); ?>
                 </label>
             </div>
         </h4>
@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<?php if ( ! WC()->cart->needs_shipping() || wc_ship_to_billing_address_only() ) : ?>
 
-                <h3><?php _e( 'Additional information', 'woocommerce' ); ?></h3>
+                <h4><?php _e( 'Additional information', 'evolve' ); ?></h4>
 
 			<?php endif; ?>
 

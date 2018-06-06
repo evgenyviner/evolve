@@ -16,6 +16,7 @@ function evolve_hex2rgba( $hex, $alpha = false ) {
 	if ( $alpha ) {
 		$rgb['a'] = $alpha;
 	}
+
 	return implode( array_keys( $rgb ) ) . '(' . implode( ', ', $rgb ) . ')';
 }
 
@@ -3246,29 +3247,48 @@ if ( true || is_customize_preview() ) {
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-element-colors',
-			'title'      => esc_attr__( 'Form Colors', 'evolve' ),
+			'title'      => esc_attr__( 'Components', 'evolve' ),
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'subtitle' => esc_attr__( 'Controls the background color of form fields', 'evolve' ),
+					'id'    => 'evl_text_textarea',
+					'type'   => 'info',
+					'title'  => esc_attr__( 'Text, TextArea', 'evolve' ),
+					'indent' => true
+				),
+				array(
+					'subtitle' => esc_attr__( 'Controls the background color of form text, textarea field', 'evolve' ),
 					'id'       => 'evl_form_bg_color',
 					'type'     => 'color',
 					'title'    => esc_attr__( 'Form Background Color', 'evolve' ),
 					'default'  => '#fcfcfc',
 				),
 				array(
-					'subtitle' => esc_attr__( 'Controls the text color for forms', 'evolve' ),
+					'subtitle' => esc_attr__( 'Controls the  text, textarea color for forms', 'evolve' ),
 					'id'       => 'evl_form_text_color',
 					'type'     => 'color',
 					'title'    => esc_attr__( 'Form Text Color', 'evolve' ),
 					'default'  => '#888888',
 				),
 				array(
-					'subtitle' => esc_attr__( 'Controls the border color of form fields', 'evolve' ),
+					'subtitle' => esc_attr__( 'Controls the border color of form text, textarea fields', 'evolve' ),
 					'id'       => 'evl_form_border_color',
 					'type'     => 'color',
 					'title'    => esc_attr__( 'Form Border Color', 'evolve' ),
 					'default'  => '#E0E0E0',
+				),
+				array(
+					'id'    => 'evl_radio_checkbox',
+					'type'   => 'info',
+					'title'  => esc_attr__( 'Radio, CheckBox, Active/Focus Items', 'evolve' ),
+					'indent' => true
+				),
+				array(
+					'subtitle' => esc_attr__( 'Controls the color of form components - radio, checkbox, active/focus items etc.', 'evolve' ),
+					'id'       => 'evl_form_item_color',
+					'type'     => 'color',
+					'title'    => esc_attr__( 'Form Radio, CheckBox, Active/Focus Items Color', 'evolve' ),
+					'default'  => '#0bb697',
 				),
 			),
 		)

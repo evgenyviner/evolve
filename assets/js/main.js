@@ -413,12 +413,6 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
                 name = '.' + data_name;
             }
 
-            jQuery('form.checkout .checkout-billing, form.checkout .checkout-shipping, form.checkout #order_review_heading, form.checkout #order-review').hide();
-            jQuery('form.checkout').find(name).fadeIn();
-            if (name == '#order-review') {
-                jQuery('form.checkout').find('#order_review_heading').fadeIn();
-            }
-
             jQuery('.woocommerce-checkout-nav li').removeClass('active');
             jQuery('.woocommerce-checkout-nav').find('[data-name=' + data_name + ']').parent().addClass('active');
         });
@@ -472,6 +466,18 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
             jQuery(this).addClass('columns-' + jQuery(this).find('.column').length);
         });
 
+    });
+
+    /*
+       WooCommerce Checkout and Account Tabs
+       ======================================= */
+
+    jQuery(function ($) {
+        $('#checkout-tab a[href="#checkout-billing"]').tab('show')
+
+        $('.continue').click(function () {
+            $('.nav-pills > .active').next('a').trigger('click');
+        });
     });
 
     /*

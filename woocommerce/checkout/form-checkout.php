@@ -78,31 +78,30 @@ $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', wc_get_checko
 
 			<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
 
-            <div class="checkout-billing">
+            <div class="tab-pane fade" id="checkout-billing" role="tabpanel" aria-labelledby="checkout-billing-tab">
 				<?php do_action( 'woocommerce_checkout_billing' ); ?>
             </div>
 
-            <div class="checkout-shipping">
+            <div class="tab-pane fade" id="checkout-shipping" role="tabpanel" aria-labelledby="checkout-shipping-tab">
 				<?php do_action( 'woocommerce_checkout_shipping' ); ?>
             </div>
 
 			<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 
-            <h4 id="order_review_heading"><?php esc_html_e( 'Your order', 'evolve' ); ?></h4>
+		<?php endif;
+		do_action( 'woocommerce_checkout_before_order_review' ); ?>
 
-		<?php
-		endif;
+        <div class="tab-pane fade" id="review-order" role="tabpanel" aria-labelledby="review-order-tab">
+            <div class="border p-4 mb-4">
+                <h4 id="order_review_heading"><?php esc_html_e( 'Your order', 'evolve' ); ?></h4>
+                <div class="table-responsive-lg">
 
-		do_action( 'woocommerce_checkout_before_order_review' );
-		?>
+					<?php do_action( 'woocommerce_checkout_order_review' ); ?>
 
-        <div id="order-review" class="woocommerce-checkout-review-order">
+                </div>
+            </div>
 
-			<?php do_action( 'woocommerce_checkout_order_review' ); ?>
-
-        </div>
-
-		<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
+			<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
 
     </form>
 
