@@ -53,7 +53,7 @@ $evolve_helper_tagline_class_2 = '';
                                 <a href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>"
                                    class="my-account-link"><?php esc_html_e( 'My Account', 'evolve' ); ?></a>
 
-								<?php if ( ! is_user_logged_in() ): ?>
+								<?php if ( ! is_user_logged_in() && ! is_account_page() ): ?>
 
                                     <div class="login-box">
                                         <form action="<?php echo wp_login_url(); ?>" name="loginform"
@@ -89,7 +89,7 @@ $evolve_helper_tagline_class_2 = '';
                                         </form>
                                     </div>
 
-								<?php else: ?>
+								<?php elseif ( is_user_logged_in() && ! is_account_page() ) : ?>
 
                                     <ul class="sub-menu">
                                         <li>
@@ -202,8 +202,8 @@ $evolve_helper_tagline_class_2 = '';
 				}
 			}
 
-			if ( ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) )) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ||
-			     ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "disable" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) )) ) {
+			if ( ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "next" && ( '' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) ) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ||
+			     ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "disable" && ( '' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) ) ) {
 				$evolve_title_tagline_class_1 = '<div class="col-md-auto order-1 order-sm-2 order-md-1">';
 				$evolve_title_tagline_class_2 = '</div>';
 			}
@@ -213,7 +213,7 @@ $evolve_helper_tagline_class_2 = '';
 				$evolve_title_tagline_class_2 = '';
 			}
 
-			if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
+			if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "next" && ( '' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
 				echo $evolve_title_tagline_class_1;
 			}
 
@@ -273,13 +273,13 @@ $evolve_helper_tagline_class_2 = '';
 				if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" ) {
 					$evolve_title_class_1 = '<div class="col-md-auto order-1 order-sm-2 order-md-2">';
 					$evolve_title_class_2 = '</div>';
-				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "disable" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) ) {
+				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "disable" && ( '' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) ) {
 					$evolve_title_class_1 = "<div class='col-md-auto order-1 order-sm-2 order-md-1'>";
 					$evolve_title_class_2 = "</div>";
 				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" && evolve_theme_mod( 'evl_header_logo', '' ) ) {
 					$evolve_title_class_1 = "<div class='col-md-auto order-3 order-md-1'>";
 					$evolve_title_class_2 = "</div>";
-				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) ) {
+				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" && ( '' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) ) {
 					$evolve_title_class_1 = "<div class='col-md-auto order-2 order-md-1'>";
 					$evolve_title_class_2 = "</div>";
 				} else {
@@ -308,7 +308,7 @@ $evolve_helper_tagline_class_2 = '';
 				echo $evolve_tagline;
 			}
 
-			if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "next" && ('' == ( evolve_theme_mod( 'evl_header_logo', '' ) )) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
+			if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "next" && ( '' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
 				echo $evolve_title_tagline_class_2;
 			}
 

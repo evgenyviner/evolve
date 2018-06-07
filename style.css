@@ -622,8 +622,6 @@ dl,
 dd,
 blockquote,
 table,
-fieldset,
-form,
 .gallery-row,
 .comment-list ul,
 .comment-list ol {
@@ -1155,7 +1153,7 @@ thead {
    Forms
    ======================================= */
 
-input[type=password] {
+.input-text {
     display: block;
     width: 100%;
     padding: 0.375rem 0.75rem;
@@ -1167,14 +1165,6 @@ input[type=password] {
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-input[type=password]:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #80bdff;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 span.more a {
@@ -7667,76 +7657,12 @@ ol.commentlist {
     right: 12px;
 }
 
-#customer_login h2 {
-    margin-bottom: 5px;
-}
-
-#customer_login .sep-double {
-    margin-bottom: 40px;
-}
-
-#customer_login_box {
-    border: 1px solid;
-    padding: 30px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
 #customer_login_box .remember-box {
     padding-left: 20px;
     padding-right: 20px;
 }
 
-.evolve_myaccount_user {
-    display: table;
-    width: 100%;
-    margin-bottom: 30px;
-}
-
-#wrapper .evolve-myaccount-data {
-    overflow: visible;
-}
-
-.evolve-myaccount-data h2,
-.evolve-myaccount-data .digital-downloads,
-.evolve-myaccount-data .my_account_orders,
-.evolve-myaccount-data .myaccount_address,
-.evolve-myaccount-data .addresses,
-.evolve-myaccount-data .edit-account-heading,
-.evolve-myaccount-data .edit-account-form,
-.evolve-myaccount-data .editaddress_billing,
-.evolve-myaccount-data .editaddress_shipping,
-.edit-address {
-    display: none;
-}
-
-.evolve-myaccount-data .my_account_orders .order-total {
-    border-top: none;
-}
-
-.evolve-myaccount-data .my_account_orders.shop_table tbody tr {
-    height: 46px;
-}
-
-.evolve-myaccount-data .digital-downloads {
-    list-style: none;
-    margin: 0;
-}
-
-.evolve-thank-you .order_details {
-    list-style: none;
-    margin: 10px 0 0;
-    padding: 0;
-}
-
-.evolve-myaccount-data .digital-downloads li {
-    line-height: 18px;
-    margin: 0 0 15px;
-    padding: 0 0 0 25px;
-}
-
-.evolve-myaccount-data .digital-downloads li::before {
+.woocommerce #account-downloads a::before {
     -webkit-border-radius: 75px;
     -moz-border-radius: 75px;
     border-radius: 75px;
@@ -7755,189 +7681,22 @@ ol.commentlist {
     width: 18px;
 }
 
-.evolve-myaccount-data .addresses .col-1 {
-    width: 48%;
-    float: left;
-    margin-right: 4%;
-}
-
-.evolve-myaccount-data .addresses .col-2 {
-    width: 48%;
-    float: left;
-}
-
-.evolve-myaccount-data .addresses .title {
-    margin-top: 0;
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    display: block;
-}
-
-.evolve-myaccount-data .addresses .title h3 {
-    display: block;
-    float: none;
-}
-
-.evolve-myaccount-data .addresses .title .edit {
-    display: inline-block;
-    margin: 2px 0 0 10px;
-}
-
-.evolve-thank-you .order_details li {
-    line-height: 18px;
-    margin: 0 0 15px;
-    padding: 0 0 0 25px;
-}
-
-.evolve-thank-you .order_details li::before {
-    -webkit-border-radius: 75px;
-    -moz-border-radius: 75px;
-    border-radius: 75px;
-    font-size: 9px;
-    text-align: center;
-    content: '\e927';
-    display: inline-block;
-    float: left;
-    font-family: IcoMoon;
-    font-style: normal;
-    font-weight: normal;
-    height: 18px;
-    margin-left: -25px;
-    margin-right: 0;
-    text-decoration: inherit;
-    width: 18px;
-}
-
-.evolve-customer-details {
-    margin-top: 30px;
-}
-
-.evolve-customer-details .addresses .col-1 {
-    width: 48%;
-    float: left;
-    margin-right: 4%;
-}
-
-.evolve-customer-details .addresses .col-2 {
-    width: 48%;
-    float: left;
-}
-
-.evolve-customer-details .addresses .title {
-    margin-top: 0;
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    display: block;
-}
-
-.evolve-customer-details .addresses .title h3 {
-    display: block;
-    float: none;
-}
-
-.myaccount_user_container .btn::before {
+.woocommerce .myaccount_user_container .btn::before {
     font-family: IcoMoon;
     content: '\e90c';
     margin-right: 10px;
 }
 
-ul.woocommerce-side-nav {
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border: 1px solid #e8e8e8;
-}
-
-.woocommerce-side-nav-ul {
-    margin: 0;
-    list-style-image: none;
-}
-
-.woocommerce-side-nav-logout {
-    border-top: 1px solid #e8e8e8;
-}
-
-.woocommerce-side-nav li {
-    margin: 0;
-}
-
-.woocommerce-side-nav li a {
-    padding: 8px 14px;
-    font-family: "Open Sans", arial, helvetica, sans-serif;
-    display: block;
-    border-bottom: 1px solid #e8e8e8;
-}
-
-.woocommerce-side-nav li a:last-child {
-    border-bottom: 0;
-}
-
-.woocommerce-side-nav li.active a::after {
-    font-family: "IcoMoon";
-    content: "\e919";
-}
-
-.available-downloads {
-    margin-bottom: 50px;
-}
-
-.my_account_orders {
-    width: 100%;
-    text-align: left;
-    margin: 0;
-}
-
-.my_account_orders tr tr {
-    border-bottom: 1px solid;
-}
-
-.my_account_orders tr tbody tr:last-child {
-    border-bottom: 0;
-}
-
-.my_account_orders tr thead tr th {
-    padding-bottom: 12px;
-    font-weight: bold;
-    font-size: 13px;
-    height: auto;
-    line-height: normal;
-}
-
-.my_account_orders .order-number a {
-    font-size: 18px;
-    display: block;
-}
-
-.my_account_orders .order-number a::after {
-    font-family: "IcoMoon";
-    content: "\e919";
-    margin-left: 10px;
-}
-
-#main .page-info {
-    margin-bottom: 10px;
-}
-
-.woocommerce .addresses {
-    margin-top: 40px;
-    overflow: hidden;
-}
-
-.woocommerce .address h4 {
-    font-weight: bold;
-    margin-top: 0;
-    border-bottom: 1px solid #e8e8e8;
-    padding-bottom: 5px;
-}
-
-.woocommerce .address .edit::after {
-    font-family: "IcoMoon";
-    content: "\e919";
-    margin-left: 10px;
+.woocommerce .edit::after,
+.woocommerce .view::after {
+    border: solid;
+    border-width: 0 .1em .1em 0;
+    display: inline-block;
+    padding: .15em;
+    margin-left: .7em;
+    content: '';
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
 }
 
 .woocommerce address {
@@ -7996,32 +7755,13 @@ ul.woocommerce-side-nav {
     list-style: none;
 }
 
-p.order-info {
-    line-height: normal;
-    margin-bottom: 50px;
-}
-
-p.order-info mark {
-    background-color: transparent;
-    font-weight: bold;
-}
-
-.mini-order-details {
-    background: #ffffff;
-}
-
 .woocommerce .shipping_calculator .form-row {
     margin-left: 0;
     margin-right: 0;
 }
 
-.col2-set div.woocommerce-Address {
-    float: left;
-    width: 50%;
-}
-
 .woocommerce-store-notice {
-    background: #273039;
+    background: #0bb697;
     color: #fff;
     padding: 1em;
     position: absolute;
@@ -8029,6 +7769,11 @@ p.order-info mark {
     left: 0;
     width: 100%;
     z-index: 999;
+}
+
+.woocommerce-store-notice a {
+    color: #fff;
+    font-weight: bold;
 }
 
 /* ======================== WooCommerce Menu  ======================== */
@@ -8471,10 +8216,6 @@ body .header-block .wooslider .slide-content p {
 
 #sidebar .widget .slides li div a {
     padding: 0;
-}
-
-#primary .woocommerce-side-nav-ul {
-    margin: 0 0 0 0;
 }
 
 #primary.col-md-6 .product-buttons .product-buttons-container input[type=submit],
@@ -8986,10 +8727,6 @@ body .header-block .wooslider .slide-content p {
 /* ==========================================================================
    WooCommerce
    ========================================================================== */
-
-#customer_login .input-text {
-    display: block;
-}
 
 .widget.woocommerce ul {
     list-style-image: none;
@@ -10050,16 +9787,6 @@ p.stars a.star-5:after {
     margin-top: 50px;
 }
 
-.evolve_myaccount_user .msg .t4p-icon-envelope-o {
-    position: relative;
-    top: 2px;
-}
-
-.edit-account-form legend {
-    margin-top: 20px;
-    padding-bottom: 10px;
-}
-
 .woocommerce-MyAccount-content .woocommerce-Message .woocommerce-Button {
     margin-right: 10px;
 }
@@ -10498,7 +10225,7 @@ Button Shortcode
 
 @media screen and (max-width: 782px) {
     body.admin-bar #wrapper #slidingbar-area,
-    .admin-bar p.demo_store,
+    .admin-bar .woocommerce-store-notice,
     body.admin-bar .sticky-header {
         top: 46px;
     }

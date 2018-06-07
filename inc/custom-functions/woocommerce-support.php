@@ -1027,7 +1027,7 @@ function evolve_wc_form_field_args( $args, $key, $value = null ) {
 
 	switch ( $args['type'] ) {
 
-		case "select" :  /* Targets all select input type elements, except the country and state select input types */
+		case 'select' :  /* Targets all select input type elements, except the country and state select input types */
 			$args['class'][]     = 'form-group'; // Add a class to the field's html element wrapper - woocommerce input types (fields) are often wrapped within a <p></p> tag
 			$args['input_class'] = array( 'form-control' ); // Add a class to the form input itself
 			//$args['custom_attributes']['data-plugin'] = 'select2';
@@ -1044,7 +1044,7 @@ function evolve_wc_form_field_args( $args, $key, $value = null ) {
 			$args['label_class'] = array( 'col-sm-4 col-form-label' );
 			break;
 
-		case "state" : /* By default WooCommerce will populate a select with state names - $args defined for this specific input type targets only the country select element */
+		case 'state' : /* By default WooCommerce will populate a select with state names - $args defined for this specific input type targets only the country select element */
 			$args['class'][]     = 'form-group'; // Add class to the field's html element wrapper
 			$args['input_class'] = array( 'form-control' ); // add class to the form input itself
 			//$args['custom_attributes']['data-plugin'] = 'select2';
@@ -1056,11 +1056,18 @@ function evolve_wc_form_field_args( $args, $key, $value = null ) {
 			);
 			break;
 
-		case "password" :
-		case "text" :
-		case "email" :
-		case "tel" :
-		case "number" :
+		case 'text':
+		case 'password':
+		case 'datetime':
+		case 'datetime-local':
+		case 'date':
+		case 'month':
+		case 'time':
+		case 'week':
+		case 'number':
+		case 'email':
+		case 'url':
+		case 'tel':
 			$args['class'][]     = 'form-group';
 			$args['input_class'] = array( 'form-control' );
 			$args['label_class'] = array( 'col-sm-4 col-form-label' );
@@ -1128,8 +1135,9 @@ function evolve_woocommerce_before_checkout_form( $args ) {
 				if ( ! WC()->cart->needs_shipping() || wc_ship_to_billing_address_only() ) :
 					?>
 
-                    <a class="nav-link" id="additional-info-tab" data-toggle="pill" href="#additional-info" role="tab"
-                       aria-controls="additional-info">
+                    <a class="nav-link" id="checkout-shipping-tab" data-toggle="pill" href="#checkout-shipping"
+                       role="tab"
+                       aria-controls="checkout-shipping">
 
 						<?php esc_html_e( 'Additional Information', 'evolve' ); ?>
 
@@ -1259,35 +1267,6 @@ function evolve_enable_order_notes_field() {
 
 remove_action( 'woocommerce_thankyou', 'woocommerce_order_details_table', 10 );
 add_action( 'woocommerce_thankyou', 'evolve_woocommerce_view_order', 10 );
-add_action( 'woocommerce_before_customer_login_form', 'evolve_woocommerce_before_customer_login_form' );
-
-function evolve_woocommerce_before_customer_login_form() {
-
-	global $woocommerce;
-
-if ( get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes' ) :
-	?>
-
-    <div id="customer_login" class="woocommerce-content-box full-width">
-
-<?php
-endif;
-}
-
-add_action( 'woocommerce_after_customer_login_form', 'evolve_woocommerce_after_customer_login_form' );
-
-function evolve_woocommerce_after_customer_login_form() {
-
-	global $woocommerce;
-
-if ( get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes' ) :
-	?>
-
-    </div>
-
-<?php
-endif;
-}
 
 add_action( 'woocommerce_account_dashboard', 'evolve_woocommerce_account_dashboard' );
 
@@ -1301,11 +1280,15 @@ function evolve_woocommerce_account_dashboard() {
     <div class="myaccount_user_container">
         <div class="row align-items-center">
             <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
-                <h3><?php
-					printf(
-						__( 'Hello, %s', 'evolve' ), $current_user->display_name
-					);
-					?></h3>
+
+				<?php if ( is_user_logged_in() ) { ?>
+                    <h3><?php
+						printf(
+							__( 'Hello, %s', 'evolve' ), $current_user->display_name
+						);
+						?></h3>
+				<?php } ?>
+
             </div>
 
 			<?php if ( $evolve_woo_acc_msg_1 ): ?>
@@ -1335,59 +1318,54 @@ function evolve_woocommerce_account_dashboard() {
             </div>
         </div>
     </div>
-    <div class="woocommerce-side-nav">
-        <ul class="woocommerce-side-nav-ul evolve-myaccount-nav">
-            <li <?php
-			if ( isset( $_SESSION['formvalue'] ) ):
-			else:
-				echo 'class="active"';
-			endif;
-			?>>
-                <a class="dashboard" href="#">
-					<?php esc_html_e( 'Dashboard', 'evolve' ); ?>
-                </a>
-            </li>
 
-            <li>
-                <a class="downloads" href="#">
-					<?php esc_html_e( 'View Downloads', 'evolve' ); ?>
-                </a>
-            </li>
+    <div class="row mt-4">
+    <div class="col mb-4">
+        <div class="nav flex-column nav-pills" id="account-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link account-tab" id="account-dashboard-tab" data-toggle="pill" href="#account-dashboard"
+               role="tab"
+               aria-controls="account-dashboard">
 
-            <li>
-                <a class="orders" href="#">
-					<?php esc_html_e( 'View Orders', 'evolve' ); ?>
-                </a>
-            </li>
+				<?php esc_html_e( 'Dashboard', 'evolve' ); ?>
 
-            <li <?php
-			if ( isset( $_SESSION['formvalue'] ) ) {
-				echo 'class="active"';
-			}
-			?>
-            >
-                <a class="address" href="#">
-					<?php esc_html_e( 'Change Address', 'evolve' ); ?>
-                </a>
-            </li>
+            </a>
+            <a class="nav-link account-tab" id="account-downloads-tab" data-toggle="pill" href="#account-downloads"
+               role="tab"
+               aria-controls="account-downloads">
 
-            <li>
-                <a class="account" href="#">
-					<?php esc_html_e( 'Edit Account', 'evolve' ); ?>
-                </a>
-            </li>
+				<?php esc_html_e( 'View Downloads', 'evolve' ); ?>
 
-        </ul>
-        <ul class="woocommerce-side-nav-ul woocommerce-side-nav-logout">
-            <li>
-                <a class="logout"
-                   href="<?php echo esc_url( wc_get_endpoint_url( 'customer-logout', '', wc_get_page_permalink( 'myaccount' ) ) ); ?>">
-					<?php esc_html_e( 'Logout', 'evolve' ); ?>
-                </a>
-            </li>
-        </ul>
+            </a>
+            <a class="nav-link account-tab" id="account-orders-tab" data-toggle="pill" href="#account-orders" role="tab"
+               aria-controls="account-orders">
+
+				<?php esc_html_e( 'View Orders', 'evolve' ); ?>
+
+            </a>
+            <a class="nav-link account-tab" id="account-address-tab" data-toggle="pill" href="#account-address"
+               role="tab"
+               aria-controls="account-address">
+
+				<?php esc_html_e( 'Change Address', 'evolve' ); ?>
+
+            </a>
+            <a class="nav-link account-tab" id="account-edit-tab" data-toggle="pill" href="#account-edit" role="tab"
+               aria-controls="account-edit">
+
+				<?php esc_html_e( 'Edit Account', 'evolve' ); ?>
+
+            </a>
+            <a class="nav-link"
+               href="<?php echo esc_url( wc_get_endpoint_url( 'customer-logout', '', wc_get_page_permalink( 'myaccount' ) ) ); ?>">
+
+				<?php esc_html_e( 'Logout', 'evolve' ); ?>
+
+            </a>
+        </div>
     </div>
-    <div class="woocommerce-content-box evolve-myaccount-data">
+
+    <div class="col-lg-9 mb-4">
+    <div class="tab-content">
 
 	<?php
 }
@@ -1395,27 +1373,24 @@ function evolve_woocommerce_account_dashboard() {
 add_action( 'woocommerce_view_dashboard', 'evolve_woocommerce_view_dashboard' );
 
 function evolve_woocommerce_view_dashboard( $args ) {
-	global $woocommerce, $current_user;
-	$evolve_woo_acc_msg_1 = evolve_theme_mod( 'evl_woo_acc_msg_1', 'Call us - <i class="t4p-icon-phone"></i> 7438 882 764' );
-	$evolve_woo_acc_msg_2 = evolve_theme_mod( 'evl_woo_acc_msg_2', 'Email us - <i class="t4p-icon-envelope-o"></i> contact@example.com' );
-	?>
-    <div class="view_dashboard" <?php
-	if ( isset( $_SESSION['formvalue'] ) ) {
-		echo 'style="display:none"';
-	}
-	?> >
-        <p>
-			<?php
-			echo sprintf( esc_attr__( 'Hello %1$s%2$s%3$s (not %2$s? %4$sSign out%5$s)', 'evolve' ), '<strong>', esc_html( $current_user->display_name ), '</strong>', '<a href="' . esc_url( wc_get_endpoint_url( 'customer-logout', '', wc_get_page_permalink( 'myaccount' ) ) ) . '">', '</a>' );
-			?>
-        </p>
+	global $current_user; ?>
 
-        <p>
-			<?php
-			echo sprintf( esc_attr__( 'From your account dashboard you can view your %1$srecent orders%2$s, manage your %3$sshipping and billing addresses%2$s and %4$sedit your password and account details%2$s.', 'evolve' ), '<a href="' . esc_url( wc_get_endpoint_url( 'orders' ) ) . '">', '</a>', '<a href="' . esc_url( wc_get_endpoint_url( 'edit-address' ) ) . '">', '<a href="' . esc_url( wc_get_endpoint_url( 'edit-account' ) ) . '">' );
-			?>
-        </p>
+    <div class="tab-pane fade" id="account-dashboard" role="tabpanel" aria-labelledby="account-dashboard-tab">
+        <div class="border p-4">
+            <p>
+				<?php
+				echo sprintf( esc_attr__( 'Hello %1$s%2$s%3$s (not %2$s? %4$sSign out%5$s)', 'evolve' ), '<strong>', esc_html( $current_user->display_name ), '</strong>', '<a href="' . esc_url( wc_get_endpoint_url( 'customer-logout', '', wc_get_page_permalink( 'myaccount' ) ) ) . '">', '</a>' );
+				?>
+            </p>
+
+            <p class="mb-0">
+				<?php
+				echo sprintf( esc_attr__( 'From your account dashboard you can view your %1$srecent orders%2$s, manage your %3$sshipping and billing addresses%2$s and %4$sedit your password and account details%2$s.', 'evolve' ), '<a class="view-orders-link" href="#">', '</a>', '<a class="edit-address-link" href="#">', '<a class="edit-account-link" href="#">' );
+				?>
+            </p>
+        </div>
     </div>
+
 	<?php
 }
 
@@ -1439,28 +1414,36 @@ function evolve_woocommerce_before_account_orders( $args ) {
 		'post_status' => array_keys( wc_get_order_statuses() )
 	) ) );
 
-	if ( $customer_orders ) :
-		?>
+if ( $customer_orders ) :
+	?>
 
-        <h2><?php echo apply_filters( 'woocommerce_my_account_my_orders_title', __( 'Recent Orders', 'evolve' ) ); ?></h2>
+    <div class="tab-pane fade" id="account-orders" role="tabpanel" aria-labelledby="account-orders-tab">
+    <div class="border p-4">
 
-        <table class="shop_table shop_table_responsive my_account_orders">
+    <h4><?php echo apply_filters( 'woocommerce_my_account_my_orders_title', __( 'Recent orders', 'evolve' ) ); ?></h4>
 
+    <div class="table-responsive-lg">
+        <table class="shop_table shop_table_responsive table">
             <thead>
             <tr>
+
 				<?php foreach ( $my_orders_columns as $column_id => $column_name ) : ?>
+
                     <th class="<?php echo esc_attr( $column_id ); ?>"><span
                                 class="nobr"><?php echo esc_html( $column_name ); ?></span></th>
+
 				<?php endforeach; ?>
+
             </tr>
             </thead>
-
             <tbody>
+
 			<?php
 			foreach ( $customer_orders as $customer_order ) :
 				$order = wc_get_order( $customer_order );
 				$item_count = $order->get_item_count();
 				?>
+
                 <tr class="order">
 					<?php foreach ( $my_orders_columns as $column_id => $column_name ) : ?>
                         <td class="<?php echo esc_attr( $column_id ); ?>"
@@ -1512,7 +1495,7 @@ function evolve_woocommerce_before_account_orders( $args ) {
 
 								if ( $actions = apply_filters( 'woocommerce_my_account_my_orders_actions', $actions, $order ) ) {
 									foreach ( $actions as $key => $action ) {
-										echo '<a href="' . esc_url( $action['url'] ) . '" class="btn ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
+										echo '<a href="' . esc_url( $action['url'] ) . '" class="btn btn-sm ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
 									}
 								}
 								?>
@@ -1523,60 +1506,72 @@ function evolve_woocommerce_before_account_orders( $args ) {
 			<?php endforeach; ?>
             </tbody>
         </table>
-	<?php else : ?>
-        <div class="woocommerce-Message woocommerce-Message--info woocommerce-info my_account_orders">
-            <a class="btn"
-               href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
-				<?php esc_html_e( 'Go Shop', 'evolve' ) ?>
-            </a>
-			<?php esc_html_e( 'No order has been made yet.', 'evolve' ); ?>
-        </div>
-	<?php
-	endif;
+    </div>
+<?php else : ?>
+    <div class="woocommerce-Message woocommerce-Message--info woocommerce-info my_account_orders">
+        <a class="btn"
+           href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
+			<?php esc_html_e( 'Go Shop', 'evolve' ) ?>
+        </a>
+		<?php esc_html_e( 'No order has been made yet.', 'evolve' ); ?>
+    </div>
+<?php
+endif;
+
+	echo '</div></div>';
+
 }
 
 add_action( 'woocommerce_account_downloads', 'evolve_woocommerce_before_account_downloads' );
 
 function evolve_woocommerce_before_account_downloads( $args ) {
+
+	echo '<div class="tab-pane fade" id="account-downloads" role="tabpanel" aria-labelledby="account-downloads-tab"><div class="border p-4">';
+
 	if ( $downloads = WC()->customer->get_downloadable_products() ) :
 
 		do_action( 'woocommerce_before_available_downloads' );
 		?>
 
-        <h2><?php echo apply_filters( 'woocommerce_my_account_my_downloads_title', __( 'Available Downloads', 'evolve' ) ); ?></h2>
+        <h4><?php echo apply_filters( 'woocommerce_my_account_my_downloads_title', __( 'Available downloads', 'evolve' ) ); ?></h4>
 
-        <ul class="woocommerce-Downloads digital-downloads">
-			<?php foreach ( $downloads as $download ) : ?>
-                <li>
-					<?php
-					do_action( 'woocommerce_available_download_start', $download );
+		<?php foreach ( $downloads as $download ) : ?>
 
-					if ( is_numeric( $download['downloads_remaining'] ) ) {
-						$downloads_remaining = $download['downloads_remaining'];
-						echo apply_filters( 'woocommerce_available_download_count', '<span class="woocommerce-Count count">' . sprintf( _n( '%s download remaining', '%s downloads remaining', $downloads_remaining, 'evolve' ), $download['downloads_remaining'] ) . '</span> ', $download );
-					}
+		<?php
+		do_action( 'woocommerce_available_download_start', $download );
 
-					echo apply_filters( 'woocommerce_available_download_link', '<a href="' . esc_url( $download['download_url'] ) . '">' . $download['download_name'] . '</a>', $download );
+		echo '<p class="mt-4 mb-0">';
 
-					do_action( 'woocommerce_available_download_end', $download );
-					?>
-                </li>
-			<?php endforeach; ?>
-        </ul>
+		echo apply_filters( 'woocommerce_available_download_link', '<a class="btn btn-sm" href="' . esc_url( $download['download_url'] ) . '">' . $download['download_name'] . '</a>', $download );
+
+		if ( is_numeric( $download['downloads_remaining'] ) ) {
+			$downloads_remaining = $download['downloads_remaining'];
+			echo apply_filters( 'woocommerce_available_download_count', '<span class="ml-4"><strong>' . sprintf( _n( '%s download remaining', '%s downloads remaining', $downloads_remaining, 'evolve' ), $download['downloads_remaining'] ) . '</strong></span> ', $download );
+		}
+
+		echo '</p>';
+
+		do_action( 'woocommerce_available_download_end', $download );
+		?>
+
+	<?php endforeach; ?>
 
 		<?php
 		do_action( 'woocommerce_after_available_downloads' );
 	else :
 		?>
-        <div class="woocommerce-Message woocommerce-Message--info woocommerce-info digital-downloads">
-            <a class="woocommerce-Button button"
-               href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
-				<?php esc_html_e( 'Go Shop', 'evolve' ) ?>
-            </a>
-			<?php esc_html_e( 'No downloads available yet.', 'evolve' ); ?>
-        </div>
-	<?php
+
+        <a class="woocommerce-Button btn btn-sm mr-4"
+           href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
+			<?php esc_html_e( 'Go Shop', 'evolve' ) ?>
+        </a>
+
+		<?php esc_html_e( 'No downloads available yet.', 'evolve' );
+
 	endif;
+
+	echo '</div></div>';
+
 }
 
 add_action( 'woocommerce_account_address', 'evolve_woocommerce_before_my_account' );
@@ -1587,192 +1582,193 @@ function evolve_woocommerce_before_my_account( $args ) {
 		$address_session = 'style="display:block"';
 	}
 	?>
-    <div class="myaccount_address" id="change_address" <?php echo $address_session; ?>>
-        <h2 class="edit_address_heading" <?php echo $address_session; ?>><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', 'My Address' ); ?></h2>
-		<?php
-		$customer_id = get_current_user_id();
 
-		if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
-			$get_addresses = apply_filters( 'woocommerce_my_account_get_addresses', array(
-				'billing'  => __( 'Billing Address', 'evolve' ),
-				'shipping' => __( 'Shipping Address', 'evolve' )
-			), $customer_id );
-		} else {
-			$get_addresses = apply_filters( 'woocommerce_my_account_get_addresses', array(
-				'billing' => __( 'Billing Address', 'evolve' )
-			), $customer_id );
-		}
+    <div class="tab-pane fade" id="account-address" role="tabpanel" aria-labelledby="account-address-tab">
+        <div class="border p-4" <?php echo $address_session; ?>>
+            <h4 <?php echo $address_session; ?>><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', 'My address' ); ?></h4>
 
-		$oldcol = 1;
-		$col    = 1;
-		?>
 
-        <p>
-			<?php echo apply_filters( 'woocommerce_my_account_my_address_description', __( 'The following addresses will be used on the checkout page by default.', 'evolve' ) ); ?>
-        </p>
+			<?php
+			$customer_id = get_current_user_id();
 
-		<?php
-		if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
-			echo '<div class="u-columns woocommerce-Addresses col2-set">';
-		}
+			if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
+				$get_addresses = apply_filters( 'woocommerce_my_account_get_addresses', array(
+					'billing'  => __( 'Billing address', 'evolve' ),
+					'shipping' => __( 'Shipping address', 'evolve' )
+				), $customer_id );
+				$col           = '2';
+			} else {
+				$get_addresses = apply_filters( 'woocommerce_my_account_get_addresses', array(
+					'billing' => __( 'Billing address', 'evolve' )
+				), $customer_id );
+				$col           = '1';
+			} ?>
 
-		foreach ( $get_addresses as $name => $title ) :
-			?>
+            <p class="mb-0">
+				<?php echo apply_filters( 'woocommerce_my_account_my_address_description', __( 'The following addresses will be used on the checkout page by default.', 'evolve' ) ); ?>
+            </p>
 
-            <div class="u-column<?php echo ( ( $col = $col * - 1 ) < 0 ) ? 1 : 2; ?> col-<?php echo ( ( $oldcol = $oldcol * - 1 ) < 0 ) ? 1 : 2; ?> woocommerce-Address">
-                <header class="woocommerce-Address-title title">
-                    <h3><?php echo $title; ?></h3>
-                    <a href="#" data-name="<?php echo $name; ?>" id="editaddress_<?php echo $name; ?>"
-                       class="edit woo_editaddress"><?php esc_html_e( 'Edit', 'evolve' ); ?></a>
-                </header>
-                <address>
-					<?php
-					$address = apply_filters( 'woocommerce_my_account_my_address_formatted_address', array(
-						'first_name' => get_user_meta( $customer_id, $name . '_first_name', true ),
-						'last_name'  => get_user_meta( $customer_id, $name . '_last_name', true ),
-						'company'    => get_user_meta( $customer_id, $name . '_company', true ),
-						'address_1'  => get_user_meta( $customer_id, $name . '_address_1', true ),
-						'address_2'  => get_user_meta( $customer_id, $name . '_address_2', true ),
-						'city'       => get_user_meta( $customer_id, $name . '_city', true ),
-						'state'      => get_user_meta( $customer_id, $name . '_state', true ),
-						'postcode'   => get_user_meta( $customer_id, $name . '_postcode', true ),
-						'country'    => get_user_meta( $customer_id, $name . '_country', true )
-					), $customer_id, $name );
+            <div class="row">
 
-					$formatted_address = WC()->countries->get_formatted_address( $address );
+				<?php foreach (
+					$get_addresses
 
-					if ( ! $formatted_address ) {
-						_e( 'You have not set up this type of address yet.', 'evolve' );
-					} else {
-						echo $formatted_address;
+					as $name => $title
+				) : ?>
+
+                    <div class="col<?php echo ( $col == '1' ) ? '' : '-lg-6'; ?>">
+                        <div class="bg-white p-4 mt-4">
+                            <div class="mb-3">
+                                <h5 class="d-inline"><?php echo $title; ?></h5>
+                                <a href="#" data-name="<?php echo $name; ?>" id="editaddress_<?php echo $name; ?>"
+                                   class="edit woo_editaddress btn btn-sm ml-4 d-inline"><?php esc_html_e( 'Edit', 'evolve' ); ?></a>
+                            </div>
+                            <address>
+								<?php
+								$address = apply_filters( 'woocommerce_my_account_my_address_formatted_address', array(
+									'first_name' => get_user_meta( $customer_id, $name . '_first_name', true ),
+									'last_name'  => get_user_meta( $customer_id, $name . '_last_name', true ),
+									'company'    => get_user_meta( $customer_id, $name . '_company', true ),
+									'address_1'  => get_user_meta( $customer_id, $name . '_address_1', true ),
+									'address_2'  => get_user_meta( $customer_id, $name . '_address_2', true ),
+									'city'       => get_user_meta( $customer_id, $name . '_city', true ),
+									'state'      => get_user_meta( $customer_id, $name . '_state', true ),
+									'postcode'   => get_user_meta( $customer_id, $name . '_postcode', true ),
+									'country'    => get_user_meta( $customer_id, $name . '_country', true )
+								), $customer_id, $name );
+
+								$formatted_address = WC()->countries->get_formatted_address( $address );
+
+								if ( ! $formatted_address ) {
+									_e( 'You have not set up this type of address yet.', 'evolve' );
+								} else {
+									echo $formatted_address;
+								}
+								?>
+                            </address>
+                        </div>
+                    </div>
+
+				<?php
+				endforeach;
+
+				$load_address = 'billing';
+				$current_user = wp_get_current_user();
+				$address      = WC()->countries->get_address_fields( get_user_meta( get_current_user_id(), $load_address . '_country', true ), $load_address . '_' );
+				// Prepare values
+				foreach ( $address as $key => $field ) {
+					$value = get_user_meta( get_current_user_id(), $key, true );
+
+					if ( ! $value ) {
+						switch ( $key ) {
+							case 'billing_email' :
+							case 'shipping_email' :
+								$value = $current_user->user_email;
+								break;
+							case 'billing_country' :
+							case 'shipping_country' :
+								$value = WC()->countries->get_base_country();
+								break;
+							case 'billing_state' :
+							case 'shipping_state' :
+								$value = WC()->countries->get_base_state();
+								break;
+						}
 					}
+
+					$address[ $key ]['value'] = apply_filters( 'woocommerce_my_account_edit_address_field_value', $value, $key, $load_address );
+
+					$addressform_session = '';
+					if ( isset( $_SESSION['formvalue'] ) && ! empty( $field['required'] ) && isset( $_POST[ $key ] ) ) {
+						$addressform_session = 'style=display:block';
+					} elseif ( isset( $_SESSION['formvalue'] ) ) {
+						$addressform_session = 'style=display:none';
+					}
+				}
+				?>
+
+            </div>
+            <h4 class="editaddress_billing mt-4" <?php echo $addressform_session; ?>><?php esc_html_e( 'Billing address', 'evolve' ); ?></h4>
+            <div class="editaddress_billing" <?php echo $addressform_session; ?>>
+                <form method="post">
+
+					<?php
+					foreach ( $address as $key => $field ) :
+
+						woocommerce_form_field( $key, $field, ! empty( $_POST[ $key ] ) ? wc_clean( $_POST[ $key ] ) : $field['value'] );
+
+					endforeach;
 					?>
-                </address>
+
+                    <p class="mb-0">
+                        <input type="submit" class="btn btn-sm" id="saveaddress" name="save_address"
+                               value="<?php esc_html_e( 'Save Address', 'evolve' ); ?>"/>
+						<?php wp_nonce_field( 'woocommerce-edit_address' ); ?>
+                        <input type="hidden" name="action" value="edit_address"/>
+                        <input type="hidden" name="formvalue" value="billing"/>
+                    </p>
+
+                </form>
             </div>
 
-		<?php
-		endforeach;
+			<?php
+			$load_address = 'shipping';
+			$current_user = wp_get_current_user();
+			$address      = WC()->countries->get_address_fields( get_user_meta( get_current_user_id(), $load_address . '_country', true ), $load_address . '_' );
+			// Prepare values
+			foreach ( $address as $key => $field ) {
 
-		if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
-			echo '<div class="clear"></div></div>';
-		}
+				$value = get_user_meta( get_current_user_id(), $key, true );
 
-		$load_address = 'billing';
-		$current_user = wp_get_current_user();
-		$address      = WC()->countries->get_address_fields( get_user_meta( get_current_user_id(), $load_address . '_country', true ), $load_address . '_' );
-		// Prepare values
-		foreach ( $address as $key => $field ) {
-			$value = get_user_meta( get_current_user_id(), $key, true );
+				if ( ! $value ) {
+					switch ( $key ) {
+						case 'billing_email' :
+						case 'shipping_email' :
+							$value = $current_user->user_email;
+							break;
+						case 'billing_country' :
+						case 'shipping_country' :
+							$value = WC()->countries->get_base_country();
+							break;
+						case 'billing_state' :
+						case 'shipping_state' :
+							$value = WC()->countries->get_base_state();
+							break;
+					}
+				}
 
-			if ( ! $value ) {
-				switch ( $key ) {
-					case 'billing_email' :
-					case 'shipping_email' :
-						$value = $current_user->user_email;
-						break;
-					case 'billing_country' :
-					case 'shipping_country' :
-						$value = WC()->countries->get_base_country();
-						break;
-					case 'billing_state' :
-					case 'shipping_state' :
-						$value = WC()->countries->get_base_state();
-						break;
+				$address[ $key ]['value'] = apply_filters( 'woocommerce_my_account_edit_address_field_value', $value, $key, $load_address );
+
+				$addressform_session = '';
+				if ( isset( $_SESSION['formvalue'] ) && ! empty( $field['required'] ) && isset( $_POST[ $key ] ) ) {
+					$addressform_session = 'style=display:block';
+				} elseif ( isset( $_SESSION['formvalue'] ) ) {
+					$addressform_session = 'style=display:none';
 				}
 			}
+			?>
+            <h4 class="editaddress_shipping mt-4" <?php echo $addressform_session; ?>><?php esc_html_e( 'Shipping address', 'evolve' ); ?></h4>
+            <div class="editaddress_shipping" <?php echo $addressform_session; ?>>
+                <form method="post">
 
-			$address[ $key ]['value'] = apply_filters( 'woocommerce_my_account_edit_address_field_value', $value, $key, $load_address );
+					<?php
+					foreach ( $address as $key => $field ) :
 
-			$addressform_session = '';
-			if ( isset( $_SESSION['formvalue'] ) && ! empty( $field['required'] ) && isset( $_POST[ $key ] ) ) {
-				$addressform_session = 'style=display:block';
-			} elseif ( isset( $_SESSION['formvalue'] ) ) {
-				$addressform_session = 'style=display:none';
-			}
-		}
-		?>
-        <h3 class="editaddress_billing" <?php echo $addressform_session; ?>><?php esc_html_e( 'Billing Address', 'evolve' ); ?></h3>
-        <div class="editaddress_billing" <?php echo $addressform_session; ?>>
-            <form method="post">
+						woocommerce_form_field( $key, $field, ! empty( $_POST[ $key ] ) ? wc_clean( $_POST[ $key ] ) : $field['value'] );
 
-				<?php
-				foreach ( $address as $key => $field ) :
+					endforeach;
+					?>
 
-					woocommerce_form_field( $key, $field, ! empty( $_POST[ $key ] ) ? wc_clean( $_POST[ $key ] ) : $field['value'] );
+                    <p class="mb-0">
+                        <input type="submit" class="btn btn-sm" id="saveaddress" name="save_address"
+                               value="<?php esc_html_e( 'Save Address', 'evolve' ); ?>"/>
+						<?php wp_nonce_field( 'woocommerce-edit_address' ); ?>
+                        <input type="hidden" name="action" value="edit_address"/>
+                        <input type="hidden" name="formvalue" value="shipping"/>
+                    </p>
 
-				endforeach;
-				?>
-
-                <p>
-                    <input type="submit" class="btn btn-sm float-md-right" id="saveaddress" name="save_address"
-                           value="<?php esc_html_e( 'Save Address', 'evolve' ); ?>"/>
-					<?php wp_nonce_field( 'woocommerce-edit_address' ); ?>
-                    <input type="hidden" name="action" value="edit_address"/>
-                    <input type="hidden" name="formvalue" value="billing"/>
-                <div class="clearboth"></div>
-                </p>
-
-            </form>
-        </div>
-
-		<?php
-		$load_address = 'shipping';
-		$current_user = wp_get_current_user();
-		$address      = WC()->countries->get_address_fields( get_user_meta( get_current_user_id(), $load_address . '_country', true ), $load_address . '_' );
-		// Prepare values
-		foreach ( $address as $key => $field ) {
-
-			$value = get_user_meta( get_current_user_id(), $key, true );
-
-			if ( ! $value ) {
-				switch ( $key ) {
-					case 'billing_email' :
-					case 'shipping_email' :
-						$value = $current_user->user_email;
-						break;
-					case 'billing_country' :
-					case 'shipping_country' :
-						$value = WC()->countries->get_base_country();
-						break;
-					case 'billing_state' :
-					case 'shipping_state' :
-						$value = WC()->countries->get_base_state();
-						break;
-				}
-			}
-
-			$address[ $key ]['value'] = apply_filters( 'woocommerce_my_account_edit_address_field_value', $value, $key, $load_address );
-
-			$addressform_session = '';
-			if ( isset( $_SESSION['formvalue'] ) && ! empty( $field['required'] ) && isset( $_POST[ $key ] ) ) {
-				$addressform_session = 'style=display:block';
-			} elseif ( isset( $_SESSION['formvalue'] ) ) {
-				$addressform_session = 'style=display:none';
-			}
-		}
-		?>
-        <h3 class="editaddress_shipping" <?php echo $addressform_session; ?>><?php esc_html_e( 'Shipping Address', 'evolve' ); ?></h3>
-        <div class="editaddress_shipping" <?php echo $addressform_session; ?>>
-            <form method="post">
-
-				<?php
-				foreach ( $address as $key => $field ) :
-
-					woocommerce_form_field( $key, $field, ! empty( $_POST[ $key ] ) ? wc_clean( $_POST[ $key ] ) : $field['value'] );
-
-				endforeach;
-				?>
-
-                <p>
-                    <input type="submit" class="btn btn-sm float-md-right" id="saveaddress" name="save_address"
-                           value="<?php esc_html_e( 'Save Address', 'evolve' ); ?>"/>
-					<?php wp_nonce_field( 'woocommerce-edit_address' ); ?>
-                    <input type="hidden" name="action" value="edit_address"/>
-                    <input type="hidden" name="formvalue" value="shipping"/>
-                <div class="clearboth"></div>
-                </p>
-
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 	<?php
@@ -1906,51 +1902,54 @@ function evolve_woocommerce_after_my_account( $args ) {
 	$user = wp_get_current_user();
 	?>
 
-    <h4 class="edit-account-heading"><?php esc_html_e( 'Edit Account', 'evolve' ); ?></h4>
+    <div class="tab-pane fade" id="account-edit" role="tabpanel" aria-labelledby="account-edit-tab">
+        <div class="border p-4">
+            <h4><?php esc_html_e( 'Edit account', 'evolve' ); ?></h4>
 
-    <form class="edit-account-form" action="" method="post">
-        <p class="form-row form-row-first">
-            <label for="account_first_name"><?php esc_html_e( 'First name', 'evolve' ); ?> <span
-                        class="required">*</span></label>
-            <input type="text" class="form-control" name="account_first_name" id="account_first_name"
-                   value="<?php esc_attr( $user->first_name ); ?>"/>
-        </p>
-        <p class="form-row form-row-last">
-            <label for="account_last_name"><?php esc_html_e( 'Last name', 'evolve' ); ?> <span class="required">*</span></label>
-            <input type="text" class="form-control" name="account_last_name" id="account_last_name"
-                   value="<?php esc_attr( $user->last_name ); ?>"/>
-        </p>
-        <p class="form-row form-row-wide">
-            <label for="account_email"><?php esc_html_e( 'Email address', 'evolve' ); ?> <span class="required">*</span></label>
-            <input type="email" class="form-control" name="account_email" id="account_email"
-                   value="<?php esc_attr( $user->user_email ); ?>"/>
-        </p>
-        <fieldset>
-            <legend><?php esc_html_e( 'Password Change', 'evolve' ); ?></legend>
+            <form action="" method="post">
+                <p>
+                    <label for="account_first_name"><?php esc_html_e( 'First name', 'evolve' ); ?> <span
+                                class="required">*</span></label>
+                    <input type="text" class="form-control" name="account_first_name" id="account_first_name"
+                           value="<?php esc_attr( $user->first_name ); ?>"/>
+                </p>
+                <p>
+                    <label for="account_last_name"><?php esc_html_e( 'Last name', 'evolve' ); ?> <span class="required">*</span></label>
+                    <input type="text" class="form-control" name="account_last_name" id="account_last_name"
+                           value="<?php esc_attr( $user->last_name ); ?>"/>
+                </p>
+                <p>
+                    <label for="account_email"><?php esc_html_e( 'Email address', 'evolve' ); ?> <span class="required">*</span></label>
+                    <input type="email" class="form-control" name="account_email" id="account_email"
+                           value="<?php esc_attr( $user->user_email ); ?>"/>
+                </p>
+                <fieldset>
+                    <legend><?php esc_html_e( 'Password Change', 'evolve' ); ?></legend>
 
-            <p class="form-row form-row-wide">
-                <label for="password_current"><?php esc_html_e( 'Current Password (leave blank to leave unchanged)', 'evolve' ); ?></label>
-                <input type="password" class="form-control" name="password_current" id="password_current"/>
-            </p>
-            <p class="form-row form-row-wide">
-                <label for="password_1"><?php esc_html_e( 'New Password (leave blank to leave unchanged)', 'evolve' ); ?></label>
-                <input type="password" class="form-control" name="password_1" id="password_1"/>
-            </p>
-            <p class="form-row form-row-wide">
-                <label for="password_2"><?php esc_html_e( 'Confirm New Password', 'evolve' ); ?></label>
-                <input type="password" class="form-control" name="password_2" id="password_2"/>
-            </p>
-        </fieldset>
-        <div class="clear"></div>
+                    <p>
+                        <label for="password_current"><?php esc_html_e( 'Current Password (leave blank to leave unchanged)', 'evolve' ); ?></label>
+                        <input type="password" class="form-control" name="password_current" id="password_current"/>
+                    </p>
+                    <p>
+                        <label for="password_1"><?php esc_html_e( 'New Password (leave blank to leave unchanged)', 'evolve' ); ?></label>
+                        <input type="password" class="form-control" name="password_1" id="password_1"/>
+                    </p>
+                    <p>
+                        <label for="password_2"><?php esc_html_e( 'Confirm New Password', 'evolve' ); ?></label>
+                        <input type="password" class="form-control" name="password_2" id="password_2"/>
+                    </p>
+                </fieldset>
 
-        <p><input type="submit" class="btn btn-sm float-md-right" name="save_account_details"
-                  value="<?php esc_html_e( 'Save changes', 'evolve' ); ?>"/></p>
+                <input type="submit" class="btn btn-sm"
+                       name="save_account_details"
+                       value="<?php esc_html_e( 'Save changes', 'evolve' ); ?>"/>
 
-		<?php wp_nonce_field( 'save_account_details' ); ?>
-        <input type="hidden" name="action" value="save_account_details"/>
-        <div class="clearboth"></div>
-    </form>
+				<?php wp_nonce_field( 'save_account_details' ); ?>
+                <input type="hidden" name="action" value="save_account_details"/>
+            </form>
 
+        </div>
+    </div>
     </div>
 
 	<?php
@@ -1966,7 +1965,7 @@ function evolve_woocommerce_view_order( $order_id ) {
 	$order_item_product = new WC_Order_Item_Product();
 	?>
 
-    <h4 class="mb-4"><?php esc_html_e( 'Order Details', 'evolve' ); ?></h4>
+    <h4 class="mb-4"><?php esc_html_e( 'Order details', 'evolve' ); ?></h4>
     <div class="table-responsive-lg">
         <table class="table shop_table order_details">
             <thead>
@@ -2094,7 +2093,7 @@ function evolve_woocommerce_view_order( $order_id ) {
 
 <?php endif; ?>
 
-    <h4 class="mb-4"><?php esc_html_e( 'Customer Details', 'evolve' ); ?></h4>
+    <h4 class="mb-4"><?php esc_html_e( 'Customer details', 'evolve' ); ?></h4>
 
     <dl class="customer_details">
 
@@ -2127,7 +2126,7 @@ function evolve_woocommerce_view_order( $order_id ) {
 <?php endif; ?>
 
 
-    <h4 class="mb-4"><?php esc_html_e( 'Billing Address', 'evolve' ); ?></h4>
+    <h4 class="mb-4"><?php esc_html_e( 'Billing address', 'evolve' ); ?></h4>
 
     <address><p>
 			<?php
@@ -2144,7 +2143,7 @@ function evolve_woocommerce_view_order( $order_id ) {
 	<?php if ( get_option( 'woocommerce_calc_shipping' ) !== 'no' ) : ?>
 
         <div class="col-lg-4 mt-4">
-            <h4 class="mb-4"><?php esc_html_e( 'Shipping Address', 'evolve' ); ?></h4>
+            <h4 class="mb-4"><?php esc_html_e( 'Shipping address', 'evolve' ); ?></h4>
 
             <address><p>
 					<?php

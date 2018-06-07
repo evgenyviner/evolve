@@ -527,8 +527,12 @@ if ( ! empty( $evolve_form_bg_color ) || ! empty( $evolve_form_text_color ) || !
 endif;
 
 if ( $evolve_component_color ) {
-	$evolve_css_data .= '.custom-checkbox .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active { background: ' . $evolve_component_color . '; } .form-control:focus { border-color: ' . $evolve_component_color . '; box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } .custom-control-input:focus~.custom-control-label::before { box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem  ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } .btn.focus, .btn:focus { box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } :focus { outline-color: ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; }';
+	$evolve_css_data .= '.custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .woocommerce-store-notice { background: ' . $evolve_component_color . '; } .form-control:focus, .input-text:focus { border-color: ' . $evolve_component_color . '; box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } .custom-control-input:focus~.custom-control-label::before { box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem  ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } .btn.focus, .btn:focus { box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } :focus { outline-color: ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; }';
 }
+
+if ( class_exists( 'Woocommerce' ) && is_user_logged_in() && current_user_can( 'manage_options' ) ) :
+	$evolve_css_data .= '.woocommerce-store-notice { top: 32px; } ';
+endif;
 
 // Post Formats
 if ( $evolve_sticky_post_format == '0' ) {

@@ -446,11 +446,6 @@
 /* ==========================================================================
    WooCommerce
    ========================================================================== */
-#customer_login {
-  .input-text {
-    display: block;
-  }
-}
 
 .widget.woocommerce {
   ul {
@@ -1529,22 +1524,6 @@ p.stars a.star-5:after {
     a {
       font-size: 24px;
     }
-  }
-}
-
-.evolve_myaccount_user {
-  .msg {
-    .t4p-icon-envelope-o {
-      position: relative;
-      top: 2px;
-    }
-  }
-}
-
-.edit-account-form {
-  legend {
-    margin-top: 20px;
-    padding-bottom: 10px;
   }
 }
 

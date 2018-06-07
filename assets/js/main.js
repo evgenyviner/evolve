@@ -417,27 +417,6 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
             jQuery('.woocommerce-checkout-nav').find('[data-name=' + data_name + ']').parent().addClass('active');
         });
 
-        jQuery('.evolve-myaccount-nav a').click(function (e) {
-            e.preventDefault();
-
-            jQuery('.evolve-myaccount-data .view_dashboard, .evolve-myaccount-data .digital-downloads, .evolve-myaccount-data .my_account_orders, .evolve-myaccount-data .edit_address_heading, .evolve-myaccount-data .myaccount_address, .evolve-myaccount-data .edit-account-heading, .evolve-myaccount-data .edit-account-form').hide();
-
-            if (jQuery(this).hasClass('downloads')) {
-                jQuery('.evolve-myaccount-data .digital-downloads').fadeIn();
-            } else if (jQuery(this).hasClass('orders')) {
-                jQuery('.evolve-myaccount-data .my_account_orders').fadeIn();
-            } else if (jQuery(this).hasClass('address')) {
-                jQuery('.evolve-myaccount-data .edit_address_heading, .evolve-myaccount-data .myaccount_address').fadeIn();
-            } else if (jQuery(this).hasClass('account')) {
-                jQuery('.evolve-myaccount-data .edit-account-heading, .evolve-myaccount-data .edit-account-form').fadeIn();
-            } else if (jQuery(this).hasClass('dashboard')) {
-                jQuery('.evolve-myaccount-data .view_dashboard').fadeIn();
-            }
-
-            jQuery('.evolve-myaccount-nav li').removeClass('active');
-            jQuery(this).parent().addClass('active');
-        });
-
         jQuery('a.add_to_cart_button').click(function (e) {
             var link = this;
             jQuery(link).closest('.product').find('.cart-loading').find('i').removeClass('t4p-icon-ok').addClass('t4p-icon-ok');
@@ -473,10 +452,23 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
        ======================================= */
 
     jQuery(function ($) {
-        $('#checkout-tab a[href="#checkout-billing"]').tab('show')
+        $('#checkout-tab a[href="#checkout-billing"]').tab('show');
+        $('#account-tab a[href="#account-dashboard"]').tab('show');
 
         $('.continue').click(function () {
             $('.nav-pills > .active').next('a').trigger('click');
+        });
+
+        $(".view-orders-link").click(function () {
+            $("a#account-orders-tab").click();
+        });
+
+        $(".edit-address-link").click(function () {
+            $("a#account-address-tab").click();
+        });
+
+        $(".edit-account-link").click(function () {
+            $("a#account-edit-tab").click();
         });
     });
 
@@ -549,6 +541,14 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
     /*
        For WooCommerce Edit-addresss Form
        ======================================= */
+
+    jQuery('#account-tab a.account-tab').click(function (e) {
+        e.preventDefault();
+
+        jQuery('.editaddress_billing').hide();
+        jQuery('.editaddress_shipping').hide();
+
+    });
 
     jQuery(document).ready(function ($) {
 
