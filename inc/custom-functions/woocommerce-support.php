@@ -529,225 +529,80 @@ add_filter( 'woocommerce_add_to_cart_fragments', 'evolve_woocommerce_header_add_
 function evolve_woocommerce_header_add_to_cart_fragment( $fragments ) {
 	global $woocommerce;
 
-	ob_start();
+	ob_start(); ?>
 
-	$evolve_header_type = evolve_theme_mod( 'evl_header_type', 'none' );
-	if ( $evolve_header_type == 'h1' ) {
-		?>
-        <li class="cart header-cart">
-			<?php if ( ! $woocommerce->cart->cart_contents_count ): ?>
-                <a class="empty-cart" href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
-					<?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
-                </a>
-                <div class="cart-contents">
-                    <div class="cart-content" style="width:180px!important;">
-                        <strong style="padding:7px 10px;line-height:35px;">
-							<?php esc_html_e( 'Your cart is currently empty.', 'evolve' ); ?>
-                        </strong>
-                    </div>
-                </div>
+    <li class="nav-item dropdown cart">
 
-			<?php else: ?>
-                <a class="my-cart-link my-cart-link-active"
-                   href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
-					<?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
-                </a>
-                <div class="cart-contents">
-					<?php
-					foreach ( $woocommerce->cart->cart_contents as $cart_item ): //var_dump($cart_item);
-						$cart_item_key = $cart_item['key'];
-						$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-						?>
-                        <div class="cart-content">
-                            <a href="<?php echo get_permalink( $cart_item['product_id'] ); ?>">
-								<?php
-								$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
-								echo $thumbnail;
-								?>
-                                <div class="cart-desc">
-                                    <span class="cart-title"><?php echo $cart_item['data']->post->post_title; ?></span>
-                                    <span class="product-quantity">
+		<?php if ( ! $woocommerce->cart->cart_contents_count ): ?>
+
+            <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"
+               class="nav-link dropdown-toggle" id="cart_dropdown" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+				<?php echo evolve_get_svg( 'shop' ); ?><?php esc_html_e( '0 items', 'evolve' ); ?>
+                - <?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
+
+            </a>
+
+            <div class="dropdown-menu p-3 dropdownhover-bottom" aria-labelledby="cart_dropdown">
+                <span class="dropdown-item">
+
+				    <?php esc_html_e( 'Your cart is currently empty.', 'evolve' ); ?>
+
+                </span>
+            </div>
+
+		<?php else: ?>
+
+            <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"
+               class="btn nav-link dropdown-toggle" id="cart_dropdown" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+				<?php echo evolve_get_svg( 'shop' ); ?><?php sprintf( _n( '%s item', '%s items', $woocommerce->cart->cart_contents_count, 'evolve' ), $woocommerce->cart->cart_contents_count ); ?>
+                - <?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
+
+            </a>
+
+            <div class="dropdown-menu p-3" aria-labelledby="cart_dropdown">
+
+				<?php foreach ( $woocommerce->cart->cart_contents as $cart_item ):
+					$cart_item_key = $cart_item['key'];
+					$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key ); ?>
+
+                    <a href="<?php echo get_permalink( $cart_item['product_id'] ); ?>">
+
+						<?php $thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
+						echo $thumbnail; ?>
+
+                        <div class="cart-desc">
+                            <span class="cart-title"><?php echo $cart_item['data']->post->post_title; ?></span>
+                            <span class="product-quantity">
+
                                         <?php echo $cart_item['quantity']; ?>
-                                        x <?php echo $woocommerce->cart->get_product_subtotal( $cart_item['data'], $cart_item['quantity'] ); ?>
+                                x <?php echo $woocommerce->cart->get_product_subtotal( $cart_item['data'], $cart_item['quantity'] ); ?>
+
                                     </span>
-                                </div>
-                            </a>
                         </div>
-					<?php endforeach; ?>
-                    <div class="cart-checkout">
-                        <div class="cart-link">
-                            <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
-                        </div>
-                        <div class="checkout-link">
-                            <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
-                        </div>
+                    </a>
+
+				<?php endforeach; ?>
+
+                <div class="cart-checkout">
+                    <div class="cart-link">
+                        <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
                     </div>
-                </div><!-- /.cart-contents -->
-			<?php endif; //if(!$woocommerce->cart->cart_contents_count):           ?>
-        </li><!-- /li.cart -->
-		<?php
-		$fragments['.cart.header-cart'] = ob_get_clean();
-	} else if ( $evolve_header_type == 'h2' ) {
-		?>
-        <li class="cart header-cart">
-			<?php if ( ! $woocommerce->cart->cart_contents_count ): ?>
-                <a class="empty-cart" href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
-					<?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
-                </a>
-                <div class="cart-contents">
-                    <div class="cart-content" style="width:180px!important;">
-                        <strong style="padding:7px 10px;line-height:35px;">
-							<?php esc_html_e( 'Your cart is currently empty.', 'evolve' ); ?>
-                        </strong>
+                    <div class="checkout-link">
+                        <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
                     </div>
                 </div>
+            </div>
 
-			<?php else: ?>
-                <a class="my-cart-link my-cart-link-active"
-                   href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
-					<?php //echo wc_price($woocommerce->cart->cart_contents_total);      ?>
-                </a>
-                <div class="cart-contents">
-					<?php
-					foreach ( $woocommerce->cart->cart_contents as $cart_item ): //var_dump($cart_item);
-						$cart_item_key = $cart_item['key'];
-						$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-						?>
-                        <div class="cart-content">
-                            <a href="<?php echo get_permalink( $cart_item['product_id'] ); ?>">
-								<?php
-								$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
-								echo $thumbnail;
-								?>
-                                <div class="cart-desc">
-                                    <span class="cart-title"><?php echo $cart_item['data']->post->post_title; ?></span>
-                                    <span class="product-quantity">
-                                        <?php echo $cart_item['quantity']; ?>
-                                        x <?php echo $woocommerce->cart->get_product_subtotal( $cart_item['data'], $cart_item['quantity'] ); ?>
-                                    </span>
-                                </div>
-                            </a>
-                        </div>
-					<?php endforeach; ?>
-                    <div class="cart-checkout">
-                        <div class="cart-link">
-                            <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
-                        </div>
-                        <div class="checkout-link">
-                            <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
-                        </div>
-                    </div>
-                </div><!-- /.cart-contents -->
-			<?php endif; //if(!$woocommerce->cart->cart_contents_count):           ?>
-        </li><!-- /li.cart -->
-		<?php
-		$fragments['.cart.header-cart'] = ob_get_clean();
-	} else if ( $evolve_header_type == 'h3' ) {
-		?>
-        <li class="cart header-cart">
-			<?php if ( ! $woocommerce->cart->cart_contents_count ): ?>
-                <a class="empty-cart" href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
-					<?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
-                </a>
-                <div class="cart-contents">
-                    <div class="cart-content" style="width:180px!important;">
+		<?php endif; ?>
 
-                        <strong style="padding:7px 10px;line-height:35px;">
-							<?php esc_html_e( 'Your cart is currently empty.', 'evolve' ); ?>
-                        </strong>
-                    </div>
-                </div>
+    </li><!-- .nav-item .dropdown .cart -->
 
-			<?php else: ?>
-                <a class="my-cart-link my-cart-link-active"
-                   href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
-                    <span><?php echo $woocommerce->cart->cart_contents_count; ?> item(s)</span>
-                </a>
-                <div class="cart-contents">
-					<?php
-					foreach ( $woocommerce->cart->cart_contents as $cart_item ): //var_dump($cart_item);
-						$cart_item_key = $cart_item['key'];
-						$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-						?>
-                        <div class="cart-content">
-                            <a href="<?php echo get_permalink( $cart_item['product_id'] ); ?>">
-								<?php
-								$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
-								echo $thumbnail;
-								?>
-                                <div class="cart-desc">
-                                    <span class="cart-title"><?php echo $cart_item['data']->post->post_title; ?></span>
-                                    <span class="product-quantity">
-                                        <?php echo $cart_item['quantity']; ?>
-                                        x <?php echo $woocommerce->cart->get_product_subtotal( $cart_item['data'], $cart_item['quantity'] ); ?>
-                                    </span>
-                                </div>
-                            </a>
-                        </div>
-
-					<?php endforeach; ?>
-                    <div class="cart-checkout">
-                        <div class="cart-link">
-                            <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
-                        </div>
-                        <div class="checkout-link">
-                            <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
-                        </div>
-                    </div>
-                </div><!-- /.cart-contents -->
-			<?php endif; ?>
-        </li><!-- /li.cart -->
-		<?php
-		$fragments['.cart.header-cart'] = ob_get_clean();
-	} else {
-		?>
-        <li class="cart">
-			<?php if ( ! $woocommerce->cart->cart_contents_count ): ?>
-                <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php esc_html_e( '0 Item(s)', 'evolve' ); ?></a>
-                <div class="cart-contents">
-                    <div class="cart-content" style="width:180px!important;">
-                        <strong style="padding:7px 10px;line-height:35px;">
-							<?php esc_html_e( 'Your cart is currently empty.', 'evolve' ); ?>
-                        </strong>
-                    </div>
-                </div>
-			<?php else: ?>
-                <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php echo $woocommerce->cart->cart_contents_count; ?> <?php esc_html_e( 'Item(s)', 'evolve' ); ?>
-                    - <?php echo wc_price( $woocommerce->cart->subtotal ); ?></a>
-                <div class="cart-contents">
-					<?php
-					foreach ( $woocommerce->cart->cart_contents as $cart_item ):
-						$cart_item_key = $cart_item['key'];
-						$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-						?>
-                        <div class="cart-content">
-                            <a href="<?php echo get_permalink( $cart_item['product_id'] ); ?>">
-								<?php
-								$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
-								echo $thumbnail;
-								?>
-                                <div class="cart-desc">
-                                    <span class="cart-title"><?php echo $cart_item['data']->post->post_title; ?></span>
-                                    <span class="product-quantity"><?php echo $cart_item['quantity']; ?>
-                                        x <?php echo $woocommerce->cart->get_product_subtotal( $cart_item['data'], 1 ); ?></span>
-                                </div>
-                            </a>
-                        </div>
-					<?php endforeach; ?>
-                    <div class="cart-checkout">
-                        <div class="cart-link"><a
-                                    href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
-                        </div>
-                        <div class="checkout-link"><a
-                                    href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
-                        </div>
-                    </div>
-                </div>
-			<?php endif; ?>
-        </li>
-		<?php
-		$fragments['.header .cart'] = ob_get_clean();
-	}
+	<?php
+	$fragments['.header .cart'] = ob_get_clean();
 
 	ob_start();
 

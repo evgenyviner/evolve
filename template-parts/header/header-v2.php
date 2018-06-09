@@ -42,10 +42,9 @@ $evolve_sticky_header                  = evolve_theme_mod( 'evl_sticky_header', 
                     <div class="woocommerce-menu-holder">
                         <ul class="woocommerce-menu">
 							<?php if ( $evolve_woocommerce_cart_link_main_nav ): ?>
-                                <li class="cart header-cart">
+                                <li class="cart">
 									<?php if ( ! $woocommerce->cart->cart_contents_count ): ?>
-                                        <a class="empty-cart"
-                                           href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
+                                        <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
 											<?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
                                         </a>
                                         <div class="cart-contents">
@@ -57,8 +56,7 @@ $evolve_sticky_header                  = evolve_theme_mod( 'evl_sticky_header', 
                                         </div>
 
 									<?php else: ?>
-                                        <a class="my-cart-link my-cart-link-active"
-                                           href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
+                                        <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
 											<?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
                                         </a>
                                         <div class="cart-contents">
@@ -101,7 +99,7 @@ $evolve_sticky_header                  = evolve_theme_mod( 'evl_sticky_header', 
 								?>
                                 <li class="my-account">
                                     <a href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>"
-                                       class="my-account-link">
+                                       class="">
                                         <i class="t4p-icon-user"></i>
 										<?php esc_html_e( 'My Account', 'evolve' ); ?></a>
 									<?php if ( ! is_user_logged_in() ): ?>

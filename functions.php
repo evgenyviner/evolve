@@ -141,6 +141,23 @@ function evolve_setup() {
 add_action( 'after_setup_theme', 'evolve_setup' );
 
 /*
+   Return SVG Markup For Icons
+   ======================================= */
+
+function evolve_get_svg( $icon = null ) {
+
+	if ( empty( $icon ) ) {
+		return;
+	}
+
+	$svg = '<svg class="icon icon-' . esc_attr( $icon ) . '" aria-hidden="true" role="img">';
+	$svg .= ' <use xlink:href="' . get_parent_theme_file_uri( '/assets/images/icons.svg#icon-' ) . esc_html( $icon ) . '"></use> ';
+	$svg .= '</svg>';
+
+	return $svg;
+}
+
+/*
    Init Custom Definitions And Functions
    ======================================= */
 
@@ -2028,9 +2045,6 @@ function evolve_scripts() {
 
 	$evolve_header_type = evolve_theme_mod( 'evl_header_type', 'none' );
 	switch ( $evolve_header_type ) {
-		case "none":
-			require get_parent_theme_file_path( '/assets/css/header1.css.min.php' );
-			break;
 		case "h1":
 			require get_parent_theme_file_path( '/assets/css/header2.css.min.php' );
 			break;

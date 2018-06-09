@@ -45,29 +45,6 @@ $evolve_css_data = '
     background-image: none;
 }
 
-.woocommerce-menu li .sub-menu {
-    display: none;
-    width: 100px;
-    position: absolute;
-    right: 0px;
-}
-
-.woocommerce-menu li:hover > .sub-menu {
-    display: block;
-    position: absolute;
-    right: 0px;
-}
-
-.woocommerce-menu .sub-menu {
-    background: #ffffff;
-    border: 1px solid #e0dfdf;
-    line-height: normal;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-    -box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-}
-
 ul.woocommerce-menu a {
     display: block;
 }
@@ -82,38 +59,11 @@ ul.woocommerce-menu ul a {
     float: left;
 }
 
-.woocommerce-menu li .sub-menu ul {
-    top: -1px!important;
-}
-
 .woocommerce-menu .cart-content a img {
     display: inline-block;
     float: left;
     margin-right: 8px;
     max-width: 60px;
-}
-
-.woocommerce-menu .cart-contents {
-    background: #fff;
-    display: none;
-    position: absolute;
-    right: -1px;
-    top: auto;
-    z-index: 99999999;
-    font-size: 11px;
-    border: 1px solid #E0DFDF;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-    -box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-}
-
-.woocommerce-menu .cart-contents:last-child a {
-    border-bottom: 0;
-}
-
-.woocommerce-menu .cart:hover .cart-contents {
-    display: block;
 }
 
 .fa-shopping-cart {
@@ -244,17 +194,6 @@ div#search-text-box {
     clear: none;
 }
 
-.header .woocommerce-menu li {
-    margin-left: 20px;
-}
-
-@media (max-width: 768px) {
-    ul.nav-menu ul.sub-menu .sf-with-ul:after {
-        top: 12px;
-    }
-}
-
-
 /*responsive*/
 
 @media only screen and (max-width: 768px) {
@@ -345,17 +284,6 @@ ul.t4p-navbar-nav > li {
 ';
 
 $evolve_menu_font = evolve_theme_mod('evl_menu_font');
-if ($evolve_menu_font['color'] != '') {
-   $color = $evolve_menu_font['color'];
-$evolve_css_data .= '
-.woocommerce-menu .my-cart-link:hover,
-.woocommerce-menu .empty-cart:hover,
-.woocommerce-menu .my-account-link:hover {
-    border: 1px solid '. $evolve_top_menu_hover_font_color .';
-    color: '. $evolve_top_menu_hover_font_color .' !important;
-}
-';
-}
 
 $evolve_tagline_font = evolve_theme_mod('evl_tagline_font');
 if ($evolve_tagline_font['color'] !='') {

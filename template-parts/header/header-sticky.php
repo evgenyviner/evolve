@@ -35,7 +35,7 @@
 			<?php if ( has_nav_menu( 'sticky_navigation' ) ) {
 				echo '<nav class="navbar navbar-expand-md col-auto col-md-10">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#sticky-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
+                                    <span class="navbar-toggler-icon-svg"></span>
                                 </div><div id="sticky-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
 				wp_nav_menu( array(
 					'theme_location' => 'sticky_navigation',
@@ -49,7 +49,7 @@
 			} elseif ( has_nav_menu( 'primary-menu' ) ) {
 				echo '<nav class="navbar navbar-expand-md col-auto col-md-10">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#sticky-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
+                                    <span class="navbar-toggler-icon-svg"></span>
                                 </div><div id="sticky-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
 				wp_nav_menu( array(
 					'theme_location' => 'primary-menu',

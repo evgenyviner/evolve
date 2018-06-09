@@ -44,38 +44,60 @@ $evolve_helper_tagline_class_2 = '';
 				global $woocommerce;
 				?>
 
-                <div class="woocommerce-menu-holder">
-                    <ul class="woocommerce-menu">
+                <nav class="navbar navbar-expand-md">
 
-						<?php if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', false ) ): ?>
+                    <div class="navbar-toggler woocommerce-toggler" data-toggle="collapse"
+                         data-target="#woocommerce-menu"
+                         aria-controls="woocommerce-menu" aria-expanded="false" aria-label="Toggle navigation">
 
-                            <li class="my-account">
-                                <a href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>"
-                                   class="my-account-link"><?php esc_html_e( 'My Account', 'evolve' ); ?></a>
+						<?php if ( evolve_theme_mod( 'evl_woocommerce_cart_link_main_nav', false ) ):
+							echo evolve_get_svg( 'shop' );
+						else :
+							echo evolve_get_svg( 'user' );
+						endif; ?>
 
-								<?php if ( ! is_user_logged_in() && ! is_account_page() ): ?>
+                    </div>
 
-                                    <div class="login-box">
-                                        <form action="<?php echo wp_login_url(); ?>" name="loginform"
-                                              method="post">
-                                            <p>
-                                                <input type="text" class="input-text" name="log"
-                                                       id="username" value=""
-                                                       placeholder="<?php echo esc_html__( 'Username', 'evolve' ); ?>"/>
-                                            </p>
-                                            <p>
-                                                <input type="password" class="input-text" name="pwd"
-                                                       id="pasword" value=""
-                                                       placeholder="<?php echo esc_html__( 'Password', 'evolve' ); ?>"/>
-                                            </p>
-                                            <p class="forgetmenot">
-                                                <label for="rememberme"><input name="rememberme"
-                                                                               type="checkbox"
-                                                                               id="rememberme"
-                                                                               value="forever"> <?php esc_html_e( 'Remember Me', 'evolve' ); ?>
-                                                </label>
-                                            </p>
-                                            <p class="submit">
+                    <div id="woocommerce-menu" class="collapse navbar-collapse" data-hover="dropdown"
+                         data-animations="fadeIn fadeIn fadeIn fadeIn">
+
+                        <ul class="navbar-nav woocommerce-menu">
+
+							<?php if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', false ) ): ?>
+
+                                <li class="nav-item dropdown my-account">
+                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>"
+                                       class="nav-link dropdown-toggle" id="myaccount_dropdown" role="button"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<?php echo evolve_get_svg( 'user' ); ?><?php esc_html_e( 'My Account', 'evolve' ); ?>
+                                    </a>
+
+
+									<?php if ( ! is_user_logged_in() && ! is_account_page() ): ?>
+
+                                        <div class="dropdown-menu p-4" aria-labelledby="myaccount_dropdown">
+                                            <form action="<?php echo wp_login_url(); ?>" name="loginform"
+                                                  method="post">
+
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="log"
+                                                           id="username" value=""
+                                                           placeholder="<?php echo esc_html__( 'Username', 'evolve' ); ?>"/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control" name="pwd"
+                                                           id="pasword" value=""
+                                                           placeholder="<?php echo esc_html__( 'Password', 'evolve' ); ?>"/>
+                                                </div>
+
+                                                <div class="form-group custom-control custom-checkbox">
+                                                    <input class="custom-control-input" name="rememberme"
+                                                           type="checkbox" id="rememberme" value="forever">
+                                                    <label class="custom-control-label"
+                                                           for="rememberme"><?php esc_html_e( 'Remember Me', 'evolve' ); ?></label>
+                                                </div>
+
                                                 <input type="submit" name="wp-submit" id="wp-submit"
                                                        class="btn btn-sm"
                                                        value="<?php esc_html_e( 'Log In', 'evolve' ); ?>">
@@ -84,101 +106,103 @@ $evolve_helper_tagline_class_2 = '';
 													       echo $_SERVER['HTTP_REFERER'];
 												       } ?>">
                                                 <input type="hidden" name="testcookie" value="1">
-                                            </p>
-                                            <div class="clear"></div>
-                                        </form>
-                                    </div>
 
-								<?php elseif ( is_user_logged_in() && ! is_account_page() ) : ?>
+                                            </form>
+                                        </div>
 
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="<?php echo wp_logout_url( get_permalink() ); ?>"><?php esc_html_e( 'Logout', 'evolve' ); ?></a>
-                                        </li>
-                                    </ul>
+									<?php elseif ( is_user_logged_in() && ! is_account_page() ) : ?>
 
-								<?php endif; ?>
+                                        <div class="dropdown-menu logout" aria-labelledby="myaccount_dropdown">
+                                            <a class="dropdown-item"
+                                               href="<?php echo wp_logout_url( get_permalink() ); ?>"><?php esc_html_e( 'Logout', 'evolve' ); ?></a>
+                                        </div>
 
-                            </li><!-- li.my-account -->
+									<?php endif; ?>
 
-						<?php endif;
+                                </li><!-- li.my-account -->
 
-						if ( evolve_theme_mod( 'evl_woocommerce_cart_link_main_nav', false ) ): ?>
+							<?php endif;
 
-                            <li class="cart">
+							if ( evolve_theme_mod( 'evl_woocommerce_cart_link_main_nav', false ) ): ?>
 
-								<?php if ( ! $woocommerce->cart->cart_contents_count ): ?>
+                                <li class="nav-item dropdown cart">
 
-                                    <a class="empty-cart"
-                                       href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
-										<?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <div class="cart-contents">
-                                                <div class="cart-content">
-                                                    <strong style="padding:7px 10px;line-height:35px;">
-														<?php esc_html_e( 'Your cart is currently empty.', 'evolve' ); ?>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+									<?php if ( ! $woocommerce->cart->cart_contents_count ): ?>
 
-								<?php else: ?>
+                                        <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"
+                                           class="nav-link dropdown-toggle" id="cart_dropdown"
+                                           role="button"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                                    <a class="my-cart-link my-cart-link-active"
-                                       href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
-										<?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
-                                    </a>
-                                    <div class="cart-contents">
+											<?php echo evolve_get_svg( 'shop' ); ?><?php esc_html_e( '0 items', 'evolve' ); ?>
+                                            - <?php echo wc_price( $woocommerce->cart->art_contents_total ); ?>
 
-										<?php
-										foreach ( $woocommerce->cart->cart_contents as $cart_item ): //var_dump($cart_item);
-											$cart_item_key = $cart_item['key'];
-											$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-											?>
+                                        </a>
 
-                                            <div class="cart-content">
+                                        <div class="dropdown-menu p-3 dropdownhover-bottom"
+                                             aria-labelledby="cart_dropdown">
+                                            <span class="dropdown-item">
+
+											    <?php esc_html_e( 'Your cart is currently empty.', 'evolve' ); ?>
+
+                                            </span>
+                                        </div>
+
+									<?php else: ?>
+
+                                        <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"
+                                           class="btn nav-link dropdown-toggle" id="cart_dropdown" role="button"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+											<?php echo evolve_get_svg( 'shop' ); ?><?php sprintf( _n( '%s item', '%s items', $woocommerce->cart->cart_contents_count, 'evolve' ), $woocommerce->cart->cart_contents_count ); ?>
+                                            - <?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
+
+                                        </a>
+
+                                        <div class="dropdown-menu p-3" aria-labelledby="cart_dropdown">
+
+											<?php foreach ( $woocommerce->cart->cart_contents as $cart_item ): //var_dump($cart_item);
+												$cart_item_key = $cart_item['key'];
+												$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key ); ?>
+
                                                 <a href="<?php echo get_permalink( $cart_item['product_id'] ); ?>">
 
-													<?php
-													$evolve_thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
-													echo $evolve_thumbnail;
-													?>
+													<?php $evolve_thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
+													echo $evolve_thumbnail; ?>
 
                                                     <div class="cart-desc">
                                                         <span class="cart-title"><?php echo $cart_item['data']->get_name(); ?></span>
                                                         <span class="product-quantity">
 
-                                                                            <?php echo $cart_item['quantity']; ?>
+                                                         <?php echo $cart_item['quantity']; ?>
                                                             x <?php echo $woocommerce->cart->get_product_subtotal( $cart_item['data'], $cart_item['quantity'] ); ?>
 
                                                                         </span>
                                                     </div>
                                                 </a>
+
+											<?php endforeach; ?>
+
+                                            <div class="cart-checkout">
+                                                <div class="cart-link">
+                                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
+                                                </div>
+                                                <div class="checkout-link">
+                                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
+                                                </div>
                                             </div>
 
-										<?php endforeach; ?>
+                                        </div><!-- .cart-contents -->
 
-                                        <div class="cart-checkout">
-                                            <div class="cart-link">
-                                                <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
-                                            </div>
-                                            <div class="checkout-link">
-                                                <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
-                                            </div>
-                                        </div>
-                                    </div><!-- .cart-contents -->
+									<?php endif; ?>
 
-								<?php endif; ?>
+                                </li><!-- li.cart -->
 
-                            </li><!-- li.cart -->
+							<?php endif; ?>
 
-						<?php endif; ?>
-
-                    </ul><!-- ul.woocommerce-menu -->
-                </div><!-- .woocommerce-menu-holder -->
+                        </ul><!-- ul.woocommerce-menu -->
+                    </div>
+                </nav><!-- .navbar -->
 
 			<?php }
 
@@ -337,8 +361,8 @@ $evolve_helper_tagline_class_2 = '';
 				if ( has_nav_menu( 'primary-menu' ) ) {
 					echo '<nav class="navbar navbar-expand-md mr-auto col-md-11 col-sm-11">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                                </div>
+                                    '. evolve_get_svg( 'menu' ) . '
+                                    </div>
                                 <div id="primary-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
 					wp_nav_menu( array(
 						'theme_location' => 'primary-menu',

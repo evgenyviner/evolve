@@ -277,49 +277,6 @@ ol.commentlist {
   }
 }
 
-.my-account:hover {
-  .login-box {
-    display: block;
-  }
-}
-
-.login-box {
-  form {
-    margin: 0;
-  }
-}
-
-.login-box {
-  @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
-  padding: 10px;
-  width: 177px;
-  border: 1px solid #dedddd;
-  background: $full-white-color;
-  display: none;
-  position: absolute;
-  top: auto;
-  right: 0px;
-  z-index: 1000;
-  p {
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    .input-text {
-      margin-bottom: 10px;
-      font-size: 12px;
-      width: 100%;
-    }
-  }
-  .forgetmenot {
-    float: left;
-  }
-  .submit {
-    clear: both;
-    display: block;
-    float: left;
-  }
-}
-
 .product_list_widget {
   .wp-post-image {
     max-width: 60px;
@@ -1067,10 +1024,7 @@ form.checkout {
 }
 
 /* ======================== WooCommerce Menu  ======================== */
-.header-pattern {
-  z-index: 22;
-  position: relative;
-}
+
 
 .header-pattern.header_v4 {
   z-index: 1000;
@@ -1163,42 +1117,6 @@ form.checkout {
         .quantity {
           display: block;
           font-size: 12px;
-        }
-      }
-    }
-    .cart-contents {
-      background: $full-white-color;
-      display: none;
-      position: absolute;
-      right: -1px;
-      top: auto;
-      z-index: 99998;
-      font-size: 11px;
-      border: 1px solid #E0DFDF;
-      @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
-      &:last-child {
-        a {
-          border-bottom: 0;
-        }
-      }
-    }
-    .cart {
-      &:hover {
-        .cart-contents {
-          display: block;
-        }
-      }
-      > a {
-        &:before {
-          font-family: "IcoMoon";
-          content: '\e90c';
-          margin-right: 10px;
-        }
-        &::after {
-          font-family: IcoMoon;
-          content: '\e917';
-          margin-left: 8px;
-          font-size: .7em;
         }
       }
     }

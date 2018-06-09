@@ -237,7 +237,7 @@ $evolve_css_data .= evolve_print_fonts( 'evl_menu_blog_title_font', ' #sticky-lo
 $evolve_css_data .= evolve_print_fonts( 'evl_menu_font', ' .navbar-nav .nav-link, .navbar-nav .dropdown-item, .menu-header, #search-text-box #search_label_top span' );
 
 // Top Menu Font
-$evolve_css_data .= evolve_print_fonts( 'evl_top_menu_font', ' .new-top-menu ul.nav-menu a, .top-menu, .woocommerce-menu .cart > a, .woocommerce-menu .my-account > a' );
+$evolve_css_data .= evolve_print_fonts( 'evl_top_menu_font', ' .new-top-menu ul.nav-menu a, .top-menu, .header .woocommerce-menu .my-account .dropdown-menu' );
 
 // Bootstrap Slider --> Slider Title Font
 $evolve_css_data .= evolve_print_fonts( 'evl_bootstrap_slide_title_font', ' #bootstrap-slider .carousel-caption h2', '' );
@@ -446,7 +446,7 @@ if ( $evolve_scheme_widgets != "" || $evolve_scheme_background || $evolve_scheme
 
 // Button
 if ( $evolve_shortcode_button_border_width || ( $evolve_shortcode_button_type == '3d' && $evolve_shortcode_button_bevel_color ) || $evolve_shortcode_button_accent_color || $evolve_shortcode_button_gradient_top_color || $evolve_shortcode_button_gradient_bottom_color || ( $evolve_shortcode_button_shadow == '1' && $evolve_shortcode_button_type == 'Flat' ) || ( $evolve_shortcode_button_shadow == '1' && $evolve_shortcode_button_type == '3d' ) || ( $evolve_shortcode_button_border_width && $evolve_shortcode_button_border_color ) || $evolve_shortcode_button_shape == 'Pill' || $evolve_shortcode_button_shape == 'Round' || $evolve_shortcode_button_shape == 'Square' ) {
-	$evolve_css_data .= ' .entry-content a.btn, .btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button, .woocommerce-pagination .page-numbers .current {';
+	$evolve_css_data .= ' .btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button, .entry-content a.btn, .header .woocommerce-menu .btn, .woocommerce-pagination .page-numbers .current {';
 	if ( $evolve_shortcode_button_gradient_top_color ) {
 		$evolve_css_data .= ' background: ' . $evolve_shortcode_button_gradient_top_color . ';';
 	}
@@ -606,11 +606,11 @@ if ( is_home() || is_front_page() ) {
 }
 
 /*
-   Responsive Definitions
+   Responsive Dynamic Definitions
    ======================================= */
 
-// Max-Width 576px
-$evolve_css_data .= ' @media (max-width: 576px) {';
+// Max-Width 575px - Phone
+$evolve_css_data .= ' @media (max-width: 575px) {';
 if ( $evolve_responsive_menu_layout == 'dropdown' ) {
 	$evolve_css_data .= ' .navbar .dropdown-menu { display: block; }';
 }
@@ -625,8 +625,8 @@ if ( $evolve_bootstrap_layout == "bootstrap_center" ) {
 }
 $evolve_css_data .= '}';
 
-// Min-Width 577px and Max-Width 767px
-$evolve_css_data .= ' @media (min-width: 577px) and (max-width: 767px) {';
+// Min-Width 576px and Max-Width 767px - Tablet
+$evolve_css_data .= ' @media (min-width: 576px) and (max-width: 767px) {';
 if ( $evolve_post_layout == "three" ) {
 	$evolve_css_data .= ' .home .card-columns, .blog .card-columns { -webkit-column-count: 2; -moz-column-count: 2; column-count: 2; }';
 }
@@ -638,7 +638,7 @@ if ( $evolve_bootstrap_layout == "bootstrap_center" ) {
 }
 $evolve_css_data .= '}';
 
-// Max-Width 767px
+// Max-Width 767px - Tablet
 $evolve_css_data .= ' @media (max-width: 767px) {';
 if ( ! ( '' == evolve_theme_mod( 'evl_menu_back_color', '#273039' ) ) ) {
 	$evolve_menu_back_color = mb_substr( evolve_theme_mod( 'evl_menu_back_color', '#273039' ), 1 );
@@ -652,7 +652,7 @@ if ( $evolve_responsive_menu == 'disable' ) {
 }
 $evolve_css_data .= '}';
 
-// Min-Width 768px
+// Min-Width 768px - Desktop
 $evolve_css_data .= ' @media (min-width: 768px) {';
 if ( evolve_theme_mod( 'evl_main_menu_hover_effect', 'rollover' ) != 'disabled' ) {
 	$evolve_css_data .= ' a:hover span.link-effect, a:focus span.link-effect { -webkit-transform: translateY(-100%); -moz-transform: translateY(-100%); transform: translateY(-100%); }';
@@ -673,12 +673,12 @@ if ( $evolve_bootstrap_layout == "bootstrap_center" ) {
 }
 $evolve_css_data .= '}';
 
-// Min-Width 768px and Max-Width Defined
+// Min-Width 768px and Max-Width Defined - Wide Desktop
 $evolve_css_data .= ' @media (min-width: 768px) and (max-width: ' . $evolve_min_width_px . 'px) {';
 $evolve_css_data .= ' body.admin-bar .sticky-header { width: 100%; margin-left:0; }';
 $evolve_css_data .= '}';
 
-// Min-Width Defined
+// Min-Width Defined - Wide Desktop
 $evolve_css_data .= ' @media (min-width: ' . $evolve_min_width_px . 'px) { ';
 if ( is_home() || is_front_page() ) {
 	if ( $evolve_width_px && ( $evolve_frontpage_width_layout == "fixed" ) ) {
