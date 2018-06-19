@@ -135,9 +135,9 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 								echo '">';
 								the_post_thumbnail( 'post-thumbnail' );
 								echo '
-				<span class="mask">
+				<div class="mask">
 				<span class="icon"></span>
-				</span>
+				</div>
 						</a></div>';
 							} else {
 								$image = evolve_get_first_image();
@@ -147,9 +147,9 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 									echo '"><img src="' . $image . '" alt="';
 									the_title();
 									echo '" />
-				<span class="mask">
+				<div class="mask">
 				<span class="icon"></span>
-				</span>
+				</div>
 							</a></div>';
 								else:
 									if ( $evolve_thumbnail_default_images == 0 ) {
@@ -158,9 +158,9 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 										echo '"><img src="' . get_template_directory_uri() . '/assets/images/no-thumbnail.jpg" alt="';
 										the_title();
 										echo '" />
-				<span class="mask">
+				<div class="mask">
 				<span class="icon"></span>
-				</span>
+				</div>
 								</a></div>';
 									}
 								endif;
@@ -305,9 +305,9 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 								echo '">';
 								the_post_thumbnail( 'post-thumbnail' );
 								echo '
-				<span class="mask">
+				<div class="mask">
 				<span class="icon"></span>
-				</span>
+				</div>
 					</a></div>';
 							} else {
 								$image = evolve_get_first_image();
@@ -317,9 +317,9 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 									echo '"><img src="' . $image . '" alt="';
 									the_title();
 									echo '" />
-				<span class="mask">
+				<div class="mask">
 				<span class="icon"></span>
-				</span>
+				</div>
 							</a></div>';
 								else:
 									if ( $evolve_thumbnail_default_images == 0 ) {
@@ -328,9 +328,9 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 										echo '"><img src="' . get_template_directory_uri() . '/assets/images/no-thumbnail.jpg" alt="';
 										the_title();
 										echo '" />
-				<span class="mask">
+				<div class="mask">
 				<span class="icon"></span>
-				</span>
+				</div>
 				</a></div>';
 									}
 								endif;

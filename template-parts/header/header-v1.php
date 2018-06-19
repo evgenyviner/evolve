@@ -18,23 +18,23 @@ $evolve_helper_tagline_class_2 = '';
 
 			<?php
 			if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" ) {
-				$evolve_social_class = 'col order-1 order-sm-1 order-md-3';
+				$evolve_social_class = 'col order-1 order-md-3';
 			} else {
-				$evolve_social_class = 'col order-1 order-sm-1 order-md-2';
+				$evolve_social_class = 'col order-1 order-md-2';
 			}
 
 			if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' ) {
 				if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "center" ) {
-					$evolve_social_class = 'col-12 order-1 order-sm-1';
+					$evolve_social_class = 'col-12 order-1';
 				}
 				if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "left" ) {
-					$evolve_social_class = 'col col-md-12 col-lg-auto order-1 order-sm-1 order-md-1 order-lg-3';
+					$evolve_social_class = 'col col-lg-7 order-1 order-md-3';
 				}
 				if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "right" ) {
 					$evolve_social_class = 'col-12 order-1';
 				}
 			}
-			echo '<div class="col-md-auto ml-auto ' . $evolve_social_class . '">';
+			echo '<div class="' . $evolve_social_class . '">';
 
 			if ( evolve_theme_mod( 'evl_social_links', 0 ) ) {
 				get_template_part( 'template-parts/header/header', 'social-buttons' );
@@ -44,7 +44,7 @@ $evolve_helper_tagline_class_2 = '';
 				global $woocommerce;
 				?>
 
-                <nav class="navbar navbar-expand-md">
+                <nav class="navbar navbar-expand-md float-md-right">
 
                     <div class="navbar-toggler woocommerce-toggler" data-toggle="collapse"
                          data-target="#woocommerce-menu"
@@ -135,7 +135,7 @@ $evolve_helper_tagline_class_2 = '';
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
 											<?php echo evolve_get_svg( 'shop' ); ?><?php esc_html_e( '0 items', 'evolve' ); ?>
-                                            - <?php echo wc_price( $woocommerce->cart->art_contents_total ); ?>
+                                            - <?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
 
                                         </a>
 
@@ -154,7 +154,7 @@ $evolve_helper_tagline_class_2 = '';
                                            class="btn nav-link dropdown-toggle" id="cart_dropdown" role="button"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-											<?php echo evolve_get_svg( 'shop' ); ?><?php sprintf( _n( '%s item', '%s items', $woocommerce->cart->cart_contents_count, 'evolve' ), $woocommerce->cart->cart_contents_count ); ?>
+											<?php echo evolve_get_svg( 'shop' ); ?><?php echo sprintf( _n( '%s item', '%s items', $woocommerce->cart->cart_contents_count, 'evolve' ), $woocommerce->cart->cart_contents_count ); ?>
                                             - <?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
 
                                         </a>
@@ -165,30 +165,34 @@ $evolve_helper_tagline_class_2 = '';
 												$cart_item_key = $cart_item['key'];
 												$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key ); ?>
 
-                                                <a href="<?php echo get_permalink( $cart_item['product_id'] ); ?>">
+                                                <div class="media">
 
-													<?php $evolve_thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
-													echo $evolve_thumbnail; ?>
+                                                    <a href="<?php echo get_permalink( $cart_item['product_id'] ); ?>"><?php $evolve_thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image( array(
+															80,
+															80
+														) ), $cart_item, $cart_item_key );
+														echo $evolve_thumbnail; ?></a>
 
-                                                    <div class="cart-desc">
-                                                        <span class="cart-title"><?php echo $cart_item['data']->get_name(); ?></span>
-                                                        <span class="product-quantity">
-
-                                                         <?php echo $cart_item['quantity']; ?>
-                                                            x <?php echo $woocommerce->cart->get_product_subtotal( $cart_item['data'], $cart_item['quantity'] ); ?>
-
-                                                                        </span>
+                                                    <div class="media-body ml-3">
+                                                        <h6><?php echo $cart_item['data']->get_name(); ?></h6>
+                                                        <p>
+                                                            <a class="dropdown-item"
+                                                               href="<?php echo get_permalink( $cart_item['product_id'] ); ?>"><?php echo $cart_item['quantity']; ?>
+                                                                x <?php echo $woocommerce->cart->get_product_subtotal( $cart_item['data'], $cart_item['quantity'] ); ?></a>
+                                                        </p>
                                                     </div>
-                                                </a>
+                                                </div>
+
+                                                <div class="dropdown-divider"></div>
 
 											<?php endforeach; ?>
 
-                                            <div class="cart-checkout">
-                                                <div class="cart-link">
-                                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
+                                            <div class="row">
+                                                <div class="col text-center">
+                                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php echo evolve_get_svg( 'shop' ); ?><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
                                                 </div>
-                                                <div class="checkout-link">
-                                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
+                                                <div class="col text-center">
+                                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php echo evolve_get_svg( 'ok' ); ?><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
                                                 </div>
                                             </div>
 
@@ -214,21 +218,21 @@ $evolve_helper_tagline_class_2 = '';
 
 				if ( evolve_theme_mod( 'evl_header_logo', '' ) ) {
 					if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "center" ) {
-						$evolve_logo_class = 'col-12 order-2 header-logo-container';
+						$evolve_logo_class = 'col-12 order-2 mt-md-3';
 					}
 					if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "left" ) {
-						$evolve_logo_class = 'col-md-auto order-2 header-logo-container';
+						$evolve_logo_class = 'col-md-auto order-2 order-md-1';
 					}
 					if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "right" ) {
-						$evolve_logo_class = 'col col-md-6 col-sm-12 order-2 order-md-3 header-logo-container';
+						$evolve_logo_class = 'col col-md-6 col-sm-12 order-2 order-md-3';
 					}
-					echo "<div class='" . $evolve_logo_class . "'><a href=" . home_url() . "><img id='logo-image' class='img-responsive' alt='" . get_bloginfo( 'name' ) . "' src=" . evolve_theme_mod( 'evl_header_logo', '' ) . " /></a></div>";
+					echo "<div class='" . $evolve_logo_class . " header-logo-container'><a href=" . home_url() . "><img class='img-responsive' alt='" . get_bloginfo( 'name' ) . "' src=" . evolve_theme_mod( 'evl_header_logo', '' ) . " /></a></div>";
 				}
 			}
 
 			if ( ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "disable" && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "next" && ( '' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) ) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ||
 			     ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "disable" && ( '' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) ) ) {
-				$evolve_title_tagline_class_1 = '<div class="col-md-auto order-1 order-sm-2 order-md-1">';
+				$evolve_title_tagline_class_1 = '<div class="col-md-auto order-2 order-md-1">';
 				$evolve_title_tagline_class_2 = '</div>';
 			}
 
@@ -243,19 +247,19 @@ $evolve_helper_tagline_class_2 = '';
 
 			if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' ) {
 				if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "center" ) {
-					$evolve_tagline_class_1        = '<div class="col-12 order-2 order-md-2">';
+					$evolve_tagline_class_1        = '<div class="col-12 order-2">';
 					$evolve_tagline_class_2        = '</div>';
-					$evolve_helper_tagline_class_1 = '<div class="col-12 order-2">';
+					$evolve_helper_tagline_class_1 = '<div class="col-12 order-3">';
 					$evolve_helper_tagline_class_2 = '</div>';
 				}
 				if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "left" ) {
-					$evolve_tagline_class_1        = '<div class="col-12 order-2 order-md-2">';
+					$evolve_tagline_class_1        = '<div class="col-12 order-2">';
 					$evolve_tagline_class_2        = '</div>';
-					$evolve_helper_tagline_class_1 = '<div class="col col-sm-12 col-md-auto order-2">';
+					$evolve_helper_tagline_class_1 = '<div class="col order-2">';
 					$evolve_helper_tagline_class_2 = '</div>';
 				}
 				if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "right" ) {
-					$evolve_tagline_class_1        = '<div class="col-12 order-2 order-md-2">';
+					$evolve_tagline_class_1        = '<div class="col-12 order-2">';
 					$evolve_tagline_class_2        = '</div>';
 					$evolve_helper_tagline_class_1 = '<div class="col-md-6 col-sm-12 order-3 order-md-2">';
 					$evolve_helper_tagline_class_2 = '</div>';
@@ -295,16 +299,16 @@ $evolve_helper_tagline_class_2 = '';
 			if ( evolve_theme_mod( 'evl_blog_title', false ) == "0" || ! evolve_theme_mod( 'evl_blog_title', false ) ) {
 
 				if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" ) {
-					$evolve_title_class_1 = '<div class="col-md-auto order-1 order-sm-2 order-md-2">';
+					$evolve_title_class_1 = '<div class="col-md-auto order-1">';
 					$evolve_title_class_2 = '</div>';
 				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "disable" && ( '' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) ) {
-					$evolve_title_class_1 = "<div class='col-md-auto order-1 order-sm-2 order-md-1'>";
+					$evolve_title_class_1 = "<div class='col-md-auto mr-md-auto order-2 order-md-1'>";
 					$evolve_title_class_2 = "</div>";
 				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" && evolve_theme_mod( 'evl_header_logo', '' ) ) {
-					$evolve_title_class_1 = "<div class='col-md-auto order-3 order-md-1'>";
+					$evolve_title_class_1 = "<div class='col-md-auto mr-md-auto order-3 order-md-1'>";
 					$evolve_title_class_2 = "</div>";
 				} else if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" && ( '' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) ) {
-					$evolve_title_class_1 = "<div class='col-md-auto order-2 order-md-1'>";
+					$evolve_title_class_1 = "<div class='col-md-auto mr-md-auto order-2 order-md-1'>";
 					$evolve_title_class_2 = "</div>";
 				} else {
 					$evolve_title_class_1 = "";
@@ -314,14 +318,14 @@ $evolve_helper_tagline_class_2 = '';
 				if ( is_front_page() ) :
 
 					echo $evolve_title_class_1;
-					?><h1 id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
+					?><h1 id="website-title"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
                     </h1><?php
 					echo $evolve_title_class_2;
 
 				else :
 
 					echo $evolve_title_class_1;
-					?><h4 id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
+					?><h4 id="website-title"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
                     </h4><?php
 					echo $evolve_title_class_2;
 
@@ -361,7 +365,7 @@ $evolve_helper_tagline_class_2 = '';
 				if ( has_nav_menu( 'primary-menu' ) ) {
 					echo '<nav class="navbar navbar-expand-md mr-auto col-md-11 col-sm-11">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
-                                    '. evolve_get_svg( 'menu' ) . '
+                                    ' . evolve_get_svg( 'menu' ) . '
                                     </div>
                                 <div id="primary-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
 					wp_nav_menu( array(
@@ -379,14 +383,15 @@ $evolve_helper_tagline_class_2 = '';
 			if ( evolve_theme_mod( 'evl_searchbox', true ) ) { ?>
 
                 <form action="<?php echo home_url(); ?>" method="get"
-                      class="searchform col-md-1 col-sm-1">
-                    <div id="search-text-box">
-                        <label class="searchfield col-md-1 col-sm-1" id="search_label_top"
-                               for="search-text-top"><input id="search-text-top" type="text"
-                                                            tabindex="1"
-                                                            name="s" class="search"
-                                                            placeholder="<?php esc_html_e( 'Type your search', 'evolve' ); ?>"/></label>
-                    </div>
+                      class="header-search search-form col-md-1 col-sm-1">
+                    <label>
+                        <input type="text" tabindex="1" name="s" class="form-control"
+                               placeholder="<?php esc_html_e( 'Type your search', 'evolve' ); ?>"/>
+
+						<?php echo evolve_get_svg( 'search' ); ?>
+
+                    </label>
+
                 </form>
 
 			<?php } ?>

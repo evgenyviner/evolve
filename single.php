@@ -119,9 +119,9 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 				}
 
 				if ( $evolve_blog_featured_image == "1" && has_post_thumbnail() ) {
-					echo '<span class="thumbnail-post-single">';
+					echo '<div class="thumbnail-post-single">';
 					the_post_thumbnail( 'post-thumbnail' );
-					echo '</span>';
+					echo '</div>';
 				}
 				?>
 

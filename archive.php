@@ -157,7 +157,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 								the_permalink();
 								echo '">';
 								the_post_thumbnail( 'post-thumbnail' );
-								echo '<span class="mask"><span class="icon"></span></span>	</a></div>';
+								echo '<div class="mask"><span class="icon"></span></div>	</a></div>';
 							} else {
 								$evolve_image = evolve_get_first_image();
 								if ( $evolve_image ):
@@ -165,7 +165,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 									the_permalink();
 									echo '"><img src="' . $evolve_image . '" alt="';
 									the_title();
-									echo '" /><span class="mask"><span class="icon"></span></span>	</a></div>';
+									echo '" /><div class="mask"><span class="icon"></span></div>	</a></div>';
 
 								else:
 									if ( $evolve_thumbnail_default_images == 0 ) {
@@ -173,7 +173,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 										the_permalink();
 										echo '"><img src="' . get_template_directory_uri() . '/assets/images/no-thumbnail.jpg" alt="';
 										the_title();
-										echo '" /><span class="mask"><span class="icon"></span></span></a></div>';
+										echo '" /><div class="mask"><span class="icon"></span></div></a></div>';
 
 									}
 								endif;
@@ -305,7 +305,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 								the_permalink();
 								echo '">';
 								the_post_thumbnail( 'post-thumbnail' );
-								echo '<span class="mask"><span class="icon"></span></span>	</a></div>';
+								echo '<div class="mask"><span class="icon"></span></div>	</a></div>';
 							} else {
 								$evolve_image = evolve_get_first_image();
 								if ( $evolve_image ):
@@ -313,14 +313,14 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 									the_permalink();
 									echo '"><img src="' . $evolve_image . '" alt="';
 									the_title();
-									echo '" /><span class="mask"><span class="icon"></span></span>	</a></div>';
+									echo '" /><div class="mask"><span class="icon"></span></div>	</a></div>';
 								else:
 									if ( $evolve_thumbnail_default_images == 0 ) {
 										echo '<div class="thumbnail-post"><a href="';
 										the_permalink();
 										echo '"><img src="' . get_template_directory_uri() . '/assets/images/no-thumbnail.jpg" alt="';
 										the_title();
-										echo '" /><span class="mask"><span class="icon"></span></span>	</a></div>';
+										echo '" /><div class="mask"><span class="icon"></span></div>	</a></div>';
 									}
 								endif;
 							}

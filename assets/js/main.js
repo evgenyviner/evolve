@@ -270,14 +270,6 @@ jQuery(function ($) {
 });
 
 /*
-   Responsive Images
-   ======================================= */
-
-jQuery(function ($) {
-    $("#primary img").addClass("img-fluid");
-});
-
-/*
    Carousel Slider Arrows
    ======================================= */
 
@@ -326,12 +318,6 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
         jQuery('.woocommerce .images #carousel a').click(function (e) {
             e.preventDefault();
         });
-
-        if (jQuery('.woocommerce-menu .cart').width() > 190) {
-            jQuery('.woocommerce-menu .cart-contents').css("width", jQuery('.woocommerce-menu .cart').width());
-            jQuery('.woocommerce-menu .cart-content a').css("width", jQuery('.woocommerce-menu .cart').width() - 26);
-            jQuery('.woocommerce-menu .cart-content a .cart-desc').css("width", jQuery('.woocommerce-menu .cart').width() - 82);
-        }
 
         jQuery('.catalog-ordering .orderby .current-li a').html(jQuery('.catalog-ordering .orderby ul li.current a').html());
         jQuery('.catalog-ordering .sort-count .current-li a').html(jQuery('.catalog-ordering .sort-count ul li.current a').html());

@@ -2277,6 +2277,9 @@ if ( true || is_customize_preview() ) {
 					'off'      => esc_attr__( 'Disabled', 'evolve' ),
 					'default'  => 1,
 					'title'    => esc_attr__( 'Enable Searchbox', 'evolve' ),
+					'required' => array(
+						array( 'evl_sticky_header', '=', '1' )
+					),
 				),
 			),
 		)
@@ -2463,7 +2466,7 @@ if ( true || is_customize_preview() ) {
 					'id'      => 'evl_footer_content',
 					'type'    => 'textarea',
 					'title'   => esc_attr__( 'Custom Footer', 'evolve' ),
-					'default' => '<div id="copyright"><span class="credits">' . sprintf( esc_attr__( '<a href="%s">evolve</a> theme by Theme4Press&nbsp;&nbsp;&bull;&nbsp;&nbsp;Powered by <a href="http://wordpress.org">WordPress</a>', 'evolve' ), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/' ) . '</span></div>',
+					'default' => '<div id="copyright">' . sprintf( esc_attr__( '<a href="%s">evolve</a> theme by Theme4Press&nbsp;&nbsp;&bull;&nbsp;&nbsp;Powered by <a href="http://wordpress.org">WordPress</a>', 'evolve' ), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/' ) . '</div>',
 				),
 			),
 		)
@@ -3251,7 +3254,7 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'id'    => 'evl_text_textarea',
+					'id'     => 'evl_text_textarea',
 					'type'   => 'info',
 					'title'  => esc_attr__( 'Text, TextArea', 'evolve' ),
 					'indent' => true
@@ -3278,7 +3281,7 @@ if ( true || is_customize_preview() ) {
 					'default'  => '#E0E0E0',
 				),
 				array(
-					'id'    => 'evl_radio_checkbox',
+					'id'     => 'evl_radio_checkbox',
 					'type'   => 'info',
 					'title'  => esc_attr__( 'Radio, CheckBox, Active/Focus Items', 'evolve' ),
 					'indent' => true
@@ -5203,7 +5206,7 @@ function evolve_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
 	$wp_customize->selective_refresh->add_partial( 'blogname', array(
-		'selector'        => '#logo a',
+		'selector'        => '#website-title a',
 		'render_callback' => 'evolve_customize_partial_blogname',
 	) );
 	$wp_customize->selective_refresh->add_partial( 'blogdescription', array(

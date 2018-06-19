@@ -117,14 +117,14 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 						if ( has_post_thumbnail() ) :
 							?>
 
-                            <span class="thumbnail-post">
+                            <div class="thumbnail-post">
                                             <a href="<?php the_permalink(); ?>">
                                                 <?php the_post_thumbnail( 'post-thumbnail' ); ?>
-                                                <span class="mask">
+                                                <div class="mask">
                                                     <span class="icon"></span>
-                                                </span>
+                                                </div>
                                             </a>
-                                        </span>
+                                        </div>
 
 						<?php
 						else: $image = evolve_get_first_image();
@@ -132,26 +132,26 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 							if ( $image ):
 								?>
 
-                                <span class="thumbnail-post">
+                                <div class="thumbnail-post">
                                                 <a href="<?php the_permalink(); ?>"><img src="<?php echo $image; ?>"
                                                                                          alt="<?php the_title(); ?>"/>
-                                                    <span class="mask">
+                                                    <div class="mask">
                                                         <span class="icon"></span>
-                                                    </span>
+                                                    </div>
                                                 </a>
-                                            </span>
+                                            </div>
 
 							<?php else: ?>
 
-                                <span class="thumbnail-post">
+                                <div class="thumbnail-post">
                                                 <a href="<?php the_permalink(); ?>">
                                                     <img src="<?php echo get_template_directory_uri() . '/assets/images/no-thumbnail.jpg'; ?>"
                                                          alt="<?php the_title(); ?>"/>
-                                                    <span class="mask">
+                                                    <div class="mask">
                                                         <span class="icon"></span>
-                                                    </span>
+                                                    </div>
                                                 </a>
-                                            </span>
+                                            </div>
 
 							<?php
 							endif; //if ($image):
@@ -299,14 +299,14 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 						if ( has_post_thumbnail() ) :
 							?>
 
-                            <span class="thumbnail-post">
+                            <div class="thumbnail-post">
                                             <a href="<?php the_permalink(); ?>">
                                                 <?php the_post_thumbnail( 'post-thumbnail' ); ?>
-                                                <span class="mask">
+                                                <div class="mask">
                                                     <span class="icon"></span>
-                                                </span>
+                                                </div>
                                             </a>
-                                        </span>
+                                        </div>
 
 						<?php
 						else: $image = evolve_get_first_image();
@@ -314,26 +314,26 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 							if ( $image ):
 								?>
 
-                                <span class="thumbnail-post">
+                                <div class="thumbnail-post">
                                                 <a href="<?php the_permalink(); ?>"><img src="<?php echo $image; ?>"
                                                                                          alt="<?php the_title(); ?>"/>
-                                                    <span class="mask">
+                                                    <div class="mask">
                                                         <span class="icon"></span>
-                                                    </span>
+                                                    </div>
                                                 </a>
-                                            </span>
+                                            </div>
 
 							<?php else: ?>
 
-                                <span class="thumbnail-post">
+                                <div class="thumbnail-post">
                                                 <a href="<?php the_permalink(); ?>">
                                                     <img src="<?php echo get_template_directory_uri() . '/assets/images/no-thumbnail.jpg'; ?>"
                                                          alt="<?php the_title(); ?>"/>
-                                                    <span class="mask">
+                                                    <div class="mask">
                                                         <span class="icon"></span>
-                                                    </span>
+                                                    </div>
                                                 </a>
-                                            </span>
+                                            </div>
 
 							<?php
 							endif; //if ($image):

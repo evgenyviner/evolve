@@ -7,13 +7,13 @@
  */
 (function () {
     var __indexOf = [].indexOf || function (item) {
-        for (var i = 0, l = this.length; i < l; i++) {
-            if (i in this && this[i] === item)
-                return i;
-        }
-        return -1;
-    },
-            __slice = [].slice;
+            for (var i = 0, l = this.length; i < l; i++) {
+                if (i in this && this[i] === item)
+                    return i;
+            }
+            return -1;
+        },
+        __slice = [].slice;
 
     (function (root, factory) {
         if (typeof define === 'function' && define.amd) {
@@ -24,7 +24,8 @@
             return factory(root.jQuery, root);
         }
     })(this, function ($, window) {
-        var $w, Context, Waypoint, allWaypoints, contextCounter, contextKey, contexts, isTouch, jQMethods, methods, resizeEvent, scrollEvent, waypointCounter, waypointKey, wp, wps;
+        var $w, Context, Waypoint, allWaypoints, contextCounter, contextKey, contexts, isTouch, jQMethods, methods,
+            resizeEvent, scrollEvent, waypointCounter, waypointKey, wp, wps;
 
         $w = $(window);
         isTouch = __indexOf.call(window, 'ontouchstart') >= 0;
@@ -88,7 +89,7 @@
 
             Context.prototype.doScroll = function () {
                 var axes,
-                        _this = this;
+                    _this = this;
 
                 axes = {
                     horizontal: {
@@ -142,7 +143,7 @@
 
             Context.prototype.refresh = function () {
                 var axes, cOffset, isWin,
-                        _this = this;
+                    _this = this;
 
                 isWin = $.isWindow(this.element);
                 cOffset = this.$element.offset();
@@ -835,12 +836,12 @@ var generateCarousel = function () {
          * @return {function} Request animation frame method or timeout fallback
          */
         var reqAnimationFrame = (function () {
-            return  window.requestAnimationFrame ||
-                    window.webkitRequestAnimationFrame ||
-                    window.mozRequestAnimationFrame ||
-                    function (callback) {
-                        window.setTimeout(callback, 1000 / 60);
-                    };
+            return window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                function (callback) {
+                    window.setTimeout(callback, 1000 / 60);
+                };
         }());
 
         /**
@@ -1089,68 +1090,75 @@ var generateCarousel = function () {
  * http://cssuseragent.org/
  */
 var cssua = function (n, l, p) {
-    var q = /\s*([\-\w ]+)[\s\/\:]([\d_]+\b(?:[\-\._\/]\w+)*)/, r = /([\w\-\.]+[\s\/][v]?[\d_]+\b(?:[\-\._\/]\w+)*)/g, s = /\b(?:(blackberry\w*|bb10)|(rim tablet os))(?:\/(\d+\.\d+(?:\.\w+)*))?/, t = /\bsilk-accelerated=true\b/, u = /\bfluidapp\b/, v = /(\bwindows\b|\bmacintosh\b|\blinux\b|\bunix\b)/, w = /(\bandroid\b|\bipad\b|\bipod\b|\bwindows phone\b|\bwpdesktop\b|\bxblwp7\b|\bzunewp7\b|\bwindows ce\b|\bblackberry\w*|\bbb10\b|\brim tablet os\b|\bmeego|\bwebos\b|\bpalm|\bsymbian|\bj2me\b|\bdocomo\b|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|\w*?mobile\w*?|\w*?phone\w*?)/,
-            x = /(\bxbox\b|\bplaystation\b|\bnintendo\s+\w+)/, k = {parse: function (b, d) {
-                    var a = {};
-                    d && (a.standalone = d);
-                    b = ("" + b).toLowerCase();
-                    if (!b)
-                        return a;
-                    for (var c, e, g = b.split(/[()]/), f = 0, k = g.length; f < k; f++)
-                        if (f % 2) {
-                            var m = g[f].split(";");
-                            c = 0;
-                            for (e = m.length; c < e; c++)
-                                if (q.exec(m[c])) {
-                                    var h = RegExp.$1.split(" ").join("_"), l = RegExp.$2;
-                                    if (!a[h] || parseFloat(a[h]) < parseFloat(l))
-                                        a[h] = l
-                                }
-                        } else if (m = g[f].match(r))
-                            for (c = 0, e = m.length; c < e; c++)
-                                h = m[c].split(/[\/\s]+/), h.length && "mozilla" !== h[0] && (a[h[0].split(" ").join("_")] = h.slice(1).join("-"));
-                    w.exec(b) ? (a.mobile = RegExp.$1, s.exec(b) && (delete a[a.mobile], a.blackberry = a.version || RegExp.$3 || RegExp.$2 || RegExp.$1, RegExp.$1 ? a.mobile = "blackberry" : "0.0.1" === a.version && (a.blackberry = "7.1.0.0"))) : v.exec(b) ? a.desktop = RegExp.$1 : x.exec(b) && (a.game = RegExp.$1, c = a.game.split(" ").join("_"), a.version && !a[c] && (a[c] = a.version));
-                    a.intel_mac_os_x ? (a.mac_os_x = a.intel_mac_os_x.split("_").join("."), delete a.intel_mac_os_x) : a.cpu_iphone_os ? (a.ios = a.cpu_iphone_os.split("_").join("."), delete a.cpu_iphone_os) : a.cpu_os ?
-                            (a.ios = a.cpu_os.split("_").join("."), delete a.cpu_os) : "iphone" !== a.mobile || a.ios || (a.ios = "1");
-                    a.opera && a.version ? (a.opera = a.version, delete a.blackberry) : t.exec(b) ? a.silk_accelerated = !0 : u.exec(b) && (a.fluidapp = a.version);
-                    if (a.applewebkit)
-                        a.webkit = a.applewebkit, delete a.applewebkit, a.opr && (a.opera = a.opr, delete a.opr, delete a.chrome), a.safari && (a.chrome || a.crios || a.opera || a.silk || a.fluidapp || a.phantomjs || a.mobile && !a.ios ? delete a.safari : a.safari = a.version && !a.rim_tablet_os ? a.version : {419: "2.0.4", 417: "2.0.3",
-                            416: "2.0.2", 412: "2.0", 312: "1.3", 125: "1.2", 85: "1.0"}[parseInt(a.safari, 10)] || a.safari);
-                    else if (a.msie || a.trident)
-                        if (a.opera || (a.ie = a.msie || a.rv), delete a.msie, a.windows_phone_os)
-                            a.windows_phone = a.windows_phone_os, delete a.windows_phone_os;
-                        else {
-                            if ("wpdesktop" === a.mobile || "xblwp7" === a.mobile || "zunewp7" === a.mobile)
-                                a.mobile = "windows desktop", a.windows_phone = 9 > +a.ie ? "7.0" : 10 > +a.ie ? "7.5" : "8.0", delete a.windows_nt
-                        }
-                    else if (a.gecko || a.firefox)
-                        a.gecko = a.rv;
-                    a.rv && delete a.rv;
-                    a.version && delete a.version;
-                    return a
-                },
-                format: function (b) {
-                    var d = "", a;
-                    for (a in b)
-                        if (a && b.hasOwnProperty(a)) {
-                            var c = a, e = b[a], c = c.split(".").join("-"), g = " ua-" + c;
-                            if ("string" === typeof e) {
-                                for (var e = e.split(" ").join("_").split(".").join("-"), f = e.indexOf("-"); 0 < f; )
-                                    g += " ua-" + c + "-" + e.substring(0, f), f = e.indexOf("-", f + 1);
-                                g += " ua-" + c + "-" + e
+    var q = /\s*([\-\w ]+)[\s\/\:]([\d_]+\b(?:[\-\._\/]\w+)*)/, r = /([\w\-\.]+[\s\/][v]?[\d_]+\b(?:[\-\._\/]\w+)*)/g,
+        s = /\b(?:(blackberry\w*|bb10)|(rim tablet os))(?:\/(\d+\.\d+(?:\.\w+)*))?/, t = /\bsilk-accelerated=true\b/,
+        u = /\bfluidapp\b/, v = /(\bwindows\b|\bmacintosh\b|\blinux\b|\bunix\b)/,
+        w = /(\bandroid\b|\bipad\b|\bipod\b|\bwindows phone\b|\bwpdesktop\b|\bxblwp7\b|\bzunewp7\b|\bwindows ce\b|\bblackberry\w*|\bbb10\b|\brim tablet os\b|\bmeego|\bwebos\b|\bpalm|\bsymbian|\bj2me\b|\bdocomo\b|\bpda\b|\bchtml\b|\bmidp\b|\bcldc\b|\w*?mobile\w*?|\w*?phone\w*?)/,
+        x = /(\bxbox\b|\bplaystation\b|\bnintendo\s+\w+)/, k = {
+            parse: function (b, d) {
+                var a = {};
+                d && (a.standalone = d);
+                b = ("" + b).toLowerCase();
+                if (!b)
+                    return a;
+                for (var c, e, g = b.split(/[()]/), f = 0, k = g.length; f < k; f++)
+                    if (f % 2) {
+                        var m = g[f].split(";");
+                        c = 0;
+                        for (e = m.length; c < e; c++)
+                            if (q.exec(m[c])) {
+                                var h = RegExp.$1.split(" ").join("_"), l = RegExp.$2;
+                                if (!a[h] || parseFloat(a[h]) < parseFloat(l))
+                                    a[h] = l
                             }
-                            d += g
+                    } else if (m = g[f].match(r))
+                        for (c = 0, e = m.length; c < e; c++)
+                            h = m[c].split(/[\/\s]+/), h.length && "mozilla" !== h[0] && (a[h[0].split(" ").join("_")] = h.slice(1).join("-"));
+                w.exec(b) ? (a.mobile = RegExp.$1, s.exec(b) && (delete a[a.mobile], a.blackberry = a.version || RegExp.$3 || RegExp.$2 || RegExp.$1, RegExp.$1 ? a.mobile = "blackberry" : "0.0.1" === a.version && (a.blackberry = "7.1.0.0"))) : v.exec(b) ? a.desktop = RegExp.$1 : x.exec(b) && (a.game = RegExp.$1, c = a.game.split(" ").join("_"), a.version && !a[c] && (a[c] = a.version));
+                a.intel_mac_os_x ? (a.mac_os_x = a.intel_mac_os_x.split("_").join("."), delete a.intel_mac_os_x) : a.cpu_iphone_os ? (a.ios = a.cpu_iphone_os.split("_").join("."), delete a.cpu_iphone_os) : a.cpu_os ?
+                    (a.ios = a.cpu_os.split("_").join("."), delete a.cpu_os) : "iphone" !== a.mobile || a.ios || (a.ios = "1");
+                a.opera && a.version ? (a.opera = a.version, delete a.blackberry) : t.exec(b) ? a.silk_accelerated = !0 : u.exec(b) && (a.fluidapp = a.version);
+                if (a.applewebkit)
+                    a.webkit = a.applewebkit, delete a.applewebkit, a.opr && (a.opera = a.opr, delete a.opr, delete a.chrome), a.safari && (a.chrome || a.crios || a.opera || a.silk || a.fluidapp || a.phantomjs || a.mobile && !a.ios ? delete a.safari : a.safari = a.version && !a.rim_tablet_os ? a.version : {
+                        419: "2.0.4", 417: "2.0.3",
+                        416: "2.0.2", 412: "2.0", 312: "1.3", 125: "1.2", 85: "1.0"
+                    }[parseInt(a.safari, 10)] || a.safari);
+                else if (a.msie || a.trident)
+                    if (a.opera || (a.ie = a.msie || a.rv), delete a.msie, a.windows_phone_os)
+                        a.windows_phone = a.windows_phone_os, delete a.windows_phone_os;
+                    else {
+                        if ("wpdesktop" === a.mobile || "xblwp7" === a.mobile || "zunewp7" === a.mobile)
+                            a.mobile = "windows desktop", a.windows_phone = 9 > +a.ie ? "7.0" : 10 > +a.ie ? "7.5" : "8.0", delete a.windows_nt
+                    }
+                else if (a.gecko || a.firefox)
+                    a.gecko = a.rv;
+                a.rv && delete a.rv;
+                a.version && delete a.version;
+                return a
+            },
+            format: function (b) {
+                var d = "", a;
+                for (a in b)
+                    if (a && b.hasOwnProperty(a)) {
+                        var c = a, e = b[a], c = c.split(".").join("-"), g = " ua-" + c;
+                        if ("string" === typeof e) {
+                            for (var e = e.split(" ").join("_").split(".").join("-"), f = e.indexOf("-"); 0 < f;)
+                                g += " ua-" + c + "-" + e.substring(0, f), f = e.indexOf("-", f + 1);
+                            g += " ua-" + c + "-" + e
                         }
-                    return d
-                }, encode: function (b) {
-                    var d = "", a;
-                    for (a in b)
-                        a && b.hasOwnProperty(a) && (d && (d += "\x26"), d += encodeURIComponent(a) + "\x3d" + encodeURIComponent(b[a]));
-                    return d
-                }};
+                        d += g
+                    }
+                return d
+            }, encode: function (b) {
+                var d = "", a;
+                for (a in b)
+                    a && b.hasOwnProperty(a) && (d && (d += "\x26"), d += encodeURIComponent(a) + "\x3d" + encodeURIComponent(b[a]));
+                return d
+            }
+        };
     k.userAgent = k.ua = k.parse(l, p);
     l = k.format(k.ua) +
-            " js";
+        " js";
     n.className = n.className ? n.className.replace(/\bno-js\b/g, "") + l : l.substr(1);
     return k
 }(document.documentElement, navigator.userAgent, navigator.standalone);
@@ -1165,23 +1173,33 @@ var cssua = function (n, l, p) {
                 a = b.formatter.call(h, a, b);
                 f.html(a)
             }
-            var b = a.extend({}, a.fn.countTo.defaults, {from: a(this).data("from"), to: a(this).data("to"), speed: a(this).data("speed"), refreshInterval: a(this).data("refresh-interval"), decimals: a(this).data("decimals")}, g), j = Math.ceil(b.speed / b.refreshInterval), l = (b.to - b.from) / j, h = this, f = a(this), k = 0, c = b.from, d = f.data("countTo") || {};
+
+            var b = a.extend({}, a.fn.countTo.defaults, {
+                    from: a(this).data("from"),
+                    to: a(this).data("to"),
+                    speed: a(this).data("speed"),
+                    refreshInterval: a(this).data("refresh-interval"),
+                    decimals: a(this).data("decimals")
+                }, g), j = Math.ceil(b.speed / b.refreshInterval), l = (b.to - b.from) / j, h = this, f = a(this), k = 0,
+                c = b.from, d = f.data("countTo") || {};
             f.data("countTo", d);
             d.interval && clearInterval(d.interval);
             d.interval =
-                    setInterval(function () {
-                        c += l;
-                        k++;
-                        e(c);
-                        "function" == typeof b.onUpdate && b.onUpdate.call(h, c);
-                        k >= j && (f.removeData("countTo"), clearInterval(d.interval), c = b.to, "function" == typeof b.onComplete && b.onComplete.call(h, c))
-                    }, b.refreshInterval);
+                setInterval(function () {
+                    c += l;
+                    k++;
+                    e(c);
+                    "function" == typeof b.onUpdate && b.onUpdate.call(h, c);
+                    k >= j && (f.removeData("countTo"), clearInterval(d.interval), c = b.to, "function" == typeof b.onComplete && b.onComplete.call(h, c))
+                }, b.refreshInterval);
             e(c)
         })
     };
-    a.fn.countTo.defaults = {from: 0, to: 0, speed: 1E3, refreshInterval: 100, decimals: 0, formatter: function (a, e) {
+    a.fn.countTo.defaults = {
+        from: 0, to: 0, speed: 1E3, refreshInterval: 100, decimals: 0, formatter: function (a, e) {
             return a.toFixed(e.decimals)
-        }, onUpdate: null, onComplete: null}
+        }, onUpdate: null, onComplete: null
+    }
 })(jQuery);
 
 (function (jQuery) {
@@ -1625,7 +1643,7 @@ jQuery(window).load(function () {
         } else {
             reviews_cycle_args.timeout = parseInt(4000);
         }
-        
+
         jQuery('.reviews').cycle(reviews_cycle_args);
     }
 
@@ -1635,23 +1653,12 @@ jQuery(window).load(function () {
             jQuery(this).parents('.t4p-accordian ').find('.panel-title a').removeClass('active');
             jQuery(this).parents('.t4p-accordian ').find('.panel-collapse').removeClass('in');
             jQuery(this).parents('.t4p-accordian ').find('.panel-collapse').attr("aria-expanded", "false");
-            return false; 
+            return false;
         } else {
             jQuery(this).parents('.t4p-accordian ').find('.panel-title a').removeClass('active');
             jQuery(this).parents('.t4p-accordian ').find('.panel-collapse').removeClass('in');
             jQuery(this).addClass('active');
 
-            jQuery(this).parents('.panel').find('.panel-body .shortcode-map').each(function () {
-                jQuery("#" + this.id).goMap();
-                marker = jQuery.goMap.markers[0];
-                if (marker) {
-                    info = jQuery.goMap.getInfo(marker);
-                    jQuery.goMap.setInfo(marker, info);
-                }
-                var center = jQuery.goMap.getMap().getCenter();
-                google.maps.event.trigger(jQuery.goMap.getMap(), 'resize');
-                jQuery.goMap.getMap().setCenter(center);
-            });
         }
 
         generateCarousel();
@@ -1659,7 +1666,7 @@ jQuery(window).load(function () {
         if (jQuery('.portfolio').length) {
             jQuery('.portfolio-wrapper').isotope('reLayout');
         }
-        
+
     });
 
     // Initialize Bootstrap Modals
@@ -1772,7 +1779,6 @@ jQuery(document).ready(function ($) {
     });
 
 
-
     jQuery('.portfolio-tabs a').click(function (e) {
         e.preventDefault();
 
@@ -1865,18 +1871,6 @@ jQuery(document).ready(function ($) {
 
         jQuery(this).parents('.tabs-wrapper').find(activeTab).find('.content-boxes-icon-boxed').each(function () {
             jQuery(this).find('.col').equalHeights();
-        });
-
-        jQuery(this).parents('.tabs-wrapper').find(activeTab).find('.shortcode-map').each(function () {
-            jQuery("#" + this.id).goMap();
-            marker = jQuery.goMap.markers[0];
-            if (marker) {
-                info = jQuery.goMap.getInfo(marker);
-                jQuery.goMap.setInfo(marker, info);
-            }
-            var center = jQuery.goMap.getMap().getCenter();
-            google.maps.event.trigger(jQuery.goMap.getMap(), 'resize');
-            jQuery.goMap.getMap().setCenter(center);
         });
 
         generateCarousel();

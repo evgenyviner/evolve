@@ -36,10 +36,15 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
             <h1 class="entry-title"><?php esc_html_e( 'Not Found', 'evolve' ); ?></h1>
             <div class="entry-content">
                 <p><?php esc_html_e( 'Sorry, but you are looking for something that isn\'t here.', 'evolve' ); ?></p>
-                <form role="search" method="get" action="<?php echo esc_url(home_url( '/' )); ?>">
-                    <input type="search" id="search-text" placeholder="<?php echo esc_html__( 'Search ...', 'evolve' ) ?>"
-                           value="<?php echo esc_attr( get_search_query() ) ?>" name="s"
-                           title="<?php echo esc_html__( 'Type and Hit Enter ...', 'evolve' ) ?>"/>
+                <form action="<?php echo esc_url(home_url( '/' )); ?>" method="get" class="search-form">
+                    <label>
+                        <input type="text" tabindex="5" name="s" class="form-control"
+                               placeholder="<?php esc_html_e( 'Type your search', 'evolve' ); ?>"/>
+
+			            <?php echo evolve_get_svg( 'search' ); ?>
+
+                        <button class="search-button" tabindex="6" type="submit"></button>
+                    </label>
                 </form>
             </div><!-- .entry-content -->
         </div><!-- #post-0 -->

@@ -2041,7 +2041,6 @@ function evolve_scripts() {
 	// Bootstrap
 	wp_enqueue_script( 'evolve-bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array( 'jquery' ), '', true );
 	require get_parent_theme_file_path( '/inc/custom-functions/dynamic-css.php' );
-	wp_add_inline_style( 'evolve-style', $evolve_css_data );
 
 	$evolve_header_type = evolve_theme_mod( 'evl_header_type', 'none' );
 	switch ( $evolve_header_type ) {

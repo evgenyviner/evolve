@@ -558,7 +558,7 @@ function evolve_woocommerce_header_add_to_cart_fragment( $fragments ) {
                class="btn nav-link dropdown-toggle" id="cart_dropdown" role="button"
                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-				<?php echo evolve_get_svg( 'shop' ); ?><?php sprintf( _n( '%s item', '%s items', $woocommerce->cart->cart_contents_count, 'evolve' ), $woocommerce->cart->cart_contents_count ); ?>
+				<?php echo evolve_get_svg( 'shop' ); ?><?php echo sprintf( _n( '%s item', '%s items', $woocommerce->cart->cart_contents_count, 'evolve' ), $woocommerce->cart->cart_contents_count ); ?>
                 - <?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
 
             </a>
@@ -569,30 +569,35 @@ function evolve_woocommerce_header_add_to_cart_fragment( $fragments ) {
 					$cart_item_key = $cart_item['key'];
 					$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key ); ?>
 
-                    <a href="<?php echo get_permalink( $cart_item['product_id'] ); ?>">
+                    <div class="media">
 
-						<?php $thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
-						echo $thumbnail; ?>
+                        <a href="<?php echo get_permalink( $cart_item['product_id'] ); ?>"><?php $evolve_thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image( array(
+								80,
+								80
+							) ), $cart_item, $cart_item_key );
+							echo $evolve_thumbnail; ?></a>
 
-                        <div class="cart-desc">
-                            <span class="cart-title"><?php echo $cart_item['data']->post->post_title; ?></span>
-                            <span class="product-quantity">
+                        <div class="media-body ml-3">
+                            <h6><?php echo $cart_item['data']->post->post_title; ?></h6>
+                            <p>
+                                <a class="dropdown-item"
+                                   href="<?php echo get_permalink( $cart_item['product_id'] ); ?>"><?php echo $cart_item['quantity']; ?>
+                                    x <?php echo $woocommerce->cart->get_product_subtotal( $cart_item['data'], $cart_item['quantity'] ); ?></a>
 
-                                        <?php echo $cart_item['quantity']; ?>
-                                x <?php echo $woocommerce->cart->get_product_subtotal( $cart_item['data'], $cart_item['quantity'] ); ?>
-
-                                    </span>
+                            </p>
                         </div>
-                    </a>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
 
 				<?php endforeach; ?>
 
-                <div class="cart-checkout">
-                    <div class="cart-link">
-                        <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
+                <div class="row">
+                    <div class="col text-center">
+                        <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php echo evolve_get_svg( 'shop' ); ?><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
                     </div>
-                    <div class="checkout-link">
-                        <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
+                    <div class="col text-center">
+                        <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php echo evolve_get_svg( 'ok' ); ?><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
                     </div>
                 </div>
             </div>

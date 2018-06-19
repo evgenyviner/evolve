@@ -169,7 +169,7 @@ $evolve_sticky_header                  = evolve_theme_mod( 'evl_sticky_header', 
 							<?php
 
 							if ( $evolve_header_logo ) {
-								echo "<div class='header-logo-container clearfix'><a href=" . home_url() . "><img id='logo-image' class='img-responsive' alt='" . get_bloginfo( 'name' ) . "' src=" . $evolve_header_logo . " /></a></div>";
+								echo "<div class='header-logo-container clearfix'><a href=" . home_url() . "><img class='img-responsive' alt='" . get_bloginfo( 'name' ) . "' src=" . $evolve_header_logo . " /></a></div>";
 							}
 
 							$evolve_tagline = '<span id="tagline">' . get_bloginfo( 'description' ) . '</span>';
@@ -177,10 +177,10 @@ $evolve_sticky_header                  = evolve_theme_mod( 'evl_sticky_header', 
 							if ( $evolve_blog_title == "0" || ! $evolve_blog_title ) {
 								if ( is_front_page() ) :
 									?>
-                                    <h1 id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
+                                    <h1 id="website-title"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
                                     </h1>
 								<?php else : ?>
-                                    <h4 id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
+                                    <h4 id="website-title"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
                                     </h4>
 								<?php
 								endif;

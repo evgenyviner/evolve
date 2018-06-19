@@ -114,41 +114,35 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 							<?php if ( $evolve_featured_images == "1" ) {
 
 								if ( has_post_thumbnail() ) {
-									echo '<span class="thumbnail-post"><a href="';
+									echo '<div class="thumbnail-post"><a href="';
 									the_permalink();
 									echo '">';
 									the_post_thumbnail( 'post-thumbnail' );
 									echo '
-				<span class="mask">
-				<span class="icon"></span>
-				</span>
-			</a></span>';
+				<div class="mask">' . evolve_get_svg( 'link' ) . '	</div>
+			</a></div>';
 								} else {
 
 									$image = evolve_get_first_image();
 
 									if ( $image ):
-										echo '<span class="thumbnail-post"><a href="';
+										echo '<div class="thumbnail-post"><a href="';
 										the_permalink();
 										echo '"><img src="' . $image . '" alt="';
 										the_title();
 										echo '" />
-				<span class="mask">
-				<span class="icon"></span>
-				</span>
-				</a></span>';
+				<div class="mask">' . evolve_get_svg( 'link' ) . '	</div>
+				</a></div>';
 
 									else:
 										if ( $evolve_thumbnail_default_images == 0 ) {
-											echo '<span class="thumbnail-post"><a href="';
+											echo '<div class="thumbnail-post"><a href="';
 											the_permalink();
 											echo '"><img src="' . get_template_directory_uri() . '/assets/images/no-thumbnail.jpg" alt="';
 											the_title();
 											echo '" />
-				<span class="mask">
-				<span class="icon"></span>
-				</span>
-				</a></span>';
+				<div class="mask">' . evolve_get_svg( 'link' ) . '	</div>
+				</a></div>';
 										}
 
 									endif;
@@ -273,41 +267,35 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 							<?php if ( $evolve_featured_images == "1" ) {
 
 								if ( has_post_thumbnail() ) {
-									echo '<span class="thumbnail-post"><a href="';
+									echo '<div class="thumbnail-post"><a href="';
 									the_permalink();
 									echo '">';
 									the_post_thumbnail( 'post-thumbnail' );
 									echo '
-				<span class="mask">
-				<span class="icon"></span>
-				</span>
-				</a></span>';
+				<div class="mask">' . evolve_get_svg( 'link' ) . '	</div>
+				</a></div>';
 								} else {
 
 									$image = evolve_get_first_image();
 
 									if ( $image ):
-										echo '<span class="thumbnail-post"><a href="';
+										echo '<div class="thumbnail-post"><a href="';
 										the_permalink();
 										echo '"><img src="' . $image . '" alt="';
 										the_title();
 										echo '" />
-				<span class="mask">
-				<span class="icon"></span>
-				</span>
-				</a></span>';
+				<div class="mask">' . evolve_get_svg( 'link' ) . '	</div>
+				</a></div>';
 
 									else:
 										if ( $evolve_thumbnail_default_images == 0 ) {
-											echo '<span class="thumbnail-post"><a href="';
+											echo '<div class="thumbnail-post"><a href="';
 											the_permalink();
 											echo '"><img src="' . get_template_directory_uri() . '/assets/images/no-thumbnail.jpg" alt="';
 											the_title();
 											echo '" />
-				<span class="mask">
-				<span class="icon"></span>
-				</span>
-				</a></span>';
+				<div class="mask">' . evolve_get_svg( 'link' ) . '	</div>
+				</a></div>';
 										}
 
 									endif;

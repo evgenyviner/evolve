@@ -81,35 +81,6 @@ ul.woocommerce-menu ul a {
     margin-bottom: 5px;
 }
 
-.woocommerce-menu .cart-checkout {
-    border-top: 1px solid #e0dfdf;
-    overflow: hidden;
-}
-
-.woocommerce-menu .cart-checkout a {
-    display: inline-block;
-    width: 50%;
-    float: left;
-    text-indent: 10px;
-    padding: 15px 0px;
-}
-
-.woocommerce-menu .cart-checkout .cart-link a:before {
-    font-family: icomoon;
-    content: "\e90c";
-    margin-right: 6px;
-}
-
-.woocommerce-menu .cart-checkout .checkout-link a:before {
-    font-family: icomoon;
-    content: "\e927";
-    margin-right: 6px;
-}
-
-.woocommerce-menu .cart-checkout .cart-link a {
-    text-indent: 13px;
-}
-
 .woocommerce-menu .cart-content a {
     border-bottom: 1px solid;
     display: block;
@@ -118,13 +89,8 @@ ul.woocommerce-menu ul a {
     padding: 15px 13px;
     width: 190px;
 }
-#search-text-box #search_label_top .srch-btn,
-#search-text-top:focus {
+#search-text-box #search_label_top .srch-btn {
     width: 270px;
-}
-
-#search-text-top:focus {
-	padding-right: 70px;
 }
 
 #search-text-box #search_label_top .srch-btn::before {
@@ -181,17 +147,12 @@ div#search-text-box {
     margin-right: 0;
 }
 
-.sc_menu {
+.social-media-links {
     float: none;
 }
 
-.sc_menu li a {
+.social-media-links li a {
     padding: 8.7px 8px;
-}
-
-.searchform {
-    float: right;
-    clear: none;
 }
 
 /*responsive*/
@@ -200,11 +161,7 @@ div#search-text-box {
     #search-text-box #search_label_top {
         width: 270px;
 	}	
-    .searchform {
-        clear: both;
-        float: none;
-    }
-    .sc_menu{
+    .social-media-links{
         text-align: center;
     }
     .woocommerce-menu {
@@ -214,9 +171,6 @@ div#search-text-box {
     .woocommerce-menu li {
         background-image: none;
         margin-left: 0px;
-    }
-    .searchform {
-        float: none;
     }
     #search-text-box {
         float: none;
@@ -270,10 +224,10 @@ ul.nav-menu li:hover {
 }
 
 #righttopcolumn,
-.sc_menu,
+.social-media-links,
 .header a,
 #tagline,
-#logo {
+#website-title {
     display: block;
 }
 
