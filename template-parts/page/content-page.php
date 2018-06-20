@@ -8,7 +8,7 @@ $evolve_edit_post  = evolve_theme_mod( 'evl_edit_post', '0' );
 $evolve_share_this = evolve_theme_mod( 'evl_share_this', 'single' );
 ?>
 
-    <div id="post-<?php the_ID(); ?>" class="<?php semantic_entries(); ?>">
+    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 		<?php
 		if ( get_post_meta( $post->ID, 'evolve_page_title', true ) == 'no' ):
@@ -36,7 +36,7 @@ $evolve_share_this = evolve_theme_mod( 'evl_share_this', 'single' );
 		}
 		?>
 
-        <div class="entry-content article">
+        <div class="entry-content">
 
 			<?php
 			the_content();
@@ -45,7 +45,7 @@ $evolve_share_this = evolve_theme_mod( 'evl_share_this', 'single' );
 
             <div class="clearfix"></div>
 
-        </div><!-- .entry-content .article -->
+        </div><!-- .entry-content -->
 
 		<?php trackback_rdf(); ?>
 

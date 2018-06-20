@@ -168,15 +168,75 @@ evolve_theme_init::init();
    Truncate Function
    ======================================= */
 
-function evolve_truncate( $str, $length = 10, $trailing = '..' ) {
-	$length -= mb_strlen( $trailing );
-	if ( mb_strlen( $str ) > $length ) {
-		return mb_substr( $str, 0, $length ) . $trailing;
-	} else {
-		$res = $str;
+function evolve_truncate( $maxLength, $html, $isUtf8 = true, $trailing = '...' ) {
+	$printedLength = 0;
+	$position      = 0;
+	$tags          = array();
+
+	// For UTF-8, we need to count multibyte sequences as one character.
+	$re = $isUtf8
+		? '{</?([a-z]+)[^>]*>|&#?[a-zA-Z0-9]+;|[\x80-\xFF][\x80-\xBF]*}'
+		: '{</?([a-z]+)[^>]*>|&#?[a-zA-Z0-9]+;}';
+
+	while ( $printedLength < $maxLength && preg_match( $re, $html, $match, PREG_OFFSET_CAPTURE, $position ) ) {
+		list( $tag, $tagPosition ) = $match[0];
+
+		// Print text leading up to the tag.
+		$str = substr( $html, $position, $tagPosition - $position );
+		if ( $printedLength + strlen( $str ) > $maxLength ) {
+			print( substr( $str, 0, $maxLength - $printedLength ) );
+			$printedLength = $maxLength;
+			break;
+		}
+
+		print( $str );
+		$printedLength += strlen( $str );
+		if ( $printedLength >= $maxLength ) {
+			break;
+		}
+
+		if ( $tag[0] == '&' || ord( $tag ) >= 0x80 ) {
+			// Pass the entity or UTF-8 multibyte sequence through unchanged.
+			print( $tag );
+			$printedLength ++;
+		} else {
+			// Handle the tag.
+			$tagName = $match[1][0];
+			if ( $tag[1] == '/' ) {
+				// This is a closing tag.
+
+				$openingTag = array_pop( $tags );
+				assert( $openingTag == $tagName ); // check that tags are properly nested.
+
+				print( $tag );
+			} else if ( $tag[ strlen( $tag ) - 2 ] == '/' ) {
+				// Self-closing tag.
+				print( $tag );
+			} else {
+				// Opening tag.
+				print( $tag );
+				$tags[] = $tagName;
+			}
+		}
+
+		// Continue after the tag.
+		$position = $tagPosition + strlen( $tag );
 	}
 
-	return $res;
+	// Print any remaining text.
+	if ( $printedLength < $maxLength && $position < strlen( $html ) ) {
+		print( substr( $html, $position, $maxLength - $printedLength ) );
+	}
+
+	// Print Trailing
+	if ( ( ( ( $maxLength - $printedLength ) == $maxLength || ( $maxLength - $printedLength ) == 0 ) && $position == 0 && strlen( $html ) > $maxLength ) ) {
+		print $trailing;
+	}
+
+	// Close any open tags.
+	while ( ! empty( $tags ) ) {
+		printf( '</%s>', array_pop( $tags ) );
+	}
 }
 
 /*
@@ -1418,56 +1478,7 @@ function evolve_layout_class( $type = 1 ) {
 			}
 		endif;
 	}
-
-	if ( is_home() && ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "two" || evolve_theme_mod( 'evl_post_layout', 'two' ) == "three" ) ) {
-		$layout_css .= " card-columns";
-	}
-
 	echo $layout_css;
-}
-
-/*
-   Function To Print Out CSS Class According To Blog Layout
-   ======================================= */
-
-function evolve_post_class() {
-	if ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "two" || evolve_theme_mod( 'evl_post_layout', 'two' ) == "three" ) {
-		echo ' card';
-	}
-	if ( has_post_format( array(
-		'aside',
-		'audio',
-		'chat',
-		'gallery',
-		'image',
-		'link',
-		'quote',
-		'status',
-		'video'
-	), '' ) ) {
-		echo ' formatted-post';
-	}
-}
-
-/*
-   Function To Print Out CSS Class According To Post Layout
-   ======================================= */
-
-function evolve_post_class_2() {
-	if ( has_post_format( array(
-			'aside',
-			'audio',
-			'chat',
-			'gallery',
-			'image',
-			'link',
-			'quote',
-			'status',
-			'video'
-		), '' ) || is_sticky()
-	) {
-		echo 'formatted-post formatted-single margin-40';
-	}
 }
 
 /*

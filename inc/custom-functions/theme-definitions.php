@@ -68,7 +68,6 @@ get_template_part( 'inc/custom-functions/widgets' );
 /**
  * Functions:
  * semantic_body();
- * semantic_entries();
  * semantic_comments();
  * semantic_last_class();
  */
@@ -266,62 +265,37 @@ function semantic_body( $classes = array() ) {
 	}
 }
 
-/**
- * semantic_entries() - Generates semantic classes for each post <div> element
- *
- * @since - 0.2
- * @filter semantic_entries
- * @uses semantic_time()
- */
-function semantic_entries( $classes = array() ) {
-	global $post, $semantic_post_alt, $entry_first_class;
+add_filter( 'post_class', 'evolve_post_class', 10, 3 );
+function evolve_post_class( $classes ) {
 
-	// Let WordPress do all the heavy lifting
-	$classes[] = join( ' ', get_post_class() );
+	/*
+        Function To Print Out CSS Class According To Post Layout
+        ======================================= */
 
-	// Gets 'alt' for every other post DIV, p[n] and post status
-	$classes[] = "p$semantic_post_alt";
-	$classes[] = $post->post_status;
-
-	// add css class to first comment
-	if ( $entry_first_class == 0 ) {
-		$classes[] = 'first-' . $post->post_type;
-	}
-	$entry_first_class = 1;
-
-	// Author for the post queried
-
-
-	if ( get_the_category( $post->ID ) != null ) {
-		$classes[] = 'cat';
+	if ( ( has_post_format( array(
+				'aside',
+				'audio',
+				'chat',
+				'gallery',
+				'image',
+				'link',
+				'quote',
+				'status',
+				'video'
+			), '' ) || is_sticky()
+	     ) && is_home() ) {
+		$classes[] = 'formatted-post mb-5 p-4';
 	}
 
-	// Tags for the post queried; if not tagged, use .untagged
-	if ( get_the_tags( $post->ID ) == null ) {
-		$classes[] = 'untagged';
-	} else {
-		$classes[] = 'tag';
+	/*
+        Function To Print Out CSS Class According To Blog Layout
+        ======================================= */
+
+	if ( ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "two" || evolve_theme_mod( 'evl_post_layout', 'two' ) == "three" ) && is_home() ) {
+		$classes[] = 'card mb-5';
 	}
 
-	// For password-protected posts
-	if ( $post->post_password ) {
-		$classes[] = 'protected';
-	}
-
-	// Applies the time- and date-based classes
-	// If it's the other to the every, then add 'alt' class
-	if ( ++ $semantic_post_alt % 2 && ! is_singular() ) {
-		$classes[] = 'alt';
-	}
-
-	$classes = join( ' ', apply_filters( 'semantic_entries', $classes ) ); // Available filter: semantic_entries
-	$print   = apply_filters( 'semantic_entries_print', false ); // Available filter: semantic_entries_print
-	// And tada!
-	if ( ! $print ) {
-		echo $classes;
-	} else {
-		return $classes;
-	}
+	return $classes;
 }
 
 /**

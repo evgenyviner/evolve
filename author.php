@@ -66,7 +66,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 				semantic_entries();
 				evolve_post_class( $evolve_xyz );
 				$evolve_xyz ++
-				?> margin-40">
+				?> mb-4">
 					<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) {
 						?>
                         <h2 class="entry-title">
@@ -81,8 +81,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
                             </a>
                         </h2>
 
-                        <!--BEGIN .entry-meta .entry-header-->
-                        <div class="entry-meta entry-header">
+                            <div class="entry-meta">
 
                             <a href="<?php the_permalink() ?>"><span
                                         class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
@@ -98,7 +97,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 								endif;
 							}
 							?>
-                            <!--END .entry-meta .entry-header-->
+                            <!-- .entry-meta -->
                         </div>
 
 					<?php } else { ?>
@@ -123,8 +122,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 					}
 					?>
 
-                    <!--BEGIN .entry-content .article-->
-                    <div class="entry-content article">
+                    <div class="entry-content">
 
 						<?php
 						if ( $evolve_featured_images == "1" ) {
@@ -170,7 +168,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 						the_excerpt();
 						?>
 
-                        <div class="entry-meta entry-footer">
+                        <div class="entry-meta">
 
                             <a class="btn btn-sm"
                                href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
@@ -186,7 +184,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 
                         <div class="clearfix"></div>
 
-                    </div><!--END .entry-content .article-->
+                    </div><!-- .entry-content -->
 
                     <!--END .hentry-->
                 </div>
@@ -238,8 +236,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
                             </a>
                         </h1>
 
-                        <!--BEGIN .entry-meta .entry-header-->
-                        <div class="entry-meta entry-header">
+                              <div class="entry-meta">
 
                             <a href="<?php the_permalink() ?>"><span
                                         class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
@@ -270,7 +267,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 								endif;
 							}
 							?>
-                            <!--END .entry-meta .entry-header-->
+                            <!-- .entry-meta -->
                         </div>
 
 					<?php } else { ?>
@@ -294,8 +291,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 					}
 					?>
 
-                    <!--BEGIN .entry-content .article-->
-                    <div class="entry-content article">
+                    <div class="entry-content">
 						<?php
 						if ( $evolve_featured_images == "1" ) {
 
@@ -359,10 +355,9 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 
                         <div class="clearfix"></div>
 
-                    </div><!--END .entry-content .article-->
+                    </div><!-- .entry-content -->
 
-                    <!--BEGIN .entry-meta .entry-footer-->
-                    <div class="entry-meta entry-footer row">
+                    <div class="entry-meta row">
 
                         <div class="col-md-6">
 
@@ -383,11 +378,11 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 								evolve_sharethis();
 							} else {
 								?>
-                                <div class="margin-40"></div>
+                                <div class="mb-4"></div>
 							<?php } ?>
                         </div>
 
-                    </div><!--END .entry-meta .entry-footer-->
+                    </div><!-- .entry-meta -->
 
                     <!--END .hentry-->
                 </div>

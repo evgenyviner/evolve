@@ -1075,7 +1075,7 @@ function entry_meta_grid_timeline() {
 function post_meta_data( $return_all_meta = false ) {
 	global $smof_data;
 
-	$inner_content = "<p class='entry-meta-details'>";
+	$inner_content = "<p class='entry-meta'>";
 	$meta_time     = get_the_modified_time( 'c' );
 	//meta_date_attr
 	$meta_date_class    = 'published';

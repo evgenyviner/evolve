@@ -23,7 +23,6 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image', '0' );
 ?>
 
-    <!--BEGIN #primary .hfeed-->
 <div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?>">
 
 <?php
@@ -33,13 +32,11 @@ if ( $evolve_breadcrumbs == "1" ):
     elseif ( ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == 'no' ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == 'no' ) ):
 	else:evolve_breadcrumb();
 	endif;
-endif;
-?>
+endif; ?>
 
     <h2 class="page-title search-title"><?php esc_html_e( 'Search results for', 'evolve' ); ?><?php echo '<span class="search-term">' . the_search_query() . '</span>'; ?></h2>
 
-<?php
-if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
+<?php if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 
 	if ( ( $evolve_nav_links == "before" ) || ( $evolve_nav_links == "both" ) ) {
 		?>
@@ -47,23 +44,18 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
                 <?php get_template_part( 'template-parts/navigation/navigation', 'index' ); ?>
             </span>
 		<?php
-	} else {
-
-	}
-	?>
+	} ?>
 
     <div class="t4p-row">
     <div class="row">
 
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
-		?>
+	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-        <!--BEGIN .hentry-->
         <div id="post-<?php the_ID(); ?>" class="<?php
 		semantic_entries();
 		evolve_post_class( $evolve_xyz );
 		$evolve_xyz ++
-		?> margin-40">
+		?> mb-4">
 			<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) {
 				?>
                 <h2 class="entry-title">
@@ -77,8 +69,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
                     </a>
                 </h2>
 
-                <!--BEGIN .entry-meta .entry-header-->
-                <div class="entry-meta entry-header">
+                <div class="entry-meta">
 
                     <a href="<?php the_permalink() ?>"><span
                                 class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
@@ -94,7 +85,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 						endif;
 					}
 					?>
-                    <!--END .entry-meta .entry-header-->
+                    <!-- .entry-meta -->
                 </div>
 
 			<?php } else { ?>
@@ -118,8 +109,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 			}
 			?>
 
-            <!--BEGIN .entry-content .article-->
-            <div class="entry-content article">
+            <div class="entry-content">
 
 				<?php
 				if ( $evolve_featured_images == "1" ) {
@@ -165,7 +155,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 				the_excerpt();
 				?>
 
-                <div class="entry-meta entry-footer">
+                <div class="entry-meta">
 
 
                     <a class="btn btn-sm"
@@ -180,12 +170,9 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 					?>
 
                 </div>
+            </div><!-- .entry-content -->
 
-                <div class="clearfix"></div>
-
-            </div><!--END .entry-content .article-->
-
-            <!--END .hentry-->
+            <!-- .hentry-->
         </div>
 
 		<?php
@@ -195,7 +182,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 	endwhile;
 		?>
 
-        </div><!--END .row-->
+        </div><!-- .row-->
 
 		<?php
 		get_template_part( 'template-parts/navigation/navigation', 'index' );
@@ -205,11 +192,11 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 		if ( is_search() ) {
 			?>
 
-            <!--BEGIN #post-0-->
             <div id="post-0" class="<?php semantic_entries(); ?>">
-                <h2 class="entry-title"><?php esc_html_e( 'Your search for', 'evolve' ); ?> "<?php echo the_search_query(); ?>
+                <h2 class="entry-title"><?php esc_html_e( 'Your search for', 'evolve' ); ?>
+                    "<?php echo the_search_query(); ?>
                     " <?php esc_html_e( 'did not match any entries', 'evolve' ); ?></h2>
-                <!--BEGIN .entry-content-->
+
                 <div class="entry-content">
                     <br/>
                     <p><?php esc_html_e( 'Suggestions:', 'evolve' ); ?></p>
@@ -218,27 +205,26 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
                         <li><?php esc_html_e( 'Try different keywords.', 'evolve' ); ?></li>
                         <li><?php esc_html_e( 'Try more general keywords.', 'evolve' ); ?></li>
                     </ul>
-                    <!--END .entry-content-->
+                    <!-- .entry-content-->
                 </div>
-                <!--END #post-0-->
+                <!-- #post-0-->
             </div>
 
-            </div><!--END .row-->
+            </div><!-- .row-->
 
 		<?php } else { ?>
 
-            <!--BEGIN #post-0-->
             <div id="post-0" class="<?php semantic_entries(); ?>">
                 <h2 class="entry-title"><?php esc_html_e( 'Not Found', 'evolve' ); ?></h2>
-                <!--BEGIN .entry-content-->
+
                 <div class="entry-content">
                     <p><?php esc_html_e( 'Sorry, but you are looking for something that isn\'t here.', 'evolve' ); ?></p>
-                    <!--END .entry-content-->
+                    <!-- .entry-content -->
                 </div>
-                <!--END #post-0-->
+                <!-- #post-0 -->
             </div>
 
-            </div><!--END .row-->
+            </div><!-- .row -->
 
 			<?php
 		}
@@ -246,7 +232,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 	endif;
 	?>
 
-    </div><!--END .t4p-row-->
+    </div><!-- .t4p-row -->
 
     <!-- 2 or 3 columns end -->
 
@@ -264,12 +250,9 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
         <div class="row">
 
 		<?php
-	} else {
-
 	}
 
-	if ( have_posts() ) : while ( have_posts() ) : the_post();
-		?>
+	if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
         <!--BEGIN .hentry-->
         <div id="post-<?php the_ID(); ?>" class="<?php semantic_entries(); ?> <?php evolve_post_class_2(); ?>">
@@ -287,8 +270,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
                     </a>
                 </h2>
 
-                <!--BEGIN .entry-meta .entry-header-->
-                <div class="entry-meta entry-header">
+                <div class="entry-meta">
 
                     <a href="<?php the_permalink() ?>"><span
                                 class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
@@ -319,7 +301,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 						endif;
 					}
 					?>
-                    <!--END .entry-meta .entry-header-->
+                    <!-- .entry-meta -->
                 </div>
 
 			<?php } else { ?>
@@ -343,8 +325,7 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 			}
 			?>
 
-            <!--BEGIN .entry-content .article-->
-            <div class="entry-content article">
+            <div class="entry-content">
 				<?php
 				if ( $evolve_featured_images == "1" ) {
 
@@ -406,12 +387,9 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 				}
 				?>
 
-                <div class="clearfix"></div>
+            </div><!-- .entry-content -->
 
-            </div><!--END .entry-content .article-->
-
-            <!--BEGIN .entry-meta .entry-footer-->
-            <div class="entry-meta entry-footer row">
+            <div class="entry-meta row">
 
                 <div class="col-md-6">
 
@@ -432,11 +410,11 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 						evolve_sharethis();
 					} else {
 						?>
-                        <div class="margin-40"></div>
+                        <div class="mb-4"></div>
 					<?php } ?>
                 </div>
 
-            </div><!--END .entry-meta .entry-footer-->
+            </div><!-- .entry-meta -->
 
             <!--END .hentry-->
         </div>
@@ -463,7 +441,8 @@ if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
 			?>
             <!--BEGIN #post-0-->
             <div id="post-0" class="<?php semantic_entries(); ?>">
-                <h2 class="entry-title"><?php esc_html_e( 'Your search for', 'evolve' ); ?> "<?php echo the_search_query(); ?>
+                <h2 class="entry-title"><?php esc_html_e( 'Your search for', 'evolve' ); ?>
+                    "<?php echo the_search_query(); ?>
                     " <?php esc_html_e( 'did not match any entries', 'evolve' ); ?></h2>
                 <!--BEGIN .entry-content-->
                 <div class="entry-content">

@@ -184,7 +184,7 @@ class evolve_Tabs_Widget extends WP_Widget {
                                        title="<?php echo strip_tags( $comment->comment_author ); ?> on <?php echo $comment->post_title; ?>"><?php echo strip_tags( $comment->comment_author ); ?><?php esc_html_e( ' says', 'evolve' ); ?></a>
                                     <div class="meta">
 
-										<?php echo evolve_truncate( strip_tags( $comment->com_excerpt ), 70 ); ?>
+										<?php echo evolve_truncate( 70, strip_tags( $comment->com_excerpt ) ); ?>
 
                                     </div>
                                 </div>

@@ -45,7 +45,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 			<?php } ?>
 
             <!--BEGIN .hentry-->
-            <div id="post-<?php the_ID(); ?>" class="<?php semantic_entries(); ?>">
+            <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<?php
 				if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single" ) || ( $evolve_header_meta == "single_archive" ) ) {
@@ -65,8 +65,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 							?></h1>
 					<?php endif; ?>
 
-                    <!--BEGIN .entry-meta .entry-header-->
-                    <div class="entry-meta entry-header">
+                    <div class="entry-meta">
 
                         <a href="<?php the_permalink() ?>"><span
                                     class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
@@ -96,7 +95,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 							endif;
 						}
 						?>
-                        <!--END .entry-meta .entry-header-->
+                        <!-- .entry-meta -->
                     </div>
 
 					<?php
@@ -125,8 +124,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 				}
 				?>
 
-                <!--BEGIN .entry-content .article-->
-                <div class="entry-content article">
+                <div class="entry-content">
 
 					<?php
 					the_content( __( 'Read More &raquo;', 'evolve' ) );
@@ -139,10 +137,9 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 
                     <div class="clearfix"></div>
 
-                </div><!--END .entry-content .article-->
+                </div><!-- .entry-content -->
 
-                <!--BEGIN .entry-meta .entry-footer-->
-                <div class="entry-meta entry-footer row">
+                <div class="entry-meta row">
 
                     <div class="col-md-6">
 						<?php if ( evolve_get_terms( 'cats' ) ) { ?>
@@ -161,11 +158,11 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 							evolve_sharethis();
 						} else {
 							?>
-                            <div class="margin-40"></div>
+                            <div class="mb-4"></div>
 						<?php } ?>
                     </div>
 
-                </div><!--END .entry-meta .entry-footer-->
+                </div><!-- .entry-meta -->
 
                 <!-- Auto Discovery Trackbacks
                 <?php trackback_rdf(); ?>

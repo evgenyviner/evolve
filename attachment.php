@@ -50,8 +50,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 						?>
                     </h1>
 
-                    <!--BEGIN .entry-meta .entry-header-->
-                    <div class="entry-meta entry-header">
+                        <div class="entry-meta">
                         <a href="<?php the_permalink() ?>"><span
                                     class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
 
@@ -77,7 +76,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 							endif;
 						}
 						?>
-                        <!--END .entry-meta .entry-header-->
+                        <!-- .entry-meta -->
                     </div>
 
 				<?php } else { ?>
@@ -95,8 +94,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 				}
 				?>
 
-                <!--BEGIN .entry-content .article-->
-                <div class="entry-content article">
+                <div class="entry-content">
 
 					<?php
 					if ( wp_attachment_is_image() ) :
@@ -157,7 +155,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 
                     <div class="clearfix"></div>
 
-                </div><!--END .entry-content .article-->
+                </div><!-- .entry-content -->
 
                 <!--END .hentry-->
             </div>
@@ -167,7 +165,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 				evolve_sharethis();
 			} else {
 				?>
-                <div class="margin-40"></div>
+                <div class="mb-4"></div>
 				<?php
 			}
 

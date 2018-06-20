@@ -92,7 +92,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 				semantic_entries();
 				evolve_post_class( $evolve_xyz );
 				$evolve_xyz ++
-				?> margin-40">
+				?> mb-4">
 
 					<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) { ?>
 
@@ -109,7 +109,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
                             </a>
                         </h2>
 
-                        <div class="entry-meta entry-header">
+                        <div class="entry-meta">
                             <a href="<?php the_permalink() ?>"><span
                                         class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
                             <span class="author vcard">
@@ -125,7 +125,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 								endif;
 							} ?>
 
-                        </div><!-- .entry-meta .entry-header -->
+                        </div><!-- .entry-meta -->
 
 					<?php } else { ?>
 
@@ -148,7 +148,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 						}
 					} ?>
 
-                    <div class="entry-content article">
+                    <div class="entry-content">
 
 						<?php if ( $evolve_featured_images == "1" ) {
 
@@ -182,7 +182,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 
 						the_excerpt(); ?>
 
-                        <div class="entry-meta entry-footer">
+                        <div class="entry-meta">
                             <a class="btn btn-sm"
                                href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
 
@@ -194,7 +194,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 
                         <div class="clearfix"></div>
 
-                    </div><!-- .entry-content .article-->
+                    </div><!-- .entry-content -->
                 </div><!-- #post -->
 
 				<?php
@@ -247,7 +247,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
                             </a>
                         </h1>
 
-                        <div class="entry-meta entry-header">
+                        <div class="entry-meta">
                             <a href="<?php the_permalink() ?>"><span
                                         class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
 
@@ -274,7 +274,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 								endif;
 							} ?>
 
-                        </div><!-- .entry-meta .entry-header -->
+                        </div><!-- .entry-meta -->
 
 					<?php } else { ?>
 
@@ -296,7 +296,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 						}
 					} ?>
 
-                    <div class="entry-content article">
+                    <div class="entry-content">
 
 						<?php if ( $evolve_featured_images == "1" ) {
 
@@ -345,9 +345,9 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 
                         <div class="clearfix"></div>
 
-                    </div><!-- .entry-content .article -->
+                    </div><!-- .entry-content -->
 
-                    <div class="entry-meta entry-footer row">
+                    <div class="entry-meta row">
                         <div class="col-md-6">
 
 							<?php if ( evolve_get_terms( 'cats' ) ) { ?>
@@ -368,12 +368,12 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 								evolve_sharethis();
 							} else { ?>
 
-                                <div class="margin-40"></div>
+                                <div class="mb-4"></div>
 
 							<?php } ?>
 
                         </div>
-                    </div><!-- .entry-meta .entry-footer -->
+                    </div><!-- .entry-meta -->
                 </div><!-- .#post -->
 
 				<?php comments_template();

@@ -54,10 +54,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 			$evolve_first ++;
 			?>
 
-            <div id="post-<?php the_ID(); ?>" class="<?php
-			semantic_entries();
-			evolve_post_class();
-			?>">
+            <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) : ?>
 
@@ -73,8 +70,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
                         </a>
                     </h2>
 
-                    <!--BEGIN .entry-meta .entry-header-->
-                    <div class="entry-meta entry-header">
+                       <div class="entry-meta">
                         <a href="<?php the_permalink() ?>"><span
                                     class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
                         <span class="author vcard">
@@ -89,7 +85,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 						}
 						?>
 
-                        <!--END .entry-meta .entry-header-->
+                        <!-- .entry-meta -->
                     </div>
 
 				<?php else: ?>
@@ -108,8 +104,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 
 				<?php endif; //if (($evolve_header_meta == "")    ?>
 
-                <!--BEGIN .entry-content .article-->
-                <div class="entry-content article">
+                <div class="entry-content">
 
 					<?php
 					if ( $evolve_featured_images == "1" ) :
@@ -118,13 +113,13 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 							?>
 
                             <div class="thumbnail-post">
-                                            <a href="<?php the_permalink(); ?>">
-                                                <?php the_post_thumbnail( 'post-thumbnail' ); ?>
-                                                <div class="mask">
-                                                    <span class="icon"></span>
-                                                </div>
-                                            </a>
-                                        </div>
+                                <a href="<?php the_permalink(); ?>">
+									<?php the_post_thumbnail( 'post-thumbnail' ); ?>
+                                    <div class="mask">
+                                        <span class="icon"></span>
+                                    </div>
+                                </a>
+                            </div>
 
 						<?php
 						else: $image = evolve_get_first_image();
@@ -133,25 +128,25 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 								?>
 
                                 <div class="thumbnail-post">
-                                                <a href="<?php the_permalink(); ?>"><img src="<?php echo $image; ?>"
-                                                                                         alt="<?php the_title(); ?>"/>
-                                                    <div class="mask">
-                                                        <span class="icon"></span>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                    <a href="<?php the_permalink(); ?>"><img src="<?php echo $image; ?>"
+                                                                             alt="<?php the_title(); ?>"/>
+                                        <div class="mask">
+                                            <span class="icon"></span>
+                                        </div>
+                                    </a>
+                                </div>
 
 							<?php else: ?>
 
                                 <div class="thumbnail-post">
-                                                <a href="<?php the_permalink(); ?>">
-                                                    <img src="<?php echo get_template_directory_uri() . '/assets/images/no-thumbnail.jpg'; ?>"
-                                                         alt="<?php the_title(); ?>"/>
-                                                    <div class="mask">
-                                                        <span class="icon"></span>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                    <a href="<?php the_permalink(); ?>">
+                                        <img src="<?php echo get_template_directory_uri() . '/assets/images/no-thumbnail.jpg'; ?>"
+                                             alt="<?php the_title(); ?>"/>
+                                        <div class="mask">
+                                            <span class="icon"></span>
+                                        </div>
+                                    </a>
+                                </div>
 
 							<?php
 							endif; //if ($image):
@@ -163,7 +158,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 					echo evolve_excerpt_max_charlength( 350 );
 					?>
 
-                    <div class="entry-meta entry-footer">
+                    <div class="entry-meta">
 
                         <a class="btn btn-sm"
                            href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
@@ -172,12 +167,11 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
                             <span class="comment-count"><?php comments_popup_link( __( 'Leave a Comment', 'evolve' ), __( '1 Comment', 'evolve' ), __( '% Comments', 'evolve' ) ); ?></span>
 						<?php endif; ?>
 
-                    </div><!-- /.entry-meta -->
+                    </div><!-- .entry-meta -->
 
-                    <div class="clearfix"></div>
-                </div><!--END .entry-content .article-->
+                   </div><!-- .entry-content -->
 
-                <!--END .hentry-->
+                <!-- .hentry-->
             </div>
 
 		<?php
@@ -219,7 +213,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 			$evolve_first ++;
 			?>
 
-            <div id="post-<?php the_ID(); ?>" class="<?php semantic_entries(); ?> <?php evolve_post_class_2(); ?>">
+            <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<?php
 				$evolve_header_meta = evolve_theme_mod( 'evl_header_meta', 'disable' );
@@ -237,8 +231,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
                         </a>
                     </h2>
 
-                    <!--BEGIN .entry-meta .entry-header-->
-                    <div class="entry-meta entry-header">
+                        <div class="entry-meta">
                         <a href="<?php the_permalink() ?>"><span
                                     class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
 
@@ -266,7 +259,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 							endif;
 						}
 						?>
-                        <!--END .entry-meta .entry-header-->
+                        <!-- .entry-meta -->
                     </div>
 
 				<?php } else { ?>
@@ -290,8 +283,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 				}
 				?>
 
-                <!--BEGIN .entry-content .article-->
-                <div class="entry-content article">
+                <div class="entry-content">
 
 					<?php
 					if ( $evolve_featured_images == "1" ) {
@@ -300,13 +292,13 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 							?>
 
                             <div class="thumbnail-post">
-                                            <a href="<?php the_permalink(); ?>">
-                                                <?php the_post_thumbnail( 'post-thumbnail' ); ?>
-                                                <div class="mask">
-                                                    <span class="icon"></span>
-                                                </div>
-                                            </a>
-                                        </div>
+                                <a href="<?php the_permalink(); ?>">
+									<?php the_post_thumbnail( 'post-thumbnail' ); ?>
+                                    <div class="mask">
+                                        <span class="icon"></span>
+                                    </div>
+                                </a>
+                            </div>
 
 						<?php
 						else: $image = evolve_get_first_image();
@@ -315,25 +307,25 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 								?>
 
                                 <div class="thumbnail-post">
-                                                <a href="<?php the_permalink(); ?>"><img src="<?php echo $image; ?>"
-                                                                                         alt="<?php the_title(); ?>"/>
-                                                    <div class="mask">
-                                                        <span class="icon"></span>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                    <a href="<?php the_permalink(); ?>"><img src="<?php echo $image; ?>"
+                                                                             alt="<?php the_title(); ?>"/>
+                                        <div class="mask">
+                                            <span class="icon"></span>
+                                        </div>
+                                    </a>
+                                </div>
 
 							<?php else: ?>
 
                                 <div class="thumbnail-post">
-                                                <a href="<?php the_permalink(); ?>">
-                                                    <img src="<?php echo get_template_directory_uri() . '/assets/images/no-thumbnail.jpg'; ?>"
-                                                         alt="<?php the_title(); ?>"/>
-                                                    <div class="mask">
-                                                        <span class="icon"></span>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                    <a href="<?php the_permalink(); ?>">
+                                        <img src="<?php echo get_template_directory_uri() . '/assets/images/no-thumbnail.jpg'; ?>"
+                                             alt="<?php the_title(); ?>"/>
+                                        <div class="mask">
+                                            <span class="icon"></span>
+                                        </div>
+                                    </a>
+                                </div>
 
 							<?php
 							endif; //if ($image):
@@ -362,12 +354,11 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 					endif;
 					?>
 
-                    <!--END .entry-content .article-->
-                    <div class="clearfix"></div>
-                </div>
+                    <!-- .entry-content -->
+                 </div>
 
-                <!--BEGIN .entry-meta .entry-footer-->
-                <div class="entry-meta entry-footer row">
+                <!--BEGIN .entry-meta -->
+                <div class="entry-meta row">
 
                     <div class="col-md-6">
 						<?php if ( evolve_get_terms( 'cats' ) ) { ?>
@@ -379,7 +370,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
                             <div class="entry-tags"> <?php echo evolve_get_terms( 'tags' ); ?></div>
 						<?php } ?>
 
-                        <!--END .entry-meta .entry-footer-->
+                        <!-- .entry-meta -->
                     </div>
 
                     <div class="col-md-6">
@@ -388,7 +379,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 							evolve_sharethis();
 						} else {
 							?>
-                            <div class="margin-40"></div>
+                            <div class="mb-4"></div>
 						<?php } ?>
                     </div>
                 </div>
