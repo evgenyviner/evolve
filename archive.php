@@ -96,7 +96,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 
 					<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) { ?>
 
-                        <h2 class="entry-title">
+                        <h2 class="post-title">
                             <a href="<?php the_permalink() ?>" rel="bookmark"
                                title="Permanent Link to <?php the_title(); ?>">
 
@@ -109,7 +109,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
                             </a>
                         </h2>
 
-                        <div class="entry-meta">
+                        <div class="post-meta">
                             <a href="<?php the_permalink() ?>"><span
                                         class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
                             <span class="author vcard">
@@ -125,11 +125,11 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 								endif;
 							} ?>
 
-                        </div><!-- .entry-meta -->
+                        </div><!-- .post-meta -->
 
 					<?php } else { ?>
 
-                        <h1 class="entry-title">
+                        <h1 class="post-title">
                             <a href="<?php the_permalink() ?>" rel="bookmark"
                                title="Permanent Link to <?php the_title(); ?>">
 
@@ -148,7 +148,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 						}
 					} ?>
 
-                    <div class="entry-content">
+                    <div class="post-content">
 
 						<?php if ( $evolve_featured_images == "1" ) {
 
@@ -182,7 +182,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 
 						the_excerpt(); ?>
 
-                        <div class="entry-meta">
+                        <div class="post-meta">
                             <a class="btn btn-sm"
                                href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
 
@@ -194,7 +194,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 
                         <div class="clearfix"></div>
 
-                    </div><!-- .entry-content -->
+                    </div><!-- .post-content -->
                 </div><!-- #post -->
 
 				<?php
@@ -236,7 +236,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 
 					<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) { ?>
 
-                        <h1 class="entry-title">
+                        <h1 class="post-title">
                             <a href="<?php the_permalink(); ?>" rel="bookmark"
                                title="Permanent Link to <?php the_title(); ?>">
 
@@ -247,7 +247,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
                             </a>
                         </h1>
 
-                        <div class="entry-meta">
+                        <div class="post-meta">
                             <a href="<?php the_permalink() ?>"><span
                                         class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
 
@@ -274,11 +274,11 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 								endif;
 							} ?>
 
-                        </div><!-- .entry-meta -->
+                        </div><!-- .post-meta -->
 
 					<?php } else { ?>
 
-                        <h1 class="entry-title">
+                        <h1 class="post-title">
                             <a href="<?php the_permalink(); ?>" rel="bookmark"
                                title="Permanent Link to <?php the_title(); ?>">
 
@@ -296,7 +296,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 						}
 					} ?>
 
-                    <div class="entry-content">
+                    <div class="post-content">
 
 						<?php if ( $evolve_featured_images == "1" ) {
 
@@ -345,19 +345,19 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 
                         <div class="clearfix"></div>
 
-                    </div><!-- .entry-content -->
+                    </div><!-- .post-content -->
 
-                    <div class="entry-meta row">
+                    <div class="post-meta row">
                         <div class="col-md-6">
 
 							<?php if ( evolve_get_terms( 'cats' ) ) { ?>
 
-                                <div class="entry-categories"> <?php echo evolve_get_terms( 'cats' ); ?></div>
+                                <div class="post-categories"> <?php echo evolve_get_terms( 'cats' ); ?></div>
 
 							<?php }
 							if ( evolve_get_terms( 'tags' ) ) { ?>
 
-                                <div class="entry-tags"> <?php echo evolve_get_terms( 'tags' ); ?></div>
+                                <div class="post-tags"> <?php echo evolve_get_terms( 'tags' ); ?></div>
 
 							<?php } ?>
 
@@ -373,7 +373,7 @@ $evolve_author_avatar              = evolve_theme_mod( 'evl_author_avatar', '0' 
 							<?php } ?>
 
                         </div>
-                    </div><!-- .entry-meta -->
+                    </div><!-- .post-meta -->
                 </div><!-- .#post -->
 
 				<?php comments_template();

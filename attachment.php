@@ -40,7 +40,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 
 				<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) {
 					?>
-                    <h1 class="entry-title"><a href="<?php echo get_permalink( $post->post_parent ); ?>"
+                    <h1 class="post-title"><a href="<?php echo get_permalink( $post->post_parent ); ?>"
                                                rev="attachment"
                                                class="attach-font"><?php echo get_the_title( $post->post_parent ); ?></a>
                         &raquo; <?php
@@ -50,7 +50,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 						?>
                     </h1>
 
-                        <div class="entry-meta">
+                        <div class="post-meta">
                         <a href="<?php the_permalink() ?>"><span
                                     class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
 
@@ -76,12 +76,12 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 							endif;
 						}
 						?>
-                        <!-- .entry-meta -->
+                        <!-- .post-meta -->
                     </div>
 
 				<?php } else { ?>
 
-                    <h1 class="entry-title"><a href="<?php echo get_permalink( $post->post_parent ); ?>"
+                    <h1 class="post-title"><a href="<?php echo get_permalink( $post->post_parent ); ?>"
                                                rev="attachment"><?php echo get_the_title( $post->post_parent ); ?></a>
                         &raquo; <?php the_title(); ?></h1>
 
@@ -94,7 +94,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 				}
 				?>
 
-                <div class="entry-content">
+                <div class="post-content">
 
 					<?php
 					if ( wp_attachment_is_image() ) :
@@ -135,10 +135,10 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 								?>
                             </a>
                         </p>
-                        <div class="navigation-links single-page-navigation clearfix row">
+                        <div class="navigation clearfix row">
                             <div class="col-sm-6 col-md-6 nav-previous"><?php previous_image_link( false, '<div class="btn btn-left icon-arrow-left icon-big">Previous Image</div>' ); ?></div>
                             <div class="col-sm-6 col-md-6 nav-next"><?php next_image_link( false, '<div class="btn btn-right icon-arrow-right icon-big">Next Image</div>' ); ?></div>
-                            <!--END .navigation-links-->
+                            <!-- .pagination -->
                         </div>
 
 					<?php else : ?>
@@ -155,7 +155,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 
                     <div class="clearfix"></div>
 
-                </div><!-- .entry-content -->
+                </div><!-- .post-content -->
 
                 <!--END .hentry-->
             </div>

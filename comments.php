@@ -72,7 +72,7 @@ if ( post_password_required() ) {
                 </ol>
 			<?php endif; ?>
 
-            <div class="navigation-links page-navigation clearfix row">
+            <div class="navigation row">
                 <div class="col-sm-6 col-md-6 nav-next"><?php previous_comments_link( '<div class="btn btn-left icon-arrow-left icon-big">Older Comments</div>' ); ?></div>
                 <div class="col-sm-6 col-md-6 nav-previous"><?php next_comments_link( '<div class="btn btn-right icon-arrow-right icon-big">Newer Comments</div>' ); ?></div>
             </div>

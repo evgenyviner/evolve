@@ -58,7 +58,7 @@ endif; ?>
 		?> mb-4">
 			<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) {
 				?>
-                <h2 class="entry-title">
+                <h2 class="post-title">
                     <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
 						<?php
 						if ( get_the_title() ) {
@@ -69,7 +69,7 @@ endif; ?>
                     </a>
                 </h2>
 
-                <div class="entry-meta">
+                <div class="post-meta">
 
                     <a href="<?php the_permalink() ?>"><span
                                 class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
@@ -85,12 +85,12 @@ endif; ?>
 						endif;
 					}
 					?>
-                    <!-- .entry-meta -->
+                    <!-- .post-meta -->
                 </div>
 
 			<?php } else { ?>
 
-                <h2 class="entry-title">
+                <h2 class="post-title">
                     <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
 						<?php
 						if ( get_the_title() ) {
@@ -109,7 +109,7 @@ endif; ?>
 			}
 			?>
 
-            <div class="entry-content">
+            <div class="post-content">
 
 				<?php
 				if ( $evolve_featured_images == "1" ) {
@@ -155,7 +155,7 @@ endif; ?>
 				the_excerpt();
 				?>
 
-                <div class="entry-meta">
+                <div class="post-meta">
 
 
                     <a class="btn btn-sm"
@@ -170,7 +170,7 @@ endif; ?>
 					?>
 
                 </div>
-            </div><!-- .entry-content -->
+            </div><!-- .post-content -->
 
             <!-- .hentry-->
         </div>
@@ -193,11 +193,11 @@ endif; ?>
 			?>
 
             <div id="post-0" class="<?php semantic_entries(); ?>">
-                <h2 class="entry-title"><?php esc_html_e( 'Your search for', 'evolve' ); ?>
+                <h2 class="post-title"><?php esc_html_e( 'Your search for', 'evolve' ); ?>
                     "<?php echo the_search_query(); ?>
                     " <?php esc_html_e( 'did not match any entries', 'evolve' ); ?></h2>
 
-                <div class="entry-content">
+                <div class="post-content">
                     <br/>
                     <p><?php esc_html_e( 'Suggestions:', 'evolve' ); ?></p>
                     <ul>
@@ -205,7 +205,7 @@ endif; ?>
                         <li><?php esc_html_e( 'Try different keywords.', 'evolve' ); ?></li>
                         <li><?php esc_html_e( 'Try more general keywords.', 'evolve' ); ?></li>
                     </ul>
-                    <!-- .entry-content-->
+                    <!-- .post-content-->
                 </div>
                 <!-- #post-0-->
             </div>
@@ -215,11 +215,11 @@ endif; ?>
 		<?php } else { ?>
 
             <div id="post-0" class="<?php semantic_entries(); ?>">
-                <h2 class="entry-title"><?php esc_html_e( 'Not Found', 'evolve' ); ?></h2>
+                <h2 class="post-title"><?php esc_html_e( 'Not Found', 'evolve' ); ?></h2>
 
-                <div class="entry-content">
+                <div class="post-content">
                     <p><?php esc_html_e( 'Sorry, but you are looking for something that isn\'t here.', 'evolve' ); ?></p>
-                    <!-- .entry-content -->
+                    <!-- .post-content -->
                 </div>
                 <!-- #post-0 -->
             </div>
@@ -260,7 +260,7 @@ endif; ?>
 			<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) {
 				?>
 
-                <h2 class="entry-title">
+                <h2 class="post-title">
                     <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
 						<?php
 						if ( get_the_title() ) {
@@ -270,7 +270,7 @@ endif; ?>
                     </a>
                 </h2>
 
-                <div class="entry-meta">
+                <div class="post-meta">
 
                     <a href="<?php the_permalink() ?>"><span
                                 class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
@@ -301,12 +301,12 @@ endif; ?>
 						endif;
 					}
 					?>
-                    <!-- .entry-meta -->
+                    <!-- .post-meta -->
                 </div>
 
 			<?php } else { ?>
 
-                <h2 class="entry-title">
+                <h2 class="post-title">
                     <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
 						<?php
 						if ( get_the_title() ) {
@@ -325,7 +325,7 @@ endif; ?>
 			}
 			?>
 
-            <div class="entry-content">
+            <div class="post-content">
 				<?php
 				if ( $evolve_featured_images == "1" ) {
 
@@ -387,19 +387,19 @@ endif; ?>
 				}
 				?>
 
-            </div><!-- .entry-content -->
+            </div><!-- .post-content -->
 
-            <div class="entry-meta row">
+            <div class="post-meta row">
 
                 <div class="col-md-6">
 
 					<?php if ( evolve_get_terms( 'cats' ) ) { ?>
-                        <div class="entry-categories"> <?php echo evolve_get_terms( 'cats' ); ?></div>
+                        <div class="post-categories"> <?php echo evolve_get_terms( 'cats' ); ?></div>
 						<?php
 					}
 					if ( evolve_get_terms( 'tags' ) ) {
 						?>
-                        <div class="entry-tags"> <?php echo evolve_get_terms( 'tags' ); ?></div>
+                        <div class="post-tags"> <?php echo evolve_get_terms( 'tags' ); ?></div>
 					<?php } ?>
 
                 </div>
@@ -414,7 +414,7 @@ endif; ?>
 					<?php } ?>
                 </div>
 
-            </div><!-- .entry-meta -->
+            </div><!-- .post-meta -->
 
             <!--END .hentry-->
         </div>
@@ -441,11 +441,11 @@ endif; ?>
 			?>
             <!--BEGIN #post-0-->
             <div id="post-0" class="<?php semantic_entries(); ?>">
-                <h2 class="entry-title"><?php esc_html_e( 'Your search for', 'evolve' ); ?>
+                <h2 class="post-title"><?php esc_html_e( 'Your search for', 'evolve' ); ?>
                     "<?php echo the_search_query(); ?>
                     " <?php esc_html_e( 'did not match any entries', 'evolve' ); ?></h2>
-                <!--BEGIN .entry-content-->
-                <div class="entry-content">
+                <!--BEGIN .post-content-->
+                <div class="post-content">
                     <br/>
                     <p><?php esc_html_e( 'Suggestions:', 'evolve' ); ?></p>
                     <ul>
@@ -453,7 +453,7 @@ endif; ?>
                         <li><?php esc_html_e( 'Try different keywords.', 'evolve' ); ?></li>
                         <li><?php esc_html_e( 'Try more general keywords.', 'evolve' ); ?></li>
                     </ul>
-                    <!--END .entry-content-->
+                    <!--END .post-content-->
                 </div>
                 <!--END #post-0-->
             </div>
@@ -462,11 +462,11 @@ endif; ?>
 		<?php } else { ?>
             <!--BEGIN #post-0-->
             <div id="post-0" class="<?php semantic_entries(); ?>">
-                <h2 class="entry-title"><?php esc_html_e( 'Not Found', 'evolve' ); ?></h2>
-                <!--BEGIN .entry-content-->
-                <div class="entry-content">
+                <h2 class="post-title"><?php esc_html_e( 'Not Found', 'evolve' ); ?></h2>
+                <!--BEGIN .post-content-->
+                <div class="post-content">
                     <p><?php esc_html_e( 'Sorry, but you are looking for something that isn\'t here.', 'evolve' ); ?></p>
-                    <!--END .entry-content-->
+                    <!--END .post-content-->
                 </div>
                 <!--END #post-0-->
             </div>

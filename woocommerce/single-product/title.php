@@ -12,7 +12,7 @@ if (!defined('ABSPATH'))
 $evolve_pagetitlebar_layout = evolve_theme_mod('evl_pagetitlebar_layout', '0');
 if ($evolve_pagetitlebar_layout == '0') {
 ?>
-        <h2 itemprop="name" class="product_title entry-title"><?php the_title(); ?></h2>
+        <h2 itemprop="name" class="product_title post-title"><?php the_title(); ?></h2>
 <?php
 }
 ?>

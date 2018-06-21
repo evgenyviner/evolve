@@ -9,7 +9,7 @@ $evolve_post_layout = evolve_theme_mod( 'evl_post_layout', 'two' );
 		<?php if ( have_posts() ): the_post(); ?>
 
             <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <span class="entry-title" style="display: none;"><?php the_title(); ?></span>
+                <span class="post-title" style="display: none;"><?php the_title(); ?></span>
                 <span class="vcard" style="display: none;"><span class="vcard author"><span
                                 class="fn"><?php the_author_posts_link(); ?></span></span></span>
 

@@ -15,14 +15,14 @@ $evolve_share_this = evolve_theme_mod( 'evl_share_this', 'single' );
 		else:
 			?>
 
-            <h1 class="entry-title"><?php
+            <h1 class="post-title"><?php
 				if ( get_the_title() ) {
 					the_title();
 				}
 
 				if ( $evolve_edit_post == "1" ) {
 					if ( current_user_can( 'edit_post', $post->ID ) ):
-						edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-page edit-attach">', '</span>' );
+						edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post edit-attach">', '</span>' );
 					endif;
 				}
 				?></h1>
@@ -36,7 +36,7 @@ $evolve_share_this = evolve_theme_mod( 'evl_share_this', 'single' );
 		}
 		?>
 
-        <div class="entry-content">
+        <div class="post-content">
 
 			<?php
 			the_content();
@@ -45,7 +45,7 @@ $evolve_share_this = evolve_theme_mod( 'evl_share_this', 'single' );
 
             <div class="clearfix"></div>
 
-        </div><!-- .entry-content -->
+        </div><!-- .post-content -->
 
 		<?php trackback_rdf(); ?>
 

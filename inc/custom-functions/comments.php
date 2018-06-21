@@ -231,9 +231,8 @@ function evolve_comment_navigation() {
 	$num = get_comments_number() + 1;
 
 	$tag   = apply_filters( 'evolve_comment_navigation_tag', (string) 'div' ); // Available filter: evolve_comment_navigation_tag
-	$open  = "<!--BEGIN .navigation-links-->\n";
-	$open  .= "<" . $tag . " class=\"navigation-links comment-navigation\">\n";
-	$close = "<!--END .navigation-links-->\n";
+	$open  .= "<" . $tag . " class=\"navigation comment-navigation\">\n";
+	$close = "<!-- .pagination -->\n";
 	$close .= "</" . $tag . ">\n";
 
 	if ( $num > get_option( 'comments_per_page' ) ) {

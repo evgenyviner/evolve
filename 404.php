@@ -33,8 +33,8 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 		endif; ?>
 
         <div id="post-0">
-            <h1 class="entry-title"><?php esc_html_e( 'Not Found', 'evolve' ); ?></h1>
-            <div class="entry-content">
+            <h1 class="post-title"><?php esc_html_e( 'Not Found', 'evolve' ); ?></h1>
+            <div class="post-content">
                 <p><?php esc_html_e( 'Sorry, but you are looking for something that isn\'t here.', 'evolve' ); ?></p>
                 <form action="<?php echo esc_url(home_url( '/' )); ?>" method="get" class="search-form">
                     <label>
@@ -46,7 +46,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
                         <button class="search-button" tabindex="6" type="submit"></button>
                     </label>
                 </form>
-            </div><!-- .entry-content -->
+            </div><!-- .post-content -->
         </div><!-- #post-0 -->
     </div>  <!-- #primary .hfeed -->
 

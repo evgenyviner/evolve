@@ -58,7 +58,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 
 				<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) : ?>
 
-                    <h2 class="entry-title">
+                    <h2 class="post-title">
                         <a href="<?php the_permalink() ?>" rel="bookmark"
                            title="<?php esc_html_e( 'Permanent Link to ', 'evolve' ) . the_title(); ?>">
 							<?php
@@ -70,7 +70,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
                         </a>
                     </h2>
 
-                       <div class="entry-meta">
+                       <div class="post-meta">
                         <a href="<?php the_permalink() ?>"><span
                                     class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
                         <span class="author vcard">
@@ -85,12 +85,12 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 						}
 						?>
 
-                        <!-- .entry-meta -->
+                        <!-- .post-meta -->
                     </div>
 
 				<?php else: ?>
 
-                    <h2 class="entry-title">
+                    <h2 class="post-title">
                         <a href="<?php the_permalink(); ?>" rel="bookmark"
                            title="<?php esc_html_e( 'Permanent Link to', 'evolve' ); ?> <?php the_title(); ?>">
 							<?php
@@ -104,7 +104,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 
 				<?php endif; //if (($evolve_header_meta == "")    ?>
 
-                <div class="entry-content">
+                <div class="post-content">
 
 					<?php
 					if ( $evolve_featured_images == "1" ) :
@@ -158,7 +158,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 					echo evolve_excerpt_max_charlength( 350 );
 					?>
 
-                    <div class="entry-meta">
+                    <div class="post-meta">
 
                         <a class="btn btn-sm"
                            href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
@@ -167,9 +167,9 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
                             <span class="comment-count"><?php comments_popup_link( __( 'Leave a Comment', 'evolve' ), __( '1 Comment', 'evolve' ), __( '% Comments', 'evolve' ) ); ?></span>
 						<?php endif; ?>
 
-                    </div><!-- .entry-meta -->
+                    </div><!-- .post-meta -->
 
-                   </div><!-- .entry-content -->
+                   </div><!-- .post-content -->
 
                 <!-- .hentry-->
             </div>
@@ -220,7 +220,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 				if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) {
 					?>
 
-                    <h2 class="entry-title">
+                    <h2 class="post-title">
                         <a href="<?php the_permalink(); ?>" rel="bookmark"
                            title="<?php esc_html_e( 'Permanent Link to', 'evolve' ); ?> <?php the_title(); ?>">
 							<?php
@@ -231,7 +231,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
                         </a>
                     </h2>
 
-                        <div class="entry-meta">
+                        <div class="post-meta">
                         <a href="<?php the_permalink() ?>"><span
                                     class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
 
@@ -259,12 +259,12 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 							endif;
 						}
 						?>
-                        <!-- .entry-meta -->
+                        <!-- .post-meta -->
                     </div>
 
 				<?php } else { ?>
 
-                    <h2 class="entry-title">
+                    <h2 class="post-title">
                         <a href="<?php the_permalink(); ?>" rel="bookmark"
                            title="<?php esc_html_e( 'Permanent Link to', 'evolve' ); ?> <?php the_title(); ?>">
 							<?php
@@ -283,7 +283,7 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 				}
 				?>
 
-                <div class="entry-content">
+                <div class="post-content">
 
 					<?php
 					if ( $evolve_featured_images == "1" ) {
@@ -354,23 +354,23 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 					endif;
 					?>
 
-                    <!-- .entry-content -->
+                    <!-- .post-content -->
                  </div>
 
-                <!--BEGIN .entry-meta -->
-                <div class="entry-meta row">
+                <!--BEGIN .post-meta -->
+                <div class="post-meta row">
 
                     <div class="col-md-6">
 						<?php if ( evolve_get_terms( 'cats' ) ) { ?>
-                            <div class="entry-categories"> <?php echo evolve_get_terms( 'cats' ); ?></div>
+                            <div class="post-categories"> <?php echo evolve_get_terms( 'cats' ); ?></div>
 							<?php
 						}
 						if ( evolve_get_terms( 'tags' ) ) {
 							?>
-                            <div class="entry-tags"> <?php echo evolve_get_terms( 'tags' ); ?></div>
+                            <div class="post-tags"> <?php echo evolve_get_terms( 'tags' ); ?></div>
 						<?php } ?>
 
-                        <!-- .entry-meta -->
+                        <!-- .post-meta -->
                     </div>
 
                     <div class="col-md-6">

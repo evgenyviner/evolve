@@ -943,7 +943,7 @@ function loop_header( $header ) {
 	if ( current_theme_supports( 't4p-schema' ) ) {
 		$itemprop = 'headline';
 	}
-	$html = "{$pre_title_content}<h2 class='entry-title' itemprop='$itemprop'>{$link}</h2>{$meta_data}{$content_sep}";
+	$html = "{$pre_title_content}<h2 class='post-title' itemprop='$itemprop'>{$link}</h2>{$meta_data}{$content_sep}";
 	echo $html;
 }
 
@@ -1030,52 +1030,35 @@ function entry_meta_default() {
 				}
 				$count ++;
 			}
-			$inner_content .= sprintf( '<span class="entry-categories">%s</span><span class="meta-separator">|</span>', $output );
+			$inner_content .= sprintf( '<span class="post-categories">%s</span><span class="meta-separator">|</span>', $output );
 		}
 		if ( evolve_theme_mod( 'evl_fp_blog_meta_tags' ) == 'yes' ) {
 			$inner_content .= sprintf( '%s<span class="meta-separator">|</span>', post_meta_tags() );
 		}
 	}
-	//blog-shortcode-entry-meta
-	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) == 'grid' ) {
-		$blog_shortcode_entry_meta = 'entry-meta-single';
-	} else {
-		$blog_shortcode_entry_meta = 'entry-meta';
-	}
-	$entry_meta = "<div class='t4p-clearfix'></div><div class='$blog_shortcode_entry_meta'>{$inner_content}</div>";
+	//blog-shortcode-post-meta
+	$entry_meta = "<div class='t4p-clearfix'></div><div class='post-meta'>{$inner_content}</div>";
 	echo $entry_meta;
 }
 
 function entry_meta_alternate() {
 
 	$inner_content = post_meta_data( true );
-	//blog-shortcode-entry-meta
-	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) == 'grid' ) {
-		$blog_shortcode_entry_meta = 'entry-meta-single';
-	} else {
-		$blog_shortcode_entry_meta = 'entry-meta';
-	}
-	$entry_meta = "<div class='$blog_shortcode_entry_meta'>$inner_content</div>";
+	$entry_meta = "<div class='post-meta'>$inner_content</div>";
 	echo $entry_meta;
 }
 
 function entry_meta_grid_timeline() {
 
 	$inner_content = post_meta_data( false );
-	//blog-shortcode-entry-meta
-	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) == 'grid' ) {
-		$blog_shortcode_entry_meta = 'entry-meta-single';
-	} else {
-		$blog_shortcode_entry_meta = 'entry-meta';
-	}
-	$entry_meta = "<div class='$blog_shortcode_entry_meta'>$inner_content</div>";
+	$entry_meta = "<div class='post-meta'>$inner_content</div>";
 	echo $entry_meta;
 }
 
 function post_meta_data( $return_all_meta = false ) {
 	global $smof_data;
 
-	$inner_content = "<p class='entry-meta'>";
+	$inner_content = "<p class='post-meta'>";
 	$meta_time     = get_the_modified_time( 'c' );
 	//meta_date_attr
 	$meta_date_class    = 'published';

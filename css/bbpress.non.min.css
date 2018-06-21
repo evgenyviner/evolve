@@ -1093,7 +1093,7 @@ fieldset div.avatar {
     overflow: auto;
 }
 
-#bbpress-forums #bbp-user-wrapper h2.entry-title {
+#bbpress-forums #bbp-user-wrapper h2.post-title {
     font-size: 1.4em;
     margin: 0;
     padding-bottom: 10px;

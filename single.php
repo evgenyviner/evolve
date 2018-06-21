@@ -53,19 +53,19 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 					if ( get_post_meta( $post->ID, 'evolve_page_title', true ) == 'no' ):
 					else:
 						?>
-                        <h1 class="entry-title"><?php
+                        <h1 class="post-title"><?php
 							if ( get_the_title() ) {
 								the_title();
 							}
 							if ( $evolve_edit_post == "1" ) {
 								if ( current_user_can( 'edit_post', $post->ID ) ):
-									edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-page edit-attach">', '</span>' );
+									edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post edit-attach">', '</span>' );
 								endif;
 							}
 							?></h1>
 					<?php endif; ?>
 
-                    <div class="entry-meta">
+                    <div class="post-meta">
 
                         <a href="<?php the_permalink() ?>"><span
                                     class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
@@ -95,7 +95,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 							endif;
 						}
 						?>
-                        <!-- .entry-meta -->
+                        <!-- .post-meta -->
                     </div>
 
 					<?php
@@ -103,13 +103,13 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 
 					if ( get_post_meta( $post->ID, 'evolve_page_title', true ) == 'yes' ) :
 						?>
-                        <h1 class="entry-title"><?php
+                        <h1 class="post-title"><?php
 							if ( get_the_title() ) {
 								the_title();
 							}
 							if ( $evolve_edit_post == "1" ) {
 								if ( current_user_can( 'edit_post', $post->ID ) ):
-									edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-page edit-attach">', '</span>' );
+									edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post edit-attach">', '</span>' );
 								endif;
 							}
 							?></h1>
@@ -124,7 +124,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 				}
 				?>
 
-                <div class="entry-content">
+                <div class="post-content">
 
 					<?php
 					the_content( __( 'Read More &raquo;', 'evolve' ) );
@@ -137,18 +137,18 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 
                     <div class="clearfix"></div>
 
-                </div><!-- .entry-content -->
+                </div><!-- .post-content -->
 
-                <div class="entry-meta row">
+                <div class="post-meta row">
 
                     <div class="col-md-6">
 						<?php if ( evolve_get_terms( 'cats' ) ) { ?>
-                            <div class="entry-categories"> <?php echo evolve_get_terms( 'cats' ); ?></div>
+                            <div class="post-categories"> <?php echo evolve_get_terms( 'cats' ); ?></div>
 							<?php
 						}
 						if ( evolve_get_terms( 'tags' ) ) {
 							?>
-                            <div class="entry-tags"> <?php echo evolve_get_terms( 'tags' ); ?></div>
+                            <div class="post-tags"> <?php echo evolve_get_terms( 'tags' ); ?></div>
 						<?php } ?>
                     </div>
 
@@ -162,7 +162,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 						<?php } ?>
                     </div>
 
-                </div><!-- .entry-meta -->
+                </div><!-- .post-meta -->
 
                 <!-- Auto Discovery Trackbacks
                 <?php trackback_rdf(); ?>

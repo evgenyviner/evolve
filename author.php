@@ -69,7 +69,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 				?> mb-4">
 					<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) {
 						?>
-                        <h2 class="entry-title">
+                        <h2 class="post-title">
                             <a href="<?php the_permalink() ?>" rel="bookmark"
                                title="Permanent Link to <?php the_title(); ?>">
 								<?php
@@ -81,7 +81,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
                             </a>
                         </h2>
 
-                            <div class="entry-meta">
+                            <div class="post-meta">
 
                             <a href="<?php the_permalink() ?>"><span
                                         class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
@@ -97,12 +97,12 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 								endif;
 							}
 							?>
-                            <!-- .entry-meta -->
+                            <!-- .post-meta -->
                         </div>
 
 					<?php } else { ?>
 
-                        <h1 class="entry-title">
+                        <h1 class="post-title">
                             <a href="<?php the_permalink() ?>" rel="bookmark"
                                title="Permanent Link to <?php the_title(); ?>">
 								<?php
@@ -122,7 +122,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 					}
 					?>
 
-                    <div class="entry-content">
+                    <div class="post-content">
 
 						<?php
 						if ( $evolve_featured_images == "1" ) {
@@ -168,7 +168,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 						the_excerpt();
 						?>
 
-                        <div class="entry-meta">
+                        <div class="post-meta">
 
                             <a class="btn btn-sm"
                                href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
@@ -184,7 +184,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 
                         <div class="clearfix"></div>
 
-                    </div><!-- .entry-content -->
+                    </div><!-- .post-content -->
 
                     <!--END .hentry-->
                 </div>
@@ -225,7 +225,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 					<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) {
 						?>
 
-                        <h1 class="entry-title">
+                        <h1 class="post-title">
                             <a href="<?php the_permalink(); ?>" rel="bookmark"
                                title="Permanent Link to <?php the_title(); ?>">
 								<?php
@@ -236,7 +236,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
                             </a>
                         </h1>
 
-                              <div class="entry-meta">
+                              <div class="post-meta">
 
                             <a href="<?php the_permalink() ?>"><span
                                         class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
@@ -267,12 +267,12 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 								endif;
 							}
 							?>
-                            <!-- .entry-meta -->
+                            <!-- .post-meta -->
                         </div>
 
 					<?php } else { ?>
 
-                        <h1 class="entry-title">
+                        <h1 class="post-title">
                             <a href="<?php the_permalink(); ?>" rel="bookmark"
                                title="Permanent Link to <?php the_title(); ?>">
 								<?php
@@ -291,7 +291,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 					}
 					?>
 
-                    <div class="entry-content">
+                    <div class="post-content">
 						<?php
 						if ( $evolve_featured_images == "1" ) {
 
@@ -355,19 +355,19 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 
                         <div class="clearfix"></div>
 
-                    </div><!-- .entry-content -->
+                    </div><!-- .post-content -->
 
-                    <div class="entry-meta row">
+                    <div class="post-meta row">
 
                         <div class="col-md-6">
 
 							<?php if ( evolve_get_terms( 'cats' ) ) { ?>
-                                <div class="entry-categories"> <?php echo evolve_get_terms( 'cats' ); ?></div>
+                                <div class="post-categories"> <?php echo evolve_get_terms( 'cats' ); ?></div>
 								<?php
 							}
 							if ( evolve_get_terms( 'tags' ) ) {
 								?>
-                                <div class="entry-tags"> <?php echo evolve_get_terms( 'tags' ); ?></div>
+                                <div class="post-tags"> <?php echo evolve_get_terms( 'tags' ); ?></div>
 							<?php } ?>
 
                         </div>
@@ -382,7 +382,7 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 							<?php } ?>
                         </div>
 
-                    </div><!-- .entry-meta -->
+                    </div><!-- .post-meta -->
 
                     <!--END .hentry-->
                 </div>

@@ -86,7 +86,7 @@
     <?php else : ?>
 
         <div id="no-reply-<?php bbp_reply_id(); ?>" class="bbp-no-reply">
-            <div class="entry-content"><?php is_user_logged_in() ? esc_html_e('You do not have the permissions to edit this reply!', 'evolve') : esc_html_e('You cannot edit this reply.', 'evolve'); ?></div>
+            <div class="post-content"><?php is_user_logged_in() ? esc_html_e('You do not have the permissions to edit this reply!', 'evolve') : esc_html_e('You cannot edit this reply.', 'evolve'); ?></div>
         </div>
 
     <?php endif; ?>

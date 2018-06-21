@@ -341,15 +341,6 @@ function evolve_footer_hooks() { ?>
                 $jx(this).find("span.edit-post").css('visibility', 'hidden');
             }
         );
-        $jx("div.type-page").mouseover(
-            function () {
-                $jx(this).find("span.edit-page").css('visibility', 'visible');
-            }
-        ).mouseout(
-            function () {
-                $jx(this).find("span.edit-page").css('visibility', 'hidden');
-            }
-        );
         $jx("div.type-attachment").mouseover(
             function () {
                 $jx(this).find("span.edit-post").css('visibility', 'visible');
@@ -484,33 +475,51 @@ function evolve_sharethis() {
 		$image_url = get_template_directory_uri() . '/assets/images/no-thumbnail.jpg';
 	}
 	?>
-    <div class="share-this">
-        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-           title="<?php esc_html_e( 'Share on Twitter', 'evolve' ); ?>" target="_blank"
-           href="http://twitter.com/intent/tweet?status=<?php echo $post->post_title; ?>+&raquo;+<?php echo esc_url( evolve_tinyurl( get_permalink() ) ); ?>"><i
-                    class="t4p-icon-social-twitter"></i></a>
-        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-           title="<?php esc_html_e( 'Share on Facebook', 'evolve' ); ?>" target="_blank"
-           href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&amp;t=<?php echo $post->post_title; ?>"><i
-                    class="t4p-icon-social-facebook"></i></a>
-        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-           title="<?php esc_html_e( 'Share on Google Plus', 'evolve' ); ?>" target="_blank"
-           href="https://plus.google.com/share?url=<?php the_permalink(); ?>"><i
-                    class="t4p-icon-social-google-plus"></i></a>
-        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-           title="<?php esc_html_e( 'Share on Pinterest', 'evolve' ); ?>" target="_blank"
-           href="http://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $image_url; ?>&description=<?php echo $post->post_title; ?>"><i
-                    class="t4p-icon-social-pinterest"></i></a>
-        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-           title="<?php esc_html_e( 'Share by Email', 'evolve' ); ?>" target="_blank"
-           href="http://www.addtoany.com/email?linkurl=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>"><i
-                    class="t4p-icon-social-envelope-o"></i></a>
-        <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-           title="<?php esc_html_e( 'More options', 'evolve' ); ?>"
-           target="_blank"
-           href="http://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>"><i
-                    class="t4p-icon-redo"></i></a>
-    </div>
+
+    <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+       title="<?php esc_html_e( 'Share on Twitter', 'evolve' ); ?>" target="_blank"
+       href="http://twitter.com/intent/tweet?status=<?php echo $post->post_title; ?>+&raquo;+<?php echo esc_url( evolve_tinyurl( get_permalink() ) ); ?>">
+
+		<?php echo evolve_get_svg( 'twitter' ); ?>
+
+    </a>
+    <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+       title="<?php esc_html_e( 'Share on Facebook', 'evolve' ); ?>" target="_blank"
+       href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&amp;t=<?php echo $post->post_title; ?>">
+
+		<?php echo evolve_get_svg( 'facebook' ); ?>
+
+    </a>
+    <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+       title="<?php esc_html_e( 'Share on Google Plus', 'evolve' ); ?>" target="_blank"
+       href="https://plus.google.com/share?url=<?php the_permalink(); ?>">
+
+		<?php echo evolve_get_svg( 'google-plus' ); ?>
+
+    </a>
+    <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+       title="<?php esc_html_e( 'Share on Pinterest', 'evolve' ); ?>" target="_blank"
+       href="http://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $image_url; ?>&description=<?php echo $post->post_title; ?>">
+
+		<?php echo evolve_get_svg( 'pinterest' ); ?>
+
+    </a>
+    <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+       title="<?php esc_html_e( 'Share by Email', 'evolve' ); ?>" target="_blank"
+       href="http://www.addtoany.com/email?linkurl=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>">
+
+		<?php echo evolve_get_svg( 'email' ); ?>
+
+    </a>
+    <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+       title="<?php esc_html_e( 'More options', 'evolve' ); ?>"
+       target="_blank"
+       href="http://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>">
+
+		<?php echo evolve_get_svg( 'more' ); ?>
+
+    </a>
+
 	<?php
 }
 
@@ -1343,7 +1352,7 @@ jQuery(function ($) {
                         var ias = jQuery.ias({
                              container: "#primary",
                              item: ".post",
-                             pagination: ".navigation-links",
+                             pagination: ".pagination",
                              next: ".nav-previous a",
                         });
                         ias.extension(new IASTriggerExtension({

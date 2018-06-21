@@ -284,15 +284,15 @@ function evolve_post_class( $classes ) {
 				'video'
 			), '' ) || is_sticky()
 	     ) && is_home() ) {
-		$classes[] = 'formatted-post mb-5 p-4';
+		$classes[] = 'formatted-post p-4';
 	}
 
 	/*
         Function To Print Out CSS Class According To Blog Layout
         ======================================= */
 
-	if ( ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "two" || evolve_theme_mod( 'evl_post_layout', 'two' ) == "three" ) && is_home() ) {
-		$classes[] = 'card mb-5';
+	if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" && is_home() ) {
+		$classes[] = 'card';
 	}
 
 	return $classes;

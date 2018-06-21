@@ -3446,7 +3446,7 @@ if ( true || is_customize_preview() ) {
 						'two'   => $evolve_imagepath . 'two-posts.png',
 						'three' => $evolve_imagepath . 'three-posts.png',
 					),
-					'title'    => esc_attr__( 'Blog layout', 'evolve' ),
+					'title'    => esc_attr__( 'Blog Layout', 'evolve' ),
 					'default'  => 'two',
 				),
 				array(
@@ -3479,12 +3479,24 @@ if ( true || is_customize_preview() ) {
 					'compiler' => true,
 					'type'     => 'select',
 					'options'  => array(
-						'pagination'        => esc_attr__( 'Pagination', 'evolve' ),
+						'pagination'        => esc_attr__( 'Navigation Links', 'evolve' ),
 						'number_pagination' => esc_attr__( 'Number Pagination', 'evolve' ),
 						'infinite'          => esc_attr__( 'Infinite Scroll', 'evolve' ),
 					),
 					'title'    => esc_attr__( 'Pagination Type', 'evolve' ),
 					'default'  => 'pagination',
+				),
+				array(
+					'subtitle' => sprintf( esc_attr__( 'Choose the position of the %sOlder/Newer Posts%s links', 'evolve' ), '<strong>', '</strong>' ),
+					'id'       => 'evl_nav_links',
+					'type'     => 'select',
+					'options'  => array(
+						'after'  => esc_attr__( 'After Posts', 'evolve' ),
+						'before' => esc_attr__( 'Before Posts', 'evolve' ),
+						'both'   => esc_attr__( 'Both', 'evolve' ),
+					),
+					'title'    => esc_attr__( 'Position of Navigation Links', 'evolve' ),
+					'default'  => 'after',
 				),
 				array(
 					'subtitle' => esc_attr__( 'Check this box if you want to display edit post link', 'evolve' ),
@@ -4402,18 +4414,6 @@ if ( true || is_customize_preview() ) {
 			'title'   => esc_attr__( 'Extra', 'evolve' ),
 			'iconfix' => 'evolve-icon evolve-icon-appbarsettings',
 			'fields'  => array(
-				array(
-					'subtitle' => sprintf( esc_attr__( 'Choose the position of the %sOlder/Newer Posts%s links', 'evolve' ), '<strong>', '</strong>' ),
-					'id'       => 'evl_nav_links',
-					'type'     => 'select',
-					'options'  => array(
-						'after'  => esc_attr__( 'After Posts', 'evolve' ),
-						'before' => esc_attr__( 'Before Posts', 'evolve' ),
-						'both'   => esc_attr__( 'Both', 'evolve' ),
-					),
-					'title'    => esc_attr__( 'Position of Navigation Links', 'evolve' ),
-					'default'  => 'after',
-				),
 				array(
 					'id'       => 'evl_pos_button',
 					'type'     => 'select',

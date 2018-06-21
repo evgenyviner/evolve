@@ -24,359 +24,218 @@ $evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerp
 $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image', '0' );
 ?>
 
-    <div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?>">
+<div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?>">
 
-		<?php
-		if ( is_home() || is_front_page() ) {
-			get_template_part( 'template-parts/front-page-builder/front-page-builder' );
+<?php
+if ( is_home() || is_front_page() ) {
+	get_template_part( 'template-parts/front-page-builder/front-page-builder' );
+}
+
+if ( evolve_theme_mod( 'evl_breadcrumbs', '1' ) == "1" ):
+	if ( is_home() || is_front_page() ):
+    elseif ( ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == 'no' ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == 'no' ) ):
+	else: evolve_breadcrumb();
+	endif;
+endif;
+
+if ( $evolve_nav_links == "before" || $evolve_nav_links == "both" ) {
+	get_template_part( 'template-parts/navigation/navigation', 'index' );
+}
+
+if ( $evolve_post_layout != "one" && ( is_home() || is_page_template( 'blog-page.php' ) ) ) {
+	echo '<div class="card-columns">';
+}
+
+if ( have_posts() ) :
+	while ( have_posts() ) :
+		the_post(); ?>
+
+    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+        <h2 class="post-title">
+            <a href="<?php the_permalink(); ?>" rel="bookmark">
+
+				<?php if ( get_the_title() ) {
+					if ( $evolve_post_layout != "one" ) {
+						$evolve_title = the_title( '', '', false );
+						echo evolve_truncate( $evolve_posts_excerpt_title_length, $evolve_title );
+					} else {
+						the_title();
+					}
+				} ?>
+
+            </a>
+        </h2>
+
+		<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) { ?>
+
+        <div class="row post-meta align-items-top">
+            <div class="col author vcard">
+
+				<?php if ( $evolve_post_layout == "one" && evolve_theme_mod( 'evl_author_avatar', '0' ) == "1" ) {
+					echo get_avatar( get_the_author_meta( 'email' ), '30' );
+				} ?>
+
+                <a href="<?php the_permalink() ?>">
+                    <span class="published updated">
+
+                        <?php the_time( get_option( 'date_format' ) ); ?>
+
+                    </span>
+                </a>
+
+				<?php esc_html_e( 'Written by', 'evolve' ); ?>
+
+                <strong>
+
+					<?php printf( '<a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'evolve' ), $authordata->display_name ) ) . '">' . get_the_author() . '</a>' ) ?>
+
+                </strong>
+
+				<?php if ( $evolve_edit_post == "1" ) {
+					if ( current_user_can( 'edit_post', $post->ID ) ):
+						edit_post_link( '', '<span class="btn btn-sm edit-post">' . evolve_get_svg( 'pencil' ) . '', '</span>' );
+					endif;
+				} ?>
+
+            </div><!-- .col .author .vcard -->
+
+			<?php if ( $evolve_post_layout == "one" && comments_open() ) : ?>
+
+                <div class="col comment-count">
+
+					<?php echo evolve_get_svg( 'comment' );
+					comments_popup_link( __( 'Leave a Comment', 'evolve' ), __( '1 Comment', 'evolve' ), __( '% Comments', 'evolve' ) ); ?>
+
+                </div><!-- .col .comment-count -->
+
+			<?php endif; ?>
+
+        </div><!-- .row .post-meta .align-items-top -->
+
+	<?php } else {
+		if ( $evolve_edit_post == "1" ) {
+			if ( current_user_can( 'edit_post', $post->ID ) ):
+				edit_post_link( '', '<span class="btn btn-sm edit-post edit-attach">' . evolve_get_svg( 'pencil' ) . '', '</span>' );
+			endif;
 		}
+	} ?>
 
-		if ( evolve_theme_mod( 'evl_breadcrumbs', '1' ) == "1" ):
-			if ( is_home() || is_front_page() ):
-            elseif ( ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == 'no' ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == 'no' ) ):
-			else: evolve_breadcrumb();
-			endif;
-		endif;
+        <div class="post-content">
 
-		/*
-		   2 / 3 Columns Begin
-		   ======================================= */
+		<?php if ( $evolve_featured_images == "1" ) {
 
-		if ( $evolve_post_layout == "two" || $evolve_post_layout == "three" ) {
-
-			if ( ( $evolve_nav_links == "before" ) || ( $evolve_nav_links == "both" ) ) { ?>
-
-                <span class="nav-top">
-
-                    <?php get_template_part( 'template-parts/navigation/navigation', 'index' ); ?>
-
-                </span>
-
-			<?php }
-
-			if ( is_home() || is_page_template( 'blog-page.php' ) ) {
-				echo '<div class="card-columns">';
-			}
-
-			if ( have_posts() ) :
-
-				while ( have_posts() ) : the_post(); ?>
-
-                    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-						<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) { ?>
-
-                            <h2 class="entry-title">
-                                <a href="<?php the_permalink() ?>" rel="bookmark">
-
-									<?php if ( get_the_title() ) {
-										$evolve_title = the_title( '', '', false );
-										echo evolve_truncate( $evolve_posts_excerpt_title_length, $evolve_title );
-									} ?>
-
-                                </a>
-                            </h2>
-
-                            <div class="col entry-meta">
-                                <a href="<?php the_permalink() ?>"><span
-                                            class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
-                                <span class="author vcard">
-
-                                            <?php esc_html_e( 'Written by', 'evolve' ); ?>
-
-                                    <strong><?php printf( '<a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'evolve' ), $authordata->display_name ) ) . '">' . get_the_author() . '</a>' ) ?></strong>
-                                        </span>
-
-								<?php if ( $evolve_edit_post == "1" ) {
-									if ( current_user_can( 'edit_post', $post->ID ) ):
-										edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post">', '</span>' );
-									endif;
-								} ?>
-
-                            </div><!-- .col .entry-meta -->
-
-						<?php } else { ?>
-
-                            <h2 class="entry-title">
-                                <a href="<?php the_permalink() ?>" rel="bookmark">
-
-									<?php if ( get_the_title() ) {
-										$evolve_title = the_title( '', '', false );
-										echo evolve_truncate( $evolve_posts_excerpt_title_length, $evolve_title );
-									} ?>
-
-                                </a>
-                            </h2>
-
-							<?php if ( $evolve_edit_post == "1" ) {
-								if ( current_user_can( 'edit_post', $post->ID ) ):
-									edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post edit-attach">', '</span>' );
-								endif;
-							}
-						} ?>
-
-                        <div class="entry-content">
-
-							<?php if ( $evolve_featured_images == "1" ) {
-
-								if ( has_post_thumbnail() ) {
-									echo '<div class="thumbnail-post"><a href="';
-									the_permalink();
-									echo '">';
-									the_post_thumbnail( 'post-thumbnail' );
-									echo '<div class="mask"><div class="icon"></div></div></a></div>';
-								} else {
-
-									$image = evolve_get_first_image();
-
-									if ( $image ):
-										echo '<div class="thumbnail-post"><a href="';
-										the_permalink();
-										echo '"><img src="' . $image . '" alt="';
-										the_title();
-										echo '" /><div class="mask"><div class="icon"></div></div>	</a></div>';
-
-									else:
-										if ( $evolve_thumbnail_default_images == 0 ) {
-											echo '<div class="thumbnail-post"><a href="';
-											the_permalink();
-											echo '"><img src="' . get_template_directory_uri() . '/assets/images/no-thumbnail.jpg" alt="';
-											the_title();
-											echo '" /><div class="mask"><div class="icon"></div></div></a></div>';
-										}
-									endif;
-								}
-							}
-
-							the_excerpt(); ?>
-
-                        </div><!-- .entry-content -->
-
-                        <div class="entry-meta">
-
-							<?php if ( evolve_get_terms( 'cats' ) ) { ?>
-
-                                <div class="clearfix">
-                                    <div class="entry-categories"><?php echo evolve_get_terms( 'cats' ); ?></div>
-                                </div>
-
-							<?php } ?>
-
-                            <a class="btn btn-sm"
-                               href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
-
-							<?php if ( comments_open() ) : ?>
-                                <span class="comment-count"><?php comments_popup_link( __( 'Leave a Comment', 'evolve' ), __( '1 Comment', 'evolve' ), __( '% Comments', 'evolve' ) ); ?></span>
-							<?php endif; ?>
-
-                        </div><!-- .entry-meta -->
-                    </div><!-- .post -->
-
-				<?php endwhile;
-
-				if ( is_home() || is_page_template( 'blog-page.php' ) ) {
-					echo '</div><!-- .card-columns -->';
-				}
-
-				get_template_part( 'template-parts/navigation/navigation', 'index' );
-
-			endif;
-
-			/*
-			   2 / 3 Columns End
-			   ======================================= */
-
-			/*
-			   1 Column Begin
-			   ======================================= */
-
+		if ( has_post_thumbnail() ) {
+			echo '<div class="thumbnail-post"><a href="';
+			the_permalink();
+			echo '">';
+			the_post_thumbnail( 'post-thumbnail' );
+			echo '<div class="mask"><div class="icon"></div></div></a></div>';
 		} else {
 
-			if ( ( $evolve_nav_links == "before" ) || ( $evolve_nav_links == "both" ) ) { ?>
+			$evolve_image = evolve_get_first_image();
 
-                <span class="nav-top">
+			if ( $evolve_image ):
+				echo '<div class="thumbnail-post"><a href="';
+				the_permalink();
+				echo '"><img src="' . $evolve_image . '" alt="';
+				the_title();
+				echo '" /><div class="mask"><div class="icon"></div></div>	</a></div>';
 
-                    <?php get_template_part( 'template-parts/navigation/navigation', 'index' ); ?>
-
-                </span>
-
-			<?php }
-			if ( have_posts() ) :
-
-				while ( have_posts() ) : the_post(); ?>
-
-                    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-						<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) { ?>
-
-                            <h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark">
-
-									<?php if ( get_the_title() ) {
-										the_title();
-									} ?>
-
-                                </a>
-                            </h2>
-
-                            <div class="entry-meta">
-                                <a href="<?php the_permalink() ?>">
-                                    <span class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span>
-                                </a>
-
-								<?php if ( comments_open() ) : ?>
-
-                                    <span class="comment-count">
-                                        <a href="<?php comments_link(); ?>"><?php comments_popup_link( __( 'Leave a Comment', 'evolve' ), __( '1 Comment', 'evolve' ), __( '% Comments', 'evolve' ) ); ?></a>
-                                    </span>
-
-								<?php endif; ?>
-
-                                <span class="author vcard">
-
-                                            <?php $evolve_author_avatar = evolve_theme_mod( 'evl_author_avatar', '0' );
-                                            if ( $evolve_author_avatar == "1" ) {
-	                                            echo get_avatar( get_the_author_meta( 'email' ), '30' );
-                                            }
-
-                                            esc_html_e( 'Written by', 'evolve' ); ?>
-
-                                    <strong><?php printf( '<a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'evolve' ), $authordata->display_name ) ) . '">' . get_the_author() . '</a>' ) ?></strong>
-                                </span><!-- .author .vcard -->
-
-								<?php if ( $evolve_edit_post == "1" ) {
-									if ( current_user_can( 'edit_post', $post->ID ) ):
-										edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post">', '</span>' );
-									endif;
-								} ?>
-
-                            </div><!-- .entry-meta -->
-
-						<?php } else { ?>
-
-                            <h2 class="entry-title">
-                                <a href="<?php the_permalink(); ?>" rel="bookmark">
-
-									<?php if ( get_the_title() ) {
-										the_title();
-									} ?>
-
-                                </a>
-                            </h2>
-
-							<?php if ( $evolve_edit_post == "1" ) {
-								if ( current_user_can( 'edit_post', $post->ID ) ):
-									edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post edit-attach">', '</span>' );
-								endif;
-							}
-						} ?>
-
-                        <div class="entry-content">
-
-							<?php if ( $evolve_featured_images == "1" ) {
-
-								if ( has_post_thumbnail() ) {
-									echo '<div class="thumbnail-post"><a href="';
-									the_permalink();
-									echo '">';
-									the_post_thumbnail( 'post-thumbnail' );
-									echo '<div class="mask"><div class="icon"></div></div></a></div>';
-
-								} else {
-
-									$image = evolve_get_first_image();
-
-									if ( $image ):
-										echo '<div class="thumbnail-post"><a href="';
-										the_permalink();
-										echo '"><img src="' . $image . '" alt="';
-										the_title();
-										echo '" /><div class="mask"><div class="icon"></div></div></a></div>';
-
-									else:
-
-										if ( $evolve_thumbnail_default_images == 0 ) {
-											echo '<div class="thumbnail-post"><a href="';
-											the_permalink();
-											echo '"><img src="' . get_template_directory_uri() . '/assets/images/no-thumbnail.jpg" alt="';
-											the_title();
-											echo '" /><div class="mask"><div class="icon"></div></div></a></div>';
-										}
-									endif;
-								}
-							}
-
-							if ( ( $evolve_excerpt_thumbnail == "1" ) ) {
-
-								the_excerpt(); ?>
-
-                                <a class="btn btn-sm"
-                                   href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
-
-								<?php
-							} else {
-
-								the_content( __( 'Read More &raquo;', 'evolve' ) );
-
-								wp_link_pages( array(
-									'before' => '<div id="page-links"><p>' . __( '<strong>Pages:</strong>', 'evolve' ),
-									'after'  => '</p></div>'
-								) );
-							} ?>
-
-                        </div><!-- .entry-content -->
-
-                        <div class="entry-meta row">
-                            <div class="col-md-6">
-
-								<?php if ( evolve_get_terms( 'cats' ) ) { ?>
-
-                                    <div class="entry-categories"> <?php echo evolve_get_terms( 'cats' ); ?></div>
-
-								<?php }
-
-								if ( evolve_get_terms( 'tags' ) ) { ?>
-
-                                    <div class="entry-tags"> <?php echo evolve_get_terms( 'tags' ); ?></div>
-
-								<?php } ?>
-
-                            </div>
-                            <div class="col-md-6">
-
-								<?php if ( ( $evolve_share_this == "single_archive" ) || ( $evolve_share_this == "all" ) ) {
-									evolve_sharethis();
-								} else { ?>
-
-                                    <div class="mb-4"></div>
-
-								<?php } ?>
-
-                            </div>
-                        </div><!-- .entry-meta .row -->
-                    </div><!-- #post -->
-
-					<?php comments_template();
-
-				endwhile;
-
-				if ( ( $evolve_nav_links == "" ) || ( $evolve_nav_links == "after" ) || ( $evolve_nav_links == "both" ) ) {
-
-					get_template_part( 'template-parts/navigation/navigation', 'index' );
+			else:
+				if ( $evolve_thumbnail_default_images == 0 ) {
+					echo '<div class="thumbnail-post"><a href="';
+					the_permalink();
+					echo '"><img src="' . get_template_directory_uri() . '/assets/images/no-thumbnail.jpg" alt="';
+					the_title();
+					echo '" /><div class="mask"><div class="icon"></div></div></a></div>';
 				}
-
 			endif;
 		}
+	}
 
-		/*
-		   1 Column End
-		   ======================================= */
+		if ( $evolve_post_layout != "one" || ( $evolve_post_layout == "one" && $evolve_excerpt_thumbnail == "1" ) ) {
 
-		?>
+			the_excerpt(); ?>
+
+            </div><!-- .post-content -->
+
+			<?php if ( $evolve_post_layout != "one" && comments_open() || evolve_get_terms( 'cats' ) || ( $evolve_post_layout == "one" && ( evolve_get_terms( 'tags' ) || $evolve_share_this == "single_archive" || $evolve_share_this == "all" ) ) ) { ?>
+
+                <div class="row post-meta post-meta-footer align-items-top">
+
+					<?php if ( evolve_get_terms( 'cats' ) || evolve_get_terms( 'tags' ) ) { ?>
+
+                        <div class="col">
+
+							<?php echo evolve_get_svg( 'category' ) . evolve_get_terms( 'cats' );
+							if ( $evolve_post_layout == "one" && evolve_get_terms( 'tags' ) ) {
+								echo evolve_get_svg( 'tag' ) . evolve_get_terms( 'tags' );
+							} ?>
+
+                        </div><!-- .col -->
+
+					<?php }
+					if ( $evolve_post_layout != "one" && comments_open() ) { ?>
+
+                        <div class="col-md-6 comment-count">
+
+							<?php echo evolve_get_svg( 'comment' );
+							comments_popup_link( __( 'Leave a Comment', 'evolve' ), __( '1 Comment', 'evolve' ), __( '% Comments', 'evolve' ) ); ?>
+
+                        </div><!-- .col .comment-count -->
+
+					<?php }
+					if ( $evolve_post_layout == "one" ) {
+
+						if ( $evolve_share_this == "single_archive" || $evolve_share_this == "all" ) {
+							echo '<div class="col-md-6"><div class="share-this">';
+							evolve_sharethis();
+							echo '</div></div><!-- .col .share-this -->';
+						}
+					} ?>
+
+                </div><!-- .row .post-meta .post-meta-footer .align-items-top -->
+
+			<?php } ?>
+
+            <a class="btn btn-sm" href="<?php the_permalink(); ?>">
+
+				<?php esc_html_e( 'Read More', 'evolve' ); ?>
+
+            </a>
+
+		<?php } else {
+
+			the_content( __( 'Read More &raquo;', 'evolve' ) );
+
+			wp_link_pages( array(
+				'before' => '<div id="page-links"><p>' . __( '<strong>Pages:</strong>', 'evolve' ),
+				'after'  => '</p></div>'
+			) ); ?>
+
+            </div><!-- .post-content -->
+
+		<?php } ?>
+
+        </div><!-- .post -->
+
+	<?php
+	endwhile;
+
+	if ( $evolve_post_layout != "one" && ( is_home() || is_page_template( 'blog-page.php' ) ) ) {
+		echo '</div><!-- .card-columns -->';
+	}
+
+	if ( $evolve_nav_links == "after" || $evolve_nav_links == "both" ) {
+		get_template_part( 'template-parts/navigation/navigation', 'index' );
+	}
+
+endif; ?>
 
     </div><!-- #primary -->
 
 <?php
-
 if ( evolve_lets_get_sidebar_2() == true ):
 	get_sidebar( '2' );
 endif;
