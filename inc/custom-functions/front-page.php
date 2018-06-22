@@ -735,7 +735,7 @@ function evolve_blog_posts() {
 	$html .= '</div>';
 	if ( $paging == 'yes' ) {
 		ob_start();
-		evolve_custom_number_paging_nav();
+		evolve_number_pagination();
 		$pagination = ob_get_contents();
 		ob_get_clean();
 		$html .= $pagination;

@@ -129,11 +129,8 @@ $evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image'
 					<?php
 					the_content( __( 'Read More &raquo;', 'evolve' ) );
 
-					wp_link_pages( array(
-						'before' => '<div id="page-links"><p>' . __( '<strong>Pages:</strong>', 'evolve' ),
-						'after'  => '</p></div>'
-					) );
-					?>
+					evolve_link_pages(); ?>
+
 
                     <div class="clearfix"></div>
 

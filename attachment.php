@@ -41,8 +41,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 				<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) {
 					?>
                     <h1 class="post-title"><a href="<?php echo get_permalink( $post->post_parent ); ?>"
-                                               rev="attachment"
-                                               class="attach-font"><?php echo get_the_title( $post->post_parent ); ?></a>
+                                              rev="attachment"><?php echo get_the_title( $post->post_parent ); ?></a>
                         &raquo; <?php
 						if ( get_the_title() ) {
 							the_title();
@@ -50,7 +49,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 						?>
                     </h1>
 
-                        <div class="post-meta">
+                    <div class="post-meta">
                         <a href="<?php the_permalink() ?>"><span
                                     class="published updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
 
@@ -82,7 +81,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 				<?php } else { ?>
 
                     <h1 class="post-title"><a href="<?php echo get_permalink( $post->post_parent ); ?>"
-                                               rev="attachment"><?php echo get_the_title( $post->post_parent ); ?></a>
+                                              rev="attachment"><?php echo get_the_title( $post->post_parent ); ?></a>
                         &raquo; <?php the_title(); ?></h1>
 
 					<?php
@@ -138,7 +137,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
                         <div class="navigation clearfix row">
                             <div class="col-sm-6 col-md-6 nav-previous"><?php previous_image_link( false, '<div class="btn btn-left icon-arrow-left icon-big">Previous Image</div>' ); ?></div>
                             <div class="col-sm-6 col-md-6 nav-next"><?php next_image_link( false, '<div class="btn btn-right icon-arrow-right icon-big">Next Image</div>' ); ?></div>
-                            <!-- .pagination -->
+                            <!-- .navigation -->
                         </div>
 
 					<?php else : ?>

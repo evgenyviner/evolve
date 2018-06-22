@@ -272,6 +272,10 @@ function evolve_post_class( $classes ) {
         Function To Print Out CSS Class According To Post Layout
         ======================================= */
 
+
+	if ( is_sticky() ) {
+		$classes[] = 'sticky';
+	}
 	if ( ( has_post_format( array(
 				'aside',
 				'audio',

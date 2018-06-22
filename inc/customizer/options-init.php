@@ -2581,7 +2581,7 @@ if ( true || is_customize_preview() ) {
 					'title'       => esc_attr__( 'Widget Title Font', 'evolve' ),
 					'default'     => array(
 						'font-size'   => '1.2rem',
-						'color'       => '#333',
+						'color'       => '#333333',
 						'font-family' => 'Roboto',
 						'font-weight' => '700',
 					),
@@ -2596,7 +2596,7 @@ if ( true || is_customize_preview() ) {
 					'default'     => array(
 						'font-size'   => '.9rem',
 						'font-family' => 'Roboto',
-						'color'       => '#333',
+						'color'       => '#333333',
 						'font-weight' => '300',
 					),
 				),
@@ -2631,7 +2631,7 @@ if ( true || is_customize_preview() ) {
 					'title'       => esc_attr__( 'Post/Page Content Font', 'evolve' ),
 					'default'     => array(
 						'font-size'   => '1rem',
-						'color'       => '#333',
+						'color'       => '#333333',
 						'font-family' => 'Roboto',
 						'font-weight' => '300',
 					),
@@ -2691,7 +2691,7 @@ if ( true || is_customize_preview() ) {
 					'title'       => esc_attr__( 'H1 Font', 'evolve' ),
 					'default'     => array(
 						'font-size'   => '2.9rem',
-						'color'       => '#333',
+						'color'       => '#333333',
 						'font-family' => 'Roboto',
 						'font-weight' => '500',
 					),
@@ -2706,7 +2706,7 @@ if ( true || is_customize_preview() ) {
 					'default'     => array(
 						'font-size'   => '2.5rem',
 						'font-family' => 'Roboto',
-						'color'       => '#333',
+						'color'       => '#333333',
 						'font-weight' => '500',
 					),
 				),
@@ -2720,7 +2720,7 @@ if ( true || is_customize_preview() ) {
 					'default'     => array(
 						'font-size'   => '1.75rem',
 						'font-family' => 'Roboto',
-						'color'       => '#333',
+						'color'       => '#333333',
 						'font-weight' => '500',
 					),
 				),
@@ -2734,7 +2734,7 @@ if ( true || is_customize_preview() ) {
 					'default'     => array(
 						'font-size'   => '1.7rem',
 						'font-family' => 'Roboto',
-						'color'       => '#333',
+						'color'       => '#333333',
 						'font-weight' => '500',
 					),
 				),
@@ -2748,7 +2748,7 @@ if ( true || is_customize_preview() ) {
 					'default'     => array(
 						'font-size'   => '1.25rem',
 						'font-family' => 'Roboto',
-						'color'       => '#333',
+						'color'       => '#333333',
 						'font-weight' => '500',
 					),
 				),
@@ -2762,7 +2762,7 @@ if ( true || is_customize_preview() ) {
 					'default'     => array(
 						'font-size'   => '.9rem',
 						'font-family' => 'Roboto',
-						'color'       => '#333',
+						'color'       => '#333333',
 						'font-weight' => '500',
 					),
 				),

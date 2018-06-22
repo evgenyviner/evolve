@@ -209,10 +209,9 @@ if ( have_posts() ) :
 
 			the_content( __( 'Read More &raquo;', 'evolve' ) );
 
-			wp_link_pages( array(
-				'before' => '<div id="page-links"><p>' . __( '<strong>Pages:</strong>', 'evolve' ),
-				'after'  => '</p></div>'
-			) ); ?>
+			wp_link_pages_args_prevnext_add();
+
+			?>
 
             </div><!-- .post-content -->
 

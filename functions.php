@@ -443,25 +443,31 @@ function evolve_footer_hooks() { ?>
 	endif;
 }
 
-function evolve_hexDarker( $hex, $factor = 30 ) {
-	$new_hex = '';
-	// if hex code null than assign transparent for hide PHP warning /
-	$hex       = empty( $hex ) ? 'ransparent' : $hex;
-	$base['R'] = hexdec( $hex{0} . $hex{1} );
-	$base['G'] = hexdec( $hex{2} . $hex{3} );
-	$base['B'] = hexdec( $hex{4} . $hex{5} );
-	foreach ( $base as $k => $v ) {
-		$amount            = $v / 100;
-		$amount            = round( $amount * $factor );
-		$new_decimal       = $v - $amount;
-		$new_hex_component = dechex( $new_decimal );
-		if ( strlen( $new_hex_component ) < 2 ) {
-			$new_hex_component = "0" . $new_hex_component;
-		}
-		$new_hex .= $new_hex_component;
+/*
+   Function To Change The HEX Color Code
+   ======================================= */
+
+function evolve_hex_change( $hex, $steps = '-12' ) {
+	// Steps should be between -255 and 255. Negative = darker, positive = lighter
+	$steps = max( - 255, min( 255, $steps ) );
+
+	// Normalize into a six character long hex string
+	$hex = str_replace( '#', '', $hex );
+	if ( strlen( $hex ) == 3 ) {
+		$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
 	}
 
-	return $new_hex;
+	// Split into three parts: R, G and B
+	$color_parts = str_split( $hex, 2 );
+	$return      = '#';
+
+	foreach ( $color_parts as $color ) {
+		$color  = hexdec( $color ); // Convert to decimal
+		$color  = max( 0, min( 255, $color + $steps ) ); // Adjust color
+		$return .= str_pad( dechex( $color ), 2, '0', STR_PAD_LEFT ); // Make two char hex code
+	}
+
+	return $return;
 }
 
 /*
@@ -1305,7 +1311,7 @@ function evolve_posts_slider() {
 								$excerpt_length = evolve_theme_mod( 'evl_posts_slider_excerpt_length', 40 );
 								echo evolve_excerpt_max_charlength( $excerpt_length );
 								?></p>
-                            <a class="btn post-more"
+                            <a class="btn"
                                href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
                         </li>
 					<?php
@@ -1335,8 +1341,8 @@ jQuery(function ($) {
                 var ias = jQuery.ias({
                     container: ".posts-container-infinite",
                     item: "div.post",
-                    pagination: "div.pagination",
-                    next: "a.pagination-next",
+                    pagination: "div.navigation",
+                    next: "a.navigation-next",
                 });
                 ias.extension(new IASTriggerExtension({
                         text: "Load more items",
@@ -1352,7 +1358,7 @@ jQuery(function ($) {
                         var ias = jQuery.ias({
                              container: "#primary",
                              item: ".post",
-                             pagination: ".pagination",
+                             pagination: ".navigation",
                              next: ".nav-previous a",
                         });
                         ias.extension(new IASTriggerExtension({
@@ -1813,40 +1819,81 @@ function evolve_print_fonts_old( $name, $css_class, $additional_css = '', $addit
    Number Pagination
    ======================================= */
 
-if ( ! function_exists( 'evolve_custom_number_paging_nav' ) ) :
-	function evolve_custom_number_paging_nav() {
-		// Don't print empty markup if there's only one page.
-		if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
-			return;
-		}
-		$paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
-		$pagenum_link = html_entity_decode( get_pagenum_link() );
-		$query_args   = array();
-		$url_parts    = explode( '?', $pagenum_link );
-		if ( isset( $url_parts[1] ) ) {
-			wp_parse_str( $url_parts[1], $query_args );
-		}
-		$pagenum_link = remove_query_arg( array_keys( $query_args ), $pagenum_link );
-		$pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
-		$format       = $GLOBALS['wp_rewrite']->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
-		$format       .= $GLOBALS['wp_rewrite']->using_permalinks() ? user_trailingslashit( 'page/%#%', 'paged' ) : '?paged=%#%';
-		// Set up paginated links.
-		$links = paginate_links( array(
-			'base'      => $pagenum_link,
-			'format'    => $format,
-			'total'     => $GLOBALS['wp_query']->max_num_pages,
-			'current'   => $paged,
-			'mid_size'  => 3,
-			'add_args'  => array_map( 'urlencode', $query_args ),
-			'prev_text' => sprintf( '<span class="t4p-icon-chevron-left"></span> %s', __( 'Previous ', 'evolve' ) ),
-			'next_text' => sprintf( '%s <span class="t4p-icon-chevron-right"></span>', __( 'Next ', 'evolve' ) ),
-			'type'      => 'list',
-		) );
-		if ( $links ) :
-			echo $links;
-		endif;
+function evolve_number_pagination( WP_Query $wp_query = null, $echo = true ) {
+	if ( null === $wp_query ) {
+		global $wp_query;
 	}
-endif;
+	$pages = paginate_links( [
+			'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+			'format'       => '?paged=%#%',
+			'current'      => max( 1, get_query_var( 'paged' ) ),
+			'total'        => $wp_query->max_num_pages,
+			'type'         => 'array',
+			'show_all'     => false,
+			'end_size'     => 3,
+			'mid_size'     => 1,
+			'prev_next'    => true,
+			'prev_text'    => sprintf( __( 'Previous', 'evolve' ) ),
+			'next_text'    => sprintf( __( 'Next', 'evolve' ) ),
+			'add_args'     => false,
+			'add_fragment' => ''
+		]
+	);
+	if ( is_array( $pages ) ) {
+		//$paged = ( get_query_var( 'paged' ) == 0 ) ? 1 : get_query_var( 'paged' );
+		$pagination = '<ul class="pagination justify-content-center">';
+		foreach ( $pages as $page ) {
+			$pagination .= '<li class="page-item"> ' . str_replace( 'page-numbers', 'page-link', $page ) . '</li>';
+		}
+		$pagination .= '</ul>';
+		if ( $echo ) {
+			echo $pagination;
+		} else {
+			return $pagination;
+		}
+	}
+
+	return null;
+}
+
+/*
+   Custom Post Pagination
+   ======================================= */
+
+function evolve_link_pages( $args = array() ) {
+	$defaults = array(
+		'before'           => '<nav aria-label="navigation" class="navigation"><ul class="pagination number-pagination"><li class="page-item disabled"><span class="page-link">' . __( 'Pages:', 'evolve' ) . '</span></li>',
+		'after'            => '</ul></nav>',
+		'before_link'      => '<li class="page-item">',
+		'after_link'       => '</li>',
+		'current_before'   => '<li class="page-item">',
+		'current_after'    => '</li>',
+		'nextpagelink'     => __( 'Next', 'evolve' ),
+		'previouspagelink' => __( 'Previous', 'evolve' ),
+		'link_before'      => '',
+		'link_after'       => '',
+		'pagelink'         => '%',
+		'echo'             => 1
+	);
+	$r        = wp_parse_args( $args, $defaults );
+	$r        = apply_filters( 'wp_link_pages_args', $r );
+	extract( $r, EXTR_SKIP );
+	global $page, $numpages, $multipage, $more, $pagenow;
+	if ( ! $multipage ) {
+		return;
+	}
+	$output = $before;
+	for ( $i = 1; $i < ( $numpages + 1 ); $i ++ ) {
+		$j      = str_replace( '%', $i, $pagelink );
+		$output .= ' ';
+		if ( $i != $page || ( ! $more && 1 == $page ) ) {
+			$output .= "{$before_link}" . _wp_link_page( $i ) . "{$link_before}{$j}{$link_after}</a>{$after_link}";
+		} else {
+			$output .= "{$current_before}{$link_before}<span aria-current='page' class='page-link current'>{$j}</span>{$link_after}{$current_after}";
+		}
+	}
+	print $output . $after;
+}
 
 /*
    Change In bbPress Breadcrumb
@@ -2179,4 +2226,14 @@ add_filter( 'wp_calculate_image_srcset', '__return_false', PHP_INT_MAX );
 
 if ( class_exists( 'Woocommerce' ) ) {
 	require get_parent_theme_file_path( 'inc/custom-functions/woocommerce-support.php' );
+}
+
+/*
+   Function To Separate Values
+   ======================================= */
+
+function evolve_remove_comma( $str ) {
+	substr( $str, 1 );
+
+	return $str;
 }
