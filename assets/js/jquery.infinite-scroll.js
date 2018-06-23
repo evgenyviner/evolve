@@ -298,7 +298,7 @@ IASNoneLeftExtension.prototype.bind = function (a) {
     a.off("noneLeft", this.showNoneLeft)
 }, IASNoneLeftExtension.prototype.defaults = {
     text: "You reached the end.",
-    html: '<div class="ias-noneleft" style="text-align: center;">{text}</div>'
+    html: '<div class="row ias-noneleft">{text}</div>'
 };
 var IASPagingExtension = function () {
     return this.ias = null, this.pagebreaks = [

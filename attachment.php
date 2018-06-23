@@ -38,7 +38,7 @@ $evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 
             <div id="post-<?php the_ID(); ?>" class="<?php semantic_entries(); ?>">
 
-				<?php if ( ( $evolve_header_meta == "" ) || ( $evolve_header_meta == "single_archive" ) ) {
+				<?php if ( $evolve_header_meta == "single_archive"  ) {
 					?>
                     <h1 class="post-title"><a href="<?php echo get_permalink( $post->post_parent ); ?>"
                                               rev="attachment"><?php echo get_the_title( $post->post_parent ); ?></a>

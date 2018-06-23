@@ -153,6 +153,10 @@ body {
     padding-right: 30px;
 }
 
+#primary {
+    word-wrap: break-word;
+}
+
 /*
    Header
    ======================================= */
@@ -591,75 +595,75 @@ video {
     width: 40px;
 }
 
-.format-video {
+.format-video.formatted-post {
     background: #ffa500;
 }
 
-.format-chat {
+.format-chat.formatted-post {
     background: #d8b803;
 }
 
-.format-link {
+.format-link.formatted-post {
     background: #01bbe1;
 }
 
-.format-image {
+.format-image.formatted-post {
     background: #e66d26;
 }
 
-.format-quote {
+.format-quote.formatted-post {
     background: #ca2547;
 }
 
-.format-aside {
+.format-aside.formatted-post {
     background: #495d7f;
 }
 
-.format-gallery {
+.format-gallery.formatted-post {
     background: #666;
 }
 
-.format-audio {
+.format-audio.formatted-post {
     background: #009bae;
 }
 
-.format-status {
+.format-status.formatted-post {
     background: #69849a;
 }
 
-.format-video::before {
+.format-video.formatted-post::before {
     background-image: url(assets/images/icons.svg#icon-video-view);
 }
 
-.format-chat::before {
+.format-chat.formatted-post::before {
     background-image: url(assets/images/icons.svg#icon-chat-view);
 }
 
-.format-link::before {
+.format-link.formatted-post::before {
     background-image: url(assets/images/icons.svg#icon-link-light-view);
 }
 
-.format-image::before {
+.format-image.formatted-post::before {
     background-image: url(assets/images/icons.svg#icon-image-view);
 }
 
-.format-quote::before {
+.format-quote.formatted-post::before {
     background-image: url(assets/images/icons.svg#icon-quote-view);
 }
 
-.format-aside::before {
+.format-aside.formatted-post::before {
     background-image: url(assets/images/icons.svg#icon-aside-view);
 }
 
-.format-gallery::before {
+.format-gallery.formatted-post::before {
     background-image: url(assets/images/icons.svg#icon-gallery-view);
 }
 
-.format-audio::before {
+.format-audio.formatted-post::before {
     background-image: url(assets/images/icons.svg#icon-audio-view);
 }
 
-.format-status::before {
+.format-status.formatted-post::before {
     background-image: url(assets/images/icons.svg#icon-comment-view);
 }
 
@@ -774,6 +778,16 @@ h4.section_title {
     margin-bottom: 3rem;
 }
 
+.page-title {
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.page-title span {
+    font-weight: normal;
+}
+
 /*
    Components
    ======================================= */
@@ -788,13 +802,13 @@ h4.section_title {
 }
 
 .navigation a,
-.post-content .navigation a:link {
-    color: #999;
+.post-content .number-pagination a:link {
+    color: #999 !important;
 }
 
 .navigation a:hover,
 .post-content .navigation a:hover {
-    color: #333;
+    color: #333 !important;
 }
 
 .navigation .nav-previous {
@@ -848,6 +862,12 @@ h4.section_title {
     line-height: 1.25;
 }
 
+.navigation .page-item.disabled .page-link {
+    background: none;
+    padding-left: 0;
+    font-weight: bold;
+}
+
 /*
    Breadcrumbs
    --------------------------------------- */
@@ -857,16 +877,6 @@ h4.section_title {
     padding-left: 0;
     padding-right: 0;
     font-size: .8rem;
-}
-
-.page-title {
-    font-size: 26px;
-    font-weight: bold;
-    letter-spacing: -1px;
-}
-
-.page-title span {
-    font-weight: normal;
 }
 
 /*
@@ -889,87 +899,6 @@ input[type=submit],
 
 .btn-sm {
     padding: .5rem 1rem !important;
-}
-
-.icon-arrow-right::before {
-    content: "\e919";
-    font-family: "IcoMoon";
-    font-size: 15px;
-    font-style: normal;
-    font-weight: normal;
-}
-
-.icon-arrow-left::before::before {
-    content: "\e918";
-    font-family: "IcoMoon";
-    font-size: 15px;
-    font-style: normal;
-    font-weight: normal;
-}
-
-.read-more.icon-arrow-right::before {
-    color: #bbb;
-}
-
-.btn-right::before {
-    right: 15px;
-    opacity: 0;
-    top: 0;
-}
-
-.btn-right:hover::before {
-    right: 8px;
-    opacity: 1;
-}
-
-.btn-left::before {
-    left: 15px;
-    opacity: 0;
-    top: 0;
-}
-
-.btn-left:hover::before {
-    left: 8px;
-    opacity: 1;
-}
-
-.icon-big {
-    white-space: normal;
-}
-
-.icon-arrow-right.icon-big {
-    text-align: right;
-}
-
-.icon-arrow-left.icon-big {
-    text-align: left;
-}
-
-.icon-big::before {
-    line-height: 30px;
-    opacity: 1 !important;
-    font-size: 15px;
-    color: #ddd;
-}
-
-.icon-big:hover::before {
-    color: #aaa;
-}
-
-.btn-right.icon-big::before {
-    right: -20px;
-}
-
-.btn-right.icon-big:hover::before {
-    right: -25px;
-}
-
-.btn-left.icon-big::before {
-    left: -20px;
-}
-
-.btn-left.icon-big:hover::before {
-    left: -25px;
 }
 
 /*
@@ -2166,49 +2095,6 @@ ul.nav-tabs {
     overflow: hidden;
 }
 
-/* TODO remove */
-.center-menu ul.nav-menu li {
-    text-align: left;
-}
-
-.center-menu {
-    text-align: center;
-}
-
-.h4-menu.center-menu {
-    text-align: left;
-}
-
-.center-menu.custom-center .menu-short-menu-1-container {
-    text-align: center;
-}
-
-.center-menu .menu-short-menu-1-container {
-    text-align: left;
-}
-
-/*!==========================================================================
-   Blog
-   ========================================================================== */
-
-#primary {
-    word-wrap: break-word;
-}
-
-#primary.full-width h1 {
-    margin: 0 0 15px;
-}
-
-.t4p-icon-youtube-play::before {
-    content: '\e906';
-}
-
-.t4p-blog-large .post-meta .meta-tags::before {
-    font-family: "IcoMoon";
-    content: '\e90a';
-    margin-right: 5px;
-}
-
 /*!==========================================================================
    Comment
    ========================================================================== */
@@ -2453,29 +2339,6 @@ a.follow-replies:hover {
 /*!==========================================================================
    Slider Posts
    ========================================================================== */
-
-.similar-posts {
-    border-radius: 3px;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-    clear: both;
-    padding: 15px;
-    margin-bottom: 40px;
-    background: rgba(255, 255, 255, .5);
-}
-
-.similar-posts ul {
-    margin-bottom: 0;
-}
-
-.similar-posts ul li {
-    padding-bottom: 5px;
-}
-
-.similar-posts a.similar-title {
-    font-weight: bold;
-    font-size: 15px;
-}
 
 #slide_holder {
     position: relative;

@@ -2147,4 +2147,181 @@ function evolve_build_url( $url_data ) {
 
 	return $url;
 }
-    
+
+/*
+   WooCommerce My Account / Cart Menu
+   ======================================= */
+
+function evolve_woocommerce_menu() {
+if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve_theme_mod( 'evl_woocommerce_cart_link_main_nav', 0 ) == "0" ) {
+	return;
+	}
+
+    global $woocommerce;
+				?>
+
+                <nav class="navbar navbar-expand-md float-md-right">
+
+                    <div class="navbar-toggler woocommerce-toggler" data-toggle="collapse"
+                         data-target="#woocommerce-menu"
+                         aria-controls="woocommerce-menu" aria-expanded="false" aria-label="Toggle navigation">
+
+						<?php if ( evolve_theme_mod( 'evl_woocommerce_cart_link_main_nav', 0 ) ):
+							echo evolve_get_svg( 'shop' );
+						else :
+							echo evolve_get_svg( 'user' );
+						endif; ?>
+
+                    </div>
+
+                    <div id="woocommerce-menu" class="collapse navbar-collapse" data-hover="dropdown"
+                         data-animations="fadeIn fadeIn fadeIn fadeIn">
+
+                        <ul class="navbar-nav woocommerce-menu">
+
+							<?php if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) ): ?>
+
+                                <li class="nav-item dropdown my-account">
+                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>"
+                                       class="nav-link dropdown-toggle" id="myaccount_dropdown" role="button"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<?php echo evolve_get_svg( 'user' ); ?><?php esc_html_e( 'My Account', 'evolve' ); ?>
+                                    </a>
+
+
+									<?php if ( ! is_user_logged_in() && ! is_account_page() ): ?>
+
+                                        <div class="dropdown-menu p-4" aria-labelledby="myaccount_dropdown">
+                                            <form action="<?php echo wp_login_url(); ?>" name="loginform"
+                                                  method="post">
+
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="log"
+                                                           id="username" value=""
+                                                           placeholder="<?php echo esc_html__( 'Username', 'evolve' ); ?>"/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control" name="pwd"
+                                                           id="pasword" value=""
+                                                           placeholder="<?php echo esc_html__( 'Password', 'evolve' ); ?>"/>
+                                                </div>
+
+                                                <div class="form-group custom-control custom-checkbox">
+                                                    <input class="custom-control-input" name="rememberme"
+                                                           type="checkbox" id="rememberme" value="forever">
+                                                    <label class="custom-control-label"
+                                                           for="rememberme"><?php esc_html_e( 'Remember Me', 'evolve' ); ?></label>
+                                                </div>
+
+                                                <input type="submit" name="wp-submit" id="wp-submit"
+                                                       class="btn btn-sm"
+                                                       value="<?php esc_html_e( 'Log In', 'evolve' ); ?>">
+                                                <input type="hidden" name="redirect_to"
+                                                       value="<?php if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
+													       echo $_SERVER['HTTP_REFERER'];
+												       } ?>">
+                                                <input type="hidden" name="testcookie" value="1">
+
+                                            </form>
+                                        </div>
+
+									<?php elseif ( is_user_logged_in() && ! is_account_page() ) : ?>
+
+                                        <div class="dropdown-menu logout" aria-labelledby="myaccount_dropdown">
+                                            <a class="dropdown-item"
+                                               href="<?php echo wp_logout_url( get_permalink() ); ?>"><?php esc_html_e( 'Logout', 'evolve' ); ?></a>
+                                        </div>
+
+									<?php endif; ?>
+
+                                </li><!-- li.my-account -->
+
+							<?php endif;
+
+							if ( evolve_theme_mod( 'evl_woocommerce_cart_link_main_nav', 0 ) ): ?>
+
+                                <li class="nav-item dropdown cart">
+
+									<?php if ( ! $woocommerce->cart->cart_contents_count ): ?>
+
+                                        <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"
+                                           class="nav-link dropdown-toggle" id="cart_dropdown"
+                                           role="button"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+											<?php echo evolve_get_svg( 'shop' ); ?><?php esc_html_e( '0 items', 'evolve' ); ?>
+                                            - <?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
+
+                                        </a>
+
+                                        <div class="dropdown-menu p-3 dropdownhover-bottom"
+                                             aria-labelledby="cart_dropdown">
+                                            <span class="dropdown-item">
+
+											    <?php esc_html_e( 'Your cart is currently empty.', 'evolve' ); ?>
+
+                                            </span>
+                                        </div>
+
+									<?php else: ?>
+
+                                        <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"
+                                           class="btn nav-link dropdown-toggle" id="cart_dropdown" role="button"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+											<?php echo evolve_get_svg( 'shop' ); ?><?php echo sprintf( _n( '%s item', '%s items', $woocommerce->cart->cart_contents_count, 'evolve' ), $woocommerce->cart->cart_contents_count ); ?>
+                                            - <?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
+
+                                        </a>
+
+                                        <div class="dropdown-menu p-3" aria-labelledby="cart_dropdown">
+
+											<?php foreach ( $woocommerce->cart->cart_contents as $cart_item ): //var_dump($cart_item);
+												$cart_item_key = $cart_item['key'];
+												$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key ); ?>
+
+                                                <div class="media">
+
+                                                    <a href="<?php echo get_permalink( $cart_item['product_id'] ); ?>"><?php $evolve_thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image( array(
+															80,
+															80
+														) ), $cart_item, $cart_item_key );
+														echo $evolve_thumbnail; ?></a>
+
+                                                    <div class="media-body ml-3">
+                                                        <h6><?php echo $cart_item['data']->get_name(); ?></h6>
+                                                        <p>
+                                                            <a class="dropdown-item"
+                                                               href="<?php echo get_permalink( $cart_item['product_id'] ); ?>"><?php echo $cart_item['quantity']; ?>
+                                                                x <?php echo $woocommerce->cart->get_product_subtotal( $cart_item['data'], $cart_item['quantity'] ); ?></a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="dropdown-divider"></div>
+
+											<?php endforeach; ?>
+
+                                            <div class="row">
+                                                <div class="col text-center">
+                                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php echo evolve_get_svg( 'shop' ); ?><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php echo evolve_get_svg( 'ok' ); ?><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
+                                                </div>
+                                            </div>
+
+                                        </div><!-- .cart-contents -->
+
+									<?php endif; ?>
+
+                                </li><!-- li.cart -->
+
+							<?php endif; ?>
+
+                        </ul><!-- ul.woocommerce-menu -->
+                    </div>
+                </nav><!-- .navbar -->
+
+ <?php }

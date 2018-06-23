@@ -2317,7 +2317,7 @@ if ( true || is_customize_preview() ) {
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-header-subsec-title-tagline-tab',
-			'title'      => esc_attr__( 'Title & Tagline', 'evolve' ),
+			'title'      => esc_attr__( 'Website Title & Tagline', 'evolve' ),
 			'subsection' => true,
 			'fields'     => array(
 				array(
@@ -2328,7 +2328,7 @@ if ( true || is_customize_preview() ) {
 					'default'  => '0',
 				),
 				array(
-					'subtitle' => esc_attr__( 'Choose the position of blog tagline', 'evolve' ),
+					'subtitle' => esc_attr__( 'Choose the position of website tagline', 'evolve' ),
 					'id'       => 'evl_tagline_pos',
 					'type'     => 'select',
 					'compiler' => true,
@@ -2338,7 +2338,7 @@ if ( true || is_customize_preview() ) {
 						'under'   => esc_attr__( 'Under Website Title', 'evolve' ),
 						'disable' => esc_attr__( 'Disabled', 'evolve' ),
 					),
-					'title'    => esc_attr__( 'Blog Tagline Position', 'evolve' ),
+					'title'    => esc_attr__( 'Website Tagline Position', 'evolve' ),
 					'default'  => 'disable',
 				),
 			),
@@ -4465,24 +4465,28 @@ if ( true || is_customize_preview() ) {
 					'id'       => 'evl_woocommerce_evolve_ordering',
 					'type'     => 'checkbox',
 					'title'    => esc_attr__( 'Disable WooCommerce Shop Page Ordering Boxes', 'evolve' ),
+					'default'  => '0',
 				),
 				array(
 					'subtitle' => esc_attr__( 'Check the box to show the order notes on the checkout page', 'evolve' ),
 					'id'       => 'evl_woocommerce_enable_order_notes',
 					'type'     => 'checkbox',
 					'title'    => esc_attr__( 'Show WooCommerce Order Notes on Checkout', 'evolve' ),
+					'default'  => '0',
 				),
 				array(
 					'subtitle' => esc_attr__( 'Check the box to show My Account link, uncheck to disable', 'evolve' ),
 					'id'       => 'evl_woocommerce_acc_link_main_nav',
 					'type'     => 'checkbox',
 					'title'    => esc_attr__( 'Show WooCommerce My Account Link in Header', 'evolve' ),
+					'default'  => '0',
 				),
 				array(
 					'subtitle' => esc_attr__( 'Check the box to show the Cart icon, uncheck to disable', 'evolve' ),
 					'id'       => 'evl_woocommerce_cart_link_main_nav',
 					'type'     => 'checkbox',
 					'title'    => esc_attr__( 'Show WooCommerce Cart Link in Header', 'evolve' ),
+					'default'  => '0',
 				),
 				array(
 					'subtitle' => esc_attr__( 'Insert your text and it will appear in the first message box on the account page', 'evolve' ),
