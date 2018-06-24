@@ -23,7 +23,7 @@
 			if ( $evolve_blog_title == "0" ) { ?>
 
                 <div class="col">
-                    <a class="sticky-title" href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
+                    <a id="sticky-title" href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
                 </div>
 
 			<?php } ?>

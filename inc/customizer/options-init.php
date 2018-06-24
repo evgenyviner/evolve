@@ -1157,7 +1157,7 @@ if ( true || is_customize_preview() ) {
 					'id'              => 'evl_content_box1_button',
 					'type'            => 'textarea',
 					'title'           => esc_attr__( 'Content Box 1 Button', 'evolve' ),
-					'selector'        => '.content-box.content-box-1 .cntbox_btn',
+					'selector'        => '.content-box.content-box-1 .btn',
 					'render_callback' => 'evl_content_box1_button',
 					'default'         => sprintf( '<a class="btn btn-sm" href="#">%s</a>', esc_attr( 'Learn more', 'evolve' ) ),
 					'required'        => array(
@@ -3027,12 +3027,20 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'subtitle' => esc_attr__( 'Custom background color of Main Menu', 'evolve' ),
-					'id'       => 'evl_menu_back_color',
-					'type'     => 'color',
-					'compiler' => true,
-					'title'    => esc_attr__( 'Main Menu Color', 'evolve' ),
-					'default'  => '#273039',
+					'subtitle'  => esc_attr__( 'Custom background color of Main Menu', 'evolve' ),
+					'id'        => 'evl_menu_back_color',
+					'type'      => 'color',
+					'compiler'  => true,
+					'title'     => esc_attr__( 'Main Menu Color', 'evolve' ),
+					'default'   => '#273039',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.menu-header, .sticky-header',
+							'function' => 'css',
+							'property' => 'background'
+						)
+					),
 				),
 				array(
 					'subtitle' => esc_attr__( 'Check this box if you want to disable main menu background gradient, shadow effect and borders', 'evolve' ),
@@ -4521,7 +4529,7 @@ function evl_get_new_option( $geted_for_preview_in = false ) {
 		$evolve_options = get_option( $evolve_opt_name, false ); // Get saved options
 		if ( ! $evolve_options ) {
 			global $evolve_all_customize_fields;
-			$evolve_all_customize_fields = get_option( 'evl_all_customize_fields', $evolve_all_customize_fields );
+			$evolve_all_customize_fields = get_option( 'evolve_all_customize_fields', $evolve_all_customize_fields );
 			if ( $evolve_all_customize_fields ) {
 				foreach ( $evolve_all_customize_fields as $control ) {
 					if ( $control['value']['type'] == 'sorter' ) {
@@ -5317,7 +5325,7 @@ function evolve_customize_partial_blogdescription() {
 add_theme_support( 'customize-selective-refresh-widgets' );
 
 if ( $evolve_all_customize_fields === false ) {
-	update_option( 'evl_all_customize_fields', $evolve_all_customize_fields );
+	update_option( 'evolve_all_customize_fields', $evolve_all_customize_fields );
 }
 
 if ( ! is_customize_preview() ) {

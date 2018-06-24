@@ -796,6 +796,10 @@ h4.section_title {
    Blog Navigation
    --------------------------------------- */
 
+/*
+   -- Navigation Links
+   --------------------------------------- */
+
 .navigation,
 .navigation a {
     font-size: .9rem;
@@ -841,9 +845,13 @@ h4.section_title {
     transform: rotate(135deg);
 }
 
+/*
+   -- Number Pagination
+   --------------------------------------- */
+
 .navigation .page-link {
-    border: none;
     background: none;
+    border: none;
 }
 
 .navigation .current {
@@ -855,17 +863,67 @@ h4.section_title {
 }
 
 .navigation .number-pagination .page-item a {
-    position: relative;
     display: block;
-    padding: .5rem .75rem;
-    margin-left: -1px;
     line-height: 1.25;
+    margin-left: -1px;
+    padding: .5rem .75rem;
+    position: relative;
 }
 
 .navigation .page-item.disabled .page-link {
     background: none;
-    padding-left: 0;
     font-weight: bold;
+    padding-left: 0;
+}
+
+/*
+   -- Infinite Scroll
+   --------------------------------------- */
+
+.infinite-scroll,
+.ias-trigger,
+.ias-noneleft {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin: 3rem 0;
+    -webkit-column-span: all;
+    column-span: all;
+}
+
+.loader {
+    background: url(assets/images/icons.svg#icon-loader-view) center center no-repeat;
+    background-size: 60px 60px;
+    content: '';
+    height: 60px;
+    left: 50%;
+    margin-left: -30px;
+    position: relative;
+    width: 60px;
+    -webkit-animation: spin .7s infinite linear;
+    animation: spin .7s infinite linear;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+    }
 }
 
 /*
@@ -1362,56 +1420,6 @@ span.more a {
 
 .no_thumbnail {
     display: none !important;
-}
-
-/*!==========================================================================
-   Style
-   ========================================================================== */
-
-/* ======================== Infinite Scroll ======================== */
-
-.ias-trigger,
-.ias-spinner,
-.ias-noneleft {
-    clear: both;
-}
-
-.ias-spinner {
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-.ias-spinner .t4p-icon-repeat {
-    font-size: 35px;
-    color: #aaa;
-    display: inline-block;
-}
-
-.infinite-rotation-icon {
-    -webkit-animation: spin 1s infinite linear;
-    animation: spin 1s infinite linear;
-    -webkit-filter: blur(0);
-    filter: blur(0);
-}
-
-@keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(359deg);
-        transform: rotate(359deg);
-    }
-}
-
-@-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(359deg);
-    }
 }
 
 /* ======================== reCaptcha ======================== */
@@ -6253,7 +6261,7 @@ Blog Shortcode
         width: 100%;
     }
 
-    .sticky-header .sticky-title {
+    .sticky-header #sticky-title {
         margin: 0 !important;
     }
 

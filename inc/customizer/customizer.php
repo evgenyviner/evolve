@@ -9,7 +9,7 @@ function evolve_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport   = 'postMessage';
 
 	$wp_customize->selective_refresh->add_partial( 'blogname', array(
-		'selector' => '#website-title a, .sticky-title',
+		'selector' => '#website-title a, #sticky-title',
 		'render_callback' => 'evolve_customize_partial_blogname',
 	) );
 	$wp_customize->selective_refresh->add_partial( 'blogdescription', array(

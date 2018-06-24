@@ -157,7 +157,7 @@ $evolve_content_boxes_section_background_position = evolve_theme_mod( 'evl_conte
    ======================================= */
 
 // Active Menu Font Color
-$evolve_css_data .= ' .navbar-nav .nav-link:focus, .navbar-nav .nav-link:hover, .navbar-nav .active > .nav-link, .navbar-nav .nav-link.active, .navbar-nav .nav-link.show, .navbar-nav .show > .nav-link, .navbar-nav li.menu-item.current-menu-item > a, .navbar-nav li.menu-item.current-menu-parent > a, .navbar-nav li.menu-item.current-menu-ancestor > a, .navbar-nav li a:hover, .navbar-nav li:hover > a, .navbar-nav li:hover, .header-search .form-control, .header-search .form-control::placeholder { color: ' . $evolve_top_menu_hover_font_color . '; }';
+$evolve_css_data .= ' .navbar-nav .nav-link:focus, .navbar-nav .nav-link:hover, .navbar-nav .active > .nav-link, .navbar-nav .nav-link.active, .navbar-nav .nav-link.show, .navbar-nav .show > .nav-link, .navbar-nav li.menu-item.current-menu-item > a, .navbar-nav li.menu-item.current-menu-parent > a, .navbar-nav li.menu-item.current-menu-ancestor > a, .navbar-nav li a:hover, .navbar-nav li:hover > a, .navbar-nav li:hover { color: ' . $evolve_top_menu_hover_font_color . '; }';
 
 // Animate CSS Feature
 if ( $evolve_animatecss == "1" ) {
@@ -242,7 +242,7 @@ $evolve_css_data .= evolve_print_fonts( 'evl_post_font', ' .post-title, .post-ti
 $evolve_css_data .= evolve_print_fonts( 'evl_content_font', ' .post-content', '', $additional_color_css_class = ' body', '' );
 
 // Sticky Header Title Font
-$evolve_css_data .= evolve_print_fonts( 'evl_menu_blog_title_font', ' .sticky-title', '' );
+$evolve_css_data .= evolve_print_fonts( 'evl_menu_blog_title_font', ' #sticky-title', '' );
 
 // Main Menu Font
 $evolve_css_data .= evolve_print_fonts( 'evl_menu_font', ' .navbar-nav .nav-link, .navbar-nav .dropdown-item, .menu-header, .sticky-header, .navbar-toggler' );
@@ -288,6 +288,8 @@ $evolve_css_data .= evolve_print_fonts( 'evl_testimonials_title_alignment', ' h4
 
 // Counters Circle Title Section
 $evolve_css_data .= evolve_print_fonts( 'evl_counter_circle_title_alignment', ' h4.counter_circle_section_title', '' );
+
+$evolve_css_data .= ' .header-search .form-control, .header-search .form-control::placeholder { color: ' . $evolve_menu_font['color'] . '; }';
 
 $evolve_css_data .= ' #copyright, #copyright a { color: ' . evolve_hex_change( $evolve_copyright_font['color'], 90 ) . '; }';
 

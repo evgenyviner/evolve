@@ -46,7 +46,7 @@
     </symbol>
 
     <symbol id="icon-loader" viewBox="0 0 512 512">
-        <path d="m381 22l-24 43c15 8 29 19 42 32 18 18 33 40 43 64 10 25 16 51 16 78 0 27-6 54-16 79-10 24-25 45-43 64-19 18-41 33-65 43-24 11-51 16-78 16-27 0-54-5-78-16-24-10-46-25-65-43-18-19-33-40-43-64-10-25-16-52-16-79 0-17 3-35 7-51 4-17 11-32 19-47 16-29 40-54 68-72 2-1 5-3 7-4l-24-43c-4 2-7 4-10 6-70 44-116 122-116 211 0 139 112 251 251 251 139 0 251-112 251-251 0-93-51-174-126-217z"/>
+        <path d="m383 35l-24 44c15 8 30 19 43 32 18 19 34 41 44 65 10 26 16 52 16 80 0 28-6 55-16 81-10 24-26 45-44 65-20 18-42 34-66 44-25 11-52 16-80 16-28 0-55-5-80-16-24-10-46-26-66-44-18-20-34-41-44-65-10-26-16-53-16-81 0-17 3-36 7-52 4-17 11-33 19-48 17-30 41-55 70-73 2-1 5-3 7-4l-24-44c-5 2-8 4-11 6-71 45-118 124-118 215 0 142 114 256 256 256 142 0 256-114 256-256 0-95-52-177-129-221z"/>
     </symbol>
 
     <symbol id="icon-comment" viewBox="0 0 512 512">
@@ -156,6 +156,7 @@
     <view id="icon-aside-view" viewBox="0 192 24 24"/>
     <view id="icon-gallery-view" viewBox="0 216 24 24"/>
     <view id="icon-comment-view" viewBox="0 240 24 24"/>
+    <view id="icon-loader-view" viewBox="0 264 24 24"/>
 
     <use style="fill:#fff;" xlink:href="#icon-link" width="24" height="24" x="0" y="0"></use>
     <use xlink:href="#icon-link" width="24" height="24" x="0" y="24"></use>
@@ -168,5 +169,6 @@
     <use style="fill:#fff;" xlink:href="#icon-pencil" width="24" height="24" x="0" y="192"></use>
     <use style="fill:#fff;" xlink:href="#icon-photo" width="24" height="24" x="0" y="216"></use>
     <use style="fill:#fff;" xlink:href="#icon-comment" width="24" height="24" x="0" y="240"></use>
+    <use style="fill:#aaa;" xlink:href="#icon-loader" width="24" height="24" x="0" y="264"></use>
 
 </svg>

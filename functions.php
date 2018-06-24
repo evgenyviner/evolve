@@ -1343,51 +1343,6 @@ function evolve_posts_slider() {
 }
 
 /*
-   Infinite Scroll
-   ======================================= */
-
-add_action( 'wp_footer', 'evolve_infinite_scroll_blog' );
-function evolve_infinite_scroll_blog() {
-	echo '<script>
-jQuery(function ($) {
-            if (jQuery(".posts-container-infinite").length == 1) {
-                var ias = jQuery.ias({
-                    container: ".posts-container-infinite",
-                    item: "div.post",
-                    pagination: "div.navigation",
-                    next: "a.navigation-next",
-                });
-                ias.extension(new IASTriggerExtension({
-                        text: "Load more items",
-                        offset: 99999
-                }));
-                ias.extension(new IASSpinnerExtension({
-                }));
-                ias.extension(new IASNoneLeftExtension());
-            } else {';
-	$evolve_pagination_type = evolve_theme_mod( 'evl_pagination_type', 'pagination' );
-	if ( $evolve_pagination_type == "infinite" && ! is_single() && ( is_page_template( 'blog-page.php' ) || is_home() ) ) {
-		echo '
-                        var ias = jQuery.ias({
-                             container: "#primary",
-                             item: ".post",
-                             pagination: ".navigation",
-                             next: ".nav-previous a",
-                        });
-                        ias.extension(new IASTriggerExtension({
-                                text: "Load more items",
-                                offset: 99999
-                        }));
-                        ias.extension(new IASSpinnerExtension({
-                        }));
-                        ias.extension(new IASNoneLeftExtension());';
-	}
-	echo '}
-});
-    </script>';
-}
-
-/*
    Get BuddyPress Page ID
    ======================================= */
 
@@ -1514,8 +1469,7 @@ function evolve_layout_class( $type = 1 ) {
    ======================================= */
 
 function evolve_sidebar_class() {
-	global $wp_query;
-	global $post;
+	global $wp_query, $post;
 	$post_id = '';
 	if ( $wp_query->is_posts_page ) {
 		$post_id = get_option( 'page_for_posts' );
@@ -1598,8 +1552,7 @@ function evolve_sidebar_class() {
    ======================================= */
 
 function evolve_sidebar_class_2() {
-	global $wp_query;
-	global $post;
+	global $wp_query, $post;
 	$post_id = '';
 	if ( $wp_query->is_posts_page ) {
 		$post_id = get_option( 'page_for_posts' );
@@ -1833,6 +1786,11 @@ function evolve_print_fonts_old( $name, $css_class, $additional_css = '', $addit
    ======================================= */
 
 function evolve_number_pagination( WP_Query $wp_query = null, $echo = true ) {
+
+	if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "number_pagination" ) {
+		return;
+	}
+
 	if ( null === $wp_query ) {
 		global $wp_query;
 	}
@@ -1991,7 +1949,7 @@ function evolve_plugins_loaded() {
    as serialized strings.
    ======================================= */
 
-function endsWith( $haystack, $needle, $case = true ) {
+function evolve_suffix( $haystack, $needle, $case = true ) {
 	$expectedPosition = strlen( $haystack ) - strlen( $needle );
 	if ( $case ) {
 		return strrpos( $haystack, $needle, 0 ) === $expectedPosition;
@@ -2000,7 +1958,7 @@ function endsWith( $haystack, $needle, $case = true ) {
 	return strripos( $haystack, $needle, 0 ) === $expectedPosition;
 }
 
-function evl_fix_get_theme_mod( $array_in ) {
+function evolve_fix_get_theme_mod( $array_in ) {
 	if ( $array_in && is_array( $array_in ) && count( $array_in ) ) {
 		$enabled_temp = array();
 		foreach ( $array_in as $items ) {
@@ -2016,7 +1974,8 @@ function evl_fix_get_theme_mod( $array_in ) {
 }
 
 global $evolve_all_customize_fields;
-$evolve_all_customize_fields = get_option( 'evl_all_customize_fields', false );
+$evolve_all_customize_fields = get_option( 'evolve_all_customize_fields', false );
+
 function evolve_theme_mod( $name, $default = false ) {
 	global $evolve_all_customize_fields;
 	if ( $default == false ) {
@@ -2026,12 +1985,12 @@ function evolve_theme_mod( $name, $default = false ) {
 	}
 	$result = get_theme_mod( $name, $default );
 	if ( $result && is_array( $result ) && isset( $evolve_all_customize_fields[ $name ] ) && isset( $evolve_all_customize_fields[ $name ]['value']['type'] ) && $evolve_all_customize_fields[ $name ]['value']['type'] == 'sorter' ) {
-		$result = evl_fix_get_theme_mod( $result );
+		$result = evolve_fix_get_theme_mod( $result );
 	}
 	if ( $result && is_array( $result ) && count( $result ) && isset( $result["url"] ) ) {
 		return $result["url"];
 	}
-	if ( $result && is_string( $name ) && endsWith( $name, '_icon' ) ) {
+	if ( $result && is_string( $name ) && evolve_suffix( $name, '_icon' ) ) {
 		if ( ( strpos( $result, 'fa-' ) === 0 ) ) {
 			// It starts with 'fa-'
 			$result = trim( $result, 'fa-' );
@@ -2105,6 +2064,7 @@ get_template_part( 'inc/views/metaboxes/metaboxes' );
 
 function evolve_scripts() {
 	global $post, $evolve_slider_page_id, $evolve_frontpage_slider_status, $evolve_parallax_slider_all, $evolve_parallax_slider_support, $evolve_parallax_speed, $evolve_carousel_slider, $evolve_pos_button, $evolve_footer_reveal, $evolve_fontawesome, $evolve_css_data;
+
 	if ( $evolve_fontawesome != "1" ) {
 
 		// FontAwesome
@@ -2152,11 +2112,8 @@ function evolve_scripts() {
 		wp_enqueue_script( 'carousel', EVOLVE_JS . '/carousel.min.js', array( 'jquery' ), '', true );
 	}
 
-	//if ($evolve_pagination_type == "infinite") {
-	wp_enqueue_script( 'evolve-infinite-scroll', EVOLVE_JS . '/jquery.infinite-scroll.min.js', array( 'jquery' ), '', true );
-	//}
 	// TODO
-	// remove this wp_enqueue_script( 'flexslidermin', EVOLVE_JS . '/jquery.flexslider.min.js', array( 'jquery' ), '', true );
+	wp_enqueue_script( 'flexslidermin', EVOLVE_JS . '/jquery.flexslider.min.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'main', EVOLVE_JS . '/main.min.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'main_backend', EVOLVE_JS . '/main_backend.min.js', array( 'jquery' ), '', true );
 
@@ -2177,10 +2134,8 @@ function evolve_scripts() {
 	   ======================================= */
 
 	$evolve_local_variables = array(
-		'infinite_blog_finished_msg' => '<em>' . __( 'All posts displayed', 'evolve' ) . '</em>',
-		'infinite_blog_text'         => '<em>' . __( 'Loading the next set of posts...', 'evolve' ) . '</em>',
-		'theme_url'                  => get_template_directory_uri(),
-		'order_actions'              => __( 'Details', 'evolve' ),
+		'theme_url'     => get_template_directory_uri(),
+		'order_actions' => __( 'Details', 'evolve' ),
 	);
 
 	// Check WooCommerce Plugin & Version
@@ -2204,6 +2159,13 @@ function evolve_scripts() {
 		endif;
 		$evolve_local_variables['parallax_slider'] = true;
 	endif;
+
+	// Infinite Scroll
+	if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" && ! is_single() && ( is_page_template( 'blog-page.php' ) || is_home() ) ) {
+		$evolve_local_variables['infinite_scroll_enabled']       = true;
+		$evolve_local_variables['infinite_scroll_text_finished'] = __( 'You reached the end', 'evolve' );
+		$evolve_local_variables['infinite_scroll_text']          = __( 'Load more items', 'evolve' );
+	}
 
 	wp_localize_script( 'main', 'evolve_js_local_vars', $evolve_local_variables );
 }

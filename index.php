@@ -14,7 +14,7 @@ get_header(); ?>
 
 		evolve_breadcrumbs();
 
-		if ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" ) {
+		if ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "infinite" ) {
 			get_template_part( 'template-parts/navigation/navigation', 'index' );
 		}
 
@@ -33,7 +33,7 @@ get_header(); ?>
 			echo '</div><!-- .card-columns -->';
 		}
 
-		if ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "before" ) {
+		if ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "before" || ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" ) ) {
 			get_template_part( 'template-parts/navigation/navigation', 'index' );
 		} ?>
 
