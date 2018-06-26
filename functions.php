@@ -350,11 +350,11 @@ function evolve_footer_hooks() { ?>
         var $jx = jQuery.noConflict();
         $jx("article").mouseover(
             function () {
-                $jx(this).find("span.edit-post").css('visibility', 'visible');
+                $jx(this).find("span.edit-post").addClass('fadein');
             }
         ).mouseout(
             function () {
-                $jx(this).find("span.edit-post").css('visibility', 'hidden');
+                $jx(this).find("span.edit-post").removeClass('fadein');
             }
         );
         $jx("li.comment").mouseover(
@@ -482,58 +482,70 @@ function evolve_hex_change( $hex, $steps = '-12' ) {
    ======================================= */
 
 function evolve_sharethis() {
-	global $post;
-	$image_url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
-	if ( empty( $image_url ) ) {
-		$image_url = get_template_directory_uri() . '/assets/images/no-thumbnail.jpg';
+	if ( evolve_theme_mod( 'evl_share_this', 'single' ) == "disable" || is_search() || is_page() ) {
+		return;
 	}
-	?>
 
-    <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-       title="<?php esc_html_e( 'Share on Twitter', 'evolve' ); ?>" target="_blank"
-       href="http://twitter.com/intent/tweet?status=<?php echo $post->post_title; ?>+&raquo;+<?php echo esc_url( evolve_tinyurl( get_permalink() ) ); ?>">
+	if ( ( is_single() || evolve_theme_mod( 'evl_post_layout', 'two' ) == "one" ) && ( ( evolve_theme_mod( 'evl_share_this', 'single' ) == "single" && is_single() ) || ( evolve_theme_mod( 'evl_share_this', 'single' ) == "single_archive" && ! is_home() ) || ( evolve_theme_mod( 'evl_share_this', 'single' ) == "all" ) ) ) {
 
-		<?php echo evolve_get_svg( 'twitter' ); ?>
+		global $post;
+		$image_url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
+		if ( empty( $image_url ) ) {
+			$image_url = get_template_directory_uri() . '/assets/images/no-thumbnail.jpg';
+		}
+		?>
 
-    </a>
-    <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-       title="<?php esc_html_e( 'Share on Facebook', 'evolve' ); ?>" target="_blank"
-       href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&amp;t=<?php echo $post->post_title; ?>">
+        <div class="col-md-6">
+            <div class="share-this">
 
-		<?php echo evolve_get_svg( 'facebook' ); ?>
+                <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+                   title="<?php esc_html_e( 'Share on Twitter', 'evolve' ); ?>" target="_blank"
+                   href="http://twitter.com/intent/tweet?status=<?php echo $post->post_title; ?>+&raquo;+<?php echo esc_url( evolve_tinyurl( get_permalink() ) ); ?>">
 
-    </a>
-    <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-       title="<?php esc_html_e( 'Share on Google Plus', 'evolve' ); ?>" target="_blank"
-       href="https://plus.google.com/share?url=<?php the_permalink(); ?>">
+					<?php echo evolve_get_svg( 'twitter' ); ?>
 
-		<?php echo evolve_get_svg( 'google-plus' ); ?>
+                </a>
+                <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+                   title="<?php esc_html_e( 'Share on Facebook', 'evolve' ); ?>" target="_blank"
+                   href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&amp;t=<?php echo $post->post_title; ?>">
 
-    </a>
-    <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-       title="<?php esc_html_e( 'Share on Pinterest', 'evolve' ); ?>" target="_blank"
-       href="http://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $image_url; ?>&description=<?php echo $post->post_title; ?>">
+					<?php echo evolve_get_svg( 'facebook' ); ?>
 
-		<?php echo evolve_get_svg( 'pinterest' ); ?>
+                </a>
+                <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+                   title="<?php esc_html_e( 'Share on Google Plus', 'evolve' ); ?>" target="_blank"
+                   href="https://plus.google.com/share?url=<?php the_permalink(); ?>">
 
-    </a>
-    <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-       title="<?php esc_html_e( 'Share by Email', 'evolve' ); ?>" target="_blank"
-       href="http://www.addtoany.com/email?linkurl=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>">
+					<?php echo evolve_get_svg( 'google-plus' ); ?>
 
-		<?php echo evolve_get_svg( 'email' ); ?>
+                </a>
+                <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+                   title="<?php esc_html_e( 'Share on Pinterest', 'evolve' ); ?>" target="_blank"
+                   href="http://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $image_url; ?>&description=<?php echo $post->post_title; ?>">
 
-    </a>
-    <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-       title="<?php esc_html_e( 'More options', 'evolve' ); ?>"
-       target="_blank"
-       href="http://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>">
+					<?php echo evolve_get_svg( 'pinterest' ); ?>
 
-		<?php echo evolve_get_svg( 'more' ); ?>
+                </a>
+                <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+                   title="<?php esc_html_e( 'Share by Email', 'evolve' ); ?>" target="_blank"
+                   href="http://www.addtoany.com/email?linkurl=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>">
 
-    </a>
+					<?php echo evolve_get_svg( 'email' ); ?>
 
-	<?php
+                </a>
+                <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
+                   title="<?php esc_html_e( 'More options', 'evolve' ); ?>"
+                   target="_blank"
+                   href="http://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>">
+
+					<?php echo evolve_get_svg( 'more' ); ?>
+
+                </a>
+
+            </div><!-- .share-this -->
+        </div><!-- .col -->
+
+	<?php }
 }
 
 /*
@@ -2078,8 +2090,7 @@ function evolve_scripts() {
 	wp_enqueue_style( 'evolve-ie9', get_theme_file_uri( '/assets/css/ie.min.css' ), array( 'evolve-style' ), '1.0' );
 	wp_style_add_data( 'evolve-ie9', 'conditional', 'lt IE 9' );
 
-	// Bootstrap
-	wp_enqueue_script( 'evolve-bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array( 'jquery' ), '', true );
+	// Dynamic CSS Definitions
 	require get_parent_theme_file_path( '/inc/custom-functions/dynamic-css.php' );
 
 	$evolve_header_type = evolve_theme_mod( 'evl_header_type', 'none' );
@@ -2123,8 +2134,6 @@ function evolve_scripts() {
 		wp_enqueue_style( 'footer-revealcss', get_template_directory_uri() . '/assets/css/footer-reveal.min.css' );
 	}
 
-	wp_enqueue_script( 'evolve-bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array( 'jquery' ), '', true );
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -2161,7 +2170,7 @@ function evolve_scripts() {
 	endif;
 
 	// Infinite Scroll
-	if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" && ! is_single() && ( is_page_template( 'blog-page.php' ) || is_home() ) ) {
+	if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" && ! is_single() && ( is_home() || is_archive() || is_search() ) ) {
 		$evolve_local_variables['infinite_scroll_enabled']       = true;
 		$evolve_local_variables['infinite_scroll_text_finished'] = __( 'You reached the end', 'evolve' );
 		$evolve_local_variables['infinite_scroll_text']          = __( 'Load more items', 'evolve' );
@@ -2211,4 +2220,182 @@ function evolve_remove_comma( $str ) {
 	substr( $str, 1 );
 
 	return $str;
+}
+
+/*
+   Custom Home/Front Page Builder
+   ======================================= */
+
+function evolve_front_page_builder() {
+	if ( ! evolve_theme_mod( 'evl_front_elements_content_area' ) && ( ! is_home() || ! is_front_page() ) ) {
+		return;
+	}
+
+	$evolve_content_boxes_pos = evolve_theme_mod( 'evl_content_boxes_pos', 'above' );
+
+	foreach ( evolve_theme_mod( 'evl_front_elements_content_area' ) as $elementkey => $elementval ) {
+
+		switch ( $elementval ) {
+
+			case 'content_box':
+				if ( $elementval && $evolve_content_boxes_pos == 'below' ) {
+					evolve_content_boxes();
+				}
+				break;
+			case 'testimonial':
+				if ( $elementval ) {
+					evolve_testimonials();
+				}
+				break;
+			case 'blog_post':
+				if ( $elementval ) {
+					evolve_blog_posts();
+				}
+				break;
+			case 'woocommerce_product':
+				if ( $elementval ) {
+					if ( class_exists( 'Woocommerce' ) ) {
+						evolve_woocommerce_products();
+					}
+				}
+				break;
+			case 'counter_circle':
+				if ( $elementval ) {
+					evolve_counter_circle();
+				}
+				break;
+			case 'custom_content':
+				if ( $elementval ) {
+					evolve_custom_content();
+				}
+				break;
+		}
+	}
+}
+
+/*
+   Add Button Class To Read More Link
+   ======================================= */
+
+function evolve_read_more_link() {
+	return '<a class="btn btn-sm" href="' . get_permalink() . '">' . __( 'Read More', 'evolve' ) . '</a>';
+}
+
+add_filter( 'the_content_more_link', 'evolve_read_more_link' );
+
+/*
+   Featured Images
+   ======================================= */
+
+function evolve_featured_image( $type = '' ) {
+	if ( evolve_theme_mod( 'evl_featured_images', '1' ) == "0" ) {
+		return;
+	}
+
+	if ( $type == '1' && is_single() && evolve_theme_mod( 'evl_blog_featured_image', '0' ) == "1" && has_post_thumbnail() ) {
+		echo '<div class="thumbnail-post-single">';
+		the_post_thumbnail( 'post-thumbnail' );
+		echo '</div>';
+
+	} elseif ( $type == '2' && ! is_page() && ! is_single() ) {
+		if ( has_post_thumbnail() ) {
+			echo '<div class="thumbnail-post"><a href="';
+			the_permalink();
+			echo '">';
+			the_post_thumbnail( 'post-thumbnail' );
+			echo '<div class="mask"><div class="icon"></div></div></a></div>';
+		} else {
+			if ( evolve_get_first_image() ):
+				echo '<div class="thumbnail-post"><a href="';
+				the_permalink();
+				echo '"><img src="' . evolve_get_first_image() . '" alt="';
+				the_title();
+				echo '" /><div class="mask"><div class="icon"></div></div>	</a></div>';
+			else:
+				if ( evolve_theme_mod( 'evl_thumbnail_default_images', '0' ) == 0 ) {
+					echo '<div class="thumbnail-post"><a href="';
+					the_permalink();
+					echo '"><img src="' . get_template_directory_uri() . '/assets/images/no-thumbnail.jpg" alt="';
+					the_title();
+					echo '" /><div class="mask"><div class="icon"></div></div></a></div>';
+				}
+			endif;
+		}
+	}
+}
+
+/*
+   Edit Post Link
+   ======================================= */
+
+function evolve_edit_post() {
+	if ( evolve_theme_mod( 'evl_edit_post', '0' ) == "0" ) {
+		return;
+	}
+	global $post;
+	if ( current_user_can( 'edit_post', $post->ID ) ):
+		edit_post_link( '', '<span class="btn btn-sm edit-post">' . evolve_get_svg( 'pencil' ) . '', '</span>' );
+	endif;
+}
+
+/*
+   Post Meta
+   ======================================= */
+
+function evolve_post_meta( $type = '' ) {
+	if ( $type == "header" ) {
+		if ( evolve_theme_mod( 'evl_header_meta', 'single_archive' ) == 'disable' && evolve_theme_mod( 'evl_edit_post', '0' ) == "0" ) {
+			return;
+		}
+		global $authordata;
+
+		if ( ! is_page() && ( evolve_theme_mod( 'evl_header_meta', 'single_archive' ) == "single_archive" || ( evolve_theme_mod( 'evl_header_meta', 'single_archive' ) == "single" && is_single() ) ) ) {
+
+			echo '<div class="row post-meta align-items-center">';
+
+			if ( evolve_theme_mod( 'evl_author_avatar', '0' ) == "1" ) {
+				echo '<div class="col-auto avatar-meta">' . get_avatar( get_the_author_meta( 'email' ), '30', '', '', array( 'class' => 'rounded-circle' ) ) . '</div>';
+			}
+
+			echo '<div class="col author vcard">';
+
+			if ( ! is_page() && ! is_single() ) {
+				echo '<a href="' . get_the_permalink() . '">';
+			}
+			if ( ! is_page() ) {
+				echo '<span class="published updated">';
+				the_time( get_option( 'date_format' ) );
+				echo '</span>';
+			}
+			if ( ! is_page() && ! is_single() ) {
+				echo '</a>';
+			}
+			if ( ! is_page() ) {
+				_e( 'Written by', 'evolve' );
+				printf( ' <a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'evolve' ), $authordata->display_name ) ) . '">' . get_the_author() . '</a>' );
+			}
+
+			evolve_edit_post();
+
+			echo '</div><!-- .col .author .vcard -->';
+
+			if ( ! is_page() && ( ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "one" || is_single() ) && comments_open() ) ) :
+				echo '<div class="col comment-count">';
+				echo evolve_get_svg( 'comment' );
+				comments_popup_link( __( 'Leave a Comment', 'evolve' ), __( '1 Comment', 'evolve' ), __( '% Comments', 'evolve' ) );
+				echo '</div><!-- .col .comment-count -->';
+			endif;
+
+			echo '</div><!-- .row .post-meta .align-items-top -->';
+		} else {
+			evolve_edit_post();
+		}
+
+	} elseif ( $type == "footer" && ( evolve_get_terms( 'cats' ) || evolve_get_terms( 'tags' ) ) ) {
+		echo '<div class="col">' . evolve_get_svg( 'category' ) . evolve_get_terms( 'cats' );
+		if ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "one" && evolve_get_terms( 'tags' ) ) {
+			echo evolve_get_svg( 'tag' ) . evolve_get_terms( 'tags' );
+		}
+		echo '</div><!-- .col -->';
+	}
 }

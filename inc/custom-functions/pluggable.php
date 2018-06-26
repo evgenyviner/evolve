@@ -35,7 +35,7 @@ if ( ! function_exists( 'evolve_comment_avatar' ) ):
 		global $default;
 		$gravatar_email = get_comment_author_email();
 		$author         = get_comment_author();
-		$output         = get_avatar( $gravatar_email, 45, $default, $author );
+		$output         = get_avatar( $gravatar_email, 45, $default, $author, array( 'class' => 'rounded-circle' ) );
 
 		if ( get_option( 'show_avatars' ) ) {  // Avatars enabled?
 			return apply_filters( 'evolve_comment_avatar', (string) $output ); // Available filter: evolve_comment_avatar

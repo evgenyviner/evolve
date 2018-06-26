@@ -1,10 +1,6 @@
 <?php
 /* Front Page Content Boxes */
 function evolve_content_boxes() {
-	$evolve_content_boxes = evolve_theme_mod( 'evl_content_boxes', '1' );
-
-	if ( $evolve_content_boxes == "1" ) {
-
 
 		$evolve_content_box1_enable = evolve_theme_mod( 'evl_content_box1_enable', '1' );
 		if ( $evolve_content_box1_enable === false ) {
@@ -68,7 +64,7 @@ function evolve_content_boxes() {
 		}
 		switch ( $BoxCount ):
 			case $BoxCount == 1:
-				$BoxClass = '';
+				$BoxClass = 'col';
 				break;
 			case $BoxCount == 2:
 				$BoxClass = 'col-sm-12 col-md-6';
@@ -163,7 +159,6 @@ function evolve_content_boxes() {
 			echo "</div></div>";
 		}
 		echo "</div></div></div></div>";
-	}
 }
 
 /* Front Page Testimonials */

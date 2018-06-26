@@ -1,18 +1,5 @@
 <?php
-/**
- * Comments - functions that deal with comments
- *
- * @package EvoLve
- * @subpackage Core
- */
 
-/**
- * evolve_discussion_title()
- *
- * @since 0.3
- * @needsdoc
- * @filter evolve_many_comments, evolve_no_comments, evolve_one_comment, evolve_comments_number
- */
 function evolve_discussion_title( $type = null, $echo = true ) {
 	if ( ! $type ) {
 		return;
@@ -59,25 +46,13 @@ function evolve_discussion_title( $type = null, $echo = true ) {
 	return ( $echo ) ? print( $evolve_discussion_title ) : $evolve_discussion_title;
 }
 
-/**
- * evolve_discussion_rss()
- *
- * @since 0.3
- * @needsdoc
- */
 function evolve_discussion_rss() {
 	global $id;
 	$uri  = get_post_comments_feed_link( $id );
-	$text = "<span class=\"comment-feed-link\"><a title='" . __( 'Follow replies', 'evolve' ) . "' class=\"follow-replies\" data-toggle=\"tooltip\" data-placement=\"top\" href=\"{$uri}\"><i class='t4p-icon-social-rss'></i></a></span>";
+	$text = '<span class="comment-feed-link"><a title="' . __( 'Follow replies', 'evolve' ) . '" class="follow-replies" data-toggle="tooltip" data-placement="top" href="{$uri}">' . evolve_get_svg( 'rss' ) . '</a></span>';
 	echo $text;
 }
 
-/**
- * evolve_count()
- *
- * @since 0.3
- * @needsdoc
- */
 function evolve_count( $type = null, $echo = true ) {
 	if ( ! $type ) {
 		return;
@@ -97,12 +72,6 @@ function evolve_count( $type = null, $echo = true ) {
 	endswitch;
 }
 
-/**
- * evolve_comment_author() short description
- *
- * @since 0.3
- * @todo needs filter
- */
 function evolve_comment_author( $meta_format = '%avatar% %name%' ) {
 	$meta_format = apply_filters( 'evolve_comment_author_meta_format', $meta_format ); // Available filter: evolve_comment_author_meta_format
 	if ( ! $meta_format ) {
@@ -140,12 +109,6 @@ function evolve_comment_author( $meta_format = '%avatar% %name%' ) {
 	}
 }
 
-/**
- * evolve_comment_meta() short description
- *
- * @since 0.3.1
- * @todo needs filter
- */
 function evolve_comment_meta( $meta_format = '%date%&nbsp;&nbsp;&nbsp;%link% %edit%' ) {
 	$meta_format = apply_filters( 'evolve_comment_meta_format', $meta_format ); // Available filter: evolve_comment_meta_format
 	if ( ! $meta_format ) {
@@ -195,11 +158,6 @@ function evolve_comment_meta( $meta_format = '%date%&nbsp;&nbsp;&nbsp;%link% %ed
 	}
 }
 
-/**
- * evolve_comment_text() short description
- *
- * @since 0.3.1
- */
 function evolve_comment_text() {
 	echo "\n<!--BEGIN .comment-content-->\n";
 	echo "<div class=\"comment-content\">\n";
@@ -208,11 +166,6 @@ function evolve_comment_text() {
 	echo "</div>\n";
 }
 
-/**
- * evolve_comment_moderation() short description
- *
- * @since - 0.3.1
- */
 function evolve_comment_moderation() {
 	global $comment;
 	if ( $comment->comment_approved == '0' ) {
@@ -220,13 +173,6 @@ function evolve_comment_moderation() {
 	}
 }
 
-/**
- * evolve_comment_navigation() paged comments
- *
- * @since 0.3
- * @needsdoc
- * @todo add html comments?
- */
 function evolve_comment_navigation() {
 	$num = get_comments_number() + 1;
 
@@ -252,13 +198,6 @@ function evolve_comment_navigation() {
 	echo apply_filters( 'evolve_comment_navigation', (string) $comment_navigation ); // Available filter: evolve_comment_navigation
 }
 
-/**
- * evolve_comments_callback() recreate the comment list
- *
- * @since 0.3
- * @needsdoc
- * */
-
 function evolve_comments_callback() {
 	$tag = apply_filters( 'evolve_comments_list_tag', (string) 'li' ); // Available filter: evolve_comments_list_tag
 	?>
@@ -268,13 +207,6 @@ function evolve_comments_callback() {
 	evolve_hook_comments();
 }
 
-/**
- * evolve_comments_endcallback() close the comment list
- *
- * @since 0.3
- * @needsdoc
- * @todo needs filter
- */
 function evolve_comments_endcallback() {
 	$tag = apply_filters( 'evolve_comments_list_tag', (string) 'li' ); // Available filter: evolve_comments_list_tag
 	echo "<!--END .comment-->\n";
@@ -282,12 +214,6 @@ function evolve_comments_endcallback() {
 	do_action( 'evolve_hook_inside_comments_loop' ); // Available action: evolve_hook_inside_comments_loop
 }
 
-/**
- * evolve_pings_callback() recreate the comment list
- *
- * @since 0.3
- * @needsdoc
- */
 function evolve_pings_callback( $comment ) {
 	$tag  = apply_filters( 'evolve_pings_callback_tag', (string) 'li' ); // Available filter: evolve_pings_callback_tag
 	$time = apply_filters( 'evolve_pings_callback_time', (string) ' on ' ); // Available filter: evolve_pings_callback_time
@@ -310,12 +236,6 @@ function evolve_pings_callback( $comment ) {
 	<?php
 }
 
-/**
- * evolve_pings_endcallback() close the comment list
- *
- * @since 0.3
- * @needsdoc
- */
 function evolve_pings_endcallback() {
 	$tag = apply_filters( 'evolve_pings_callback_tag', (string) 'li' ); // Available filter: evolve_pings_callback_tag
 	echo "<!--END .pings-list-->\n";

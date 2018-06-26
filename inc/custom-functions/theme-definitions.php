@@ -287,7 +287,7 @@ function evolve_post_class( $classes ) {
 				'status',
 				'video'
 			), '' ) || is_sticky()
-	     ) && is_home() ) {
+	     ) && ( is_home() || is_archive() || is_search() ) ) {
 		$classes[] = 'formatted-post p-4';
 	}
 
@@ -295,7 +295,7 @@ function evolve_post_class( $classes ) {
         Function To Print Out CSS Class According To Blog Layout
         ======================================= */
 
-	if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" && is_home() ) {
+	if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" && ( is_home() || is_archive() || is_search() ) ) {
 		$classes[] = 'card';
 	}
 

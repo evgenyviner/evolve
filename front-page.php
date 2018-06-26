@@ -1,18 +1,18 @@
 <?php
 
 /*
-   Main Index To Display Content
+   Displays Front Page Content
    ======================================= */
 
 get_header(); ?>
 
     <div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?> mb-5 mb-lg-0">
 
-		<?php evolve_front_page_builder();
+		<?php if ( have_posts() ) :
 
-		if ( have_posts() ) :
+			evolve_breadcrumbs();
 
-			if ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "infinite" ) :
+			if ( ! is_page() && evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "infinite" ) :
 				get_template_part( 'template-parts/navigation/navigation', 'index' );
 			endif;
 
@@ -29,7 +29,7 @@ get_header(); ?>
 				echo '</div><!-- .card-columns -->';
 			endif;
 
-			if ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "before" || ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" ) ) :
+			if ( ! is_page() && evolve_theme_mod( 'evl_nav_links', 'after' ) != "before" || ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" ) ) :
 				get_template_part( 'template-parts/navigation/navigation', 'index' );
 			endif;
 
@@ -42,6 +42,7 @@ get_header(); ?>
     </div><!-- #primary -->
 
 <?php
+
 if ( evolve_lets_get_sidebar_2() == true ):
 	get_sidebar( '2' );
 endif;

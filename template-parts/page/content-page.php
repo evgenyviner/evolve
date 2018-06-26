@@ -1,61 +1,26 @@
 <?php
 
-/*******************************************************
- * Template: content-page.php
- *******************************************************/
+/*
+   Displays Page Content
+   ======================================= */
 
-$evolve_edit_post  = evolve_theme_mod( 'evl_edit_post', '0' );
-$evolve_share_this = evolve_theme_mod( 'evl_share_this', 'single' );
 ?>
 
-    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<?php
-		if ( get_post_meta( $post->ID, 'evolve_page_title', true ) == 'no' ):
-		else:
-			?>
+	<?php the_title( '<h1 class="post-title">', '</h1>' );
 
-            <h1 class="post-title"><?php
-				if ( get_the_title() ) {
-					the_title();
-				}
-
-				if ( $evolve_edit_post == "1" ) {
-					if ( current_user_can( 'edit_post', $post->ID ) ):
-						edit_post_link( __( 'EDIT', 'evolve' ), '<span class="edit-post edit-attach">', '</span>' );
-					endif;
-				}
-				?></h1>
-		<?php
+	if ( evolve_theme_mod( 'evl_edit_post', '0' ) == "1" ) {
+		if ( current_user_can( 'edit_post', $post->ID ) ):
+			edit_post_link( '', '<span class="btn btn-sm edit-post">' . evolve_get_svg( 'pencil' ) . '', '</span>' );
 		endif;
+	} ?>
 
-		if ( has_post_thumbnail() ) {
-			echo '<div class="thumbnail-post">';
-			the_post_thumbnail( 'post-thumbnail' );
-			echo '</div>';
-		}
-		?>
+    <div class="post-content">
 
-        <div class="post-content">
+		<?php the_content();
+		wp_link_pages(); ?>
 
-			<?php
-			the_content();
-			wp_link_pages();
-			?>
+    </div><!-- .post-content -->
 
-            <div class="clearfix"></div>
-
-        </div><!-- .post-content -->
-
-		<?php trackback_rdf(); ?>
-
-    </div><!-- #post -->
-
-<?php
-if ( $evolve_share_this == 'all' ) {
-	evolve_sharethis();
-}
-
-if ( ! is_front_page() ) {
-	comments_template( '', true );
-}
+</article><!-- #post -->

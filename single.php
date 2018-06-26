@@ -1,7 +1,7 @@
 <?php
 
 /*
-   Displays Single Post Content
+   Single Post Part
    ======================================= */
 
 get_header(); ?>
@@ -16,9 +16,7 @@ get_header(); ?>
 
 		while ( have_posts() ) :
 			the_post();
-			get_template_part( 'template-parts/post/content', get_post_format() );
-
-			trackback_rdf();
+			get_template_part( 'template-parts/post/content', 'post' );
 
 			evolve_similar_posts();
 

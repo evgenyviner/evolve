@@ -1,62 +1,24 @@
 <?php
 
-/*******************************************************
- * Template: 404.php
- *******************************************************/
+/*
+   Displays Error 404 Page
+   ======================================= */
 
-get_header();
+get_header(); ?>
 
-$evolve_xyz                        = 0;
-$evolve_layout                     = evolve_theme_mod( 'evl_layout', '2cl' );
-$evolve_post_layout                = evolve_theme_mod( 'evl_post_layout', 'two' );
-$evolve_nav_links                  = evolve_theme_mod( 'evl_nav_links', 'after' );
-$evolve_header_meta                = evolve_theme_mod( 'evl_header_meta', 'single_archive' );
-$evolve_category_page_title        = evolve_theme_mod( 'evl_category_page_title', '1' );
-$evolve_excerpt_thumbnail          = evolve_theme_mod( 'evl_excerpt_thumbnail', '0' );
-$evolve_share_this                 = evolve_theme_mod( 'evl_share_this', 'single' );
-$evolve_post_links                 = evolve_theme_mod( 'evl_post_links', 'after' );
-$evolve_similar_posts              = evolve_theme_mod( 'evl_similar_posts', 'disable' );
-$evolve_featured_images            = evolve_theme_mod( 'evl_featured_images', '1' );
-$evolve_thumbnail_default_images   = evolve_theme_mod( 'evl_thumbnail_default_images', '0' );
-$evolve_posts_excerpt_title_length = intval( evolve_theme_mod( 'evl_posts_excerpt_title_length', '40' ) );
-$evolve_blog_featured_image        = evolve_theme_mod( 'evl_blog_featured_image', '0' );
-$evolve_breadcrumbs                = evolve_theme_mod( 'evl_breadcrumbs', '1' );
-?>
+    <div id="primary" class="col mb-5">
 
-    <div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?>">
+		<?php evolve_breadcrumbs(); ?>
 
-		<?php if ( $evolve_breadcrumbs == "1" ):
-			if ( is_home() || is_front_page() ):
-            elseif ( ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == 'no' ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == 'no' ) ):
-			else: evolve_breadcrumb();
-			endif;
-		endif; ?>
+        <h1 class="display-4"><?php _e( 'Yay! 404 Not Found', 'evolve' ); ?></h1>
 
-        <div id="post-0">
-            <h1 class="post-title"><?php esc_html_e( 'Not Found', 'evolve' ); ?></h1>
-            <div class="post-content">
-                <p><?php esc_html_e( 'Sorry, but you are looking for something that isn\'t here.', 'evolve' ); ?></p>
-                <form action="<?php echo esc_url(home_url( '/' )); ?>" method="get" class="search-form">
-                    <label>
-                        <input type="text" tabindex="5" name="s" class="form-control"
-                               placeholder="<?php esc_html_e( 'Type your search', 'evolve' ); ?>"/>
+        <p class="lead"><?php _e( 'Sorry, but you are looking for something that isn\'t here or it\'s been moved. Try a search?', 'evolve' ); ?></p>
 
-			            <?php echo evolve_get_svg( 'search' ); ?>
+        <div class="error-not-found">
 
-                        <button class="search-button" tabindex="6" type="submit"></button>
-                    </label>
-                </form>
-            </div><!-- .post-content -->
-        </div><!-- #post-0 -->
-    </div>  <!-- #primary .hfeed -->
+			<?php get_search_form(); ?>
 
-<?php
-if ( evolve_lets_get_sidebar_2() == true ):
-	get_sidebar( '2' );
-endif;
+        </div><!-- .error-not-found -->
+    </div><!-- #primary -->
 
-if ( evolve_lets_get_sidebar() == true ):
-	get_sidebar();
-endif;
-
-get_footer();
+<?php get_footer();

@@ -660,9 +660,9 @@ if ( true || is_customize_preview() ) {
 					'left'     => false,
 					'right'    => false,
 					'default'  => array(
-						'padding-top'    => '35px',
+						'padding-top'    => '2rem',
 						'padding-bottom' => '0',
-						'units'          => 'px',
+						'units'          => 'rem',
 					),
 				),
 			),
@@ -1053,15 +1053,6 @@ if ( true || is_customize_preview() ) {
 					'type'   => 'section',
 					'title'  => esc_attr__( 'General', 'evolve' ),
 					'indent' => true
-				),
-				array(
-					'subtitle' => esc_attr__( 'Check this box to enable Front Page Content Boxes', 'evolve' ),
-					'id'       => 'evl_content_boxes',
-					'type'     => 'switch',
-					'on'       => esc_attr__( 'Enabled', 'evolve' ),
-					'off'      => esc_attr__( 'Disabled', 'evolve' ),
-					'default'  => 1,
-					'title'    => esc_attr__( 'Enable Front Page Content Boxes', 'evolve' ),
 				),
 				array(
 					'subtitle' => sprintf( '%s<br />%s', esc_attr( 'Above means the content boxes display outside of Content Area (above Sidebar).', 'evolve' ), esc_attr( 'Below means the content boxes display inside of Content Area (next to Sidebar)', 'evolve' ) ),
@@ -3458,14 +3449,14 @@ if ( true || is_customize_preview() ) {
 					'default'  => 'two',
 				),
 				array(
-					'subtitle' => esc_attr__( 'Enable page title in category pages', 'evolve' ),
+					'subtitle' => esc_attr__( 'Enable page title in archive pages', 'evolve' ),
 					'id'       => 'evl_category_page_title',
 					'type'     => 'select',
 					'options'  => array(
 						1 => esc_attr__( 'Enabled', 'evolve' ),
 						0 => esc_attr__( 'Disabled', 'evolve' ),
 					),
-					'title'    => esc_attr__( 'Category Page Title', 'evolve' ),
+					'title'    => esc_attr__( 'Archive Page Title', 'evolve' ),
 					'default'  => '1',
 				),
 				array(
@@ -3505,13 +3496,6 @@ if ( true || is_customize_preview() ) {
 					),
 					'title'    => esc_attr__( 'Position of Navigation Links', 'evolve' ),
 					'default'  => 'after',
-				),
-				array(
-					'subtitle' => esc_attr__( 'Check this box if you want to display edit post link', 'evolve' ),
-					'id'       => 'evl_edit_post',
-					'type'     => 'checkbox',
-					'title'    => esc_attr__( 'Enable Edit Post Link on The Front End', 'evolve' ),
-					'default'  => '0',
 				),
 			),
 		)
@@ -3612,10 +3596,10 @@ if ( true || is_customize_preview() ) {
 					),
 				),
 				array(
-					'subtitle' => esc_attr__( 'Turn on if you don\'t want to display default thumbnail images', 'evolve' ),
+					'subtitle' => esc_attr__( 'Turn on if you don\'t want to display placeholder thumbnail images', 'evolve' ),
 					'id'       => 'evl_thumbnail_default_images',
 					'type'     => 'switch',
-					'title'    => esc_attr__( 'Hide Default Thumbnail Images', 'evolve' ),
+					'title'    => esc_attr__( 'Hide Placeholder Thumbnail Images', 'evolve' ),
 					'required' => array(
 						array( 'evl_featured_images', '=', '1' )
 					),
@@ -4434,6 +4418,13 @@ if ( true || is_customize_preview() ) {
 					),
 					'title'    => esc_attr__( 'Position of \'Back to Top\' Button', 'evolve' ),
 					'default'  => 'right',
+				),
+				array(
+					'subtitle' => esc_attr__( 'Check this box if you want to display edit post/page link', 'evolve' ),
+					'id'       => 'evl_edit_post',
+					'type'     => 'checkbox',
+					'title'    => esc_attr__( 'Enable Edit Post/Page Link on The Front End', 'evolve' ),
+					'default'  => '0',
 				),
 			),
 		)

@@ -12,4 +12,4 @@ if ( ! is_active_sidebar( 'sidebar-2' ) ) {
 
 	<?php dynamic_sidebar( 'sidebar-2' ); ?>
 
-</aside><!-- #secondary-2 .aside -->
+</aside><!-- #secondary-2 -->
