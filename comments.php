@@ -5,63 +5,74 @@
    ======================================= */
 
 if ( post_password_required() ) {
-	echo '<p class="alert alert-warning">' . __( 'This post is password protected. Enter the password to view comments.', 'evolve' ) . '</p>';
+	echo '<p class="alert alert-warning" role="alert">' . __( 'This post is password protected. Enter the password to view comments.', 'evolve' ) . '</p>';
 
 	return;
 } ?>
 
-    <div id="comments" class="row">
+    <div id="comments">
 
 		<?php if ( have_comments() ) : ?>
 
-            <div class="comments-title-back col-auto">
+            <div class="row align-items-center">
+                <div class="col-auto">
 
-				<?php if ( ! empty( $comments_by_type['comment'] ) ) :
+					<?php evolve_discussion_title( 'comment' ); ?>
 
-					evolve_discussion_title( 'comment' );
-					evolve_discussion_rss();
+                </div><!-- .col-auto -->
 
-				else :
-					if ( comments_open() ) :
+				<?php evolve_discussion_rss(); ?>
+
+                <div class="col-auto ml-auto">
+
+					<?php evolve_discussion_title( 'pings' ); ?>
+
+                </div><!-- .col-auto .ml-auto -->
+            </div><!-- .row .align-items-center -->
+
+            <ol class="comment-list">
+
+				<?php wp_list_comments( array(
+					'callback'    => 'evolve_comments_callback',
+					'avatar_size' => 45,
+					'style'       => 'ol',
+					'short_ping'  => true,
+				) ); ?>
+
+            </ol><!-- .comment-list -->
+
+			<?php evolve_comment_navigation(); ?>
+
+		<?php else: ?>
+
+            <div class="row align-items-center mb-4">
+                <div class="col-auto">
+
+					<?php if ( comments_open() ) :
 						// If comments are open, but there are no comments.
-						echo '<h3 class="comment-title"><span class="comment-title-meta no-comment">';
+						echo '<h3 class="no-comment mb-0">';
 						_e( 'No Comments Yet', 'evolve' );
-						echo '</span></h3>';
-						evolve_discussion_rss();
-					endif;
-				endif; ?>
+						echo '</h3>';
+					endif; ?>
 
-            </div>
+                </div><!-- .col-auto -->
 
-			<?php if ( ! empty( $comments_by_type['pings'] ) ) : ?>
+				<?php evolve_discussion_rss(); ?>
 
-                <div class="comments-title-back pings-title col"><?php evolve_discussion_title( 'pings' ); ?></div>
-
-			<?php endif;
-
-			if ( ! empty( $comments_by_type['comment'] ) ) : ?>
-
-                <ol class="comment-list">
-
-					<?php wp_list_comments( array(
-						'callback'     => 'evolve_comments_callback',
-						'end-callback' => 'evolve_comments_endcallback'
-					) ); ?>
-
-                </ol><!-- .comment-list -->
-
-			<?php endif; ?>
-
-            <div class="navigation row">
-                <div class="col-md-6 nav-next"><?php previous_comments_link( '<div class="btn btn-left icon-arrow-left icon-big">Older Comments</div>' ); ?></div>
-                <div class="col-md-6 nav-previous"><?php next_comments_link( '<div class="btn btn-right icon-arrow-right icon-big">Newer Comments</div>' ); ?></div>
-            </div>
+            </div><!-- .row .align-items-center -->
 
 		<?php endif; ?>
 
     </div><!-- #comments -->
 
-<?php if ( comments_open() ) :
+<?php if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
+
+    <p class="alert alert-warning mb-5" role="alert"><?php _e( 'Comments are closed', 'evolve' ); ?></p>
+
+<?php
+endif;
+
+if ( comments_open() ) :
 
 	$evolve_comments_args = array(
 		'class_submit'  => 'btn',

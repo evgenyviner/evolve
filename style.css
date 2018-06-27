@@ -526,7 +526,7 @@ video {
    --------------------------------------- */
 
 .post,
-.page {
+.type-page {
     margin-bottom: 3rem;
     position: relative;
 }
@@ -587,7 +587,8 @@ video {
     margin-top: 2rem;
 }
 
-.edit-post {
+.edit-post,
+.edit-comment {
     visibility: hidden;
     opacity: 0;
     position: relative;
@@ -596,7 +597,8 @@ video {
     transition: visibility 0s .2s, opacity .2s linear;
 }
 
-.edit-post.fadein {
+.edit-post.fadein,
+.edit-comment.fadein {
     visibility: visible;
     opacity: 1;
     -webkit-transition: opacity .2s linear;
@@ -604,13 +606,15 @@ video {
     transition: opacity .2s linear;
 }
 
-.edit-post .icon {
+.edit-post .icon,
+.edit-comment .icon {
     margin: 0;
     width: 1.2rem;
     height: 1.2rem;
 }
 
-.edit-post .post-edit-link {
+.edit-post .post-edit-link,
+.edit-comment .comment-edit-link {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -747,6 +751,115 @@ video {
 
 .format-status.formatted-post::before {
     background-image: url(assets/images/icons.svg#icon-comment-view);
+}
+
+/*
+   Comments
+   ======================================= */
+
+.pings-title {
+    font-size: 1rem;
+}
+
+.comment-feed {
+    display: inline-block;
+}
+
+.comment-feed .icon {
+    width: 25px;
+    height: 25px;
+}
+
+.comment-list {
+    margin-top: 2rem;
+}
+
+.comment-list li {
+    list-style: none;
+}
+
+.comment-list .children {
+    margin-top: 2.5rem;
+}
+
+.comment-meta {
+    font-size: .9rem;
+    line-height: .9rem;
+}
+
+.comment-author .fn .badge {
+    margin-left: .5rem;
+}
+
+.comment-content {
+    margin: 2rem 0 0;
+}
+
+.comment-content ol,
+.comment-content ul {
+    margin-left: 1rem;
+}
+
+.comment,
+.pingback,
+.comment.depth-1 {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.pingback,
+.comment.depth-1.parent {
+    padding: 1rem 2rem 0;
+}
+
+.comment.depth-2.parent .comment {
+    margin-bottom: 0;
+}
+
+.pingback,
+.pingback .comment-meta {
+    font-size: .8rem;
+}
+
+.pingback .comment-content {
+    margin-top: 0;
+}
+
+.comment-reply-link {
+    margin-top: 2rem;
+}
+
+#reply-title {
+    font-weight: bold;
+}
+
+#cancel-comment-reply-link {
+    position: relative;
+    padding-left: 2rem;
+}
+
+#cancel-comment-reply-link .icon {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -12px;
+}
+
+#respond {
+    margin-bottom: 3rem;
+}
+
+.comment #respond {
+    margin: 2rem 0 0;
+}
+
+#respond .form-submit {
+    margin: 0;
 }
 
 /*
@@ -1173,7 +1286,7 @@ table,
 .table {
     background: #fff;
     border: 1px solid #e0dddd;
-    border-spacing: 0;
+    width: 100%;
 }
 
 .table td,
@@ -1684,9 +1797,19 @@ ul.nav-tabs {
     float: right;
 }
 
+.share-this a {
+    padding: 5px;
+    display: inline-block;
+}
+
+.share-this a:last-child {
+    padding-right: 0;
+}
+
 .share-this .icon {
     width: 1rem;
     height: 1rem;
+    margin: 0;
 }
 
 /* ======================== Animate ======================== */
@@ -2021,204 +2144,7 @@ ul.nav-tabs {
     animation-name: fadeOutUp;
 }
 
-/*
-   Comments
-   ======================================= */
-
-.edit-comment {
-    visibility: hidden;
-    font-size: 12px;
-}
-
-.edit-comment a {
-    margin-left: 25px;
-}
-
-.edit-comment a::before {
-    font-family: "IcoMoon";
-    content: '\e902';
-    margin-right: 5px;
-}
-
-.comments-title-back {
-}
-
-.comment-title-meta,
-.pings-title-meta {
-    font-size: 22px;
-}
-
-.pings-title-meta {
-    font-size: 20px;
-    letter-spacing: 0;
-}
-
-.no-comment {
-    font-size: 19px;
-    color: #bbb;
-}
-
-.comment-feed-link {
-    position: relative;
-    top: 10px;
-}
-
-.comment-list,
-.comment-list .children {
-    list-style: none;
-}
-
-.comment-list {
-    clear: both;
-    margin: 20px 4px 0 4px;
-}
-
-#comments .comment-content ol,
-#comments .comment-content ul {
-    margin-left: 25px;
-}
-
-.comment,
-.trackback,
-.pingback {
-    position: relative;
-    margin-bottom: 30px;
-    padding: 0;
-    background: #fff;
-    border: 1px solid #e5e5e5;
-    border-radius: 3px;
-}
-
-.trackback,
-.pingback {
-    padding: 10px;
-    margin: 0 4px 20px 4px;
-    font-size: 13px;
-}
-
-.pings-list {
-    margin-bottom: 30px;
-    list-style: none outside none;
-    margin-left: 0;
-}
-
-.comment-list .children {
-    margin-top: 40px;
-}
-
-.comment-header {
-    border-bottom: 1px solid #e5e5e5;
-    background: #f9f9f9;
-    display: inline-block;
-    width: 100%;
-    padding: 15px;
-    -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, .9) inset;
-    box-shadow: 1px 1px 0 rgba(255, 255, 255, .9) inset;
-}
-
-.comment-meta {
-    float: left;
-    position: relative;
-    top: 5px;
-    font-size: 15px;
-    color: #ccc;
-}
-
-.comment-meta a {
-    color: #ccc;
-}
-
-.commenter {
-    font-size: 16px;
-    font-weight: normal;
-    font-style: normal;
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
-    color: #aaa;
-}
-
-.commenter a:hover {
-    border-bottom: none;
-}
-
-.comment-content {
-    clear: left;
-    padding: 15px;
-}
-
-.comment-reply {
-    padding: 15px;
-}
-
-a#cancel-comment-reply-link {
-    margin-left: 5px;
-}
-
-a#cancel-comment-reply-link::before {
-    content: '\e926';
-    font-family: "IcoMoon";
-    margin-right: 5px;
-}
-
-a.follow-replies {
-    float: left;
-    width: 19px;
-    height: 19px;
-    position: relative;
-    top: 4px;
-    color: #bbb;
-}
-
-a.follow-replies:hover {
-    background-position: 0 -19px;
-}
-
-.comment {
-    margin-bottom: 40px;
-}
-
-/*!==========================================================================
-   Comment Reply
-   ========================================================================== */
-
-#reply-title {
-    font-weight: bold;
-}
-
-#respond {
-    clear: both;
-    margin-bottom: 30px;
-    padding: 10px 0;
-}
-
-#form-section-author,
-#form-section-email,
-#form-section-url {
-    width: 250px;
-    height: 23px;
-    padding: 9px 8px 8px;
-}
-
-#comment-form .form-section input {
-    margin-right: 10px;
-    background: none;
-    border: none;
-    width: 240px;
-}
-
-.form-section {
-    margin-bottom: 10px;
-    position: relative;
-}
-
-.form-section label {
-    cursor: pointer;
-}
-
-#commenter-details input {
-    margin-right: 10px;
-}
+/* bbPress */
 
 #allowed-tags {
     font: 11px Verdana, Arial, Helvetica, sans-serif;
@@ -2227,29 +2153,6 @@ a.follow-replies:hover {
     border: 1px #ddd dotted;
     border-top: none;
     width: 573px;
-}
-
-#submit-button {
-    font-family: arial;
-    text-shadow: 0 1px 2px #111;
-    font-weight: 700;
-    text-transform: uppercase;
-    background: none;
-    border: none;
-    left: 3px;
-    top: 3px;
-    position: relative;
-    z-index: 1;
-    height: 35px;
-    padding: 0;
-    width: 94%;
-    letter-spacing: -1px;
-    font-size: 17px;
-    color: #ddd;
-}
-
-#submit-button:hover {
-    color: #fff;
 }
 
 /*!==========================================================================

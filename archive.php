@@ -13,7 +13,7 @@ get_header(); ?>
 			evolve_breadcrumbs();
 
 			if ( evolve_theme_mod( 'evl_category_page_title', '1' ) == '1' ) {
-				echo '<div class="alert alert-success mb-5"><p>' . __( 'You are browsing archives for', 'evolve' ) . '</p>';
+				echo '<div class="alert alert-success mb-5" role="alert"><p>' . __( 'You are browsing archives for', 'evolve' ) . '</p>';
 				the_archive_title( '<h1 class="page-title">', '</h1>' );
 				the_archive_description( '<div class="lead">', '</div>' );
 				echo '</div>';

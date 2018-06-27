@@ -1,7 +1,7 @@
 <?php
 
 /*
-   Display footer
+   Displays Footer
    ======================================= */
 
 ?>
@@ -39,5 +39,6 @@
 </div><!-- #wrapper -->
 
 <?php wp_footer(); ?>
+
 </body>
 </html>

@@ -19,7 +19,7 @@
     <div class="post-content">
 
 		<?php the_content();
-		wp_link_pages(); ?>
+		evolve_link_pages(); ?>
 
     </div><!-- .post-content -->
 

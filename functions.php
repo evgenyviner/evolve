@@ -359,11 +359,11 @@ function evolve_footer_hooks() { ?>
         );
         $jx("li.comment").mouseover(
             function () {
-                $jx(this).find("span.edit-comment").css('visibility', 'visible');
+                $jx(this).find("span.edit-comment").addClass('fadein');
             }
         ).mouseout(
             function () {
-                $jx(this).find("span.edit-comment").css('visibility', 'hidden');
+                $jx(this).find("span.edit-comment").removeClass('fadein');
             }
         );</script>
 	<?php
@@ -2379,9 +2379,9 @@ function evolve_post_meta( $type = '' ) {
 
 			echo '</div><!-- .col .author .vcard -->';
 
-			if ( ! is_page() && ( ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "one" || is_single() ) && comments_open() ) ) :
-				echo '<div class="col comment-count">';
-				echo evolve_get_svg( 'comment' );
+			if ( ! is_page() && ( ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "one" || is_single() ) && ( comments_open() || get_comments_number() ) ) ) :
+				echo '<div class="col comment-count">' .
+				     evolve_get_svg( 'comment' );
 				comments_popup_link( __( 'Leave a Comment', 'evolve' ), __( '1 Comment', 'evolve' ), __( '% Comments', 'evolve' ) );
 				echo '</div><!-- .col .comment-count -->';
 			endif;

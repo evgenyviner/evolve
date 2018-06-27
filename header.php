@@ -150,6 +150,6 @@ if ( is_front_page() && evolve_theme_mod( 'evl_content_boxes_pos', 'above' ) == 
 	evolve_content_boxes();
 } ?>
 
-<div class="content <?php semantic_body(); ?>">
+<div class="content">
     <div class="container">
         <div class="row">

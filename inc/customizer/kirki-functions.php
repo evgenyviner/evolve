@@ -132,6 +132,11 @@ class Evolve_Add_some_thing_to_Customize {
                 top: 0;
                 position: absolute !important;
             }
+
+            #input_evl_pattern img {
+                max-width: 80px;
+                max-height: 80px;
+            }
         </style>
 		<?php
 	}

@@ -1126,7 +1126,7 @@ if ( true || is_customize_preview() ) {
 							'element'  => '.content-box.content-box-1 i',
 							'function' => 'css',
 							'property' => 'color'
-						)
+						),
 					),
 					'default'   => '#8bb9c1',
 					'required'  => array(
@@ -1209,7 +1209,7 @@ if ( true || is_customize_preview() ) {
 							'element'  => '.content-box.content-box-2 i',
 							'function' => 'css',
 							'property' => 'color'
-						)
+						),
 					),
 					'default'   => '#8ba3c1',
 					'required'  => array(
@@ -2472,7 +2472,7 @@ if ( true || is_customize_preview() ) {
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-typography-subsec-title-tagline-tab',
-			'title'      => esc_attr__( 'Title & Tagline', 'evolve' ),
+			'title'      => esc_attr__( 'Website Title & Tagline', 'evolve' ),
 			'subsection' => true,
 			'fields'     => array(
 				array(
@@ -2910,12 +2910,20 @@ if ( true || is_customize_preview() ) {
 					'default' => 'center top',
 				),
 				array(
-					'subtitle' => esc_attr__( 'Custom background color of Header', 'evolve' ),
-					'id'       => 'evl_header_background_color',
-					'type'     => 'color',
-					'compiler' => true,
-					'title'    => esc_attr__( 'Header Color', 'evolve' ),
-					'default'  => '#313a43',
+					'subtitle'  => esc_attr__( 'Custom background color of Header', 'evolve' ),
+					'id'        => 'evl_header_background_color',
+					'type'      => 'color',
+					'compiler'  => true,
+					'title'     => esc_attr__( 'Header Color', 'evolve' ),
+					'default'   => '#313a43',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.header-pattern',
+							'function' => 'css',
+							'property' => 'background-color'
+						),
+					),
 				),
 				array(
 					'title' => esc_attr__( 'Footer Styling', 'evolve' ),
@@ -2978,11 +2986,19 @@ if ( true || is_customize_preview() ) {
 					'default' => 'center top',
 				),
 				array(
-					'subtitle' => esc_attr__( 'Custom background color of Footer', 'evolve' ),
-					'id'       => 'evl_header_footer_back_color',
-					'type'     => 'color',
-					'compiler' => true,
-					'title'    => esc_attr__( 'Footer Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Custom background color of Footer', 'evolve' ),
+					'id'        => 'evl_header_footer_back_color',
+					'type'      => 'color',
+					'compiler'  => true,
+					'title'     => esc_attr__( 'Footer Color', 'evolve' ),
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.footer',
+							'function' => 'css',
+							'property' => 'background-color'
+						),
+					),
 				),
 				array(
 					'title' => esc_attr__( 'Header & Footer Default Pattern', 'evolve' ),
@@ -2990,23 +3006,31 @@ if ( true || is_customize_preview() ) {
 					'type'  => 'info',
 				),
 				array(
-					'subtitle' => esc_attr__( 'Choose the pattern for header and footer background', 'evolve' ),
-					'id'       => 'evl_pattern',
-					'compiler' => true,
-					'type'     => 'image_select',
-					'options'  => array(
-						'none'                => $evolve_imagepathfolder . '/header-two/none.jpg',
-						'pattern_1_thumb.png' => $evolve_imagepathfolder . '/pattern/pattern_1_thumb.png',
-						'pattern_2_thumb.png' => $evolve_imagepathfolder . '/pattern/pattern_2_thumb.png',
-						'pattern_3_thumb.png' => $evolve_imagepathfolder . '/pattern/pattern_3_thumb.png',
-						'pattern_4_thumb.png' => $evolve_imagepathfolder . '/pattern/pattern_4_thumb.png',
-						'pattern_5_thumb.png' => $evolve_imagepathfolder . '/pattern/pattern_5_thumb.png',
-						'pattern_6_thumb.png' => $evolve_imagepathfolder . '/pattern/pattern_6_thumb.png',
-						'pattern_7_thumb.png' => $evolve_imagepathfolder . '/pattern/pattern_7_thumb.png',
-						'pattern_8_thumb.png' => $evolve_imagepathfolder . '/pattern/pattern_8_thumb.png',
+					'subtitle'  => esc_attr__( 'Choose the pattern for header and footer background', 'evolve' ),
+					'id'        => 'evl_pattern',
+					'compiler'  => true,
+					'type'      => 'image_select',
+					'options'   => array(
+						'none'      => $evolve_imagepathfolder . 'pattern/none.jpg',
+						'pattern_1' => $evolve_imagepathfolder . 'pattern/pattern_1.png',
+						'pattern_2' => $evolve_imagepathfolder . 'pattern/pattern_2.png',
+						'pattern_3' => $evolve_imagepathfolder . 'pattern/pattern_3.png',
+						'pattern_4' => $evolve_imagepathfolder . 'pattern/pattern_4.png',
+						'pattern_5' => $evolve_imagepathfolder . 'pattern/pattern_5.png',
+						'pattern_6' => $evolve_imagepathfolder . 'pattern/pattern_6.png',
+						'pattern_7' => $evolve_imagepathfolder . 'pattern/pattern_7.png',
+						'pattern_8' => $evolve_imagepathfolder . 'pattern/pattern_8.png',
 					),
-					'title'    => esc_attr__( 'Header and Footer Pattern', 'evolve' ),
-					'default'  => 'none',
+					'title'     => esc_attr__( 'Header and Footer Pattern', 'evolve' ),
+					'default'   => 'none',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'       => '.header-pattern, .footer',
+							'property'      => 'background-image',
+							'value_pattern' => $evolve_imagepathfolder . 'pattern/' . '$' . '.png',
+						),
+					),
 				),
 			),
 		)
@@ -3029,8 +3053,8 @@ if ( true || is_customize_preview() ) {
 						array(
 							'element'  => '.menu-header, .sticky-header',
 							'function' => 'css',
-							'property' => 'background'
-						)
+							'property' => 'background-color'
+						),
 					),
 				),
 				array(

@@ -10,13 +10,13 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-            <div class="alert alert-success mb-5">
+            <div class="alert alert-success mb-5" role="alert">
                 <h1 class="page-title"><?php printf( __( 'Search results for %s', 'evolve' ), '<b>' . get_search_query() . '</b>' ); ?></h1>
             </div>
 
 		<?php else : ?>
 
-            <div class="alert alert-warning mb-5">
+            <div class="alert alert-warning mb-5" role="alert">
                 <h1 class="page-title"><?php printf( __( 'Your search for %s didn\'t match any entries', 'evolve' ), '<b>' . get_search_query() . '</b>' ); ?></h1>
             </div>
 
