@@ -7,11 +7,14 @@
 ?>
 
 <nav aria-label="navigation"
-     class="<?php if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "number_pagination" || is_singular() ) {
+     class="<?php if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "number_pagination" || ( is_single() && ! is_singular( array(
+			     'page',
+			     'attachment'
+		     ) ) ) ) {
 	     echo 'row ';
-     } ?>navigation mb-5">
+     } ?>navigation">
 
-	<?php if ( is_singular() && ! is_page() ) { ?>
+	<?php if ( is_single() && ! is_singular( array( 'page', 'attachment' ) ) ) { ?>
 
         <div class="col-sm-6 nav-next"><?php next_post_link( '%link', '%title' ); ?></div>
         <div class="col-sm-6 nav-previous"><?php previous_post_link( '%link', '%title' ); ?></div>
@@ -27,6 +30,6 @@
 		<?php }
 	} ?>
 
-</nav><!-- .row .navigation .mb-5 -->
+</nav><!-- .row .navigation -->
 
 

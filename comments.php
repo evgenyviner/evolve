@@ -59,7 +59,7 @@ if ( post_password_required() ) {
 
 				<?php evolve_discussion_rss(); ?>
 
-            </div><!-- .row .align-items-center -->
+            </div><!-- .row .align-items-center .mb-4 -->
 
 		<?php endif; ?>
 
@@ -67,7 +67,7 @@ if ( post_password_required() ) {
 
 <?php if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
 
-    <p class="alert alert-warning mb-5" role="alert"><?php _e( 'Comments are closed', 'evolve' ); ?></p>
+    <p class="alert alert-warning comments-closed" role="alert"><?php _e( 'Comments are closed', 'evolve' ); ?></p>
 
 <?php
 endif;

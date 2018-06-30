@@ -11,7 +11,7 @@ function evolve_widgets_init() {
 		'id'            => 'sidebar-1',
 		'before_widget' => '<div id="%1$s" class="widget %2$s"><div class="widget-content">',
 		'after_widget'  => '</div></div>',
-		'before_title'  => '<div class="before-title"><div class="widget-title-background"></div><h3 class="widget-title">',
+		'before_title'  => '<div class="widget-before-title"><div class="widget-title-background"></div><h3 class="widget-title">',
 		'after_title'   => '</h3></div>',
 	) );
 
@@ -20,7 +20,7 @@ function evolve_widgets_init() {
 		'id'            => 'sidebar-2',
 		'before_widget' => '<div id="%1$s" class="widget %2$s"><div class="widget-content">',
 		'after_widget'  => '</div></div>',
-		'before_title'  => '<div class="before-title"><div class="widget-title-background"></div><h3 class="widget-title">',
+		'before_title'  => '<div class="widget-before-title"><div class="widget-title-background"></div><h3 class="widget-title">',
 		'after_title'   => '</h3></div>',
 	) );
 
@@ -49,7 +49,7 @@ function evolve_widgets_init() {
 		'id'            => 'header',
 		'before_widget' => '<div id="%1$s" class="widget %2$s"><div class="widget-content">',
 		'after_widget'  => '</div></div>',
-		'before_title'  => '<div class="before-title"><div class="widget-title-background"></div><h3 class="widget-title">',
+		'before_title'  => '<div class="widget-before-title"><div class="widget-title-background"></div><h3 class="widget-title">',
 		'after_title'   => '</h3></div>',
 	);
 
@@ -58,7 +58,7 @@ function evolve_widgets_init() {
 		'id'            => 'header',
 		'before_widget' => '<div id="%1$s" class="widget %2$s"><div class="widget-content">',
 		'after_widget'  => '</div></div>',
-		'before_title'  => '<div class="before-title"><div class="widget-title-background"></div><h3 class="widget-title">',
+		'before_title'  => '<div class="widget-before-title"><div class="widget-title-background"></div><h3 class="widget-title">',
 		'after_title'   => '</h3></div>',
 	);
 
@@ -93,7 +93,7 @@ function evolve_widgets_init() {
 		'id'            => 'footer',
 		'before_widget' => '<div id="%1$s" class="widget %2$s"><div class="widget-content">',
 		'after_widget'  => '</div></div>',
-		'before_title'  => '<div class="before-title"><div class="widget-title-background"></div><h3 class="widget-title">',
+		'before_title'  => '<div class="widget-before-title"><div class="widget-title-background"></div><h3 class="widget-title">',
 		'after_title'   => '</h3></div>',
 	);
 
@@ -102,7 +102,7 @@ function evolve_widgets_init() {
 		'id'            => 'footer',
 		'before_widget' => '<div id="%1$s" class="widget %2$s"><div class="widget-content">',
 		'after_widget'  => '</div></div>',
-		'before_title'  => '<div class="before-title"><div class="widget-title-background"></div><h3 class="widget-title">',
+		'before_title'  => '<div class="widget-before-title"><div class="widget-title-background"></div><h3 class="widget-title">',
 		'after_title'   => '</h3></div>',
 	);
 

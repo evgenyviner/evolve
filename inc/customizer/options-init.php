@@ -584,33 +584,6 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'subtitle' => esc_attr__( 'Select general Content and Sidebar alignment', 'evolve' ),
-					'id'       => 'evl_layout',
-					'type'     => 'image_select',
-					'compiler' => true,
-					'options'  => array(
-						'1c'  => $evolve_imagepath . '1c.png',
-						'2cl' => $evolve_imagepath . '2cl.png',
-						'2cr' => $evolve_imagepath . '2cr.png',
-						'3cm' => $evolve_imagepath . '3cm.png',
-						'3cr' => $evolve_imagepath . '3cr.png',
-						'3cl' => $evolve_imagepath . '3cl.png',
-					),
-					'title'    => esc_attr__( 'Select General Layout', 'evolve' ),
-					'default'  => '2cl',
-				),
-				array(
-					'id'       => 'evl_width_layout',
-					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
-						'fixed' => esc_attr__( 'Boxed', 'evolve' ),
-						'fluid' => esc_attr__( 'Wide', 'evolve' ),
-					),
-					'title'    => esc_attr__( 'General Layout Width Style', 'evolve' ),
-					'default'  => 'fixed',
-				),
-				array(
 					'subtitle' => esc_attr__( 'Select Content and Sidebar alignment for Home/Front Page', 'evolve' ),
 					'id'       => 'evl_frontpage_layout',
 					'type'     => 'image_select',
@@ -635,6 +608,33 @@ if ( true || is_customize_preview() ) {
 						'fluid' => esc_attr__( 'Wide', 'evolve' ),
 					),
 					'title'    => esc_attr__( 'Home/Front Page Layout Width Style', 'evolve' ),
+					'default'  => 'fixed',
+				),
+				array(
+					'subtitle' => esc_attr__( 'Select general Content and Sidebar alignment', 'evolve' ),
+					'id'       => 'evl_layout',
+					'type'     => 'image_select',
+					'compiler' => true,
+					'options'  => array(
+						'1c'  => $evolve_imagepath . '1c.png',
+						'2cl' => $evolve_imagepath . '2cl.png',
+						'2cr' => $evolve_imagepath . '2cr.png',
+						'3cm' => $evolve_imagepath . '3cm.png',
+						'3cr' => $evolve_imagepath . '3cr.png',
+						'3cl' => $evolve_imagepath . '3cl.png',
+					),
+					'title'    => esc_attr__( 'Select General Layout', 'evolve' ),
+					'default'  => '2cl',
+				),
+				array(
+					'id'       => 'evl_width_layout',
+					'type'     => 'select',
+					'compiler' => true,
+					'options'  => array(
+						'fixed' => esc_attr__( 'Boxed', 'evolve' ),
+						'fluid' => esc_attr__( 'Wide', 'evolve' ),
+					),
+					'title'    => esc_attr__( 'General Layout Width Style', 'evolve' ),
 					'default'  => 'fixed',
 				),
 				array(
@@ -2572,7 +2572,7 @@ if ( true || is_customize_preview() ) {
 					'title'       => esc_attr__( 'Widget Title Font', 'evolve' ),
 					'default'     => array(
 						'font-size'   => '1.2rem',
-						'color'       => '#333333',
+						'color'       => '#51545c',
 						'font-family' => 'Roboto',
 						'font-weight' => '700',
 					),
@@ -2587,7 +2587,7 @@ if ( true || is_customize_preview() ) {
 					'default'     => array(
 						'font-size'   => '.9rem',
 						'font-family' => 'Roboto',
-						'color'       => '#333333',
+						'color'       => '#51545c',
 						'font-weight' => '300',
 					),
 				),
@@ -2622,7 +2622,7 @@ if ( true || is_customize_preview() ) {
 					'title'       => esc_attr__( 'Post/Page Content Font', 'evolve' ),
 					'default'     => array(
 						'font-size'   => '1rem',
-						'color'       => '#333333',
+						'color'       => '#51545c',
 						'font-family' => 'Roboto',
 						'font-weight' => '300',
 					),
@@ -2659,7 +2659,30 @@ if ( true || is_customize_preview() ) {
 					'title'       => esc_attr__( 'Content Boxes Description Font', 'evolve' ),
 					'default'     => array(
 						'font-size'   => '1rem',
-						'color'       => '#888',
+						'color'       => '#888888',
+						'font-family' => 'Roboto',
+						'font-weight' => '300',
+					),
+				),
+			),
+		)
+	);
+
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
+			'id'         => 'evl-footer-copyright',
+			'title'      => esc_attr__( 'Footer Copyright', 'evolve' ),
+			'subsection' => true,
+			'fields'     => array(
+				array(
+					'subtitle'    => esc_attr__( 'Select the typography you want for your Footer Copyright', 'evolve' ),
+					'id'          => 'evl_footer_copyright',
+					'type'        => 'typography',
+					'text-align'  => false,
+					'line-height' => false,
+					'title'       => esc_attr__( 'Footer Copyright Font', 'evolve' ),
+					'default'     => array(
+						'font-size'   => '.7rem',
+						'color'       => '#999999',
 						'font-family' => 'Roboto',
 						'font-weight' => '300',
 					),
@@ -2682,7 +2705,7 @@ if ( true || is_customize_preview() ) {
 					'title'       => esc_attr__( 'H1 Font', 'evolve' ),
 					'default'     => array(
 						'font-size'   => '2.9rem',
-						'color'       => '#333333',
+						'color'       => '#51545c',
 						'font-family' => 'Roboto',
 						'font-weight' => '500',
 					),
@@ -2697,7 +2720,7 @@ if ( true || is_customize_preview() ) {
 					'default'     => array(
 						'font-size'   => '2.5rem',
 						'font-family' => 'Roboto',
-						'color'       => '#333333',
+						'color'       => '#51545c',
 						'font-weight' => '500',
 					),
 				),
@@ -2711,7 +2734,7 @@ if ( true || is_customize_preview() ) {
 					'default'     => array(
 						'font-size'   => '1.75rem',
 						'font-family' => 'Roboto',
-						'color'       => '#333333',
+						'color'       => '#51545c',
 						'font-weight' => '500',
 					),
 				),
@@ -2725,7 +2748,7 @@ if ( true || is_customize_preview() ) {
 					'default'     => array(
 						'font-size'   => '1.7rem',
 						'font-family' => 'Roboto',
-						'color'       => '#333333',
+						'color'       => '#51545c',
 						'font-weight' => '500',
 					),
 				),
@@ -2739,7 +2762,7 @@ if ( true || is_customize_preview() ) {
 					'default'     => array(
 						'font-size'   => '1.25rem',
 						'font-family' => 'Roboto',
-						'color'       => '#333333',
+						'color'       => '#51545c',
 						'font-weight' => '500',
 					),
 				),
@@ -2753,7 +2776,7 @@ if ( true || is_customize_preview() ) {
 					'default'     => array(
 						'font-size'   => '.9rem',
 						'font-family' => 'Roboto',
-						'color'       => '#333333',
+						'color'       => '#51545c',
 						'font-weight' => '500',
 					),
 				),
@@ -3211,15 +3234,28 @@ if ( true || is_customize_preview() ) {
 					'default'  => 0,
 				),
 				array(
-					'subtitle' => esc_attr__( 'Choose the color scheme for widgets background', 'evolve' ),
-					'id'       => 'evl_widget_bgcolor',
-					'compiler' => true,
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Widget Title Custom Background', 'evolve' ),
-					'required' => array(
+					'subtitle'  => esc_attr__( 'Choose the color scheme for widgets background', 'evolve' ),
+					'id'        => 'evl_widget_bgcolor',
+					'compiler'  => true,
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Widget Title Custom Background', 'evolve' ),
+					'required'  => array(
 						array( 'evl_widget_background', '=', '1' )
 					),
-					'default'  => '#273039',
+					'default'   => '#273039',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.widget-title-background',
+							'function' => 'css',
+							'property' => 'background-color'
+						),
+						array(
+							'element'  => '.widget-title-background',
+							'function' => 'css',
+							'property' => 'border-color'
+						),
+					),
 				),
 				array(
 					'subtitle' => esc_attr__( 'Check this box if you want to disable widget content boxed background', 'evolve' ),
@@ -3243,8 +3279,16 @@ if ( true || is_customize_preview() ) {
 					'id'       => 'evl_general_link',
 					'compiler' => true,
 					'type'     => 'color',
-					'title'    => esc_attr__( 'General Link Color', 'evolve' ),
+					'title'    => esc_attr__( 'Primary Link Color', 'evolve' ),
 					'default'  => '#0bb697',
+				),
+				array(
+					'subtitle' => esc_attr__( 'Custom color for links in post metas, widgets, navigation etc.', 'evolve' ),
+					'id'       => 'evl_secondary_link',
+					'compiler' => true,
+					'type'     => 'color',
+					'title'    => esc_attr__( 'Secondary Link Color', 'evolve' ),
+					'default'  => '#999999',
 				),
 			),
 		)

@@ -2160,7 +2160,7 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
     global $woocommerce;
 				?>
 
-                <nav class="navbar navbar-expand-md float-md-right">
+                <nav class="navbar navbar-expand-md woocommerce float-md-right">
 
                     <div class="navbar-toggler woocommerce-toggler" data-toggle="collapse"
                          data-target="#woocommerce-menu"

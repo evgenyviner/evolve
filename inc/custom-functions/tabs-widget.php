@@ -175,7 +175,7 @@ class evolve_Tabs_Widget extends WP_Widget {
                             <li>
                                 <div class="image">
 
-									<?php echo get_avatar( $comment, '50' ); ?>
+									<?php echo get_avatar( $comment, '50', '', '', array( 'class' => 'rounded-circle' ) ); ?>
 
                                 </div>
                                 <div class="post-holder">

@@ -482,7 +482,7 @@ function evolve_hex_change( $hex, $steps = '-12' ) {
    ======================================= */
 
 function evolve_sharethis() {
-	if ( evolve_theme_mod( 'evl_share_this', 'single' ) == "disable" || is_search() || is_page() ) {
+	if ( evolve_theme_mod( 'evl_share_this', 'single' ) == "disable" || is_search() || is_page() || is_attachment() ) {
 		return;
 	}
 
@@ -2216,8 +2216,8 @@ if ( class_exists( 'Woocommerce' ) ) {
    Function To Separate Values
    ======================================= */
 
-function evolve_remove_comma( $str ) {
-	substr( $str, 1 );
+function evolve_remove_comma( $str = '' ) {
+	$str = substr( $str, 1 );
 
 	return $str;
 }

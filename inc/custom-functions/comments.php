@@ -86,8 +86,8 @@ function evolve_comment_navigation() {
 	$pages = paginate_comments_links( array(
 		'echo'      => false,
 		'type'      => 'array',
-		'prev_text' => __( 'Previous Page', 'evolve' ),
-		'next_text' => __( 'Next Page', 'evolve' )
+		'prev_text' => __( 'Previous', 'evolve' ),
+		'next_text' => __( 'Next', 'evolve' )
 	) );
 
 	if ( ! is_array( $pages ) ) {

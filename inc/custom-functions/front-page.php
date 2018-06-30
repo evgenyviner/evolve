@@ -846,29 +846,6 @@ function after_loop() {
 	echo '</div>' . "\n";
 }
 
-function get_slideshow() {
-	global $smof_data, $theme_prefix;
-	$post_id   = get_the_ID();
-	$html      = '';
-	$slideshow = array(
-		'images' => get_post_thumbnails( get_the_ID(), $smof_data['posts_slideshow_number'] )
-	);
-	if ( get_post_meta( $post_id, $theme_prefix . 'video', true ) ) {
-		$slideshow['video'] = get_post_meta( $post_id, $theme_prefix . 'video', true );
-	}
-	ob_start();
-	if ( $smof_data['legacy_posts_slideshow'] ) {
-		require get_parent_theme_file_path( 'legacy-slideshow-blog-shortcode.php' );
-	} else {
-		require get_parent_theme_file_path( 'new-slideshow-blog-shortcode.php' );
-	}
-	$post_slideshow_action = ob_get_contents();
-	ob_get_clean();
-	$html .= $post_slideshow_action;
-
-	return $html;
-}
-
 function get_post_thumbnails( $post_id, $count = '' ) {
 	global $smof_data;
 	$attachment_ids = array();
@@ -902,7 +879,7 @@ function loop_header( $header ) {
 	$content_sep       = '';
 	$link              = '';
 	if ( evolve_theme_mod( 'evl_fp_blog_thumbnail' ) == 'yes' ) {
-		$pre_title_content = get_slideshow();
+		$pre_title_content = evolve_featured_image();
 	}
 
 	if ( evolve_theme_mod( 'evl_fp_blog_layout' ) == 'large' ) {
