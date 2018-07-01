@@ -22,21 +22,20 @@ function evolve_woocommerce_ordering() {
 	}
 }
 
-if ( ! class_exists( 'evolve_TemplateWoo' ) ) {
+if ( ! class_exists( 'evolve_woocommerce' ) ) {
 
-	class evolve_TemplateWoo {
+	class evolve_woocommerce {
 
 		function __construct() {
-
 			add_filter( 'woocommerce_show_page_title', array( $this, 'shop_title' ), 10 );
-			add_action( 'woocommerce_before_main_content', array( $this, 'add_sidebar_2' ), 10 );
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 			remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
-			remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
-			add_action( 'woocommerce_before_main_content', array( $this, 'before_container' ), 10 );
-			add_action( 'woocommerce_after_main_content', array( $this, 'after_container' ), 10 );
-			add_action( 'woocommerce_before_main_content', array( $this, 'shop_breadcrumb' ), 20, 0 );
+			remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+			add_action( 'woocommerce_before_main_content', array( $this, 'before_container' ), 11 );
+			add_action( 'woocommerce_before_main_content', array( $this, 'shop_breadcrumb' ), 20 );
+			add_action( 'woocommerce_before_main_content', array( $this, 'add_sidebar_2' ), 10 );
+			add_action( 'woocommerce_after_main_content', array( $this, 'after_container' ), 10 );
 			add_action( 'woocommerce_sidebar', array( $this, 'add_sidebar' ), 10 );
 			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'before_shop_item_buttons' ), 9 );
 			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'after_shop_item_buttons' ), 11 );
@@ -46,10 +45,10 @@ if ( ! class_exists( 'evolve_TemplateWoo' ) ) {
 			add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 			add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 11 );
 			remove_action( 'woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 10 );
-			add_filter( 'woocommerce_template_path', array( $this, 'backwards_compatability' ) );
+			add_filter( 'woocommerce_template_path', array( $this, 'backwards_compatibility' ) );
 		}
 
-		function backwards_compatability( $path ) {
+		function backwards_compatibility( $path ) {
 			if ( ! self::is_wc_version_gte_2_3() ) {
 				$path = "woocommerce/compatability/2.2/";
 			}
@@ -66,48 +65,8 @@ if ( ! class_exists( 'evolve_TemplateWoo' ) ) {
 		}
 
 		function before_container() {
-			global $post;
-			global $wp_query;
-
-			if ( is_shop() ) {
-				$pageID = get_option( 'woocommerce_shop_page_id' );
-			} elseif ( class_exists( 'Woocommerce' ) && ( is_product_category() || is_product_tag() ) ) {
-				$pageID = '';
-			} else {
-				$pageID = $post->ID;
-			}
-
-			$custom_fields = get_post_custom_values( '_wp_page_template', $pageID );
-			if ( is_array( $custom_fields ) && ! empty( $custom_fields ) ) {
-				$page_template = $custom_fields[0];
-			} else {
-				$page_template = '';
-			}
-
-			$evolve_layout             = evolve_theme_mod( 'evl_layout', '2cl' );
-			$evolve_post_layout        = evolve_theme_mod( 'evl_post_layout', 'two' );
-			$evolve_opt1_width_content = evolve_theme_mod( 'evl_opt1_width_content', '8' );
-			$evolve_opt2_width_content = evolve_theme_mod( 'evl_opt2_width_content', '6' );
-
-			$evolve_layout_css = '';
 			echo '<div id="primary" class="';
-
-			if ( $evolve_layout == "1c" ) {
-				$evolve_layout_css .= ' col-md-12';
-			} else {
-
-				if ( ( $evolve_layout == "2cr" && ( $evolve_post_layout == "two" ) || $evolve_layout == "2cl" && ( $evolve_post_layout == "two" ) ) ) {
-					$evolve_layout_css .= 'col-md-12 col-sm-' . $evolve_opt1_width_content . ' col-md-' . $evolve_opt1_width_content . '';
-				}
-
-				if ( ( $evolve_layout == "3cm" || $evolve_layout == "3cl" || $evolve_layout == "3cr" ) ) {
-					$evolve_layout_css .= 'col-md-12 col-sm-' . $evolve_opt2_width_content . ' col-md-' . $evolve_opt2_width_content . '';
-				} else {
-					$evolve_layout_css .= 'col-md-12 col-sm-' . $evolve_opt1_width_content . ' col-md-' . $evolve_opt1_width_content . '';
-				}
-			}
-
-			echo $evolve_layout_css;
+			evolve_layout_class( $type = 1 );
 			echo '">';
 		}
 
@@ -120,130 +79,112 @@ if ( ! class_exists( 'evolve_TemplateWoo' ) ) {
 		}
 
 		function add_sidebar_2() {
-			global $wp_query, $post;
-
-			if ( is_shop() ) {
-				$pageID = get_option( 'woocommerce_shop_page_id' );
-			} elseif ( class_exists( 'Woocommerce' ) && ( is_product_category() || is_product_tag() ) ) {
-				$pageID = '';
-			} else {
-				$pageID = $post->ID;
-			}
+			$sidebar_css = '';
 
 			$get_sidebar = false;
 
-			$evolve_layout              = evolve_theme_mod( 'evl_layout', '2cl' );
-			$evolve_opt2_width_sidebar2 = evolve_theme_mod( 'evl_opt2_width_sidebar2', '3' );
-
-			if ( $evolve_layout == "3cm" || $evolve_layout == "3cl" || $evolve_layout == "3cr" ) {
+			if ( evolve_theme_mod( 'evl_layout', '2cl' ) == "3cm" || evolve_theme_mod( 'evl_layout', '2cl' ) == "3cl" || evolve_theme_mod( 'evl_layout', '2cl' ) == "3cr" ) {
 				$get_sidebar = true;
 			}
 
-			$sidebar_css = '';
+			switch ( evolve_theme_mod( 'evl_layout', '2cl' ) ):
+				case "3cm":
+					$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
+					break;
+				case "3cl":
+					$sidebar_css = 'col-md-12 col-lg-3 order-2';
+					break;
+				case "3cr":
+					$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
+					break;
+			endswitch;
 
-			if ( $get_sidebar ) {
-				//get_sidebar('2');
-				if ( class_exists( 'Woocommerce' ) ) {
-					if ( is_cart() || is_checkout() || is_account_page() || ( get_option( 'woocommerce_thanks_page_id' ) && is_page( get_option( 'woocommerce_thanks_page_id' ) ) ) ) {
-						$sidebar_css = '';
-					}
+			if ( ( is_home() || is_front_page() ) && is_shop() ) {
+			if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cm" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cl" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cr" ) {
+						$get_sidebar = true;
 				}
-
-				echo '<div id="secondary-2" class="aside ';
-
-				switch ( $evolve_layout ):
-					case "1c":
-						//do nothing
-						break;
-					case "2cl":
-						//do nothing
-						break;
-					case "2cr":
-						//do nothing
-						break;
+				switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
 					case "3cm":
-						$sidebar_css = 'col-xs-12 col-sm-' . $evolve_opt2_width_sidebar2 . ' col-md-' . $evolve_opt2_width_sidebar2 . '';
+						$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
 						break;
 					case "3cl":
-						$sidebar_css = 'col-xs-12 col-sm-' . $evolve_opt2_width_sidebar2 . ' col-md-' . $evolve_opt2_width_sidebar2 . '';
+						$sidebar_css = 'col-md-12 col-lg-3 order-2';
 						break;
 					case "3cr":
-						$sidebar_css = 'col-xs-12 col-sm-' . $evolve_opt2_width_sidebar2 . ' col-md-' . $evolve_opt2_width_sidebar2 . '';
+						$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
 						break;
 				endswitch;
+			}
 
-				echo $sidebar_css . '"';
-
-				echo '>';
-
-				wp_reset_query();
-
-				if ( dynamic_sidebar( 'sidebar-2' ) ) :
-				endif;
-
+			if ( $get_sidebar == true ) {
+				echo '<div id="secondary-2" class="aside ' . $sidebar_css . '">';
+				dynamic_sidebar( 'sidebar-2' );
 				echo '</div>';
 			}
 		}
 
 		function add_sidebar() {
-			global $post;
-
-			if ( is_shop() ) {
-				$pageID = get_option( 'woocommerce_shop_page_id' );
-			} elseif ( class_exists( 'Woocommerce' ) && ( is_product_category() || is_product_tag() ) ) {
-				$pageID = '';
-			} else {
-				$pageID = $post->ID;
-			}
-
-			$evolve_layout              = evolve_theme_mod( 'evl_layout', '2cl' );
-			$evolve_opt1_width_sidebar1 = evolve_theme_mod( 'evl_opt1_width_sidebar1', '4' );
-			$evolve_opt2_width_sidebar1 = evolve_theme_mod( 'evl_opt2_width_sidebar1', '3' );
-
 			$sidebar_css = '';
+			$get_sidebar = false;
 
-			if ( class_exists( 'Woocommerce' ) ) {
-				if ( is_cart() || is_checkout() || is_account_page() || ( get_option( 'woocommerce_thanks_page_id' ) && is_page( get_option( 'woocommerce_thanks_page_id' ) ) ) ) {
-					$sidebar_css = '';
-				}
+			if ( evolve_theme_mod( 'evl_layout', '2cl' ) != "1c" ) {
+				$get_sidebar = true;
 			}
 
-			echo '<div id="secondary" class="aside ';
-
-			switch ( $evolve_layout ):
+			switch ( evolve_theme_mod( 'evl_layout', '2cl' ) ):
 				case "1c":
-					$sidebar_css = '';
-					echo '"';
-					echo "style='display:none;'";
+					//do nothing
 					break;
 				case "2cl":
-					$sidebar_css = 'col-sm-' . $evolve_opt1_width_sidebar1 . ' col-md-' . $evolve_opt1_width_sidebar1 . '';
+					$sidebar_css = 'col-sm-12 col-md-4';
 					break;
 				case "2cr":
-					$sidebar_css = 'col-sm-' . $evolve_opt1_width_sidebar1 . ' col-md-' . $evolve_opt1_width_sidebar1 . '';
+					$sidebar_css = 'col-sm-12 col-md-4 order-2 order-md-1';
 					break;
 				case "3cm":
-					$sidebar_css = 'col-xs-12 col-sm-' . $evolve_opt2_width_sidebar1 . ' col-md-' . $evolve_opt2_width_sidebar1 . '';
+					$sidebar_css = 'col-md-12 col-lg-3 order-3';
 					break;
 				case "3cl":
-					$sidebar_css = 'col-xs-12 col-sm-' . $evolve_opt2_width_sidebar1 . ' col-md-' . $evolve_opt2_width_sidebar1 . '';
+					$sidebar_css = 'col-md-12 col-lg-3 order-3';
 					break;
 				case "3cr":
-					$sidebar_css = 'col-xs-12 col-sm-' . $evolve_opt2_width_sidebar1 . ' col-md-' . $evolve_opt2_width_sidebar1 . '';
+					$sidebar_css = 'col-md-12 col-lg-3 order-3 order-lg-2';
 					break;
 			endswitch;
+			if ( ( is_home() || is_front_page() ) && is_shop() ) {
+		if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "1c" ) {
+			$get_sidebar = false;
+		} else {
+			$get_sidebar = true;
+		}
 
-			if ( $evolve_layout != '1c' ) {
-				echo $sidebar_css . '"';
+				switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
+					case "1c":
+						$sidebar_css = '';
+						break;
+					case "2cl":
+						$sidebar_css = 'col-sm-12 col-md-4';
+						break;
+					case "2cr":
+						$sidebar_css = 'col-sm-12 col-md-4 order-2 order-md-1';
+						break;
+					case "3cm":
+						$sidebar_css = 'col-md-12 col-lg-3 order-3';
+						break;
+					case "3cl":
+						$sidebar_css = 'col-md-12 col-lg-3 order-3';
+						break;
+					case "3cr":
+						$sidebar_css = 'col-md-12 col-lg-3 order-3 order-lg-2';
+						break;
+				endswitch;
 			}
-			echo '>';
 
-			wp_reset_query();
-
-			if ( ! dynamic_sidebar( 'sidebar-1' ) ) :
-			endif;
-
-			echo '</div>';
+			if ( $get_sidebar == true ) {
+				echo '<div id="secondary" class="aside ' . $sidebar_css . '">';
+				dynamic_sidebar( 'sidebar-1' );
+				echo '</div>';
+			}
 		}
 
 		function before_shop_item_buttons() {
@@ -260,16 +201,27 @@ if ( ! class_exists( 'evolve_TemplateWoo' ) ) {
 
 		function shop_breadcrumb() {
 			$evolve_breadcrumbs         = evolve_theme_mod( 'evl_breadcrumbs', '1' );
-			$evolve_pagetitlebar_layout = evolve_theme_mod( 'evl_pagetitlebar_layout', '0' );
-			if ( $evolve_breadcrumbs == "1" && $evolve_pagetitlebar_layout == '0' ):
+			if ( $evolve_breadcrumbs == "1" ):
 				woocommerce_breadcrumb();
 			endif;
 		}
 
 	}
 
-	new evolve_TemplateWoo();
+	new evolve_woocommerce();
 }
+
+add_filter( 'woocommerce_breadcrumb_defaults', 'evolve_woocommerce_breadcrumbs' );
+function evolve_woocommerce_breadcrumbs() {
+    return array(
+            'wrap_before' => '<nav aria-label="breadcrumb"><ol class="breadcrumb">',
+            'wrap_after'  => '</ol></nav>',
+            'before'      => '<li class="breadcrumb-item">',
+            'after'       => '</li>',
+            'home'        => _x( 'Home', 'breadcrumb', 'evolve' ),
+        );
+}
+
 
 add_filter( 'get_product_search_form', 'evolve_product_search_form' );
 
@@ -2157,8 +2109,7 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
 	return;
 	}
 
-    global $woocommerce;
-				?>
+    global $woocommerce; ?>
 
                 <nav class="navbar navbar-expand-md woocommerce float-md-right">
 

@@ -10,8 +10,8 @@ $evolve_carousel_speed             = evolve_theme_mod( 'evl_carousel_speed', '35
 $evolve_pagination_type            = evolve_theme_mod( 'evl_pagination_type', 'pagination' );
 $evolve_pos_button                 = evolve_theme_mod( 'evl_pos_button', 'right' );
 $evolve_slider_page_id             = '';
-$evolve_parallax_slider_all        = evolve_theme_mod( 'evl_parallax_slider', '1' );
-$evolve_parallax_slider_support    = evolve_theme_mod( 'evl_parallax_slider_support', '1' );
+$evolve_parallax_slider_all        = evolve_theme_mod( 'evl_parallax_slider', '0' );
+$evolve_parallax_slider_support    = evolve_theme_mod( 'evl_parallax_slider_support', '0' );
 $evolve_parallax_speed             = evolve_theme_mod( 'evl_parallax_speed', '4000' );
 $evolve_recaptcha_public           = evolve_theme_mod( 'evl_recaptcha_public', '' );
 $evolve_recaptcha_private          = evolve_theme_mod( 'evl_recaptcha_private', '' );
@@ -553,7 +553,6 @@ function evolve_sharethis() {
    ======================================= */
 
 function evolve_bootstrap() {
-	global $evolve_options;
 	$wrap = false;
 	for ( $i = 1; $i <= 5; $i ++ ) {
 		if ( evolve_theme_mod( "evl_bootstrap_slide{$i}" ) == 1 ) {
@@ -565,13 +564,13 @@ function evolve_bootstrap() {
 				$active = " active";
 			}
 			echo "<div class='carousel-item" . $active . "'>";
-			echo "<img class='d-block w-100' src='" . evolve_theme_mod( "evl_bootstrap_slide{$i}_img" ) . "' alt='" . evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) . "' />";
+			echo "<img class='d-block" . ( ( evolve_theme_mod( 'evl_bootstrap_100', '' ) == '1' ) ? "" : " w-100" ) . "' src='" . evolve_theme_mod( "evl_bootstrap_slide{$i}_img" ) . "' alt='" . evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) . "' />";
 			echo '<div class="carousel-caption ' . evolve_bootstrap_layout_class() . '">';
 			if ( strlen( evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) ) > 0 ) {
-				echo "<h2>" . esc_attr( evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) ) . "</h2>";
+				echo "<h5>" . esc_attr( evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) ) . "</h5>";
 			}
 			if ( strlen( evolve_theme_mod( "evl_bootstrap_slide{$i}_desc" ) ) > 0 ) {
-				echo "<p>" . esc_attr( evolve_theme_mod( "evl_bootstrap_slide{$i}_desc" ) ) . "</p>";
+				echo "<p class='d-none d-md-block'>" . esc_attr( evolve_theme_mod( "evl_bootstrap_slide{$i}_desc" ) ) . "</p>";
 			}
 			echo do_shortcode( evolve_theme_mod( "evl_bootstrap_slide{$i}_button" ) );
 			echo "</div>";
@@ -580,24 +579,29 @@ function evolve_bootstrap() {
 	}
 	if ( $wrap ) {
 		echo "</div>
-                <a class='left carousel-control-prev' href='#bootstrap-slider' data-slide='prev'></a><a class='right carousel-control-next' href='#bootstrap-slider' data-slide='next'></a>
+                <a class='carousel-control-prev' href='#bootstrap-slider' role='button' data-slide='prev'>
+                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                    <span class='sr-only'>" . __( 'Previous', 'evolve' ) . "</span>
+                </a>
+                <a class='carousel-control-next' href='#bootstrap-slider' role='button' data-slide='next'>
+                <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                <span class='sr-only'>" . __( 'Next', 'evolve' ) . "</span>
+                </a>
                 </div>";
 	}
 }
 
 /*
-   Function For Ddd CSS Class In Bootstrap Slider
+   Function For Add CSS Class In Bootstrap Slider
    ======================================= */
 
 function evolve_bootstrap_layout_class() {
 	$bootstrap_layout        = '';
 	$evolve_bootstrap_layout = evolve_theme_mod( 'evl_bootstrap_layout', 'bootstrap_left' );
-	if ( $evolve_bootstrap_layout == "bootstrap_right" ) {
-		$bootstrap_layout = 'layout-right';
-	} elseif ( $evolve_bootstrap_layout == "bootstrap_center" ) {
-		$bootstrap_layout = 'layout-center';
-	} else {
+	if ( $evolve_bootstrap_layout == "bootstrap_left" ) {
 		$bootstrap_layout = 'layout-left';
+	} else {
+		$bootstrap_layout = 'layout-center';
 	}
 
 	return $bootstrap_layout;
@@ -1644,10 +1648,10 @@ function evolve_lets_get_sidebar() {
 	}
 
 	if ( is_home() || is_front_page() ) {
-		if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) != "1c" ) {
-			$get_sidebar = true;
-		} else {
+		if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "1c" ) {
 			$get_sidebar = false;
+		} else {
+			$get_sidebar = true;
 		}
 	}
 
@@ -1686,10 +1690,10 @@ function evolve_lets_get_sidebar_2() {
 	}
 
 	if ( is_home() || is_front_page() ) {
-		if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cm" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cl" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cr" ) {
-			$get_sidebar = true;
-		} else {
+		if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "1c" ) {
 			$get_sidebar = false;
+		} else {
+			$get_sidebar = true;
 		}
 	}
 
@@ -1717,7 +1721,7 @@ function evolve_print_fonts( $name, $css_class, $additional_css = '', $additiona
 	}
 	if ( isset( $options[ $name ]['font-family'] ) && $options[ $name ]['font-family'] != '' ) {
 		$font_family = $options[ $name ]['font-family'];
-		$css         .= " font-family: " . $font_family . ", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";";
+		$css         .= " font-family: " . $font_family . ";";
 	}
 	if ( isset( $options[ $name ]['font-style'] ) && $options[ $name ]['font-style'] != '' ) {
 		$font_style = $options[ $name ]['font-style'];

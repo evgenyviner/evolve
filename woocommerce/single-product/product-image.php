@@ -26,6 +26,7 @@ if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
 
 global $post, $product;
 ?>
+
 <div class="images">
 
     <div id="slider" class="flexslider">

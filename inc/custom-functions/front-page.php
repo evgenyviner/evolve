@@ -1258,9 +1258,9 @@ function evolve_frontpage_bootstrap_slider() {
 /* Front Page Parallax Slider */
 function evolve_frontpage_parallax_slider() {
 	// Parallax Slider
-	$evolve_parallax_on = evolve_theme_mod( 'evl_parallax_slider_support', '1' );
+	$evolve_parallax_on = evolve_theme_mod( 'evl_parallax_slider_support', '0' );
 	if ( ( $evolve_parallax_on == "1" && is_front_page() ) || ( $evolve_parallax_on == "1" && is_home() ) ):
-		$evolve_parallax_slider = evolve_theme_mod( 'evl_parallax_slider_support', '1' );
+		$evolve_parallax_slider = evolve_theme_mod( 'evl_parallax_slider_support', '0' );
 		if ( $evolve_parallax_slider == "1" ):
 			evolve_parallax();
 		endif;

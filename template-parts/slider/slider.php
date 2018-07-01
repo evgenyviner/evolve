@@ -1,7 +1,7 @@
 <?php
 
 /*
-   Template: slider.php
+   Displays Sliders
    ======================================= */
 
 $evolve_slider_page_id = '';
@@ -22,7 +22,7 @@ if ( is_home() && ! is_front_page() ) {
    Bootstrap Slider
    ======================================= */
 
-if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', false ) ) || ( evolve_theme_mod( 'evl_bootstrap_slider', false ) && evolve_theme_mod( 'evl_bootstrap_slider_support', false ) ) ) {
+if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider', '0' ) == '1' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) ) {
 	evolve_bootstrap();
 }
 
@@ -30,7 +30,7 @@ if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'b
    Parallax Slider
    ======================================= */
 
-if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && evolve_theme_mod( 'evl_parallax_slider_support', false ) ) || ( evolve_theme_mod( 'evl_parallax_slider', false ) && evolve_theme_mod( 'evl_parallax_slider_support', false ) ) ) {
+if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_parallax_slider', '0' ) == '1' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ) ) {
 	evolve_parallax();
 }
 

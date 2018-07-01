@@ -6,7 +6,7 @@
 
 get_header(); ?>
 
-    <div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?> mb-5 mb-lg-0">
+    <div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?>">
 
 		<?php if ( have_posts() ) : ?>
 

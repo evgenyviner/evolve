@@ -677,8 +677,8 @@ if ( true || is_customize_preview() ) {
 	);
 
 //Check status of parallax and post slider
-	$theme_options['evl_bootstrap_slider_support'] = evolve_theme_mod( 'evl_bootstrap_slider_support' );
-	$theme_options['evl_parallax_slider_support']  = evolve_theme_mod( 'evl_parallax_slider_support' );
+	$theme_options['evl_bootstrap_slider_support'] = evolve_theme_mod( 'evl_bootstrap_slider_support', '1' );
+	$theme_options['evl_parallax_slider_support']  = evolve_theme_mod( 'evl_parallax_slider_support', '0' );
 	$theme_options['evl_carousel_slider']          = evolve_theme_mod( 'evl_carousel_slider' );
 
 	( isset( $theme_options['evl_bootstrap_slider_support'] ) && $theme_options['evl_bootstrap_slider_support'] == '1' ) ? $bootstrapslider_status = esc_attr__( ' (ACTIVE)', 'evolve' ) : $bootstrapslider_status = esc_attr__( ' (INACTIVE)', 'evolve' );
@@ -4035,7 +4035,7 @@ if ( true || is_customize_preview() ) {
 			"type"     => "textarea",
 			"rows"     => 3,
 			'required' => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
-			"default"  => '<a class="btn bootstrap-button" href="#">' . esc_attr__( 'Learn more', 'evolve' ) . '</a>',
+			"default"  => '<a class="btn d-none d-sm-inline-block" href="#">' . esc_attr__( 'Learn more', 'evolve' ) . '</a>',
 		);
 	}
 
@@ -4070,10 +4070,10 @@ if ( true || is_customize_preview() ) {
 					),
 				),
 				array(
-					'subtitle' => esc_attr__( 'Check this box to disable Bootstrap Slides 100% Background', 'evolve' ),
+					'subtitle' => esc_attr__( 'Check this box to disable Bootstrap Slides 100% Width Background', 'evolve' ),
 					'id'       => 'evl_bootstrap_100',
 					'type'     => 'checkbox',
-					'title'    => esc_attr__( 'Disable Bootstrap Slides 100% Background', 'evolve' ),
+					'title'    => esc_attr__( 'Disable Bootstrap Slides 100% Width Background', 'evolve' ),
 					'required' => array(
 						array( 'evl_bootstrap_slider_support', '=', '1' )
 					),
@@ -4112,10 +4112,7 @@ if ( true || is_customize_preview() ) {
 					'id'       => 'evl_bootstrap_slide_title_font_rgba',
 					'type'     => 'color_rgba',
 					'title'    => esc_attr__( 'Slide Title Font Background Color', 'evolve' ),
-					'default'  => array(
-						'color' => '#000000',
-						'alpha' => 0.7
-					),
+					'default'  => '',
 					'required' => array(
 						array( 'evl_bootstrap_slider_support', '=', '1' )
 					),
@@ -4143,10 +4140,7 @@ if ( true || is_customize_preview() ) {
 					'id'       => 'evl_bootstrap_slide_subtitle_font_rgba',
 					'type'     => 'color_rgba',
 					'title'    => esc_attr__( 'Slide Description Font Background Color', 'evolve' ),
-					'default'  => array(
-						'color' => '#000000',
-						'alpha' => 0.7
-					),
+					'default'  => '',
 					'required' => array(
 						array( 'evl_bootstrap_slider_support', '=', '1' )
 					),
@@ -4740,241 +4734,6 @@ function fix_data_from_redux_to_kirki( $value ) {
 
 	return $value;
 }
-
-function evolve_import_demo_content_kirki( $wp_customize = null ) {
-	$evolve_opt_name             = "evl_options";
-	$plugin_options              = get_option( 'evl_options', false );
-	$frontpage_prebuilt_new_demo = evolve_theme_mod( 'evl_frontpage_prebuilt_demo', 'default' );
-	$frontpage_prebuilt_old_demo = get_option( 'frontpage_prebuilt_old_demo', 'default' );
-	$evolve_imagepathfolder      = get_template_directory_uri() . '/assets/images/';
-
-	if ( $frontpage_prebuilt_new_demo != $frontpage_prebuilt_old_demo ) {
-		?>
-        <script type='text/javascript'>
-            jQuery(document).ready(function ($) {
-                window.onbeforeunload = function () {
-                    // blank function do nothing
-                }
-                // wp.customize.previewer.refresh();
-                // wp.customize.preview.send('refresh');
-                //alert('Please reload website to see the new layout!');
-                //window.location.href = window.location.href;
-            });
-        </script>
-		<?php
-
-		switch ( $frontpage_prebuilt_new_demo ) {
-			case 'default':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/default.json';
-				break;
-			case 'blog':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/blog.json';
-				break;
-			case 'woocommerce':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/woocommerce.json';
-				break;
-			case 'blog-2':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/blog_2.json';
-				break;
-			case 'corporate':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/corporate.json';
-				break;
-			case 'magazine':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/magazine.json';
-				break;
-			case 'business':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/business.json';
-				break;
-			case 'woocommerce-2':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/woocommerce_2.json';
-				break;
-			case 'bbpress-buddypress':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/bbpress_buddypress.json';
-				break;
-		}
-		if ( $frontpage_prebuilt_new_demo == 'woocommerce' ) {
-			$theme_name = basename( get_stylesheet_directory() );
-
-			$theme_mods                     = get_option( 'theme_mods_' . $theme_name, false );
-			$theme_mods['background_color'] = "ecebe9";
-			update_option( 'theme_mods_' . $theme_name, $theme_mods );
-
-			$color    = '{
-                            "' . $theme_name . '"::background_color": {
-                                "value": "#ecebe9",
-                                "type": "theme_mod",
-                                "user_id": 1
-                            }
-                        }';
-			$defaults = array(
-				'post_content'   => $color,
-				'post_status'    => 'trash',
-				'post_type'      => 'customize_changeset',
-				'comment_status' => 'closed',
-				'ping_status'    => 'closed',
-			);
-			wp_insert_post( $defaults, false );
-		}
-
-		if ( $frontpage_prebuilt_new_demo == 'woocommerce-2' ) {
-			$theme_name                     = basename( get_stylesheet_directory() );
-			$theme_mods                     = get_option( 'theme_mods_' . $theme_name, false );
-			$theme_mods['background_color'] = "ffffff";
-			update_option( 'theme_mods_' . $theme_name, $theme_mods );
-
-			$color    = '{
-                            "' . $theme_name . '"::background_color": {
-                                "value": "#ffffff",
-                                "type": "theme_mod",
-                                "user_id": 1
-                            }
-                        }';
-			$defaults = array(
-				'post_content'   => $color,
-				'post_status'    => 'trash',
-				'post_type'      => 'customize_changeset',
-				'comment_status' => 'closed',
-				'ping_status'    => 'closed',
-			);
-			wp_insert_post( $defaults, false );
-		}
-
-		$theme_options_txt         = wp_remote_get( $theme_options_txt );
-		$theme_options_txt['body'] = str_replace( 'http://localhost/wordpress/', trailingslashit( home_url() ), $theme_options_txt['body'] );
-		$theme_options_txt['body'] = str_replace( 'team-1.jpg', 'team-1.png', $theme_options_txt['body'] );
-		$theme_options_txt['body'] = str_replace( 'team-2.jpg', 'team-2.png', $theme_options_txt['body'] );
-		$imported_options          = json_decode( ( $theme_options_txt['body'] ), true );
-
-		if ( ! empty( $imported_options ) && is_array( $imported_options ) && isset( $imported_options['redux-backup'] ) && $imported_options['redux-backup'] == '1' ) {
-
-			$changed_values = array();
-
-			foreach ( $imported_options as $key => $value ) {
-				$value = fix_data_from_redux_to_kirki( $value );
-				set_theme_mod( $key, $value );
-			}
-
-			update_option( 'evl_options', $plugin_options );
-		}
-
-		update_option( 'frontpage_prebuilt_old_demo', $frontpage_prebuilt_new_demo );
-	}
-}
-
-function evolve_import_demo_content( $wp_customize ) {
-	$evolve_opt_name             = "evl_options";
-	$plugin_options              = get_option( 'evl_options', false );
-	$frontpage_prebuilt_new_demo = evolve_theme_mod( 'evl_frontpage_prebuilt_demo', 'default' );
-	$frontpage_prebuilt_old_demo = get_option( 'frontpage_prebuilt_old_demo', 'default' );
-	$evolve_imagepathfolder      = get_template_directory_uri() . '/assets/images/';
-
-	if ( $frontpage_prebuilt_new_demo != $frontpage_prebuilt_old_demo ) {
-
-		switch ( $frontpage_prebuilt_new_demo ) {
-			case 'default':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/default.json';
-				break;
-			case 'blog':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/blog.json';
-				break;
-			case 'woocommerce':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/woocommerce.json';
-				break;
-			case 'blog-2':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/blog_2.json';
-				break;
-			case 'corporate':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/corporate.json';
-				break;
-			case 'magazine':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/magazine.json';
-				break;
-			case 'business':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/business.json';
-				break;
-			case 'woocommerce-2':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/woocommerce_2.json';
-				break;
-			case 'bbpress-buddypress':
-				$theme_options_txt = get_template_directory_uri() . '/inc/importer/data/bbpress_buddypress.json';
-				break;
-		}
-
-		if ( $frontpage_prebuilt_new_demo == 'woocommerce' ) {
-			$theme_name = basename( get_stylesheet_directory() );
-
-			$theme_mods                     = get_option( 'theme_mods_' . $theme_name, false );
-			$theme_mods['background_color'] = "ecebe9";
-			update_option( 'theme_mods_' . $theme_name, $theme_mods );
-
-			$color    = '{
-                            "' . $theme_name . '"::background_color": {
-                                "value": "#ecebe9",
-                                "type": "theme_mod",
-                                "user_id": 1
-                            }
-                        }';
-			$defaults = array(
-				'post_content'   => $color,
-				'post_status'    => 'trash',
-				'post_type'      => 'customize_changeset',
-				'comment_status' => 'closed',
-				'ping_status'    => 'closed',
-			);
-			wp_insert_post( $defaults, false );
-		}
-
-		if ( $frontpage_prebuilt_new_demo == 'woocommerce-2' ) {
-			$theme_name = basename( get_stylesheet_directory() );
-
-			$theme_mods                     = get_option( 'theme_mods_' . $theme_name, false );
-			$theme_mods['background_color'] = "ffffff";
-			update_option( 'theme_mods_' . $theme_name, $theme_mods );
-
-			$color    = '{
-                            "' . $theme_name . '"::background_color": {
-                                "value": "#ffffff",
-                                "type": "theme_mod",
-                                "user_id": 1
-                            }
-                        }';
-			$defaults = array(
-				'post_content'   => $color,
-				'post_status'    => 'trash',
-				'post_type'      => 'customize_changeset',
-				'comment_status' => 'closed',
-				'ping_status'    => 'closed',
-			);
-			wp_insert_post( $defaults, false );
-		}
-
-		$theme_options_txt = wp_remote_get( $theme_options_txt );
-		$imported_options  = json_decode( ( $theme_options_txt['body'] ), true );
-
-		if ( ! empty( $imported_options ) && is_array( $imported_options ) && isset( $imported_options['redux-backup'] ) && $imported_options['redux-backup'] == '1' ) {
-
-			$changed_values = array();
-
-			foreach ( $imported_options as $key => $value ) {
-				$value = fix_data_from_redux_to_kirki( $value );
-			}
-
-			update_option( 'evl_options', $plugin_options );
-		}
-
-		update_option( 'frontpage_prebuilt_old_demo', $frontpage_prebuilt_new_demo );
-		?>
-        <script type='text/javascript'>
-            jQuery(document).ready(function ($) {
-                window.location.href = window.location.href;
-            });
-        </script>
-		<?php
-	}
-}
-
-add_action( 'redux/options/' . $evolve_opt_name . '/saved', 'evolve_import_demo_content' );
-
 
 /* * ************************************************************************************************************
  * Convert Old ThemeOptions to New ThemeOptions

@@ -38,11 +38,12 @@ Table of Contents:
         8.1.1 Navigation Links
         8.1.2 Number Pagination
         8.1.3 Infinite Scroll
-    8.2 Breadcrumbs
-    8.3 Buttons
-    8.4 Forms
-        8.4.1 Search Form
-    8.5 Tooltips
+    8.2 Bootstrap (Carousel) Slider
+    8.3 Breadcrumbs
+    8.4 Buttons
+    8.5 Forms
+        8.5.1 Search Form
+    8.6 Tooltips
 
 
 
@@ -547,7 +548,7 @@ video {
 
 .post,
 .type-page {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     position: relative;
 }
 
@@ -604,7 +605,11 @@ video {
 }
 
 .post-content {
-    margin-top: 2rem;
+    margin: 2rem 0;
+}
+
+.post-content p:last-child {
+    margin-bottom: 0;
 }
 
 .post-content::after,
@@ -1138,6 +1143,20 @@ table,
     width: 100%;
 }
 
+table td,
+.table td {
+    vertical-align: middle;
+}
+
+table .even {
+    background: #f6f6f6;
+}
+
+td,
+th {
+    padding: .75rem;
+}
+
 .post-content table,
 .comment-content table {
     margin-bottom: 2rem;
@@ -1147,46 +1166,18 @@ table,
     margin-bottom: 0;
 }
 
-.table td,
-.table th {
-    vertical-align: middle;
+thead {
+    background: #f6f6f6;
+    -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, .9) inset;
+    box-shadow: 1px 1px 0 rgba(255, 255, 255, .9) inset;
+}
+
+thead th {
+    border-bottom: 1px solid #e0dddd;
 }
 
 .table thead th {
     border-bottom-width: 1px;
-}
-
-td.label {
-    font-size: 15px;
-    text-align: left;
-    display: table-cell;
-    color: #747474;
-}
-
-table .even {
-    background: #f6f6f6;
-}
-
-caption {
-    text-align: left;
-}
-
-td,
-th {
-    padding: .75rem;
-}
-
-thead th,
-thead td {
-    padding: 10px 11px;
-    font-weight: bold;
-    background: #f6f6f6;
-    color: #111;
-}
-
-thead {
-    -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, .9) inset;
-    box-shadow: 1px 1px 0 rgba(255, 255, 255, .9) inset;
 }
 
 /*
@@ -1217,6 +1208,10 @@ thead {
 
 .navigation .nav-previous {
     text-align: right;
+}
+
+.post-content .navigation {
+    clear: both;
 }
 
 .navigation .nav-previous a::after,
@@ -1327,14 +1322,61 @@ thead {
 }
 
 /*
+   Bootstrap (Carousel) Slider
+   ======================================= */
+
+.carousel img {
+    margin: 0 auto;
+}
+
+.carousel .carousel-caption h5 {
+    margin-bottom: 1rem;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background: rgba(0, 0, 0, .7);
+    display: -ms-flexbox;
+    display: flex;
+    height: 50px;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    left: 2rem;
+    padding: 10px;
+    width: 50px;
+}
+
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+    border: solid;
+    border-width: 3px 3px 0 0;
+    content: "";
+    height: 12px;
+    margin: 0 4px 0 0;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 12px;
+}
+
+.carousel-control-prev-icon::after {
+    margin: 0 0 0 4px;
+    -webkit-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+/*
    Breadcrumbs
    --------------------------------------- */
 
 .breadcrumb {
     background-color: transparent;
+    font-size: .8rem;
     padding-left: 0;
     padding-right: 0;
-    font-size: .8rem;
 }
 
 /*
@@ -1490,61 +1532,6 @@ input[type=text],
 h4.section_title {
     width: 100%;
     margin-bottom: 3rem;
-}
-
-/* ======================== Bootstrap Slider ======================== */
-
-#bootstrap-slider .carousel-caption {
-    padding-top: 0;
-    text-align: left;
-}
-
-#bootstrap-slider .carousel-caption h2 {
-    background: rgba(0, 0, 0, .7);
-    padding: 15px 25px;
-    margin-top: 0;
-}
-
-#bootstrap-slider .carousel-caption p {
-    padding: 15px 25px;
-}
-
-#bootstrap-slider .carousel-caption .bootstrap-button {
-    bottom: -5px;
-    position: relative;
-}
-
-#bootstrap-slider .carousel-control {
-    z-index: 11;
-    top: auto;
-    right: auto;
-    width: auto;
-    background: none;
-}
-
-#bootstrap-slider img {
-    margin: 0 auto;
-}
-
-#bootstrap-slider a.left::before,
-#bootstrap-slider a.right::before {
-    font-family: "IcoMoon";
-    content: '\e918';
-    width: 40px;
-    height: 40px;
-    display: block;
-    line-height: 40px;
-    font-size: 20px;
-    left: 25px;
-    position: absolute;
-    background: #636363;
-    background: rgba(0, 0, 0, .7);
-}
-
-#bootstrap-slider a.right::before {
-    content: '\e919';
-    left: initial;
-    right: 25px;
 }
 
 /*
@@ -3029,7 +3016,6 @@ body .header-block .wooslider .slide-content p {
 #primary.col-md-6 .product-buttons .product-buttons-container input[type=submit],
 #primary.col-md-6 .product-buttons .product-buttons-container button,
 #primary.col-md-6 .product-buttons .product-buttons-container .button,
-#primary.col-md-6 .product-buttons .product-buttons-container .bootstrap-button,
 #primary.col-md-6 .product-buttons .product-buttons-container input#submit,
 #primary.col-md-6 .product-buttons .product-buttons-container .da-slide .da-link,
 #primary.col-md-6 .product-buttons .product-buttons-container span.more a,
@@ -5538,15 +5524,6 @@ Blog Shortcode
         padding: 35px 35px 0 35px;
     }
 
-    #bootstrap-slider .carousel-caption {
-        bottom: auto !important;
-        top: 20px;
-    }
-
-    #bootstrap-slider .carousel-caption h2 {
-        padding: 15px;
-    }
-
     .da-slide {
         padding: 20px;
     }
@@ -5580,52 +5557,10 @@ Blog Shortcode
 
     button,
     .button,
-    .bootstrap-button,
     .da-slide .da-link,
     span.more a {
         line-height: 1;
         padding: 10px 16px;
-    }
-
-    #bootstrap-slider a.left::before {
-        font-size: 12px;
-        height: 30px;
-        line-height: 30px;
-        width: 30px;
-    }
-
-    #bootstrap-slider a.right::before {
-        font-size: 12px;
-        height: 30px;
-        line-height: 30px;
-        width: 30px;
-    }
-
-    #bootstrap-slider .carousel-caption p {
-        padding: 10px 15px;
-        margin-bottom: 0;
-    }
-
-    #bootstrap-slider .carousel-caption .bootstrap-button {
-        line-height: 34px;
-        padding: 0 20px;
-    }
-
-    #bootstrap-slider .right.carousel-control {
-        left: 50px;
-    }
-
-    #bootstrap-slider .carousel-control {
-        left: 20px;
-    }
-
-    .carousel-caption.layout-left {
-        left: auto !important;
-        right: auto !important;
-        margin: auto !important;
-        padding-left: 20px;
-        padding-right: 20px;
-        width: 100%;
     }
 
     .anythingSlider {
@@ -5778,31 +5713,6 @@ Blog Shortcode
         margin: 0 auto 10px;
         text-align: center;
     }
-
-    #bootstrap-slider .layout-right {
-        padding-bottom: 0;
-    }
-
-    #bootstrap-slider .carousel-caption {
-        left: 20px;
-        right: 20px;
-    }
-
-    #bootstrap-slider .carousel-caption .bootstrap-button {
-        padding: 0 10px;
-    }
-
-    #bootstrap-slider .carousel-caption h2 {
-        font-size: 100%;
-    }
-
-    #bootstrap-slider .carousel-caption p {
-        display: none;
-    }
-
-    #bootstrap-slider .carousel-caption .bootstrap-button {
-        display: none;
-    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -5856,10 +5766,6 @@ Blog Shortcode
 }
 
 @media (max-width: 360px) {
-    #bootstrap-slider .carousel-caption h2 {
-        font-size: 80%;
-    }
-
     .da-slider .da-link p {
         max-height: 100px;
         overflow: hidden;
@@ -5867,12 +5773,6 @@ Blog Shortcode
 
     .comment-form-rating p.stars span > a {
         max-width: calc(100% - 20px);
-    }
-}
-
-@media (max-width: 450px) {
-    #bootstrap-slider .carousel-caption p {
-        display: none;
     }
 }
 
