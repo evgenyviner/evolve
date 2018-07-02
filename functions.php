@@ -553,7 +553,8 @@ function evolve_sharethis() {
    ======================================= */
 
 function evolve_bootstrap() {
-	$wrap = false;
+	$wrap   = false;
+	$slides = 0;
 	for ( $i = 1; $i <= 5; $i ++ ) {
 		if ( evolve_theme_mod( "evl_bootstrap_slide{$i}" ) == 1 ) {
 			$active = "";
@@ -575,19 +576,23 @@ function evolve_bootstrap() {
 			echo do_shortcode( evolve_theme_mod( "evl_bootstrap_slide{$i}_button" ) );
 			echo "</div>";
 			echo "</div>";
+			++ $slides;
 		}
 	}
 	if ( $wrap ) {
-		echo "</div>
-                <a class='carousel-control-prev' href='#bootstrap-slider' role='button' data-slide='prev'>
+		echo "</div>";
+		if ( $slides > 1 ) {
+			echo "<a class='carousel-control-prev' href='#bootstrap-slider' role='button' data-slide='prev'>
                     <span class='carousel-control-prev-icon' aria-hidden='true'></span>
                     <span class='sr-only'>" . __( 'Previous', 'evolve' ) . "</span>
                 </a>
                 <a class='carousel-control-next' href='#bootstrap-slider' role='button' data-slide='next'>
                 <span class='carousel-control-next-icon' aria-hidden='true'></span>
                 <span class='sr-only'>" . __( 'Next', 'evolve' ) . "</span>
-                </a>
-                </div>";
+                </a>";
+		}
+
+		echo "</div>";
 	}
 }
 

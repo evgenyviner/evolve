@@ -10,9 +10,9 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
- * @package 	WooCommerce/Templates
+ * @see        https://docs.woocommerce.com/document/template-structure/
+ * @author        WooThemes
+ * @package    WooCommerce/Templates
  * @version     3.3.2
  */
 
@@ -31,51 +31,71 @@ global $post, $product;
 
 $attachment_ids = $product->get_gallery_image_ids();
 
-if ($attachment_ids) {
-    ?>
-    <div id="carousel" class="thumbnails flexslider">
-        <ul class="slides flex-control-nav">
-            <?php
-            // From product-image.php
-            if (has_post_thumbnail()) {
+if ( $attachment_ids ) {
+	?>
 
-                $image_title = esc_attr(get_the_title(get_post_thumbnail_id()));
-                $image_link = wp_get_attachment_url(get_post_thumbnail_id());
-                $image = get_the_post_thumbnail($post->ID, apply_filters('single_product_large_thumbnail_size', 'shop_thumbnail'), array(
-                    'title' => $image_title
-                ));
-                $attachment_count = count($product->get_gallery_image_ids());
+    <div id="carousel-slider-thumbnails" class="product-carousel carousel slide col-lg-6 mt-5" data-ride="carousel">
+        <div class="carousel-inner row w-100 mx-auto" role="listbox">
 
-                if ($attachment_count > 0) {
-                    $gallery = '[product-gallery]';
-                } else {
-                    $gallery = '';
-                }
+			<?php
+			// From product-image.php
+			if ( has_post_thumbnail() ) {
 
-                echo apply_filters('woocommerce_single_product_image_thumbnail_html', sprintf('<li>%s</li>', $image), $post->ID);
-            }
+				$image_title      = esc_attr( get_the_title( get_post_thumbnail_id() ) );
+				$image_link       = wp_get_attachment_url( get_post_thumbnail_id() );
+				$image            = get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_thumbnail' ), array(
+					"alt"   => $image_title,
+					"class" => "d-block w-100"
+				) );
+				$attachment_count = count( $product->get_gallery_image_ids() );
 
-            $loop = 0;
-            $columns = apply_filters('woocommerce_product_thumbnails_columns', 3);
+				if ( $attachment_count > 0 ) {
+					$gallery = '[product-gallery]';
+				} else {
+					$gallery = '';
+				}
 
-            foreach ($attachment_ids as $attachment_id) {
-               
-                $classes[] = 'image-' . $attachment_id;
+				echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', sprintf( '<div class="carousel-item col-6 col-md-4 active" data-target="#carousel-slider-product" data-slide-to="0">%s</div>', $image ), $post->ID );
+			}
 
-                $image_link = wp_get_attachment_url($attachment_id);
+			$loop    = 0;
+			$columns = apply_filters( 'woocommerce_product_thumbnails_columns', 3 );
 
-                if (!$image_link)
-                    continue;
+			foreach ( $attachment_ids as $attachment_id ) {
 
-                $image = wp_get_attachment_image($attachment_id, apply_filters('single_product_small_thumbnail_size', 'shop_thumbnail'));
-                $image_class = esc_attr(implode(' ', $classes));
-                $image_title = esc_attr(get_the_title($attachment_id));
+				$classes[] = 'image-' . $attachment_id;
 
-                echo apply_filters('woocommerce_single_product_image_thumbnail_html', sprintf('<li>%s</li>', $image), $attachment_id, $post->ID, $image_class);
-                $loop++;
-            }
-            ?>		
-        </ul>
+				$image_link = wp_get_attachment_url( $attachment_id );
+
+				if ( ! $image_link ) {
+					continue;
+				}
+
+				$image_title = esc_attr( get_the_title( $attachment_id ) );
+				$image       = wp_get_attachment_image( $attachment_id, apply_filters( 'single_product_small_thumbnail_size', 'shop_thumbnail' ), '', array(
+					"alt"   => $image_title,
+					"class" => "d-block w-100"
+				) );
+
+				echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', sprintf( '<div class="carousel-item col-6 col-md-4" data-target="#carousel-slider-product" data-slide-to="%s">%s</div>', $loop + 1, $image ), $attachment_id, $post->ID );
+				$loop ++;
+			} ?>
+
+        </div>
+
+		<?php if ( $loop > 0 ) {
+			echo "<a class='left carousel-control-prev carousel-control' href='#carousel-slider-thumbnails' role='button'
+           data-slide='prev'>
+            <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+            <span class='sr-only'><?php echo __( 'Previous', 'evolve' ); ?></span>
+        </a>
+        <a class='right carousel-control-next carousel-control' href='#carousel-slider-thumbnails' role='button'
+           data-slide='next'>
+            <span class='carousel-control-next-icon' aria-hidden='true'></span>
+            <span class='sr-only'><?php echo __( 'Next', 'evolve' ); ?></span>
+        </a>";
+		} ?>
+
     </div>
-    <?php
-}
+
+<?php }

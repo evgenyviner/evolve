@@ -7086,6 +7086,80 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
 
     });
 
+    /*
+        Bootstrap Slider
+        ======================================= */
+    jQuery(function ($) {
+        $('.carousel').on('slide.bs.carousel', function (event) {
+            var height = $(event.relatedTarget).height();
+            var $innerCarousel = $(event.target).find('.carousel-inner');
+
+            $innerCarousel.animate({
+                height: height
+            });
+        });
+    });
+
+    /*
+        Bootstrap Product Slider
+        --------------------------------------- */
+
+    jQuery(function ($) {
+
+        $('.product-carousel').carousel({
+            interval: false,
+            wrap: false
+        });
+
+        $(document).ready(function () {
+            checkbootstrap('#carousel-slider-product .carousel-inner');
+            checkbootstrap('#carousel-slider-thumbnails');
+        });
+
+        $('#carousel-slider-product').on('slid.bs.carousel', function () {
+            checkbootstrap('#carousel-slider-product .carousel-inner');
+        });
+
+        var $carouselsliderthumbnails = $('#carousel-slider-thumbnails');
+
+        $carouselsliderthumbnails.on('slid.bs.carousel', function () {
+            checkbootstrap('#carousel-slider-thumbnails');
+        });
+
+        $carouselsliderthumbnails.on('slide.bs.carousel', function (e) {
+            var $e = $(e.relatedTarget);
+            var idx = $e.index();
+            var itemsPerSlide = 3;
+            var totalItems = $('.carousel-item').length;
+
+            if (idx >= totalItems - (itemsPerSlide - 1)) {
+                var it = itemsPerSlide - (totalItems - idx);
+                for (var i = 0; i < it; i++) {
+                    // append slides to end
+                    if (e.direction == "left") {
+                        $('.carousel-item').eq(i).appendTo('.carousel-inner');
+                    }
+                    else {
+                        $('.carousel-item').eq(0).appendTo('.carousel-inner');
+                    }
+                }
+            }
+        });
+
+        function checkbootstrap(type) {
+            var id = type;
+            var $this = $(id);
+            if ($(id + ' .carousel-item:first').hasClass('active')) {
+                $this.children('.carousel-control-prev').hide();
+                $this.children('.carousel-control-next').show().css('display', 'flex');
+            } else if ($(id + ' .carousel-item:last').hasClass('active')) {
+                $this.children('.carousel-control-next').hide();
+                $this.children('.carousel-control-prev').show().css('display', 'flex');
+            } else {
+                $this.children('.carousel-control').show().css('display', 'flex');
+            }
+        }
+    });
 }
 
 /*

@@ -10,6 +10,9 @@ if ( session_id() == '' || ! isset( $_SESSION ) ) {
 	session_start();
 }
 
+
+add_image_size( 'evolve-woocommerce-single', 680, 680, false );
+
 add_action( 'init', 'evolve_woocommerce_ordering' );
 
 function evolve_woocommerce_ordering() {
@@ -100,8 +103,8 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 			endswitch;
 
 			if ( ( is_home() || is_front_page() ) && is_shop() ) {
-			if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cm" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cl" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cr" ) {
-						$get_sidebar = true;
+				if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cm" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cl" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cr" ) {
+					$get_sidebar = true;
 				}
 				switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
 					case "3cm":
@@ -152,11 +155,11 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 					break;
 			endswitch;
 			if ( ( is_home() || is_front_page() ) && is_shop() ) {
-		if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "1c" ) {
-			$get_sidebar = false;
-		} else {
-			$get_sidebar = true;
-		}
+				if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "1c" ) {
+					$get_sidebar = false;
+				} else {
+					$get_sidebar = true;
+				}
 
 				switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
 					case "1c":
@@ -200,7 +203,7 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 		}
 
 		function shop_breadcrumb() {
-			$evolve_breadcrumbs         = evolve_theme_mod( 'evl_breadcrumbs', '1' );
+			$evolve_breadcrumbs = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 			if ( $evolve_breadcrumbs == "1" ):
 				woocommerce_breadcrumb();
 			endif;
@@ -213,13 +216,13 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 
 add_filter( 'woocommerce_breadcrumb_defaults', 'evolve_woocommerce_breadcrumbs' );
 function evolve_woocommerce_breadcrumbs() {
-    return array(
-            'wrap_before' => '<nav aria-label="breadcrumb"><ol class="breadcrumb">',
-            'wrap_after'  => '</ol></nav>',
-            'before'      => '<li class="breadcrumb-item">',
-            'after'       => '</li>',
-            'home'        => _x( 'Home', 'breadcrumb', 'evolve' ),
-        );
+	return array(
+		'wrap_before' => '<nav aria-label="breadcrumb"><ol class="breadcrumb">',
+		'wrap_after'  => '</ol></nav>',
+		'before'      => '<li class="breadcrumb-item">',
+		'after'       => '</li>',
+		'home'        => _x( 'Home', 'breadcrumb', 'evolve' ),
+	);
 }
 
 

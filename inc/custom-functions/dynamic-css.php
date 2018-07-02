@@ -825,15 +825,14 @@ if ( $evolve_sticky_post_format || $evolve_aside_post_format || $evolve_audio_po
     --------------------------------------- */
 
 if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider', '0' ) == '1' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) ) {
-	if ( $evolve_bootstrap_layout == "bootstrap_center" ) {
-	} else {
-		if ( ! empty( $evolve_bootstrap_slide_subtitle_font_rgba ) ) {
-			$evolve_css_data .= ' .carousel .carousel-caption p { background: ' . $evolve_bootstrap_slide_subtitle_font_rgba . '; padding: 1rem; }';
-		}
+	if ( $evolve_bootstrap_layout != "bootstrap_center" ) {
 		$evolve_css_data .= ' .carousel .carousel-caption { bottom: 50%; text-align: left; -webkit-transform: translate(0, 50%); -ms-transform: translate(0, 50%); transform: translate(0, 50%); }';
 	}
 	if ( ! empty( $evolve_bootstrap_slide_title_font_rgba ) ) {
 		$evolve_css_data .= ' .carousel .carousel-caption h5 { background: ' . $evolve_bootstrap_slide_title_font_rgba . '; padding: 1rem; }';
+	}
+	if ( ! empty( $evolve_bootstrap_slide_subtitle_font_rgba ) ) {
+		$evolve_css_data .= ' .carousel .carousel-caption p { background: ' . $evolve_bootstrap_slide_subtitle_font_rgba . '; padding: 1rem; }';
 	}
 }
 
@@ -885,9 +884,7 @@ $evolve_css_data .= ' @media (min-width: 992px) {';
 	--------------------------------------- */
 
 if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider', '0' ) == '1' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) ) {
-	if ( $evolve_bootstrap_layout == "bootstrap_center" ) {
-		$evolve_css_data .= ' .carousel .carousel-control { bottom: 5%; } .carousel .right.carousel-control { left: calc(50% + 20px); right: auto; transform: translateX(-50%); } .carousel .left.carousel-control { left: calc(50% - 20px); right: auto; transform: translateX(-50%); }';
-	} else {
+	if ( $evolve_bootstrap_layout != "bootstrap_center" ) {
 		$evolve_css_data .= ' .carousel .layout-left { right: 50%; }';
 	}
 }
@@ -988,9 +985,7 @@ if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'p
 	--------------------------------------- */
 
 if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider', '0' ) == '1' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) ) {
-	if ( $evolve_bootstrap_layout == "bootstrap_center" ) {
-		$evolve_css_data .= ' .carousel .layout-center { background: none; padding-bottom: 0; }';
-	} else {
+	if ( $evolve_bootstrap_layout != "bootstrap_center" ) {
 		$evolve_css_data .= ' .carousel .layout-left { right: 15%; }';
 	}
 	$evolve_css_data .= ' .carousel .carousel-caption h5 { font-size: 1.5rem; margin: 0; }';
