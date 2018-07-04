@@ -21,7 +21,7 @@ $evolve_header_pos = '';
 </head>
 <body <?php body_class(); ?>>
 
-<div id="wrapper">
+<div id="wrapper<?php evolve_wrapper_class(); ?>">
 
 	<?php
 
@@ -151,5 +151,5 @@ if ( is_front_page() && evolve_theme_mod( 'evl_content_boxes_pos', 'above' ) == 
 } ?>
 
 <div class="content">
-    <div class="container">
+    <div class="container<?php evolve_wrapper_class(); ?>">
         <div class="row">

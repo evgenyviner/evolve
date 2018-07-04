@@ -25,54 +25,55 @@ if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
 
 global $post, $product; ?>
 
-<div id="carousel-slider-product" class="product-carousel carousel slide col-lg-6" data-ride="carousel">
-    <div class="carousel-inner">
+<div class="<?php evolve_single_product_class(); ?>">
+    <div id="carousel-slider-product" class="product-carousel carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
 
-		<?php if ( has_post_thumbnail() ) {
+			<?php if ( has_post_thumbnail() ) {
 
-			$image_title      = esc_attr( get_the_title( get_post_thumbnail_id() ) );
-			$image_link       = wp_get_attachment_url( get_post_thumbnail_id() );
-			$image            = get_the_post_thumbnail( $post->ID, 'shop_single', array(
-				"alt"   => $image_title,
-				"class" => "d-block w-100"
-			) );
-			$attachment_count = count( $product->get_gallery_image_ids() );
-
-			if ( $attachment_count > 0 ) {
-				$gallery = '[product-gallery]';
-			} else {
-				$gallery = '';
-			}
-
-			echo sprintf( '<div class="carousel-item active"><a href="%s" itemprop="image" class="woocommerce-product-gallery__image woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '" rel="prettyPhoto">%s</a></div>', $image_link, $image_title, $image );
-
-			$attachment_ids = $product->get_gallery_image_ids();
-
-			$loop = 0;
-
-			foreach ( $attachment_ids as $attachment_id ) {
-
-				$image_link = wp_get_attachment_url( $attachment_id );
-
-				if ( ! $image_link ) {
-					continue;
-				}
-
-				$image_title = esc_attr( get_the_title( $attachment_id ) );
-				$image       = wp_get_attachment_image( $attachment_id, 'shop_single', "", array(
+				$image_title      = esc_attr( get_the_title( get_post_thumbnail_id() ) );
+				$image_link       = wp_get_attachment_url( get_post_thumbnail_id() );
+				$image            = get_the_post_thumbnail( $post->ID, 'shop_single', array(
 					"alt"   => $image_title,
 					"class" => "d-block w-100"
 				) );
+				$attachment_count = count( $product->get_gallery_image_ids() );
 
-				echo sprintf( '<div class="carousel-item"><a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '" rel="prettyPhoto">%s</a></div>', $image_link, $image_title, $image );
-				$loop ++;
+				if ( $attachment_count > 0 ) {
+					$gallery = '[product-gallery]';
+				} else {
+					$gallery = '';
+				}
+
+				echo sprintf( '<div class="carousel-item active"><a href="%s" itemprop="image" class="woocommerce-product-gallery__image woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '" rel="prettyPhoto">%s</a></div>', $image_link, $image_title, $image );
+
+				$attachment_ids = $product->get_gallery_image_ids();
+
+				$loop = 0;
+
+				foreach ( $attachment_ids as $attachment_id ) {
+
+					$image_link = wp_get_attachment_url( $attachment_id );
+
+					if ( ! $image_link ) {
+						continue;
+					}
+
+					$image_title = esc_attr( get_the_title( $attachment_id ) );
+					$image       = wp_get_attachment_image( $attachment_id, 'shop_single', "", array(
+						"alt"   => $image_title,
+						"class" => "d-block w-100"
+					) );
+
+					echo sprintf( '<div class="carousel-item"><a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '" rel="prettyPhoto">%s</a></div>', $image_link, $image_title, $image );
+					$loop ++;
+				}
+			} else {
+				echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<div class="carousel-item active"><img src="%s" alt="%s" class="wp-post-image d-block w-100" /></div>', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'evolve' ) ), $post->ID );
 			}
-		} else {
-			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<div class="carousel-item active"><img src="%s" alt="%s" class="wp-post-image d-block w-100" /></div>', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'evolve' ) ), $post->ID );
-		}
 
-		if ( $loop > 0 ) {
-			echo "<a class='carousel-control-prev carousel-control' href='#carousel-slider-product' role='button' data-slide='prev'>
+			if ( $loop > 0 ) {
+				echo "<a class='carousel-control-prev carousel-control' href='#carousel-slider-product' role='button' data-slide='prev'>
                     <span class='carousel-control-prev-icon' aria-hidden='true'></span>
                     <span class='sr-only'>" . __( 'Previous', 'evolve' ) . "</span>
                 </a>
@@ -80,12 +81,13 @@ global $post, $product; ?>
                 <span class='carousel-control-next-icon' aria-hidden='true'></span>
                 <span class='sr-only'>" . __( 'Next', 'evolve' ) . "</span>
                 </a>";
-		} ?>
+			} ?>
 
 
+        </div><!-- .carousel-inner -->
+    </div><!-- #product-slider -->
 
-    </div><!-- .carousel-inner -->
-</div><!-- #product-slider -->
+	<?php do_action( 'woocommerce_product_thumbnails' ); ?>
 
-<?php do_action( 'woocommerce_product_thumbnails' ); ?>
+</div>
 

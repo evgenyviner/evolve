@@ -6825,8 +6825,8 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
             e.preventDefault();
         });
 
-        jQuery('.catalog-ordering .orderby .current-li a').html(jQuery('.catalog-ordering .orderby ul li.current a').html());
-        jQuery('.catalog-ordering .sort-count .current-li a').html(jQuery('.catalog-ordering .sort-count ul li.current a').html());
+        jQuery('.catalog-ordering .orderby .current-item').html(jQuery('.catalog-ordering .orderby .current').html());
+        jQuery('.catalog-ordering .sort-count .current-item').html(jQuery('.catalog-ordering .sort-count .current').html());
         jQuery('.woocommerce .woocommerce-input-wrapper').addClass('col-sm-8');
         jQuery('.woocommerce .shop_table .variation dd').after('<br />');
         jQuery('.woocommerce .evolve-myaccount-data th.order-actions').text(evolve_js_local_vars.order_actions);
@@ -6861,29 +6861,8 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
             calcTabsLayout('.woocommerce-tabs .tabs-horizontal');
         }
 
-        if (jQuery('body.archive.woocommerce #sidebar').css('display') == "block") {
-            jQuery('#main ul.products').removeClass('products-1');
-            jQuery('#main ul.products').removeClass('products-2');
-            jQuery('#main ul.products').removeClass('products-4').addClass('products-3');
-        }
 
-        if (jQuery('body.single.woocommerce #sidebar').css('display') == "block") {
-            jQuery('.upsells.products ul.products,.related.products ul.products').removeClass('products-1');
-            jQuery('.upsells.products ul.products,.related.products ul.products').removeClass('products-2');
-            jQuery('.upsells.products ul.products,.related.products ul.products').removeClass('products-4').addClass('products-3');
-            jQuery('.upsells.products ul.products').html(jQuery('.upsells.products ul.products li').slice(0, 3));
-            jQuery('.related.products ul.products').html(jQuery('.related.products ul.products li').slice(0, 3));
-        }
-
-        jQuery('#sidebar .products,.footer-area .products').each(function () {
-            jQuery(this).removeClass('products-4');
-            jQuery(this).removeClass('products-3');
-            jQuery(this).removeClass('products-2');
-            jQuery(this).addClass('products-1');
-        });
-        jQuery('.products-4 li, .products-3 li, .products-3 li').removeClass('last');
-
-        $('.woocommerce-tabs ul.tabs li a').unbind('click');
+          $('.woocommerce-tabs ul.tabs li a').unbind('click');
         $('.woocommerce-tabs > ul.tabs li a').click(function () {
 
             var $tab = $(this);

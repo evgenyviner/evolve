@@ -537,11 +537,6 @@ jQuery(window).load(function () {
         });
     }
 
-
-    jQuery('.simple-products-slider .product-buttons a').text('Add to cart');
-
-    generateCarousel();
-
     if (jQuery().waypoint) {
         jQuery('.animated').waypoint(function () {
 
@@ -562,54 +557,6 @@ jQuery(window).load(function () {
             }
         }, {triggerOnce: true, offset: 'bottom-in-view'});
     }
-
-    /**
-     * For Woocommerce product flexslider
-     */
-
-    if (jQuery('body .aside').css('display') == "block") {
-        jQuery('body').addClass('has-sidebar');
-    }
-
-    if (jQuery().flexslider && jQuery('.woocommerce .images #carousel').length >= 1) {
-        var WooThumbWidth = 100;
-        if (jQuery('body.woocommerce #sidebar').is(':visible')) {
-            wooThumbWidth = 100;
-        } else {
-            wooThumbWidth = 118;
-        }
-
-        if (typeof jQuery('.woocommerce .images #carousel').data('flexslider') !== 'undefined') {
-            jQuery('.woocommerce .images #carousel').flexslider('destroy');
-            jQuery('.woocommerce .images #slider').flexslider('destroy');
-        }
-
-        jQuery('.woocommerce .images #carousel').flexslider({
-            animation: 'slide',
-            controlNav: false,
-            directionNav: false,
-            animationLoop: false,
-            slideshow: false,
-            itemWidth: wooThumbWidth,
-            itemMargin: 9,
-            touch: false,
-            useCSS: false,
-            asNavFor: '.woocommerce .images #slider',
-            smoothHeight: false
-        });
-
-        jQuery('.woocommerce .images #slider').flexslider({
-            animation: 'slide',
-            controlNav: false,
-            animationLoop: false,
-            slideshow: false,
-            smoothHeight: true,
-            touch: true,
-            useCSS: false,
-            sync: '.woocommerce .images #carousel'
-        });
-    }
-
 });
 
 var calcTabsLayout = function (tab_selector) {
@@ -624,32 +571,6 @@ var calcTabsLayout = function (tab_selector) {
 
         jQuery(this).find('li:last').css({'width': lastItemWidth + 'px'}).addClass('no-border-right');
     });
-};
-
-var generateCarousel = function () {
-    if (jQuery().carouFredSel) {
-        jQuery('.clients-carousel').each(function () {
-            jQuery(this).find('ul').carouFredSel({
-                auto: false,
-                prev: jQuery(this).find('.es-nav-prev'),
-                next: jQuery(this).find('.es-nav-next'),
-                width: '100%',
-                height: 'variable',
-                align: 'center',
-            });
-        });
-
-        jQuery('.es-carousel-wrapper').each(function () {
-            jQuery(this).find('ul').carouFredSel({
-                auto: false,
-                prev: jQuery(this).find('.es-nav-prev'),
-                next: jQuery(this).find('.es-nav-next'),
-                width: '100%',
-                height: 'variable',
-                align: 'center',
-            });
-        });
-    }
 };
 
 // **********************  Counters Circle Shortcode  ****************************
@@ -1197,50 +1118,6 @@ var cssua = function (n, l, p) {
             });
         }
     };
-
-    // set flip boxes equal front/back height
-    jQuery.fn.t4p_setup_flip_boxes = function () {
-        var flip_box = jQuery(this);
-        var outer_height, height, top_margin = 0;
-
-        if (flip_box.find('.flip-box-front').outerHeight() > flip_box.find('.flip-box-back').outerHeight()) {
-            outer_height = flip_box.find('.flip-box-front').outerHeight();
-            height = flip_box.find('.flip-box-front').height();
-            top_margin = (height - flip_box.find('.flip-box-back-inner').outerHeight()) / 2;
-
-            flip_box.find('.flip-box-back').css('min-height', outer_height);
-            flip_box.css('min-height', outer_height);
-            flip_box.find('.flip-box-back-inner').css('margin-top', top_margin);
-        } else {
-            outer_height = flip_box.find('.flip-box-back').outerHeight();
-            height = flip_box.find('.flip-box-back').height();
-            top_margin = (height - flip_box.find('.flip-box-front-inner').outerHeight()) / 2;
-
-            flip_box.find('.flip-box-front').css('min-height', outer_height);
-            flip_box.css('min-height', outer_height);
-            flip_box.find('.flip-box-front-inner').css('margin-top', top_margin);
-        }
-    };
-
-    // animate progress bar
-    jQuery.fn.t4p_draw_progress = function () {
-        var progressbar = jQuery(this);
-        if (jQuery('html').hasClass('lt-ie9')) {
-            progressbar.css('visibility', 'visible');
-            progressbar.each(function () {
-                var percentage = progressbar.find('.t4p-progress').attr("aria-valuenow");
-                progressbar.find('.t4p-progress').css('width', '0%');
-                progressbar.find('.t4p-progress').animate({
-                    width: percentage + '%'
-                }, 'slow');
-            });
-        } else {
-            progressbar.find('.t4p-progress').css("width", function () {
-                return jQuery(this).attr("aria-valuenow") + "%";
-            });
-        }
-    };
-
 })(jQuery);
 
 /*!
@@ -1532,25 +1409,6 @@ jQuery(window).load(function () {
         });
     });
 
-    // Flip Boxes
-    jQuery('.flip-box-inner-wrapper').each(function () {
-        jQuery(this).t4p_setup_flip_boxes();
-    });
-
-    // Progressbar
-    jQuery('.t4p-progressbar').not('.t4p-modal .t4p-progressbar').waypoint(function () {
-        jQuery(this).t4p_draw_progress();
-    }, {
-        triggerOnce: true,
-        offset: 'bottom-in-view'
-    });
-
-    jQuery('.t4p-modal .t4p-progressbar').each(function () {
-        jQuery(this).appear(function () {
-            jQuery(this).t4p_draw_progress();
-        });
-    });
-
     // Testimonials
     function onAfter(curr, next, opts, fwd) {
         var $ht = jQuery(this).height();
@@ -1574,40 +1432,6 @@ jQuery(window).load(function () {
 
         jQuery('.reviews').cycle(reviews_cycle_args);
     }
-
-    if (jQuery('.t4p-slider').data('parallax') == 1) {
-        jQuery('.t4p-modal').css('top', jQuery('.header-wrapper').height());
-    }
-
-    jQuery('.t4p-hook-modal a').click(function (e) {
-        e.preventDefault();
-    });
-
-    if (cssua.ua.mobile || cssua.ua.tablet_pc) {
-        jQuery('.t4p-popover, .t4p-tooltip').each(function () {
-            jQuery(this).attr('data-trigger', 'click');
-            jQuery(this).data('trigger', 'click');
-        });
-    }
-
-    // Initialize Bootstrap Tabs
-    // Initialize vertical tabs content container height
-    if (jQuery('.vertical-tabs').length >= 1) {
-        jQuery('.vertical-tabs .tab-content .tab-pane').css('min-height', jQuery('.vertical-tabs .nav-tabs').outerHeight());
-    }
-
-    jQuery(window).on('resize', function () {
-        if (jQuery('.vertical-tabs').length >= 1) {
-            jQuery('.vertical-tabs .tab-content .tab-pane').css('min-height', jQuery('.vertical-tabs .nav-tabs').outerHeight());
-        }
-    });
-
-    // Initialize Bootstrap Tooltip
-    jQuery('[data-toggle~="tooltip"]').tooltip({
-        container: 'body'
-    });
-
-    generateCarousel();
 
     if (jQuery().waypoint) {
         jQuery('.t4p-animated').waypoint(function () {
@@ -1633,77 +1457,6 @@ jQuery(window).load(function () {
 });
 
 jQuery(document).ready(function ($) {
-
-    setTimeout(function () {
-        jQuery('.flip-box-inner-wrapper .fa').addClass('finished-animating');
-    }, 5000);
-
-    jQuery('.t4p-flip-box').mouseover(function () {
-        jQuery(this).addClass('hover');
-    });
-
-    jQuery('.t4p-flip-box').mouseout(function () {
-        jQuery(this).removeClass('hover');
-    });
-
-    // One page scrolling effect
-    var adminbar_height = jQuery('#wpadminbar').outerHeight();
-    var sticky_height = 0;
-
-    if (jQuery('.sticky-header').length) {
-        sticky_height = 65;
-    }
-
-    jQuery('.t4p-accordian .panel-title.toggle a').click(function (e) {
-        e.preventDefault();
-    });
-
-    jQuery('[data-toggle=modal]').live('click', function (e) {
-        e.preventDefault();
-    });
-
-    jQuery('.woocommerce .images #carousel a').click(function (e) {
-        e.preventDefault();
-    });
-
-
-    jQuery('.portfolio-tabs a').click(function (e) {
-        e.preventDefault();
-
-        var selector = jQuery(this).attr('data-filter');
-        jQuery(this).parents('.portfolio').find('.portfolio-wrapper').isotope({filter: selector});
-
-        jQuery(this).parents('ul').find('li').removeClass('active');
-        jQuery(this).parent().addClass('active');
-    });
-
-    jQuery('.faq-tabs a').click(function (e) {
-        e.preventDefault();
-
-        var selector = jQuery(this).attr('data-filter');
-
-        jQuery('.faqs .portfolio-wrapper .faq-item').fadeOut();
-        jQuery('.faqs .portfolio-wrapper .faq-item' + selector).fadeIn();
-
-        jQuery(this).parents('ul').find('li').removeClass('active');
-        jQuery(this).parent().addClass('active');
-    });
-
-
-    jQuery('.t4p-alert .close').click(function (e) {
-        e.preventDefault();
-
-        jQuery(this).parent().slideUp();
-    });
-
-    jQuery('.content-boxes-icon-boxed').each(function () {
-        jQuery(this).find('.content-box-column .content-wrapper-boxed').equalHeights();
-        jQuery(this).find('.content-box-column .content-wrapper-boxed').css('overflow', 'visible');
-    });
-
-});
-
-jQuery(document).ready(function ($) {
     // Prevent the Blog Timeline from showing huge font size of Date when loading. 
     //jQuery('div.timeline-date').removeClass('hidden-div');	  
 
@@ -1711,68 +1464,6 @@ jQuery(document).ready(function ($) {
     if (jQuery('div.t4p-blog-shortcode').length && jQuery('div.full-width').length) {
         jQuery("#secondary").css({"display": "none"});
     }
-
-    if (jQuery('div.t4p-woo-product-slider').length && jQuery('div.full-width').length) {
-        jQuery("#secondary").css({"display": "none"});
-    }
-
-    if (jQuery('div.t4p-slider-sc').length && jQuery('div.full-width').length) {
-        jQuery("#secondary").css({"display": "none"});
-    }
-});
-
-jQuery(document).ready(function ($) {
-    // Tabs
-    //When page loads...
-    jQuery('.tabs-wrapper').each(function () {
-        jQuery(this).find(".tab_content").hide(); //Hide all content
-        if (document.location.hash && jQuery(this).find("ul.tabs li a[href='" + document.location.hash + "']").length >= 1) {
-            jQuery(this).find("ul.tabs li a[href='" + document.location.hash + "']").parent().addClass("active").show(); //Activate first tab
-            jQuery(this).find(document.location.hash + ".tab_content").show(); //Show first tab content
-        } else {
-            jQuery(this).find("ul.tabs li:first").addClass("active").show(); //Activate first tab
-            jQuery(this).find(".tab_content:first").show(); //Show first tab content
-        }
-    });
-
-    jQuery('[data-toggle=modal]').live('click', function (e) {
-        e.preventDefault();
-    });
-
-    //On Click Event
-    jQuery("ul.tabs li").click(function (e) {
-        jQuery(this).parents('.tabs-wrapper').find("ul.tabs li").removeClass("active"); //Remove any "active" class
-        jQuery(this).addClass("active"); //Add "active" class to selected tab
-        jQuery(this).parents('.tabs-wrapper').find(".tab_content").hide(); //Hide all tab content
-
-        var activeTab = jQuery(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
-        jQuery(this).parents('.tabs-wrapper').find(activeTab).fadeIn(); //Fade in the active ID content
-
-        jQuery(this).parents('.tabs-wrapper').find(activeTab).find('.content-boxes').each(function () {
-            var cols = jQuery(this).find('.col').length;
-            jQuery(this).addClass('columns-' + cols);
-        });
-
-        jQuery(this).parents('.tabs-wrapper').find(activeTab).find('.columns-3 .col:nth-child(3n), .columns-4 .col:nth-child(4n)').css('margin-right', '0px');
-
-        jQuery(this).parents('.tabs-wrapper').find(activeTab).find('.portfolio-wrapper').isotope('reLayout');
-
-        jQuery(this).parents('.tabs-wrapper').find(activeTab).find('.content-boxes-icon-boxed').each(function () {
-            jQuery(this).find('.col').equalHeights();
-        });
-
-        generateCarousel();
-
-        if (jQuery('.portfolio').length >= 1) {
-            jQuery('.portfolio-wrapper').isotope('reLayout');
-        }
-
-        e.preventDefault();
-    });
-
-    jQuery("ul.tabs li a").click(function (e) {
-        e.preventDefault();
-    });
 });
 
 //

@@ -638,18 +638,27 @@ if ( true || is_customize_preview() ) {
 					'default'  => 'fixed',
 				),
 				array(
-					'subtitle' => esc_attr__( 'Select the width for your website', 'evolve' ),
-					'id'       => 'evl_width_px',
-					'compiler' => true,
-					'type'     => 'select',
-					'options'  => array(
-						720  => '720px',
-						960  => '960px',
-						1200 => '1200px',
-						1600 => '1600px',
+					'subtitle'  => esc_attr__( 'Select the maximum content width for your website', 'evolve' ),
+					'id'        => 'evl_width_px',
+					'compiler'  => true,
+					'type'      => 'slider',
+					'options'   => array(
+						'min'  => '720',
+						'max'  => '2000',
+						'step' => '10',
 					),
-					'title'    => esc_attr__( 'Layout Width', 'evolve' ),
-					'default'  => '1200',
+					'title'     => esc_attr__( 'Max Content Layout Width', 'evolve' ),
+					'default'   => 1200,
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.container-customizer, #wrapper-customizer',
+							'property' => 'max-width',
+							'value_pattern' => '$' . 'px',
+
+						),
+
+					),
 				),
 				array(
 					'subtitle' => esc_attr__( 'Enter the page Content Top & Bottom Padding', 'evolve' ),

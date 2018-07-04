@@ -2132,8 +2132,6 @@ function evolve_scripts() {
 		wp_enqueue_script( 'carousel', EVOLVE_JS . '/carousel.min.js', array( 'jquery' ), '', true );
 	}
 
-	// TODO
-	wp_enqueue_script( 'flexslidermin', EVOLVE_JS . '/jquery.flexslider.min.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'main', EVOLVE_JS . '/main.min.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'main_backend', EVOLVE_JS . '/main_backend.min.js', array( 'jquery' ), '', true );
 
@@ -2406,5 +2404,19 @@ function evolve_post_meta( $type = '' ) {
 			echo evolve_get_svg( 'tag' ) . evolve_get_terms( 'tags' );
 		}
 		echo '</div><!-- .col -->';
+	}
+}
+
+/*
+   Wrapper For Customizer Preview
+   ======================================= */
+
+function evolve_wrapper_class() {
+	if ( ! is_customize_preview() ) {
+		return;
+	}
+	if ( ( ( is_home() || is_front_page() ) && evolve_theme_mod( 'evl_frontpage_width_layout', 'fixed' ) == "fluid" ) || ( ( ! is_home() && ! is_front_page() ) && evolve_theme_mod( 'evl_width_layout', 'fixed' ) == "fluid" ) ) {
+	} else {
+		echo "-customizer";
 	}
 }

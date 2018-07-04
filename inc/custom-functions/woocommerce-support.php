@@ -10,9 +10,6 @@ if ( session_id() == '' || ! isset( $_SESSION ) ) {
 	session_start();
 }
 
-
-add_image_size( 'evolve-woocommerce-single', 680, 680, false );
-
 add_action( 'init', 'evolve_woocommerce_ordering' );
 
 function evolve_woocommerce_ordering() {
@@ -31,24 +28,29 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 
 		function __construct() {
 			add_filter( 'woocommerce_show_page_title', array( $this, 'shop_title' ), 10 );
+			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 			remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+			add_action( 'woocommerce_before_single_product', 'woocommerce_template_single_title', 20 );
 			add_action( 'woocommerce_before_main_content', array( $this, 'before_container' ), 11 );
 			add_action( 'woocommerce_before_main_content', array( $this, 'shop_breadcrumb' ), 20 );
 			add_action( 'woocommerce_before_main_content', array( $this, 'add_sidebar_2' ), 10 );
 			add_action( 'woocommerce_after_main_content', array( $this, 'after_container' ), 10 );
 			add_action( 'woocommerce_sidebar', array( $this, 'add_sidebar' ), 10 );
-			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'before_shop_item_buttons' ), 9 );
-			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'after_shop_item_buttons' ), 11 );
+			remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart',10);
+			add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_add_to_cart', 12 );
 			add_action( 'woocommerce_single_product_summary', array( $this, 'add_product_border' ), 19 );
 			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 			add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 			add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 11 );
+			add_action( 'woocommerce_before_single_product_summary', array( $this, 'before_single_product' ), 15 );
+			add_action( 'woocommerce_after_single_product_summary', array( $this, 'after_container' ), 5 );
 			remove_action( 'woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 10 );
 			add_filter( 'woocommerce_template_path', array( $this, 'backwards_compatibility' ) );
+			add_filter( 'woocommerce_sale_flash', array( $this,'sale_flash'), 10, 3 );
 		}
 
 		function backwards_compatibility( $path ) {
@@ -73,6 +75,10 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 			echo '">';
 		}
 
+		function before_single_product() {
+			echo '<div class="row">';
+		}
+
 		function shop_title() {
 			return false;
 		}
@@ -80,6 +86,10 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 		function after_container() {
 			echo '</div>';
 		}
+
+        function sale_flash() {
+            return '<span class="onsale badge badge-pill badge-primary">' . esc_html__( 'Sale!', 'evolve' ) .'</span>';
+        }
 
 		function add_sidebar_2() {
 			$sidebar_css = '';
@@ -190,14 +200,6 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 			}
 		}
 
-		function before_shop_item_buttons() {
-			echo '<div class="product-buttons"><div class="product-buttons-container clearfix">';
-		}
-
-		function after_shop_item_buttons() {
-			echo '</div></div>';
-		}
-
 		function add_product_border() {
 			echo '<div class="clear"></div><div class="product-border"></div>';
 		}
@@ -270,43 +272,35 @@ function evolve_woocommerce_catalog_ordering() {
 	$pc  = ! empty( $params['product_count'] ) ? $params['product_count'] : $per_page;
 
 	$html = '';
-	$html .= '<div class="catalog-ordering clearfix">';
-	$html .= '<div class="orderby-order-container">';
-	$html .= '<ul class="orderby order-dropdown">';
-	$html .= '<li>';
-	$html .= '<span class="current-li"><span class="current-li-content"><a>' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Default Order', 'evolve' ) . '</strong></a></span></span>';
-	$html .= '<ul>';
-	$html .= '<li class="' . ( ( $pob == 'default' ) ? 'current' : '' ) . '"><a href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'default' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Default Order', 'evolve' ) . '</strong></a></li>';
-	$html .= '<li class="' . ( ( $pob == 'name' ) ? 'current' : '' ) . '"><a href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'name' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Name', 'evolve' ) . '</strong></a></li>';
-	$html .= '<li class="' . ( ( $pob == 'price' ) ? 'current' : '' ) . '"><a href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'price' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Price', 'evolve' ) . '</strong></a></li>';
-	$html .= '<li class="' . ( ( $pob == 'date' ) ? 'current' : '' ) . '"><a href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'date' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Date', 'evolve' ) . '</strong></a></li>';
-	$html .= '<li class="' . ( ( $pob == 'popularity' ) ? 'current' : '' ) . '"><a href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'popularity' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Popularity', 'evolve' ) . '</strong></a></li>';
-	$html .= '<li class="' . ( ( $pob == 'rating' ) ? 'current' : '' ) . '"><a href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'rating' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Rating', 'evolve' ) . '</strong></a></li>';
-	$html .= '</ul>';
-	$html .= '</li>';
-	$html .= '</ul>';
+	$html .= '<div class="catalog-ordering mb-4">';
 
-
-	$html .= '<ul class="order">';
 	if ( $po == 'desc' ):
-		$html .= '<li class="desc"><a href="' . evolve_addURLParameter( $query_string, 'product_order', 'asc' ) . '"><i class="t4p-icon t4p-icon-chevron-up"></i></a></li>';
+		$html .= '<a class="btn desc mx-2 mb-1" href="' . evolve_addURLParameter( $query_string, 'product_order', 'asc' ) . '" role="button"></a>';
 	endif;
 	if ( $po == 'asc' ):
-		$html .= '<li class="asc"><a href="' . evolve_addURLParameter( $query_string, 'product_order', 'desc' ) . '"><i class="t4p-icon t4p-icon-chevron-down"></i></a></li>';
+		$html .= '<a class="btn asc mx-2 mb-1" href="' . evolve_addURLParameter( $query_string, 'product_order', 'desc' ) . '" role="button"></a>';
 	endif;
-	$html .= '</ul>';
+
+	$html .= '<div class="orderby order-dropdown dropdown mx-2 mb-2">';
+	$html .= '<a href="#" class="btn dropdown-item current-item" role="button">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Default Order', 'evolve' ) . '</strong></a>';
+	$html .= '<div class="dropdown-menu animated fadeInUp">';
+	$html .= '<a class="dropdown-item' . ( ( $pob == 'default' ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'default' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Default Order', 'evolve' ) . '</strong></a>';
+	$html .= '<a class="dropdown-item' . ( ( $pob == 'name' ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'name' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Name', 'evolve' ) . '</strong></a>';
+	$html .= '<a class="dropdown-item' . ( ( $pob == 'price' ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'price' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Price', 'evolve' ) . '</strong></a>';
+	$html .= '<a class="dropdown-item' . ( ( $pob == 'date' ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'date' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Date', 'evolve' ) . '</strong></a>';
+	$html .= '<a class="dropdown-item' . ( ( $pob == 'popularity' ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'popularity' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Popularity', 'evolve' ) . '</strong></a>';
+	$html .= '<a class="dropdown-item' . ( ( $pob == 'rating' ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'rating' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Rating', 'evolve' ) . '</strong></a>';
+	$html .= '</div>';
 	$html .= '</div>';
 
-	$html .= '<ul class="sort-count order-dropdown">';
-	$html .= '<li>';
-	$html .= '<span class="current-li"><a>' . __( 'Show', 'evolve' ) . ' <strong>' . $per_page . ' ' . __( ' Products', 'evolve' ) . '</strong></a></span>';
-	$html .= '<ul>';
-	$html .= '<li class="' . ( ( $pc == $per_page ) ? 'current' : '' ) . '"><a href="' . evolve_addURLParameter( $query_string, 'product_count', $per_page ) . '">' . __( 'Show', 'evolve' ) . ' <strong>' . $per_page . ' ' . __( 'Products', 'evolve' ) . '</strong></a></li>';
-	$html .= '<li class="' . ( ( $pc == $per_page * 2 ) ? 'current' : '' ) . '"><a href="' . evolve_addURLParameter( $query_string, 'product_count', $per_page * 2 ) . '">' . __( 'Show', 'evolve' ) . ' <strong>' . ( $per_page * 2 ) . ' ' . __( 'Products', 'evolve' ) . '</strong></a></li>';
-	$html .= '<li class="' . ( ( $pc == $per_page * 3 ) ? 'current' : '' ) . '"><a href="' . evolve_addURLParameter( $query_string, 'product_count', $per_page * 3 ) . '">' . __( 'Show', 'evolve' ) . ' <strong>' . ( $per_page * 3 ) . ' ' . __( 'Products', 'evolve' ) . '</strong></a></li>';
-	$html .= '</ul>';
-	$html .= '</li>';
-	$html .= '</ul>';
+	$html .= '<div class="sort-count order-dropdown dropdown mx-2 mb-2">';
+	$html .= '<a href="#" class="btn dropdown-item current-item" role="button">' . __( 'Show', 'evolve' ) . ' <strong>' . $per_page . ' ' . __( ' Products', 'evolve' ) . '</strong></a>';
+	$html .= '<div class="dropdown-menu animated fadeInUp">';
+	$html .= '<a class="dropdown-item' . ( ( $pc == $per_page ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_count', $per_page ) . '">' . __( 'Show', 'evolve' ) . ' <strong>' . $per_page . ' ' . __( 'Products', 'evolve' ) . '</strong></a>';
+	$html .= '<a class="dropdown-item' . ( ( $pc == $per_page * 2 ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_count', $per_page * 2 ) . '">' . __( 'Show', 'evolve' ) . ' <strong>' . ( $per_page * 2 ) . ' ' . __( 'Products', 'evolve' ) . '</strong></a>';
+	$html .= '<a class="dropdown-item' . ( ( $pc == $per_page * 3 ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_count', $per_page * 3 ) . '">' . __( 'Show', 'evolve' ) . ' <strong>' . ( $per_page * 3 ) . ' ' . __( 'Products', 'evolve' ) . '</strong></a>';
+	$html .= '</div>';
+	$html .= '</div>';
 	$html .= '</div>';
 
 	echo $html;
@@ -433,7 +427,7 @@ add_action( 'woocommerce_before_shop_loop_item_title', 'evolve_woocommerce_thumb
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
 
 function evolve_woocommerce_thumbnail() {
-	global $product, $woocommerce;
+	global $woocommerce;
 
 	$items_in_cart = array();
 
@@ -452,13 +446,14 @@ function evolve_woocommerce_thumbnail() {
 	if ( ! empty( $gallery ) ) {
 		$gallery          = explode( ',', $gallery );
 		$first_image_id   = $gallery[0];
-		$attachment_image = wp_get_attachment_image( $first_image_id, $size, false, array( 'class' => 'hover-image' ) );
+		$image_title = esc_attr( get_the_title( $first_image_id ) );
+		$attachment_image = wp_get_attachment_image( $first_image_id, $size, false, array( 'class' => 'hover-image card-img-top', "alt"   => $image_title ) );
 	}
 
-	$thumb_image = get_the_post_thumbnail( $id, $size );
+	$image_title      = esc_attr( get_the_title( get_post_thumbnail_id() ) );
+	$thumb_image = get_the_post_thumbnail( $id, $size, array( "class" => "card-img-top", "alt"   => $image_title ) );
 	if ( empty( $thumb_image ) ) {
-		$placeholder_img = plugins_url() . '/woocommerce/assets/images/placeholder.png';
-		$thumb_image     = '<img src=' . $placeholder_img . ' alt="Placeholder" class="woocommerce-placeholder wp-post-image"/>';
+		$thumb_image     = '<img src="'.esc_url( wc_placeholder_img_src() ).'" alt="'.esc_html__( 'Awaiting product image', 'evolve' ) .'" class="wp-post-image d-block w-100" />';
 	}
 
 	if ( $attachment_image ) {
@@ -2050,6 +2045,28 @@ function evolve_woo_product( $atts, $content = null ) {
 	wp_reset_postdata();
 
 	return '<div class="woocommerce">' . ob_get_clean() . '</div>';
+}
+
+/*
+   Function To Print Out CSS Class For Single Product According To Layout
+   ======================================= */
+
+function evolve_single_product_class() {
+	$layout_css = '';
+	switch ( evolve_theme_mod( 'evl_layout', '2cl' ) ):
+			case "1c":
+			case "2cl":
+			case "2cr":
+				$layout_css = 'col-md-6';
+				break;
+			case "3cm":
+			case "3cl":
+			case "3cr":
+				$layout_css = 'col-md-12';
+				break;
+	endswitch;
+
+	echo $layout_css;
 }
 
 /*
