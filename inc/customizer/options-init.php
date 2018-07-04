@@ -638,7 +638,7 @@ if ( true || is_customize_preview() ) {
 					'default'  => 'fixed',
 				),
 				array(
-					'subtitle'  => esc_attr__( 'Select the maximum content width for your website', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select the maximum content width for your website (px)', 'evolve' ),
 					'id'        => 'evl_width_px',
 					'compiler'  => true,
 					'type'      => 'slider',
@@ -652,12 +652,10 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.container-customizer, #wrapper-customizer',
-							'property' => 'max-width',
-							'value_pattern' => '$' . 'px',
-
+							'element'       => '.container, .wrapper-customizer',
+							'property'      => 'max-width',
+							'value_pattern' => '$' . 'px!important',
 						),
-
 					),
 				),
 				array(

@@ -42,7 +42,6 @@ get_header(); ?>
     </div><!-- #primary -->
 
 <?php
-
 if ( evolve_lets_get_sidebar_2() == true ):
 	get_sidebar( '2' );
 endif;

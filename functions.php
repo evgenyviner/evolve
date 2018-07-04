@@ -61,7 +61,7 @@ function evolve_setup() {
 			$title .= get_bloginfo( 'name', 'display' );
 			// Add the blog description for the home/front page.
 			$site_description = get_bloginfo( 'description', 'display' );
-			if ( $site_description && ( is_home() || is_front_page() ) ) {
+			if ( $site_description && ( is_front_page() && is_page() || is_home() ) ) {
 				$title .= " $sep $site_description";
 			}
 			// Add a page number if necessary:
@@ -1183,7 +1183,7 @@ function evolve_breadcrumbs() {
 
 	global $post;
 
-	if ( evolve_theme_mod( 'evl_breadcrumbs', '1' ) != "1" || is_home() || is_front_page() || ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) ) {
+	if ( evolve_theme_mod( 'evl_breadcrumbs', '1' ) != "1" || is_front_page() && is_page() || is_home() || ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) ) {
 		return;
 	}
 
@@ -1452,7 +1452,7 @@ function evolve_layout_class( $type = 1 ) {
 				break;
 		endswitch;
 	endif;
-	if ( is_home() || is_front_page() ) {
+	if ( is_front_page() && is_page() || is_home() ) {
 		switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
 			case "1c":
 				$layout_css = 'col-12';
@@ -1511,8 +1511,6 @@ function evolve_sidebar_class() {
 			$sidebar_css = 'col-sm-12 col-md-4 order-2 order-md-1';
 			break;
 		case "3cm":
-			$sidebar_css = 'col-md-12 col-lg-3 order-3';
-			break;
 		case "3cl":
 			$sidebar_css = 'col-md-12 col-lg-3 order-3';
 			break;
@@ -1533,8 +1531,6 @@ function evolve_sidebar_class() {
 				$sidebar_css = 'col-sm-12 col-md-4 order-2 order-md-1';
 				break;
 			case "3cm":
-				$sidebar_css = 'col-md-12 col-lg-3 order-3';
-				break;
 			case "3cl":
 				$sidebar_css = 'col-md-12 col-lg-3 order-3';
 				break;
@@ -1543,7 +1539,7 @@ function evolve_sidebar_class() {
 				break;
 		endswitch;
 	endif;
-	if ( is_home() || is_front_page() ) {
+	if ( is_front_page() && is_page() || is_home() ) {
 		switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
 			case "1c":
 				$sidebar_css = '';
@@ -1555,8 +1551,6 @@ function evolve_sidebar_class() {
 				$sidebar_css = 'col-sm-12 col-md-4 order-2 order-md-1';
 				break;
 			case "3cm":
-				$sidebar_css = 'col-md-12 col-lg-3 order-3';
-				break;
 			case "3cl":
 				$sidebar_css = 'col-md-12 col-lg-3 order-3';
 				break;
@@ -1585,39 +1579,33 @@ function evolve_sidebar_class_2() {
 	$sidebar_css = '';
 	switch ( evolve_theme_mod( 'evl_layout', '2cl' ) ):
 		case "3cm":
+		case "3cr":
 			$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
 			break;
 		case "3cl":
 			$sidebar_css = 'col-md-12 col-lg-3 order-2';
-			break;
-		case "3cr":
-			$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
 			break;
 	endswitch;
 	$evolve_sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
 	if ( is_page() || is_single() ):
 		switch ( $evolve_sidebar_position ):
 			case "3cm":
+			case "3cr":
 				$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
 				break;
 			case "3cl":
 				$sidebar_css = 'col-md-12 col-lg-3 order-2';
-				break;
-			case "3cr":
-				$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
 				break;
 		endswitch;
 	endif;
-	if ( is_home() || is_front_page() ) {
+	if ( is_front_page() && is_page() || is_home() ) {
 		switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
 			case "3cm":
+			case "3cr":
 				$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
 				break;
 			case "3cl":
 				$sidebar_css = 'col-md-12 col-lg-3 order-2';
-				break;
-			case "3cr":
-				$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
 				break;
 		endswitch;
 	}
@@ -1652,7 +1640,7 @@ function evolve_lets_get_sidebar() {
 		}
 	}
 
-	if ( is_home() || is_front_page() ) {
+	if ( ( is_front_page() && is_page() ) || is_home() ) {
 		if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "1c" ) {
 			$get_sidebar = false;
 		} else {
@@ -1693,9 +1681,8 @@ function evolve_lets_get_sidebar_2() {
 			$get_sidebar = true;
 		}
 	}
-
-	if ( is_home() || is_front_page() ) {
-		if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "1c" ) {
+	if ( ( is_front_page() && is_page() || is_home() ) ) {
+		if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "1c" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "2cl" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "2cr" ) {
 			$get_sidebar = false;
 		} else {
 			$get_sidebar = true;
@@ -1808,7 +1795,7 @@ function evolve_print_fonts_old( $name, $css_class, $additional_css = '', $addit
 
 function evolve_number_pagination( WP_Query $wp_query = null, $echo = true ) {
 
-	if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "number_pagination" ) {
+	if ( ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "number_pagination" && ! class_exists( 'Woocommerce' ) ) || ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "number_pagination" && class_exists( 'Woocommerce' ) && ! is_shop() ) ) {
 		return;
 	}
 
@@ -2415,8 +2402,8 @@ function evolve_wrapper_class() {
 	if ( ! is_customize_preview() ) {
 		return;
 	}
-	if ( ( ( is_home() || is_front_page() ) && evolve_theme_mod( 'evl_frontpage_width_layout', 'fixed' ) == "fluid" ) || ( ( ! is_home() && ! is_front_page() ) && evolve_theme_mod( 'evl_width_layout', 'fixed' ) == "fluid" ) ) {
+	if ( ( ( is_front_page() && is_page() || is_home() ) && evolve_theme_mod( 'evl_frontpage_width_layout', 'fixed' ) == "fluid" ) || ( ( ! is_home() && ! is_front_page() ) && evolve_theme_mod( 'evl_width_layout', 'fixed' ) == "fluid" ) ) {
 	} else {
-		echo "-customizer";
+		echo "class='wrapper-customizer'";
 	}
 }

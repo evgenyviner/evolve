@@ -191,7 +191,7 @@ if ( $evolve_animatecss == "1" ) {
 	--------------------------------------- */
 
 if ( ( ( is_home() || is_front_page() ) && $evolve_frontpage_width_layout == "fluid" ) || ( ( ! is_home() && ! is_front_page() ) && $evolve_width_layout == "fluid" ) ) {
-	$evolve_css_data .= ' #wrapper' . evolve_wrapper_class() . ' { margin: 0; width: 100%; }';
+	$evolve_css_data .= ' #wrapper { margin: 0; width: 100%; }';
 }
 
 /*
@@ -572,7 +572,7 @@ if ( ! empty( $evolve_primary_link ) ) {
     --------------------------------------- */
 
 if ( ! empty( $evolve_secondary_link ) ) {
-	$evolve_css_data .= ' .breadcrumb-item:last-child, .breadcrumb-item+.breadcrumb-item::before, .widget a, .post-meta, .post-meta a, .navigation a, .post-content .number-pagination a:link, #wp-calendar td, .no-comment, .comment-meta, .comment-meta a, blockquote { color: ' . $evolve_secondary_link . '; }';
+	$evolve_css_data .= ' .breadcrumb-item:last-child, .breadcrumb-item+.breadcrumb-item::before, .widget a, .post-meta, .post-meta a, .navigation a, .post-content .number-pagination a:link, #wp-calendar td, .no-comment, .comment-meta, .comment-meta a, blockquote, .price del { color: ' . $evolve_secondary_link . '; }';
 }
 
 /*
@@ -861,18 +861,18 @@ if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is
 	Min-Width Defined - Wide Desktop
 	--------------------------------------- */
 
-$evolve_css_data .= ' @media (min-width: ' . $evolve_min_width_px . 'px) {';
+$evolve_css_data .= ' @media (min-width: 1200px) {';
 if ( is_home() || is_front_page() ) {
 	if ( $evolve_width_px && ( $evolve_frontpage_width_layout == "fixed" ) ) {
-		$evolve_css_data .= ' .container' . evolve_wrapper_class() . ', #wrapper' . evolve_wrapper_class() . ' { width: 100%; max-width: ' . $evolve_width_px . 'px; }';
+		$evolve_css_data .= ' .container, #wrapper { width: 100%; max-width: ' . $evolve_width_px . 'px; }';
 	} else {
-		$evolve_css_data .= ' .container' . evolve_wrapper_class() . ' { width: 100%; max-width: ' . $evolve_width_px . 'px; } .header-block .container:first-child { width: 100%; padding-left: 0; padding-right: 0; }';
+		$evolve_css_data .= ' .container { width: 100%; max-width: ' . $evolve_width_px . 'px; } .header-block .container:first-child { width: 100%; padding-left: 0; padding-right: 0; }';
 	}
 } else {
 	if ( $evolve_width_px && ( $evolve_width_layout == "fixed" ) ) {
-		$evolve_css_data .= ' .container' . evolve_wrapper_class() . ', #wrapper' . evolve_wrapper_class() . ' { width: 100%; max-width: ' . $evolve_width_px . 'px; }';
+		$evolve_css_data .= ' .container, #wrapper { width: 100%; max-width: ' . $evolve_width_px . 'px; }';
 	} else {
-		$evolve_css_data .= ' .container' . evolve_wrapper_class() . ' { width: 100%; max-width: ' . $evolve_width_px . 'px; } .header-block .container:first-child { width: 100%; padding-left: 0; padding-right: 0; }';
+		$evolve_css_data .= ' .container { width: 100%; max-width: ' . $evolve_width_px . 'px; } .header-block .container:first-child { width: 100%; padding-left: 0; padding-right: 0; }';
 	}
 }
 $evolve_css_data .= '}';
@@ -904,7 +904,7 @@ $evolve_css_data .= ' @media (max-width: 991px) {';
     -- WooCommerce
     --------------------------------------- */
 
-if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() ) ) {
+if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() || is_product() ) ) {
 	$evolve_css_data .= ' .products.card-columns { -webkit-column-count: 3; column-count: 3; }';
 }
 $evolve_css_data .= '}';
@@ -948,7 +948,6 @@ if ( $evolve_social_box_radius != 'disabled' ) {
 } else {
 	$evolve_css_data .= ' .social-media-links li:last-child a { padding-right: 0; }';
 }
-
 $evolve_css_data .= '}';
 
 /*
@@ -979,7 +978,7 @@ if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'b
     -- WooCommerce
     --------------------------------------- */
 
-if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() ) ) {
+if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() || is_product() ) ) {
 	$evolve_css_data .= ' .products.card-columns { -webkit-column-count: 2; column-count: 2; }';
 }
 
@@ -1024,7 +1023,7 @@ if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'b
     -- WooCommerce
     --------------------------------------- */
 
-if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() ) ) {
+if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() || is_product() ) ) {
 	$evolve_css_data .= ' .products.card-columns { -webkit-column-count: 1; column-count: 1; }';
 }
 

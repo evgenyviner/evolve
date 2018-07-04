@@ -6842,39 +6842,10 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
             }
         });
 
-        if (jQuery('.woocommerce #reviews #comments .comment_container .comment-text').length) {
-            jQuery('.woocommerce #reviews #comments .comment_container').append('<div class="clear"></div>');
-        }
-
-        if (jQuery('.woocommerce.single-product .related.products > h2').length) {
-            jQuery('.woocommerce.single-product .related.products > h2').wrap('<div class="title"></div>');
-            jQuery('.woocommerce.single-product .related.products > .title').append('<div class="title-sep-container"><div class="title-sep"></div></div>');
-        }
-
         if (jQuery('.woocommerce.single-product .upsells.products > h2').length) {
             jQuery('.woocommerce.single-product .upsells.products > h2').wrap('<div class="title"></div>');
             jQuery('.woocommerce.single-product .upsells.products > .title').append('<div class="title-sep-container"><div class="title-sep"></div></div>');
         }
-
-        if (jQuery('body #sidebar').css('display') == "block") {
-            jQuery('body').addClass('has-sidebar');
-            calcTabsLayout('.woocommerce-tabs .tabs-horizontal');
-        }
-
-
-          $('.woocommerce-tabs ul.tabs li a').unbind('click');
-        $('.woocommerce-tabs > ul.tabs li a').click(function () {
-
-            var $tab = $(this);
-            var $tabs_wrapper = $tab.closest('.woocommerce-tabs');
-
-            $('ul.tabs li', $tabs_wrapper).removeClass('active');
-            $('div.panel', $tabs_wrapper).hide();
-            $('div' + $tab.attr('href'), $tabs_wrapper).show();
-            $tab.parent().addClass('active');
-
-            return false;
-        });
 
         jQuery('.woocommerce-checkout-nav a,.continue-checkout').click(function (e) {
             e.preventDefault();
@@ -6891,30 +6862,25 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
 
         jQuery('a.add_to_cart_button').click(function (e) {
             var link = this;
-            jQuery(link).closest('.product').find('.cart-loading').find('i').removeClass('t4p-icon-ok').addClass('t4p-icon-ok');
-            jQuery(this).closest('.product').find('.cart-loading').fadeIn();
+            jQuery(link).closest('.product').find('.cart-loading').find('div').removeClass('ok').addClass('loader');
+            jQuery(this).closest('.product').find('.cart-loading').addClass('fadein');
             setTimeout(function () {
-                jQuery(link).closest('.product').find('.product-images img').animate({opacity: 0.75});
-                jQuery(link).closest('.product').find('.cart-loading').find('i').hide().removeClass('t4p-icon-repeat').addClass('t4p-icon-ok').fadeIn();
+                jQuery(link).closest('.product').find('.cart-loading').find('div').removeClass('fadein').removeClass('loader').addClass('ok').addClass('fadein');
 
                 setTimeout(function () {
-                    jQuery(link).closest('.product').find('.cart-loading').fadeOut().closest('.product').find('.product-images img').animate({opacity: 1});
+                    jQuery(link).closest('.product').find('.cart-loading').removeClass('fadein').closest('.product').find('.product-images img').animate({opacity: 1});
                 }, 2000);
             }, 2000);
         });
 
-        jQuery('li.product').mouseenter(function () {
-            if (jQuery(this).find('.cart-loading').find('i').hasClass('t4p-icon-ok')) {
-                jQuery(this).find('.cart-loading').fadeIn();
+        jQuery('.product').mouseenter(function () {
+            if (jQuery(this).find('.cart-loading').find('div').hasClass('ok')) {
+                jQuery(this).find('.cart-loading').addClass('fadein');
             }
         }).mouseleave(function () {
-            if (jQuery(this).find('.cart-loading').find('i').hasClass('t4p-icon-ok')) {
-                jQuery(this).find('.cart-loading').stop().fadeOut('400');
+            if (jQuery(this).find('.cart-loading').find('div').hasClass('ok')) {
+                jQuery(this).find('.cart-loading').stop().removeClass('fadein');
             }
-        });
-
-        jQuery('.sep-boxed-pricing,.full-boxed-pricing').each(function () {
-            jQuery(this).addClass('columns-' + jQuery(this).find('.column').length);
         });
 
     });
@@ -7139,6 +7105,15 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
             }
         }
     });
+
+    /*
+        Single Product Tabs
+        --------------------------------------- */
+
+    jQuery(function ($) {
+        $('.woocommerce-tabs a:first-child').tab('show')
+    });
+
 }
 
 /*
@@ -7537,7 +7512,7 @@ if (evolve_js_local_vars.infinite_scroll_enabled === '1') {
     var ias = jQuery.ias({
         container: "#primary",
         item: "article",
-        pagination: ".navigation",
+        pagination: ".infinite",
         next: ".nav-previous a",
     });
     ias.extension(new IASSpinnerExtension({}));

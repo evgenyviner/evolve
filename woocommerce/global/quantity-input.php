@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div class="quantity btn-group" role="group">
+<div class="quantity btn-group mb-0 mb-md-4 mb-lg-0" role="group">
     <input type="button" value="-" class="minus btn btn-secondary">
     <input type="number" step="<?php echo esc_attr( $step ); ?>" min="<?php echo esc_attr( $min_value ); ?>"
            max="<?php echo esc_attr( $max_value ); ?>" name="<?php echo esc_attr( $input_name ); ?>"

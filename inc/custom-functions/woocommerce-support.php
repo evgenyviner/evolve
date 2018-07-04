@@ -41,7 +41,6 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 			add_action( 'woocommerce_sidebar', array( $this, 'add_sidebar' ), 10 );
 			remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart',10);
 			add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_add_to_cart', 12 );
-			add_action( 'woocommerce_single_product_summary', array( $this, 'add_product_border' ), 19 );
 			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 			add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
@@ -200,10 +199,6 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 			}
 		}
 
-		function add_product_border() {
-			echo '<div class="clear"></div><div class="product-border"></div>';
-		}
-
 		function shop_breadcrumb() {
 			$evolve_breadcrumbs = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 			if ( $evolve_breadcrumbs == "1" ):
@@ -275,14 +270,14 @@ function evolve_woocommerce_catalog_ordering() {
 	$html .= '<div class="catalog-ordering mb-4">';
 
 	if ( $po == 'desc' ):
-		$html .= '<a class="btn desc mx-2 mb-1" href="' . evolve_addURLParameter( $query_string, 'product_order', 'asc' ) . '" role="button"></a>';
+		$html .= '<a class="btn btn-sm desc mx-2 mb-1" href="' . evolve_addURLParameter( $query_string, 'product_order', 'asc' ) . '" role="button"></a>';
 	endif;
 	if ( $po == 'asc' ):
-		$html .= '<a class="btn asc mx-2 mb-1" href="' . evolve_addURLParameter( $query_string, 'product_order', 'desc' ) . '" role="button"></a>';
+		$html .= '<a class="btn btn-sm asc mx-2 mb-1" href="' . evolve_addURLParameter( $query_string, 'product_order', 'desc' ) . '" role="button"></a>';
 	endif;
 
 	$html .= '<div class="orderby order-dropdown dropdown mx-2 mb-2">';
-	$html .= '<a href="#" class="btn dropdown-item current-item" role="button">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Default Order', 'evolve' ) . '</strong></a>';
+	$html .= '<a href="#" class="btn btn-sm dropdown-item current-item" role="button">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Default Order', 'evolve' ) . '</strong></a>';
 	$html .= '<div class="dropdown-menu animated fadeInUp">';
 	$html .= '<a class="dropdown-item' . ( ( $pob == 'default' ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'default' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Default Order', 'evolve' ) . '</strong></a>';
 	$html .= '<a class="dropdown-item' . ( ( $pob == 'name' ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'name' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Name', 'evolve' ) . '</strong></a>';
@@ -294,7 +289,7 @@ function evolve_woocommerce_catalog_ordering() {
 	$html .= '</div>';
 
 	$html .= '<div class="sort-count order-dropdown dropdown mx-2 mb-2">';
-	$html .= '<a href="#" class="btn dropdown-item current-item" role="button">' . __( 'Show', 'evolve' ) . ' <strong>' . $per_page . ' ' . __( ' Products', 'evolve' ) . '</strong></a>';
+	$html .= '<a href="#" class="btn btn-sm dropdown-item current-item" role="button">' . __( 'Show', 'evolve' ) . ' <strong>' . $per_page . ' ' . __( ' Products', 'evolve' ) . '</strong></a>';
 	$html .= '<div class="dropdown-menu animated fadeInUp">';
 	$html .= '<a class="dropdown-item' . ( ( $pc == $per_page ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_count', $per_page ) . '">' . __( 'Show', 'evolve' ) . ' <strong>' . $per_page . ' ' . __( 'Products', 'evolve' ) . '</strong></a>';
 	$html .= '<a class="dropdown-item' . ( ( $pc == $per_page * 2 ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_count', $per_page * 2 ) . '">' . __( 'Show', 'evolve' ) . ' <strong>' . ( $per_page * 2 ) . ' ' . __( 'Products', 'evolve' ) . '</strong></a>';
@@ -466,11 +461,11 @@ function evolve_woocommerce_thumbnail() {
 	echo $attachment_image;
 	echo $thumb_image;
 	if ( $in_cart ) {
-		echo '<span class="cart-loading"><i class="t4p-icon t4p-icon-ok"></i></span>';
+		echo '<div class="cart-loading"><div class="ok"></div></div>';
 	} else {
-		echo '<span class="cart-loading"><i class="t4p-icon t4p-icon-repeat"></i></span>';
+		echo '<div class="cart-loading"><div class="loader"></div></div>';
 	}
-	echo '<span class="show_details_button">' . __( 'Show details', 'evolve' ) . '</span>';
+	echo '<div class="show-details-button">' . evolve_get_svg( 'search' ) . __( 'Show details', 'evolve' ) . '</div>';
 	echo '</span>';
 }
 
@@ -562,48 +557,6 @@ function evolve_woocommerce_header_add_to_cart_fragment( $fragments ) {
 	ob_start();
 
 	return $fragments;
-}
-
-add_action( 'woocommerce_after_single_product_summary', 'evolve_woocommerce_after_single_product_summary', 15 );
-
-function evolve_woocommerce_after_single_product_summary() {
-
-	$woocommerce_social_links = evolve_theme_mod( 'evl_woocommerce_social_links', '1' );
-	$nofollow_social_links    = evolve_theme_mod( 'evl_nofollow_social_links', '0' );
-	$social                   = '';
-	$nofollow                 = '';
-	if ( $nofollow_social_links ) {
-		$nofollow = ' rel="nofollow"';
-	}
-	if ( $woocommerce_social_links ):
-
-		$social     .= '<ul class="social-share">
-	<li class="facebook">
-		<a target="_blank" data-toggle="tooltip" data-placement="bottom" title="' . __( 'Share On', 'evolve' ) . ' Facebook" href="http://www.facebook.com/sharer.php?m2w&s=100&p&#91;url&#93;=' . get_permalink() . '&p&#91;title&#93;=' . wp_strip_all_tags( get_the_title(), true ) . '" target="_blank"' . $nofollow . '>
-			<i class="t4p-icon-social-facebook"></i>  			
-		</a>
-	</li>
-	<li class="twitter">
-		<a target="_blank" data-toggle="tooltip" data-placement="bottom" title="' . __( 'Share On', 'evolve' ) . ' Twitter" href="https://twitter.com/share?text=' . wp_strip_all_tags( get_the_title(), true ) . ' ' . get_permalink() . '" target="_blank"' . $nofollow . '>
-			<i class="t4p-icon-social-twitter"></i>   
-    </a>
-	</li>
-	<li class="pinterest">';
-		$full_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-		$social     .= '<a target="_blank" data-toggle="tooltip" data-placement="bottom" title="' . __( 'Pin to', 'evolve' ) . ' Pinterest" href="http://pinterest.com/pin/create/button/?url=' . urlencode( wp_strip_all_tags( get_the_title(), true ) ) . '&amp;description=' . urlencode( get_the_title() ) . '&amp;media=' . urlencode( $full_image[0] ) . '" target="_blank"' . $nofollow . '>
-			<i class="t4p-icon-social-pinterest"></i>      			
-		</a>
-	</li>
-	<li class="email">
-		<a target="_blank" data-toggle="tooltip" data-placement="bottom" title="' . __( 'Email to a Friend', 'evolve' ) . '" href="mailto:?subject=' . wp_strip_all_tags( get_the_title(), true ) . '&amp;body=' . get_permalink() . '">
-			<i class="t4p-icon-social-envelope-o"></i>    			
-		</a>
-	</li>
-</ul>';
-	endif;
-	$social .= '<div style="clear:both;"></div>';
-
-	echo $social;
 }
 
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
@@ -1040,7 +993,7 @@ function evolve_woocommerce_checkout_billing( $args ) {
 	if ( ! $evolve_woocommerce_one_page_checkout ) {
 		?>
 
-        <a class="btn float-md-right mt-4 continue"><?php esc_html_e( 'Continue', 'evolve' ); ?></a>
+        <a href="#" class="btn float-md-right mt-4 continue"><?php esc_html_e( 'Continue', 'evolve' ); ?></a>
 
 		<?php
 	}
@@ -1056,7 +1009,7 @@ function evolve_woocommerce_checkout_shipping( $args ) {
 	if ( ! $evolve_woocommerce_one_page_checkout ) {
 		?>
 
-        <a class="btn float-md-right mt-4 continue"><?php esc_html_e( 'Continue', 'evolve' ); ?></a>
+        <a href="#" class="btn float-md-right mt-4 continue"><?php esc_html_e( 'Continue', 'evolve' ); ?></a>
 
 		<?php
 	}

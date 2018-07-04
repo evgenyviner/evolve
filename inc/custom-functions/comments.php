@@ -128,7 +128,18 @@ function evolve_comments_callback( $comment, $args, $depth ) {
 	<?php } ?>
 
     <div class="row align-items-center">
+
     <div class="col-xl-auto comment-author vcard">
+
+		<?php if ( class_exists( 'Woocommerce' ) && is_product() ) {
+			global $comment;
+			$rating = intval( get_comment_meta( $comment->comment_ID, 'rating', true ) );
+
+			if ( $rating && 'yes' === get_option( 'woocommerce_enable_review_rating' ) ) {
+				echo '<div class="d-inline-block mr-2">' . wc_get_rating_html( $rating ) . '</div>';
+			}
+		} ?>
+
         <b class="fn">
 
 			<?php printf( __( '%s', 'evolve' ), get_comment_author_link() );
@@ -169,16 +180,22 @@ function evolve_comments_callback( $comment, $args, $depth ) {
 
     </div><!-- .comment-content -->
 
-	<?php comment_reply_link(
-		array_merge(
-			$args,
-			array(
-				'add_below' => $add_below,
-				'depth'     => $depth,
-				'max_depth' => $args['max_depth']
+	<?php if ( class_exists( 'Woocommerce' ) && is_product() ) {
+
+	} else {
+
+		comment_reply_link(
+			array_merge(
+				$args,
+				array(
+					'add_below' => $add_below,
+					'depth'     => $depth,
+					'max_depth' => $args['max_depth']
+				)
 			)
-		)
-	);
+		);
+
+	}
 
 	if ( 'div' != $args['style'] ) :
 

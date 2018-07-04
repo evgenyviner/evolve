@@ -12,6 +12,10 @@
 			     'attachment'
 		     ) ) ) ) {
 	     echo 'row ';
+
+	     if ( ( class_exists( 'Woocommerce' ) && ! is_shop() ) || ! class_exists( 'Woocommerce' ) ) {
+		     echo 'infinite ';
+	     }
      } ?>navigation">
 
 	<?php if ( is_single() && ! is_singular( array( 'page', 'attachment' ) ) ) { ?>

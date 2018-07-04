@@ -158,7 +158,7 @@ body {
 }
 
 #wrapper,
-#wrapper-customizer {
+.wrapper-customizer {
     background: #f9f9f9;
     -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .2);
     box-shadow: 0 0 3px rgba(0, 0, 0, .2);
@@ -331,14 +331,6 @@ body {
     -webkit-transition: visibility 0s .2s, opacity .2s linear;
     -o-transition: visibility 0s .2s, opacity .2s linear;
     transition: visibility 0s .2s, opacity .2s linear;
-}
-
-.sticky-header.fadein {
-    visibility: visible;
-    opacity: 1;
-    -webkit-transition: opacity .2s linear;
-    -o-transition: opacity .2s linear;
-    transition: opacity .2s linear;
 }
 
 .sticky-header img {
@@ -638,15 +630,6 @@ video {
     -webkit-transition: visibility 0s .2s, opacity .2s linear;
     -o-transition: visibility 0s .2s, opacity .2s linear;
     transition: visibility 0s .2s, opacity .2s linear;
-}
-
-.edit-post.fadein,
-.edit-comment.fadein {
-    visibility: visible;
-    opacity: 1;
-    -webkit-transition: opacity .2s linear;
-    -o-transition: opacity .2s linear;
-    transition: opacity .2s linear;
 }
 
 .edit-post .icon,
@@ -1391,6 +1374,10 @@ thead th {
     display: none;
 }
 
+#carousel-slider-thumbnails {
+    margin-top: 2rem;
+}
+
 #carousel-slider-thumbnails .carousel-item {
     cursor: pointer;
 }
@@ -1706,351 +1693,6 @@ ul.nav-menu li.menu-item-language ul {
     margin: 0;
 }
 
-/*
-   Animate CSS
-   ======================================= */
-
-.animated {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-}
-
-.animated.infinite {
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-}
-
-.animated.hinge {
-    -webkit-animation-duration: 2s;
-    animation-duration: 2s;
-}
-
-@-webkit-keyframes pulse {
-    0% {
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
-    }
-    50% {
-        -webkit-transform: scale3d(1.05, 1.05, 1.05);
-        transform: scale3d(1.05, 1.05, 1.05);
-    }
-    100% {
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
-    }
-}
-
-@keyframes pulse {
-    0% {
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
-    }
-    50% {
-        -webkit-transform: scale3d(1.05, 1.05, 1.05);
-        transform: scale3d(1.05, 1.05, 1.05);
-    }
-    100% {
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
-    }
-}
-
-.pulse {
-    -webkit-animation-name: pulse;
-    animation-name: pulse;
-}
-
-@-webkit-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.fadeIn {
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-}
-
-@-webkit-keyframes fadeInDown {
-    0% {
-        opacity: 0;
-        -webkit-transform: translate3d(0, -100%, 0);
-        transform: translate3d(0, -100%, 0);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
-}
-
-@keyframes fadeInDown {
-    0% {
-        opacity: 0;
-        -webkit-transform: translate3d(0, -100%, 0);
-        transform: translate3d(0, -100%, 0);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
-}
-
-.fadeInDown {
-    -webkit-animation-name: fadeInDown;
-    animation-name: fadeInDown;
-}
-
-@-webkit-keyframes fadeInLeft {
-    0% {
-        opacity: 0;
-        -webkit-transform: translate3d(-100%, 0, 0);
-        transform: translate3d(-100%, 0, 0);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
-}
-
-@keyframes fadeInLeft {
-    0% {
-        opacity: 0;
-        -webkit-transform: translate3d(-100%, 0, 0);
-        transform: translate3d(-100%, 0, 0);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
-}
-
-.fadeInLeft {
-    -webkit-animation-name: fadeInLeft;
-    animation-name: fadeInLeft;
-}
-
-@-webkit-keyframes fadeInRight {
-    0% {
-        opacity: 0;
-        -webkit-transform: translate3d(100%, 0, 0);
-        transform: translate3d(100%, 0, 0);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
-}
-
-@keyframes fadeInRight {
-    0% {
-        opacity: 0;
-        -webkit-transform: translate3d(100%, 0, 0);
-        transform: translate3d(100%, 0, 0);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
-}
-
-.fadeInRight {
-    -webkit-animation-name: fadeInRight;
-    animation-name: fadeInRight;
-}
-
-@-webkit-keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 100%, 0);
-        transform: translate3d(0, 100%, 0);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 100%, 0);
-        transform: translate3d(0, 100%, 0);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
-}
-
-.fadeInUp {
-    -webkit-animation-name: fadeInUp;
-    animation-name: fadeInUp;
-}
-
-@-webkit-keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-.fadeOut {
-    -webkit-animation-name: fadeOut;
-    animation-name: fadeOut;
-}
-
-@-webkit-keyframes fadeOutDown {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 100%, 0);
-        transform: translate3d(0, 100%, 0);
-    }
-}
-
-@keyframes fadeOutDown {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 100%, 0);
-        transform: translate3d(0, 100%, 0);
-    }
-}
-
-.fadeOutDown {
-    -webkit-animation-name: fadeOutDown;
-    animation-name: fadeOutDown;
-}
-
-@-webkit-keyframes fadeOutLeft {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(-100%, 0, 0);
-        transform: translate3d(-100%, 0, 0);
-    }
-}
-
-@keyframes fadeOutLeft {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(-100%, 0, 0);
-        transform: translate3d(-100%, 0, 0);
-    }
-}
-
-.fadeOutLeft {
-    -webkit-animation-name: fadeOutLeft;
-    animation-name: fadeOutLeft;
-}
-
-@-webkit-keyframes fadeOutRight {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(100%, 0, 0);
-        transform: translate3d(100%, 0, 0);
-    }
-}
-
-@keyframes fadeOutRight {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(100%, 0, 0);
-        transform: translate3d(100%, 0, 0);
-    }
-}
-
-.fadeOutRight {
-    -webkit-animation-name: fadeOutRight;
-    animation-name: fadeOutRight;
-}
-
-@-webkit-keyframes fadeOutUp {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(0, -100%, 0);
-        transform: translate3d(0, -100%, 0);
-    }
-}
-
-@keyframes fadeOutUp {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(0, -100%, 0);
-        transform: translate3d(0, -100%, 0);
-    }
-}
-
-.fadeOutUp {
-    -webkit-animation-name: fadeOutUp;
-    animation-name: fadeOutUp;
-}
-
-/* bbPress */
-
-#allowed-tags {
-    font: 11px Verdana, Arial, Helvetica, sans-serif;
-    padding: 5px 10px;
-    background: #fff;
-    border: 1px #ddd dotted;
-    border-top: none;
-    width: 573px;
-}
-
 /*!==========================================================================
    Slider Posts
    ========================================================================== */
@@ -2172,6 +1814,23 @@ a.bbp-author-avatar {
     border-radius: 0;
     padding: 5px 10px;
     margin: 2px;
+}
+
+#allowed-tags {
+    font: 11px Verdana, Arial, Helvetica, sans-serif;
+    padding: 5px 10px;
+    background: #fff;
+    border: 1px #ddd dotted;
+    border-top: none;
+    width: 573px;
+}
+
+.bbpress .evolve-select-parent {
+    overflow: hidden;
+}
+
+#bbpress-forums .evolve-select-parent select {
+    width: 100%;
 }
 
 /*!==========================================================================
@@ -2365,6 +2024,26 @@ ul.thumbNav li span {
     ======================================= */
 
 /*
+    General Definitions
+    --------------------------------------- */
+
+.woocommerce-store-notice {
+    background: #0bb697;
+    color: #fff;
+    padding: 1em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.woocommerce-store-notice a {
+    color: #fff;
+    font-weight: bold;
+}
+
+/*
     Product Catalog
     --------------------------------------- */
 
@@ -2413,39 +2092,30 @@ ul.thumbNav li span {
     display: block;
 }
 
+.products .card {
+    background-color: #fff;
+    border: 1px solid #e3e3e3;
+    margin-bottom: 1.5rem;
+}
+
+.products .card:hover {
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .1);
+}
+
+.products .card-body .star-rating {
+    margin: 0 auto;
+    text-align: left;
+}
+
+.products .card-body .button {
+    margin-top: 1rem;
+}
+
 .product-images {
     display: block;
     position: relative;
     text-align: center;
-}
-
-.product-images .show_details_button {
-    font-size: 12px;
-    line-height: 40px;
-    background: #333;
-    bottom: -30px;
-    color: #fff;
-    left: 0;
-    opacity: 0;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 999;
-    right: 0;
-    text-align: center;
-    text-transform: uppercase;
-    -webkit-transition: all 200ms ease-out;
-    -o-transition: all 200ms ease-out;
-    transition: all 200ms ease-out;
-}
-
-.product-images .show_details_button::before {
-    font-family: "IcoMoon";
-    content: '\e91f';
-    margin-right: 6px;
-}
-
-.product-images .crossfade-images {
-    display: block;
 }
 
 .product-images .crossfade-images img {
@@ -2463,6 +2133,34 @@ ul.thumbNav li span {
     position: absolute;
 }
 
+.product .show-details-button {
+    background: #333;
+    bottom: -2rem;
+    color: #fff;
+    font-size: .75rem;
+    left: 0;
+    opacity: 0;
+    padding: 1rem;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-transition: all 200ms ease-out;
+    -o-transition: all 200ms ease-out;
+    transition: all 200ms ease-out;
+    width: 100%;
+}
+
+.product .show-details-button .icon {
+    height: 1rem;
+    margin-right: 1rem;
+    width: 1rem;
+}
+
+.product:hover .show-details-button {
+    bottom: 0;
+    opacity: .9;
+}
+
 .product .onsale {
     display: inline-block;
     margin-bottom: 1rem;
@@ -2478,133 +2176,234 @@ ul.thumbNav li span {
     z-index: 10;
 }
 
-.products .card {
-    border: 1px solid #e3e3e3;
-    margin-bottom: 1.5rem;
-    -webkit-transition-duration: .4s;
-    -o-transition-duration: .4s;
-    transition-duration: .4s;
+.products .price {
+    display: block;
 }
 
-.products .card:hover {
-    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .1);
-    box-shadow: 0 0 8px rgba(0, 0, 0, .1);
+.cart-loading {
+    background: #333;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    padding: 13px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
 }
 
-.products .card-body .star-rating {
-    margin: 0 auto;
-    text-align: left;
+.cart-loading .ok,
+.cart-loading .loader {
+    background: url(assets/images/icons.svg#icon-ok-view) center center no-repeat;
+    background-size: 24px;
+    content: '';
+    height: 24px;
+    left: 50%;
+    margin-left: -12px;
+    position: relative;
+    width: 24px;
 }
 
-.products .card-body .button {
-    margin-top: 1rem;
+.cart-loading .loader {
+    background-image: url(assets/images/icons.svg#icon-loader-light-view);
+}
+
+.star-rating {
+    height: 1em;
+    overflow: hidden;
+    position: relative;
+    width: 5em;
+}
+
+.widget .star-rating {
+    margin-right: 1rem;
+}
+
+.star-rating span {
+    overflow: hidden;
+    padding-top: 1.5em;
+    position: absolute;
+}
+
+.star-rating span::before {
+    background: url(assets/images/icons.svg#icon-star-full-view) left center repeat-x;
+    background-size: 1em;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1em;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 5em;
+}
+
+.star-rating::before {
+    background: url(assets/images/icons.svg#icon-star-empty-view) left center repeat-x;
+    background-size: 1em;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1em;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 5em;
+}
+
+.product .button .icon {
+    height: 1rem;
+    margin-right: .6rem;
+    width: 1rem;
+}
+
+.product .button.product_type_variable .icon-more {
+    height: 1rem;
+    margin-right: .6rem;
+    width: 1rem;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.price del .amount {
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+
+.price ins {
+    text-decoration: none;
+}
+
+.price ins .amount,
+.price > .amount {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
 }
 
 /*
     Single Product
     --------------------------------------- */
 
-.shop_attributes {
-    width: 100%;
+.product h2,
+.product h3 {
+    margin-bottom: 2rem;
 }
 
-.shop_attributes tr {
-    border-bottom: 1px solid #e0e0e0;
+.product .quantity {
+    margin-right: 1rem;
 }
 
-.shop_attributes tr:last-child {
-    border-bottom: 0;
+.product .product_meta {
+    margin-top: 1rem;
 }
 
-.shop_attributes tr th {
-    text-align: left;
-    width: 30%;
+.product .stock {
     font-weight: bold;
 }
 
-.shop_attributes tr td {
-    text-align: left;
-    width: 70%;
-}
-
-.shop_attributes p {
+.variations label,
+.shop_attributes p:last-child {
     margin: 0;
 }
 
-.woocommerce-tabs .panel {
+.woocommerce-reviews {
+    margin-top: 2rem;
+}
+
+p.stars {
+    position: relative;
+    line-height: 1em;
+    font-size: 1em;
+}
+
+p.stars::after {
+    content: "";
     display: block;
-    width: 90%;
-    padding: 4%;
+    clear: both;
 }
 
-#reviews li .comment-text {
-    width: calc(89% - 20px);
-}
-
-#reviews li .avatar {
-    width: calc(12% - 20px);
-}
-
-.woocommerce .social-share {
-    text-align: center;
-    margin-top: 50px;
-    float: right;
-    list-style: none;
-    padding: 0;
-}
-
-.woocommerce .social-share li {
-    list-style: none;
-    padding: 0;
-    display: inline-block;
-    text-align: center;
-}
-
-.woocommerce .social-share li a {
-    color: #747474;
-    padding: 10px;
-    width: 38px;
-    height: 38px;
+p.stars a {
+    border-radius: 4px;
+    width: 19%;
     display: block;
-    background-color: rgba(0, 0, 0, .15);
-    opacity: .3;
+    position: relative;
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: .5em .5em .5em .75em;
+    background: rgba(0, 0, 0, .025);
+    margin-right: 1%;
+    font-weight: bold;
 }
 
-.woocommerce .social-share li a:hover {
-    background-color: rgba(0, 0, 0, .7);
-    opacity: 1;
+p.stars a:hover {
+    background: rgba(0, 0, 0, .075);
 }
 
-.woocommerce .social-share li a:hover i {
-    color: #fff;
+p.stars a.active {
+    background: rgba(0, 0, 0, .075);
 }
 
-.woocommerce .social-share li a i {
-    color: #747474;
-    text-align: center;
-    width: 20px;
-    font-size: 16px;
-    line-height: 20px;
+p.stars a.star-1::after,
+p.stars a.star-2::after,
+p.stars a.star-3::after,
+p.stars a.star-4::after,
+p.stars a.star-5::after {
+    font-family: IcoMoon;
+    content: '\e925';
+    position: absolute;
+    top: .85em;
+    width: 5.3em;
+    right: 1em;
+    font-size: .5em;
+    border-radius: 1em;
+    color: #999;
+    text-align: right;
+    font-weight: normal;
+}
+
+p.stars a.star-1:hover,
+p.stars a.star-2:hover,
+p.stars a.star-3:hover,
+p.stars a.star-4:hover,
+p.stars a.star-5:hover {
+    text-decoration: none;
+}
+
+p.stars a.star-1::after {
+    content: "\e925";
+}
+
+p.stars a.star-2::after {
+    content: "\e925\e925";
+}
+
+p.stars a.star-3::after {
+    content: "\e925\e925\e925";
+}
+
+p.stars a.star-4::after {
+    content: "\e925\e925\e925\e925";
+}
+
+p.stars a.star-5::after {
+    content: "\e925\e925\e925\e925\e925";
 }
 
 .woocommerce-success-message .button {
     float: right;
-}
-
-.woocommerce-success-message .msg::before {
-    font-family: IcoMoon;
-    content: '\e927';
-    margin-right: 5px;
 }
 
 .woocommerce-success-message .button {
     font-size: 12px;
-}
-
-.woocommerce-success-message .button::before {
-    font-family: IcoMoon;
-    content: '\e90c';
-    margin-right: 6px;
 }
 
 ol.commentlist {
@@ -2635,14 +2434,6 @@ ol.commentlist {
 
 .empty-cart-message .msg::before {
     content: '';
-}
-
-.bbpress .evolve-select-parent {
-    overflow: hidden;
-}
-
-#bbpress-forums .evolve-select-parent select {
-    width: 100%;
 }
 
 .woocommerce .select2-selection {
@@ -2747,6 +2538,10 @@ ol.commentlist {
     background: rgba(0, 0, 0, .1);
 }
 
+.woocommerce .alert .button {
+    margin-right: 1rem;
+}
+
 .woocommerce .alert-danger {
     padding: .75rem 1.25rem;
     margin: 0 0 1rem;
@@ -2758,22 +2553,6 @@ ol.commentlist {
     margin-right: 0;
 }
 
-.woocommerce-store-notice {
-    background: #0bb697;
-    color: #fff;
-    padding: 1em;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-}
-
-.woocommerce-store-notice a {
-    color: #fff;
-    font-weight: bold;
-}
-
 .woocommerce .return-to-shop a.wc-backward,
 .woocommerce .order-again a.button {
     color: white;
@@ -2782,222 +2561,6 @@ ol.commentlist {
 .select2-dropdown-open.select2-drop-above .select2-choice,
 .select2-dropdown-open.select2-drop-above .select2-choices {
     border: none;
-}
-
-/* ==========================================================================
-   Single Product
-   ========================================================================== */
-
-table.variations {
-    border-top: 0;
-}
-
-.variations td {
-    border-top-color: #e0dddd;
-}
-
-.variations .label {
-    color: #333;
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.cart-loading {
-    height: 50px;
-    width: 50px;
-    line-height: 50px;
-    font-size: 30px;
-    color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -25px;
-    margin-left: -25px;
-    z-index: 100;
-    display: none;
-}
-
-.cart-loading .t4p-icon {
-    line-height: 50px;
-}
-
-.cart-loading .t4p-icon-repeat {
-    -webkit-animation: mask 3.5s infinite alternate;
-    animation: mask 3.5s infinite alternate;
-    display: inline-block;
-}
-
-#wrapper .cart-loading {
-    background-color: #333;
-    opacity: .9;
-    filter: alpha(opacity=90);
-}
-
-.no-rgba #wrapper .cart-loading {
-    background-color: #000;
-}
-
-@-webkit-keyframes mask {
-    25% {
-        -webkit-transform: rotate(360deg);
-    }
-    50% {
-        -webkit-transform: rotate(720deg);
-    }
-    75% {
-        -webkit-transform: rotate(1080deg);
-    }
-    100% {
-        -webkit-transform: rotate(1440deg);
-    }
-}
-
-@keyframes mask {
-    25% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-    50% {
-        -webkit-transform: rotate(720deg);
-        transform: rotate(720deg);
-    }
-    75% {
-        -webkit-transform: rotate(1080deg);
-        transform: rotate(1080deg);
-    }
-    100% {
-        -webkit-transform: rotate(1440deg);
-        transform: rotate(1440deg);
-    }
-}
-
-.star-rating {
-    height: 1em;
-    position: relative;
-    width: 5em;
-    overflow: hidden;
-}
-
-.widget .star-rating {
-    margin-right: 1rem;
-}
-
-.star-rating span {
-    overflow: hidden;
-    padding-top: 1.5em;
-    position: absolute;
-}
-
-.star-rating span::before {
-    background: url(assets/images/icons.svg#icon-star-full-view) left center repeat-x;
-    background-size: 1em;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 1em;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 5em;
-}
-
-.star-rating::before {
-    background: url(assets/images/icons.svg#icon-star-empty-view) left center repeat-x;
-    background-size: 1em;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 1em;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 5em;
-}
-
-.price del .amount {
-    font-size: 13px;
-    margin-right: 5px;
-}
-
-.price ins {
-    text-decoration: none;
-}
-
-.price ins .amount {
-    font-size: 22px;
-    text-decoration: none;
-    color: #333;
-}
-
-.price > .amount {
-    font-size: 22px;
-    color: #333;
-}
-
-.product:hover .show_details_button {
-    bottom: 0;
-    opacity: .9;
-    filter: alpha(opacity=90);
-}
-
-.button.product_type_variable::before,
-.button.product_type_grouped::before {
-    font-family: IcoMoon;
-    content: '\e928';
-    margin-right: 6px;
-}
-
-.button.product_type_simple::before {
-    font-family: "IcoMoon";
-    content: '\e90c';
-    margin-right: 6px;
-}
-
-.added_to_cart {
-    display: none;
-    color: #333;
-}
-
-.product {
-    position: relative;
-}
-
-.product .images {
-    float: left;
-    margin-right: 39px;
-}
-
-.product .price {
-    margin: 0;
-    margin-top: 5px;
-    text-align: center;
-    display: block;
-}
-
-.woocommerce-tabs {
-    clear: both;
-}
-
-.woocommerce-tabs h2 {
-    margin-top: 0;
-    padding-top: 0;
-}
-
-.woocommerce-tabs #respond {
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.woocommerce-tabs form.comment-form {
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.woocommerce-tabs p:last-of-type {
-    margin-bottom: 0;
-    padding-bottom: 0;
 }
 
 .content .product .product_title {
@@ -3013,13 +2576,6 @@ table.variations {
 .woocommerce-product-rating .woocommerce-review-link {
     margin-top: 10px;
     display: inline-block;
-}
-
-.product .product-border {
-    height: 1px;
-    border-bottom: 1px dashed #e3e3e3;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .quantity .minus,
@@ -3050,11 +2606,6 @@ table.variations {
     box-shadow: none;
 }
 
-form.cart {
-    margin-bottom: 40px;
-    margin-top: 40px;
-}
-
 .simple-cart {
     overflow: hidden;
 }
@@ -3080,247 +2631,6 @@ form.cart {
 
 .group_table td.label {
     padding: 0 10px;
-}
-
-.product_meta > span {
-    display: block;
-}
-
-.woocommerce-tabs {
-    overflow: hidden;
-    padding-top: 20px;
-}
-
-.woocommerce-tabs > .tabs {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    float: left;
-}
-
-.woocommerce-tabs .tabs li {
-    float: left;
-    margin-bottom: 5px;
-}
-
-.woocommerce-tabs .tabs li a {
-    display: inline-block;
-    padding: 10px 20px;
-}
-
-.woocommerce-tabs .tabs li a .arrow {
-    display: none;
-}
-
-.woocommerce-tabs .tabs li a:hover .arrow {
-    display: none;
-}
-
-.woocommerce-tabs .tabs li.active {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    font-weight: bold;
-    position: relative;
-    z-index: 0;
-}
-
-.woocommerce-tabs .tabs li.active a .arrow {
-    display: inline-block;
-}
-
-.woocommerce-tabs .tabs li.active a:hover .arrow {
-    display: inline-block;
-}
-
-.woocommerce-tabs .tabs li.active::before {
-    content: "";
-    display: block;
-    margin: 0;
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    border-bottom: 8px solid #ddd;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    width: 8px;
-    height: 8px;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
-}
-
-.woocommerce-tabs .panel {
-    margin: 0;
-    background: #fff;
-    position: relative;
-    z-index: 1;
-    float: left;
-    border: 1px solid #ddd;
-    border-radius: 0;
-}
-
-#reviews .overall-rating {
-    float: right;
-}
-
-#reviews .review-title {
-    margin: 0;
-}
-
-#reviews .review-main-title {
-    margin-bottom: 25px;
-}
-
-#reviews .commentlist {
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-top: 20px;
-}
-
-#reviews li {
-    margin-bottom: 15px;
-    list-style: none;
-}
-
-#reviews li:last-child {
-    margin-bottom: 0;
-}
-
-#reviews li .comment-text {
-    float: left;
-    padding: 15px;
-    background: #fff;
-    margin-left: 10px;
-}
-
-#reviews li .comment-text .meta {
-    float: right;
-    margin-bottom: 10px;
-}
-
-#reviews li .comment-text .star-rating {
-    float: left;
-    margin-left: 5px;
-}
-
-#reviews li .comment-text .description {
-    clear: both;
-}
-
-#reviews li .avatar {
-    float: left;
-    padding-top: 20px;
-}
-
-#reviews li .comment-text .description {
-    clear: both;
-}
-
-#reviews .add_review {
-    margin: 15px 0 0;
-    float: right;
-}
-
-.has-sidebar #reviews li .comment-text {
-    width: 80%;
-}
-
-#review_form_wrapper {
-    margin-top: 50px;
-}
-
-.comment-form-rating label {
-    display: none;
-}
-
-#reviews .comment-form-comment label {
-    display: block;
-    margin-bottom: 4px;
-}
-
-#reviews input#submit {
-    font-size: 13px;
-    font-weight: bold;
-}
-
-p.stars {
-    position: relative;
-    line-height: 1em;
-    font-size: 1em;
-}
-
-p.stars::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-p.stars a {
-    border-radius: 4px;
-    width: 19%;
-    display: block;
-    position: relative;
-    float: left;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: .5em .5em .5em .75em;
-    background: rgba(0, 0, 0, .025);
-    margin-right: 1%;
-    font-weight: bold;
-}
-
-p.stars a:hover {
-    background: rgba(0, 0, 0, .075);
-}
-
-p.stars a.active {
-    background: rgba(0, 0, 0, .075);
-}
-
-p.stars a.star-1::after,
-p.stars a.star-2::after,
-p.stars a.star-3::after,
-p.stars a.star-4::after,
-p.stars a.star-5::after {
-    font-family: IcoMoon;
-    content: '\e925';
-    position: absolute;
-    top: .85em;
-    width: 5.3em;
-    right: 1em;
-    font-size: .5em;
-    border-radius: 1em;
-    color: #999;
-    text-align: right;
-    font-weight: normal;
-}
-
-p.stars a.star-1:hover,
-p.stars a.star-2:hover,
-p.stars a.star-3:hover,
-p.stars a.star-4:hover,
-p.stars a.star-5:hover {
-    text-decoration: none;
-}
-
-p.stars a.star-1::after {
-    content: "\e925";
-}
-
-p.stars a.star-2::after {
-    content: "\e925\e925";
-}
-
-p.stars a.star-3::after {
-    content: "\e925\e925\e925";
-}
-
-p.stars a.star-4::after {
-    content: "\e925\e925\e925\e925";
-}
-
-p.stars a.star-5::after {
-    content: "\e925\e925\e925\e925\e925";
 }
 
 .related.products,
@@ -3981,6 +3291,348 @@ Blog Shortcode
     padding-left: 15px;
     padding-right: 15px;
     position: relative;
+}
+
+/*
+   Animate CSS
+   ======================================= */
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+.fadein {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity .2s linear;
+    -o-transition: opacity .2s linear;
+    transition: opacity .2s linear;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.pulse {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+@-webkit-keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+}
+
+@-webkit-keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.fadeInLeft {
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+}
+
+@-webkit-keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.fadeInRight {
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight;
+}
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+}
+
+@-webkit-keyframes fadeOutDown {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+@keyframes fadeOutDown {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+.fadeOutDown {
+    -webkit-animation-name: fadeOutDown;
+    animation-name: fadeOutDown;
+}
+
+@-webkit-keyframes fadeOutLeft {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@keyframes fadeOutLeft {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.fadeOutLeft {
+    -webkit-animation-name: fadeOutLeft;
+    animation-name: fadeOutLeft;
+}
+
+@-webkit-keyframes fadeOutRight {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+@keyframes fadeOutRight {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+.fadeOutRight {
+    -webkit-animation-name: fadeOutRight;
+    animation-name: fadeOutRight;
+}
+
+@-webkit-keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+}
+
+@keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+}
+
+.fadeOutUp {
+    -webkit-animation-name: fadeOutUp;
+    animation-name: fadeOutUp;
 }
 
 /*
