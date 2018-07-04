@@ -41,7 +41,7 @@ if ( post_password_required() ) {
 
             </ol><!-- .comment-list -->
 
-			<?php evolve_comment_navigation(); ?>
+			<?php evolve_comment_navigation('#comments'); ?>
 
 		<?php else: ?>
 

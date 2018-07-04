@@ -2043,6 +2043,51 @@ ul.thumbNav li span {
     font-weight: bold;
 }
 
+.star-rating {
+    height: 1em;
+    overflow: hidden;
+    position: relative;
+    width: 5em;
+}
+
+.widget .star-rating {
+    margin-right: 1rem;
+}
+
+.star-rating span {
+    overflow: hidden;
+    padding-top: 1.5em;
+    position: absolute;
+}
+
+.star-rating span::before {
+    background: url(assets/images/icons.svg#icon-star-full-view) left center repeat-x;
+    background-size: 1em;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1em;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 5em;
+}
+
+.star-rating::before {
+    background: url(assets/images/icons.svg#icon-star-empty-view) left center repeat-x;
+    background-size: 1em;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1em;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 5em;
+}
+
 /*
     Product Catalog
     --------------------------------------- */
@@ -2156,7 +2201,7 @@ ul.thumbNav li span {
     width: 1rem;
 }
 
-.product:hover .show-details-button {
+.products .product:hover .show-details-button {
     bottom: 0;
     opacity: .9;
 }
@@ -2210,51 +2255,6 @@ ul.thumbNav li span {
 
 .cart-loading .loader {
     background-image: url(assets/images/icons.svg#icon-loader-light-view);
-}
-
-.star-rating {
-    height: 1em;
-    overflow: hidden;
-    position: relative;
-    width: 5em;
-}
-
-.widget .star-rating {
-    margin-right: 1rem;
-}
-
-.star-rating span {
-    overflow: hidden;
-    padding-top: 1.5em;
-    position: absolute;
-}
-
-.star-rating span::before {
-    background: url(assets/images/icons.svg#icon-star-full-view) left center repeat-x;
-    background-size: 1em;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 1em;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 5em;
-}
-
-.star-rating::before {
-    background: url(assets/images/icons.svg#icon-star-empty-view) left center repeat-x;
-    background-size: 1em;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 1em;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 5em;
 }
 
 .product .button .icon {
@@ -2314,34 +2314,49 @@ ul.thumbNav li span {
     margin: 0;
 }
 
+/*
+    -- Reviews
+    --------------------------------------- */
+
+.single-product .product .star-rating span::before {
+    background-image: url(assets/images/icons.svg#icon-star-full-color-view);
+}
+
 .woocommerce-reviews {
     margin-top: 2rem;
 }
 
-p.stars {
-    position: relative;
-    line-height: 1em;
-    font-size: 1em;
+.woocommerce-review-link {
+    margin-top: 1rem;
 }
 
-p.stars::after {
-    content: "";
-    display: block;
-    clear: both;
+.product .add-review-title {
+    margin-bottom: .5rem;
+}
+
+p.stars {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
 }
 
 p.stars a {
-    border-radius: 4px;
-    width: 19%;
     display: block;
-    position: relative;
-    float: left;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: .5em .5em .5em .75em;
+    border-radius: 4px;
     background: rgba(0, 0, 0, .025);
-    margin-right: 1%;
     font-weight: bold;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding: .75rem 15px;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
 }
 
 p.stars a:hover {
@@ -2563,21 +2578,6 @@ ol.commentlist {
     border: none;
 }
 
-.content .product .product_title {
-    text-align: left;
-    font-size: 30px;
-}
-
-.woocommerce-product-rating {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.woocommerce-product-rating .woocommerce-review-link {
-    margin-top: 10px;
-    display: inline-block;
-}
-
 .quantity .minus,
 .quantity .plus,
 .quantity .qty {
@@ -2739,7 +2739,9 @@ ol.commentlist {
     max-width: 60px;
 }
 
-.widget.woocommerce .count {
+.widget.woocommerce .count,
+.woocommerce-review-link,
+.woocommerce-review-link:hover {
     border-radius: 10rem;
     color: #fff;
     display: inline-block;

@@ -82,12 +82,13 @@ function evolve_discussion_rss() {
    Custom Comment Navigation
    ======================================= */
 
-function evolve_comment_navigation() {
+function evolve_comment_navigation( $fragment_type ) {
 	$pages = paginate_comments_links( array(
-		'echo'      => false,
-		'type'      => 'array',
-		'prev_text' => __( 'Previous', 'evolve' ),
-		'next_text' => __( 'Next', 'evolve' )
+		'echo'         => false,
+		'type'         => 'array',
+		'prev_text'    => __( 'Previous', 'evolve' ),
+		'next_text'    => __( 'Next', 'evolve' ),
+		'add_fragment' => $fragment_type
 	) );
 
 	if ( ! is_array( $pages ) ) {
@@ -133,7 +134,8 @@ function evolve_comments_callback( $comment, $args, $depth ) {
 
 		<?php if ( class_exists( 'Woocommerce' ) && is_product() ) {
 			global $comment;
-			$rating = intval( get_comment_meta( $comment->comment_ID, 'rating', true ) );
+			$verified = wc_review_is_from_verified_owner( $comment->comment_ID );
+			$rating   = intval( get_comment_meta( $comment->comment_ID, 'rating', true ) );
 
 			if ( $rating && 'yes' === get_option( 'woocommerce_enable_review_rating' ) ) {
 				echo '<div class="d-inline-block mr-2">' . wc_get_rating_html( $rating ) . '</div>';
@@ -143,8 +145,10 @@ function evolve_comments_callback( $comment, $args, $depth ) {
         <b class="fn">
 
 			<?php printf( __( '%s', 'evolve' ), get_comment_author_link() );
-			echo ( $comment->user_id === $post->post_author ) ? '<span class="badge badge-pill badge-primary"> ' . __( 'Author', 'evolve' ) . '</span>' : '';
-			echo ( get_comment_type() === "pingback" ) ? '<span class="badge badge-pill badge-secondary"> ' . __( 'Pingback', 'evolve' ) . '</span>' : ''; ?>
+			echo ( ( ( class_exists( 'Woocommerce' ) && ! is_product() ) || ! class_exists( 'Woocommerce' ) ) && $comment->user_id === $post->post_author ) ? '<span class="badge badge-pill badge-primary"> ' . __( 'Author', 'evolve' ) . '</span>' : '';
+			echo ( get_comment_type() === "pingback" ) ? '<span class="badge badge-pill badge-secondary"> ' . __( 'Pingback', 'evolve' ) . '</span>' : '';
+
+			echo ( class_exists( 'Woocommerce' ) && is_product() && 'yes' === get_option( 'woocommerce_review_rating_verification_label' ) && $verified ) ? '<span class="badge badge-pill badge-primary"> ' . __( 'Verified owner', 'evolve' ) . '</span>' : ''; ?>
 
         </b>
     </div>

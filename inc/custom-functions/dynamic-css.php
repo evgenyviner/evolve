@@ -745,7 +745,7 @@ if ( ! empty( $evolve_form_bg_color ) || ! empty( $evolve_form_text_color ) || !
 endif;
 
 if ( $evolve_component_color ) {
-	$evolve_css_data .= ' .custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce .onsale { background: ' . $evolve_component_color . '; } .form-control:focus, .input-text:focus, input[type=text]:focus, .page-link:focus, .widget select:focus { border-color: ' . $evolve_component_color . '; box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } .custom-control-input:focus~.custom-control-label::before { box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem  ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } .btn.focus, .btn:focus { box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } :focus { outline-color: ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } code { border-left-color: ' . $evolve_component_color . '; }';
+	$evolve_css_data .= ' .custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale { background: ' . $evolve_component_color . '; } .form-control:focus, .input-text:focus, input[type=text]:focus, .page-link:focus, .widget select:focus { border-color: ' . $evolve_component_color . '; box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } .custom-control-input:focus~.custom-control-label::before { box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem  ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } .btn.focus, .btn:focus { box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } :focus { outline-color: ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } code { border-left-color: ' . $evolve_component_color . '; }';
 }
 
 if ( class_exists( 'Woocommerce' ) && is_user_logged_in() && current_user_can( 'manage_options' ) ) :
@@ -947,6 +947,14 @@ if ( $evolve_social_box_radius != 'disabled' ) {
 	$evolve_css_data .= ' .social-media-links li:last-child a { margin-right: 0; }';
 } else {
 	$evolve_css_data .= ' .social-media-links li:last-child a { padding-right: 0; }';
+}
+
+/*
+    -- WooCommerce
+    --------------------------------------- */
+
+if ( class_exists( 'Woocommerce' ) && is_product() ) {
+	$evolve_css_data .= ' .products.card-columns { -webkit-column-count: 3; column-count: 3; }';
 }
 $evolve_css_data .= '}';
 

@@ -277,9 +277,9 @@ function evolve_woocommerce_catalog_ordering() {
 	endif;
 
 	$html .= '<div class="orderby order-dropdown dropdown mx-2 mb-2">';
-	$html .= '<a href="#" class="btn btn-sm dropdown-item current-item" role="button">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Default Order', 'evolve' ) . '</strong></a>';
+	$html .= '<a href="#" class="btn btn-sm dropdown-item current-item" role="button">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Default order', 'evolve' ) . '</strong></a>';
 	$html .= '<div class="dropdown-menu animated fadeInUp">';
-	$html .= '<a class="dropdown-item' . ( ( $pob == 'default' ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'default' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Default Order', 'evolve' ) . '</strong></a>';
+	$html .= '<a class="dropdown-item' . ( ( $pob == 'default' ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'default' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Default order', 'evolve' ) . '</strong></a>';
 	$html .= '<a class="dropdown-item' . ( ( $pob == 'name' ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'name' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Name', 'evolve' ) . '</strong></a>';
 	$html .= '<a class="dropdown-item' . ( ( $pob == 'price' ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'price' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Price', 'evolve' ) . '</strong></a>';
 	$html .= '<a class="dropdown-item' . ( ( $pob == 'date' ) ? ' current' : '' ) . '" href="' . evolve_addURLParameter( $query_string, 'product_orderby', 'date' ) . '">' . __( 'Sort by', 'evolve' ) . ' <strong>' . __( 'Date', 'evolve' ) . '</strong></a>';
