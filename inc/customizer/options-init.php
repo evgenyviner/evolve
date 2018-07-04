@@ -205,8 +205,8 @@ class Evolve_Fix_Rd {
 				}
 				if ( isset( $value['type'] ) && $value['type'] == 'slider' ) {
 					$value_temp['choices'] = array(
-						'min'  => $value['min'],
-						'max'  => $value['max'],
+						'min'  => isset( $value['min'] ) ? $value['min'] : 0,
+						'max'  => isset( $value['max'] ) ? $value['max'] : 9999,
 						'step' => isset( $value['step'] ) ? $value['step'] : 1,
 					);
 				}
