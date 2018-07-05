@@ -1,6 +1,5 @@
 <?php
 add_theme_support( 'woocommerce' );
-add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
@@ -27,6 +26,7 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 	class evolve_woocommerce {
 
 		function __construct() {
+		    add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 			add_filter( 'woocommerce_show_page_title', array( $this, 'shop_title' ), 10 );
 			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
@@ -48,16 +48,9 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 			add_action( 'woocommerce_before_single_product_summary', array( $this, 'before_single_product' ), 15 );
 			add_action( 'woocommerce_after_single_product_summary', array( $this, 'after_container' ), 5 );
 			remove_action( 'woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 10 );
-			add_filter( 'woocommerce_template_path', array( $this, 'backwards_compatibility' ) );
 			add_filter( 'woocommerce_sale_flash', array( $this,'sale_flash'), 10, 3 );
-		}
-
-		function backwards_compatibility( $path ) {
-			if ( ! self::is_wc_version_gte_2_3() ) {
-				$path = "woocommerce/compatability/2.2/";
-			}
-
-			return $path;
+			remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+			add_filter( 'woocommerce_shop_loop_item_title', array( $this,'shop_loop_item_title'), 10 );
 		}
 
 		private static function get_wc_version() {
@@ -68,7 +61,12 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 			return self::get_wc_version() && version_compare( self::get_wc_version(), '2.3', '>=' );
 		}
 
-		function before_container() {
+		function shop_loop_item_title() {
+		    echo '<h5 class="card-title">'. get_the_title().'</h5>';
+		}
+
+
+        function before_container() {
 			echo '<div id="primary" class="';
 			evolve_layout_class( $type = 1 );
 			echo '">';
@@ -422,7 +420,7 @@ add_action( 'woocommerce_before_shop_loop_item_title', 'evolve_woocommerce_thumb
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
 
 function evolve_woocommerce_thumbnail() {
-	global $woocommerce;
+	global $woocommerce, $product;
 
 	$items_in_cart = array();
 
@@ -432,7 +430,7 @@ function evolve_woocommerce_thumbnail() {
 		}
 	}
 
-	$id      = get_the_ID();
+	$id      = $product->get_ID();
 	$in_cart = in_array( $id, $items_in_cart );
 	$size    = 'shop_catalog';
 
@@ -447,17 +445,22 @@ function evolve_woocommerce_thumbnail() {
 
 	$image_title      = esc_attr( get_the_title( get_post_thumbnail_id() ) );
 	$thumb_image = get_the_post_thumbnail( $id, $size, array( "class" => "card-img-top", "alt"   => $image_title ) );
+	if ( !has_post_thumbnail() ) {
+	    $thumb_image = woocommerce_get_product_thumbnail( $size );
+	}
 	if ( empty( $thumb_image ) ) {
-		$thumb_image     = '<img src="'.esc_url( wc_placeholder_img_src() ).'" alt="'.esc_html__( 'Awaiting product image', 'evolve' ) .'" class="wp-post-image d-block w-100" />';
+		$thumb_image     = '<img src="'.esc_url( wc_placeholder_img_src() ).'" alt="'.esc_html__( 'Awaiting product image', 'evolve' ) .'" class="wp-post-image card-img-top d-block w-100" />';
 	}
 
 	if ( $attachment_image ) {
-		$classes = 'crossfade-images';
+		$class_1 = '<div class="crossfade-images">';
+		$class_2 = '</div>';
 	} else {
-		$classes = '';
+		$class_1 = '';
+		$class_2 = '';
 	}
 
-	echo '<span class="' . $classes . '">';
+	echo $class_1;
 	echo $attachment_image;
 	echo $thumb_image;
 	if ( $in_cart ) {
@@ -466,7 +469,7 @@ function evolve_woocommerce_thumbnail() {
 		echo '<div class="cart-loading"><div class="loader"></div></div>';
 	}
 	echo '<div class="show-details-button">' . evolve_get_svg( 'search' ) . __( 'Show details', 'evolve' ) . '</div>';
-	echo '</span>';
+	echo $class_2;
 }
 
 add_filter( 'woocommerce_add_to_cart_fragments', 'evolve_woocommerce_header_add_to_cart_fragment' );
@@ -539,10 +542,10 @@ function evolve_woocommerce_header_add_to_cart_fragment( $fragments ) {
 
                 <div class="row">
                     <div class="col text-center">
-                        <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php echo evolve_get_svg( 'shop' ); ?><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
+                        <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php echo evolve_get_svg( 'shop' ); esc_html_e( 'View Cart', 'evolve' ); ?></a>
                     </div>
                     <div class="col text-center">
-                        <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php echo evolve_get_svg( 'ok' ); ?><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
+                        <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php echo evolve_get_svg( 'ok' ); esc_html_e( 'Checkout', 'evolve' ); ?></a>
                     </div>
                 </div>
             </div>
@@ -612,9 +615,9 @@ function evolve_woocommerce_cross_sell_display_2( $posts_per_page = 3, $columns 
 function evolve_cart_shipping_calc() {
 	global $woocommerce;
 
-	if ( get_option( 'woocommerce_enable_shipping_calc' ) === 'no' || ! WC()->cart->needs_shipping() ) {
-		return;
-	}
+    if ( 'no' === get_option( 'woocommerce_enable_shipping_calc' ) || ! WC()->cart->needs_shipping() ) {
+	    return;
+    }
 
 	do_action( 'woocommerce_before_shipping_calculator' ); ?>
 
@@ -622,80 +625,73 @@ function evolve_cart_shipping_calc() {
 
         <h4 class="mb-4"><?php esc_html_e( 'Calculate shipping', 'evolve' ); ?></h4>
 
-        <div class="form-row mb-2">
-            <select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state form-control"
-                    rel="calc_shipping_state">
-                <option value=""><?php esc_html_e( 'Select a country&hellip;', 'evolve' ); ?></option>
+  <p class="form-row form-row-wide" id="calc_shipping_country_field">
+			<select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state country_select" rel="calc_shipping_state">
+				<option value=""><?php esc_html_e( 'Select a country&hellip;', 'evolve' ); ?></option>
 				<?php
 				foreach ( WC()->countries->get_shipping_countries() as $key => $value ) {
 					echo '<option value="' . esc_attr( $key ) . '"' . selected( WC()->customer->get_shipping_country(), esc_attr( $key ), false ) . '>' . esc_html( $value ) . '</option>';
 				}
 				?>
-            </select>
-        </div>
+			</select>
+		</p>
 
-        <div class="form-row mt-3 mb-3">
+		<?php if ( apply_filters( 'woocommerce_shipping_calculator_enable_state', true ) ) : ?>
 
-			<?php
-			$current_cc = WC()->customer->get_shipping_country();
-			$current_r  = WC()->customer->get_shipping_state();
-			$states     = WC()->countries->get_states( $current_cc );
+			<p class="form-row form-row-wide" id="calc_shipping_state_field">
 
-			// Hidden Input
-			if ( is_array( $states ) && empty( $states ) ) {
-				?><input type="hidden" name="calc_shipping_state" id="calc_shipping_state"
-                         placeholder="<?php esc_html_e( 'State / county', 'evolve' ); ?>" /><?php
-				// Dropdown Input
-			} elseif ( is_array( $states ) ) {
-				?><span>
-                <select name="calc_shipping_state" id="calc_shipping_state"
-                        placeholder="<?php esc_html_e( 'State / county', 'evolve' ); ?>">
-                            <option value=""><?php esc_html_e( 'Select a state&hellip;', 'evolve' ); ?></option>
+                <?php
+				$current_cc = WC()->customer->get_shipping_country();
+				$current_r  = WC()->customer->get_shipping_state();
+				$states     = WC()->countries->get_states( $current_cc );
+
+				if ( is_array( $states ) && empty( $states ) ) { ?>
+
+					<input type="hidden" name="calc_shipping_state" id="calc_shipping_state" placeholder="<?php esc_attr_e( 'State / County', 'evolve' ); ?>" />
+
+                    <?php } elseif ( is_array( $states ) ) { ?>
+
+					<span>
+						<select name="calc_shipping_state" class="state_select" id="calc_shipping_state" placeholder="<?php esc_attr_e( 'State / County', 'evolve' ); ?>">
+							<option value=""><?php esc_html_e( 'Select a state&hellip;', 'evolve' ); ?></option>
+							<?php
+							foreach ( $states as $ckey => $cvalue ) {
+								echo '<option value="' . esc_attr( $ckey ) . '" ' . selected( $current_r, $ckey, false ) . '>' . esc_html( $cvalue ) . '</option>';
+							}
+							?>
+						</select>
+					</span>
+
 					<?php
-					foreach ( $states as $ckey => $cvalue ) {
-						echo '<option value="' . esc_attr( $ckey ) . '" ' . selected( $current_r, $ckey, false ) . '>' . esc_html( $cvalue ) . '</option>';
-					}
+				} else {
 					?>
-                        </select>
-                </span><?php
-				// Standard Input
-			} else {
-				?><input type="text" class="form-control" value="<?php echo esc_attr( $current_r ); ?>"
-                         placeholder="<?php esc_html_e( 'State / county', 'evolve' ); ?>" name="calc_shipping_state"
-                         id="calc_shipping_state" /><?php
-			}
-			?>
-
-        </div>
-
-		<?php if ( apply_filters( 'woocommerce_shipping_calculator_enable_city', false ) ) : ?>
-
-            <div class="form-row mt-2 mb-2">
-                <input type="text" class="form-control"
-                       value="<?php echo esc_attr( WC()->customer->get_shipping_city() ); ?>"
-                       placeholder="<?php esc_html_e( 'City', 'evolve' ); ?>" name="calc_shipping_city"
-                       id="calc_shipping_city"/>
-            </div>
-
-		<?php
-		endif;
-
-		if ( apply_filters( 'woocommerce_shipping_calculator_enable_postcode', true ) ) :
-			?>
-
-            <div class="form-row mt-2 mb-4">
-                <input type="text" class="form-control"
-                       value="<?php echo esc_attr( WC()->customer->get_shipping_postcode() ); ?>"
-                       placeholder="<?php esc_html_e( 'Postcode / Zip', 'evolve' ); ?>" name="calc_shipping_postcode"
-                       id="calc_shipping_postcode"/>
-            </div>
+					<input type="text" class="input-text" value="<?php echo esc_attr( $current_r ); ?>" placeholder="<?php esc_attr_e( 'State / County', 'evolve' ); ?>" name="calc_shipping_state" id="calc_shipping_state" />
+					<?php
+				}
+				?>
+			</p>
 
 		<?php endif; ?>
 
-        <button type="submit" name="calc_shipping" value="1"
-                class="btn btn-sm"><?php esc_html_e( 'Update Totals', 'evolve' ); ?></button>
+		<?php if ( apply_filters( 'woocommerce_shipping_calculator_enable_city', true ) ) : ?>
 
-		<?php wp_nonce_field( 'woocommerce-cart' ); ?>
+			<p class="form-row form-row-wide" id="calc_shipping_city_field">
+				<input type="text" class="input-text" value="<?php echo esc_attr( WC()->customer->get_shipping_city() ); ?>" placeholder="<?php esc_attr_e( 'City', 'evolve' ); ?>" name="calc_shipping_city" id="calc_shipping_city" />
+			</p>
+
+		<?php endif; ?>
+
+		<?php if ( apply_filters( 'woocommerce_shipping_calculator_enable_postcode', true ) ) : ?>
+
+			<p class="form-row form-row-wide" id="calc_shipping_postcode_field">
+				<input type="text" class="input-text" value="<?php echo esc_attr( WC()->customer->get_shipping_postcode() ); ?>" placeholder="<?php esc_attr_e( 'Postcode / ZIP', 'evolve' ); ?>" name="calc_shipping_postcode" id="calc_shipping_postcode" />
+			</p>
+
+		<?php endif; ?>
+
+		<button type="submit" name="calc_shipping" value="1" class="button"><?php esc_html_e( 'Update Totals', 'evolve' ); ?></button>
+
+		<?php wp_nonce_field( 'woocommerce-shipping-calculator', 'woocommerce-shipping-calculator-nonce' ); ?>
 
     </div>
 
@@ -720,11 +716,11 @@ function evolve_woocommerce_cart_collaterals( $args ) {
 
                 <h4 class="mb-4"><?php esc_html_e( 'Have a promotional code?', 'evolve' ); ?></h4>
                 <div class="form-inline">
-                    <div class="form-group mb-4 mr-3">
+                    <div class="form-group mb-4 mb-sm-0 mb-md-4 mb-lg-0 mr-3 mr-md-0 mr-lg-3">
                         <input name="coupon_code" type="text" class="form-control" id="coupon_code" value=""
                                placeholder="<?php esc_html_e( 'Coupon code', 'evolve' ); ?>"/>
                     </div>
-                    <input type="submit" class="btn btn-sm mb-4" name="apply_coupon"
+                    <input type="submit" class="btn btn-sm mb-4 mb-sm-0" name="apply_coupon"
                            value="<?php esc_html_e( 'Apply Coupon', 'evolve' ); ?>"/>
                 </div>
 

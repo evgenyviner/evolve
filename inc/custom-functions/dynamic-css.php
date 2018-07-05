@@ -849,7 +849,7 @@ if ( is_home() || is_front_page() ) {
     WooCommerce
     --------------------------------------- */
 
-if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() ) ) {
+if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() || is_woocommerce() ) ) {
 	$evolve_css_data .= ' .products.card-columns { -webkit-column-count: ' . esc_attr( wc_get_loop_prop( 'columns' ) ) . '; column-count: ' . esc_attr( wc_get_loop_prop( 'columns' ) ) . '; }';
 }
 
@@ -904,7 +904,7 @@ $evolve_css_data .= ' @media (max-width: 991px) {';
     -- WooCommerce
     --------------------------------------- */
 
-if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() || is_product() ) ) {
+if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() || is_product() || is_woocommerce() ) ) {
 	$evolve_css_data .= ' .products.card-columns { -webkit-column-count: 3; column-count: 3; }';
 }
 $evolve_css_data .= '}';
@@ -988,7 +988,7 @@ if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'b
     -- WooCommerce
     --------------------------------------- */
 
-if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() || is_product() ) ) {
+if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() || is_product() || is_woocommerce() ) ) {
 	$evolve_css_data .= ' .products.card-columns { -webkit-column-count: 2; column-count: 2; }';
 }
 
@@ -1033,7 +1033,7 @@ if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'b
     -- WooCommerce
     --------------------------------------- */
 
-if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() || is_product() ) ) {
+if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() || is_product() || is_woocommerce() ) ) {
 	$evolve_css_data .= ' .products.card-columns { -webkit-column-count: 1; column-count: 1; }';
 }
 

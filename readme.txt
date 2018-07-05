@@ -12,7 +12,6 @@ Parallax Slider - http://tympanus.net/codrops/2012/03/15/parallax-content-slider
 Modernizr - https://modernizr.com/download?-cssanimations-csstransitions-setclasses-dontmin - MIT License
 AnythingSlider - http://css-tricks.com - GPL License 
 Custom DropDown plugin - http://designwithpc.com - GPL License
-jQuery goMap - http://www.pittss.lv/jquery/gomap/ - MIT License
 Infinite Ajax Scroll - http://infiniteajaxscroll.com - MIT License
 IcoMoon Fonts - https://icomoon.io - GPL License
 Dropdown Hover - https://kybarg.github.io/bootstrap-dropdown-hover/ - MIT License

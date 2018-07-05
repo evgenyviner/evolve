@@ -1300,8 +1300,10 @@ thead th {
 }
 
 .loader,
-.woocommerce .loader::before,
-.woocommerce .blockUI.blockOverlay::before {
+.woocommerce-checkout .loader::before,
+.woocommerce-checkout .blockUI.blockOverlay::before,
+.woocommerce-cart-form .loader::before,
+.woocommerce-cart-form .blockUI.blockOverlay::before {
     background: url(assets/images/icons.svg#icon-loader-view) center center no-repeat;
     background-size: 60px;
     content: '';
@@ -1316,12 +1318,15 @@ thead th {
     filter: blur(0);
 }
 
-.woocommerce .blockUI.blockOverlay {
+.woocommerce-checkout .blockUI.blockOverlay,
+.woocommerce-cart-form .blockUI.blockOverlay {
     position: relative
 }
 
-.woocommerce .loader::before,
-.woocommerce .blockUI.blockOverlay::before {
+.woocommerce-checkout .loader::before,
+.woocommerce-checkout .blockUI.blockOverlay::before,
+.woocommerce-cart-form .loader::before,
+.woocommerce-cart-form .blockUI.blockOverlay::before {
     background-size: cover;
     display: block;
     margin-top: -30px;
@@ -2281,10 +2286,6 @@ ul.thumbNav li span {
     margin-bottom: 2rem;
 }
 
-.product .quantity {
-    margin-right: 1rem;
-}
-
 .product .product_meta {
     margin-top: 1rem;
 }
@@ -2489,8 +2490,10 @@ ul.thumbNav li span {
     text-align: right;
 }
 
-.woocommerce .shipping p {
-    display: none;
+.woocommerce .cart_totals p:last-child,
+.woocommerce .woocommerce-checkout-review-order-table p:last-child,
+.woocommerce #shipping_method li:last-child label {
+    margin: 0;
 }
 
 .woocommerce-checkout-payment .payment_methods {
@@ -2513,27 +2516,12 @@ ul.thumbNav li span {
     margin-right: 0;
 }
 
-.quantity .minus,
-.quantity .plus,
-.quantity .qty {
-    font-weight: bold;
-    font-size: .9rem;
-}
-
-.quantity .minus,
-.quantity .plus {
-    padding-left: .6rem;
-    padding-right: .6em;
+.woocommerce-cart-form .quantity.mb-4 {
+    margin: 0 !important;
 }
 
 .quantity .qty {
     width: 60px;
-}
-
-.quantity .qty::-webkit-inner-spin-button,
-.quantity .qty::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
 }
 
 #billing_address_2_field .woocommerce-input-wrapper,

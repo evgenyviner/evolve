@@ -10,27 +10,30 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woothemes.com/document/template-structure/
- * @author  WooThemes
+ * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.0.0
+ * @version 3.4.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+defined( 'ABSPATH' ) || exit;
 
 global $product;
 
-// Ensure visibility
+// Ensure visibility.
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
 
-<div <?php post_class( 'card text-center' ); ?>>
+<div <?php wc_product_class( 'card text-center' ); ?>>
 
-	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
+	<?php
+	/**
+	 * Hook: woocommerce_before_shop_loop_item.
+	 *
+	 * @hooked woocommerce_template_loop_product_link_open - 10
+	 */
+	do_action( 'woocommerce_before_shop_loop_item' ); ?>
 
     <div class="product-images">
 
@@ -50,17 +53,15 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 		<?php
 		/**
-		 * woocommerce_shop_loop_item_title hook
+		 * Hook: woocommerce_shop_loop_item_title.
 		 *
 		 * @hooked woocommerce_template_loop_product_title - 10
 		 */
-		?>
-
-        <h5 class="card-title"><?php the_title(); ?></h5>
+		do_action( 'woocommerce_shop_loop_item_title' ); ?>
 
 		<?php
 		/**
-		 * woocommerce_after_shop_loop_item_title hook
+		 * Hook: woocommerce_after_shop_loop_item_title.
 		 *
 		 * @hooked woocommerce_template_loop_rating - 5
 		 * @hooked woocommerce_template_loop_price - 10
@@ -72,8 +73,9 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 	<?php
 	/**
-	 * woocommerce_after_shop_loop_item hook
+	 * Hook: woocommerce_after_shop_loop_item.
 	 *
+	 * @hooked woocommerce_template_loop_product_link_close - 5
 	 * @hooked woocommerce_template_loop_add_to_cart - 10
 	 */
 	do_action( 'woocommerce_after_shop_loop_item' );

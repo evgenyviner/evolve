@@ -55,7 +55,7 @@ $woo_acc_msg_2 = evolve_theme_mod( 'evl_woo_acc_msg_2', 'Email us - <i class="t4
             <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                 <form action="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
                     <button type="submit"
-                            class="btn btn-sm float-lg-right"><?php esc_html_e( 'View Cart', 'evolve' ); ?></button>
+                            class="btn btn-sm float-lg-right"><?php echo evolve_get_svg( 'shop' ); esc_html_e( 'View Cart', 'evolve' ); ?></button>
                 </form>
             </div>
         </div>
