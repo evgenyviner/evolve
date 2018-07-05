@@ -6917,11 +6917,11 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
         });
 
         $(document).ready(function () {
-            review_tab('tab-reviews');
+            review_tab('reviews');
         });
 
         function review_tab(tab) {
-            $('.woocommerce-tabs a[href="#' + tab + '"]').tab('show');
+            $('.woocommerce-tabs a[href="#tab-reviews"]').tab('show');
         };
     });
 
@@ -7119,6 +7119,19 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
                 $this.children('.carousel-control').show().css('display', 'flex');
             }
         }
+
+        /*
+            Bootstrap Product Thumbnails Slider
+            --------------------------------------- */
+
+        jQuery(function ($) {
+            $('#carousel-slider-thumbnail').hover(function () {
+                $(this).find('.carousel-arrows').stop(true, true).fadeIn(200).show(10);
+            }, function () {
+                $(this).find('.carousel-arrows').stop(true, true).fadeOut(200).hide(10);
+            });
+        });
+
     });
 
 }

@@ -10,9 +10,9 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
- * @package 	WooCommerce/Templates
+ * @see        https://docs.woocommerce.com/document/template-structure/
+ * @author        WooThemes
+ * @package    WooCommerce/Templates
  * @version     3.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,7 +31,7 @@ if ( $product->is_in_stock() ) : ?>
 
 	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
-	<form class="cart" action="<?php echo esc_url( get_permalink() ); ?>" method="post" enctype='multipart/form-data'>
+    <form class="cart" action="<?php echo esc_url( get_permalink() ); ?>" method="post" enctype='multipart/form-data'>
 		<?php
 		/**
 		 * @since 2.1.0.
@@ -55,7 +55,8 @@ if ( $product->is_in_stock() ) : ?>
 		do_action( 'woocommerce_after_add_to_cart_quantity' );
 		?>
 
-		<button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="btn single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+        <button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>"
+                class="btn single_add_to_cart_button button alt"><?php echo evolve_get_svg( 'shop' ) . esc_html( $product->single_add_to_cart_text() ); ?></button>
 
 		<?php
 		/**
@@ -63,7 +64,7 @@ if ( $product->is_in_stock() ) : ?>
 		 */
 		do_action( 'woocommerce_after_add_to_cart_button' );
 		?>
-	</form>
+    </form>
 
 	<?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
 

@@ -34,7 +34,7 @@ do_action( 'woocommerce_before_add_to_cart_form' );
 
 		if ( empty( $available_variations ) && false !== $available_variations ) :
 			?>
-            <p class="stock out-of-stock"><?php esc_html_e( 'This product is currently out of stock and unavailable.', 'evolve' ); ?></p>
+            <p class="stock out-of-stock alert alert-warning" role="alert"><?php esc_html_e( 'This product is currently out of stock and unavailable.', 'evolve' ); ?></p>
 		<?php else : ?>
             <div class="table-responsive-lg">
                 <table class="variations mb-4">
@@ -54,7 +54,7 @@ do_action( 'woocommerce_before_add_to_cart_form' );
 									'selected'  => $selected,
 									'class'     => 'form-control'
 								) );
-								echo end( $attribute_keys ) === $attribute_name ? apply_filters( 'woocommerce_reset_variations_link', '<a class="btn btn-sm mt-3 reset_variations" href="#">' . esc_html__( 'Clear', 'evolve' ) . '</a>' ) : '';
+								echo end( $attribute_keys ) === $attribute_name ? apply_filters( 'woocommerce_reset_variations_link', '<a class="btn btn-sm mt-3 reset_variations" href="#">' . evolve_get_svg( 'close' ) . esc_html__( 'Clear', 'evolve' ) . '</a>' ) : '';
 								?>
                             </td>
                         </tr>

@@ -228,7 +228,7 @@ add_filter( 'get_product_search_form', 'evolve_product_search_form' );
 function evolve_product_search_form( $form ) {
 	$form = '<form role="search" method="get" id="searchform" action="' . esc_url( home_url( '/' ) ) . '">
 	<div>
-	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="' . __( 'Search...', 'evolve' ) . '" />
+	<input class="form-control" type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="' . __( 'Search...', 'evolve' ) . '" />
 	<input type="hidden" name="post_type" value="product" />
 	</div>
 	</form>';
@@ -1076,7 +1076,7 @@ function evolve_woocommerce_account_dashboard() {
             <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                 <form action="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
                     <button type="submit"
-                            class="btn btn-sm float-lg-right"><?php esc_html_e( 'View Cart', 'evolve' ); ?></button>
+                            class="btn btn-sm float-lg-right"><?php echo evolve_get_svg( 'shop' ); esc_html_e( 'View Cart', 'evolve' ); ?></button>
                 </form>
             </div>
         </div>
@@ -1305,7 +1305,7 @@ function evolve_woocommerce_before_account_downloads( $args ) {
 
 		echo '<p class="mt-4 mb-0">';
 
-		echo apply_filters( 'woocommerce_available_download_link', '<a class="btn btn-sm" href="' . esc_url( $download['download_url'] ) . '">' . $download['download_name'] . '</a>', $download );
+		echo apply_filters( 'woocommerce_available_download_link', '<a class="btn" href="' . esc_url( $download['download_url'] ) . '">' . evolve_get_svg( 'download' ) . $download['download_name'] . '</a>', $download );
 
 		if ( is_numeric( $download['downloads_remaining'] ) ) {
 			$downloads_remaining = $download['downloads_remaining'];
@@ -2229,10 +2229,10 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
 
                                             <div class="row">
                                                 <div class="col text-center">
-                                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php echo evolve_get_svg( 'shop' ); ?><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
+                                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php echo evolve_get_svg( 'shop' ); esc_html_e( 'View Cart', 'evolve' ); ?></a>
                                                 </div>
                                                 <div class="col text-center">
-                                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php echo evolve_get_svg( 'ok' ); ?><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
+                                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php echo evolve_get_svg( 'ok' ); esc_html_e( 'Checkout', 'evolve' ); ?></a>
                                                 </div>
                                             </div>
 

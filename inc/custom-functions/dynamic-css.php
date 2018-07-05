@@ -745,7 +745,7 @@ if ( ! empty( $evolve_form_bg_color ) || ! empty( $evolve_form_text_color ) || !
 endif;
 
 if ( $evolve_component_color ) {
-	$evolve_css_data .= ' .custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale { background: ' . $evolve_component_color . '; } .form-control:focus, .input-text:focus, input[type=text]:focus, .page-link:focus, .widget select:focus { border-color: ' . $evolve_component_color . '; box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } .custom-control-input:focus~.custom-control-label::before { box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem  ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } .btn.focus, .btn:focus { box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } :focus { outline-color: ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } code { border-left-color: ' . $evolve_component_color . '; }';
+	$evolve_css_data .= ' .custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale, .stars a:hover, .stars a.active { background: ' . $evolve_component_color . '; } .form-control:focus, .input-text:focus, input[type=text]:focus, .page-link:focus, .widget select:focus { border-color: ' . $evolve_component_color . '; box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } .custom-control-input:focus~.custom-control-label::before { box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem  ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } .btn.focus, .btn:focus { box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } :focus { outline-color: ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } code { border-left-color: ' . $evolve_component_color . '; }';
 }
 
 if ( class_exists( 'Woocommerce' ) && is_user_logged_in() && current_user_can( 'manage_options' ) ) :
@@ -955,14 +955,16 @@ if ( $evolve_social_box_radius != 'disabled' ) {
 
 if ( class_exists( 'Woocommerce' ) && is_product() ) {
 	$evolve_css_data .= ' .products.card-columns { -webkit-column-count: 3; column-count: 3; }';
+	$evolve_css_data .= ' .stars a { -ms-flex-preferred-size: 0; flex-basis: 0; -ms-flex-positive: 1; flex-grow: 1; margin-right: 1rem; } .stars a:last-child { margin-right: 0; }';
 }
+
 $evolve_css_data .= '}';
 
 /*
 	Max-Width 767px - Tablet
     --------------------------------------- */
 
-$evolve_css_data .= ' @media (max-width: 767px) {';
+$evolve_css_data .= ' @media( max - width: 767px) {';
 if ( ! ( '' == evolve_theme_mod( 'evl_menu_back_color', '#273039' ) ) ) {
 	$evolve_menu_back_color = evolve_theme_mod( 'evl_menu_back_color', '#273039' );
 	$evolve_css_data        .= ' .navbar-nav li, .navbar-nav, .navbar-nav .dropdown-menu, .navbar-toggler { border-color: ' . evolve_hex_change( $evolve_menu_back_color ) . '; } .navbar-toggler, .navbar-nav li, .navbar-nav, .navbar-nav .dropdown-menu { background: ' . evolve_hex_change( $evolve_menu_back_color, - 8 ) . '; }';

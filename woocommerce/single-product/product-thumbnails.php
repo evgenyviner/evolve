@@ -84,7 +84,7 @@ if ( $attachment_ids ) {
         </div>
 
 		<?php if ( $loop > 0 ) {
-			echo "<a class='left carousel-control-prev carousel-control' href='#carousel-slider-thumbnails' role='button'
+			echo "<div class='carousel-arrows'><a class='left carousel-control-prev carousel-control' href='#carousel-slider-thumbnails' role='button'
            data-slide='prev'>
             <span class='carousel-control-prev-icon' aria-hidden='true'></span>
             <span class='sr-only'><?php echo __( 'Previous', 'evolve' ); ?></span>
@@ -93,7 +93,7 @@ if ( $attachment_ids ) {
            data-slide='next'>
             <span class='carousel-control-next-icon' aria-hidden='true'></span>
             <span class='sr-only'><?php echo __( 'Next', 'evolve' ); ?></span>
-        </a>";
+        </a></div>";
 		} ?>
 
     </div>

@@ -45,7 +45,7 @@ if ( ! $product->is_in_stock() ) : ?>
 		case "grouped" :
 			$link['url']   = apply_filters( 'grouped_add_to_cart_url', get_permalink( $product->get_id() ) );
 			$link['label'] = apply_filters( 'grouped_add_to_cart_text', __( 'View options', 'evolve' ) );
-			$link['icon']  = evolve_get_svg( 'shop' );
+			$link['icon']  = evolve_get_svg( 'more' );
 			break;
 		case "external" :
 			$link['url']   = apply_filters( 'external_add_to_cart_url', get_permalink( $product->get_id() ) );
