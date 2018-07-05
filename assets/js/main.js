@@ -6916,13 +6916,9 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
             $("a#reviews").click();
         });
 
-        $(document).ready(function () {
-            review_tab('reviews');
-        });
-
-        function review_tab(tab) {
+        if (window.location.hash === "#reviews") {
             $('.woocommerce-tabs a[href="#tab-reviews"]').tab('show');
-        };
+        }
     });
 
     /*
@@ -7110,13 +7106,13 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
             var id = type;
             var $this = $(id);
             if ($(id + ' .carousel-item:first').hasClass('active')) {
-                $this.children('.carousel-control-prev').hide();
-                $this.children('.carousel-control-next').show().css('display', 'flex');
+                $this.children('.carousel-control-prev').hide().removeClass('carousel-arrow');
+                $this.children('.carousel-control-next').show().css('display', 'flex').addClass('carousel-arrow');
             } else if ($(id + ' .carousel-item:last').hasClass('active')) {
-                $this.children('.carousel-control-next').hide();
-                $this.children('.carousel-control-prev').show().css('display', 'flex');
+                $this.children('.carousel-control-next').hide().removeClass('carousel-arrow');
+                $this.children('.carousel-control-prev').show().css('display', 'flex').addClass('carousel-arrow');
             } else {
-                $this.children('.carousel-control').show().css('display', 'flex');
+                $this.children('.carousel-control').show().css('display', 'flex').addClass('carousel-arrow');
             }
         }
 
@@ -7125,10 +7121,11 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
             --------------------------------------- */
 
         jQuery(function ($) {
-            $('#carousel-slider-thumbnail').hover(function () {
-                $(this).find('.carousel-arrows').stop(true, true).fadeIn(200).show(10);
+            $('#carousel-slider-thumbnails').find('.carousel-arrow').hide();
+            $('#carousel-slider-thumbnails').hover(function () {
+                $(this).find('.carousel-arrow').stop(true, true).fadeIn(200).show(10);
             }, function () {
-                $(this).find('.carousel-arrows').stop(true, true).fadeOut(200).hide(10);
+                $(this).find('.carousel-arrow').stop(true, true).fadeOut(200).hide(10);
             });
         });
 

@@ -2141,13 +2141,19 @@ function evolve_scripts() {
 		'order_actions' => __( 'Details', 'evolve' ),
 	);
 
-	// Check WooCommerce Plugin & Version
+	// WooCommerce
 	global $woocommerce;
 	if ( class_exists( 'Woocommerce' ) ) {
 		if ( version_compare( $woocommerce->version, '2.3', '>=' ) ) {
 			$evolve_local_variables['woocommerce_23'] = true;
 		}
 		$evolve_local_variables['woocommerce'] = true;
+
+		if ( is_product() ) {
+			wp_enqueue_script( 'prettyPhoto-init', '', array( 'jquery' ), '', true );
+			wp_enqueue_script( 'prettyPhoto', '', array( 'jquery' ), '', true );
+			wp_enqueue_style( 'woocommerce_prettyPhoto_css', '', '', '', true );
+		}
 	}
 
 	// Back To Top Button (Scroll to Top)

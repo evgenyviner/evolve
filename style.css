@@ -55,6 +55,11 @@ Table of Contents:
     -- My Account
     -- Cart and Checkout
     -- WooCommerce Widgets
+- Responsive Dynamic Definitions
+    -- Min-Width 768px and Max-Width Defined - Wide Desktop
+    -- Min-Width 768px - Desktop
+    -- Max-Width 767px - Tablet
+    -- Max-Width 575px - Phone
 
 
     Bootstrap Framework CSS
@@ -179,12 +184,12 @@ body {
 }
 
 /*
-   Header
-   ======================================= */
+    Header
+    ======================================= */
 
 /*
-   Header Layout
-   --------------------------------------- */
+    Header Layout
+    --------------------------------------- */
 
 .header h4#website-title {
     font-size: 2.5rem;
@@ -216,8 +221,8 @@ body {
 }
 
 /*
-   Menu Bar (Navigation)
-   --------------------------------------- */
+    Menu Bar (Navigation)
+    --------------------------------------- */
 
 .navbar {
     padding-left: 0;
@@ -306,8 +311,8 @@ body {
 }
 
 /*
-   Menu Bar (Responsive Icon)
-   --------------------------------------- */
+    Menu Bar (Responsive Icon)
+    --------------------------------------- */
 
 .navbar-toggler {
     background-color: rgba(0, 0, 0, .5);
@@ -320,8 +325,8 @@ body {
 }
 
 /*
-   Sticky Header (Navigation)
-   --------------------------------------- */
+    Sticky Header (Navigation)
+    --------------------------------------- */
 
 .sticky-header {
     position: fixed;
@@ -345,8 +350,8 @@ body {
 }
 
 /*
-   WooCommerce Menu
-   --------------------------------------- */
+    WooCommerce Menu
+    --------------------------------------- */
 
 .header .woocommerce-menu .btn {
     -webkit-box-shadow: none;
@@ -372,8 +377,8 @@ body {
 }
 
 /*
-   Footer
-   ======================================= */
+    Footer
+    ======================================= */
 
 .footer {
     padding: 2rem 0;
@@ -408,8 +413,8 @@ body {
 }
 
 /*
-   Content
-   ======================================= */
+    Content
+    ======================================= */
 
 .content {
     padding-top: 2rem;
@@ -417,8 +422,8 @@ body {
 }
 
 /*
-   SVG Icons
-   --------------------------------------- */
+    SVG Icons
+    --------------------------------------- */
 
 [class^="icon-"],
 [class*=" icon-"] {
@@ -437,8 +442,8 @@ button .icon,
 }
 
 /*
-   Images and Galleries
-   --------------------------------------- */
+    Images and Galleries
+    --------------------------------------- */
 
 img {
     max-width: 100%;
@@ -531,8 +536,8 @@ img {
 }
 
 /*
-   Media
-   --------------------------------------- */
+    Media
+    --------------------------------------- */
 
 embed,
 iframe,
@@ -547,8 +552,8 @@ video {
 }
 
 /*
-   Post/Page Layout
-   --------------------------------------- */
+    Post/Page Layout
+    --------------------------------------- */
 
 .post,
 .type-page {
@@ -789,8 +794,8 @@ video {
 }
 
 /*
-   Comments
-   ======================================= */
+    Comments
+    ======================================= */
 
 .pings-title {
     font-size: 1rem;
@@ -898,12 +903,12 @@ video {
 }
 
 /*
-   Widgets
-   --------------------------------------- */
+    Widgets
+    --------------------------------------- */
 
 /*
-   -- Default Widgets
-   --------------------------------------- */
+    -- Default Widgets
+    --------------------------------------- */
 
 .widget {
     margin-bottom: 1rem;
@@ -1026,8 +1031,8 @@ video {
 }
 
 /*
-   -- Tabs Widget
-   --------------------------------------- */
+    -- Tabs Widget
+    --------------------------------------- */
 
 ul.nav-tabs {
     margin-left: 0;
@@ -1133,8 +1138,8 @@ ul.nav-tabs {
 }
 
 /*
-   Tables
-   ======================================= */
+    Tables
+    ======================================= */
 
 table,
 .table {
@@ -1181,24 +1186,24 @@ thead th {
 }
 
 /*
-   Components
-   ======================================= */
+    Components
+    ======================================= */
 
 /*
-   Badge
-   --------------------------------------- */
+    Badge
+    --------------------------------------- */
 
 .badge {
     padding: .4em .6em;
 }
 
 /*
-   Blog Navigation
-   --------------------------------------- */
+    Blog Navigation
+    --------------------------------------- */
 
 /*
-   -- Navigation Links
-   --------------------------------------- */
+    -- Navigation Links
+    --------------------------------------- */
 
 .navigation {
     margin-bottom: 2rem;
@@ -1249,8 +1254,8 @@ thead th {
 }
 
 /*
-   -- Number Pagination
-   --------------------------------------- */
+    -- Number Pagination
+    --------------------------------------- */
 
 .navigation .page-link {
     background: none;
@@ -1280,8 +1285,8 @@ thead th {
 }
 
 /*
-   -- Infinite Scroll
-   --------------------------------------- */
+    -- Infinite Scroll
+    --------------------------------------- */
 
 .infinite-scroll,
 .ias-trigger,
@@ -1294,7 +1299,9 @@ thead th {
     column-span: all;
 }
 
-.loader {
+.loader,
+.woocommerce .loader::before,
+.woocommerce .blockUI.blockOverlay::before {
     background: url(assets/images/icons.svg#icon-loader-view) center center no-repeat;
     background-size: 60px;
     content: '';
@@ -1307,6 +1314,19 @@ thead th {
     animation: spin .7s infinite linear;
     -webkit-filter: blur(0);
     filter: blur(0);
+}
+
+.woocommerce .blockUI.blockOverlay {
+    position: relative
+}
+
+.woocommerce .loader::before,
+.woocommerce .blockUI.blockOverlay::before {
+    background-size: cover;
+    display: block;
+    margin-top: -30px;
+    position: absolute;
+    top: 50%;
 }
 
 @keyframes spin {
@@ -1330,8 +1350,8 @@ thead th {
 }
 
 /*
-   Bootstrap (Carousel) Slider
-   ======================================= */
+    Bootstrap (Carousel) Slider
+    ======================================= */
 
 .carousel img {
     margin: 0 auto;
@@ -1376,7 +1396,8 @@ thead th {
     transform: rotate(-135deg);
 }
 
-.product-carousel .carousel-control-prev {
+.product-carousel .carousel-control-prev,
+#carousel-slider-thumbnails .carousel-arrow {
     display: none;
 }
 
@@ -1404,8 +1425,8 @@ thead th {
 }
 
 /*
-   Breadcrumbs
-   --------------------------------------- */
+    Breadcrumbs
+    --------------------------------------- */
 
 .breadcrumb {
     background-color: transparent;
@@ -1415,8 +1436,8 @@ thead th {
 }
 
 /*
-   Buttons
-   --------------------------------------- */
+    Buttons
+    --------------------------------------- */
 
 .btn,
 .button,
@@ -1438,8 +1459,8 @@ input[type=submit],
 }
 
 /*
-   Forms
-   --------------------------------------- */
+    Forms
+    --------------------------------------- */
 
 .input-text,
 input[type=text],
@@ -1458,8 +1479,8 @@ input[type=text],
 }
 
 /*
-   -- Search Form
-   --------------------------------------- */
+    -- Search Form
+    --------------------------------------- */
 
 .search-form {
     height: 50px;
@@ -1543,8 +1564,8 @@ input[type=text],
 }
 
 /*
-   Tooltips
-   --------------------------------------- */
+    Tooltips
+    --------------------------------------- */
 
 .tooltip-inner {
     padding: .3rem .6rem;
@@ -1560,8 +1581,8 @@ input[type=text],
 }
 
 /*
-   Front Page Section
-   ======================================= */
+    Front Page Section
+    ======================================= */
 
 h4.section_title {
     width: 100%;
@@ -1569,8 +1590,8 @@ h4.section_title {
 }
 
 /*
-   Front Page Content Boxes
-   ======================================= */
+    Front Page Content Boxes
+    ======================================= */
 
 .home-content-boxes .card-deck {
     margin-bottom: 1rem;
@@ -1618,33 +1639,9 @@ h4.section_title {
     padding: 0;
 }
 
-/* ======================== WPML Plugin style ======================== */
-
-/* TODO remove */
-ul.nav-menu li.menu-item-language {
-    position: relative;
-}
-
-ul.nav-menu li.menu-item-language ul {
-    left: 0;
-    width: 14em;
-}
-
-.submenu-languages .menu-item-language a span {
-    display: inline-block;
-}
-
-.menu-item-language a::after {
-    left: 3px;
-}
-
-#lang_sel ul {
-    list-style-image: none;
-}
-
 /*
-   Back To Top Button (Scroll to Top)
-   ======================================= */
+    Back To Top Button (Scroll to Top)
+    ======================================= */
 
 #backtotop {
     cursor: pointer;
@@ -1672,8 +1669,8 @@ ul.nav-menu li.menu-item-language ul {
 }
 
 /*
-   Social Media/Share This Links
-   ======================================= */
+    Social Media/Share This Links
+    ======================================= */
 
 .social-media-links {
     margin: 0;
@@ -2453,6 +2450,14 @@ ul.thumbNav li span {
     vertical-align: .15em;
 }
 
+.woocommerce .tab-content > form > .tab-pane {
+    display: none;
+}
+
+.woocommerce .tab-content > form > .active {
+    display: block;
+}
+
 /*
     Cart and Checkout
     --------------------------------------- */
@@ -3177,8 +3182,8 @@ Blog Shortcode
 }
 
 /*
-   Animate CSS
-   ======================================= */
+    Animate CSS
+    ======================================= */
 
 .animated {
     -webkit-animation-duration: 1s;
@@ -3516,6 +3521,32 @@ Blog Shortcode
 .fadeOutUp {
     -webkit-animation-name: fadeOutUp;
     animation-name: fadeOutUp;
+}
+
+/*
+    WPML Definitions
+    ======================================= */
+
+/* TODO remove */
+ul.nav-menu li.menu-item-language {
+    position: relative;
+}
+
+ul.nav-menu li.menu-item-language ul {
+    left: 0;
+    width: 14em;
+}
+
+.submenu-languages .menu-item-language a span {
+    display: inline-block;
+}
+
+.menu-item-language a::after {
+    left: 3px;
+}
+
+#lang_sel ul {
+    list-style-image: none;
 }
 
 /*
