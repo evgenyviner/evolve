@@ -1545,6 +1545,10 @@ input[type=text],
     margin-bottom: 2rem;
 }
 
+.error-not-found label {
+    display: block;
+}
+
 .search-button {
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -1644,11 +1648,6 @@ h4.section_title {
     font-size: 50px;
     text-shadow: 3px 3px 0 rgba(0, 0, 0, .05);
     margin-top: 1.25rem;
-}
-
-.home-content-boxes .content-box p {
-    color: #888;
-    font-size: 140%;
 }
 
 #primary .home-content-boxes .container {

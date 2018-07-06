@@ -1,24 +1,6 @@
 <?php
-// var_dump(get_theme_mod('evl_header_padding'));
+
 require get_parent_theme_file_path( 'inc/customizer/kirki-functions.php' );
-// add_filter('kirki_load_Font Awesome', 'remove_font_awesome_from_kirki', 999);
-// function remove_font_awesome_from_kirki(){
-//	return false;
-// }
-
-/* Convert hexdec color string to rgb(a) string */
-function evolve_hex2rgba( $hex, $alpha = false ) {
-	$hex      = str_replace( '#', '', $hex );
-	$length   = strlen( $hex );
-	$rgb['r'] = hexdec( $length == 6 ? substr( $hex, 0, 2 ) : ( $length == 3 ? str_repeat( substr( $hex, 0, 1 ), 2 ) : 0 ) );
-	$rgb['g'] = hexdec( $length == 6 ? substr( $hex, 2, 2 ) : ( $length == 3 ? str_repeat( substr( $hex, 1, 1 ), 2 ) : 0 ) );
-	$rgb['b'] = hexdec( $length == 6 ? substr( $hex, 4, 2 ) : ( $length == 3 ? str_repeat( substr( $hex, 2, 1 ), 2 ) : 0 ) );
-	if ( $alpha ) {
-		$rgb['a'] = $alpha;
-	}
-
-	return implode( array_keys( $rgb ) ) . '(' . implode( ', ', $rgb ) . ')';
-}
 
 global $name_of_panel, $evolve_all_customize_fields, $evolve_index_control, $evolve_list_google_fonts;
 $name_of_panel               = '';
@@ -550,7 +532,13 @@ foreach ( $options_pages_obj as $page ) {
 	$options_pages[ $page->ID ] = $page->post_title;
 }
 
+
 if ( true || is_customize_preview() ) {
+
+	// Get general button classes
+	$evolve_button_classes       = ".btn, a.btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button, .post-content a.btn, .woocommerce .button";
+	$evolve_button_hover_classes = ".btn:hover, a.btn:hover, button:hover, .button:hover, input#submit:hover, input[type=submit]:hover, #buddypress input[type=submit]:hover, #buddypress .button, #buddypress .button:hover, #buddypress a.button, #buddypress a.button:hover";
+
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 		'id'      => 'evl-theme-links-main-tab',
 		'title'   => esc_attr__( 'Theme Links', 'evolve' ),
@@ -1074,6 +1062,7 @@ if ( true || is_customize_preview() ) {
 					'id'              => 'evl_content_box1_title',
 					'type'            => 'text',
 					'title'           => esc_attr__( 'Content Box 1 Title', 'evolve' ),
+					'selector'        => '.content-box.content-box-1 h5',
 					'render_callback' => 'evl_content_box1_title',
 					'required'        => array(
 						array( 'evl_content_box1_enable', '=', '1' )
@@ -1097,6 +1086,7 @@ if ( true || is_customize_preview() ) {
 					'compiler'  => true,
 					'type'      => 'color',
 					'title'     => esc_attr__( 'Content Box 1 Icon Color', 'evolve' ),
+					'default'   => '#8bb9c1',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -1105,7 +1095,6 @@ if ( true || is_customize_preview() ) {
 							'property' => 'color'
 						),
 					),
-					'default'   => '#8bb9c1',
 					'required'  => array(
 						array( 'evl_content_box1_enable', '=', '1' )
 					),
@@ -1156,7 +1145,7 @@ if ( true || is_customize_preview() ) {
 					'id'              => 'evl_content_box2_title',
 					'type'            => 'text',
 					'title'           => esc_attr__( 'Content Box 2 Title', 'evolve' ),
-					'selector'        => '.content-box.content-box-2 h2',
+					'selector'        => '.content-box.content-box-2 h5',
 					'render_callback' => 'evl_content_box2_title',
 					'default'         => esc_attr__( 'Easy Customizable', 'evolve' ),
 					'required'        => array(
@@ -1180,6 +1169,7 @@ if ( true || is_customize_preview() ) {
 					'compiler'  => true,
 					'type'      => 'color',
 					'title'     => esc_attr__( 'Content Box 2 Icon Color', 'evolve' ),
+					'default'   => '#8ba3c1',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -1188,7 +1178,6 @@ if ( true || is_customize_preview() ) {
 							'property' => 'color'
 						),
 					),
-					'default'   => '#8ba3c1',
 					'required'  => array(
 						array( 'evl_content_box2_enable', '=', '1' )
 					),
@@ -1208,7 +1197,7 @@ if ( true || is_customize_preview() ) {
 					'id'              => 'evl_content_box2_button',
 					'type'            => 'textarea',
 					'title'           => esc_attr__( 'Content Box 2 Button', 'evolve' ),
-					'selector'        => '.content-box.content-box-2 .cntbox_btn',
+					'selector'        => '.content-box.content-box-2 .btn',
 					'render_callback' => 'evl_content_box2_button',
 					'default'         => sprintf( '<a class="btn btn-sm" href="#">%s</a>', esc_attr( 'Learn more', 'evolve' ) ),
 					'required'        => array(
@@ -1239,7 +1228,7 @@ if ( true || is_customize_preview() ) {
 					'id'              => 'evl_content_box3_title',
 					'type'            => 'text',
 					'title'           => esc_attr__( 'Content Box 3 Title', 'evolve' ),
-					'selector'        => '.content-box.content-box-3 h2',
+					'selector'        => '.content-box.content-box-3 h5',
 					'render_callback' => 'evl_content_box3_title',
 					'default'         => esc_attr__( 'WooCommerce Ready', 'evolve' ),
 					'required'        => array(
@@ -1263,6 +1252,7 @@ if ( true || is_customize_preview() ) {
 					'type'      => 'color',
 					'compiler'  => true,
 					'title'     => esc_attr__( 'Content Box 3 Icon Color', 'evolve' ),
+					'default'   => '#8dc4b8',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -1271,7 +1261,6 @@ if ( true || is_customize_preview() ) {
 							'property' => 'color'
 						)
 					),
-					'default'   => '#8dc4b8',
 					'required'  => array(
 						array( 'evl_content_box3_enable', '=', '1' )
 					),
@@ -1291,7 +1280,7 @@ if ( true || is_customize_preview() ) {
 					'id'              => 'evl_content_box3_button',
 					'type'            => 'textarea',
 					'title'           => esc_attr__( 'Content Box 3 Button', 'evolve' ),
-					'selector'        => '.content-box.content-box-3 .cntbox_btn',
+					'selector'        => '.content-box.content-box-3 .btn',
 					'render_callback' => 'evl_content_box3_button',
 					'default'         => sprintf( '<a class="btn btn-sm" href="#">%s</a>', esc_attr( 'Learn more', 'evolve' ) ),
 					'required'        => array(
@@ -1322,7 +1311,7 @@ if ( true || is_customize_preview() ) {
 					'id'              => 'evl_content_box4_title',
 					'type'            => 'text',
 					'title'           => esc_attr__( 'Content Box 4 Title', 'evolve' ),
-					'selector'        => '.content-box.content-box-4 h2',
+					'selector'        => '.content-box.content-box-4 h5',
 					'render_callback' => 'evl_content_box4_title',
 					'default'         => esc_attr__( 'Prebuilt Demos', 'evolve' ),
 					'required'        => array(
@@ -1346,6 +1335,7 @@ if ( true || is_customize_preview() ) {
 					'type'      => 'color',
 					'compiler'  => true,
 					'title'     => esc_attr__( 'Content Box 4 Icon Color', 'evolve' ),
+					'default'   => '#92bf89',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -1354,7 +1344,6 @@ if ( true || is_customize_preview() ) {
 							'property' => 'color'
 						)
 					),
-					'default'   => '#92bf89',
 					'required'  => array(
 						array( 'evl_content_box4_enable', '=', '1' )
 					),
@@ -1374,7 +1363,7 @@ if ( true || is_customize_preview() ) {
 					'id'              => 'evl_content_box4_button',
 					'type'            => 'textarea',
 					'title'           => esc_attr__( 'Content Box 4 Button', 'evolve' ),
-					'selector'        => '.content-box.content-box-4 .cntbox_btn',
+					'selector'        => '.content-box.content-box-4 .btn',
 					'render_callback' => 'evl_content_box4_button',
 					'default'         => sprintf( '<a class="btn btn-sm" href="#">%s</a>', esc_attr( 'Learn more', 'evolve' ) ),
 					'required'        => array(
@@ -2472,6 +2461,35 @@ if ( true || is_customize_preview() ) {
 	);
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
+			'id'         => 'evl-typography-subsec-body-tab',
+			'title'      => esc_attr__( 'Website Body', 'evolve' ),
+			'subsection' => true,
+			'fields'     => array(
+				array(
+					'subtitle'    => esc_attr__( 'Select the typography you want for your Website Body', 'evolve' ),
+					'id'          => 'evl_body_font',
+					'type'        => 'typography',
+					'title'       => esc_attr__( 'Website Body Font', 'evolve' ),
+					'text-align'  => false,
+					'line-height' => false,
+					'default'     => array(
+						'font-size'   => '1rem',
+						'color'       => '#212529',
+						'font-family' => 'Roboto',
+						'font-weight' => '300',
+					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => 'body',
+						),
+					),
+				),
+			),
+		)
+	);
+
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-typography-subsec-title-tagline-tab',
 			'title'      => esc_attr__( 'Website Title & Tagline', 'evolve' ),
 			'subsection' => true,
@@ -2489,6 +2507,12 @@ if ( true || is_customize_preview() ) {
 						'font-family' => 'Roboto',
 						'font-weight' => '300',
 					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '#website-title a',
+						),
+					),
 				),
 				array(
 					'subtitle'    => esc_attr__( 'Select the typography you want for your Website Tagline', 'evolve' ),
@@ -2503,6 +2527,12 @@ if ( true || is_customize_preview() ) {
 						'font-family' => 'Roboto',
 						'font-weight' => '300',
 					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '#tagline',
+						),
+					),
 				),
 				array(
 					'subtitle'    => esc_attr__( 'Select the typography you want for your Sticky Header Website Title', 'evolve' ),
@@ -2516,6 +2546,12 @@ if ( true || is_customize_preview() ) {
 						'color'       => '#ffffff',
 						'font-family' => 'Roboto',
 						'font-weight' => '300',
+					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '#sticky-title',
+						),
 					),
 				),
 			),
@@ -2540,6 +2576,12 @@ if ( true || is_customize_preview() ) {
 						'font-family' => 'Roboto',
 						'font-weight' => '300',
 					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '.navbar-nav .nav-link, .navbar-nav .dropdown-item, .menu-header, .sticky-header, .navbar-toggler',
+						),
+					),
 				),
 				array(
 					'subtitle'    => esc_attr__( 'Select the typography you want for your Top Menu', 'evolve' ),
@@ -2553,6 +2595,12 @@ if ( true || is_customize_preview() ) {
 						'color'       => '#c1c1c1',
 						'font-family' => 'Roboto',
 						'font-weight' => '300',
+					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '.new-top-menu ul.nav-menu a, .top-menu, .header .woocommerce-menu .dropdown-menu',
+						),
 					),
 				),
 			),
@@ -2577,6 +2625,12 @@ if ( true || is_customize_preview() ) {
 						'font-family' => 'Roboto',
 						'font-weight' => '700',
 					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '.widget-title, .widget-title a.rsswidget',
+						),
+					),
 				),
 				array(
 					'subtitle'    => esc_attr__( 'Select the typography you want for your Widget Content', 'evolve' ),
@@ -2590,6 +2644,12 @@ if ( true || is_customize_preview() ) {
 						'font-family' => 'Roboto',
 						'color'       => '#51545c',
 						'font-weight' => '300',
+					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '.widget-content, .aside, .aside a, .widget-content, .widget-content a, .widget-content .tab-holder .news-list li .post-holder a, .widget-content .tab-holder .news-list li .post-holder .meta',
+						),
 					),
 				),
 			),
@@ -2613,6 +2673,12 @@ if ( true || is_customize_preview() ) {
 						'font-family' => 'Roboto',
 						'font-weight' => '700',
 					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '.post-title, .post-title a',
+						),
+					),
 				),
 				array(
 					'subtitle'    => esc_attr__( 'Select the typography you want for your Website Post/Page Content', 'evolve' ),
@@ -2626,6 +2692,12 @@ if ( true || is_customize_preview() ) {
 						'color'       => '#51545c',
 						'font-family' => 'Roboto',
 						'font-weight' => '300',
+					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '.post-content',
+						),
 					),
 				),
 			),
@@ -2650,6 +2722,12 @@ if ( true || is_customize_preview() ) {
 						'font-family' => 'Roboto',
 						'font-weight' => '700',
 					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '.content-box h5.card-title',
+						),
+					),
 				),
 				array(
 					'subtitle'    => esc_attr__( 'Select the typography you want for your Content Boxes Description', 'evolve' ),
@@ -2659,10 +2737,16 @@ if ( true || is_customize_preview() ) {
 					'line-height' => false,
 					'title'       => esc_attr__( 'Content Boxes Description Font', 'evolve' ),
 					'default'     => array(
-						'font-size'   => '1rem',
+						'font-size'   => '1.2rem',
 						'color'       => '#888888',
 						'font-family' => 'Roboto',
 						'font-weight' => '300',
+					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '.content-box p',
+						),
 					),
 				),
 			),
@@ -2687,6 +2771,12 @@ if ( true || is_customize_preview() ) {
 						'font-family' => 'Roboto',
 						'font-weight' => '300',
 					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '#copyright, #copyright a',
+						),
+					),
 				),
 			),
 		)
@@ -2710,6 +2800,12 @@ if ( true || is_customize_preview() ) {
 						'font-family' => 'Roboto',
 						'font-weight' => '500',
 					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => 'h1',
+						),
+					),
 				),
 				array(
 					'subtitle'    => esc_attr__( 'Select the typography you want for your H2 tag in Website Post/Page Content', 'evolve' ),
@@ -2723,6 +2819,12 @@ if ( true || is_customize_preview() ) {
 						'font-family' => 'Roboto',
 						'color'       => '#51545c',
 						'font-weight' => '500',
+					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => 'h2',
+						),
 					),
 				),
 				array(
@@ -2738,6 +2840,12 @@ if ( true || is_customize_preview() ) {
 						'color'       => '#51545c',
 						'font-weight' => '500',
 					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => 'h3',
+						),
+					),
 				),
 				array(
 					'subtitle'    => esc_attr__( 'Select the typography you want for your H4 tag in Website Post/Page Content', 'evolve' ),
@@ -2751,6 +2859,12 @@ if ( true || is_customize_preview() ) {
 						'font-family' => 'Roboto',
 						'color'       => '#51545c',
 						'font-weight' => '500',
+					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => 'h4',
+						),
 					),
 				),
 				array(
@@ -2766,6 +2880,12 @@ if ( true || is_customize_preview() ) {
 						'color'       => '#51545c',
 						'font-weight' => '500',
 					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => 'h5',
+						),
+					),
 				),
 				array(
 					'subtitle'    => esc_attr__( 'Select the typography you want for your H6 tag in Website Post/Page Content', 'evolve' ),
@@ -2779,6 +2899,12 @@ if ( true || is_customize_preview() ) {
 						'font-family' => 'Roboto',
 						'color'       => '#51545c',
 						'font-weight' => '500',
+					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => 'h6',
+						),
 					),
 				),
 			),
@@ -2824,7 +2950,7 @@ if ( true || is_customize_preview() ) {
 						'color_palette_1' => array(
 							'#313a43',
 							'#273039',
-							'#0bb697',
+							'#0d9078',
 							'#999999',
 						),
 						'color_palette_2' => array(
@@ -3113,12 +3239,20 @@ if ( true || is_customize_preview() ) {
 					'default'  => '#273039',
 				),
 				array(
-					'subtitle' => esc_attr__( 'Menu hover font color', 'evolve' ),
-					'id'       => 'evl_top_menu_hover_font_color',
-					'type'     => 'color',
-					'compiler' => true,
-					'title'    => esc_attr__( 'Menu Hover Font Color', 'evolve' ),
-					'default'  => '#fff',
+					'subtitle'  => esc_attr__( 'Menu hover font color', 'evolve' ),
+					'id'        => 'evl_top_menu_hover_font_color',
+					'type'      => 'color',
+					'compiler'  => true,
+					'title'     => esc_attr__( 'Menu Hover Font Color', 'evolve' ),
+					'default'   => '#ffffff',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.navbar-nav .nav-link:focus, .navbar-nav .nav-link:hover, .navbar-nav .active > .nav-link, .navbar-nav .nav-link.active, .navbar-nav .nav-link.show, .navbar-nav .show > .nav-link, .navbar-nav li.menu-item.current-menu-item > a, .navbar-nav li.menu-item.current-menu-parent > a, .navbar-nav li.menu-item.current-menu-ancestor > a, .navbar-nav li a:hover, .navbar-nav li:hover > a, .navbar-nav li:hover',
+							'function' => 'css',
+							'property' => 'color'
+						)
+					),
 				),
 			),
 		)
@@ -3217,11 +3351,19 @@ if ( true || is_customize_preview() ) {
 					'default'  => 'light',
 				),
 				array(
-					'subtitle' => esc_attr__( 'Custom background color of content area', 'evolve' ),
-					'id'       => 'evl_content_background_color',
-					'type'     => 'color',
-					'compiler' => true,
-					'title'    => esc_attr__( 'Or Custom Content Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Custom background color of content area', 'evolve' ),
+					'id'        => 'evl_content_background_color',
+					'type'      => 'color',
+					'compiler'  => true,
+					'title'     => esc_attr__( 'Or Custom Content Color', 'evolve' ),
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.content',
+							'function' => 'css',
+							'property' => 'background-color'
+						)
+					),
 				),
 			),
 		)
@@ -3284,20 +3426,36 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'subtitle' => esc_attr__( 'Custom color for content links', 'evolve' ),
-					'id'       => 'evl_general_link',
-					'compiler' => true,
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Primary Link Color', 'evolve' ),
-					'default'  => '#0bb697',
+					'subtitle'  => esc_attr__( 'Custom color for content links', 'evolve' ),
+					'id'        => 'evl_general_link',
+					'compiler'  => true,
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Primary Link Color', 'evolve' ),
+					'default'   => '#0d9078',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => 'a, a:hover, .page-link, .page-link:hover, code, .widget_calendar tbody a',
+							'function' => 'css',
+							'property' => 'color'
+						),
+					),
 				),
 				array(
-					'subtitle' => esc_attr__( 'Custom color for links in post metas, widgets, navigation etc.', 'evolve' ),
-					'id'       => 'evl_secondary_link',
-					'compiler' => true,
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Secondary Link Color', 'evolve' ),
-					'default'  => '#999999',
+					'subtitle'  => esc_attr__( 'Custom color for links in post metas, widgets, navigation etc.', 'evolve' ),
+					'id'        => 'evl_secondary_link',
+					'compiler'  => true,
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Secondary Link Color', 'evolve' ),
+					'default'   => '#999999',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.breadcrumb-item:last-child, .breadcrumb-item+.breadcrumb-item::before, .widget a, .post-meta, .post-meta a, .navigation a, .post-content .number-pagination a:link, #wp-calendar td, .no-comment, .comment-meta, .comment-meta a, blockquote, .price del',
+							'function' => 'css',
+							'property' => 'color'
+						),
+					),
 				),
 			),
 		)
@@ -3336,25 +3494,49 @@ if ( true || is_customize_preview() ) {
 					'indent' => true
 				),
 				array(
-					'subtitle' => esc_attr__( 'Controls the background color of form text, textarea field', 'evolve' ),
-					'id'       => 'evl_form_bg_color',
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Form Background Color', 'evolve' ),
-					'default'  => '#fcfcfc',
+					'subtitle'  => esc_attr__( 'Controls the background color of form text, textarea field', 'evolve' ),
+					'id'        => 'evl_form_bg_color',
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Form Background Color', 'evolve' ),
+					'default'   => '#fcfcfc',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => 'input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus',
+							'function' => 'css',
+							'property' => 'background-color'
+						),
+					),
 				),
 				array(
-					'subtitle' => esc_attr__( 'Controls the  text, textarea color for forms', 'evolve' ),
-					'id'       => 'evl_form_text_color',
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Form Text Color', 'evolve' ),
-					'default'  => '#888888',
+					'subtitle'  => esc_attr__( 'Controls the text, textarea color for forms', 'evolve' ),
+					'id'        => 'evl_form_text_color',
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Form Text Color', 'evolve' ),
+					'default'   => '#888888',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => 'input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus',
+							'function' => 'css',
+							'property' => 'color'
+						),
+					),
 				),
 				array(
-					'subtitle' => esc_attr__( 'Controls the border color of form text, textarea fields', 'evolve' ),
-					'id'       => 'evl_form_border_color',
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Form Border Color', 'evolve' ),
-					'default'  => '#E0E0E0',
+					'subtitle'  => esc_attr__( 'Controls the border color of form text, textarea fields', 'evolve' ),
+					'id'        => 'evl_form_border_color',
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Form Border Color', 'evolve' ),
+					'default'   => '#E0E0E0',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => 'input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus',
+							'function' => 'css',
+							'property' => 'border-color'
+						),
+					),
 				),
 				array(
 					'id'     => 'evl_radio_checkbox',
@@ -3363,11 +3545,19 @@ if ( true || is_customize_preview() ) {
 					'indent' => true
 				),
 				array(
-					'subtitle' => esc_attr__( 'Controls the color of form components - radio, checkbox, active/focus items etc.', 'evolve' ),
-					'id'       => 'evl_form_item_color',
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Form Radio, CheckBox, Active/Focus Items Color', 'evolve' ),
-					'default'  => '#0bb697',
+					'subtitle'  => esc_attr__( 'Controls the color of form components - radio, checkbox, active/focus items etc.', 'evolve' ),
+					'id'        => 'evl_form_item_color',
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Form Radio, CheckBox, Active/Focus Items Color', 'evolve' ),
+					'default'   => '#0d9078',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale, .stars a:hover, .stars a.active',
+							'function' => 'css',
+							'property' => 'border-color'
+						),
+					),
 				),
 			),
 		)
@@ -3411,83 +3601,177 @@ if ( true || is_customize_preview() ) {
 					'default'  => '3d',
 				),
 				array(
-					'subtitle' => esc_attr__( 'Controls the top color of the button gradients', 'evolve' ),
-					'id'       => 'evl_shortcode_button_gradient_top_color',
-					'compiler' => true,
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Button Gradient Top Color', 'evolve' ),
-					'default'  => '#0bb697',
+					'subtitle'  => esc_attr__( 'Controls the top color of the button gradients', 'evolve' ),
+					'id'        => 'evl_shortcode_button_gradient_top_color',
+					'compiler'  => true,
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Button Gradient Top Color', 'evolve' ),
+					'default'   => '#0d9078',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'         => $evolve_button_classes,
+							'property'        => 'background',
+							'value_pattern'   => 'linear-gradient(to top, bottomCol, $)',
+							'pattern_replace' => array(
+								'bottomCol' => 'evl_shortcode_button_gradient_bottom_color',
+							),
+						),
+					),
 				),
 				array(
-					'subtitle' => esc_attr__( 'Controls the bottom color of the button gradients', 'evolve' ),
-					'id'       => 'evl_shortcode_button_gradient_bottom_color',
-					'compiler' => true,
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Button Gradient Bottom Color', 'evolve' ),
-					'default'  => '#0bb697',
+					'subtitle'  => esc_attr__( 'Controls the bottom color of the button gradients', 'evolve' ),
+					'id'        => 'evl_shortcode_button_gradient_bottom_color',
+					'compiler'  => true,
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Button Gradient Bottom Color', 'evolve' ),
+					'default'   => '#0d9078',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'         => $evolve_button_classes,
+							'property'        => 'background',
+							'value_pattern'   => 'linear-gradient(to top, $, topCol)',
+							'pattern_replace' => array(
+								'topCol' => 'evl_shortcode_button_gradient_top_color',
+							),
+						),
+					),
 				),
 				array(
-					'subtitle' => esc_attr__( 'Controls the top hover color of the button gradients', 'evolve' ),
-					'id'       => 'evl_shortcode_button_gradient_top_hover_color',
-					'compiler' => true,
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Button Gradient Top Hover Color', 'evolve' ),
-					'default'  => '#313a43',
+					'subtitle'  => esc_attr__( 'Controls the top hover color of the button gradients', 'evolve' ),
+					'id'        => 'evl_shortcode_button_gradient_top_hover_color',
+					'compiler'  => true,
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Button Gradient Top Hover Color', 'evolve' ),
+					'default'   => '#313a43',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'         => $evolve_button_hover_classes,
+							'property'        => 'background',
+							'value_pattern'   => 'linear-gradient(to top, bottomCol, $)',
+							'pattern_replace' => array(
+								'bottomCol' => 'evl_shortcode_button_gradient_bottom_hover_color',
+							),
+						),
+					),
 				),
 				array(
-					'subtitle' => esc_attr__( 'Controls the bottom hover color of the button gradients', 'evolve' ),
-					'id'       => 'evl_shortcode_button_gradient_bottom_hover_color',
-					'compiler' => true,
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Button Gradient Bottom Hover Color', 'evolve' ),
-					'default'  => '#313a43',
+					'subtitle'  => esc_attr__( 'Controls the bottom hover color of the button gradients', 'evolve' ),
+					'id'        => 'evl_shortcode_button_gradient_bottom_hover_color',
+					'compiler'  => true,
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Button Gradient Bottom Hover Color', 'evolve' ),
+					'default'   => '#313a43',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'         => $evolve_button_hover_classes,
+							'property'        => 'background',
+							'value_pattern'   => 'linear-gradient(to top, $, topCol)',
+							'pattern_replace' => array(
+								'topCol' => 'evl_shortcode_button_gradient_top_hover_color',
+							),
+						),
+					),
 				),
 				array(
-					'subtitle' => esc_attr__( 'This option controls the color of the button text and icon', 'evolve' ),
-					'id'       => 'evl_shortcode_button_accent_color',
-					'compiler' => true,
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Button Accent Color', 'evolve' ),
-					'default'  => '#f4f4f4',
+					'subtitle'  => esc_attr__( 'This option controls the color of the button text and icon', 'evolve' ),
+					'id'        => 'evl_shortcode_button_accent_color',
+					'compiler'  => true,
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Button Accent Color', 'evolve' ),
+					'default'   => '#f4f4f4',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => $evolve_button_classes,
+							'function' => 'css',
+							'property' => 'color'
+						),
+					),
 				),
 				array(
-					'subtitle' => esc_attr__( 'This option controls the hover color of the button text and icon', 'evolve' ),
-					'id'       => 'evl_shortcode_button_accent_hover_color',
-					'compiler' => true,
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Button Accent Hover Color', 'evolve' ),
-					'default'  => '#ffffff',
+					'subtitle'  => esc_attr__( 'This option controls the hover color of the button text and icon', 'evolve' ),
+					'id'        => 'evl_shortcode_button_accent_hover_color',
+					'compiler'  => true,
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Button Accent Hover Color', 'evolve' ),
+					'default'   => '#ffffff',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => $evolve_button_hover_classes,
+							'function' => 'css',
+							'property' => 'color'
+						),
+					),
 				),
 				array(
-					'subtitle' => esc_attr__( 'Controls the default bevel color of the buttons', 'evolve' ),
-					'id'       => 'evl_shortcode_button_bevel_color',
-					'compiler' => true,
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Button Bevel Color (3D Mode Only)', 'evolve' ),
-					'default'  => '#1d6e72',
+					'subtitle'  => esc_attr__( 'Controls the default bevel color of the buttons', 'evolve' ),
+					'id'        => 'evl_shortcode_button_bevel_color',
+					'compiler'  => true,
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Button Bevel Color (3D Mode Only)', 'evolve' ),
+					'default'   => '#1d6e72',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'       => $evolve_button_classes,
+							'property'      => 'box-shadow',
+							'value_pattern' => '0 2px 0 $',
+						),
+					),
 				),
 				array(
-					'subtitle' => esc_attr__( 'Controls the border color of the buttons', 'evolve' ),
-					'id'       => 'evl_shortcode_button_border_color',
-					'compiler' => true,
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Button Border Color', 'evolve' ),
-					'default'  => '#0bb697',
+					'subtitle'  => esc_attr__( 'Controls the border color of the buttons', 'evolve' ),
+					'id'        => 'evl_shortcode_button_border_color',
+					'compiler'  => true,
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Button Border Color', 'evolve' ),
+					'default'   => '#0d9078',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => $evolve_button_classes,
+							'function' => 'css',
+							'property' => 'border-color'
+						),
+					),
 				),
 				array(
-					'subtitle' => esc_attr__( 'Controls the border hover color of the buttons', 'evolve' ),
-					'id'       => 'evl_shortcode_button_border_hover_color',
-					'compiler' => true,
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Button Border Hover Color', 'evolve' ),
-					'default'  => '#313a43',
+					'subtitle'  => esc_attr__( 'Controls the border hover color of the buttons', 'evolve' ),
+					'id'        => 'evl_shortcode_button_border_hover_color',
+					'compiler'  => true,
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Button Border Hover Color', 'evolve' ),
+					'default'   => '#313a43',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => $evolve_button_hover_classes,
+							'function' => 'css',
+							'property' => 'border-color'
+						),
+					),
 				),
 				array(
-					'subtitle' => esc_attr__( 'Select the border width for buttons. Enter value in px. ex: 1px', 'evolve' ),
-					'id'       => 'evl_shortcode_button_border_width',
-					'type'     => 'text',
-					'title'    => esc_attr__( 'Button Border Width', 'evolve' ),
-					'default'  => '1px',
+					'subtitle'  => esc_attr__( 'Select the border width for buttons. Enter value in px', 'evolve' ),
+					'id'        => 'evl_shortcode_button_border_width',
+					'type'      => 'slider',
+					'min'       => '0',
+					'max'       => '10',
+					'title'     => esc_attr__( 'Button Border Width', 'evolve' ),
+					'default'   => '1',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'       => $evolve_button_classes . ',' . $evolve_button_hover_classes,
+							'property'      => 'border-width',
+							'value_pattern' => '$px',
+						),
+					),
 				),
 				array(
 					'subtitle' => esc_attr__( 'Select the box to disable the inset shadow and text shadow on the flat button type', 'evolve' ),
@@ -3801,30 +4085,51 @@ if ( true || is_customize_preview() ) {
 				'title'    => esc_attr__( 'Enable Subscribe/Social Links in Header', 'evolve' ),
 			),
 			array(
-				'subtitle' => esc_attr__( 'Choose the color scheme of Subscribe/Social Icons', 'evolve' ),
-				'id'       => 'evl_social_color_scheme',
-				'type'     => 'color',
-				'compiler' => true,
-				'title'    => esc_attr__( 'Subscribe/Social Icons Color', 'evolve' ),
-				'default'  => '#999999',
-				'required' => array(
+				'subtitle'  => esc_attr__( 'Choose the color scheme of Subscribe/Social Icons', 'evolve' ),
+				'id'        => 'evl_social_color_scheme',
+				'type'      => 'color',
+				'compiler'  => true,
+				'title'     => esc_attr__( 'Subscribe/Social Icons Color', 'evolve' ),
+				'default'   => '#999999',
+				'transport' => 'postMessage',
+				'js_vars'   => array(
+					array(
+						'element'  => '.social-media-links a',
+						'property' => 'color',
+						'function' => 'css',
+					),
+				),
+				'required'  => array(
 					array( 'evl_social_links', '=', '1' )
 				),
 			),
 			array(
-				'subtitle' => esc_attr__( 'Choose the size of Subscribe/Social Icons', 'evolve' ),
-				'id'       => 'evl_social_icons_size',
-				'type'     => 'select',
-				'compiler' => true,
-				'options'  => array(
+				'subtitle'  => esc_attr__( 'Choose the size of Subscribe/Social Icons', 'evolve' ),
+				'id'        => 'evl_social_icons_size',
+				'type'      => 'select',
+				'compiler'  => true,
+				'options'   => array(
 					'1rem'   => esc_attr__( 'Normal', 'evolve' ),
 					'.8rem'  => esc_attr__( 'Small', 'evolve' ),
 					'1.2rem' => esc_attr__( 'Large', 'evolve' ),
 					'1.4rem' => esc_attr__( 'X-Large', 'evolve' ),
 				),
-				'title'    => esc_attr__( 'Subscribe/Social Icons Size', 'evolve' ),
-				'default'  => '1rem',
-				'required' => array(
+				'title'     => esc_attr__( 'Subscribe/Social Icons Size', 'evolve' ),
+				'default'   => '1rem',
+				'transport' => 'postMessage',
+				'js_vars'   => array(
+					array(
+						'element'  => '.social-media-links .icon',
+						'property' => 'width',
+						'function' => 'css',
+					),
+					array(
+						'element'  => '.social-media-links .icon',
+						'property' => 'height',
+						'function' => 'css',
+					),
+				),
+				'required'  => array(
 					array( 'evl_social_links', '=', '1' )
 				),
 			),
@@ -4116,6 +4421,12 @@ if ( true || is_customize_preview() ) {
 						'color'       => '#ffffff',
 						'font-style'  => '',
 					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '#bootstrap-slider .carousel-caption h5',
+						),
+					),
 					'required'    => array(
 						array( 'evl_bootstrap_slider_support', '=', '1' )
 					),
@@ -4143,6 +4454,12 @@ if ( true || is_customize_preview() ) {
 						'font-weight' => '100',
 						'color'       => '#ffffff',
 						'font-style'  => '',
+					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '#bootstrap-slider .carousel-caption p',
+						),
 					),
 					'required'    => array(
 						array( 'evl_bootstrap_slider_support', '=', '1' )
@@ -4462,6 +4779,12 @@ if ( true || is_customize_preview() ) {
 						'color'       => '#ffffff',
 						'font-style'  => '',
 					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '#posts-slider h5 a',
+						),
+					),
 					'required'    => array(
 						array( 'evl_carousel_slider', '=', '1' )
 					),
@@ -4479,6 +4802,12 @@ if ( true || is_customize_preview() ) {
 						'font-weight' => '100',
 						'color'       => '#ffffff',
 						'font-style'  => '',
+					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '#posts-slider p',
+						),
 					),
 					'required'    => array(
 						array( 'evl_carousel_slider', '=', '1' )

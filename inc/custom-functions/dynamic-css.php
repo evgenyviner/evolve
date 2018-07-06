@@ -120,8 +120,10 @@ $evolve_shortcode_button_accent_hover_color          = evolve_theme_mod( 'evl_sh
 $evolve_shortcode_button_bevel_color                 = evolve_theme_mod( 'evl_shortcode_button_bevel_color', '#1d6e72' );
 $evolve_shortcode_button_border_color                = evolve_theme_mod( 'evl_shortcode_button_border_color', '#0bb697' );
 $evolve_shortcode_button_border_hover_color          = evolve_theme_mod( 'evl_shortcode_button_border_hover_color', '#313a43' );
-$evolve_shortcode_button_border_width                = evolve_theme_mod( 'evl_shortcode_button_border_width', '1px' );
+$evolve_shortcode_button_border_width                = evolve_theme_mod( 'evl_shortcode_button_border_width', '1' );
 $evolve_shortcode_button_shadow                      = evolve_theme_mod( 'evl_shortcode_button_shadow', '1' );
+$evolve_button_classes                               = " .btn, a.btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button, .post-content a.btn, .woocommerce .button";
+$evolve_button_hover_classes                         = " .btn:hover, a.btn:hover, button:hover, .button:hover, input#submit:hover, input[type=submit]:hover, #buddypress input[type=submit]:hover, #buddypress .button, #buddypress .button:hover, #buddypress a.button, #buddypress a.button:hover";
 
 /*
     Post Format
@@ -279,6 +281,12 @@ if ( ! empty( $evolve_main_pattern ) && $evolve_main_pattern != 'none' && in_arr
 }
 
 /*
+    Website Body Font
+    --------------------------------------- */
+
+$evolve_css_data .= evolve_print_fonts( 'evl_body_font', ' body' );
+
+/*
     Website Title Font
     --------------------------------------- */
 
@@ -334,13 +342,13 @@ if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'b
 		Bootstrap Slider --> Slider Title Font
 		--------------------------------------- */
 
-	$evolve_css_data .= evolve_print_fonts( 'evl_bootstrap_slide_title_font', ' .carousel .carousel-caption h5' );
+	$evolve_css_data .= evolve_print_fonts( 'evl_bootstrap_slide_title_font', ' #bootstrap-slider .carousel-caption h5' );
 
 	/*
 		Bootstrap Slider --> Slider Description Font
 		--------------------------------------- */
 
-	$evolve_css_data .= evolve_print_fonts( 'evl_bootstrap_slide_subtitle_font', ' .carousel .carousel-caption p' );
+	$evolve_css_data .= evolve_print_fonts( 'evl_bootstrap_slide_subtitle_font', ' #bootstrap-slider .carousel-caption p' );
 }
 
 if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" ) || ( evolve_theme_mod( 'evl_parallax_slider', '1' ) == "1" && evolve_theme_mod( 'evl_parallax_slider_support', '1' ) == "1" ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '1' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ) {
@@ -412,7 +420,7 @@ $evolve_css_data .= evolve_print_fonts( 'evl_testimonials_title_alignment', ' h4
 
 $evolve_css_data .= evolve_print_fonts( 'evl_counter_circle_title_alignment', ' h4.counter_circle_section_title' );
 
-$evolve_css_data .= ' .header-search .form-control, .header-search .form-control::placeholder { color: ' . $evolve_menu_font['color'] . '; }';
+$evolve_css_data .= ' .header-search .form-control, .header-search .form-control:focus, .header-search .form-control::placeholder { color: ' . $evolve_menu_font['color'] . '; }';
 
 /*
     WooCommerce Product Title Section
@@ -655,7 +663,7 @@ if ( $evolve_scheme_widgets != "" || $evolve_scheme_background || $evolve_scheme
     --------------------------------------- */
 
 if ( $evolve_shortcode_button_border_width || ( $evolve_shortcode_button_type == '3d' && $evolve_shortcode_button_bevel_color ) || $evolve_shortcode_button_accent_color || $evolve_shortcode_button_gradient_top_color || $evolve_shortcode_button_gradient_bottom_color || ( $evolve_shortcode_button_shadow == '1' && $evolve_shortcode_button_type == 'Flat' ) || ( $evolve_shortcode_button_shadow == '1' && $evolve_shortcode_button_type == '3d' ) || ( $evolve_shortcode_button_border_width && $evolve_shortcode_button_border_color ) || $evolve_shortcode_button_shape == 'Pill' || $evolve_shortcode_button_shape == 'Round' || $evolve_shortcode_button_shape == 'Square' ) {
-	$evolve_css_data .= ' .btn, a.btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button, .post-content a.btn, .woocommerce .button {';
+	$evolve_css_data .= $evolve_button_classes . ' {';
 	if ( $evolve_shortcode_button_gradient_top_color ) {
 		$evolve_css_data .= ' background: ' . $evolve_shortcode_button_gradient_top_color . ';';
 	}
@@ -684,7 +692,9 @@ if ( $evolve_shortcode_button_border_width || ( $evolve_shortcode_button_type ==
 		$evolve_css_data .= ' border-radius: 0;';
 	}
 	if ( $evolve_shortcode_button_border_width ) {
-		$evolve_css_data .= ' border-width: ' . $evolve_shortcode_button_border_width . '; border-style: solid;';
+		$evolve_css_data .= ' border-width: ' . $evolve_shortcode_button_border_width . 'px; border-style: solid;';
+	} else {
+		$evolve_css_data .= ' border: 0px;';
 	}
 	if ( $evolve_shortcode_button_type == '3d' && $evolve_shortcode_button_bevel_color ) {
 		$evolve_css_data .= ' -webkit-box-shadow: 0 2px 0 ' . $evolve_shortcode_button_bevel_color . '; box-shadow: 0 2px 0 ' . $evolve_shortcode_button_bevel_color . ';';
@@ -696,7 +706,7 @@ if ( $evolve_shortcode_button_border_width || ( $evolve_shortcode_button_type ==
 }
 
 if ( $evolve_shortcode_button_border_width || ( $evolve_shortcode_button_type == '3d' && $evolve_shortcode_button_bevel_color ) || ( $evolve_shortcode_button_gradient_top_hover_color && $evolve_shortcode_button_accent_hover_color ) || $evolve_shortcode_button_gradient_bottom_hover_color || $evolve_shortcode_button_accent_hover_color || ( $evolve_shortcode_button_border_width && $evolve_shortcode_button_border_hover_color ) ) {
-	$evolve_css_data .= ' .btn:hover, a.btn:hover, button:hover, .button:hover, input#submit:hover, input[type=submit]:hover, #buddypress input[type=submit]:hover, #buddypress .button, #buddypress .button:hover, #buddypress a.button, #buddypress a.button:hover {';
+	$evolve_css_data .= $evolve_button_hover_classes . ' {';
 	if ( $evolve_shortcode_button_accent_hover_color ) {
 		$evolve_css_data .= ' color: ' . $evolve_shortcode_button_accent_hover_color . ';';
 	}
@@ -713,7 +723,9 @@ if ( $evolve_shortcode_button_border_width || ( $evolve_shortcode_button_type ==
 		$evolve_css_data .= ' -webkit-box-shadow: 0 2px 0 ' . $evolve_shortcode_button_border_hover_color . '; box-shadow: 0 2px 0 ' . $evolve_shortcode_button_border_hover_color . ';';
 	}
 	if ( $evolve_shortcode_button_border_width ) {
-		$evolve_css_data .= ' border-width: ' . $evolve_shortcode_button_border_width . '; border-style: solid;';
+		$evolve_css_data .= ' border-width: ' . $evolve_shortcode_button_border_width . 'px; border-style: solid;';
+	} else {
+		$evolve_css_data .= ' border: 0px;';
 	}
 	$evolve_css_data .= ' }';
 }
@@ -731,7 +743,7 @@ if ( $evolve_shadow_effect == 'disable' ) {
     --------------------------------------- */
 
 if ( ! empty( $evolve_form_bg_color ) || ! empty( $evolve_form_text_color ) || ! empty( $evolve_form_border_color ) ) :
-	$evolve_css_data .= ' input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select {';
+	$evolve_css_data .= ' input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus {';
 	if ( ! empty( $evolve_form_bg_color ) ) {
 		$evolve_css_data .= ' background-color: ' . $evolve_form_bg_color . ';';
 	}
@@ -745,7 +757,7 @@ if ( ! empty( $evolve_form_bg_color ) || ! empty( $evolve_form_text_color ) || !
 endif;
 
 if ( $evolve_component_color ) {
-	$evolve_css_data .= ' .custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale, .stars a:hover, .stars a.active { background: ' . $evolve_component_color . '; } .form-control:focus, .input-text:focus, input[type=text]:focus, .page-link:focus, .widget select:focus { border-color: ' . $evolve_component_color . '; box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } .custom-control-input:focus~.custom-control-label::before { box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem  ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } .btn.focus, .btn:focus { box-shadow: 0 0 0 0.2rem ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } :focus { outline-color: ' . evolve_hex2rgba( $evolve_component_color, .25 ) . '; } code { border-left-color: ' . $evolve_component_color . '; }';
+	$evolve_css_data .= ' .custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale, .stars a:hover, .stars a.active { background: ' . $evolve_component_color . '; } .form-control:focus, .input-text:focus, input[type=text]:focus, .page-link:focus, .widget select:focus { border-color: ' . $evolve_component_color . '; box-shadow: 0 0 0 0.2rem ' . evolve_hex_rgba( $evolve_component_color, .25 ) . '; } .custom-control-input:focus~.custom-control-label::before { box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem  ' . evolve_hex_rgba( $evolve_component_color, .25 ) . '; } .btn.focus, .btn:focus { box-shadow: 0 0 0 0.2rem ' . evolve_hex_rgba( $evolve_component_color, .25 ) . '; } :focus { outline-color: ' . evolve_hex_rgba( $evolve_component_color, .25 ) . '; } code { border-left-color: ' . $evolve_component_color . '; }';
 }
 
 if ( class_exists( 'Woocommerce' ) && is_user_logged_in() && current_user_can( 'manage_options' ) ) :

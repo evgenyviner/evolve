@@ -5619,15 +5619,6 @@ jQuery(function ($) {
             height: height
         });
     });
-
-    $(window).on('resize', function () {
-        var $carouselclass = '.carousel';
-        var height = $($carouselclass.relatedTarget).height();
-        var $innerCarousel = $($carouselclass.target).find('.carousel-inner');
-        $innerCarousel.animate({
-            height: height
-        });
-    });
 });
 
 /*

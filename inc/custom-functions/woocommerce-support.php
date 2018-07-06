@@ -268,10 +268,10 @@ function evolve_woocommerce_catalog_ordering() {
 	$html .= '<div class="catalog-ordering mb-4">';
 
 	if ( $po == 'desc' ):
-		$html .= '<a class="btn btn-sm desc mx-2 mb-1" href="' . evolve_addURLParameter( $query_string, 'product_order', 'asc' ) . '" role="button"></a>';
+		$html .= '<a class="btn btn-sm desc mx-2" href="' . evolve_addURLParameter( $query_string, 'product_order', 'asc' ) . '" role="button"></a>';
 	endif;
 	if ( $po == 'asc' ):
-		$html .= '<a class="btn btn-sm asc mx-2 mb-1" href="' . evolve_addURLParameter( $query_string, 'product_order', 'desc' ) . '" role="button"></a>';
+		$html .= '<a class="btn btn-sm asc mx-2" href="' . evolve_addURLParameter( $query_string, 'product_order', 'desc' ) . '" role="button"></a>';
 	endif;
 
 	$html .= '<div class="orderby order-dropdown dropdown mx-2 mb-2">';
