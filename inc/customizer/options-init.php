@@ -297,11 +297,6 @@ class Evolve_Fix_Rd {
 				if ( is_user_logged_in() && is_customize_preview() ) {
 					Kirki::add_field( $setting, $value_temp );
 				}
-			} else {
-				//import_export
-				if ( 'import_export' == $value['type'] ) {
-					// var_dump($value);
-				}
 			}
 		}
 	}
@@ -726,41 +721,6 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Content Area', 'evolve' ),
 					'options'  => $content_area
 				),
-				array(
-					'subtitle' => sprintf( esc_attr__( 'The options below will overwrite many existing option values (colors, text fields, slides etc.), please proceed with caution! It\'s highly recommended to use these options for a new website.', 'evolve' ) ),
-					'id'       => 'evl_demo_warning',
-					'style'    => 'critical',
-					'title'    => esc_attr__( 'WARNING', 'evolve' ),
-					'type'     => 'info',
-					'notice'   => false,
-				),
-				array(
-					'subtitle'        => esc_attr__( 'Select the type of prebuilt demo layout for the home/front page.', 'evolve' ),
-					'id'              => 'evl_frontpage_prebuilt_demo',
-					'type'            => 'image_select',
-					'compiler'        => true,
-					'options'         => array(
-						'default'            => $evolve_imagepath . 'demo-default.jpg',
-						'blog'               => $evolve_imagepath . 'demo-blog.jpg',
-						'woocommerce'        => $evolve_imagepath . 'demo-woocommerce.jpg',
-						'blog-2'             => $evolve_imagepath . 'demo-blog-2.jpg',
-						'corporate'          => $evolve_imagepath . 'demo-corporate.jpg',
-						'magazine'           => $evolve_imagepath . 'demo-magazine.jpg',
-						'business'           => $evolve_imagepath . 'demo-business.jpg',
-						'woocommerce-2'      => $evolve_imagepath . 'demo-woocommerce-2.jpg',
-						'bbpress-buddypress' => $evolve_imagepath . 'demo-bbpress-buddypress.jpg',
-					),
-					'title'           => esc_attr__( 'Select The Prebuilt Demo For Home/Front Page', 'evolve' ),
-					'default'         => 'default',
-					'render_callback' => 'evolve_call_customize_import',
-					'selector'        => 'body',
-					// 'transport' => 'postMessage'
-				),
-				array(
-					'id'     => 'evl-front-page-import-end',
-					'type'   => 'section',
-					'indent' => false
-				),
 			),
 		)
 	);
@@ -843,7 +803,9 @@ if ( true || is_customize_preview() ) {
 				array(
 					'title'    => esc_attr__( 'Number of Words in Excerpt', 'evolve' ),
 					'id'       => 'evl_fp_blog_excerpt_length',
-					'type'     => 'spinner',
+					'type'     => 'slider',
+					'min'      => '0',
+					'max'      => '100',
 					'default'  => '35',
 					'subtitle' => esc_attr__( 'Controls the excerpt length based on words', 'evolve' )
 				),
@@ -1074,11 +1036,19 @@ if ( true || is_customize_preview() ) {
 					'default'  => 'above',
 				),
 				array(
-					'id'       => 'evl_content_box_background_color',
-					'compiler' => true,
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Content Boxes Background Color', 'evolve' ),
-					'default'  => '#efefef',
+					'id'        => 'evl_content_box_background_color',
+					'compiler'  => true,
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Content Boxes Background Color', 'evolve' ),
+					'default'   => '#efefef',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.home-content-boxes .card',
+							'function' => 'css',
+							'property' => 'background'
+						),
+					),
 				),
 				array(
 					'id'     => 'evl-front-page-content-boxes-end',
@@ -1114,7 +1084,7 @@ if ( true || is_customize_preview() ) {
 					'id'              => 'evl_content_box1_icon',
 					'type'            => 'text',
 					'title'           => esc_attr__( 'Content Box 1 Icon (Font Awesome)', 'evolve' ),
-					'selector'        => '.content-box.content-box-1 .icon-box',
+					'selector'        => '.content-box.content-box-1 .card-img-top',
 					'render_callback' => 'evl_content_box1_icon',
 					'default'         => 'fas fa-cube',
 					'class'           => 'iconpicker-icon',
@@ -1197,7 +1167,7 @@ if ( true || is_customize_preview() ) {
 					'id'              => 'evl_content_box2_icon',
 					'type'            => 'text',
 					'title'           => esc_attr__( 'Content Box 2 Icon (Font Awesome)', 'evolve' ),
-					'selector'        => '.content-box.content-box-2 .icon-box',
+					'selector'        => '.content-box.content-box-2 .card-img-top',
 					'render_callback' => 'evl_content_box2_icon',
 					'default'         => 'fas fa-circle-o-notch',
 					'class'           => 'iconpicker-icon',
@@ -1280,7 +1250,7 @@ if ( true || is_customize_preview() ) {
 					'id'              => 'evl_content_box3_icon',
 					'type'            => 'text',
 					'title'           => esc_attr__( 'Content Box 3 Icon (Font Awesome)', 'evolve' ),
-					'selector'        => '.content-box.content-box-3 .icon-box',
+					'selector'        => '.content-box.content-box-3 .card-img-top',
 					'render_callback' => 'evl_content_box3_icon',
 					'default'         => 'fas fa-shopping-basket',
 					'class'           => 'iconpicker-icon',
@@ -1363,7 +1333,7 @@ if ( true || is_customize_preview() ) {
 					'id'              => 'evl_content_box4_icon',
 					'type'            => 'text',
 					'title'           => esc_attr__( 'Content Box 4 Icon (Font Awesome)', 'evolve' ),
-					'selector'        => '.content-box.content-box-4 .icon-box',
+					'selector'        => '.content-box.content-box-4 .card-img-top',
 					'render_callback' => 'evl_content_box4_icon',
 					'default'         => 'far fa-object-ungroup',
 					'class'           => 'iconpicker-icon',
@@ -2364,13 +2334,34 @@ if ( true || is_customize_preview() ) {
 					),
 					'title'    => esc_attr__( 'Menu Item Hover Effect', 'evolve' ),
 					'default'  => 'rollover',
+					'required' => array(
+						array( 'evl_main_menu', '=', '0' )
+					),
 				),
 				array(
-					'subtitle' => esc_attr__( 'Padding between menu items in px', 'evolve' ),
-					'id'       => 'evl_main_menu_padding',
-					'type'     => 'spinner',
-					'title'    => esc_attr__( 'Padding Between Menu Items', 'evolve' ),
-					'default'  => '8',
+					'subtitle'  => esc_attr__( 'Padding between menu items in px', 'evolve' ),
+					'id'        => 'evl_main_menu_padding',
+					'type'      => 'slider',
+					'min'       => '0',
+					'max'       => '20',
+					'title'     => esc_attr__( 'Padding Between Menu Items', 'evolve' ),
+					'default'   => '8',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'       => '.navbar-nav > li',
+							'property'      => 'padding-left',
+							'value_pattern' => '$' . 'px',
+						),
+						array(
+							'element'       => '.navbar-nav > li',
+							'property'      => 'padding',
+							'value_pattern' => '0 ' . '$' . 'px',
+						),
+					),
+					'required'  => array(
+						array( 'evl_main_menu', '=', '0' )
+					),
 				),
 				array(
 					'subtitle' => esc_attr__( 'Choose the layout of responsive menu on smaller screen sizes', 'evolve' ),
@@ -2382,6 +2373,9 @@ if ( true || is_customize_preview() ) {
 					),
 					'title'    => esc_attr__( 'Responsive Menu Layout', 'evolve' ),
 					'default'  => 'dropdown',
+					'required' => array(
+						array( 'evl_main_menu', '=', '0' )
+					),
 				),
 			),
 		)
@@ -3136,12 +3130,20 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'subtitle' => esc_attr__( 'Choose the color scheme for the Header Block area', 'evolve' ),
-					'id'       => 'evl_scheme_widgets',
-					'compiler' => true,
-					'type'     => 'color',
-					'title'    => esc_attr__( 'Color Scheme of The Header Block Area', 'evolve' ),
-					'default'  => '#273039',
+					'subtitle'  => esc_attr__( 'Choose the color scheme for the Header Block area', 'evolve' ),
+					'id'        => 'evl_scheme_widgets',
+					'compiler'  => true,
+					'type'      => 'color',
+					'title'     => esc_attr__( 'Color Scheme of The Header Block Area', 'evolve' ),
+					'default'   => '#273039',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.header-block',
+							'function' => 'css',
+							'property' => 'background'
+						),
+					),
 				),
 				array(
 					'subtitle' => esc_attr__( 'Upload an image for the Header Block area', 'evolve' ),
@@ -3584,7 +3586,9 @@ if ( true || is_customize_preview() ) {
 				array(
 					'subtitle' => esc_attr__( 'Enter number of characters for Post Title Excerpt. This works only if a grid layout is enabled', 'evolve' ),
 					'id'       => 'evl_posts_excerpt_title_length',
-					'type'     => 'spinner',
+					'type'     => 'slider',
+					'min'      => '0',
+					'max'      => '100',
 					'title'    => esc_attr__( 'Post Title Excerpt Length', 'evolve' ),
 					'default'  => '40',
 				),
@@ -4088,7 +4092,9 @@ if ( true || is_customize_preview() ) {
 				array(
 					'subtitle' => esc_attr__( 'Input the time between transitions (Default: 7000)', 'evolve' ),
 					'id'       => 'evl_bootstrap_speed',
-					'type'     => 'spinner',
+					'type'     => 'slider',
+					'min'      => '0',
+					'max'      => '20000',
 					'title'    => esc_attr__( 'Speed', 'evolve' ),
 					'step'     => 100,
 					'default'  => '7000',
@@ -4107,7 +4113,7 @@ if ( true || is_customize_preview() ) {
 						'font-size'   => '2.25rem',
 						'font-family' => 'Roboto',
 						'font-weight' => '700',
-						'color'       => '',
+						'color'       => '#ffffff',
 						'font-style'  => '',
 					),
 					'required'    => array(
@@ -4135,7 +4141,7 @@ if ( true || is_customize_preview() ) {
 						'font-size'   => '1.25rem',
 						'font-family' => 'Roboto',
 						'font-weight' => '100',
-						'color'       => '',
+						'color'       => '#ffffff',
 						'font-style'  => '',
 					),
 					'required'    => array(
@@ -4289,10 +4295,12 @@ if ( true || is_customize_preview() ) {
 				array(
 					'subtitle' => esc_attr__( 'Input the time between transitions (Default: 4000)', 'evolve' ),
 					'id'       => 'evl_parallax_speed',
-					'type'     => 'spinner',
+					'type'     => 'slider',
+					'min'      => '0',
+					'max'      => '20000',
 					'title'    => esc_attr__( 'Parallax Speed', 'evolve' ),
 					'step'     => 100,
-					'default'  => '4000',
+					'default'  => '7000',
 					'required' => array(
 						array( 'evl_parallax_slider_support', '=', '1' )
 					),
@@ -4307,6 +4315,7 @@ if ( true || is_customize_preview() ) {
 					'default'     => array(
 						'font-size'   => '2.25rem',
 						'font-family' => 'Roboto',
+						'font-weight' => '700',
 						'color'       => '',
 						'font-style'  => '',
 					),
@@ -4322,9 +4331,10 @@ if ( true || is_customize_preview() ) {
 					'line-height' => false,
 					'text-align'  => false,
 					'default'     => array(
-						'font-size'   => '1.1rem',
+						'font-size'   => '1.25rem',
 						'font-family' => 'Roboto',
-						'color'       => '',
+						'font-weight' => '100',
+						'color'       => '#ffffff',
 						'font-style'  => '',
 					),
 					'required'    => array(
@@ -4367,9 +4377,9 @@ if ( true || is_customize_preview() ) {
 				),
 				array(
 					'id'       => 'evl_posts_number',
-					'type'     => 'spinner',
+					'type'     => 'slider',
 					'min'      => 1,
-					'max'      => 10,
+					'max'      => 5,
 					'title'    => esc_attr__( 'Number of Posts to Display', 'evolve' ),
 					'default'  => '5',
 					'required' => array(
@@ -4404,7 +4414,9 @@ if ( true || is_customize_preview() ) {
 				array(
 					'subtitle' => esc_attr__( 'Input the time between transitions (Default: 3500)', 'evolve' ),
 					'id'       => 'evl_carousel_speed',
-					'type'     => 'spinner',
+					'type'     => 'slider',
+					'min'      => '0',
+					'max'      => '20000',
 					'title'    => esc_attr__( 'Slider Speed', 'evolve' ),
 					'step'     => 100,
 					'default'  => '7000',
@@ -4415,7 +4427,9 @@ if ( true || is_customize_preview() ) {
 				array(
 					'subtitle' => esc_attr__( 'Sets the length of Slide Title. Default is 40', 'evolve' ),
 					'id'       => 'evl_posts_slider_title_length',
-					'type'     => 'spinner',
+					'type'     => 'slider',
+					'min'      => '0',
+					'max'      => '100',
 					'title'    => esc_attr__( 'Slide Title Length', 'evolve' ),
 					'default'  => '40',
 					'required' => array(
@@ -4425,7 +4439,9 @@ if ( true || is_customize_preview() ) {
 				array(
 					'subtitle' => esc_attr__( 'Sets the length of Slide Excerpt. Default is 40', 'evolve' ),
 					'id'       => 'evl_posts_slider_excerpt_length',
-					'type'     => 'spinner',
+					'type'     => 'slider',
+					'min'      => '0',
+					'max'      => '100',
 					'title'    => esc_attr__( 'Slide Excerpt Length', 'evolve' ),
 					'default'  => '40',
 					'required' => array(
@@ -4442,7 +4458,8 @@ if ( true || is_customize_preview() ) {
 					'default'     => array(
 						'font-size'   => '2.25rem',
 						'font-family' => 'Roboto',
-						'color'       => '',
+						'font-weight' => '700',
+						'color'       => '#ffffff',
 						'font-style'  => '',
 					),
 					'required'    => array(
@@ -4457,9 +4474,10 @@ if ( true || is_customize_preview() ) {
 					'text-align'  => false,
 					'title'       => esc_attr__( 'Slide Description Font', 'evolve' ),
 					'default'     => array(
-						'font-size'   => '1.1rem',
+						'font-size'   => '1.25rem',
 						'font-family' => 'Roboto',
-						'color'       => '',
+						'font-weight' => '100',
+						'color'       => '#ffffff',
 						'font-style'  => '',
 					),
 					'required'    => array(

@@ -39,7 +39,7 @@ Table of Contents:
         -- Navigation Links
         -- Number Pagination
         -- Infinite Scroll
-    -- Bootstrap (Carousel) Slider
+    -- Bootstrap / Posts (Carousel) Slider
     -- Breadcrumbs
     -- Buttons
     -- Forms
@@ -56,6 +56,7 @@ Table of Contents:
     -- Cart and Checkout
     -- WooCommerce Widgets
 - Responsive Dynamic Definitions
+    -- Min-Width 992px - Large Wide Desktop
     -- Min-Width 768px and Max-Width Defined - Wide Desktop
     -- Min-Width 768px - Desktop
     -- Max-Width 767px - Tablet
@@ -600,9 +601,7 @@ video {
 }
 
 .post-meta .icon {
-    width: .8rem;
-    height: .8rem;
-    margin-right: .5rem;
+    margin-right: .6rem;
 }
 
 .post-meta .icon-more {
@@ -1355,11 +1354,19 @@ thead th {
 }
 
 /*
-    Bootstrap (Carousel) Slider
+    Bootstrap / Posts (Carousel) Slider
     ======================================= */
 
 .carousel img {
     margin: 0 auto;
+}
+
+.carousel .layout-left {
+    text-align: left;
+    bottom: 50%;
+    -webkit-transform: translate(0, 50%);
+    -ms-transform: translate(0, 50%);
+    transform: translate(0, 50%);
 }
 
 .carousel .carousel-caption h5 {
@@ -1532,6 +1539,10 @@ input[type=text],
 .error-not-found .search-form label {
     width: 100%;
     position: relative;
+}
+
+.error-not-found {
+    margin-bottom: 2rem;
 }
 
 .search-button {
@@ -1713,100 +1724,6 @@ h4.section_title {
 }
 
 /*!==========================================================================
-   Slider Posts
-   ========================================================================== */
-
-#slide_holder {
-    position: relative;
-    background: transparent;
-    min-height: 280px;
-    display: block;
-    z-index: 0;
-    clear: both;
-    padding: 30px 25px 40px 25px;
-}
-
-#slide_holder .featured-thumbnail {
-    margin-right: 20px;
-    position: absolute;
-    left: 60%;
-    top: 0;
-    width: calc(35% - 12px);
-}
-
-#slide_holder .featured-thumbnail img {
-    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .05);
-    box-shadow: 0 0 3px rgba(0, 0, 0, .05);
-}
-
-#slide_holder p {
-    clear: left;
-    float: left;
-    margin: 20px 0 0 0;
-    color: #ddd;
-    font-size: 18px;
-    line-height: 26px;
-    overflow: hidden;
-    font-weight: 400;
-    width: 50%;
-    left: 8%;
-    position: relative;
-}
-
-#slide_holder .featured-title {
-    float: left;
-    left: 8%;
-    position: relative;
-    width: 40%;
-    font-size: 22px;
-    line-height: 35px;
-    margin-bottom: 10px;
-}
-
-#slide_holder .featured-title a {
-    color: #fff;
-    font-size: 40px;
-    margin: 0;
-    z-index: 10;
-    font-weight: 700;
-}
-
-#slide_holder .featured-title a:hover {
-    color: #fff;
-    text-decoration: none;
-}
-
-.slide-container {
-    height: 284px;
-    overflow: visible;
-    position: relative;
-}
-
-.slide-container ul.thumbNav {
-    bottom: -40px;
-}
-
-ul#slides {
-    height: 280px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.post-more {
-    left: 8%;
-    position: absolute;
-    bottom: 0;
-}
-
-.comment-list {
-    padding: 0;
-}
-
-/*!==========================================================================
    bbPress Styling
    ========================================================================== */
 
@@ -1856,192 +1773,6 @@ a.bbp-author-avatar {
     height: 36px;
     top: 2px;
     right: 0;
-}
-
-/*!==========================================================================
-   Common slider styling
-   ========================================================================== */
-
-.anythingSlider,
-.anythingBase {
-    overflow: visible;
-}
-
-.anythingSlider {
-    display: block;
-    position: relative;
-}
-
-.anythingSlider .anythingWindow {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.anythingSlider .anythingBase {
-    background: transparent;
-    list-style: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-}
-
-.anythingSlider .arrow span {
-    content: '';
-    display: none;
-    position: absolute;
-    margin-top: -20px;
-    width: 40px;
-    height: 40px;
-}
-
-.anythingSlider .back span::before {
-    font-family: IcoMoon;
-    content: '\e918';
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    display: block;
-    line-height: 40px;
-    font-size: 20px;
-    background: #636363;
-    background: rgba(0, 0, 0, .7);
-    color: #fff;
-}
-
-.anythingSlider .forward span::before {
-    font-family: IcoMoon;
-    content: '\e919';
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    display: block;
-    line-height: 40px;
-    font-size: 20px;
-    background: #636363;
-    background: rgba(0, 0, 0, .7);
-    color: #fff;
-}
-
-.anythingSlider .arrow.disabled {
-    display: none;
-}
-
-.anythingSlider .panel {
-    background: transparent;
-    display: block;
-    overflow: hidden;
-    float: left;
-    position: relative;
-    padding: 0;
-    margin: 0;
-}
-
-.anythingSlider .vertical .panel {
-    float: none;
-}
-
-.anythingSlider .fade .panel {
-    float: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
-.anythingSlider .fade .activePage {
-    z-index: 0;
-}
-
-.anythingSlider-default .arrow {
-    bottom: 0;
-    position: absolute;
-}
-
-.anythingSlider-default .arrow a {
-    text-align: center;
-    outline: 0;
-}
-
-.anythingSlider-default .back {
-    left: 0;
-    top: 50%;
-}
-
-.anythingSlider-default .forward {
-    right: 40px;
-    top: 50%;
-}
-
-.anythingSlider-default .anythingControls .anythingNavWindow {
-    overflow: hidden;
-    float: left;
-}
-
-.anythingSlider-default .anythingControls .start-stop {
-    padding: 2px 5px;
-    width: 40px;
-    text-align: center;
-    text-decoration: none;
-    float: right;
-    z-index: 100;
-    outline: 0;
-    display: none !important;
-}
-
-ul.thumbNav {
-    display: inline-block;
-    -moz-user-select: none;
-    bottom: -10px;
-    left: 0;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-}
-
-ul.thumbNav li {
-    display: inline-block;
-    position: relative;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, .2);
-    margin: 3px;
-    cursor: pointer;
-    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, .1) inset, 1px 1px 1px rgba(255, 255, 255, .1);
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, .1) inset, 1px 1px 1px rgba(255, 255, 255, .1);
-}
-
-ul.thumbNav li a {
-    content: '';
-    width: 8px;
-    height: 8px;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    border-radius: 100%;
-    display: block;
-}
-
-ul.thumbNav li .cur {
-    content: '';
-    width: 8px;
-    height: 8px;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    border-radius: 50%;
-    background: white;
-    background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(47%, #f6f6f6), to(#ededed));
-    background: -o-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
-    background: linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
-}
-
-ul.thumbNav li span {
-    display: none;
 }
 
 /*
@@ -2304,9 +2035,18 @@ ul.thumbNav li span {
     margin-bottom: 1.5rem;
 }
 
+.product ins {
+    font-weight: bold;
+    text-decoration: none;
+}
+
 .product .related,
 .product .upsells {
     margin-top: 3rem;
+}
+
+.product .sku {
+    margin-right: 1rem;
 }
 
 /*
@@ -3542,6 +3282,20 @@ ul.nav-menu li.menu-item-language ul {
     ======================================= */
 
 /*
+	Min-Width 992px - Large Wide Desktop
+	--------------------------------------- */
+
+@media (min-width: 992px) {
+    .carousel .layout-left {
+        right: 50%;
+    }
+
+    #posts-slider .layout-left {
+        right: 55%;
+    }
+}
+
+/*
 	Min-Width 768px and Max-Width Defined - Wide Desktop
 	--------------------------------------- */
 
@@ -3579,49 +3333,6 @@ ul.nav-menu li.menu-item-language ul {
         width: 100%;
     }
 
-}
-
-@media (max-width: 540px) {
-
-    #slide_holder .featured-thumbnail img,
-    #slide_holder .featured-thumbnail {
-        height: 100%;
-    }
-
-    .slide-container {
-        height: 320px;
-    }
-
-    #slide_holder {
-        min-height: 320px;
-    }
-
-}
-
-@media screen and (min-width: 1200px) {
-    #slide_holder .featured-thumbnail {
-        margin-right: 0;
-        left: auto;
-        right: 8%;
-        text-align: right;
-        width: auto;
-    }
-
-    #slide_holder .featured-thumbnail a {
-        position: relative;
-        vertical-align: top;
-        display: inline-block;
-        width: 100%;
-    }
-
-    #slide_holder .featured-thumbnail a::before {
-        border: 8px solid #63686c;
-        content: "";
-        display: inline-block;
-        height: 100%;
-        position: absolute;
-        width: 100%;
-    }
 }
 
 @media screen and (max-width: 782px) {
@@ -3844,48 +3555,6 @@ ul.nav-menu li.menu-item-language ul {
         margin: 1.5rem 0;
     }
 
-    #slide_holder .featured-thumbnail {
-        margin-right: 0;
-        position: absolute;
-        right: 0;
-        left: auto;
-        text-align: right;
-        max-width: 100%;
-        width: 100%;
-    }
-
-    #slide_holder .featured-thumbnail::before {
-        background-color: rgba(0, 0, 0, .7);
-        content: "";
-        display: inline-block;
-        height: 100%;
-        position: absolute;
-        width: 100%;
-    }
-
-    #slide_holder .featured-thumbnail img {
-        width: 100%;
-        border: none;
-    }
-
-    #slide_holder .post-more {
-        bottom: 35px;
-        left: 35px;
-        margin: 0;
-    }
-
-    #slide_holder p,
-    #slide_holder .featured-title {
-        float: none;
-        left: 0;
-        width: 100%;
-        padding: 0 35px;
-    }
-
-    #slide_holder .featured-title {
-        padding: 35px 35px 0 35px;
-    }
-
     .da-slide {
         padding: 20px;
     }
@@ -3923,10 +3592,6 @@ ul.nav-menu li.menu-item-language ul {
     span.more a {
         line-height: 1;
         padding: 10px 16px;
-    }
-
-    .anythingSlider {
-        width: 500px;
     }
 
     .t4p-blog-large .post-meta .entry-comments {
@@ -3979,5 +3644,9 @@ ul.nav-menu li.menu-item-language ul {
     .navigation .nav-next {
         margin: .5rem 0;
         text-align: center;
+    }
+
+    .carousel .layout-left {
+        right: 15%;
     }
 }

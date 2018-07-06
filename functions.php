@@ -5,8 +5,6 @@ $evolve_front_elements_header_area = evolve_theme_mod( 'evl_front_elements_heade
 $evolve_page_ID                    = get_queried_object_id();
 $evolve_slider_position            = evolve_theme_mod( 'evl_slider_position', 'below' );
 $evolve_animate_css                = evolve_theme_mod( 'evl_animatecss', '1' );
-$evolve_carousel_slider            = evolve_theme_mod( 'evl_carousel_slider', '1' );
-$evolve_carousel_speed             = evolve_theme_mod( 'evl_carousel_speed', '3500' );
 $evolve_pagination_type            = evolve_theme_mod( 'evl_pagination_type', 'pagination' );
 $evolve_pos_button                 = evolve_theme_mod( 'evl_pos_button', 'right' );
 $evolve_slider_page_id             = '';
@@ -44,7 +42,7 @@ function evolve_setup() {
 
 	// Supported Image Sizes
 	add_image_size( 'evolve-post-thumbnail', 680, 330, true );
-	add_image_size( 'evolve-slider-thumbnail', 400, 280, true );
+	add_image_size( 'evolve-slider-thumbnail', 400, 300, true );
 	add_image_size( 'evolve-tabs-img', 50, 50, true );
 
 	// Editor Style Support
@@ -242,12 +240,8 @@ function evolve_truncate( $maxLength, $html, $isUtf8 = true, $trailing = '...' )
    Custom Excerpt Length
    ======================================= */
 
-function evolve_excerpt_max_charlength( $num ) {
-	$limit   = $num + 1;
-	$excerpt = explode( ' ', get_the_excerpt(), $limit );
-	array_pop( $excerpt );
-	$excerpt = implode( " ", $excerpt ) . " [...]";
-	echo $excerpt;
+function evolve_excerpt_max_charlength( $limit ) {
+	return wp_trim_words( get_the_excerpt(), $limit );
 }
 
 /*
@@ -432,22 +426,6 @@ function evolve_footer_hooks() { ?>
             )
         </script>
 	<?php }
-	// Posts Slider
-	global $evolve_carousel_slider;
-	if ( $evolve_carousel_slider == "1" ):
-		if ( empty( $evolve_carousel_speed ) ): $evolve_carousel_speed = '3500';
-		endif; ?>
-        <script type="text/javascript">
-            jQuery(function ($) {
-                $('#slides')
-                    .anythingSlider({autoPlay: true, delay: <?php echo $evolve_carousel_speed; ?>,})
-            });
-        </script>
-	<?php
-	endif;
-	$evolve_bootstrap_speed = evolve_theme_mod( 'evl_bootstrap_speed', '7000' );
-	if ( empty( $evolve_bootstrap_speed ) ): $evolve_bootstrap_speed = '7000';
-	endif;
 }
 
 /*
@@ -491,7 +469,7 @@ function evolve_sharethis() {
 		global $post;
 		$image_url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
 		if ( empty( $image_url ) ) {
-			$image_url = get_template_directory_uri() . '/assets/images/no-thumbnail.jpg';
+			$image_url = get_template_directory_uri() . '/assets/images/no-thumbnail-post.jpg';
 		}
 		?>
 
@@ -560,7 +538,7 @@ function evolve_bootstrap() {
 			$active = "";
 			if ( ! $wrap ) {
 				$wrap = true;
-				echo "<div id='bootstrap-slider' class='carousel slide' data-ride='carousel'>";
+				echo "<div id='bootstrap-slider' class='carousel slide' data-ride='carousel' data-interval='" . evolve_theme_mod( 'evl_bootstrap_speed', '7000' ) . "'>";
 				echo "<div class='carousel-inner'>";
 				$active = " active";
 			}
@@ -1183,7 +1161,7 @@ function evolve_breadcrumbs() {
 
 	global $post;
 
-	if ( evolve_theme_mod( 'evl_breadcrumbs', '1' ) != "1" || is_front_page() && is_page() || is_home() || ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) ) {
+	if ( evolve_theme_mod( 'evl_breadcrumbs', '1' ) != "1" || ( is_front_page() && is_page() ) || is_home() || ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) ) {
 		return;
 	}
 
@@ -1261,12 +1239,12 @@ function evolve_breadcrumbs() {
 		echo '<li class="breadcrumb-item active">' . __( "Search", 'evolve' ) . '</li>';
 	}
 	if ( is_day() ) {
-		echo '<li class="breadcrumb-item"><a href="' . get_year_link( get_the_time( 'Y' ) ) . '">' . get_the_time( 'Y' ) . "</a></li>";
-		echo '<li class="breadcrumb-item"><a href="' . get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ) . '">' . get_the_time( 'F' ) . "</a></li>";
+		echo '<li class="breadcrumb-item"><a href="' . get_year_link( get_the_time( 'Y' ) ) . '">' . get_the_time( 'Y' ) . '</a></li>';
+		echo '<li class="breadcrumb-item"><a href="' . get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ) . '">' . get_the_time( 'F' ) . '</a></li>';
 		echo '<li class="breadcrumb-item active">' . get_the_time( 'd' ) . '</li>';
 	}
 	if ( is_month() ) {
-		echo '<li class="breadcrumb-item"><a href="' . get_year_link( get_the_time( 'Y' ) ) . '">' . get_the_time( 'Y' ) . "</a></li>";
+		echo '<li class="breadcrumb-item"><a href="' . get_year_link( get_the_time( 'Y' ) ) . '">' . get_the_time( 'Y' ) . '</a></li>';
 		echo '<li class="breadcrumb-item active">' . get_the_time( 'F' ) . '</li>';
 	}
 	if ( is_year() ) {
@@ -1274,92 +1252,117 @@ function evolve_breadcrumbs() {
 	}
 	if ( is_attachment() ) {
 		if ( ! empty( $post->post_parent ) ) {
-			echo "<li class=\"breadcrumb-item\"><a href='" . get_permalink( $post->post_parent ) . "'>" . get_the_title( $post->post_parent ) . "</a></li>";
+			echo '<li class="breadcrumb-item"><a href="' . get_permalink( $post->post_parent ) . '">' . get_the_title( $post->post_parent ) . '</a></li>';
 		}
-		echo "<li class=\"breadcrumb-item active\">" . get_the_title() . "</li>";
+		echo '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
 	}
-	echo "</ul></nav>";
+	echo '</ul></nav>';
 }
 
 /*
    Posts Slider
    ======================================= */
 
-function evolve_posts_slider() {
-	?>
-    <div id="slide_holder">
-        <div class="slide-container">
-            <ul id="slides">
-				<?php
-				$number_items            = evolve_theme_mod( 'evl_posts_number', '5' );
-				$slider_content          = evolve_theme_mod( 'evl_posts_slider_content', 'recent' );
-				$slider_content_category = '';
-				$slider_content_category = evolve_theme_mod( 'evl_posts_slider_id', '' );
-				//make array categories into string with commas.
-				if ( is_array( $slider_content_category ) ) {
-					$slider_content_category = implode( ",", $slider_content_category );
-				}
-				if ( $slider_content == "category" && ! empty( $slider_content_category ) ) {
-					$slider_content_ID = $slider_content_category;
-				} else {
-					$slider_content_ID = '';
-				}
-				$args = array(
-					'cat'                 => $slider_content_ID,
-					'showposts'           => $number_items,
-					'ignore_sticky_posts' => 1,
-				);
-				query_posts( $args );
-				if ( have_posts() ) : $featured = new WP_Query( $args );
-					while ( $featured->have_posts() ) : $featured->the_post();
-						?>
-                        <li class="slide">
-							<?php
-							if ( has_post_thumbnail() ) {
-								echo '<div class="featured-thumbnail"><a href="';
-								the_permalink();
-								echo '">';
-								the_post_thumbnail( 'slider-thumbnail' );
-								echo '</a></div>';
-							} else {
-								$image = evolve_get_first_image();
-								if ( $image ):
-									echo '<div class="featured-thumbnail"><a href="';
-									the_permalink();
-									echo '"><img src="' . $image . '" alt="';
-									the_title();
-									echo '" /></a></div>';
-								endif;
-							}
-							?>
-                            <h2 class="featured-title">
+function evolve_posts_slider() { ?>
+
+    <div id="posts-slider" class="carousel slide" data-ride="carousel"
+         data-interval="<?php echo evolve_theme_mod( 'evl_carousel_speed', '3500' ); ?>">
+        <div class="carousel-inner">
+
+			<?php
+			$slides                  = 0;
+			$number_items            = evolve_theme_mod( 'evl_posts_number', '5' );
+			$slider_content          = evolve_theme_mod( 'evl_posts_slider_content', 'recent' );
+			$slider_content_category = '';
+			$slider_content_category = evolve_theme_mod( 'evl_posts_slider_id', '' );
+			//make array categories into string with commas.
+			if ( is_array( $slider_content_category ) ) {
+				$slider_content_category = implode( ",", $slider_content_category );
+			}
+			if ( $slider_content == "category" && ! empty( $slider_content_category ) ) {
+				$slider_content_ID = $slider_content_category;
+			} else {
+				$slider_content_ID = '';
+			}
+			$args = array(
+				'cat'                 => $slider_content_ID,
+				'showposts'           => $number_items,
+				'post_status'         => 'publish',
+				'ignore_sticky_posts' => 1,
+			);
+			query_posts( $args );
+			if ( have_posts() ) : $featured = new WP_Query( $args );
+				while ( $featured->have_posts() ) : $featured->the_post(); ?>
+
+                    <div class="carousel-item<?php if ( $slides == 0 ) {
+						echo ' active';
+					} ?>">
+
+                        <div class="carousel-caption layout-left">
+                            <h5>
                                 <a class="title" href="<?php the_permalink() ?>">
-									<?php
-									$title  = the_title( '', '', false );
-									$length = evolve_theme_mod( 'evl_posts_slider_title_length', 40 );
-									evolve_truncate( $title, $length, '...' );
-									?>
+
+									<?php $title = the_title( '', '', false );
+									$length      = evolve_theme_mod( 'evl_posts_slider_title_length', 40 );
+									evolve_truncate( $length, $title, '...' ); ?>
+
                                 </a>
-                            </h2>
-                            <p><?php
-								$excerpt_length = evolve_theme_mod( 'evl_posts_slider_excerpt_length', 40 );
-								evolve_excerpt_max_charlength( $excerpt_length );
-								?></p>
-                            <a class="btn"
+                            </h5>
+                            <p class="d-none d-md-block">
+
+								<?php $excerpt_length = evolve_theme_mod( 'evl_posts_slider_excerpt_length', 40 );
+								echo evolve_excerpt_max_charlength( $excerpt_length ); ?>
+
+                            </p>
+                            <a class="btn d-none d-sm-inline-block"
                                href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
-                        </li>
-					<?php
-					endwhile;
-				else:
-					?>
-                    <li><?php esc_html_e( '<h2 style="color:#fff;">Oops, no posts to display! Please check your post slider Category (ID) settings</h2>', 'evolve' ); ?></li>
-				<?php
-				endif;
-				wp_reset_query();
-				?>
-            </ul>
+                        </div>
+
+                        <div class="row justify-content-end">
+                            <div class="col-lg-6 p-0">
+
+								<?php if ( has_post_thumbnail() ) {
+									the_post_thumbnail( 'evolve-slider-thumbnail', array( 'class' => 'd-block w-100' ) );
+								} else if ( $image = evolve_get_first_image() ) {
+									if ( $image ):
+										the_permalink();
+										echo '<img class="d-block w-100" src="' . $image . '" alt="';
+										the_title();
+										echo '" />';
+									endif;
+								} else {
+									echo '<img class="d-block w-100" src="' . get_template_directory_uri() . '/assets/images/no-thumbnail-slider.jpg" alt="';
+									the_title();
+									echo '" />';
+								} ?>
+
+                            </div>
+                        </div>
+                    </div>
+
+					<?php ++ $slides; endwhile;
+			else: ?>
+
+                <h5><?php esc_html_e( 'Oops, no posts to display! Please check your Post Slider Category (ID) settings', 'evolve' ); ?></h5>
+
+			<?php endif;
+			wp_reset_query(); ?>
+
         </div>
+
+		<?php if ( $slides > 1 ) {
+			echo "<a class='carousel-control-prev' href='#posts-slider' role='button' data-slide='prev'>
+                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                    <span class='sr-only'>" . __( 'Previous', 'evolve' ) . "</span>
+                </a>
+                <a class='carousel-control-next' href='#posts-slider' role='button' data-slide='next'>
+                <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                <span class='sr-only'>" . __( 'Next', 'evolve' ) . "</span>
+                </a>";
+		} ?>
+
     </div>
+
 	<?php
 }
 
@@ -2071,7 +2074,7 @@ get_template_part( 'inc/views/metaboxes/metaboxes' );
    ======================================= */
 
 function evolve_scripts() {
-	global $post, $evolve_slider_page_id, $evolve_frontpage_slider_status, $evolve_parallax_slider_all, $evolve_parallax_slider_support, $evolve_parallax_speed, $evolve_carousel_slider, $evolve_pos_button, $evolve_footer_reveal, $evolve_fontawesome, $evolve_css_data;
+	global $post, $evolve_slider_page_id, $evolve_frontpage_slider_status, $evolve_parallax_slider_all, $evolve_parallax_slider_support, $evolve_parallax_speed, $evolve_pos_button, $evolve_footer_reveal, $evolve_fontawesome, $evolve_css_data;
 
 	if ( $evolve_fontawesome != "1" ) {
 
@@ -2114,10 +2117,6 @@ function evolve_scripts() {
 	if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'parallax' && $evolve_parallax_slider_support == "1" ) || ( $evolve_parallax_slider_all == "1" && $evolve_parallax_slider_support == "1" ) || ( $evolve_parallax_slider_support == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) || ( $evolve_parallax_slider_support == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ):
 		wp_enqueue_style( 'evolve-parallax', EVOLVE_CSS . '/parallax.min.css' );
 	endif;
-
-	if ( $evolve_carousel_slider == "1" ) {
-		wp_enqueue_script( 'carousel', EVOLVE_JS . '/carousel.min.js', array( 'jquery' ), '', true );
-	}
 
 	wp_enqueue_script( 'main', EVOLVE_JS . '/main.min.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'main_backend', EVOLVE_JS . '/main_backend.min.js', array( 'jquery' ), '', true );
@@ -2294,7 +2293,7 @@ function evolve_featured_image( $type = '' ) {
 
 	if ( $type == '1' && is_single() && evolve_theme_mod( 'evl_blog_featured_image', '0' ) == "1" && has_post_thumbnail() ) {
 		echo '<div class="thumbnail-post-single">';
-		the_post_thumbnail( 'post-thumbnail' );
+		the_post_thumbnail( 'evolve-post-thumbnail', array( 'class' => 'd-block w-100' ) );
 		echo '</div>';
 
 	} elseif ( $type == '2' && ! is_page() && ! is_single() ) {
@@ -2302,20 +2301,20 @@ function evolve_featured_image( $type = '' ) {
 			echo '<div class="thumbnail-post"><a href="';
 			the_permalink();
 			echo '">';
-			the_post_thumbnail( 'post-thumbnail' );
+			the_post_thumbnail( 'evolve-post-thumbnail', array( 'class' => 'd-block w-100' ) );
 			echo '<div class="mask"><div class="icon"></div></div></a></div>';
 		} else {
 			if ( evolve_get_first_image() ):
 				echo '<div class="thumbnail-post"><a href="';
 				the_permalink();
-				echo '"><img src="' . evolve_get_first_image() . '" alt="';
+				echo '"><img class="d-block w-100" src="' . evolve_get_first_image() . '" alt="';
 				the_title();
 				echo '" /><div class="mask"><div class="icon"></div></div>	</a></div>';
 			else:
 				if ( evolve_theme_mod( 'evl_thumbnail_default_images', '0' ) == 0 ) {
 					echo '<div class="thumbnail-post"><a href="';
 					the_permalink();
-					echo '"><img src="' . get_template_directory_uri() . '/assets/images/no-thumbnail.jpg" alt="';
+					echo '"><img class="d-block w-100" src="' . get_template_directory_uri() . '/assets/images/no-thumbnail-post.jpg" alt="';
 					the_title();
 					echo '" /><div class="mask"><div class="icon"></div></div></a></div>';
 				}
@@ -2393,7 +2392,7 @@ function evolve_post_meta( $type = '' ) {
 
 	} elseif ( $type == "footer" && ( evolve_get_terms( 'cats' ) || evolve_get_terms( 'tags' ) ) ) {
 		echo '<div class="col">' . evolve_get_svg( 'category' ) . evolve_get_terms( 'cats' );
-		if ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "one" && evolve_get_terms( 'tags' ) ) {
+		if ( ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "one" && evolve_get_terms( 'tags' ) || is_single() ) ) {
 			echo evolve_get_svg( 'tag' ) . evolve_get_terms( 'tags' );
 		}
 		echo '</div><!-- .col -->';

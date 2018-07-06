@@ -29,7 +29,7 @@ get_header(); ?>
 			endif;
 
 			if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) :
-				echo '<div class="card-columns">';
+				echo '<div class="posts card-columns">';
 			endif;
 
 			while ( have_posts() ) :
@@ -38,7 +38,7 @@ get_header(); ?>
 			endwhile;
 
 			if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) :
-				echo '</div><!-- .card-columns -->';
+				echo '</div><!-- .posts .card-columns -->';
 			endif;
 
 			if ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "before" || ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" ) ) :

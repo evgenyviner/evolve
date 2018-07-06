@@ -5608,6 +5608,29 @@ jQuery(function ($) {
 });
 
 /*
+    Bootstrap Slider
+    ======================================= */
+
+jQuery(function ($) {
+    $('.carousel').on('slide.bs.carousel', function (event) {
+        var height = $(event.relatedTarget).height();
+        var $innerCarousel = $(event.target).find('.carousel-inner');
+        $innerCarousel.animate({
+            height: height
+        });
+    });
+
+    $(window).on('resize', function () {
+        var $carouselclass = '.carousel';
+        var height = $($carouselclass.relatedTarget).height();
+        var $innerCarousel = $($carouselclass.target).find('.carousel-inner');
+        $innerCarousel.animate({
+            height: height
+        });
+    });
+});
+
+/*
    Parallax Slider
    ======================================= */
 
@@ -6765,18 +6788,6 @@ if (evolve_js_local_vars.parallax_slider === '1') {
 }
 
 /*
-   Carousel Slider Arrows
-   ======================================= */
-
-jQuery(function ($) {
-    $('div#slide_holder').hover(function () {
-        $(this).find('.arrow span').stop(true, true).fadeIn(200).show(10);
-    }, function () {
-        $(this).find('.arrow span').stop(true, true).fadeOut(200).hide(10);
-    });
-});
-
-/*
    Tooltips
    ======================================= */
 
@@ -6974,20 +6985,6 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
             jQuery(".woocommerce-product-gallery__image").attr("href", img_src);
         });
 
-    });
-
-    /*
-        Bootstrap Slider
-        ======================================= */
-    jQuery(function ($) {
-        $('.carousel').on('slide.bs.carousel', function (event) {
-            var height = $(event.relatedTarget).height();
-            var $innerCarousel = $(event.target).find('.carousel-inner');
-
-            $innerCarousel.animate({
-                height: height
-            });
-        });
     });
 
     /*

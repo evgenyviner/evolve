@@ -1469,23 +1469,6 @@ jQuery(document).ready(function ($) {
 //
 //
 // 
-// Carousel Slider Arrows
-//
-//
-//
-
-var $jx = jQuery.noConflict();
-$jx(document).ready(function () {
-    $jx('div#slide_holder').hover(function () {
-        $jx(this).find('.arrow span').stop(true, true).fadeIn(200).show(10);
-    }, function () {
-        $jx(this).find('.arrow span').stop(true, true).fadeOut(200).hide(10);
-    });
-});
-
-//
-//
-// 
 // Shortcodes
 //
 //

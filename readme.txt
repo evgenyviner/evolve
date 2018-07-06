@@ -10,7 +10,6 @@ FontAwesome Icons - http://fortawesome.github.io/Font-Awesome/ - GPL License
 Bootstrap - http://getbootstrap.com/ - MIT License
 Parallax Slider - http://tympanus.net/codrops/2012/03/15/parallax-content-slider-with-css3-and-jquery/ - GPL License
 Modernizr - https://modernizr.com/download?-cssanimations-csstransitions-setclasses-dontmin - MIT License
-AnythingSlider - http://css-tricks.com - GPL License 
 Custom DropDown plugin - http://designwithpc.com - GPL License
 Infinite Ajax Scroll - http://infiniteajaxscroll.com - MIT License
 IcoMoon Fonts - https://icomoon.io - GPL License
