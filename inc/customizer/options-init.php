@@ -276,6 +276,9 @@ class Evolve_Fix_Rd {
 				if ( isset( $value['js_vars'] ) ) {
 					$value_temp['js_vars'] = $value['js_vars'];
 				}
+				if ( isset( $value['input_attrs'] ) ) {
+					$value_temp['input_attrs'] = $value['input_attrs'];
+				}
 				if ( is_user_logged_in() && is_customize_preview() ) {
 					Kirki::add_field( $setting, $value_temp );
 				}
