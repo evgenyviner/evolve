@@ -7,9 +7,10 @@
  */
 ?>
 
-<div id="bbpress-forums">
+<div class="bbpress-forums">
 
     <div class="search-page-search-form">
+
         <h2><?php esc_html_e( 'Need a new search?', 'evolve' ); ?></h2>
         <p><?php esc_html_e( 'If you didn\'t find what you were looking for, try a new search!', 'evolve' ); ?></p>
 

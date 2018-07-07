@@ -1277,52 +1277,6 @@ function evolve_breadcrumbs() {
 }
 
 /*
-   bbPress Breadcrumbs
-   ======================================= */
-
-function evolve_bbpress_default_breadcrumb() {
-	if ( ! function_exists( 'is_bbpress' ) ) {
-		return;
-	}
-	if ( function_exists( 'is_bbpress' ) && is_bbpress() ) {
-		return bbp_breadcrumb();
-	}
-}
-
-add_filter( 'bbp_before_get_breadcrumb_parse_args', 'evolve_bbpress_breadcrumb' );
-add_action( 'evolve_before_post_title', 'evolve_bbpress_default_breadcrumb', 10 );
-
-function evolve_bbpress_breadcrumb() {
-
-	if ( ! function_exists( 'is_bbpress' ) ) {
-		return;
-	}
-
-	// HTML
-	$args['before'] = '<nav aria-label="breadcrumb"><ol class="breadcrumb">';
-	$args['after']  = '</ol></nav>';
-
-	// Home - default = true
-	$args['include_home'] = true;
-
-	// Forum root - default = true
-	$args['include_root'] = true;
-
-	// Current - default = true
-	$args['include_current'] = true;
-
-	// Separator
-	$args['sep'] = '';
-
-
-	// Crumbs
-	$args['crumb_before'] = '<li class="breadcrumb-item">';
-	$args['crumb_after']  = '</li>';
-
-	return $args;
-}
-
-/*
    Posts Slider
    ======================================= */
 
@@ -1868,9 +1822,14 @@ function evolve_number_pagination( WP_Query $wp_query = null, $echo = true ) {
 	if ( null === $wp_query ) {
 		global $wp_query;
 	}
+	if ( get_option( 'permalink_structure' ) ) {
+		$format = '&paged=%#%';
+	} else {
+		$format = 'page/%#%/';
+	}
 	$pages = paginate_links( [
 			'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
-			'format'       => '?paged=%#%',
+			'format'       => $format,
 			'current'      => max( 1, get_query_var( 'paged' ) ),
 			'total'        => $wp_query->max_num_pages,
 			'type'         => 'array',
@@ -2232,6 +2191,14 @@ add_filter( 'wp_calculate_image_srcset', '__return_false', PHP_INT_MAX );
 
 if ( class_exists( 'Woocommerce' ) ) {
 	require get_parent_theme_file_path( 'inc/custom-functions/woocommerce-support.php' );
+}
+
+/*
+   bbPress Support
+   ======================================= */
+
+if ( class_exists( 'bbPress' ) ) {
+	require get_parent_theme_file_path( 'inc/custom-functions/bbpress-support.php' );
 }
 
 /*

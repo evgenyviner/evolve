@@ -12,7 +12,7 @@
         <input type="hidden" name="action" value="bbp-search-request"/>
         <input type="text" tabindex="<?php bbp_tab_index(); ?>" name="s" class="form-control"
                value="<?php echo esc_attr( bbp_get_search_terms() ); ?>"
-               placeholder="<?php esc_html_e( 'Type your search', 'evolve' ); ?>" name="bbp_search" id="bbp_search" />
+               placeholder="<?php esc_html_e( 'Search forum', 'evolve' ); ?>" name="bbp_search" id="bbp_search" />
 
 		<?php echo evolve_get_svg( 'search' ); ?>
 

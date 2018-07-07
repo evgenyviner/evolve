@@ -7,7 +7,7 @@
  */
 ?>
 
-<div id="bbpress-forums">
+<div class="bbpress-forums">
 
 	<?php bbp_forum_subscription_link();
 
