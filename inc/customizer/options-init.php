@@ -276,6 +276,16 @@ class Evolve_Fix_Rd {
 				if ( isset( $value['js_vars'] ) ) {
 					$value_temp['js_vars'] = $value['js_vars'];
 				}
+				if ( isset( $value['input_attrs'] ) ) {
+					$value_temp['input_attrs'] = $value['input_attrs'];
+				}
+				else{
+					if($value_temp['type'] == 'text' || $value_temp['type'] == 'textarea' || $value_temp['type'] == 'editor'){
+						if(isset( $value_temp['default'])){
+							$value_temp['input_attrs']['placeholder'] = $value_temp['default'];
+						}
+					}
+				}
 				if ( is_user_logged_in() && is_customize_preview() ) {
 					Kirki::add_field( $setting, $value_temp );
 				}
