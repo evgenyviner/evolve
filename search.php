@@ -54,11 +54,11 @@ get_header(); ?>
                         <li>' . __( 'Try more general keywords.', 'evolve' ) . '</li>
                     </ul>
                     
-                  <div class="error-not-found">';
+                  <div class="search-full-width">';
 
 			get_search_form();
 
-			echo '</div><!-- .error-not-found -->';
+			echo '</div><!-- .search-full-width -->';
 
 		endif; ?>
 

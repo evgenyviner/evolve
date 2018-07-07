@@ -602,7 +602,7 @@ function evolve_blog_posts() {
 		$evolve_fp_blog_section_title = '<h4 class="fp_blog_section_title section_title">' . evolve_theme_mod( 'evl_blog_section_title', 'Read New Story Here' ) . '</h4>';
 	}
 	$html .= "<div class='t4p-fp-blog' >" . $evolve_fp_blog_section_title;
-	if ( is_front_page() || is_home() ) {
+	if ( ( is_front_page() && is_page() ) || is_home() ) {
 		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : ( ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1 );
 	}
 	// convert all attributes to correct values for WP query

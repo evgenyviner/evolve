@@ -8,7 +8,13 @@ get_header(); ?>
 
     <div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?>">
 
-		<?php evolve_breadcrumbs();
+		<?php
+
+		/*
+			Hooked: evolve_breadcrumbs() - 10
+			======================================= */
+
+		do_action( 'evolve_before_post_title' );
 
 		if ( ( evolve_theme_mod( 'evl_post_links', 'after' ) != "after" ) ) {
 			get_template_part( 'template-parts/navigation/navigation', 'index' );

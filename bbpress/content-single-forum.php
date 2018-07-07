@@ -10,11 +10,7 @@
 <div id="bbpress-forums">
 
     <?php
-    $evolve_breadcrumbs = evolve_theme_mod('evl_breadcrumbs', '1');
-    if ($evolve_breadcrumbs == "1"):
-        bbp_breadcrumb();
-        bbp_forum_subscription_link();
-    endif;
+         bbp_forum_subscription_link();
 
     if (bbp_allow_search()) :
         ?>

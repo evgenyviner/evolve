@@ -109,7 +109,7 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 					break;
 			endswitch;
 
-			if ( ( is_home() || is_front_page() ) && is_shop() ) {
+			if ( ( ( is_front_page() && is_page() ) || is_home() ) && is_shop() ) {
 				if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cm" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cl" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cr" ) {
 					$get_sidebar = true;
 				}
@@ -161,7 +161,7 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 					$sidebar_css = 'col-md-12 col-lg-3 order-3 order-lg-2';
 					break;
 			endswitch;
-			if ( ( is_home() || is_front_page() ) && is_shop() ) {
+			if ( ( ( is_front_page() && is_page() ) || is_home() ) && is_shop() ) {
 				if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "1c" ) {
 					$get_sidebar = false;
 				} else {

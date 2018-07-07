@@ -1,30 +1,34 @@
 <?php
-get_header();
-$evolve_layout      = evolve_theme_mod( 'evl_layout', '2cl' );
-$evolve_post_layout = evolve_theme_mod( 'evl_post_layout', 'two' );
-?>
+
+/*
+   Main Index To Display bbPress Forums
+   ======================================= */
+
+get_header(); ?>
 
     <div id="primary" class="<?php evolve_layout_class( $type = 2 ); ?>">
 
-		<?php if ( have_posts() ): the_post(); ?>
+		<?php
 
-            <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <span class="post-title" style="display: none;"><?php the_title(); ?></span>
-                <span class="vcard" style="display: none;"><span class="vcard author"><span
-                                class="fn"><?php the_author_posts_link(); ?></span></span></span>
+		/*
+			Hooked: evolve_breadcrumbs() - 10
+			======================================= */
 
-                <div class="post-content">
-					<?php the_content();
-					evolve_link_pages();
-					?>
-                </div>
-            </div>
+		do_action( 'evolve_before_post_title' );
 
-		<?php endif; ?>
+		if ( have_posts() ) :
 
-    </div>
-<?php
-wp_reset_query();
+			while ( have_posts() ) : the_post();
+
+				get_template_part( 'template-parts/page/content', 'page' );
+
+			endwhile;
+
+		endif; ?>
+
+    </div><!-- #primary -->
+
+<?php wp_reset_query();
 
 if ( evolve_lets_get_sidebar_2() == true ):
 	get_sidebar( '2' );

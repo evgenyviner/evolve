@@ -83,7 +83,7 @@ $evolve_header_pos = '';
 
 	echo $evolve_slideblock_class_1;
 
-	if ( is_home() || is_front_page() ) {
+	if ( ( is_front_page() && is_page() ) || is_home() ) {
 		if ( is_home() && ! is_front_page() ) {
 			if ( ( $evolve_current_post_slider_position == 'above' ) || ( $evolve_current_post_slider_position == 'default' &&
 			                                                              evolve_theme_mod( 'evl_slider_position', 'below' ) == 'above' ) ) {
@@ -129,7 +129,7 @@ if ( ( ( $evolve_current_post_slider_position == 'below' && ! is_front_page() ) 
 
 echo $evolve_headerblock_class_1;
 
-if ( ( is_home() || is_front_page() ) && is_array( $evolve_frontpage_slider ) ) {
+if ( ( ( is_front_page() && is_page() ) || is_home() ) && is_array( $evolve_frontpage_slider ) ) {
 	if ( is_home() && ! is_front_page() ) {
 		if ( ( $evolve_current_post_slider_position == 'below' ) || ( $evolve_current_post_slider_position == 'default' && evolve_theme_mod( 'evl_slider_position', 'below' ) == 'below' ) ) {
 			get_template_part( 'template-parts/slider/slider' );

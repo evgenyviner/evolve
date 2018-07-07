@@ -10,7 +10,11 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) :
 
-			evolve_breadcrumbs();
+			/*
+                Hooked: evolve_breadcrumbs() - 10
+                ======================================= */
+
+            do_action( 'evolve_before_post_title' );
 
 			if ( evolve_theme_mod( 'evl_category_page_title', '1' ) == '1' ) {
 				echo '<div class="alert alert-success mb-5" role="alert"><p>' . __( 'You are browsing archives for', 'evolve' ) . '</p>';

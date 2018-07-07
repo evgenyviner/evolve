@@ -9,50 +9,39 @@
 
 <div id="bbpress-forums">
 
-    <?php
-    $evolve_breadcrumbs = evolve_theme_mod('evl_breadcrumbs', '1');
-    if ($evolve_breadcrumbs == "1"):
-        bbp_breadcrumb();
-    endif;
-    ?>
-
     <div class="search-page-search-form">
-        <h2><?php esc_html_e('Need a new search?', 'evolve'); ?></h2>
-        <p><?php esc_html_e('If you didn\'t find what you were looking for, try a new search!', 'evolve'); ?></p>
+        <h2><?php esc_html_e( 'Need a new search?', 'evolve' ); ?></h2>
+        <p><?php esc_html_e( 'If you didn\'t find what you were looking for, try a new search!', 'evolve' ); ?></p>
 
-        <form role="search" method="get" class="bbp-search-form" id="searchform" action="<?php bbp_search_url(); ?>">
-            <div>
-                <label class="screen-reader-text hidden" for="bbp_search"><?php esc_html_e('Search for:', 'evolve'); ?></label>
-                <input type="hidden" name="action" value="bbp-search-request" />
-                <input tabindex="<?php bbp_tab_index(); ?>" type="text" value="<?php echo esc_attr(bbp_get_search_terms()); ?>" placeholder="<?php esc_html_e('Search the Forum...', 'evolve'); ?>" name="bbp_search" id="bbp_search" />
-                <input tabindex="<?php bbp_tab_index(); ?>" class="btn" type="submit" id="bbp_search_submit" value="&#xe91e;" />
-                <div class="clearfix"></div>
-            </div>
-        </form>
-    </div>            
-    <?php
-    bbp_set_query_name('bbp_search');
+        <div class="search-full-width">
 
-    do_action('bbp_template_before_search');
+			<?php bbp_get_template_part( 'form', 'search' ); ?>
 
-    if (bbp_has_search_results()) :
+        </div>
 
-        bbp_get_template_part('pagination', 'search');
+    </div>
 
-        bbp_get_template_part('loop', 'search');
+	<?php
+	bbp_set_query_name( 'bbp_search' );
 
-        bbp_get_template_part('pagination', 'search');
+	do_action( 'bbp_template_before_search' );
 
-    elseif (bbp_get_search_terms()) :
+	if ( bbp_has_search_results() ) :
 
-        bbp_get_template_part('feedback', 'no-search');
+		bbp_get_template_part( 'pagination', 'search' );
 
-    else :
+		bbp_get_template_part( 'loop', 'search' );
 
-        bbp_get_template_part('form', 'search');
+		bbp_get_template_part( 'pagination', 'search' );
 
-    endif;
+    elseif ( bbp_get_search_terms() ) :
 
-    do_action('bbp_template_after_search_results');
-    ?>
+		bbp_get_template_part( 'feedback', 'no-search' );
+
+	else :
+
+	endif;
+
+	do_action( 'bbp_template_after_search_results' );
+	?>
 </div>

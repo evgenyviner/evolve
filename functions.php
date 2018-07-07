@@ -57,9 +57,9 @@ function evolve_setup() {
 			global $page, $paged;
 			// Add the blog name
 			$title .= get_bloginfo( 'name', 'display' );
-			// Add the blog description for the home/front page.
+			// Add the blog description for the front page.
 			$site_description = get_bloginfo( 'description', 'display' );
-			if ( $site_description && ( is_front_page() && is_page() || is_home() ) ) {
+			if ( $site_description && ( ( is_front_page() && is_page() ) || is_home() ) ) {
 				$title .= " $sep $site_description";
 			}
 			// Add a page number if necessary:
@@ -559,7 +559,7 @@ function evolve_bootstrap() {
 				echo "<div class='carousel-inner'>";
 				$active = " active";
 			}
-			echo "<div class='carousel-item" . $active . "'>";
+			echo "<div class='carousel-item item-" . $i . $active . "'>";
 			echo "<img class='d-block" . ( ( evolve_theme_mod( 'evl_bootstrap_100', '' ) == '1' ) ? "" : " w-100" ) . "' src='" . evolve_theme_mod( "evl_bootstrap_slide{$i}_img" ) . "' alt='" . evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) . "' />";
 			echo '<div class="carousel-caption ' . evolve_bootstrap_layout_class() . '">';
 			if ( strlen( evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) ) > 0 ) {
@@ -600,8 +600,6 @@ function evolve_bootstrap_layout_class() {
 	$evolve_bootstrap_layout = evolve_theme_mod( 'evl_bootstrap_layout', 'bootstrap_left' );
 	if ( $evolve_bootstrap_layout == "bootstrap_left" ) {
 		$bootstrap_layout = 'layout-left';
-	} else {
-		$bootstrap_layout = 'layout-center';
 	}
 
 	return $bootstrap_layout;
@@ -1174,11 +1172,13 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
    Breadcrumbs
    ======================================= */
 
+add_action( 'evolve_before_post_title', 'evolve_breadcrumbs', 10 );
+
 function evolve_breadcrumbs() {
 
 	global $post;
 
-	if ( evolve_theme_mod( 'evl_breadcrumbs', '1' ) != "1" || ( is_front_page() && is_page() ) || is_home() || ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) ) {
+	if ( ( function_exists( 'is_bbpress' ) && is_bbpress() ) || evolve_theme_mod( 'evl_breadcrumbs', '1' ) != "1" || ( is_front_page() && is_page() ) || is_home() || ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) ) {
 		return;
 	}
 
@@ -1277,6 +1277,52 @@ function evolve_breadcrumbs() {
 }
 
 /*
+   bbPress Breadcrumbs
+   ======================================= */
+
+function evolve_bbpress_default_breadcrumb() {
+	if ( ! function_exists( 'is_bbpress' ) ) {
+		return;
+	}
+	if ( function_exists( 'is_bbpress' ) && is_bbpress() ) {
+		return bbp_breadcrumb();
+	}
+}
+
+add_filter( 'bbp_before_get_breadcrumb_parse_args', 'evolve_bbpress_breadcrumb' );
+add_action( 'evolve_before_post_title', 'evolve_bbpress_default_breadcrumb', 10 );
+
+function evolve_bbpress_breadcrumb() {
+
+	if ( ! function_exists( 'is_bbpress' ) ) {
+		return;
+	}
+
+	// HTML
+	$args['before'] = '<nav aria-label="breadcrumb"><ol class="breadcrumb">';
+	$args['after']  = '</ol></nav>';
+
+	// Home - default = true
+	$args['include_home'] = true;
+
+	// Forum root - default = true
+	$args['include_root'] = true;
+
+	// Current - default = true
+	$args['include_current'] = true;
+
+	// Separator
+	$args['sep'] = '';
+
+
+	// Crumbs
+	$args['crumb_before'] = '<li class="breadcrumb-item">';
+	$args['crumb_after']  = '</li>';
+
+	return $args;
+}
+
+/*
    Posts Slider
    ======================================= */
 
@@ -1339,16 +1385,16 @@ function evolve_posts_slider() { ?>
                             <div class="col-lg-6 p-0">
 
 								<?php if ( has_post_thumbnail() ) {
-									the_post_thumbnail( 'evolve-slider-thumbnail', array( 'class' => 'd-block w-100' ) );
+									the_post_thumbnail( 'evolve - slider - thumbnail', array( 'class' => 'd - block w - 100' ) );
 								} else if ( $image = evolve_get_first_image() ) {
 									if ( $image ):
 										the_permalink();
-										echo '<img class="d-block w-100" src="' . $image . '" alt="';
+										echo ' < img class="d-block w-100" src = "' . $image . '" alt = "';
 										the_title();
 										echo '" />';
 									endif;
 								} else {
-									echo '<img class="d-block w-100" src="' . get_template_directory_uri() . '/assets/images/no-thumbnail-slider.jpg" alt="';
+									echo '<img class="d-block w-100" src = "' . get_template_directory_uri() . '/assets/images/no-thumbnail-slider.jpg" alt = "';
 									the_title();
 									echo '" />';
 								} ?>
@@ -1360,7 +1406,7 @@ function evolve_posts_slider() { ?>
 					<?php ++ $slides; endwhile;
 			else: ?>
 
-                <h5><?php esc_html_e( 'Oops, no posts to display! Please check your Post Slider Category (ID) settings', 'evolve' ); ?></h5>
+                <h5><?php esc_html_e( 'Oops, no posts to display! Please check your Post Slider Category( ID ) settings', 'evolve' ); ?></h5>
 
 			<?php endif;
 			wp_reset_query(); ?>
@@ -1368,14 +1414,14 @@ function evolve_posts_slider() { ?>
         </div>
 
 		<?php if ( $slides > 1 ) {
-			echo "<a class='carousel-control-prev' href='#posts-slider' role='button' data-slide='prev'>
-                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                    <span class='sr-only'>" . __( 'Previous', 'evolve' ) . "</span>
-                </a>
-                <a class='carousel-control-next' href='#posts-slider' role='button' data-slide='next'>
-                <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                <span class='sr-only'>" . __( 'Next', 'evolve' ) . "</span>
-                </a>";
+			echo "<a class='carousel - control - prev' href='#posts-slider' role='button' data-slide='prev'>
+	                                                 < span class='carousel-control-prev-icon' aria - hidden = 'true' ></span >
+                    <span class='sr-only' > " . __( 'Previous', 'evolve' ) . "</span >
+                </a >
+                <a class='carousel-control-next' href = '#posts-slider' role = 'button' data - slide = 'next' >
+                <span class='carousel-control-next-icon' aria - hidden = 'true' ></span >
+                <span class='sr-only' > " . __( 'Next', 'evolve' ) . "</span >
+                </a > ";
 		} ?>
 
     </div>
@@ -1390,7 +1436,7 @@ function evolve_posts_slider() { ?>
 function evolve_bp_get_id() {
 	$post_id    = '';
 	$bp_page_id = get_option( 'bp-pages' );
-	if ( is_buddypress() ) {
+	if ( ( function_exists( 'is_buddypress' ) && is_buddypress() ) ) {
 		if ( bp_is_current_component( 'members' ) ) {
 			$post_id = $bp_page_id['members'];
 		} elseif ( bp_is_current_component( 'activity' ) ) {
@@ -1418,7 +1464,7 @@ function evolve_layout_class( $type = 1 ) {
 	$post_id = '';
 	if ( $wp_query->is_posts_page ) {
 		$post_id = get_option( 'page_for_posts' );
-	} elseif ( is_buddypress() ) {
+	} elseif ( ( function_exists( 'is_buddypress' ) && is_buddypress() ) ) {
 		$post_id = evolve_bp_get_id();
 	} else {
 		$post_id = isset( $post->ID ) ? $post->ID : '';
@@ -1444,7 +1490,7 @@ function evolve_layout_class( $type = 1 ) {
 			$layout_css = 'col-md-12 col-lg-6 order-1';
 			break;
 	endswitch;
-	if ( is_single() || is_page() || $wp_query->is_posts_page || is_buddypress() || is_bbpress() ):
+	if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( function_exists( 'is_bbpress' ) && is_bbpress() ) ):
 		$evolve_sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
 		if ( ( $type == 1 && $evolve_sidebar_position == "default" ) || ( $type == 2 && $evolve_sidebar_position == "default" ) ) {
 			if ( get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
@@ -1514,7 +1560,7 @@ function evolve_sidebar_class() {
 	$post_id = '';
 	if ( $wp_query->is_posts_page ) {
 		$post_id = get_option( 'page_for_posts' );
-	} elseif ( is_buddypress() ) {
+	} elseif ( ( function_exists( 'is_buddypress' ) && is_buddypress() ) ) {
 		$post_id = evolve_bp_get_id();
 	} else {
 		$post_id = isset( $post->ID ) ? $post->ID : '';
@@ -1591,7 +1637,7 @@ function evolve_sidebar_class_2() {
 	$post_id = '';
 	if ( $wp_query->is_posts_page ) {
 		$post_id = get_option( 'page_for_posts' );
-	} elseif ( is_buddypress() ) {
+	} elseif ( ( function_exists( 'is_buddypress' ) && is_buddypress() ) ) {
 		$post_id = evolve_bp_get_id();
 	} else {
 		$post_id = isset( $post->ID ) ? $post->ID : '';
@@ -1641,7 +1687,7 @@ function evolve_lets_get_sidebar() {
 	$post_id = '';
 	if ( $wp_query->is_posts_page ) {
 		$post_id = get_option( 'page_for_posts' );
-	} elseif ( is_buddypress() ) {
+	} elseif ( ( function_exists( 'is_buddypress' ) && is_buddypress() ) ) {
 		$post_id = evolve_bp_get_id();
 	} else {
 		$post_id = isset( $post->ID ) ? $post->ID : '';
@@ -1650,10 +1696,10 @@ function evolve_lets_get_sidebar() {
 	if ( evolve_theme_mod( 'evl_layout', '2cl' ) != "1c" ) {
 		$get_sidebar = true;
 	}
-	if ( ( is_page() || is_single() || $wp_query->is_posts_page || is_buddypress() || is_bbpress() ) && get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
+	if ( ( is_page() || is_single() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( function_exists( 'is_bbpress' ) && is_bbpress() ) ) && get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
 		$get_sidebar = false;
 	}
-	if ( is_single() || is_page() || $wp_query->is_posts_page || is_buddypress() || is_bbpress() ) {
+	if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( function_exists( 'is_bbpress' ) && is_bbpress() ) ) {
 		$evolve_sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
 		if ( $evolve_sidebar_position != 'default' && $evolve_sidebar_position != '' ) {
 			$get_sidebar = true;
@@ -1680,7 +1726,7 @@ function evolve_lets_get_sidebar_2() {
 	$post_id = '';
 	if ( $wp_query->is_posts_page ) {
 		$post_id = get_option( 'page_for_posts' );
-	} elseif ( is_buddypress() ) {
+	} elseif ( ( function_exists( 'is_buddypress' ) && is_buddypress() ) ) {
 		$post_id = evolve_bp_get_id();
 	} else {
 		$post_id = isset( $post->ID ) ? $post->ID : '';
@@ -1689,10 +1735,10 @@ function evolve_lets_get_sidebar_2() {
 	if ( evolve_theme_mod( 'evl_layout', '2cl' ) == "3cm" || evolve_theme_mod( 'evl_layout', '2cl' ) == "3cl" || evolve_theme_mod( 'evl_layout', '2cl' ) == "3cr" ) {
 		$get_sidebar = true;
 	}
-	if ( ( is_page() || is_single() || $wp_query->is_posts_page || is_buddypress() || is_bbpress() ) && get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
+	if ( ( is_page() || is_single() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( function_exists( 'is_bbpress' ) && is_bbpress() ) ) && get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
 		$get_sidebar = false;
 	}
-	if ( is_single() || is_page() || $wp_query->is_posts_page || is_buddypress() || is_bbpress() ) {
+	if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( function_exists( 'is_bbpress' ) && is_bbpress() ) ) {
 		$evolve_sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
 		if ( $evolve_sidebar_position == '2cl' || $evolve_sidebar_position == '2cr' ) {
 			$get_sidebar = false;
@@ -1720,7 +1766,7 @@ function evolve_print_fonts( $name, $css_class, $additional_css = '', $additiona
 	global $evolve_options;
 	$options[ $name ] = evolve_theme_mod( $name );
 
-	$css         = "$css_class {";
+	$css         = "$css_class{";
 	$font_size   = '';
 	$font_family = '';
 	$font_style  = '';
@@ -1729,23 +1775,23 @@ function evolve_print_fonts( $name, $css_class, $additional_css = '', $additiona
 	$color       = '';
 	if ( isset( $options[ $name ]['font-size'] ) && $options[ $name ]['font-size'] != '' ) {
 		$font_size = $options[ $name ]['font-size'];
-		$css       .= " font-size: " . $font_size . "" . $imp . ";";
+		$css       .= " font - size: " . $font_size . "" . $imp . ";";
 	}
 	if ( isset( $options[ $name ]['font-family'] ) && $options[ $name ]['font-family'] != '' ) {
 		$font_family = $options[ $name ]['font-family'];
-		$css         .= " font-family: " . $font_family . ";";
+		$css         .= " font - family: " . $font_family . ";";
 	}
 	if ( isset( $options[ $name ]['font-style'] ) && $options[ $name ]['font-style'] != '' ) {
 		$font_style = $options[ $name ]['font-style'];
-		$css        .= " font-style: " . $font_style . ";";
+		$css        .= " font - style: " . $font_style . ";";
 	}
 	if ( isset( $options[ $name ]['font-weight'] ) && $options[ $name ]['font-weight'] != '' ) {
 		$font_weight = $options[ $name ]['font-weight'];
-		$css         .= " font-weight: " . $font_weight . ";";
+		$css         .= " font - weight: " . $font_weight . ";";
 	}
 	if ( isset( $options[ $name ]['text-align'] ) && $options[ $name ]['text-align'] != '' ) {
 		$font_align = $options[ $name ]['text-align'];
-		$css        .= " text-align: " . $font_align . ";";
+		$css        .= " text - align: " . $font_align . ";";
 	}
 	if ( isset( $options[ $name ]['color'] ) && $options[ $name ]['color'] != '' ) {
 		$color = $options[ $name ]['color'];
@@ -1757,7 +1803,7 @@ function evolve_print_fonts( $name, $css_class, $additional_css = '', $additiona
 	$css .= " }";
 	if ( isset( $options[ $name ]['color'] ) && $additional_color_css_class != '' ) {
 		$color = $options[ $name ]['color'];
-		$css   .= "$additional_color_css_class{ color:" . $color . "; }";
+		$css   .= "$additional_color_css_class{color:" . $color . "; }";
 	}
 
 	return $css;
@@ -1776,11 +1822,11 @@ function evolve_print_fonts_old( $name, $css_class, $additional_css = '', $addit
 	$color       = '';
 	if ( isset( $options[ $name ]['font-size'] ) && $options[ $name ]['font-size'] != '' ) {
 		$font_size = $options[ $name ]['font-size'];
-		$css       .= "$css_class { font-size: " . $font_size . " " . $imp . "; }";
+		$css       .= "$css_class{font - size: " . $font_size . " " . $imp . "; }";
 	}
 	if ( isset( $options[ $name ]['font-family'] ) && $options[ $name ]['font-family'] != '' ) {
 		$font_family = $options[ $name ]['font-family'];
-		$css         .= "$css_class{ font-family: " . $font_family . ", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"; }";
+		$css         .= "$css_class{font - family: " . $font_family . ", - apple - system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"; }";
 	}
 	if ( isset( $options[ $name ]['font-style'] ) && $options[ $name ]['font-style'] != '' ) {
 		$font_style = $options[ $name ]['font-style'];
@@ -1895,18 +1941,6 @@ function evolve_link_pages( $args = array() ) {
 }
 
 /*
-   Change In bbPress Breadcrumb
-   ======================================= */
-
-function evolve_custom_bbp_breadcrumb() {
-	$args['sep'] = ' / ';
-
-	return $args;
-}
-
-add_filter( 'bbp_before_get_breadcrumb_parse_args', 'evolve_custom_bbp_breadcrumb' );
-
-/*
    Change Prefix pyre To evolve (For Older Versions)
    ======================================= */
 
@@ -1939,34 +1973,6 @@ add_filter( 'bp_docs_allow_comment_section', '__return_true', 100 );
 add_action( 'switch_theme', 'evolve_switch' );
 function evolve_switch() {
 	update_option( 'evolvelite_theme', 'true' );
-}
-
-/*
-   Register Default Function When Plugin Not Activated
-   ======================================= */
-
-add_action( 'wp_head', 'evolve_plugins_loaded' );
-function evolve_plugins_loaded() {
-	if ( ! function_exists( 'is_woocommerce' ) ) {
-		function is_woocommerce() {
-			return false;
-		}
-	}
-	if ( ! function_exists( 'is_product' ) ) {
-		function is_product() {
-			return false;
-		}
-	}
-	if ( ! function_exists( 'is_buddypress' ) ) {
-		function is_buddypress() {
-			return false;
-		}
-	}
-	if ( ! function_exists( 'is_bbpress' ) ) {
-		function is_bbpress() {
-			return false;
-		}
-	}
 }
 
 /*
@@ -2239,7 +2245,7 @@ function evolve_remove_comma( $str = '' ) {
 }
 
 /*
-   Custom Home/Front Page Builder
+   Custom Front Page Builder
    ======================================= */
 
 function evolve_front_page_builder() {

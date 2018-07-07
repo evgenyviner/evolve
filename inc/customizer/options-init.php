@@ -284,11 +284,10 @@ class Evolve_Fix_Rd {
 	}
 }
 
-global $evolve_shortname, $evolve_opt_name, $evolve_prem_inpt_name;
-$evolve_prem_inpt_name = "evl_hiden_premium"; // Switch control's id and name [Show/Hide premium options control]
-$evolve_prem_class     = "evl_premium_feature";
-$evolve_shortname      = "evl";
-$evolve_template_url   = get_template_directory_uri();
+global $evolve_shortname, $evolve_opt_name;
+
+$evolve_shortname    = "evl";
+$evolve_template_url = get_template_directory_uri();
 
 $evolve_opt_name = "evl_options";
 $evolve_rss_url  = get_bloginfo( 'rss_url' );
@@ -567,7 +566,7 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'subtitle' => esc_attr__( 'Select Content and Sidebar alignment for Home/Front Page', 'evolve' ),
+					'subtitle' => esc_attr__( 'Select Content and Sidebar alignment for Front Page', 'evolve' ),
 					'id'       => 'evl_frontpage_layout',
 					'type'     => 'image_select',
 					'compiler' => true,
@@ -579,7 +578,7 @@ if ( true || is_customize_preview() ) {
 						'3cr' => $evolve_imagepath . '3cr.png',
 						'3cl' => $evolve_imagepath . '3cl.png',
 					),
-					'title'    => esc_attr__( 'Select Home/Front Page Layout', 'evolve' ),
+					'title'    => esc_attr__( 'Select Front Page Layout', 'evolve' ),
 					'default'  => '1c',
 				),
 				array(
@@ -590,7 +589,7 @@ if ( true || is_customize_preview() ) {
 						'fixed' => esc_attr__( 'Boxed', 'evolve' ),
 						'fluid' => esc_attr__( 'Wide', 'evolve' ),
 					),
-					'title'    => esc_attr__( 'Home/Front Page Layout Width Style', 'evolve' ),
+					'title'    => esc_attr__( 'Front Page Layout Width Style', 'evolve' ),
 					'default'  => 'fixed',
 				),
 				array(
@@ -661,7 +660,7 @@ if ( true || is_customize_preview() ) {
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-frontpage-main-tab',
-			'title'   => esc_attr__( 'Custom Home/Front Page Builder', 'evolve' ),
+			'title'   => esc_attr__( 'Custom Front Page Builder', 'evolve' ),
 			'iconfix' => 'evolve-icon evolve-icon-hammer',
 		)
 	);
@@ -683,7 +682,7 @@ if ( true || is_customize_preview() ) {
 				array(
 					'id'     => 'evl-front-page-elements',
 					'type'   => 'section',
-					'title'  => esc_attr__( 'Home/Front Page Elements Display and Order', 'evolve' ),
+					'title'  => esc_attr__( 'Front Page Elements Display and Order', 'evolve' ),
 					'indent' => true
 				),
 				array(
@@ -2037,7 +2036,7 @@ if ( true || is_customize_preview() ) {
 					'id'       => 'evl_fp_custom_content_editor',
 					'type'     => 'editor',
 					'title'    => esc_attr__( 'Custom Content', 'evolve' ),
-					'subtitle' => esc_attr__( 'Add Custom Content to Home/Front Page', 'evolve' ),
+					'subtitle' => esc_attr__( 'Add Custom Content to Front Page', 'evolve' ),
 					'default'  => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
 				),
 				// Section settings
@@ -2184,7 +2183,7 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Enable Searchbox', 'evolve' ),
 				),
 				array(
-					'subtitle' => esc_attr__( 'Select if the slider shows below or above the header. This only works for the slider assigned in Post/Page Options, not in Home/Front Page. Can be overwritten in Post/Page Options', 'evolve' ),
+					'subtitle' => esc_attr__( 'Select if the slider shows below or above the header. This only works for the slider assigned in Post/Page Options, not in Front Page. Can be overwritten in Post/Page Options', 'evolve' ),
 					'id'       => 'evl_slider_position',
 					'compiler' => true,
 					'type'     => 'select',
@@ -2394,7 +2393,7 @@ if ( true || is_customize_preview() ) {
 					'id'       => 'evl_header_widgets_placement',
 					'type'     => 'select',
 					'options'  => array(
-						'home'   => esc_attr__( 'Home/Front Page', 'evolve' ),
+						'home'   => esc_attr__( 'Front Page', 'evolve' ),
 						'single' => esc_attr__( 'Single Post', 'evolve' ),
 						'page'   => esc_attr__( 'Only Pages', 'evolve' ),
 						'all'    => esc_attr__( 'All Website', 'evolve' ),
@@ -4076,13 +4075,15 @@ if ( true || is_customize_preview() ) {
 		'iconfix' => 'evolve-icon evolve-icon-appbarsocialtwitter',
 		'fields'  => array(
 			array(
-				'subtitle' => esc_attr__( 'Check this box if you want to display Subscribe/Social Links in header', 'evolve' ),
-				'id'       => 'evl_social_links',
-				'type'     => 'switch',
-				'on'       => esc_attr__( 'Enabled', 'evolve' ),
-				'off'      => esc_attr__( 'Disabled', 'evolve' ),
-				'default'  => 0,
-				'title'    => esc_attr__( 'Enable Subscribe/Social Links in Header', 'evolve' ),
+				'subtitle'        => esc_attr__( 'Check this box if you want to display Subscribe/Social Links in header', 'evolve' ),
+				'id'              => 'evl_social_links',
+				'type'            => 'switch',
+				'on'              => esc_attr__( 'Enabled', 'evolve' ),
+				'off'             => esc_attr__( 'Disabled', 'evolve' ),
+				'default'         => 0,
+				'title'           => esc_attr__( 'Enable Subscribe/Social Links in Header', 'evolve' ),
+				'selector'        => ".social-media-links",
+				'render_callback' => 'evl_social_links',
 			),
 			array(
 				'subtitle'  => esc_attr__( 'Choose the color scheme of Subscribe/Social Icons', 'evolve' ),
@@ -4329,11 +4330,13 @@ if ( true || is_customize_preview() ) {
 		);
 
 		$fields[] = array(
-			"title"    => sprintf( esc_attr__( 'Slide %d Title', 'evolve' ), $i ),
-			"id"       => "{$evolve_shortname}_bootstrap_slide{$i}_title",
-			"type"     => "text",
-			'required' => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
-			"default"  => $slide_defaults[ ( $i - 1 ) ]['title']
+			"title"           => sprintf( esc_attr__( 'Slide %d Title', 'evolve' ), $i ),
+			"id"              => "{$evolve_shortname}_bootstrap_slide{$i}_title",
+			"type"            => "text",
+			'required'        => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
+			"default"         => $slide_defaults[ ( $i - 1 ) ]['title'],
+		//	'selector'        => "#bootstrap-slider .carousel-caption .item-{$i} h5",
+		//	'render_callback' => "{$evolve_shortname}_bootstrap_slide{$i}_title",
 		);
 
 		$fields[] = array(
@@ -4559,7 +4562,7 @@ if ( true || is_customize_preview() ) {
 			"id"       => "{$evolve_shortname}_slide{$i}_title",
 			"type"     => "text",
 			'required' => array( array( "{$evolve_shortname}_show_slide{$i}", '=', '1' ) ),
-			"default"  => $slide_defaults[ ( $i - 1 ) ]['title']
+			"default"  => $slide_defaults[ ( $i - 1 ) ]['title'],
 		);
 
 		$fields[] = array(
@@ -4980,24 +4983,6 @@ function evolve_register_custom_section( $wp_customize ) {
 
 add_action( 'customize_register', 'evolve_register_custom_section' );
 
-/* * ************************************************************************************************************
- * Import Demo Content
- *
- * ************************************************************************************************************ */
-add_action( 'wp_ajax_evolve_trigger_import_function', 'evolve_trigger_import_function' );
-add_action( 'wp_ajax_nopriv_evolve_trigger_import_function', 'evolve_trigger_import_function' );
-function evolve_trigger_import_function() {
-	if ( is_admin() && isset( $_REQUEST['evl_frontpage_prebuilt_demo'] ) && isset( $_REQUEST['evolve_trigger_import_key'] ) && $_REQUEST['evolve_trigger_import_key'] == md5( 'evolve' ) ) {
-		$evolve_frontpage_prebuilt_demo = $_REQUEST['evl_frontpage_prebuilt_demo'];
-		if ( $evolve_frontpage_prebuilt_demo ) {
-			$evolve_frontpage_prebuilt_demo = str_replace( 'evl_frontpage_prebuilt_demo', '', $evolve_frontpage_prebuilt_demo );
-			set_theme_mod( 'evl_frontpage_prebuilt_demo', $evolve_frontpage_prebuilt_demo );
-			evolve_import_demo_content_kirki();
-		}
-	}
-	exit();
-}
-
 // update_option('update_theme_from_redux_to_kirki', false);
 if ( is_user_logged_in() ) {
 	add_action( 'init', 'update_theme_from_redux_to_kirki' );
@@ -5112,7 +5097,7 @@ if ( is_user_logged_in() && get_option( 'old_new_upgrade_themeoptions', 'false' 
 	$evolve_carousel_slider         = isset( $evolve_options['evl_carousel_slider'] ) ? $evolve_options['evl_carousel_slider'] : '';
 	$evolve_posts_slider            = isset( $evolve_options['evl_posts_slider'] ) ? $evolve_options['evl_posts_slider'] : '';
 
-	//Set Layout of home/front page
+	//Set Layout of front page
 	if ( isset( $frontpage_id ) && $frontpage_id ) {
 		$evolve_sidebar_position = get_post_meta( $frontpage_id, 'evolve_sidebar_position', true );
 		$evolve_full_width       = get_post_meta( $frontpage_id, 'evolve_full_width', true );
@@ -5130,7 +5115,7 @@ if ( is_user_logged_in() && get_option( 'old_new_upgrade_themeoptions', 'false' 
 		$evolve_options['evl_frontpage_layout'] = $evolve_layout;
 	}
 
-	//Set Layout Style of home/front page
+	//Set Layout Style of front page
 	$evolve_options['evl_frontpage_width_layout'] = $evolve_width_layout;
 
 	//Reset content boxes section settings
@@ -5398,15 +5383,6 @@ function evolve_customize_register( $wp_customize ) {
 		'render_callback' => 'evolve_customize_partial_blogdescription',
 	) );
 
-
-// Kirki::remove_panel('nav_menus');
-// Kirki::remove_section('title_tagline');
-// Kirki::remove_section('colors');
-// Kirki::remove_section('header_image');
-// Kirki::remove_section('background_image');
-// Kirki::remove_section('static_front_page');
-// Kirki::remove_panel('widgets');
-// Kirki::remove_section('custom_css');
 	$array_default_customize = array(
 		array(
 			'type'  => 2,
@@ -5490,11 +5466,6 @@ function evolve_customize_partial_blogname() {
 function evolve_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
-
-/**
- * Selective Refresh for Widgets.
- */
-add_theme_support( 'customize-selective-refresh-widgets' );
 
 if ( $evolve_all_customize_fields === false ) {
 	update_option( 'evolve_all_customize_fields', $evolve_all_customize_fields );

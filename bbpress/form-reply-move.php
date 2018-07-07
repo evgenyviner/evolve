@@ -10,10 +10,6 @@
 <div id="bbpress-forums">
 
     <?php
-    $evolve_breadcrumbs = evolve_theme_mod('evl_breadcrumbs', '1');
-    if ($evolve_breadcrumbs == "1"):
-        bbp_breadcrumb();
-    endif;
 
     if (is_user_logged_in() && current_user_can('edit_topic', bbp_get_topic_id())) :
         ?>

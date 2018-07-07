@@ -18,15 +18,15 @@ Date:         19/12/17
 Version:         3.8.2  
 Date:         25/11/17        
 
-- Fixed issues with the Home/Front Page Builder
+- Fixed issues with the Front Page Builder
 - Minor visual and function fixes
 
 
 Version:         3.8.0  
 Date:         17/11/17        
 
-- Added Custom Home/Front Page Builder with prebuilt demos
-- Added 6 new elements for the home/front page area
+- Added Custom Front Page Builder with prebuilt demos
+- Added 6 new elements for the front page area
 - Added new predefined color schemes
 - Updated WooCommerce templates
 - Minor visual and function fixes

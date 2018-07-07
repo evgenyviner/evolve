@@ -10,7 +10,11 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) :
 
-			evolve_breadcrumbs();
+			/*
+                Hooked: evolve_breadcrumbs() - 10
+                ======================================= */
+
+			do_action( 'evolve_before_post_title' );
 
 			if ( ! is_page() && evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "infinite" ) :
 				get_template_part( 'template-parts/navigation/navigation', 'index' );

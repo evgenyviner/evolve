@@ -18,11 +18,11 @@
 
     <p class="lead"><?php _e( 'Sorry, but you are looking for something that isn\'t here or it\'s been moved. Try a search?', 'evolve' ); ?></p>
 
-    <div class="error-not-found">
+    <div class="search-full-width">
 
 		<?php get_search_form(); ?>
 
-    </div><!-- .error-not-found -->
+    </div><!-- .search-full-width -->
 
 <?php endif;
 

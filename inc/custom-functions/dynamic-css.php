@@ -192,7 +192,7 @@ if ( $evolve_animatecss == "1" ) {
 	Layouts
 	--------------------------------------- */
 
-if ( ( ( is_home() || is_front_page() ) && $evolve_frontpage_width_layout == "fluid" ) || ( ( ! is_home() && ! is_front_page() ) && $evolve_width_layout == "fluid" ) ) {
+if ( ( ( ( is_front_page() && is_page() ) || is_home() ) && $evolve_frontpage_width_layout == "fluid" ) || ( ( ( ! is_front_page() && ! is_page() ) || ! is_home() ) && $evolve_width_layout == "fluid" ) ) {
 	$evolve_css_data .= ' #wrapper { margin: 0; width: 100%; }';
 }
 
@@ -845,12 +845,12 @@ if ( ( get_post_meta( $evolve_slider_page_id, 'evolve_slider_type', true ) == 'b
 	}
 }
 
-if ( ( is_home() || is_front_page() ) && $evolve_frontpage_layout == "1c" && $evolve_frontpage_width_layout == "fluid" ) {
+if ( ( ( is_front_page() && is_page() ) || is_home() ) && $evolve_frontpage_layout == "1c" && $evolve_frontpage_width_layout == "fluid" ) {
 } else {
 	$evolve_css_data .= ' .content { padding-top: ' . $evolve_content_top_padding . '; padding-bottom: ' . $evolve_content_bottom_padding . '; }';
 }
 
-if ( is_home() || is_front_page() ) {
+if ( ( is_front_page() && is_page() ) || is_home() ) {
 	$evolve_css_data .= ' .home .t4p-testimonials .reviews .image { width: 100%; }';
 }
 
@@ -871,7 +871,7 @@ if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is
 	--------------------------------------- */
 
 $evolve_css_data .= ' @media (min-width: 1200px) {';
-if ( is_home() || is_front_page() ) {
+if ( ( is_front_page() && is_page() ) || is_home() ) {
 	if ( $evolve_width_px && ( $evolve_frontpage_width_layout == "fixed" ) ) {
 		$evolve_css_data .= ' .container, #wrapper { width: 100%; max-width: ' . $evolve_width_px . 'px; }';
 	} else {
@@ -906,7 +906,7 @@ $evolve_css_data .= '}';
 	--------------------------------------- */
 
 $evolve_css_data .= ' @media (min-width: 768px) and (max-width: ' . $evolve_min_width_px . 'px) {';
-$evolve_css_data .= ' body.admin-bar .sticky-header { width: 100%; margin-left:0; }';
+$evolve_css_data .= ' body.admin-bar .sticky-header { width: 100%; margin-left:0; } .sticky-header { max-width: 100%; width: 100%; left: 0; right: 0; margin-left: auto; margin-right: auto; }';
 $evolve_css_data .= '}';
 
 /*
