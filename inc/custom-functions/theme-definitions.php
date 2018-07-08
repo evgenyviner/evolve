@@ -67,7 +67,7 @@ function evolve_post_class( $classes ) {
 	     ) && ( is_home() || is_archive() || is_search() ) ) {
 		$classes[] = 'formatted-post p-4';
 	}
-	if ( function_exists( 'is_bbpress' ) && is_bbpress() ):
+	if ( class_exists( 'bbPress' ) && is_bbpress() ):
 	else:
 		if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" && ( is_home() || ( is_front_page() && ! is_page() ) || is_archive() || is_search() ) ) {
 			$classes[] = 'card';

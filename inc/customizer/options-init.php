@@ -3765,7 +3765,7 @@ if ( true || is_customize_preview() ) {
 					),
 				),
 				array(
-					'subtitle'  => esc_attr__( 'Select the border width for buttons. Enter value in px', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select the border width for buttons in px', 'evolve' ),
 					'id'        => 'evl_shortcode_button_border_width',
 					'type'      => 'slider',
 					'min'       => '0',

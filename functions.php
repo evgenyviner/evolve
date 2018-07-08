@@ -1178,7 +1178,7 @@ function evolve_breadcrumbs() {
 
 	global $post;
 
-	if ( ( function_exists( 'is_bbpress' ) && is_bbpress() ) || evolve_theme_mod( 'evl_breadcrumbs', '1' ) != "1" || ( is_front_page() && is_page() ) || is_home() || ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) ) {
+	if ( ( class_exists( 'bbPress' ) && is_bbpress() ) || evolve_theme_mod( 'evl_breadcrumbs', '1' ) != "1" || ( is_front_page() && is_page() ) || is_home() || ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) ) {
 		return;
 	}
 
@@ -1444,7 +1444,7 @@ function evolve_layout_class( $type = 1 ) {
 			$layout_css = 'col-md-12 col-lg-6 order-1';
 			break;
 	endswitch;
-	if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( function_exists( 'is_bbpress' ) && is_bbpress() ) ):
+	if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ):
 		$evolve_sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
 		if ( ( $type == 1 && $evolve_sidebar_position == "default" ) || ( $type == 2 && $evolve_sidebar_position == "default" ) ) {
 			if ( get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
@@ -1650,10 +1650,10 @@ function evolve_lets_get_sidebar() {
 	if ( evolve_theme_mod( 'evl_layout', '2cl' ) != "1c" ) {
 		$get_sidebar = true;
 	}
-	if ( ( is_page() || is_single() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( function_exists( 'is_bbpress' ) && is_bbpress() ) ) && get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
+	if ( ( is_page() || is_single() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) && get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
 		$get_sidebar = false;
 	}
-	if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( function_exists( 'is_bbpress' ) && is_bbpress() ) ) {
+	if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) {
 		$evolve_sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
 		if ( $evolve_sidebar_position != 'default' && $evolve_sidebar_position != '' ) {
 			$get_sidebar = true;
@@ -1689,10 +1689,10 @@ function evolve_lets_get_sidebar_2() {
 	if ( evolve_theme_mod( 'evl_layout', '2cl' ) == "3cm" || evolve_theme_mod( 'evl_layout', '2cl' ) == "3cl" || evolve_theme_mod( 'evl_layout', '2cl' ) == "3cr" ) {
 		$get_sidebar = true;
 	}
-	if ( ( is_page() || is_single() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( function_exists( 'is_bbpress' ) && is_bbpress() ) ) && get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
+	if ( ( is_page() || is_single() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) && get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
 		$get_sidebar = false;
 	}
-	if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( function_exists( 'is_bbpress' ) && is_bbpress() ) ) {
+	if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) {
 		$evolve_sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
 		if ( $evolve_sidebar_position == '2cl' || $evolve_sidebar_position == '2cr' ) {
 			$get_sidebar = false;
@@ -1729,23 +1729,23 @@ function evolve_print_fonts( $name, $css_class, $additional_css = '', $additiona
 	$color       = '';
 	if ( isset( $options[ $name ]['font-size'] ) && $options[ $name ]['font-size'] != '' ) {
 		$font_size = $options[ $name ]['font-size'];
-		$css       .= " font - size: " . $font_size . "" . $imp . ";";
+		$css       .= " font-size: " . $font_size . "" . $imp . ";";
 	}
 	if ( isset( $options[ $name ]['font-family'] ) && $options[ $name ]['font-family'] != '' ) {
 		$font_family = $options[ $name ]['font-family'];
-		$css         .= " font - family: " . $font_family . ";";
+		$css         .= " font-family: " . $font_family . ";";
 	}
 	if ( isset( $options[ $name ]['font-style'] ) && $options[ $name ]['font-style'] != '' ) {
 		$font_style = $options[ $name ]['font-style'];
-		$css        .= " font - style: " . $font_style . ";";
+		$css        .= " font-style: " . $font_style . ";";
 	}
 	if ( isset( $options[ $name ]['font-weight'] ) && $options[ $name ]['font-weight'] != '' ) {
 		$font_weight = $options[ $name ]['font-weight'];
-		$css         .= " font - weight: " . $font_weight . ";";
+		$css         .= " font-weight: " . $font_weight . ";";
 	}
 	if ( isset( $options[ $name ]['text-align'] ) && $options[ $name ]['text-align'] != '' ) {
 		$font_align = $options[ $name ]['text-align'];
-		$css        .= " text - align: " . $font_align . ";";
+		$css        .= " text-align: " . $font_align . ";";
 	}
 	if ( isset( $options[ $name ]['color'] ) && $options[ $name ]['color'] != '' ) {
 		$color = $options[ $name ]['color'];
@@ -1757,7 +1757,7 @@ function evolve_print_fonts( $name, $css_class, $additional_css = '', $additiona
 	$css .= " }";
 	if ( isset( $options[ $name ]['color'] ) && $additional_color_css_class != '' ) {
 		$color = $options[ $name ]['color'];
-		$css   .= "$additional_color_css_class{color:" . $color . "; }";
+		$css   .= "$additional_color_css_class{ color:" . $color . "; }";
 	}
 
 	return $css;
@@ -1776,11 +1776,11 @@ function evolve_print_fonts_old( $name, $css_class, $additional_css = '', $addit
 	$color       = '';
 	if ( isset( $options[ $name ]['font-size'] ) && $options[ $name ]['font-size'] != '' ) {
 		$font_size = $options[ $name ]['font-size'];
-		$css       .= "$css_class{font - size: " . $font_size . " " . $imp . "; }";
+		$css       .= "$css_class{ font-size: " . $font_size . " " . $imp . "; }";
 	}
 	if ( isset( $options[ $name ]['font-family'] ) && $options[ $name ]['font-family'] != '' ) {
 		$font_family = $options[ $name ]['font-family'];
-		$css         .= "$css_class{font - family: " . $font_family . ", - apple - system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"; }";
+		$css         .= "$css_class{ font-family: " . $font_family . ", - apple - system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"; }";
 	}
 	if ( isset( $options[ $name ]['font-style'] ) && $options[ $name ]['font-style'] != '' ) {
 		$font_style = $options[ $name ]['font-style'];
@@ -2402,3 +2402,21 @@ function evolve_wrapper_class() {
 		echo "class='wrapper-customizer'";
 	}
 }
+
+/*
+   Custom Post Password Form
+   ======================================= */
+
+function evolve_password_form() {
+	global $post;
+	$label = 'pwbox-' . ( empty( $post->ID ) ? rand() : $post->ID );
+	$o     = '<form class="form-inline my-5" action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">
+    <p class="display-4">' . __( "To view this protected content, enter the password below", "evolve" ) . '</p>
+    <div class="form-group"><label class="lead" for="' . $label . '">' . __( "Password:", "evolve" ) . '</label></div><div class="form-group mx-sm-3"><input class="form-control" name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" /></div><input class="btn btn-sm" type="submit" name="Submit" value="' . esc_attr__( "Submit", "evolve" ) . '" />
+    </form>
+    ';
+
+	return $o;
+}
+
+add_filter( 'the_password_form', 'evolve_password_form' );

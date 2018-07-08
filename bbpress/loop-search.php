@@ -8,7 +8,7 @@
 do_action('bbp_template_before_search_results_loop');
 ?>
 
-<ul id="bbp-search-results" class="forums bbp-search-results">
+<ul id="bbp-search-results" class="forums bbp-forums">
 
     <li class="bbp-body">
 

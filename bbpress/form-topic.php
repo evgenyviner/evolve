@@ -11,202 +11,249 @@ if ( ! bbp_is_single_forum() ) : ?>
 
 <?php endif;
 
-if ( bbp_is_topic_edit() ) :
-
-	bbp_topic_tag_list( bbp_get_topic_id(), array(
-		'before' => '<div class="bbp-topic-tags"><p>' . esc_html__( 'Tags:', 'evolve' ) . '&nbsp;',
-		'sep'    => ' '
-	) );
-
-endif;
-
 if ( bbp_current_user_can_access_create_topic_form() ) : ?>
 
     <div id="new-topic-<?php bbp_topic_id(); ?>" class="bbp-topic-form">
 
-		<?php do_action( 'bbp_theme_before_topic_form' ); ?>
+	<?php do_action( 'bbp_theme_before_topic_form' ); ?>
 
-        <h3 id="reply-title">
+    <h3 id="reply-title">
 
-			<?php if ( bbp_is_topic_edit() ) {
-				printf( __( 'Now Editing &ldquo;%s&rdquo;', 'evolve' ), bbp_get_topic_title() );
-			} else {
-				bbp_is_single_forum() ? printf( __( 'Create New Topic in &ldquo;%s&rdquo;', 'evolve' ), bbp_get_forum_title() ) : esc_html_e( 'Create New Topic', 'evolve' );
-			} ?>
+		<?php if ( bbp_is_topic_edit() ) {
+			printf( __( 'Now editing %s', 'evolve' ), bbp_get_topic_title() );
+		} else {
+			bbp_is_single_forum() ? printf( __( 'Create new topic in %s', 'evolve' ), bbp_get_forum_title() ) : esc_html_e( 'Create new topic', 'evolve' );
+		} ?>
 
-        </h3>
+    </h3>
 
-        <form id="new-post" name="new-post" method="post" action="<?php the_permalink(); ?>">
+    <form id="new-post" name="new-post" method="post" action="<?php the_permalink(); ?>">
 
-			<?php do_action( 'bbp_theme_before_topic_form_notices' ); ?>
+		<?php do_action( 'bbp_theme_before_topic_form_notices' );
 
-			<?php bbp_get_template_part( 'form', 'anonymous' );
+		bbp_get_template_part( 'form', 'anonymous' );
 
-			do_action( 'bbp_theme_before_topic_form_title' ); ?>
+		do_action( 'bbp_theme_before_topic_form_title' ); ?>
+
+        <p>
+            <label for="bbp_topic_title">
+
+				<?php printf( __( 'Topic title (maximum length: %d)', 'evolve' ), bbp_get_title_max_length() ); ?>
+
+            </label>
+            <input class="form-control" type="text" id="bbp_topic_title" value="<?php bbp_form_topic_title(); ?>"
+                   tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_title"
+                   maxlength="<?php bbp_title_max_length(); ?>"/>
+        </p>
+
+		<?php do_action( 'bbp_theme_after_topic_form_title' );
+
+		do_action( 'bbp_theme_before_topic_form_content' );
+
+		bbp_the_content( array(
+			'context'       => 'topic',
+			'editor_class'  => 'form-control',
+			'before'        => '<p>',
+			'after'         => '</p>',
+			'textarea_rows' => '8',
+		) );
+
+		do_action( 'bbp_theme_after_topic_form_content' );
+
+		if ( ! ( bbp_use_wp_editor() || current_user_can( 'unfiltered_html' ) ) ) : ?>
 
             <p>
-                <label for="bbp_topic_title"><?php printf( __( 'Topic Title (Maximum Length: %d):', 'evolve' ), bbp_get_title_max_length() ); ?></label>
-                <input class="form-control" type="text" id="bbp_topic_title" value="<?php bbp_form_topic_title(); ?>"
-                       tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_title"
-                       maxlength="<?php bbp_title_max_length(); ?>"/>
+                <label>
+
+					<?php _e( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'evolve' ); ?>
+
+                </label>
+                <code class="my-0">
+
+					<?php bbp_allowed_tags(); ?>
+
+                </code>
             </p>
 
-			<?php
-			do_action( 'bbp_theme_after_topic_form_title' );
+		<?php endif;
 
-			do_action( 'bbp_theme_before_topic_form_content' );
+		if ( bbp_allow_topic_tags() && current_user_can( 'assign_topic_tags' ) ) :
 
-			bbp_the_content( array( 'context' => 'topic' ) );
+			do_action( 'bbp_theme_before_topic_form_tags' ); ?>
 
-			do_action( 'bbp_theme_after_topic_form_content' );
+            <p>
+                <label for="bbp_topic_tags">
 
-			if ( ! ( bbp_use_wp_editor() || current_user_can( 'unfiltered_html' ) ) ) : ?>
+					<?php esc_html_e( 'Tags', 'evolve' ); ?>
 
-                <p class="form-allowed-tags">
-                    <label><?php esc_html_e( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'evolve' ); ?></label>
-                    <code><?php bbp_allowed_tags(); ?></code>
-                </p>
+                </label>
+                <input class="form-control" type="text" value="<?php bbp_form_topic_tags(); ?>"
+                       tabindex="<?php bbp_tab_index(); ?>"
+                       size="40" name="bbp_topic_tags"
+                       id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
+            </p>
 
-			<?php endif;
+			<?php do_action( 'bbp_theme_after_topic_form_tags' );
 
-			if ( bbp_allow_topic_tags() && current_user_can( 'assign_topic_tags' ) ) :
+		endif;
 
-				do_action( 'bbp_theme_before_topic_form_tags' ); ?>
+		echo '<div class="row">';
 
-                <p>
-                    <label for="bbp_topic_tags"><?php esc_html_e( 'Tags:', 'evolve' ); ?></label>
-                    <input class="form-control" type="text" value="<?php bbp_form_topic_tags(); ?>"
-                           tabindex="<?php bbp_tab_index(); ?>"
-                           size="40" name="bbp_topic_tags"
-                           id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
-                </p>
+		if ( ! bbp_is_single_forum() ) :
 
-				<?php
-				do_action( 'bbp_theme_after_topic_form_tags' );
+			do_action( 'bbp_theme_before_topic_form_forum' ); ?>
 
-			endif;
+            <div class="col-lg-4 mb-3">
+                <label for="bbp_forum_id">
 
-			if ( ! bbp_is_single_forum() ) :
+					<?php esc_html_e( 'Forum', 'evolve' ); ?>
 
-				do_action( 'bbp_theme_before_topic_form_forum' );
-				?>
+                </label>
 
-                <p>
-                    <label for="bbp_forum_id"><?php esc_html_e( 'Forum:', 'evolve' ); ?></label>
+				<?php bbp_dropdown( array(
+					'show_none' => __( 'No forum', 'evolve' ),
+					'selected'  => bbp_get_form_topic_forum(),
+				) ); ?>
 
-					<?php bbp_dropdown( array(
-						'show_none'    => __( '(No Forum)', 'evolve' ),
-						'selected'     => bbp_get_form_topic_forum(),
-						'select_class' => 'form-control',
-					) ); ?>
+            </div>
 
-                </p>
+			<?php do_action( 'bbp_theme_after_topic_form_forum' );
 
-				<?php do_action( 'bbp_theme_after_topic_form_forum' );
+		endif;
 
-			endif;
+		if ( current_user_can( 'moderate' ) ) :
 
-			if ( current_user_can( 'moderate' ) ) :
+			do_action( 'bbp_theme_before_topic_form_type' ); ?>
 
-				do_action( 'bbp_theme_before_topic_form_type' ); ?>
+            <div class="col-lg-4 mb-3">
+                <label for="bbp_stick_topic">
 
-                <p>
-                    <label for="bbp_stick_topic"><?php esc_html_e( 'Topic Type:', 'evolve' ); ?></label>
+					<?php esc_html_e( 'Topic type', 'evolve' ); ?>
 
-					<?php bbp_form_topic_type_dropdown(); ?>
+                </label>
 
-                </p>
+				<?php bbp_form_topic_type_dropdown(); ?>
 
-				<?php do_action( 'bbp_theme_after_topic_form_type' );
+            </div>
 
-				do_action( 'bbp_theme_before_topic_form_status' ); ?>
+			<?php do_action( 'bbp_theme_after_topic_form_type' );
 
-                <p>
-                    <label for="bbp_topic_status"><?php esc_html_e( 'Topic Status:', 'evolve' ); ?></label>
+			do_action( 'bbp_theme_before_topic_form_status' ); ?>
 
-					<?php evolve_bbp_form_topic_status_dropdown(); ?>
+            <div class="col-lg-4 mb-3">
+                <label for="bbp_topic_status">
 
-                </p>
+					<?php esc_html_e( 'Topic status', 'evolve' ); ?>
 
-				<?php do_action( 'bbp_theme_after_topic_form_status' );
+                </label>
 
-			endif;
+				<?php bbp_form_topic_status_dropdown(); ?>
 
-			if ( bbp_allow_revisions() && bbp_is_topic_edit() ) :
+            </div>
 
-				do_action( 'bbp_theme_before_topic_form_revisions' );
-				?>
+			<?php do_action( 'bbp_theme_after_topic_form_status' );
 
-                <fieldset class="bbp-form">
-                    <legend>
-                        <input name="bbp_log_topic_edit" id="bbp_log_topic_edit" type="checkbox"
-                               value="1" <?php bbp_form_topic_log_edit(); ?> tabindex="<?php bbp_tab_index(); ?>"/>
-                        <label for="bbp_log_topic_edit"><?php esc_html_e( 'Keep a log of this edit:', 'evolve' ); ?></label><br/>
-                    </legend>
+		endif;
 
-                    <div>
-                        <label for="bbp_topic_edit_reason"><?php printf( __( 'Optional reason for editing:', 'evolve' ), bbp_get_current_user_name() ); ?></label><br/>
-                        <input type="text" value="<?php bbp_form_topic_edit_reason(); ?>"
-                               tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_edit_reason"
-                               id="bbp_topic_edit_reason"/>
-                    </div>
-                </fieldset>
+		echo '</div>';
 
-				<?php do_action( 'bbp_theme_after_topic_form_revisions' );
+		if ( bbp_allow_revisions() && bbp_is_topic_edit() ) :
 
-			endif;
+			do_action( 'bbp_theme_before_topic_form_revisions' ); ?>
 
-			do_action( 'bbp_theme_before_topic_form_submit_wrapper' );
-			?>
+            <p class="notify custom-control custom-checkbox">
+                <legend>
+                    <input class="custom-control-input" name="bbp_log_topic_edit" id="bbp_log_topic_edit"
+                           type="checkbox"
+                           value="1" <?php bbp_form_topic_log_edit(); ?> tabindex="<?php bbp_tab_index(); ?>"/>
+                    <label class="custom-control-label" for="bbp_log_topic_edit">
 
-			<?php do_action( 'bbp_theme_before_topic_form_submit_button' ); ?>
+						<?php esc_html_e( 'Keep a log of this edit', 'evolve' ); ?>
 
+                    </label>
+                </legend>
+            </p>
+            <p>
+                <label for="bbp_topic_edit_reason">
+
+					<?php printf( __( 'Optional reason for editing', 'evolve' ), bbp_get_current_user_name() ); ?>
+
+                </label>
+                <input type="text" value="<?php bbp_form_topic_edit_reason(); ?>"
+                       tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_edit_reason"
+                       id="bbp_topic_edit_reason"/>
+            </p>
+
+			<?php do_action( 'bbp_theme_after_topic_form_revisions' );
+
+		endif; ?>
+
+		<?php if ( bbp_is_subscriptions_active() && ! bbp_is_anonymous() && ( ! bbp_is_topic_edit() || ( bbp_is_topic_edit() && ! bbp_is_topic_anonymous() ) ) ) :
+
+			do_action( 'bbp_theme_before_topic_form_subscriptions' ); ?>
+
+            <p class="notify custom-control custom-checkbox">
+                <input class="custom-control-input" name="bbp_topic_subscription" id="bbp_topic_subscription"
+                       type="checkbox"
+                       value="bbp_subscribe" <?php bbp_form_topic_subscribed(); ?>
+                       tabindex="<?php bbp_tab_index(); ?>"/>
+
+				<?php if ( bbp_is_topic_edit() && ( bbp_get_topic_author_id() !== bbp_get_current_user_id() ) ) : ?>
+
+                    <label class="custom-control-label" for="bbp_topic_subscription">
+
+						<?php esc_html_e( 'Notify the author of follow-up replies via email', 'evolve' ); ?>
+
+                    </label>
+
+				<?php else : ?>
+
+                    <label class="custom-control-label" for="bbp_topic_subscription">
+
+						<?php esc_html_e( 'Notify me of follow-up replies via email', 'evolve' ); ?>
+
+                    </label>
+
+				<?php endif; ?>
+
+            </p>
+
+			<?php do_action( 'bbp_theme_after_topic_form_subscriptions' );
+
+		endif;
+
+		do_action( 'bbp_theme_before_topic_form_submit_wrapper' );
+
+		do_action( 'bbp_theme_before_topic_form_submit_button' ); ?>
+
+        <p>
             <button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_topic_submit" name="bbp_topic_submit"
-                    class="btn btn-sm"><?php esc_html_e( 'Submit', 'evolve' ); ?></button>
+                    class="btn">
 
-			<?php do_action( 'bbp_theme_after_topic_form_submit_button' ); ?>
+				<?php esc_html_e( 'Submit', 'evolve' ); ?>
 
-			<?php
-			do_action( 'bbp_theme_after_topic_form_submit_wrapper' );
+            </button>
+        </p>
 
-			if ( bbp_is_subscriptions_active() && ! bbp_is_anonymous() && ( ! bbp_is_topic_edit() || ( bbp_is_topic_edit() && ! bbp_is_topic_anonymous() ) ) ) :
+		<?php do_action( 'bbp_theme_after_topic_form_submit_button' );
 
-				do_action( 'bbp_theme_before_topic_form_subscriptions' ); ?>
+		do_action( 'bbp_theme_after_topic_form_submit_wrapper' );
 
-                <div class="notify">
-                    <p>
-                        <input name="bbp_topic_subscription" id="bbp_topic_subscription" type="checkbox"
-                               value="bbp_subscribe" <?php bbp_form_topic_subscribed(); ?>
-                               tabindex="<?php bbp_tab_index(); ?>"/>
+		bbp_topic_form_fields();
 
-						<?php if ( bbp_is_topic_edit() && ( bbp_get_topic_author_id() !== bbp_get_current_user_id() ) ) : ?>
+		do_action( 'bbp_theme_after_topic_form' ); ?>
 
-                            <label for="bbp_topic_subscription"><?php esc_html_e( 'Notify the author of follow-up replies via email', 'evolve' ); ?></label>
-
-						<?php else : ?>
-
-                            <label for="bbp_topic_subscription"><?php esc_html_e( 'Notify me of follow-up replies via email', 'evolve' ); ?></label>
-
-						<?php endif; ?>
-
-                    </p>
-                </div>
-
-				<?php do_action( 'bbp_theme_after_topic_form_subscriptions' );
-			endif; ?>
-
-			<?php bbp_topic_form_fields(); ?>
-
-			<?php do_action( 'bbp_theme_after_topic_form' ); ?>
-
-        </form>
-    </div>
+    </form>
 
 <?php elseif ( bbp_is_forum_closed() ) : ?>
 
     <div id="no-topic-<?php bbp_topic_id(); ?>" class="bbp-no-topic">
         <div class="bbp-template-notice">
-            <p><?php printf( __( 'The forum &#8216;%s&#8217; is closed to new topics and replies.', 'evolve' ), bbp_get_forum_title() ); ?></p>
+            <p class="alert alert-warning" role="alert">
+
+				<?php printf( __( 'The forum %s is closed to new topics and replies', 'evolve' ), bbp_get_forum_title() ); ?>
+
+            </p>
         </div>
     </div>
 
@@ -214,14 +261,20 @@ if ( bbp_current_user_can_access_create_topic_form() ) : ?>
 
     <div id="no-topic-<?php bbp_topic_id(); ?>" class="bbp-no-topic">
         <div class="bbp-template-notice">
-            <p><?php is_user_logged_in() ? esc_html_e( 'You cannot create new topics.', 'evolve' ) : esc_html_e( 'You must be logged in to create new topics.', 'evolve' ); ?></p>
+            <p class="alert alert-warning" role="alert">
+
+				<?php is_user_logged_in() ? esc_html_e( 'You cannot create new topics', 'evolve' ) : esc_html_e( 'You must be logged in to create new topics', 'evolve' ); ?>
+
+            </p>
         </div>
     </div>
 
-<?php endif;
+<?php endif; ?>
 
-if ( ! bbp_is_single_forum() ) : ?>
+    </div><!-- .bbp-topic-form -->
 
-    </div>
+<?php if ( ! bbp_is_single_forum() ) : ?>
+
+    </div><!-- .bbpress-forums -->
 
 <?php endif;

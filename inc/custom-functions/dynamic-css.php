@@ -572,7 +572,7 @@ if ( $evolve_widget_background_image == "1" ) {
     --------------------------------------- */
 
 if ( ! empty( $evolve_primary_link ) ) {
-	$evolve_css_data .= ' a, .page-link, .page-link:hover, code, .widget_calendar tbody a { color: ' . $evolve_primary_link . '; }';
+	$evolve_css_data .= ' a, .page-link, .page-link:hover, code, .widget_calendar tbody a, .page-numbers.current { color: ' . $evolve_primary_link . '; }';
 }
 
 /*
@@ -735,7 +735,7 @@ if ( $evolve_shortcode_button_border_width || ( $evolve_shortcode_button_type ==
     --------------------------------------- */
 
 if ( $evolve_shadow_effect == 'disable' ) {
-	$evolve_css_data .= ' #wrapper, .post-content .thumbnail-post, .post-content .wp-caption, thead, thead th, thead td, .home .type-post.sticky, .home .formatted-post, .nav-tabs .nav-link, .tab-content .tab-pane li, .footer::before, .footer::after, #bbpress-forums .bbp-search-form #bbp_search, .bbp-search-form #bbp_search, .bbp-topic-form input#bbp_topic_title, .bbp-topic-form input#bbp_topic_tags, .bbp-topic-form select#bbp_stick_topic_select, .bbp-topic-form select#bbp_topic_status_select, .bbp-reply-form input#bbp_topic_tags, .widget-title-background, .widget-content, .widget::before, .widget::after { -webkit-box-shadow: none; box-shadow: none; } .post-title, .post-title a, p#copyright .credits, p#copyright .credits a, .formatted-post .post-meta, .formatted-post .post-meta a, .formatted-post .post-title a, .post-meta, thead, thead th, thead td, .content-box i, .carousel-caption, .close, .widget-title, .widget-title a.rsswidget { text-shadow: none; }';
+	$evolve_css_data .= ' #wrapper, .post-content .thumbnail-post, .post-content .wp-caption, thead, thead th, thead td, .home .type-post.sticky, .home .formatted-post, .nav-tabs .nav-link, .tab-content .tab-pane li, .footer::before, .footer::after, .widget-title-background, .widget-content, .widget::before, .widget::after { -webkit-box-shadow: none; box-shadow: none; } .post-title, .post-title a, p#copyright .credits, p#copyright .credits a, .formatted-post .post-meta, .formatted-post .post-meta a, .formatted-post .post-title a, .post-meta, thead, thead th, thead td, .content-box i, .carousel-caption, .close, .widget-title, .widget-title a.rsswidget { text-shadow: none; }';
 }
 
 /*
@@ -743,7 +743,7 @@ if ( $evolve_shadow_effect == 'disable' ) {
     --------------------------------------- */
 
 if ( ! empty( $evolve_form_bg_color ) || ! empty( $evolve_form_text_color ) || ! empty( $evolve_form_border_color ) ) :
-	$evolve_css_data .= ' input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus {';
+	$evolve_css_data .= ' input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus, .select2-container--default .select2-selection--single {';
 	if ( ! empty( $evolve_form_bg_color ) ) {
 		$evolve_css_data .= ' background-color: ' . $evolve_form_bg_color . ';';
 	}
@@ -757,7 +757,7 @@ if ( ! empty( $evolve_form_bg_color ) || ! empty( $evolve_form_text_color ) || !
 endif;
 
 if ( $evolve_component_color ) {
-	$evolve_css_data .= ' .custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale, .stars a:hover, .stars a.active { background: ' . $evolve_component_color . '; } .form-control:focus, .input-text:focus, input[type=text]:focus, .page-link:focus, .widget select:focus { border-color: ' . $evolve_component_color . '; box-shadow: 0 0 0 0.2rem ' . evolve_hex_rgba( $evolve_component_color, .25 ) . '; } .custom-control-input:focus~.custom-control-label::before { box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem  ' . evolve_hex_rgba( $evolve_component_color, .25 ) . '; } .btn.focus, .btn:focus { box-shadow: 0 0 0 0.2rem ' . evolve_hex_rgba( $evolve_component_color, .25 ) . '; } :focus { outline-color: ' . evolve_hex_rgba( $evolve_component_color, .25 ) . '; } code { border-left-color: ' . $evolve_component_color . '; }';
+	$evolve_css_data .= ' .custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale, .stars a:hover, .stars a.active { background: ' . $evolve_component_color . '; } .form-control:focus, .input-text:focus, input[type=text]:focus, .page-link:focus, select:focus { border-color: ' . $evolve_component_color . '; box-shadow: 0 0 0 0.2rem ' . evolve_hex_rgba( $evolve_component_color, .25 ) . '; } .custom-control-input:focus~.custom-control-label::before { box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem  ' . evolve_hex_rgba( $evolve_component_color, .25 ) . '; } .btn.focus, .btn:focus { box-shadow: 0 0 0 0.2rem ' . evolve_hex_rgba( $evolve_component_color, .25 ) . '; } :focus { outline-color: ' . evolve_hex_rgba( $evolve_component_color, .25 ) . '; } code { border-left-color: ' . $evolve_component_color . '; }';
 }
 
 if ( class_exists( 'Woocommerce' ) && is_user_logged_in() && current_user_can( 'manage_options' ) ) :
@@ -852,6 +852,14 @@ if ( ( ( is_front_page() && is_page() ) || is_home() ) && $evolve_frontpage_layo
 
 if ( ( is_front_page() && is_page() ) || is_home() ) {
 	$evolve_css_data .= ' .home .t4p-testimonials .reviews .image { width: 100%; }';
+}
+
+/*
+	bbPress
+	--------------------------------------- */
+
+if ( class_exists( 'bbPress' ) && ( is_bbpress() ) ) {
+	$evolve_css_data .= ' .bbpress-forums .bbp-body ul.sticky { border-left: 2px solid ' . $evolve_primary_link . '; }';
 }
 
 /*

@@ -5,7 +5,7 @@
    ======================================= */
 
 if ( post_password_required() ) {
-	echo '<p class="alert alert-warning" role="alert">' . __( 'This post is password protected. Enter the password to view comments.', 'evolve' ) . '</p>';
+	echo '<p class="alert alert-warning mb-4" role="alert">' . __( 'This post is password protected. Enter the password to view comments.', 'evolve' ) . '</p>';
 
 	return;
 } ?>

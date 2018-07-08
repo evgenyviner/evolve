@@ -6,20 +6,24 @@
  * @subpackage Theme
  */
 do_action( 'bbp_template_before_pagination_loop' );
-?>
 
-    <div class="bbp-pagination">
-        <div class="bbp-pagination-count">
+if ( ! bbp_get_forum_pagination_links() ) {
+	return;
+} ?>
+
+    <div class="row">
+        <div class="col-md-6">
+            <nav aria-label="navigation" class="navigation">
+
+				<?php bbp_forum_pagination_links(); ?>
+
+            </nav>
+        </div>
+        <div class="post-meta col-md-6 text-right mb-4 mb-lg-0">
 
 			<?php bbp_forum_pagination_count(); ?>
 
         </div>
-        <nav aria-label="navigation" class="navigation mb-5">
-
-			<?php bbp_forum_pagination_links(); ?>
-
-        </nav>
     </div>
 
-<?php
-do_action( 'bbp_template_after_pagination_loop' );
+<?php do_action( 'bbp_template_after_pagination_loop' );

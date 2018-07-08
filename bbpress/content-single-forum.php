@@ -9,7 +9,12 @@
 
 <div class="bbpress-forums">
 
-	<?php bbp_forum_subscription_link();
+	<?php bbp_forum_subscription_link( array(
+		'before'      => '<div class="post-meta text-right mb-4">',
+		'after'       => '</div>',
+		'subscribe'   => evolve_get_svg( 'rss' ) . esc_html__( 'Subscribe', 'evolve' ),
+		'unsubscribe' => evolve_get_svg( 'ok' ) . esc_html__( 'Subscribed', 'evolve' )
+	) );
 
 	if ( bbp_allow_search() ) : ?>
 
@@ -17,7 +22,7 @@
 
 			<?php bbp_get_template_part( 'form', 'search' ); ?>
 
-        </div>
+        </div><!-- .search-full-width -->
 
 	<?php endif;
 
@@ -35,8 +40,6 @@
 
 		if ( ! bbp_is_forum_category() && bbp_has_topics() ) :
 
-			evolve_number_pagination();
-
 			bbp_get_template_part( 'loop', 'topics' );
 
 			bbp_get_template_part( 'pagination', 'topics' );
@@ -50,9 +53,8 @@
 			bbp_get_template_part( 'form', 'topic' );
 
 		endif;
-
 	endif;
 
 	do_action( 'bbp_template_after_single_forum' ); ?>
 
-</div>
+</div><!-- .bbpress-forums -->

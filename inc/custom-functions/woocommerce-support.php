@@ -492,7 +492,7 @@ function evolve_woocommerce_header_add_to_cart_fragment( $fragments ) {
 
             </a>
 
-            <div class="dropdown-menu p-3 dropdownhover-bottom" aria-labelledby="cart_dropdown">
+            <div class="dropdown-menu p-3 dropdownhover-bottom dropdown-menu-right" aria-labelledby="cart_dropdown">
                 <span class="dropdown-item">
 
 				    <?php esc_html_e( 'Your cart is currently empty.', 'evolve' ); ?>
@@ -511,7 +511,7 @@ function evolve_woocommerce_header_add_to_cart_fragment( $fragments ) {
 
             </a>
 
-            <div class="dropdown-menu p-3" aria-labelledby="cart_dropdown">
+            <div class="dropdown-menu p-3 dropdown-menu-right" aria-labelledby="cart_dropdown">
 
 				<?php foreach ( $woocommerce->cart->cart_contents as $cart_item ):
 					$cart_item_key = $cart_item['key'];
@@ -2108,10 +2108,9 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
 										<?php echo evolve_get_svg( 'user' ); ?><?php esc_html_e( 'My Account', 'evolve' ); ?>
                                     </a>
 
-
 									<?php if ( ! is_user_logged_in() && ! is_account_page() ): ?>
 
-                                        <div class="dropdown-menu p-4" aria-labelledby="myaccount_dropdown">
+                                        <div class="dropdown-menu p-4 dropdown-menu-right" aria-labelledby="myaccount_dropdown">
                                             <form action="<?php echo wp_login_url(); ?>" name="loginform"
                                                   method="post">
 
@@ -2148,7 +2147,7 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
 
 									<?php elseif ( is_user_logged_in() && ! is_account_page() ) : ?>
 
-                                        <div class="dropdown-menu logout" aria-labelledby="myaccount_dropdown">
+                                        <div class="dropdown-menu logout dropdown-menu-right" aria-labelledby="myaccount_dropdown">
                                             <a class="dropdown-item"
                                                href="<?php echo wp_logout_url( get_permalink() ); ?>"><?php esc_html_e( 'Logout', 'evolve' ); ?></a>
                                         </div>
@@ -2175,8 +2174,7 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
 
                                         </a>
 
-                                        <div class="dropdown-menu p-3 dropdownhover-bottom"
-                                             aria-labelledby="cart_dropdown">
+                                        <div class="dropdown-menu p-3 dropdownhover-bottom dropdown-menu-right" aria-labelledby="cart_dropdown">
                                             <span class="dropdown-item">
 
 											    <?php esc_html_e( 'Your cart is currently empty.', 'evolve' ); ?>
@@ -2195,7 +2193,7 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
 
                                         </a>
 
-                                        <div class="dropdown-menu p-3" aria-labelledby="cart_dropdown">
+                                        <div class="dropdown-menu p-3 dropdown-menu-right" aria-labelledby="cart_dropdown">
 
 											<?php foreach ( $woocommerce->cart->cart_contents as $cart_item ): //var_dump($cart_item);
 												$cart_item_key = $cart_item['key'];

@@ -8,11 +8,11 @@
 do_action('bbp_template_before_topics_loop');
 ?>
 
-<ul id="bbp-forum-<?php bbp_forum_id(); ?>" class="bbp-topics">
+<ul id="bbp-forum-<?php bbp_forum_id(); ?>" class="bbp-forums">
 
-    <li class="bbp-header">
+    <li class="row bbp-header">
 
-        <ul class="forum-titles">
+        <ul class="col forum-titles">
             <li class="bbp-topic-title"><?php esc_html_e('Topic', 'evolve'); ?></li>
             <li class="bbp-topic-voice-count"><?php esc_html_e('Voices', 'evolve'); ?></li>
             <li class="bbp-topic-reply-count"><?php bbp_show_lead_topic() ? esc_html_e('Replies', 'evolve') : esc_html_e('Posts', 'evolve'); ?></li>

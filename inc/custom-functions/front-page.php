@@ -26,7 +26,7 @@ function evolve_content_boxes() {
 		} else {
 			$evolve_content_box_section_title = '<h4 class="content_box_section_title section_title">' . evolve_theme_mod( 'evl_content_boxes_title', 'evolve comes with amazing features which will blow your mind' ) . '</h4>';
 		}
-		echo "<div class='row'><div class='card-deck'>" . $evolve_content_box_section_title;
+		echo "<div class='row'><div class='card-deck mb-0 mb-lg-3'>" . $evolve_content_box_section_title;
 		$evolve_content_box1_title = evolve_theme_mod( 'evl_content_box1_title', 'Flat & Beautiful' );
 		if ( $evolve_content_box1_title === false ) {
 			$evolve_content_box1_title = '';
@@ -79,7 +79,7 @@ function evolve_content_boxes() {
 				$BoxClass = ' col-md-3';
 		endswitch;
 		if ( $evolve_content_box1_enable == true ) {
-			echo "<div class='$BoxClass content-box content-box-1 text-center mb-3'><div class='card'><div class='card-img-top'><i class='fa fa-" . $evolve_content_box1_icon . "'></i></div>";
+			echo "<div class='$BoxClass content-box content-box-1'><div class='card text-center mb-4 mb-lg-0'><div class='card-img-top'><i class='fa fa-" . $evolve_content_box1_icon . "'></i></div>";
 			echo "<div class='card-body'>";
 			echo "<h5 class='card-title'>" . esc_attr( $evolve_content_box1_title ) . "</h5>";
 			echo "<p class='card-text'>" . do_shortcode( $evolve_content_box1_desc ) . "</p>";
@@ -103,7 +103,7 @@ function evolve_content_boxes() {
 			$evolve_content_box2_icon = '';
 		}
 		if ( $evolve_content_box2_enable == true ) {
-			echo "<div class='$BoxClass content-box content-box-2 text-center mb-3'><div class='card'><div class='card-img-top'><i class='fa fa-" . $evolve_content_box2_icon . "'></i></div>";
+			echo "<div class='$BoxClass content-box content-box-2'><div class='card text-center mb-4 mb-lg-0'><div class='card-img-top'><i class='fa fa-" . $evolve_content_box2_icon . "'></i></div>";
 			echo "<div class='card-body'>";
 			echo "<h5 class='card-title'>" . esc_attr( $evolve_content_box2_title ) . "</h5>";
 			echo "<p class='card-text'>" . do_shortcode( $evolve_content_box2_desc ) . "</p>";
@@ -127,7 +127,7 @@ function evolve_content_boxes() {
 			$evolve_content_box3_icon = '';
 		}
 		if ( $evolve_content_box3_enable == true ) {
-			echo "<div class='$BoxClass content-box content-box-3 text-center mb-3'><div class='card'><div class='card-img-top'><i class='fa fa-" . $evolve_content_box3_icon . "'></i></div>";
+			echo "<div class='$BoxClass content-box content-box-3'><div class='card text-center mb-4 mb-lg-0'><div class='card-img-top'><i class='fa fa-" . $evolve_content_box3_icon . "'></i></div>";
 			echo "<div class='card-body'>";
 			echo "<h5 class='card-title'>" . esc_attr( $evolve_content_box3_title ) . "</h5>";
 			echo "<p class='card-text'>" . do_shortcode( $evolve_content_box3_desc ) . "</p>";
@@ -151,7 +151,7 @@ function evolve_content_boxes() {
 			$evolve_content_box4_icon = '';
 		}
 		if ( $evolve_content_box4_enable == true ) {
-			echo "<div class='$BoxClass content-box content-box-4 text-center mb-3'><div class='card'><div class='card-img-top'><i class='fa fa-" . $evolve_content_box4_icon . "'></i></div>";
+			echo "<div class='$BoxClass content-box content-box-4'><div class='card text-center mb-4 mb-lg-0'><div class='card-img-top'><i class='fa fa-" . $evolve_content_box4_icon . "'></i></div>";
 			echo "<div class='card-body'>";
 			echo "<h5 class='card-title'>" . esc_attr( $evolve_content_box4_title ) . "</h5>";
 			echo "<p class='card-text'>" . do_shortcode( $evolve_content_box4_desc ) . "</p>";
