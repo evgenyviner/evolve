@@ -8,62 +8,58 @@
 ?>
 
 <div <?php bbp_reply_class(); ?>>
+    <div class="row align-items-center">
+        <div class="col-xl-auto comment-author vcard">
 
-    <div class="bbp-reply-author">
+			<?php do_action( 'bbp_theme_before_reply_author_details' );
 
-		<?php do_action( 'bbp_theme_before_reply_author_details' );
+			echo '<span class="fn">';
+			bbp_reply_author_link( array( 'type' => 'name', 'show_role' => false ) );
 
-		bbp_reply_author_link( array( 'sep' => '', 'show_role' => true ) ); ?>
+			if ( user_can( bbp_get_reply_author_id(), 'moderate' ) ) {
+				echo '<span class="badge badge-pill badge-primary ml-2">';
+			} else {
+				echo '<span class="badge badge-pill badge-light ml-2">';
+			}
+			bbp_reply_author_link( array( 'type' => '', 'show_role' => true ) );
+			echo '</span></span>';
 
-        <div class="bbp-reply-post-date"><?php bbp_reply_post_date(); ?></div>
+			echo '<span class="badge badge-pill badge-light ml-2">' . sprintf( __( 'Posts: %s', 'evolve' ), bbp_get_user_reply_count_raw( bbp_get_reply_author_id() ) ) . '</span>';
 
-        <div class="bbps-post-count"><?php printf( __( 'Post count: %s', 'evolve' ), bbp_get_user_reply_count_raw( bbp_get_reply_author_id() ) ); ?></div>
+			if ( bbp_is_user_keymaster() ) :
 
-		<?php if ( bbp_is_user_keymaster() ) :
+				do_action( 'bbp_theme_before_reply_author_admin_details' );
 
-			do_action( 'bbp_theme_before_reply_author_admin_details' ); ?>
+				echo '&nbsp;&nbsp;';
+				bbp_author_ip( bbp_get_reply_id() );
 
-            <div class="bbp-reply-ip"><?php bbp_author_ip( bbp_get_reply_id() ); ?></div>
+				do_action( 'bbp_theme_after_reply_author_admin_details' );
 
-			<?php do_action( 'bbp_theme_after_reply_author_admin_details' );
+			endif;
 
-		endif;
+			do_action( 'bbp_theme_after_reply_author_details' ); ?>
 
-		do_action( 'bbp_theme_after_reply_author_details' ); ?>
+        </div>
+        <div class="col-auto comment-meta">
 
-    </div><!-- .bbp-reply-author -->
+			<?php bbp_reply_post_date(); ?>
 
-    <div class="bbp-reply-content">
+            <a href="<?php bbp_reply_url(); ?>" class="bbp-permalink mx-2">#<?php bbp_reply_id(); ?></a>
 
-        <div id="post-<?php bbp_reply_id(); ?>" class="bbp-reply-header clearfix">
+        </div>
+        <div class="col">
 
-            <div class="bbp-meta">
+			<?php bbp_reply_author_link( array(
+				'size'      => '45',
+				'type'      => 'avatar',
+				'show_role' => false
+			) ); ?>
 
-				<?php if ( bbp_is_single_user_replies() ) : ?>
+        </div>
+    </div>
+    <div id="post-<?php bbp_reply_id(); ?>" class="bbp-reply-header clearfix">
 
-                    <span class="bbp-header">
-                        <?php esc_html_e( 'in reply to: ', 'evolve' ); ?>
-                        <a class="bbp-topic-permalink"
-                           href="<?php bbp_topic_permalink( bbp_get_reply_topic_id() ); ?>"><?php bbp_topic_title( bbp_get_reply_topic_id() ); ?></a>
-                    </span>
-
-				<?php endif; ?>
-
-                <a href="<?php bbp_reply_url(); ?>" class="bbp-reply-permalink">#<?php bbp_reply_id(); ?></a>
-
-				<?php
-				do_action( 'bbp_theme_before_reply_admin_links' );
-
-				bbp_reply_admin_links( array( 'after' => '<span class="admin_links_sep"> | </span></span>' ) );
-
-				do_action( 'bbp_theme_after_reply_admin_links' );
-				?>
-
-            </div><!-- .bbp-meta -->
-
-        </div><!-- #post-<?php bbp_reply_id(); ?> -->
-
-        <div class="bbp-reply-entry">
+        <div class="bbp-content">
 
 			<?php do_action( 'bbp_theme_before_reply_content' );
 
@@ -72,7 +68,28 @@
 			do_action( 'bbp_theme_after_reply_content' ); ?>
 
         </div>
-        <div class="bbp-arrow"></div>
+        <div class="post-meta m-0 mt-4 bbp-meta">
 
-    </div><!-- .bbp-reply-content -->
-</div><!-- .reply -->
+			<?php if ( bbp_is_single_user_replies() ) : ?>
+
+				<?php esc_html_e( 'in reply to: ', 'evolve' ); ?>
+
+                <a class="bbp-permalink"
+                   href="<?php bbp_topic_permalink( bbp_get_reply_topic_id() ); ?>">
+
+					<?php bbp_topic_title( bbp_get_reply_topic_id() ); ?>
+
+                </a>
+
+			<?php endif;
+
+			do_action( 'bbp_theme_before_reply_admin_links' );
+
+			bbp_reply_admin_links( array( 'sep' => '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' ) );
+
+			do_action( 'bbp_theme_after_reply_admin_links' ); ?>
+
+        </div><!-- .bbp-meta -->
+    </div><!-- #post-<?php bbp_reply_id(); ?> -->
+</div>
+

@@ -836,16 +836,16 @@ video {
     line-height: .9rem;
 }
 
-.comment-author .fn .badge {
-    margin-left: .5rem;
-}
-
 .comment-content {
     margin: 2rem 0 0;
 }
 
 .comment-content p:last-child {
     margin-bottom: 0;
+}
+
+.pingback .comment-content p:last-child {
+    margin-bottom: 1rem;
 }
 
 .comment,
@@ -1941,7 +1941,7 @@ body.home .t4p-counters-circle {
 }
 
 .bbp-forum-title,
-.bbp-topic-permalink {
+.bbp-permalink {
     font-weight: bold;
     font-size: 1rem;
 }
@@ -1968,20 +1968,21 @@ body.home .t4p-counters-circle {
     border-bottom: 1px solid #f1f1f1;
 }
 
-.bbpress-forums .even {
+.bbpress-forums ul.even {
     background-color: #fff;
 }
 
-.bbpress-forums .odd {
+.bbpress-forums ul.odd {
     background-color: #fafafa;
 }
 
 .bbpress-forums .topic-lead {
+    background: #fff;
     font-size: 1rem;
     padding: 2rem;
 }
 
-.bbpress-forums .bbp-topic-content {
+.bbpress-forums .bbp-content {
     margin-top: 1rem;
 }
 

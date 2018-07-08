@@ -63,7 +63,7 @@ do_action( 'bbp_template_before_lead_topic' ); ?>
 						<?php bbp_topic_post_date(); ?>
 
                         <a href="<?php bbp_topic_permalink(); ?>"
-                           class="bbp-topic-permalink mx-2">#<?php bbp_topic_id(); ?></a>
+                           class="bbp-permalink mx-2">#<?php bbp_topic_id(); ?></a>
 
 						<?php if ( bbp_is_topic_sticky() ) {
 							echo ' ' . evolve_get_svg( 'pin' );
@@ -80,7 +80,7 @@ do_action( 'bbp_template_before_lead_topic' ); ?>
 
                     </div>
                 </div>
-                <div class="bbp-topic-content">
+                <div class="bbp-content">
 
 					<?php do_action( 'bbp_theme_before_topic_content' );
 

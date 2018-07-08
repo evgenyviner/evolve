@@ -145,9 +145,9 @@ function evolve_comments_callback( $comment, $args, $depth ) {
         <b class="fn">
 
 			<?php printf( __( '%s', 'evolve' ), get_comment_author_link() );
-			echo ( ( ( class_exists( 'Woocommerce' ) && ! is_product() ) || ! class_exists( 'Woocommerce' ) ) && $comment->user_id === $post->post_author ) ? '<span class="badge badge-pill badge-primary"> ' . __( 'Author', 'evolve' ) . '</span>' : '';
-			echo ( get_comment_type() === "pingback" ) ? '<span class="badge badge-pill badge-secondary"> ' . __( 'Pingback', 'evolve' ) . '</span>' : '';
-			echo ( class_exists( 'Woocommerce' ) && is_product() && 'yes' === get_option( 'woocommerce_review_rating_verification_label' ) && $verified ) ? '<span class="badge badge-pill badge-primary"> ' . __( 'Verified buyer', 'evolve' ) . '</span>' : ''; ?>
+			echo ( ( ( class_exists( 'Woocommerce' ) && ! is_product() ) || ! class_exists( 'Woocommerce' ) ) && $comment->user_id === $post->post_author ) ? '<span class="badge badge-pill badge-primary ml-2"> ' . __( 'Author', 'evolve' ) . '</span>' : '';
+			echo ( get_comment_type() === "pingback" ) ? '<span class="badge badge-pill badge-secondary ml-2"> ' . __( 'Pingback', 'evolve' ) . '</span>' : '';
+			echo ( class_exists( 'Woocommerce' ) && is_product() && 'yes' === get_option( 'woocommerce_review_rating_verification_label' ) && $verified ) ? '<span class="badge badge-pill badge-primary ml-2"> ' . __( 'Verified buyer', 'evolve' ) . '</span>' : ''; ?>
 
         </b>
     </div>
