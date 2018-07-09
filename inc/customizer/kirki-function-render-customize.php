@@ -21,8 +21,13 @@ function evolve_get_render_callback( $option_name){
 	if ($check) {
 		return get_theme_mod( $option_name, 0 );
 	}
-	//for bootstrap slider
+	//for bootstrap slider title
 	$check = preg_match('/^evl_bootstrap_slide._title$/',$option_name);
+	if ($check) {
+		return get_theme_mod( $option_name, 0 );
+	}
+	//for bootstrap slider description
+	$check = preg_match('/^evl_bootstrap_slide._desc$/',$option_name);
 	if ($check) {
 		return get_theme_mod( $option_name, 0 );
 	}

@@ -264,10 +264,10 @@ class Evolve_Fix_Rd {
 					$value_temp['partial_refresh'] = array(
 						$value['id'] => array(
 							'selector'        => $value['selector'],
-							'render_callback' => 
-							function( $value ) {
-								return evolve_get_render_callback( $value->id );
-							}
+							'render_callback' =>
+								function ( $value ) {
+									return evolve_get_render_callback( $value->id );
+								}
 						)
 					);
 				}
@@ -547,8 +547,8 @@ foreach ( $options_pages_obj as $page ) {
 if ( true || is_customize_preview() ) {
 
 	// Get general button classes
-	$evolve_button_classes       = ".btn, a.btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button, .post-content a.btn, .woocommerce .button";
-	$evolve_button_hover_classes = ".btn:hover, a.btn:hover, button:hover, .button:hover, input#submit:hover, input[type=submit]:hover, #buddypress input[type=submit]:hover, #buddypress .button, #buddypress .button:hover, #buddypress a.button, #buddypress a.button:hover";
+	$evolve_button_classes       = ".btn, a.btn, button, .button, .widget .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button, .post-content a.btn, .woocommerce .button";
+	$evolve_button_hover_classes = ".btn:hover, a.btn:hover, button:hover, .button:hover, .widget .button:hover, input#submit:hover, input[type=submit]:hover, #buddypress input[type=submit]:hover, #buddypress .button, #buddypress .button:hover, #buddypress a.button, #buddypress a.button:hover";
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 		'id'      => 'evl-theme-links-main-tab',
@@ -911,9 +911,9 @@ if ( true || is_customize_preview() ) {
 					'indent' => true
 				),
 				array(
-					'id'      => 'evl_blog_section_title',
-					'type'    => 'text',
-					'title'   => esc_attr__( 'Title of Blog Section', 'evolve' ),
+					'id'          => 'evl_blog_section_title',
+					'type'        => 'text',
+					'title'       => esc_attr__( 'Title of Blog Section', 'evolve' ),
 					'input_attrs' => esc_attr__( 'Latest News From The Blog', 'evolve' ),
 				),
 				array(
@@ -1078,7 +1078,7 @@ if ( true || is_customize_preview() ) {
 					'required'        => array(
 						array( 'evl_content_box1_enable', '=', '1' )
 					),
-					'input_attrs'         => esc_attr__( 'Flat & Beautiful', 'evolve' ),
+					'input_attrs'     => esc_attr__( 'Flat & Beautiful', 'evolve' ),
 				),
 				array(
 					'id'              => 'evl_content_box1_icon',
@@ -1086,7 +1086,7 @@ if ( true || is_customize_preview() ) {
 					'title'           => esc_attr__( 'Content Box 1 Icon (Font Awesome)', 'evolve' ),
 					'selector'        => '.content-box.content-box-1 .card-img-top',
 					'render_callback' => 'evl_content_box1_icon',
-					'input_attrs'         => 'fas fa-cube',
+					'input_attrs'     => 'fas fa-cube',
 					'class'           => 'iconpicker-icon',
 					'required'        => array(
 						array( 'evl_content_box1_enable', '=', '1' )
@@ -1158,7 +1158,7 @@ if ( true || is_customize_preview() ) {
 					'title'           => esc_attr__( 'Content Box 2 Title', 'evolve' ),
 					'selector'        => '.content-box.content-box-2 h5',
 					'render_callback' => 'evl_content_box2_title',
-					'input_attrs'         => esc_attr__( 'Easy Customizable', 'evolve' ),
+					'input_attrs'     => esc_attr__( 'Easy Customizable', 'evolve' ),
 					'required'        => array(
 						array( 'evl_content_box2_enable', '=', '1' )
 					),
@@ -1169,7 +1169,7 @@ if ( true || is_customize_preview() ) {
 					'title'           => esc_attr__( 'Content Box 2 Icon (Font Awesome)', 'evolve' ),
 					'selector'        => '.content-box.content-box-2 .card-img-top',
 					'render_callback' => 'evl_content_box2_icon',
-					'input_attrs'         => 'fas fa-circle-o-notch',
+					'input_attrs'     => 'fas fa-circle-o-notch',
 					'class'           => 'iconpicker-icon',
 					'required'        => array(
 						array( 'evl_content_box2_enable', '=', '1' )
@@ -1241,7 +1241,7 @@ if ( true || is_customize_preview() ) {
 					'title'           => esc_attr__( 'Content Box 3 Title', 'evolve' ),
 					'selector'        => '.content-box.content-box-3 h5',
 					'render_callback' => 'evl_content_box3_title',
-					'input_attrs'         => esc_attr__( 'WooCommerce Ready', 'evolve' ),
+					'input_attrs'     => esc_attr__( 'WooCommerce Ready', 'evolve' ),
 					'required'        => array(
 						array( 'evl_content_box3_enable', '=', '1' )
 					),
@@ -1252,7 +1252,7 @@ if ( true || is_customize_preview() ) {
 					'title'           => esc_attr__( 'Content Box 3 Icon (Font Awesome)', 'evolve' ),
 					'selector'        => '.content-box.content-box-3 .card-img-top',
 					'render_callback' => 'evl_content_box3_icon',
-					'input_attrs'         => 'fas fa-shopping-basket',
+					'input_attrs'     => 'fas fa-shopping-basket',
 					'class'           => 'iconpicker-icon',
 					'required'        => array(
 						array( 'evl_content_box3_enable', '=', '1' )
@@ -1282,7 +1282,7 @@ if ( true || is_customize_preview() ) {
 					'title'           => esc_attr__( 'Content Box 3 description', 'evolve' ),
 					'selector'        => '.content-box.content-box-3 p',
 					'render_callback' => 'evl_content_box3_desc',
-					'input_attrs'         => esc_attr__( 'Start selling your products within few minutes using the WooCommerce feature', 'evolve' ),
+					'input_attrs'     => esc_attr__( 'Start selling your products within few minutes using the WooCommerce feature', 'evolve' ),
 					'required'        => array(
 						array( 'evl_content_box3_enable', '=', '1' )
 					),
@@ -1293,7 +1293,7 @@ if ( true || is_customize_preview() ) {
 					'title'           => esc_attr__( 'Content Box 3 Button', 'evolve' ),
 					'selector'        => '.content-box.content-box-3 .btn',
 					'render_callback' => 'evl_content_box3_button',
-					'input_attrs'         => sprintf( '<a class="btn btn-sm" href="#">%s</a>', esc_attr( 'Learn more', 'evolve' ) ),
+					'input_attrs'     => sprintf( '<a class="btn btn-sm" href="#">%s</a>', esc_attr( 'Learn more', 'evolve' ) ),
 					'required'        => array(
 						array( 'evl_content_box3_enable', '=', '1' )
 					),
@@ -1324,7 +1324,7 @@ if ( true || is_customize_preview() ) {
 					'title'           => esc_attr__( 'Content Box 4 Title', 'evolve' ),
 					'selector'        => '.content-box.content-box-4 h5',
 					'render_callback' => 'evl_content_box4_title',
-					'input_attrs'         => esc_attr__( 'Prebuilt Demos', 'evolve' ),
+					'input_attrs'     => esc_attr__( 'Prebuilt Demos', 'evolve' ),
 					'required'        => array(
 						array( 'evl_content_box4_enable', '=', '1' )
 					),
@@ -1335,7 +1335,7 @@ if ( true || is_customize_preview() ) {
 					'title'           => esc_attr__( 'Content Box 4 Icon (Font Awesome)', 'evolve' ),
 					'selector'        => '.content-box.content-box-4 .card-img-top',
 					'render_callback' => 'evl_content_box4_icon',
-					'input_attrs'         => 'far fa-object-ungroup',
+					'input_attrs'     => 'far fa-object-ungroup',
 					'class'           => 'iconpicker-icon',
 					'required'        => array(
 						array( 'evl_content_box4_enable', '=', '1' )
@@ -1365,7 +1365,7 @@ if ( true || is_customize_preview() ) {
 					'title'           => esc_attr__( 'Content Box 4 description', 'evolve' ),
 					'selector'        => '.content-box.content-box-4 p',
 					'render_callback' => 'evl_content_box4_desc',
-					'input_attrs'         => esc_attr__( 'Drag & Drop front page builder with many demos just perfect to start your new project', 'evolve' ),
+					'input_attrs'     => esc_attr__( 'Drag & Drop front page builder with many demos just perfect to start your new project', 'evolve' ),
 					'required'        => array(
 						array( 'evl_content_box4_enable', '=', '1' )
 					),
@@ -1376,7 +1376,7 @@ if ( true || is_customize_preview() ) {
 					'title'           => esc_attr__( 'Content Box 4 Button', 'evolve' ),
 					'selector'        => '.content-box.content-box-4 .btn',
 					'render_callback' => 'evl_content_box4_button',
-					'input_attrs'         => sprintf( '<a class="btn btn-sm" href="#">%s</a>', esc_attr( 'Learn more', 'evolve' ) ),
+					'input_attrs'     => sprintf( '<a class="btn btn-sm" href="#">%s</a>', esc_attr( 'Learn more', 'evolve' ) ),
 					'required'        => array(
 						array( 'evl_content_box4_enable', '=', '1' )
 					),
@@ -1389,9 +1389,9 @@ if ( true || is_customize_preview() ) {
 					'indent' => true
 				),
 				array(
-					'id'      => 'evl_content_boxes_title',
-					'type'    => 'text',
-					'title'   => esc_attr__( 'Title of Content Boxes Section', 'evolve' ),
+					'id'          => 'evl_content_boxes_title',
+					'type'        => 'text',
+					'title'       => esc_attr__( 'Title of Content Boxes Section', 'evolve' ),
 					'input_attrs' => esc_attr__( 'evolve comes with amazing features which will blow your mind', 'evolve' ),
 				),
 				array(
@@ -1527,21 +1527,21 @@ if ( true || is_customize_preview() ) {
 		);
 
 		$counter_circle_fields[] = array(
-			'id'       => "{$evolve_shortname}_fp_counter_circle{$i}_percentage",
-			'type'     => 'text',
-			'title'    => sprintf( esc_attr__( 'Counter Circle %d Percentage', 'evolve' ), $i ),
-			'subtitle' => esc_attr__( 'From 1% to 100%', 'evolve' ),
-			'input_attrs'  => $slide_defaults[ ( $i - 1 ) ]['percentage'],
-			'required' => array( array( "{$evolve_shortname}_fp_counter_circle{$i}", '=', '1' ) )
+			'id'          => "{$evolve_shortname}_fp_counter_circle{$i}_percentage",
+			'type'        => 'text',
+			'title'       => sprintf( esc_attr__( 'Counter Circle %d Percentage', 'evolve' ), $i ),
+			'subtitle'    => esc_attr__( 'From 1% to 100%', 'evolve' ),
+			'input_attrs' => $slide_defaults[ ( $i - 1 ) ]['percentage'],
+			'required'    => array( array( "{$evolve_shortname}_fp_counter_circle{$i}", '=', '1' ) )
 		);
 
 		$counter_circle_fields[] = array(
-			'id'       => "{$evolve_shortname}_fp_counter_circle{$i}_text",
-			'type'     => 'text',
-			'title'    => sprintf( esc_attr__( 'Counter Circle %d Text', 'evolve' ), $i ),
-			'subtitle' => esc_attr__( 'Insert text for counter circle box, keep it short', 'evolve' ),
-			'input_attrs'  => $slide_defaults[ ( $i - 1 ) ]['text'],
-			'required' => array( array( "{$evolve_shortname}_fp_counter_circle{$i}", '=', '1' ) )
+			'id'          => "{$evolve_shortname}_fp_counter_circle{$i}_text",
+			'type'        => 'text',
+			'title'       => sprintf( esc_attr__( 'Counter Circle %d Text', 'evolve' ), $i ),
+			'subtitle'    => esc_attr__( 'Insert text for counter circle box, keep it short', 'evolve' ),
+			'input_attrs' => $slide_defaults[ ( $i - 1 ) ]['text'],
+			'required'    => array( array( "{$evolve_shortname}_fp_counter_circle{$i}", '=', '1' ) )
 		);
 
 		$counter_circle_fields[] = array(
@@ -1602,9 +1602,9 @@ if ( true || is_customize_preview() ) {
 					'indent' => true
 				),
 				array(
-					'id'      => 'evl_counter_circle_title',
-					'type'    => 'text',
-					'title'   => esc_attr__( 'Title of Counter Circle Section', 'evolve' ),
+					'id'          => 'evl_counter_circle_title',
+					'type'        => 'text',
+					'title'       => esc_attr__( 'Title of Counter Circle Section', 'evolve' ),
 					'input_attrs' => esc_attr__( 'Cooperation with many great brands is our mission', 'evolve' ),
 				),
 				array(
@@ -1808,9 +1808,9 @@ if ( true || is_customize_preview() ) {
 					'indent' => true
 				),
 				array(
-					'id'      => 'evl_testimonials_title',
-					'type'    => 'text',
-					'title'   => esc_attr__( 'Title of Testimonials Section', 'evolve' ),
+					'id'          => 'evl_testimonials_title',
+					'type'        => 'text',
+					'title'       => esc_attr__( 'Title of Testimonials Section', 'evolve' ),
 					'input_attrs' => esc_attr__( 'Why people love our themes', 'evolve' ),
 				),
 				array(
@@ -1938,9 +1938,9 @@ if ( true || is_customize_preview() ) {
 						'indent' => true
 					),
 					array(
-						'id'      => 'evl_woo_product_title',
-						'type'    => 'text',
-						'title'   => esc_attr__( 'Title of WooCommerce Product Section', 'evolve' ),
+						'id'          => 'evl_woo_product_title',
+						'type'        => 'text',
+						'title'       => esc_attr__( 'Title of WooCommerce Product Section', 'evolve' ),
 						'input_attrs' => esc_attr__( 'Trending Products In Our Store', 'evolve' ),
 					),
 					array(
@@ -2045,11 +2045,11 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'id'       => 'evl_fp_custom_content_editor',
-					'type'     => 'editor',
-					'title'    => esc_attr__( 'Custom Content', 'evolve' ),
-					'subtitle' => esc_attr__( 'Add Custom Content to Front Page', 'evolve' ),
-					'input_attrs'  => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+					'id'          => 'evl_fp_custom_content_editor',
+					'type'        => 'editor',
+					'title'       => esc_attr__( 'Custom Content', 'evolve' ),
+					'subtitle'    => esc_attr__( 'Add Custom Content to Front Page', 'evolve' ),
+					'input_attrs' => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
 				),
 				// Section settings
 				array(
@@ -2059,9 +2059,9 @@ if ( true || is_customize_preview() ) {
 					'indent' => true
 				),
 				array(
-					'id'      => 'evl_custom_content_title',
-					'type'    => 'text',
-					'title'   => esc_attr__( 'Title of Custom Content Section', 'evolve' ),
+					'id'          => 'evl_custom_content_title',
+					'type'        => 'text',
+					'title'       => esc_attr__( 'Title of Custom Content Section', 'evolve' ),
 					'input_attrs' => esc_attr__( 'Insert a custom title', 'evolve' ),
 				),
 				array(
@@ -4186,12 +4186,12 @@ if ( true || is_customize_preview() ) {
 				),
 			),
 			array(
-				'id'       => 'evl_rss_feed',
-				'type'     => 'text',
-				'title'    => esc_attr__( 'RSS Feed', 'evolve' ),
-				'input_attrs'  => $evolve_rss_url,
-				'subtitle' => sprintf( esc_attr__( 'Insert custom RSS Feed URL, e.g. %shttp://feeds.feedburner.com/Example%s', 'evolve' ), '<strong>', '</strong>' ),
-				'required' => array(
+				'id'          => 'evl_rss_feed',
+				'type'        => 'text',
+				'title'       => esc_attr__( 'RSS Feed', 'evolve' ),
+				'input_attrs' => $evolve_rss_url,
+				'subtitle'    => sprintf( esc_attr__( 'Insert custom RSS Feed URL, e.g. %shttp://feeds.feedburner.com/Example%s', 'evolve' ), '<strong>', '</strong>' ),
+				'required'    => array(
 					array( 'evl_social_links', '=', '1' )
 				),
 			),
@@ -4340,25 +4340,26 @@ if ( true || is_customize_preview() ) {
 			'required' => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
 			"default"  => array( 'url' => "{$evolve_imagepathfolder}bootstrap-slider/{$i}.jpg" )
 		);
-		
-		//binmaocom debug
+
 		$fields[] = array(
-			"title"    => sprintf( esc_attr__( 'Slide %d Title', 'evolve' ), $i ),
-			"id"       => "{$evolve_shortname}_bootstrap_slide{$i}_title",
-			"type"     => "text",
-			'required' => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
-			"default"  => $slide_defaults[ ( $i - 1 ) ]['title'],
+			"title"           => sprintf( esc_attr__( 'Slide %d Title', 'evolve' ), $i ),
+			"id"              => "{$evolve_shortname}_bootstrap_slide{$i}_title",
+			"type"            => "text",
+			'required'        => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
+			"default"         => $slide_defaults[ ( $i - 1 ) ]['title'],
 			'selector'        => "#bootstrap-slider .item-{$i} h5",
 			'render_callback' => "{$evolve_shortname}_bootstrap_slide{$i}_title",
 		);
 
 		$fields[] = array(
-			"title"    => sprintf( esc_attr__( 'Slide %d Description', 'evolve' ), $i ),
-			"id"       => "{$evolve_shortname}_bootstrap_slide{$i}_desc",
-			"type"     => "textarea",
-			"rows"     => 5,
-			'required' => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
-			"default"  => $slide_defaults[ ( $i - 1 ) ]['description']
+			"title"           => sprintf( esc_attr__( 'Slide %d Description', 'evolve' ), $i ),
+			"id"              => "{$evolve_shortname}_bootstrap_slide{$i}_desc",
+			"type"            => "textarea",
+			"rows"            => 5,
+			'required'        => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
+			"default"         => $slide_defaults[ ( $i - 1 ) ]['description'],
+			'selector'        => "#bootstrap-slider .item-{$i} .carousel-caption p",
+			'render_callback' => "{$evolve_shortname}_bootstrap_slide{$i}_desc"
 		);
 
 		$fields[] = array(

@@ -7,7 +7,7 @@
  */
 if ( ! bbp_is_single_forum() ) : ?>
 
-    <div class="bbpress-forums">
+    <div id="bbpress-forums">
 
 <?php endif;
 
@@ -17,7 +17,7 @@ if ( bbp_current_user_can_access_create_topic_form() ) : ?>
 
 	<?php do_action( 'bbp_theme_before_topic_form' ); ?>
 
-    <h3 id="reply-title">
+    <h3 id="reply-title" class="mb-3">
 
 		<?php if ( bbp_is_topic_edit() ) {
 			printf( __( 'Now editing %s', 'evolve' ), bbp_get_topic_title() );
@@ -30,6 +30,18 @@ if ( bbp_current_user_can_access_create_topic_form() ) : ?>
     <form id="new-post" name="new-post" method="post" action="<?php the_permalink(); ?>">
 
 		<?php do_action( 'bbp_theme_before_topic_form_notices' );
+
+		if ( ! bbp_is_topic_edit() && bbp_is_forum_closed() ) : ?>
+
+            <p class="alert alert-warning" role="alert">
+
+				<?php _e( 'This forum is marked as closed to new topics, however your posting capabilities still allow you to do so', 'evolve' ); ?>
+
+            </p>
+
+		<?php endif;
+
+		do_action( 'bbp_template_notices' );
 
 		bbp_get_template_part( 'form', 'anonymous' );
 
@@ -73,6 +85,14 @@ if ( bbp_current_user_can_access_create_topic_form() ) : ?>
 					<?php bbp_allowed_tags(); ?>
 
                 </code>
+            </p>
+
+		<?php endif;
+
+		if ( current_user_can( 'unfiltered_html' ) ) : ?>
+
+            <p class="alert alert-warning" role="alert">
+				<?php _e( 'Your account has the ability to post unrestricted HTML content', 'evolve' ); ?>
             </p>
 
 		<?php endif;
@@ -162,16 +182,14 @@ if ( bbp_current_user_can_access_create_topic_form() ) : ?>
 			do_action( 'bbp_theme_before_topic_form_revisions' ); ?>
 
             <p class="notify custom-control custom-checkbox">
-                <legend>
-                    <input class="custom-control-input" name="bbp_log_topic_edit" id="bbp_log_topic_edit"
-                           type="checkbox"
-                           value="1" <?php bbp_form_topic_log_edit(); ?> tabindex="<?php bbp_tab_index(); ?>"/>
-                    <label class="custom-control-label" for="bbp_log_topic_edit">
+                <input class="custom-control-input" name="bbp_log_topic_edit" id="bbp_log_topic_edit"
+                       type="checkbox"
+                       value="1" <?php bbp_form_topic_log_edit(); ?> tabindex="<?php bbp_tab_index(); ?>"/>
+                <label class="custom-control-label" for="bbp_log_topic_edit">
 
-						<?php esc_html_e( 'Keep a log of this edit', 'evolve' ); ?>
+					<?php esc_html_e( 'Keep a log of this edit', 'evolve' ); ?>
 
-                    </label>
-                </legend>
+                </label>
             </p>
             <p>
                 <label for="bbp_topic_edit_reason">
@@ -275,6 +293,6 @@ if ( bbp_current_user_can_access_create_topic_form() ) : ?>
 
 <?php if ( ! bbp_is_single_forum() ) : ?>
 
-    </div><!-- .bbpress-forums -->
+    </div><!-- #bbpress-forums -->
 
 <?php endif;
