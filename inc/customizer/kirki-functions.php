@@ -155,7 +155,7 @@ class Evolve_Add_some_thing_to_Customize {
 				if(value == false){
 					status = 'INACTIVE';
 				}
-				jQuery('li.kirki-sortable-item[data-value="bootstrap_slider"]').html('<i class="dashicons dashicons-menu"></i><i class="dashicons dashicons-visibility visibility"></i>Bootstrap Slider (' + status + ')');
+				jQuery('li.kirki-sortable-item[data-value="bootstrap_slider"] span').html('Bootstrap Slider (' + status + ')');
 			});
 		});
 		wp.customize( 'evl_parallax_slider_support', function( setting ) {
@@ -165,7 +165,7 @@ class Evolve_Add_some_thing_to_Customize {
 				if(value == false){
 					status = 'INACTIVE';
 				}
-				jQuery('li.kirki-sortable-item[data-value="parallax_slider"]').html('<i class="dashicons dashicons-menu"></i><i class="dashicons dashicons-visibility visibility"></i>Parallax Slider (' + status + ')');
+				jQuery('li.kirki-sortable-item[data-value="parallax_slider"] span').html('Parallax Slider (' + status + ')');
 			});
 		});
 		wp.customize( 'evl_carousel_slider', function( setting ) {
@@ -175,7 +175,7 @@ class Evolve_Add_some_thing_to_Customize {
 				if(value == false){
 					status = 'INACTIVE';
 				}
-				jQuery('li.kirki-sortable-item[data-value="posts_slider"]').html('<i class="dashicons dashicons-menu"></i><i class="dashicons dashicons-visibility visibility"></i>Posts Slider (' + status + ')');
+				jQuery('li.kirki-sortable-item[data-value="posts_slider"] span').html('Posts Slider (' + status + ')');
 			});
 		});
 		
