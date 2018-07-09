@@ -51,7 +51,8 @@ Table of Contents:
     -- Counter Circle
 - Back To Top Button (Scroll to Top)
 - Social Media/Share This Links
-- bbPress / BuddyPress
+- bbPress
+    -- bbPress Widgets
 - WooCommerce
     -- General Definitions
     -- Product Catalog
@@ -68,7 +69,6 @@ Table of Contents:
     -- Min-Width 768px - Desktop
     -- Max-Width 767px - Tablet
     -- Max-Width 575px - Phone
-
 
     Bootstrap Framework CSS
     ======================================= */
@@ -1470,9 +1470,7 @@ thead th {
 .widget .button,
 button,
 input#submit,
-input[type=submit],
-#buddypress input[type=submit],
-#buddypress .button {
+input[type=submit] {
     -webkit-box-shadow: 0 2px 0 #1d6e72;
     box-shadow: 0 2px 0 #1d6e72;
     border: 1px solid #0bb697;
@@ -1624,7 +1622,7 @@ select:not([size]):not([multiple]) {
     Front Page Section
     ======================================= */
 
-h4.section_title {
+.section-title {
     width: 100%;
     margin-bottom: 3rem;
 }
@@ -1896,7 +1894,7 @@ body.home .t4p-counters-circle {
 }
 
 /*
-    bbPress / BuddyPress
+    bbPress
     ======================================= */
 
 .bbpress .post-content {

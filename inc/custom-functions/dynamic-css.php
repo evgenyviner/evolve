@@ -122,8 +122,8 @@ $evolve_shortcode_button_border_color                = evolve_theme_mod( 'evl_sh
 $evolve_shortcode_button_border_hover_color          = evolve_theme_mod( 'evl_shortcode_button_border_hover_color', '#313a43' );
 $evolve_shortcode_button_border_width                = evolve_theme_mod( 'evl_shortcode_button_border_width', '1' );
 $evolve_shortcode_button_shadow                      = evolve_theme_mod( 'evl_shortcode_button_shadow', '1' );
-$evolve_button_classes                               = " .btn, a.btn, button, .button, .widget .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button, .post-content a.btn, .woocommerce .button";
-$evolve_button_hover_classes                         = " .btn:hover, a.btn:hover, button:hover, .button:hover, .widget .button:hover, input#submit:hover, input[type=submit]:hover, #buddypress input[type=submit]:hover, #buddypress .button, #buddypress .button:hover, #buddypress a.button, #buddypress a.button:hover";
+$evolve_button_classes                               = " .btn, a.btn, button, .button, .widget .button, input#submit, input[type=submit], .post-content a.btn, .woocommerce .button";
+$evolve_button_hover_classes                         = " .btn:hover, a.btn:hover, button:hover, .button:hover, .widget .button:hover, input#submit:hover, input[type=submit]:hover";
 
 /*
     Post Format
@@ -406,19 +406,19 @@ $evolve_css_data .= evolve_print_fonts( 'evl_content_boxes_description_font', ' 
     Content Boxes Title Section
     --------------------------------------- */
 
-$evolve_css_data .= evolve_print_fonts( 'evl_content_boxes_title_alignment', ' h4.content_box_section_title' );
+$evolve_css_data .= evolve_print_fonts( 'evl_content_boxes_title_alignment', ' h3.content-box-section-title' );
 
 /*
     Testimonials Title Section
     --------------------------------------- */
 
-$evolve_css_data .= evolve_print_fonts( 'evl_testimonials_title_alignment', ' h4.testimonials_section_title' );
+$evolve_css_data .= evolve_print_fonts( 'evl_testimonials_title_alignment', ' h3.testimonials-section-title' );
 
 /*
     Counters Circle Title Section
     --------------------------------------- */
 
-$evolve_css_data .= evolve_print_fonts( 'evl_counter_circle_title_alignment', ' h4.counter_circle_section_title' );
+$evolve_css_data .= evolve_print_fonts( 'evl_counter_circle_title_alignment', ' h3.counter-circle-section-title' );
 
 $evolve_css_data .= ' .header-search .form-control, .header-search .form-control:focus, .header-search .form-control::placeholder { color: ' . $evolve_menu_font['color'] . '; }';
 
@@ -427,7 +427,7 @@ $evolve_css_data .= ' .header-search .form-control, .header-search .form-control
     --------------------------------------- */
 
 if ( class_exists( 'Woocommerce' ) ) :
-	$evolve_css_data .= evolve_print_fonts( 'evl_woo_product_title_alignment', ' h4.woo_product_section_title' );
+	$evolve_css_data .= evolve_print_fonts( 'evl_woo_product_title_alignment', ' h3.woo-product-section-title' );
 endif;
 
 /*

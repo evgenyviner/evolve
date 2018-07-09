@@ -1340,7 +1340,7 @@ function evolve_posts_slider() { ?>
                             <div class="col-lg-6 p-0">
 
 								<?php if ( has_post_thumbnail() ) {
-									the_post_thumbnail( 'evolve - slider - thumbnail', array( 'class' => 'd - block w - 100' ) );
+									the_post_thumbnail( 'evolve-slider-thumbnail', array( 'class' => 'd-block w-100' ) );
 								} else if ( $image = evolve_get_first_image() ) {
 									if ( $image ):
 										the_permalink();
@@ -1349,7 +1349,7 @@ function evolve_posts_slider() { ?>
 										echo '" />';
 									endif;
 								} else {
-									echo '<img class="d-block w-100" src = "' . get_template_directory_uri() . '/assets/images/no-thumbnail-slider.jpg" alt = "';
+									echo '<img class="d-block w-100" src="' . get_template_directory_uri() . '/assets/images/no-thumbnail-slider.jpg" alt="';
 									the_title();
 									echo '" />';
 								} ?>
@@ -1369,14 +1369,14 @@ function evolve_posts_slider() { ?>
         </div>
 
 		<?php if ( $slides > 1 ) {
-			echo "<a class='carousel - control - prev' href='#posts-slider' role='button' data-slide='prev'>
-	                                                 < span class='carousel-control-prev-icon' aria - hidden = 'true' ></span >
-                    <span class='sr-only' > " . __( 'Previous', 'evolve' ) . "</span >
-                </a >
-                <a class='carousel-control-next' href = '#posts-slider' role = 'button' data - slide = 'next' >
-                <span class='carousel-control-next-icon' aria - hidden = 'true' ></span >
-                <span class='sr-only' > " . __( 'Next', 'evolve' ) . "</span >
-                </a > ";
+			echo "<a class='carousel-control-prev' href='#posts-slider' role='button' data-slide='prev'>
+	              <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                    <span class='sr-only'> " . __( 'Previous', 'evolve' ) . "</span>
+                </a>
+                <a class='carousel-control-next' href='#posts-slider' role='button' data-slide='next'>
+                <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                <span class='sr-only'>" . __( 'Next', 'evolve' ) . "</span>
+                </a>";
 		} ?>
 
     </div>

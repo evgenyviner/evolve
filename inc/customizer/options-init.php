@@ -547,8 +547,8 @@ foreach ( $options_pages_obj as $page ) {
 if ( true || is_customize_preview() ) {
 
 	// Get general button classes
-	$evolve_button_classes       = ".btn, a.btn, button, .button, .widget .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button, .post-content a.btn, .woocommerce .button";
-	$evolve_button_hover_classes = ".btn:hover, a.btn:hover, button:hover, .button:hover, .widget .button:hover, input#submit:hover, input[type=submit]:hover, #buddypress input[type=submit]:hover, #buddypress .button, #buddypress .button:hover, #buddypress a.button, #buddypress a.button:hover";
+	$evolve_button_classes       = ".btn, a.btn, button, .button, .widget .button, input#submit, input[type=submit], .post-content a.btn, .woocommerce .button";
+	$evolve_button_hover_classes = ".btn:hover, a.btn:hover, button:hover, .button:hover, .widget .button:hover, input#submit:hover, input[type=submit]:hover";
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 		'id'      => 'evl-theme-links-main-tab',
@@ -1039,7 +1039,7 @@ if ( true || is_customize_preview() ) {
 					'compiler'  => true,
 					'type'      => 'color',
 					'title'     => esc_attr__( 'Content Boxes Background Color', 'evolve' ),
-					'default'   => '#efefef',
+					'default'   => '#f9f9f9',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
