@@ -359,7 +359,8 @@ function evolve_footer_hooks() { ?>
             function () {
                 $jx(this).find("span.edit-comment").removeClass('fadein');
             }
-        );</script>
+        );
+    </script>
 	<?php
 	global $evolve_options, $evolve_slider_position, $evolve_front_elements_header_area, $evolve_sticky_header, $evolve_page_ID;
 	$evolve_header_pos = '';

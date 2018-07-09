@@ -7,18 +7,9 @@
  */
 ?>
 
-<div class="bbpress-forums">
-    <div class="search-page-search-form">
-        <h2><?php esc_html_e( 'Need a new search?', 'evolve' ); ?></h2>
-        <p><?php esc_html_e( 'If you didn\'t find what you were looking for, try a new search!', 'evolve' ); ?></p>
-        <div class="search-full-width">
+<div id="bbpress-forums">
 
-			<?php bbp_get_template_part( 'form', 'search' ); ?>
-
-        </div>
-    </div>
-
-	<?php bbp_set_query_name( 'bbp_search' );
+	<?php bbp_set_query_name( bbp_get_search_rewrite_id() );
 
 	do_action( 'bbp_template_before_search' );
 
@@ -34,9 +25,15 @@
 
 		bbp_get_template_part( 'feedback', 'no-search' );
 
-	else :
+	else : ?>
 
-	endif;
+        <div class="search-full-width">
+
+			<?php bbp_get_template_part( 'form', 'search' ); ?>
+
+        </div>
+
+	<?php endif;
 
 	do_action( 'bbp_template_after_search_results' ); ?>
 

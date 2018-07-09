@@ -11,33 +11,31 @@ do_action( 'bbp_template_before_lead_topic' ); ?>
         <li class="row bbp-header">
             <div class="col bbp-topic-title">
 
-				<?php bbp_topic_author_link( array( 'type' => '', 'show_role' => true ) );
+				<?php if ( bbp_is_topic_open() ) {
+					echo '<span class="badge badge-pill badge-success mr-2">' . __( 'Open', 'evolve' ) . '</span>';
+				} else {
+					echo '<span class="badge badge-pill badge-warning mr-2">' . __( 'Closed', 'evolve' ) . '</span>';
+				}
+				if ( bbp_is_topic_sticky() ) {
+					echo '<span class="badge badge-pill badge-secondary">' . __( 'Pinned', 'evolve' ) . '</span>';
+				} ?>
 
-				if ( bbp_is_user_keymaster() ) :
-
-					do_action( 'bbp_theme_before_topic_author_admin_details' );
-
-					echo '&nbsp;&nbsp;';
-					bbp_author_ip( bbp_get_topic_id() );
-
-					do_action( 'bbp_theme_after_topic_author_admin_details' );
-
-				endif; ?>
 
             </div><!-- .bbp-topic-title -->
             <div class="col post-meta m-0 text-right bbp-topic-content">
 
-				<?php bbp_user_subscribe_link( array(
-					'before'      => ' ',
-					'subscribe'   => evolve_get_svg( 'rss' ) . esc_html__( 'Subscribe', 'evolve' ),
-					'unsubscribe' => evolve_get_svg( 'ok' ) . esc_html__( 'Subscribed', 'evolve' )
-				) );
-
+				<?php
 				bbp_user_favorites_link( array(
-					'before'    => '<span class="ml-3">',
+					'before'    => '<span class="mr-3">',
 					'after'     => '</span>',
 					'favorite'  => evolve_get_svg( 'heart' ) . esc_html__( 'Favorite', 'evolve' ),
 					'favorited' => evolve_get_svg( 'ok' ) . esc_html__( 'Favorited', 'evolve' )
+				) );
+
+				bbp_user_subscribe_link( array(
+					'before'      => ' ',
+					'subscribe'   => evolve_get_svg( 'rss' ) . esc_html__( 'Subscribe', 'evolve' ),
+					'unsubscribe' => evolve_get_svg( 'ok' ) . esc_html__( 'Subscribed', 'evolve' )
 				) ); ?>
 
             </div><!-- .bbp-topic-content -->
@@ -51,9 +49,31 @@ do_action( 'bbp_template_before_lead_topic' ); ?>
 
 						<?php do_action( 'bbp_theme_before_topic_author_details' );
 
-						echo '<span class="fn">';
+						echo '<b class="fn">';
 						bbp_topic_author_link( array( 'type' => 'name', 'show_role' => false ) );
-						echo '</span>';
+
+						if ( user_can( bbp_get_topic_author_id(), 'moderate' ) ) {
+							echo '<span class="badge badge-pill badge-primary ml-2">';
+						} else {
+							echo '<span class="badge badge-pill badge-light ml-2">';
+						}
+						bbp_topic_author_link( array( 'type' => '', 'show_role' => true ) );
+						echo '</span></b>';
+
+						if ( bbp_is_user_keymaster() ) :
+
+							do_action( 'bbp_theme_before_topic_author_admin_details' );
+
+							echo '&nbsp;&nbsp;';
+							bbp_author_ip( $args = array(
+								'post_id' => bbp_get_topic_id(),
+								'before'  => '<span class="comment-meta">(',
+								'after'   => ')</span>'
+							) );
+
+							do_action( 'bbp_theme_after_topic_author_admin_details' );
+
+						endif;
 
 						do_action( 'bbp_theme_after_topic_author_details' ); ?>
 

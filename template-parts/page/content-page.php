@@ -8,7 +8,12 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php the_title( '<h1 class="post-title">', '</h1>' );
+	<?php
+
+	if ( class_exists( 'bbPress' ) && ( bbp_is_reply_edit() || bbp_is_topic_edit() ) ) {
+	} else {
+		the_title( '<h1 class="post-title">', '</h1>' );
+	}
 
 	if ( evolve_theme_mod( 'evl_edit_post', '0' ) == "1" ) {
 		if ( current_user_can( 'edit_post', $post->ID ) ):

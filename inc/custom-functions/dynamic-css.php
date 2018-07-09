@@ -122,8 +122,8 @@ $evolve_shortcode_button_border_color                = evolve_theme_mod( 'evl_sh
 $evolve_shortcode_button_border_hover_color          = evolve_theme_mod( 'evl_shortcode_button_border_hover_color', '#313a43' );
 $evolve_shortcode_button_border_width                = evolve_theme_mod( 'evl_shortcode_button_border_width', '1' );
 $evolve_shortcode_button_shadow                      = evolve_theme_mod( 'evl_shortcode_button_shadow', '1' );
-$evolve_button_classes                               = " .btn, a.btn, button, .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button, .post-content a.btn, .woocommerce .button";
-$evolve_button_hover_classes                         = " .btn:hover, a.btn:hover, button:hover, .button:hover, input#submit:hover, input[type=submit]:hover, #buddypress input[type=submit]:hover, #buddypress .button, #buddypress .button:hover, #buddypress a.button, #buddypress a.button:hover";
+$evolve_button_classes                               = " .btn, a.btn, button, .button, .widget .button, input#submit, input[type=submit], #buddypress input[type=submit], #buddypress .button, #buddypress a.button, .post-content a.btn, .woocommerce .button";
+$evolve_button_hover_classes                         = " .btn:hover, a.btn:hover, button:hover, .button:hover, .widget .button:hover, input#submit:hover, input[type=submit]:hover, #buddypress input[type=submit]:hover, #buddypress .button, #buddypress .button:hover, #buddypress a.button, #buddypress a.button:hover";
 
 /*
     Post Format
@@ -859,7 +859,7 @@ if ( ( is_front_page() && is_page() ) || is_home() ) {
 	--------------------------------------- */
 
 if ( class_exists( 'bbPress' ) && ( is_bbpress() ) ) {
-	$evolve_css_data .= ' .bbpress-forums .bbp-body ul.sticky { border-left: 2px solid ' . $evolve_primary_link . '; }';
+	$evolve_css_data .= ' #bbpress-forums .bbp-body ul.sticky { border-left: 2px solid ' . $evolve_primary_link . '; }';
 }
 
 /*

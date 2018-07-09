@@ -29,7 +29,6 @@ do_action( 'bbp_template_before_forums_loop' ); ?>
 			endwhile; ?>
 
         </li><!-- .bbp-body -->
-    </ul><!-- .forums-directory -->
+    </ul><!-- .bbp-forums -->
 
-<?php
-do_action( 'bbp_template_after_forums_loop' );
+<?php do_action( 'bbp_template_after_forums_loop' );

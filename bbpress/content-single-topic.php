@@ -7,7 +7,7 @@
  */
 ?>
 
-<div class="bbpress-forums">
+<div id="bbpress-forums">
 
 	<?php if ( bbp_allow_search() ) : ?>
 
@@ -53,4 +53,4 @@
 
 	do_action( 'bbp_template_after_single_topic' ); ?>
 
-</div><!-- .bbpress-forums -->
+</div><!-- #bbpress-forums -->

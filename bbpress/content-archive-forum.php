@@ -7,7 +7,7 @@
  */
 ?>
 
-<div class="bbpress-forums">
+<div id="bbpress-forums">
 
 	<?php bbp_forum_subscription_link( array(
 		'before'      => '<div class="post-meta text-right mb-4">',
