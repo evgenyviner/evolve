@@ -264,7 +264,10 @@ class Evolve_Fix_Rd {
 					$value_temp['partial_refresh'] = array(
 						$value['id'] => array(
 							'selector'        => $value['selector'],
-							'render_callback' => array( 'EvolveRefresh', $value['render_callback'] )
+							'render_callback' => 
+							function( $value ) {
+								return evolve_get_render_callback( $value->id );
+							}
 						)
 					);
 				}
@@ -4337,15 +4340,16 @@ if ( true || is_customize_preview() ) {
 			'required' => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
 			"default"  => array( 'url' => "{$evolve_imagepathfolder}bootstrap-slider/{$i}.jpg" )
 		);
-
+		
+		//binmaocom debug
 		$fields[] = array(
 			"title"    => sprintf( esc_attr__( 'Slide %d Title', 'evolve' ), $i ),
 			"id"       => "{$evolve_shortname}_bootstrap_slide{$i}_title",
 			"type"     => "text",
 			'required' => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
 			"default"  => $slide_defaults[ ( $i - 1 ) ]['title'],
-			//	'selector'        => "#bootstrap-slider .carousel-caption .item-{$i} h5",
-			//	'render_callback' => "{$evolve_shortname}_bootstrap_slide{$i}_title",
+			'selector'        => "#bootstrap-slider .item-{$i} h5",
+			'render_callback' => "{$evolve_shortname}_bootstrap_slide{$i}_title",
 		);
 
 		$fields[] = array(
@@ -4366,7 +4370,6 @@ if ( true || is_customize_preview() ) {
 			"default"  => '<a class="btn d-none d-sm-inline-block" href="#">' . esc_attr__( 'Learn more', 'evolve' ) . '</a>',
 		);
 	}
-
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-bootstrap-slider-main-tab',
