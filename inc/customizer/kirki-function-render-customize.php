@@ -2,16 +2,59 @@
 function evolve_get_render_callback( $option_name ) {
 
 	/*
-		Bootstrap Slider
+		Header
 		======================================= */
+
+	if ( $option_name['evl_sticky_header'] ) {
+		return get_theme_mod( $option_name, 1 );
+	}
+	if ( $option_name['evl_header_logo'] ) {
+		return '<img src="' . get_theme_mod( $option_name, '' ) . '" />';
+	}
+
+	/*
+		Footer
+		======================================= */
+
+	if ( $option_name['evl_footer_content'] ) {
+		return get_theme_mod( $option_name, '' );
+	}
+
+	/*
+		Components
+		======================================= */
+
+	/*
+		-- Breadcrumbs
+		--------------------------------------- */
+
+	if ( $option_name['evl_breadcrumbs'] ) {
+		return get_theme_mod( $option_name, 1 );
+	}
+
+	/*
+		-- Bootstrap Slider
+		--------------------------------------- */
 
 	$check = preg_match( '/^evl_bootstrap_slide._title$/', $option_name );
 	if ( $check ) {
-		return get_theme_mod( $option_name, 0 );
+		return get_theme_mod( $option_name, '' );
 	}
 	$check = preg_match( '/^evl_bootstrap_slide._desc$/', $option_name );
 	if ( $check ) {
-		return get_theme_mod( $option_name, 0 );
+		return get_theme_mod( $option_name, '' );
+	}
+	$check = preg_match( '/^evl_bootstrap_slide._button$/', $option_name );
+	if ( $check ) {
+		return get_theme_mod( $option_name, '' );
+	}
+
+	/*
+	-- Search Form
+	--------------------------------------- */
+
+	if ( $option_name['evl_searchbox'] ) {
+		return get_theme_mod( $option_name, 1 );
 	}
 
 	/*
@@ -22,8 +65,7 @@ function evolve_get_render_callback( $option_name ) {
 		-- Front Page Content Boxes
 		--------------------------------------- */
 
-	$check = preg_match( '/^evl_content_boxes_title$/', $option_name );
-	if ( $check ) {
+	if ( $option_name['evl_content_boxes_title'] ) {
 		return get_theme_mod( $option_name, '' );
 	}
 
@@ -48,9 +90,30 @@ function evolve_get_render_callback( $option_name ) {
 		Social Media Links
 		======================================= */
 
-	$check = preg_match( '/^evl_social_links$/', $option_name );
-	if ( $check ) {
+	if ( $option_name['evl_social_links'] ) {
 		return get_theme_mod( $option_name, 0 );
 	}
 
+	/*
+		WooCommerce
+		======================================= */
+
+	if ( $option_name['evl_woocommerce_evolve_ordering'] ) {
+		return get_theme_mod( $option_name, 0 );
+	}
+	if ( $option_name['evl_woocommerce_enable_order_notes'] ) {
+		return get_theme_mod( $option_name, 0 );
+	}
+	if ( $option_name['evl_woocommerce_acc_link_main_nav'] ) {
+		return get_theme_mod( $option_name, 0 );
+	}
+	if ( $option_name['evl_woocommerce_cart_link_main_nav'] ) {
+		return get_theme_mod( $option_name, 0 );
+	}
+	if ( $option_name['evl_woo_acc_msg_1'] ) {
+		return get_theme_mod( $option_name, '' );
+	}
+	if ( $option_name['evl_woo_acc_msg_2'] ) {
+		return get_theme_mod( $option_name, '' );
+	}
 }

@@ -658,13 +658,13 @@ if ( true || is_customize_preview() ) {
 					'title'     => esc_attr__( 'Content Top & Bottom Padding', 'evolve' ),
 					'subtitle'  => esc_attr__( 'Enter the page Content Top & Bottom Padding', 'evolve' ),
 					'type'      => 'spacing',
-					'units'     => array( 'px', 'rem' ),
+					'units'     => array( 'px', 'em' ),
 					'left'      => false,
 					'right'     => false,
 					'default'   => array(
-						'padding-top'    => '2rem',
+						'padding-top'    => '30px',
 						'padding-bottom' => '0',
-						'units'          => 'rem'
+						'units'          => 'px'
 					),
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -965,6 +965,7 @@ if ( true || is_customize_preview() ) {
 						'padding-left'   => '0',
 						'units'          => 'px'
 					),
+					'selector'  => '.t4p-fp-blog .container',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -975,41 +976,65 @@ if ( true || is_customize_preview() ) {
 					),
 				),
 				array(
-					'id'       => 'evl_blog_section_background_image',
-					'title'    => esc_attr__( 'Section Background Image', 'evolve' ),
-					'subtitle' => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
-					'type'     => 'media',
-					'url'      => true
+					'id'        => 'evl_blog_section_background_image',
+					'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
+					'type'      => 'media',
+					'url'       => true,
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.t4p-fp-blog',
+							'function' => 'css',
+							'property' => 'background-image'
+						)
+					)
 				),
 				array(
-					'id'       => 'evl_blog_section_image',
-					'title'    => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
-					'subtitle' => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
-					'type'     => 'select',
-					'options'  => array(
+					'id'        => 'evl_blog_section_image',
+					'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'cover'   => esc_attr__( 'Cover', 'evolve' ),
 						'contain' => esc_attr__( 'Contain', 'evolve' ),
 						'none'    => esc_attr__( 'None', 'evolve' ),
 					),
-					'default'  => 'cover'
+					'default'   => 'cover',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.t4p-fp-blog',
+							'function' => 'css',
+							'property' => 'background-size'
+						)
+					)
 				),
 				array(
-					'id'      => 'evl_blog_section_image_background_repeat',
-					'title'   => esc_attr__( 'Background Repeat', 'evolve' ),
-					'type'    => 'select',
-					'options' => array(
+					'id'        => 'evl_blog_section_image_background_repeat',
+					'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
 						'repeat'    => esc_attr__( 'repeat', 'evolve' ),
 						'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
 						'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
 					),
-					'default' => 'no-repeat'
+					'default'   => 'no-repeat',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.t4p-fp-blog',
+							'function' => 'css',
+							'property' => 'background-repeat'
+						)
+					)
 				),
 				array(
-					'id'      => 'evl_blog_section_image_background_position',
-					'title'   => esc_attr__( 'Background Position', 'evolve' ),
-					'type'    => 'select',
-					'options' => array(
+					'id'        => 'evl_blog_section_image_background_position',
+					'title'     => esc_attr__( 'Background Position', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'center top'    => esc_attr__( 'center top', 'evolve' ),
 						'center center' => esc_attr__( 'center center', 'evolve' ),
 						'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
@@ -1020,15 +1045,31 @@ if ( true || is_customize_preview() ) {
 						'right center'  => esc_attr__( 'right center', 'evolve' ),
 						'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
 					),
-					'default' => 'center top'
+					'default'   => 'center top',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.t4p-fp-blog',
+							'function' => 'css',
+							'property' => 'background-position'
+						)
+					)
 				),
 				array(
-					'id'       => 'evl_blog_section_back_color',
-					'title'    => esc_attr__( 'Section Background Color', 'evolve' ),
-					'subtitle' => esc_attr__( 'Custom background color of section', 'evolve' ),
-					'type'     => 'color',
-					'compiler' => true,
-					'default'  => '#ffffff'
+					'id'        => 'evl_blog_section_back_color',
+					'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
+					'type'      => 'color',
+					'compiler'  => true,
+					'default'   => '#ffffff',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.t4p-fp-blog',
+							'function' => 'css',
+							'property' => 'background-color'
+						)
+					)
 				),
 				array(
 					'id'     => 'evl-front-page-subsec-blog-section-end',
@@ -1450,6 +1491,7 @@ if ( true || is_customize_preview() ) {
 						'padding-left'   => '0',
 						'units'          => 'px'
 					),
+					'selector'  => '.home-content-boxes .container',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -1460,41 +1502,65 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'       => 'evl_content_boxes_section_background_image',
-					'title'    => esc_attr__( 'Section Background Image', 'evolve' ),
-					'subtitle' => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
-					'type'     => 'media',
-					'url'      => true
+					'id'        => 'evl_content_boxes_section_background_image',
+					'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
+					'type'      => 'media',
+					'url'       => true,
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.home-content-boxes',
+							'function' => 'css',
+							'property' => 'background-image'
+						)
+					)
 				),
 				array(
-					'id'       => 'evl_content_boxes_section_image',
-					'title'    => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
-					'subtitle' => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
-					'type'     => 'select',
-					'options'  => array(
+					'id'        => 'evl_content_boxes_section_image',
+					'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'cover'   => esc_attr__( 'Cover', 'evolve' ),
 						'contain' => esc_attr__( 'Contain', 'evolve' ),
 						'none'    => esc_attr__( 'None', 'evolve' )
 					),
-					'default'  => 'cover'
+					'default'   => 'cover',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.home-content-boxes',
+							'function' => 'css',
+							'property' => 'background-size'
+						)
+					)
 				),
 				array(
-					'id'      => 'evl_content_boxes_section_image_background_repeat',
-					'title'   => esc_attr__( 'Background Repeat', 'evolve' ),
-					'type'    => 'select',
-					'options' => array(
+					'id'        => 'evl_content_boxes_section_image_background_repeat',
+					'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
 						'repeat'    => esc_attr__( 'repeat', 'evolve' ),
 						'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
 						'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
 					),
-					'default' => 'no-repeat'
+					'default'   => 'no-repeat',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.home-content-boxes',
+							'function' => 'css',
+							'property' => 'background-repeat'
+						)
+					)
 				),
 				array(
-					'id'      => 'evl_content_boxes_section_image_background_position',
-					'title'   => esc_attr__( 'Background Position', 'evolve' ),
-					'type'    => 'select',
-					'options' => array(
+					'id'        => 'evl_content_boxes_section_image_background_position',
+					'title'     => esc_attr__( 'Background Position', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'center top'    => esc_attr__( 'center top', 'evolve' ),
 						'center center' => esc_attr__( 'center center', 'evolve' ),
 						'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
@@ -1505,14 +1571,30 @@ if ( true || is_customize_preview() ) {
 						'right center'  => esc_attr__( 'right center', 'evolve' ),
 						'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
 					),
-					'default' => 'center top'
+					'default'   => 'center top',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.home-content-boxes',
+							'function' => 'css',
+							'property' => 'background-position'
+						)
+					)
 				),
 				array(
-					'id'       => 'evl_content_boxes_section_back_color',
-					'title'    => esc_attr__( 'Section Background Color', 'evolve' ),
-					'subtitle' => esc_attr__( 'Custom background color of section', 'evolve' ),
-					'type'     => 'color',
-					'compiler' => true
+					'id'        => 'evl_content_boxes_section_back_color',
+					'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
+					'type'      => 'color',
+					'compiler'  => true,
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.home-content-boxes',
+							'function' => 'css',
+							'property' => 'background-color'
+						)
+					)
 				),
 				array(
 					'id'     => 'evl-front-page-subsec-content-boxes-section-end',
@@ -1659,6 +1741,7 @@ if ( true || is_customize_preview() ) {
 						'padding-left'   => '0',
 						'units'          => 'px'
 					),
+					'selector'  => '.t4p-counters-circle .container',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -1669,41 +1752,65 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'       => 'evl_counter_circle_section_background_image',
-					'title'    => esc_attr__( 'Section Background Image', 'evolve' ),
-					'subtitle' => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
-					'type'     => 'media',
-					'url'      => true
+					'id'        => 'evl_counter_circle_section_background_image',
+					'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
+					'type'      => 'media',
+					'url'       => true,
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.t4p-counters-circle',
+							'function' => 'css',
+							'property' => 'background-image'
+						)
+					)
 				),
 				array(
-					'id'       => 'evl_counter_circle_section_image',
-					'title'    => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
-					'subtitle' => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
-					'type'     => 'select',
-					'options'  => array(
+					'id'        => 'evl_counter_circle_section_image',
+					'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'cover'   => esc_attr__( 'Cover', 'evolve' ),
 						'contain' => esc_attr__( 'Contain', 'evolve' ),
 						'none'    => esc_attr__( 'None', 'evolve' )
 					),
-					'default'  => 'cover'
+					'default'   => 'cover',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.t4p-counters-circle',
+							'function' => 'css',
+							'property' => 'background-size'
+						)
+					)
 				),
 				array(
-					'id'      => 'evl_counter_circle_section_image_background_repeat',
-					'title'   => esc_attr__( 'Background Repeat', 'evolve' ),
-					'type'    => 'select',
-					'options' => array(
+					'id'        => 'evl_counter_circle_section_image_background_repeat',
+					'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
 						'repeat'    => esc_attr__( 'repeat', 'evolve' ),
 						'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
 						'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
 					),
-					'default' => 'no-repeat'
+					'default'   => 'no-repeat',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.t4p-counters-circle',
+							'function' => 'css',
+							'property' => 'background-repeat'
+						)
+					)
 				),
 				array(
-					'id'      => 'evl_counter_circle_section_image_background_position',
-					'title'   => esc_attr__( 'Background Position', 'evolve' ),
-					'type'    => 'select',
-					'options' => array(
+					'id'        => 'evl_counter_circle_section_image_background_position',
+					'title'     => esc_attr__( 'Background Position', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'center top'    => esc_attr__( 'center top', 'evolve' ),
 						'center center' => esc_attr__( 'center center', 'evolve' ),
 						'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
@@ -1714,15 +1821,31 @@ if ( true || is_customize_preview() ) {
 						'right center'  => esc_attr__( 'right center', 'evolve' ),
 						'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
 					),
-					'default' => 'center top'
+					'default'   => 'center top',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.t4p-counters-circle',
+							'function' => 'css',
+							'property' => 'background-position'
+						)
+					)
 				),
 				array(
-					'id'       => 'evl_counter_circle_section_back_color',
-					'title'    => esc_attr__( 'Section Background Color', 'evolve' ),
-					'subtitle' => esc_attr__( 'Custom background color of section', 'evolve' ),
-					'type'     => 'color',
-					'compiler' => true,
-					'default'  => '#f0f0f0'
+					'id'        => 'evl_counter_circle_section_back_color',
+					'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
+					'type'      => 'color',
+					'compiler'  => true,
+					'default'   => '#f0f0f0',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.t4p-counters-circle',
+							'function' => 'css',
+							'property' => 'background-color'
+						)
+					)
 				),
 				array(
 					'id'     => 'evl-front-page-subsec-counter-circle-section-end',
@@ -1865,6 +1988,7 @@ if ( true || is_customize_preview() ) {
 						'padding-left'   => '40px',
 						'units'          => 'px'
 					),
+					'selector'  => '.t4p-testimonials .container',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -2010,6 +2134,7 @@ if ( true || is_customize_preview() ) {
 							'padding-left'   => '0',
 							'units'          => 'px'
 						),
+						'selector'  => '.t4p-woo-product .container',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -2020,41 +2145,65 @@ if ( true || is_customize_preview() ) {
 						)
 					),
 					array(
-						'id'       => 'evl_woo_product_section_background_image',
-						'title'    => esc_attr__( 'Section Background Image', 'evolve' ),
-						'subtitle' => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
-						'type'     => 'media',
-						'url'      => true
+						'id'        => 'evl_woo_product_section_background_image',
+						'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
+						'type'      => 'media',
+						'url'       => true,
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.t4p-woo-product',
+								'function' => 'css',
+								'property' => 'background-image'
+							)
+						)
 					),
 					array(
-						'id'       => 'evl_woo_product_section_image',
-						'title'    => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
-						'subtitle' => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
-						'type'     => 'select',
-						'options'  => array(
+						'id'        => 'evl_woo_product_section_image',
+						'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
 							'cover'   => esc_attr__( 'Cover', 'evolve' ),
 							'contain' => esc_attr__( 'Contain', 'evolve' ),
 							'none'    => esc_attr__( 'None', 'evolve' )
 						),
-						'default'  => 'cover'
+						'default'   => 'cover',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.t4p-woo-product',
+								'function' => 'css',
+								'property' => 'background-size'
+							)
+						)
 					),
 					array(
-						'id'      => 'evl_woo_product_section_image_background_repeat',
-						'title'   => esc_attr__( 'Background Repeat', 'evolve' ),
-						'type'    => 'select',
-						'options' => array(
+						'id'        => 'evl_woo_product_section_image_background_repeat',
+						'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
 							'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
 							'repeat'    => esc_attr__( 'repeat', 'evolve' ),
 							'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
 							'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
 						),
-						'default' => 'no-repeat'
+						'default'   => 'no-repeat',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.t4p-woo-product',
+								'function' => 'css',
+								'property' => 'background-repeat'
+							)
+						)
 					),
 					array(
-						'id'      => 'evl_woo_product_section_image_background_position',
-						'title'   => esc_attr__( 'Background Position', 'evolve' ),
-						'type'    => 'select',
-						'options' => array(
+						'id'        => 'evl_woo_product_section_image_background_position',
+						'title'     => esc_attr__( 'Background Position', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
 							'center top'    => esc_attr__( 'center top', 'evolve' ),
 							'center center' => esc_attr__( 'center center', 'evolve' ),
 							'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
@@ -2065,15 +2214,31 @@ if ( true || is_customize_preview() ) {
 							'right center'  => esc_attr__( 'right center', 'evolve' ),
 							'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
 						),
-						'default' => 'center top'
+						'default'   => 'center top',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.t4p-woo-product',
+								'function' => 'css',
+								'property' => 'background-position'
+							)
+						)
 					),
 					array(
-						'id'       => 'evl_woo_product_section_back_color',
-						'title'    => esc_attr__( 'Section Background Color', 'evolve' ),
-						'subtitle' => esc_attr__( 'Custom background color of section', 'evolve' ),
-						'type'     => 'color',
-						'compiler' => true,
-						'default'  => '#fafafa'
+						'id'        => 'evl_woo_product_section_back_color',
+						'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
+						'type'      => 'color',
+						'compiler'  => true,
+						'default'   => '#fafafa',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.t4p-woo-product',
+								'function' => 'css',
+								'property' => 'background-color'
+							)
+						)
 					),
 					array(
 						'id'     => 'evl-front-page-subsec-woo-product-section-end',
@@ -2146,6 +2311,7 @@ if ( true || is_customize_preview() ) {
 						'padding-left'   => '0',
 						'units'          => 'px'
 					),
+					'selector'  => '.t4p-text .container',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -2156,41 +2322,65 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'       => 'evl_custom_content_section_background_image',
-					'title'    => esc_attr__( 'Section Background Image', 'evolve' ),
-					'subtitle' => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
-					'type'     => 'media',
-					'url'      => true
+					'id'        => 'evl_custom_content_section_background_image',
+					'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
+					'type'      => 'media',
+					'url'       => true,
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.t4p-text',
+							'function' => 'css',
+							'property' => 'background-image'
+						)
+					)
 				),
 				array(
-					'id'       => 'evl_custom_content_section_image',
-					'title'    => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
-					'subtitle' => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
-					'type'     => 'select',
-					'options'  => array(
+					'id'        => 'evl_custom_content_section_image',
+					'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'cover'   => esc_attr__( 'Cover', 'evolve' ),
 						'contain' => esc_attr__( 'Contain', 'evolve' ),
 						'none'    => esc_attr__( 'None', 'evolve' )
 					),
-					'default'  => 'cover'
+					'default'   => 'cover',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.t4p-text',
+							'function' => 'css',
+							'property' => 'background-size'
+						)
+					)
 				),
 				array(
-					'id'      => 'evl_custom_content_section_image_background_repeat',
-					'title'   => esc_attr__( 'Background Repeat', 'evolve' ),
-					'type'    => 'select',
-					'options' => array(
+					'id'        => 'evl_custom_content_section_image_background_repeat',
+					'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
 						'repeat'    => esc_attr__( 'repeat', 'evolve' ),
 						'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
 						'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
 					),
-					'default' => 'no-repeat'
+					'default'   => 'no-repeat',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.t4p-text',
+							'function' => 'css',
+							'property' => 'background-repeat'
+						)
+					)
 				),
 				array(
-					'id'      => 'evl_custom_content_section_image_background_position',
-					'title'   => esc_attr__( 'Background Position', 'evolve' ),
-					'type'    => 'select',
-					'options' => array(
+					'id'        => 'evl_custom_content_section_image_background_position',
+					'title'     => esc_attr__( 'Background Position', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'center top'    => esc_attr__( 'center top', 'evolve' ),
 						'center center' => esc_attr__( 'center center', 'evolve' ),
 						'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
@@ -2201,15 +2391,31 @@ if ( true || is_customize_preview() ) {
 						'right center'  => esc_attr__( 'right center', 'evolve' ),
 						'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
 					),
-					'default' => 'center top'
+					'default'   => 'center top',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.t4p-text',
+							'function' => 'css',
+							'property' => 'background-position'
+						)
+					)
 				),
 				array(
-					'id'       => 'evl_custom_content_section_back_color',
-					'title'    => esc_attr__( 'Section Background Color', 'evolve' ),
-					'subtitle' => esc_attr__( 'Custom background color of section', 'evolve' ),
-					'type'     => 'color',
-					'compiler' => true,
-					'default'  => '#93f2d7'
+					'id'        => 'evl_custom_content_section_back_color',
+					'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
+					'type'      => 'color',
+					'compiler'  => true,
+					'default'   => '#93f2d7',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.t4p-text',
+							'function' => 'css',
+							'property' => 'background-color'
+						)
+					)
 				),
 				array(
 					'id'     => 'evl-front-page-subsec-custom-content-section-end',
@@ -2271,13 +2477,15 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'       => 'evl_searchbox',
-					'title'    => esc_attr__( 'Enable Searchbox', 'evolve' ),
-					'subtitle' => esc_attr__( 'Check this box if you want to display searchbox in the Header', 'evolve' ),
-					'type'     => 'switch',
-					'on'       => esc_attr__( 'Enabled', 'evolve' ),
-					'off'      => esc_attr__( 'Disabled', 'evolve' ),
-					'default'  => 1
+					'id'              => 'evl_searchbox',
+					'title'           => esc_attr__( 'Enable Searchbox', 'evolve' ),
+					'subtitle'        => esc_attr__( 'Check this box if you want to display searchbox in the Header', 'evolve' ),
+					'type'            => 'switch',
+					'on'              => esc_attr__( 'Enabled', 'evolve' ),
+					'off'             => esc_attr__( 'Disabled', 'evolve' ),
+					'default'         => 1,
+					'selector'        => '.menu-header .header-search',
+					'render_callback' => 'evl_searchbox'
 				),
 				array(
 					'id'       => 'evl_slider_position',
@@ -2313,23 +2521,27 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'id'       => 'evl_sticky_header',
-					'title'    => esc_attr__( 'Enable Sticky Header', 'evolve' ),
-					'subtitle' => esc_attr__( 'Check this box if you want to display Sticky Header', 'evolve' ),
-					'type'     => 'switch',
-					'on'       => esc_attr__( 'Enabled', 'evolve' ),
-					'off'      => esc_attr__( 'Disabled', 'evolve' ),
-					'default'  => 1
+					'id'              => 'evl_sticky_header',
+					'title'           => esc_attr__( 'Enable Sticky Header', 'evolve' ),
+					'subtitle'        => esc_attr__( 'Check this box if you want to display Sticky Header', 'evolve' ),
+					'type'            => 'switch',
+					'on'              => esc_attr__( 'Enabled', 'evolve' ),
+					'off'             => esc_attr__( 'Disabled', 'evolve' ),
+					'default'         => 1,
+					'selector'        => '.sticky-header .container',
+					'render_callback' => 'evl_sticky_header'
 				),
 				array(
-					'id'       => 'evl_searchbox_sticky_header',
-					'title'    => esc_attr__( 'Enable Searchbox', 'evolve' ),
-					'subtitle' => esc_attr__( 'Check this box if you want to display searchbox in the Sticky Header', 'evolve' ),
-					'type'     => 'switch',
-					'on'       => esc_attr__( 'Enabled', 'evolve' ),
-					'off'      => esc_attr__( 'Disabled', 'evolve' ),
-					'default'  => 1,
-					'required' => array(
+					'id'              => 'evl_searchbox_sticky_header',
+					'title'           => esc_attr__( 'Enable Searchbox', 'evolve' ),
+					'subtitle'        => esc_attr__( 'Check this box if you want to display searchbox in the Sticky Header', 'evolve' ),
+					'type'            => 'switch',
+					'on'              => esc_attr__( 'Enabled', 'evolve' ),
+					'off'             => esc_attr__( 'Disabled', 'evolve' ),
+					'default'         => 1,
+					'selector'        => '.sticky-header .header-search',
+					'render_callback' => 'evl_searchbox_sticky_header',
+					'required'        => array(
 						array( 'evl_sticky_header', '=', '1' )
 					)
 				)
@@ -2343,11 +2555,13 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'id'       => 'evl_header_logo',
-					'title'    => esc_attr__( 'Custom Logo', 'evolve' ),
-					'subtitle' => esc_attr__( 'Upload a logo for your website, or specify an image URL directly', 'evolve' ),
-					'type'     => 'media',
-					'url'      => true
+					'id'              => 'evl_header_logo',
+					'title'           => esc_attr__( 'Custom Logo', 'evolve' ),
+					'subtitle'        => esc_attr__( 'Upload a logo for your website, or specify an image URL directly', 'evolve' ),
+					'type'            => 'media',
+					'url'             => true,
+					'selector'        => '.header-logo-container',
+					'render_callback' => 'evl_header_logo',
 				),
 				array(
 					'id'       => 'evl_pos_logo',
@@ -2538,11 +2752,13 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'id'       => 'evl_footer_content',
-					'title'    => esc_attr__( 'Custom Footer', 'evolve' ),
-					'subtitle' => sprintf( esc_attr__( 'Available %sHTML%s tags and attributes: %s Default: %s<div id="copyright"><a href="%s">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a></div>%s', 'evolve' ), '<strong>', '</strong>', '<br /><br /> <code> &lt;b&gt; &lt;i&gt; &lt;a href="" title=""&gt; &lt;blockquote&gt; &lt;del datetime=""&gt; <br /> &lt;ins datetime=""&gt; &lt;img src="" alt="" /&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; <br /> &lt;code&gt; &lt;em&gt; &lt;strong&gt; &lt;div&gt; &lt;span&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt; <br /> &lt;table&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt; &lt;br /&gt; &lt;hr /&gt;</code><br /><br />', '<code>', $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/', '</code>' ),
-					'type'     => 'textarea',
-					'default'  => '<div id="copyright">' . sprintf( esc_attr__( '<a href="%s">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a>', 'evolve' ), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/' ) . '</div>'
+					'id'              => 'evl_footer_content',
+					'title'           => esc_attr__( 'Custom Footer', 'evolve' ),
+					'subtitle'        => sprintf( esc_attr__( 'Available %sHTML%s tags and attributes: %s Default: %s<div id="copyright"><a href="%s">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a></div>%s', 'evolve' ), '<strong>', '</strong>', '<br /><br /> <code> &lt;b&gt; &lt;i&gt; &lt;a href="" title=""&gt; &lt;blockquote&gt; &lt;del datetime=""&gt; <br /> &lt;ins datetime=""&gt; &lt;img src="" alt="" /&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; <br /> &lt;code&gt; &lt;em&gt; &lt;strong&gt; &lt;div&gt; &lt;span&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt; <br /> &lt;table&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt; &lt;br /&gt; &lt;hr /&gt;</code><br /><br />', '<code>', $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/', '</code>' ),
+					'type'            => 'textarea',
+					'default'         => '<div id="copyright">' . sprintf( esc_attr__( '<a href="%s">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a>', 'evolve' ), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/' ) . '</div>',
+					'selector'        => '.custom-footer',
+					'render_callback' => 'evl_footer_content'
 				)
 			)
 		)
@@ -3013,11 +3229,13 @@ if ( true || is_customize_preview() ) {
 			'iconfix' => 'evolve-icon evolve-icon-titlebar',
 			'fields'  => array(
 				array(
-					'id'       => 'evl_breadcrumbs',
-					'title'    => esc_attr__( 'Enable Breadcrumbs Navigation', 'evolve' ),
-					'subtitle' => esc_attr__( 'Check this box if you want to enable Breadcrumbs Navigation', 'evolve' ),
-					'type'     => 'checkbox',
-					'default'  => '1'
+					'id'              => 'evl_breadcrumbs',
+					'title'           => esc_attr__( 'Enable Breadcrumbs Navigation', 'evolve' ),
+					'subtitle'        => esc_attr__( 'Check this box if you want to enable Breadcrumbs Navigation', 'evolve' ),
+					'type'            => 'checkbox',
+					'default'         => '1',
+					'selector'        => '.breadcrumb',
+					'render_callback' => 'evl_breadcrumbs'
 				)
 			)
 		)
@@ -3113,35 +3331,51 @@ if ( true || is_customize_preview() ) {
 					'type'  => 'info'
 				),
 				array(
-					'id'       => 'evl_header_image',
-					'title'    => esc_attr__( 'Header Background Image Responsiveness Style', 'evolve' ),
-					'subtitle' => sprintf( '%s<a href="%s">Header Background</a>', esc_attr__( 'Select if the header background image should be displayed in cover or contain size. Change ', 'evolve' ), '' . esc_url( admin_url( 'customize.php?return=&autofocus%5Bcontrol%5D=header_image' ) ) . '' ),
-					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
+					'id'        => 'evl_header_image',
+					'title'     => esc_attr__( 'Header Background Image Responsiveness Style', 'evolve' ),
+					'subtitle'  => sprintf( '%s<a href="%s">Header Background</a>', esc_attr__( 'Select if the header background image should be displayed in cover or contain size. Change ', 'evolve' ), '' . esc_url( admin_url( 'customize.php?return=&autofocus%5Bcontrol%5D=header_image' ) ) . '' ),
+					'type'      => 'select',
+					'compiler'  => true,
+					'options'   => array(
 						'cover'   => esc_attr__( 'Cover', 'evolve' ),
 						'contain' => esc_attr__( 'Contain', 'evolve' ),
 						'none'    => esc_attr__( 'None', 'evolve' )
 					),
-					'default'  => 'cover'
+					'default'   => 'cover',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.custom-header',
+							'function' => 'css',
+							'property' => 'background-size'
+						)
+					)
 				),
 				array(
-					'id'      => 'evl_header_image_background_repeat',
-					'title'   => esc_attr__( 'Background Repeat', 'evolve' ),
-					'type'    => 'select',
-					'options' => array(
+					'id'        => 'evl_header_image_background_repeat',
+					'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
 						'repeat'    => esc_attr__( 'repeat', 'evolve' ),
 						'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
 						'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
 					),
-					'default' => 'no-repeat'
+					'default'   => 'no-repeat',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.custom-header',
+							'function' => 'css',
+							'property' => 'background-repeat'
+						)
+					)
 				),
 				array(
-					'id'      => 'evl_header_image_background_position',
-					'title'   => esc_attr__( 'Background Position', 'evolve' ),
-					'type'    => 'select',
-					'options' => array(
+					'id'        => 'evl_header_image_background_position',
+					'title'     => esc_attr__( 'Background Position', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'center top'    => esc_attr__( 'center top', 'evolve' ),
 						'center center' => esc_attr__( 'center center', 'evolve' ),
 						'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
@@ -3152,7 +3386,15 @@ if ( true || is_customize_preview() ) {
 						'right center'  => esc_attr__( 'right center', 'evolve' ),
 						'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
 					),
-					'default' => 'center top'
+					'default'   => 'center top',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.custom-header',
+							'function' => 'css',
+							'property' => 'background-position'
+						)
+					)
 				),
 				array(
 					'id'        => 'evl_header_background_color',
@@ -3183,41 +3425,65 @@ if ( true || is_customize_preview() ) {
 					'default'  => '1'
 				),
 				array(
-					'id'       => 'evl_footer_background_image',
-					'title'    => esc_attr__( 'Footer Image', 'evolve' ),
-					'subtitle' => esc_attr__( 'Upload a footer background image for your website, or specify an image URL directly', 'evolve' ),
-					'type'     => 'media',
-					'url'      => true
+					'id'        => 'evl_footer_background_image',
+					'title'     => esc_attr__( 'Footer Image', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Upload a footer background image for your website, or specify an image URL directly', 'evolve' ),
+					'type'      => 'media',
+					'url'       => true,
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.footer',
+							'function' => 'css',
+							'property' => 'background-image'
+						)
+					)
 				),
 				array(
-					'id'       => 'evl_footer_image',
-					'title'    => esc_attr__( 'Footer Background Image Responsiveness Style', 'evolve' ),
-					'subtitle' => esc_attr__( 'Select if the footer background image should be displayed in cover or contain size', 'evolve' ),
-					'type'     => 'select',
-					'options'  => array(
+					'id'        => 'evl_footer_image',
+					'title'     => esc_attr__( 'Footer Background Image Responsiveness Style', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select if the footer background image should be displayed in cover or contain size', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'cover'   => esc_attr__( 'Cover', 'evolve' ),
 						'contain' => esc_attr__( 'Contain', 'evolve' ),
 						'none'    => esc_attr__( 'None', 'evolve' )
 					),
-					'default'  => 'cover'
+					'default'   => 'cover',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.footer',
+							'function' => 'css',
+							'property' => 'background-size'
+						)
+					)
 				),
 				array(
-					'id'      => 'evl_footer_image_background_repeat',
-					'title'   => esc_attr__( 'Background Repeat', 'evolve' ),
-					'type'    => 'select',
-					'options' => array(
+					'id'        => 'evl_footer_image_background_repeat',
+					'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
 						'repeat'    => esc_attr__( 'repeat', 'evolve' ),
 						'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
 						'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
 					),
-					'default' => 'no-repeat'
+					'default'   => 'no-repeat',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.footer',
+							'function' => 'css',
+							'property' => 'background-repeat'
+						)
+					)
 				),
 				array(
-					'id'      => 'evl_footer_image_background_position',
-					'title'   => esc_attr__( 'Background Position', 'evolve' ),
-					'type'    => 'select',
-					'options' => array(
+					'id'        => 'evl_footer_image_background_position',
+					'title'     => esc_attr__( 'Background Position', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
 						'center top'    => esc_attr__( 'center top', 'evolve' ),
 						'center center' => esc_attr__( 'center center', 'evolve' ),
 						'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
@@ -3228,7 +3494,15 @@ if ( true || is_customize_preview() ) {
 						'right center'  => esc_attr__( 'right center', 'evolve' ),
 						'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
 					),
-					'default' => 'center top'
+					'default'   => 'center top',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.footer',
+							'function' => 'css',
+							'property' => 'background-position'
+						)
+					)
 				),
 				array(
 					'id'        => 'evl_header_footer_back_color',
@@ -3375,12 +3649,20 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'       => 'evl_scheme_background',
-					'title'    => esc_attr__( 'Background Image of The Header Block Area', 'evolve' ),
-					'subtitle' => esc_attr__( 'Upload an image for the Header Block area', 'evolve' ),
-					'type'     => 'media',
-					'compiler' => true,
-					'url'      => true
+					'id'        => 'evl_scheme_background',
+					'title'     => esc_attr__( 'Background Image of The Header Block Area', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Upload an image for the Header Block area', 'evolve' ),
+					'type'      => 'media',
+					'compiler'  => true,
+					'url'       => true,
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.header-block',
+							'function' => 'css',
+							'property' => 'background-image'
+						)
+					)
 				),
 				array(
 					'id'       => 'evl_scheme_background_100',
@@ -3393,17 +3675,25 @@ if ( true || is_customize_preview() ) {
 					'default'  => 0
 				),
 				array(
-					'id'       => 'evl_scheme_background_repeat',
-					'title'    => esc_attr__( 'Background Repeat', 'evolve' ),
-					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
+					'id'        => 'evl_scheme_background_repeat',
+					'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+					'type'      => 'select',
+					'compiler'  => true,
+					'options'   => array(
 						'repeat'    => esc_attr__( 'repeat', 'evolve' ),
 						'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
 						'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' ),
 						'no-repeat' => esc_attr__( 'no-repeat', 'evolve' )
 					),
-					'default'  => 'no-repeat'
+					'default'   => 'no-repeat',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.header-block',
+							'function' => 'css',
+							'property' => 'background-repeat'
+						)
+					)
 				)
 			)
 		)
@@ -3415,24 +3705,40 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'id'       => 'evl_content_background_image',
-					'title'    => esc_attr__( 'Content Image', 'evolve' ),
-					'subtitle' => esc_attr__( 'Upload a content background image for your website, or specify an image URL directly', 'evolve' ),
-					'type'     => 'media',
-					'compiler' => true,
-					'url'      => true
+					'id'        => 'evl_content_background_image',
+					'title'     => esc_attr__( 'Content Image', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Upload a content background image for your website, or specify an image URL directly', 'evolve' ),
+					'type'      => 'media',
+					'compiler'  => true,
+					'url'       => true,
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.content',
+							'function' => 'css',
+							'property' => 'background-image'
+						)
+					)
 				),
 				array(
-					'id'       => 'evl_content_image_responsiveness',
-					'title'    => esc_attr__( 'Content Background Image Responsiveness Style', 'evolve' ),
-					'subtitle' => esc_attr__( 'Select if the content background image should be displayed in cover or contain size', 'evolve' ),
-					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
+					'id'        => 'evl_content_image_responsiveness',
+					'title'     => esc_attr__( 'Content Background Image Responsiveness Style', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select if the content background image should be displayed in cover or contain size', 'evolve' ),
+					'type'      => 'select',
+					'compiler'  => true,
+					'options'   => array(
 						'cover'   => esc_attr__( 'Cover', 'evolve' ),
 						'contain' => esc_attr__( 'Contain', 'evolve' )
 					),
-					'default'  => 'cover'
+					'default'   => 'cover',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.content',
+							'function' => 'css',
+							'property' => 'background-size'
+						)
+					)
 				),
 				array(
 					'id'       => 'evl_content_back',
@@ -3572,6 +3878,25 @@ if ( true || is_customize_preview() ) {
 						'disable' => esc_attr__( 'Disabled', 'evolve' )
 					),
 					'default'  => 'disable'
+				),
+				array(
+					'id'        => 'evl_shadow_effect_color',
+					'title'     => esc_attr__( 'Text Shadow Effect Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select the text shadow effect custom color', 'evolve' ),
+					'type'      => 'color_rgba',
+					'compiler'  => true,
+					'default'   => 'rgba(150,150,150,0.7)',
+					'required'  => array(
+						array( 'evl_shadow_effect', '=', 'enable' )
+					),
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'       => '#wrapper',
+							'property'      => 'text-shadow',
+							'value_pattern' => '0 1px 1px $'
+						)
+					)
 				)
 			)
 		)
@@ -4400,7 +4725,6 @@ if ( true || is_customize_preview() ) {
 			'url'      => true,
 			'readonly' => false,
 			'required' => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
-			"default"  => array( 'url' => "{$evolve_imagepathfolder}bootstrap-slider/{$i}.jpg" )
 		);
 
 		$fields[] = array(
@@ -4423,12 +4747,14 @@ if ( true || is_customize_preview() ) {
 		);
 
 		$fields[] = array(
-			"id"       => "{$evolve_shortname}_bootstrap_slide{$i}_button",
-			"title"    => sprintf( esc_attr__( 'Slide %d Button', 'evolve' ), $i ),
-			"type"     => "textarea",
-			"rows"     => 3,
-			'required' => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
-			"default"  => '<a class="btn d-none d-sm-inline-block" href="#">' . esc_attr__( 'Learn more', 'evolve' ) . '</a>'
+			"id"              => "{$evolve_shortname}_bootstrap_slide{$i}_button",
+			"title"           => sprintf( esc_attr__( 'Slide %d Button', 'evolve' ), $i ),
+			'subtitle'        => sprintf( esc_attr__( 'Default: %s<a class="btn d-none d-sm-inline-block" href="#">Learn more</a>%s', 'evolve' ), '<code>', '</code>' ),
+			"type"            => "textarea",
+			"rows"            => 3,
+			'required'        => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
+			'selector'        => "#bootstrap-slider .item-{$i} .carousel-caption a",
+			'render_callback' => "{$evolve_shortname}_bootstrap_slide{$i}_button"
 		);
 	}
 
@@ -4508,12 +4834,20 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'       => 'evl_bootstrap_slide_title_font_rgba',
-					'title'    => esc_attr__( 'Slide Title Font Background Color', 'evolve' ),
-					'subtitle' => esc_attr__( 'Select the background color for the slide title', 'evolve' ),
-					'type'     => 'color_rgba',
-					'default'  => '',
-					'required' => array(
+					'id'        => 'evl_bootstrap_slide_title_font_rgba',
+					'title'     => esc_attr__( 'Slide Title Font Background Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select the background color for the slide title', 'evolve' ),
+					'type'      => 'color_rgba',
+					'default'   => '',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '#bootstrap-slider .carousel-caption h5',
+							'function' => 'css',
+							'property' => 'background'
+						)
+					),
+					'required'  => array(
 						array( 'evl_bootstrap_slider_support', '=', '1' )
 					)
 				),
@@ -4542,12 +4876,20 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'       => 'evl_bootstrap_slide_subtitle_font_rgba',
-					'title'    => esc_attr__( 'Slide Description Font Background Color', 'evolve' ),
-					'subtitle' => esc_attr__( 'Select the background color for the slide description', 'evolve' ),
-					'type'     => 'color_rgba',
-					'default'  => '',
-					'required' => array(
+					'id'        => 'evl_bootstrap_slide_subtitle_font_rgba',
+					'title'     => esc_attr__( 'Slide Description Font Background Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select the background color for the slide description', 'evolve' ),
+					'type'      => 'color_rgba',
+					'default'   => '',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '#bootstrap-slider .carousel-caption p',
+							'function' => 'css',
+							'property' => 'background'
+						)
+					),
+					'required'  => array(
 						array( 'evl_bootstrap_slider_support', '=', '1' )
 					)
 				),
@@ -4621,7 +4963,7 @@ if ( true || is_customize_preview() ) {
 			"name"     => sprintf( esc_attr__( 'Slide %s Button', 'evolve' ), $i ),
 			"type"     => "textarea",
 			'required' => array( array( "{$evolve_shortname}_show_slide{$i}", '=', '1' ) ),
-			"default"  => '<a class="btn da-link" href="#">' . esc_attr__( 'Learn more', 'evolve' ) . '</a>'
+			"desc"     => '<a class="btn da-link" href="#">' . esc_attr__( 'Learn more', 'evolve' ) . '</a>'
 		);
 	}
 
@@ -4921,44 +5263,56 @@ if ( true || is_customize_preview() ) {
 			'iconfix' => 'evolve-icon evolve-icon-appbarcart',
 			'fields'  => array(
 				array(
-					'id'       => 'evl_woocommerce_evolve_ordering',
-					'title'    => esc_attr__( 'Disable WooCommerce Shop Page Ordering Boxes', 'evolve' ),
-					'subtitle' => esc_attr__( 'Check the box to disable the ordering boxes displayed on the shop page', 'evolve' ),
-					'type'     => 'checkbox',
-					'default'  => '0'
+					'id'              => 'evl_woocommerce_evolve_ordering',
+					'title'           => esc_attr__( 'Disable WooCommerce Shop Page Ordering Boxes', 'evolve' ),
+					'subtitle'        => esc_attr__( 'Check the box to disable the ordering boxes displayed on the shop page', 'evolve' ),
+					'type'            => 'checkbox',
+					'default'         => '0',
+					'selector'        => '.catalog-ordering',
+					'render_callback' => 'evl_woocommerce_evolve_ordering'
 				),
 				array(
-					'id'       => 'evl_woocommerce_enable_order_notes',
-					'title'    => esc_attr__( 'Show WooCommerce Order Notes on Checkout', 'evolve' ),
-					'subtitle' => esc_attr__( 'Check the box to show the order notes on the checkout page', 'evolve' ),
-					'type'     => 'checkbox',
-					'default'  => '0'
+					'id'              => 'evl_woocommerce_enable_order_notes',
+					'title'           => esc_attr__( 'Show WooCommerce Order Notes on Checkout', 'evolve' ),
+					'subtitle'        => esc_attr__( 'Check the box to show the order notes on the checkout page', 'evolve' ),
+					'type'            => 'checkbox',
+					'default'         => '0',
+					'selector'        => '.woocommerce-additional-fields__field-wrapper',
+					'render_callback' => 'evl_woocommerce_enable_order_notes'
 				),
 				array(
-					'id'       => 'evl_woocommerce_acc_link_main_nav',
-					'title'    => esc_attr__( 'Show WooCommerce My Account Link in Header', 'evolve' ),
-					'subtitle' => esc_attr__( 'Check the box to show My Account link, uncheck to disable', 'evolve' ),
-					'type'     => 'checkbox',
-					'default'  => '0'
+					'id'              => 'evl_woocommerce_acc_link_main_nav',
+					'title'           => esc_attr__( 'Show WooCommerce My Account Link in Header', 'evolve' ),
+					'subtitle'        => esc_attr__( 'Check the box to show My Account link, uncheck to disable', 'evolve' ),
+					'type'            => 'checkbox',
+					'default'         => '0',
+					'selector'        => '.woocommerce-menu .my-account',
+					'render_callback' => 'evl_woocommerce_acc_link_main_nav'
 				),
 				array(
-					'id'       => 'evl_woocommerce_cart_link_main_nav',
-					'title'    => esc_attr__( 'Show WooCommerce Cart Link in Header', 'evolve' ),
-					'subtitle' => esc_attr__( 'Check the box to show the Cart icon, uncheck to disable', 'evolve' ),
-					'type'     => 'checkbox',
-					'default'  => '0'
+					'id'              => 'evl_woocommerce_cart_link_main_nav',
+					'title'           => esc_attr__( 'Show WooCommerce Cart Link in Header', 'evolve' ),
+					'subtitle'        => esc_attr__( 'Check the box to show the Cart icon, uncheck to disable', 'evolve' ),
+					'type'            => 'checkbox',
+					'default'         => '0',
+					'selector'        => '.woocommerce-menu .cart',
+					'render_callback' => 'evl_woocommerce_cart_link_main_nav'
 				),
 				array(
-					'id'       => 'evl_woo_acc_msg_1',
-					'title'    => esc_attr__( 'Account Area Message 1', 'evolve' ),
-					'subtitle' => sprintf( '%s<br /><br />%s', esc_attr__( 'Insert your text and it will appear in the first message box on the account page', 'evolve' ), esc_attr__( 'Insert e.g.: Call us - <i class="fa fa-phone"></i> 7438 882 764', 'evolve' ) ),
-					'type'     => 'textarea'
+					'id'              => 'evl_woo_acc_msg_1',
+					'title'           => esc_attr__( 'Account Area Message 1', 'evolve' ),
+					'subtitle'        => sprintf( '%s<br /><br />%s', esc_attr__( 'Insert your text and it will appear in the first message box on the account page', 'evolve' ), esc_attr__( 'Insert e.g.: Call us - <i class="fa fa-phone"></i> 7438 882 764', 'evolve' ) ),
+					'type'            => 'textarea',
+					'selector'        => '.myaccount_user_container .message-1',
+					'render_callback' => 'evl_woo_acc_msg_1'
 				),
 				array(
-					'id'       => 'evl_woo_acc_msg_2',
-					'title'    => esc_attr__( 'Account Area Message 2', 'evolve' ),
-					'subtitle' => sprintf( '%s<br /><br />%s', esc_attr__( 'Insert your text and it will appear in the second message box on the account page', 'evolve' ), esc_attr__( 'Insert e.g.: Email us - <i class="fa fa-envelope"></i> contact@example.com', 'evolve' ) ),
-					'type'     => 'textarea'
+					'id'              => 'evl_woo_acc_msg_2',
+					'title'           => esc_attr__( 'Account Area Message 2', 'evolve' ),
+					'subtitle'        => sprintf( '%s<br /><br />%s', esc_attr__( 'Insert your text and it will appear in the second message box on the account page', 'evolve' ), esc_attr__( 'Insert e.g.: Email us - <i class="fa fa-envelope"></i> contact@example.com', 'evolve' ) ),
+					'type'            => 'textarea',
+					'selector'        => '.myaccount_user_container .message-2',
+					'render_callback' => 'evl_woo_acc_msg_2'
 				)
 			)
 		)

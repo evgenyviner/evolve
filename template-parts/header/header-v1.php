@@ -68,7 +68,7 @@
 			<?php if ( evolve_theme_mod( 'evl_main_menu', false ) !== true ) {
 
 				if ( has_nav_menu( 'primary-menu' ) ) {
-					echo '<nav class="navbar navbar-expand-md mr-auto col-md-11 col-sm-11">
+					echo '<nav class="navbar navbar-expand-md mr-auto col-sm-11">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
                                     ' . evolve_get_svg( 'menu' ) . '
                                     </div>
@@ -88,7 +88,7 @@
 			if ( evolve_theme_mod( 'evl_searchbox', true ) ) { ?>
 
                 <form action="<?php echo home_url(); ?>" method="get"
-                      class="header-search search-form col-md-1 col-sm-1">
+                      class="header-search search-form col-sm-1 ml-auto">
                     <label>
                         <input type="text" tabindex="1" name="s" class="form-control"
                                placeholder="<?php esc_html_e( 'Type your search', 'evolve' ); ?>"/>

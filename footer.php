@@ -22,7 +22,7 @@
 		if ( $footer_content === false ) {
 			$footer_content = '';
 		}
-		echo '<div class="row"><div class="col">' . do_shortcode( $footer_content ) . '</div></div>';
+		echo '<div class="row"><div class="col custom-footer">' . do_shortcode( $footer_content ) . '</div></div>';
 
 		// Theme Hook
 		evolve_footer_hooks(); ?>

@@ -176,8 +176,6 @@ body {
 #wrapper,
 .wrapper-customizer {
     background: #f9f9f9;
-    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .2);
-    box-shadow: 0 0 3px rgba(0, 0, 0, .2);
     margin: 0 auto 2rem;
 }
 
@@ -219,8 +217,6 @@ body {
 
 .header-block {
     background-repeat: repeat-y;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
 
 .top-menu-social {
@@ -397,8 +393,6 @@ body {
 .footer::after {
     border-radius: 100px / 10px;
     bottom: 0;
-    -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.6);
-    box-shadow: 0 0 9px rgba(0, 0, 0, 0.6);
     content: "";
     left: 30px;
     position: absolute;
@@ -691,8 +685,6 @@ video {
 
 .formatted-post {
     background: #9acd32;
-    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .1) inset;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .1) inset;
 }
 
 .formatted-post .post-meta .published {
@@ -713,7 +705,6 @@ video {
     background: #222;
     border-color: #222;
     -webkit-box-shadow: 0 2px 0 #111;
-    -moz-box-shadow: 0 2px 0 #111;
     box-shadow: 0 2px 0 #111;
 }
 
@@ -933,8 +924,6 @@ video {
 .widget::after {
     border-radius: 100px / 10px;
     bottom: 0;
-    -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 9px rgba(0, 0, 0, 0.8);
     content: "";
     left: 10px;
     position: absolute;
@@ -983,8 +972,6 @@ video {
 .widget-content {
     background: #f6f6f6;
     border: 1px solid #e0dddd;
-    -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, .9) inset;
-    box-shadow: 1px 1px 0 rgba(255, 255, 255, .9) inset;
     margin: 0 0 2rem;
 }
 
@@ -1100,8 +1087,6 @@ ul.nav-tabs {
     margin: 0 0 0 20px;
     background: #fff;
     border: 1px solid #f1f1f1;
-    -webkit-box-shadow: none;
-    box-shadow: none;
     padding: 4px;
     width: 60px;
     height: auto;
@@ -1186,8 +1171,6 @@ th {
 
 thead {
     background: #f6f6f6;
-    -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, .9) inset;
-    box-shadow: 1px 1px 0 rgba(255, 255, 255, .9) inset;
 }
 
 thead th {
@@ -1691,8 +1674,6 @@ select:not([size]):not([multiple]) {
     border-left: 0;
     border-radius: 4px;
     padding: 0;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
 
 .t4p-testimonials blockquote q {
@@ -3213,16 +3194,6 @@ ul.nav-menu li.menu-item-language ul {
 @media (min-width: 768px) {
     body .sticky-header {
         margin-left: auto !important;
-    }
-
-    .sticky-header > .container {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        width: 100%;
     }
 
     .sticky-header #sticky-title {

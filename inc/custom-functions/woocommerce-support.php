@@ -12,10 +12,8 @@ if ( session_id() == '' || ! isset( $_SESSION ) ) {
 add_action( 'init', 'evolve_woocommerce_ordering' );
 
 function evolve_woocommerce_ordering() {
-	$evolve_woocommerce_ordering = evolve_theme_mod( 'evl_woocommerce_evolve_ordering', '0' );
-
 	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
-	if ( ! $evolve_woocommerce_ordering ) {
+	if ( ! evolve_theme_mod( 'evl_woocommerce_evolve_ordering', '0' ) ) {
 		add_action( 'woocommerce_before_shop_loop', 'evolve_woocommerce_catalog_ordering', 30 );
 		add_action( 'woocommerce_get_catalog_ordering_args', 'evolve_woocommerce_get_catalog_ordering_args', 20 );
 	}
@@ -1014,13 +1012,9 @@ function evolve_woocommerce_checkout_shipping( $args ) {
 add_filter( 'woocommerce_enable_order_notes_field', 'evolve_enable_order_notes_field' );
 
 function evolve_enable_order_notes_field() {
-
-	$woocommerce_enable_order_notes = evolve_theme_mod( 'evl_woocommerce_enable_order_notes', '0' );
-
-	if ( ! $woocommerce_enable_order_notes ) {
+	if ( ! evolve_theme_mod( 'evl_woocommerce_enable_order_notes', '0' ) ) {
 		return 0;
 	}
-
 	return 1;
 }
 
@@ -1052,7 +1046,7 @@ function evolve_woocommerce_account_dashboard() {
 
 			<?php if ( $evolve_woo_acc_msg_1 ): ?>
 
-                <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
+                <div class="col-sm-12 col-md-6 col-lg-3 mb-3 message-1">
 
 					<?php echo $evolve_woo_acc_msg_1; ?>
 
@@ -1061,7 +1055,7 @@ function evolve_woocommerce_account_dashboard() {
 			<?php endif;
 			if ( $evolve_woo_acc_msg_2 ): ?>
 
-                <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
+                <div class="col-sm-12 col-md-6 col-lg-3 mb-3 message-2">
 
 					<?php echo $evolve_woo_acc_msg_2; ?>
 

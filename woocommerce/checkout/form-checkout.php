@@ -35,7 +35,7 @@ $woo_acc_msg_2 = evolve_theme_mod( 'evl_woo_acc_msg_2', 'Email us - <i class="t4
 
 			<?php if ( $woo_acc_msg_1 ): ?>
 
-                <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
+                <div class="col-sm-12 col-md-6 col-lg-3 mb-3 message-1">
 
 					<?php echo $woo_acc_msg_1; ?>
 
@@ -44,7 +44,7 @@ $woo_acc_msg_2 = evolve_theme_mod( 'evl_woo_acc_msg_2', 'Email us - <i class="t4
 			<?php endif;
 			if ( $woo_acc_msg_2 ): ?>
 
-                <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
+                <div class="col-sm-12 col-md-6 col-lg-3 mb-3 message-2">
 
 					<?php echo $woo_acc_msg_2; ?>
 
