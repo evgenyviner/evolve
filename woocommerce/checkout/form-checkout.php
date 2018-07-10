@@ -18,7 +18,7 @@ $woo_acc_msg_2 = evolve_theme_mod( 'evl_woo_acc_msg_2', 'Email us - <i class="t4
 ?>
 
     <div class="myaccount_user_container">
-        <div class="row align-items-center">
+        <div class="row align-items-center justify-content-between">
             <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
 
 				<?php if ( is_user_logged_in() ) { ?>

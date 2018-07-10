@@ -1037,7 +1037,7 @@ function evolve_woocommerce_account_dashboard() {
 	?>
 
     <div class="myaccount_user_container">
-        <div class="row align-items-center">
+        <div class="row align-items-center justify-content-between">
             <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
 
 				<?php if ( is_user_logged_in() ) { ?>
@@ -1072,7 +1072,7 @@ function evolve_woocommerce_account_dashboard() {
             <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                 <form action="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
                     <button type="submit"
-                            class="btn btn-sm float-lg-right"><?php echo evolve_get_svg( 'shop' ); esc_html_e( 'View Cart', 'evolve' ); ?></button>
+                            class="btn btn-sm float-md-right"><?php echo evolve_get_svg( 'shop' ); esc_html_e( 'View Cart', 'evolve' ); ?></button>
                 </form>
             </div>
         </div>
