@@ -29,7 +29,7 @@ $evolve_header_pos = '';
 
 	if ( evolve_theme_mod( 'evl_sticky_header', true ) ) {
 		// Include The Sticky Header If Enabled
-		get_template_part( 'template-parts/header/header', 'sticky' );
+		evolve_sticky_header();
 
 		echo '<div class="header-height">';
 

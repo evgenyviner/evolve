@@ -659,12 +659,13 @@ if ( true || is_customize_preview() ) {
 					'subtitle'  => esc_attr__( 'Enter the page Content Top & Bottom Padding', 'evolve' ),
 					'type'      => 'spacing',
 					'units'     => array( 'px', 'em' ),
-					'left'      => false,
-					'right'     => false,
+					'left'      => false, // this parameter not working
 					'default'   => array(
-						'padding-top'    => '30px',
-						'padding-bottom' => '0',
-						'units'          => 'px'
+						'padding-top'    => '2rem',
+						'padding-bottom' => '0rem',
+						'padding-left'   => '2rem',
+						'padding-right'  => '0rem',
+						'units'          => 'rem'
 					),
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -1194,7 +1195,7 @@ if ( true || is_customize_preview() ) {
 					'title'           => esc_attr__( 'Content Box 1 Button', 'evolve' ),
 					'subtitle'        => sprintf( esc_attr__( 'Default: %s<a class="btn btn-sm" href="#">Learn more</a>%s', 'evolve' ), '<code>', '</code>' ),
 					'type'            => 'textarea',
-					'selector'        => '.content-box.content-box-1 .btn',
+					'selector'        => '.content-box.content-box-1 .card-footer',
 					'render_callback' => 'evl_content_box1_button',
 					'required'        => array(
 						array( 'evl_content_box1_enable', '=', '1' )
@@ -1275,7 +1276,7 @@ if ( true || is_customize_preview() ) {
 					'title'           => esc_attr__( 'Content Box 2 Button', 'evolve' ),
 					'subtitle'        => sprintf( esc_attr__( 'Default: %s<a class="btn btn-sm" href="#">Learn more</a>%s', 'evolve' ), '<code>', '</code>' ),
 					'type'            => 'textarea',
-					'selector'        => '.content-box.content-box-2 .btn',
+					'selector'        => '.content-box.content-box-2 .card-footer',
 					'render_callback' => 'evl_content_box2_button',
 					'required'        => array(
 						array( 'evl_content_box2_enable', '=', '1' )
@@ -1356,7 +1357,7 @@ if ( true || is_customize_preview() ) {
 					'title'           => esc_attr__( 'Content Box 3 Button', 'evolve' ),
 					'subtitle'        => sprintf( esc_attr__( 'Default: %s<a class="btn btn-sm" href="#">Learn more</a>%s', 'evolve' ), '<code>', '</code>' ),
 					'type'            => 'textarea',
-					'selector'        => '.content-box.content-box-3 .btn',
+					'selector'        => '.content-box.content-box-3 .card-footer',
 					'render_callback' => 'evl_content_box3_button',
 					'required'        => array(
 						array( 'evl_content_box3_enable', '=', '1' )
@@ -1437,7 +1438,7 @@ if ( true || is_customize_preview() ) {
 					'title'           => esc_attr__( 'Content Box 4 Button', 'evolve' ),
 					'subtitle'        => sprintf( esc_attr__( 'Default: %s<a class="btn btn-sm" href="#">Learn more</a>%s', 'evolve' ), '<code>', '</code>' ),
 					'type'            => 'textarea',
-					'selector'        => '.content-box.content-box-4 .btn',
+					'selector'        => '.content-box.content-box-4 .card-footer',
 					'render_callback' => 'evl_content_box4_button',
 					'required'        => array(
 						array( 'evl_content_box4_enable', '=', '1' )
@@ -3903,96 +3904,15 @@ if ( true || is_customize_preview() ) {
 	);
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
-			'id'         => 'evl-element-colors',
-			'title'      => esc_attr__( 'Components', 'evolve' ),
-			'subsection' => true,
-			'fields'     => array(
-				array(
-					'id'     => 'evl_text_textarea',
-					'title'  => esc_attr__( 'Text, TextArea', 'evolve' ),
-					'type'   => 'info',
-					'indent' => true
-				),
-				array(
-					'id'        => 'evl_form_bg_color',
-					'title'     => esc_attr__( 'Form Background Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Controls the background color of form text, textarea field', 'evolve' ),
-					'type'      => 'color',
-					'default'   => '#fcfcfc',
-					'transport' => 'postMessage',
-					'js_vars'   => array(
-						array(
-							'element'  => 'input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus',
-							'function' => 'css',
-							'property' => 'background-color'
-						)
-					)
-				),
-				array(
-					'id'        => 'evl_form_text_color',
-					'title'     => esc_attr__( 'Form Text Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Controls the text, textarea color for forms', 'evolve' ),
-					'type'      => 'color',
-					'default'   => '#888888',
-					'transport' => 'postMessage',
-					'js_vars'   => array(
-						array(
-							'element'  => 'input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus',
-							'function' => 'css',
-							'property' => 'color'
-						)
-					)
-				),
-				array(
-					'id'        => 'evl_form_border_color',
-					'title'     => esc_attr__( 'Form Border Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Controls the border color of form text, textarea fields', 'evolve' ),
-					'type'      => 'color',
-					'default'   => '#E0E0E0',
-					'transport' => 'postMessage',
-					'js_vars'   => array(
-						array(
-							'element'  => 'input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus',
-							'function' => 'css',
-							'property' => 'border-color'
-						)
-					)
-				),
-				array(
-					'id'     => 'evl_radio_checkbox',
-					'title'  => esc_attr__( 'Radio, CheckBox, Active/Focus Items', 'evolve' ),
-					'type'   => 'info',
-					'indent' => true
-				),
-				array(
-					'id'        => 'evl_form_item_color',
-					'title'     => esc_attr__( 'Form Radio, CheckBox, Active/Focus Items Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Controls the color of form components - radio, checkbox, active/focus items etc.', 'evolve' ),
-					'type'      => 'color',
-					'default'   => '#0d9078',
-					'transport' => 'postMessage',
-					'js_vars'   => array(
-						array(
-							'element'  => '.custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale, .stars a:hover, .stars a.active',
-							'function' => 'css',
-							'property' => 'border-color'
-						)
-					)
-				)
-			)
-		)
-	);
-
-	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
-			'id'      => 'evl-shortcode-main-tab',
-			'title'   => esc_attr__( 'Shortcodes', 'evolve' ),
+			'id'      => 'evl-component-main-tab',
+			'title'   => esc_attr__( 'Components', 'evolve' ),
 			'iconfix' => 'evolve-icon evolve-icon-appbardrawbrush'
 		)
 	);
 
 	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
-			'id'         => 'evl-shortcode-subsec-shortcodes-button-tab',
-			'title'      => esc_attr__( 'Button', 'evolve' ),
+			'id'         => 'evl-component-button-tab',
+			'title'      => esc_attr__( 'Buttons', 'evolve' ),
 			'subsection' => true,
 			'fields'     => array(
 				array(
@@ -4199,6 +4119,87 @@ if ( true || is_customize_preview() ) {
 					'subtitle' => esc_attr__( 'Select the box to disable the inset shadow and text shadow on the flat button type', 'evolve' ),
 					'type'     => 'checkbox',
 					'default'  => '1'
+				)
+			)
+		)
+	);
+
+	Evolve_Fix_Rd::setSection( $evolve_opt_name, array(
+			'id'         => 'evl-component-forms',
+			'title'      => esc_attr__( 'Forms', 'evolve' ),
+			'subsection' => true,
+			'fields'     => array(
+				array(
+					'id'     => 'evl_text_textarea',
+					'title'  => esc_attr__( 'Text, TextArea', 'evolve' ),
+					'type'   => 'info',
+					'indent' => true
+				),
+				array(
+					'id'        => 'evl_form_bg_color',
+					'title'     => esc_attr__( 'Form Background Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Controls the background color of form text, textarea field', 'evolve' ),
+					'type'      => 'color',
+					'default'   => '#fcfcfc',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => 'input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus',
+							'function' => 'css',
+							'property' => 'background-color'
+						)
+					)
+				),
+				array(
+					'id'        => 'evl_form_text_color',
+					'title'     => esc_attr__( 'Form Text Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Controls the text, textarea color for forms', 'evolve' ),
+					'type'      => 'color',
+					'default'   => '#888888',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => 'input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus',
+							'function' => 'css',
+							'property' => 'color'
+						)
+					)
+				),
+				array(
+					'id'        => 'evl_form_border_color',
+					'title'     => esc_attr__( 'Form Border Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Controls the border color of form text, textarea fields', 'evolve' ),
+					'type'      => 'color',
+					'default'   => '#E0E0E0',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => 'input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus',
+							'function' => 'css',
+							'property' => 'border-color'
+						)
+					)
+				),
+				array(
+					'id'     => 'evl_radio_checkbox',
+					'title'  => esc_attr__( 'Radio, CheckBox, Active/Focus Items', 'evolve' ),
+					'type'   => 'info',
+					'indent' => true
+				),
+				array(
+					'id'        => 'evl_form_item_color',
+					'title'     => esc_attr__( 'Form Radio, CheckBox, Active/Focus Items Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Controls the color of form components - radio, checkbox, active/focus items etc.', 'evolve' ),
+					'type'      => 'color',
+					'default'   => '#0d9078',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale, .stars a:hover, .stars a.active',
+							'function' => 'css',
+							'property' => 'border-color'
+						)
+					)
 				)
 			)
 		)

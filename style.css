@@ -64,11 +64,11 @@ Table of Contents:
 - Animate CSS
 - WPML Definitions
 - Responsive Dynamic Definitions
-    -- Min-Width 992px - Large Wide Desktop
+    -- Min-Width 992px - Desktop
     -- Max-Width 782px - For Admin Bar
-    -- Min-Width 768px - Desktop
-    -- Max-Width 767px - Tablet
-    -- Max-Width 575px - Phone
+    -- Min-Width 768px - Tablet
+    -- Max-Width 767.98px - Landscape Phone
+    -- Max-Width 575.98px - Small Phone
 
     Bootstrap Framework CSS
     ======================================= */
@@ -3159,7 +3159,7 @@ ul.nav-menu li.menu-item-language ul {
     ======================================= */
 
 /*
-	Min-Width 992px - Large Wide Desktop
+	Min-Width 992px - Desktop
 	--------------------------------------- */
 
 @media (min-width: 992px) {
@@ -3188,7 +3188,7 @@ ul.nav-menu li.menu-item-language ul {
 }
 
 /*
-	Min-Width 768px - Desktop
+	Min-Width 768px - Tablet
 	--------------------------------------- */
 
 @media (min-width: 768px) {
@@ -3314,10 +3314,10 @@ ul.nav-menu li.menu-item-language ul {
 }
 
 /*
-	Max-Width 767px - Tablet
+	Max-Width 767.98px - Landscape Phone
 	--------------------------------------- */
 
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
     #tagline,
     #website-title,
     .social-media-links,
@@ -3402,10 +3402,10 @@ ul.nav-menu li.menu-item-language ul {
 }
 
 /*
-	Max-Width 575px - Phone
+	Max-Width 575.98px - Small Phone
 	--------------------------------------- */
 
-@media (max-width: 575px) {
+@media (max-width: 575.98px) {
     .navbar-toggler {
         margin: 0 auto;
     }

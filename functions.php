@@ -21,6 +21,7 @@ $evolve_menu_back                  = evolve_theme_mod( 'evl_menu_back', 'dark' )
    Theme Setup
    ======================================= */
 
+add_action( 'after_setup_theme', 'evolve_setup' );
 function evolve_setup() {
 	$evolve_width_px_default = evolve_theme_mod( 'evl_width_px', '1200' );
 	$evolve_width_px         = apply_filters( 'evolve_header_image_width', $evolve_width_px_default );
@@ -135,8 +136,6 @@ function evolve_setup() {
 	add_theme_support( 'customize-selective-refresh-widgets' );
 }
 
-add_action( 'after_setup_theme', 'evolve_setup' );
-
 /*
    Return SVG Markup For Icons
    ======================================= */
@@ -160,6 +159,12 @@ function evolve_get_svg( $icon = null ) {
 
 get_template_part( 'inc/custom-functions/theme-definitions' );
 evolve_theme_init::init();
+
+/*
+   Template Tags
+   ======================================= */
+
+get_template_part( 'inc/template-tags' );
 
 /*
    Truncate Function
@@ -273,66 +278,6 @@ function evolve_tinyurl( $url ) {
 	$response = esc_url( wp_remote_retrieve_body( wp_remote_get( 'http://tinyurl.com/api-create.php?url=' . $url ) ) );
 
 	return $response;
-}
-
-/*
-   Similar Posts Feature
-   ======================================= */
-
-function evolve_similar_posts() {
-
-	global $post;
-
-	if ( evolve_theme_mod( 'evl_similar_posts', 'disable' ) == "disable" ) {
-		return;
-	} elseif ( evolve_theme_mod( 'evl_similar_posts', 'disable' ) == "category" ) {
-		$matchby = get_the_category( $post->ID );
-		$matchin = 'category';
-	} else {
-		$matchby = wp_get_post_tags( $post->ID );
-		$matchin = 'tag';
-	}
-	if ( $matchby ) {
-		$matchby_ids = array();
-		foreach ( $matchby as $individual_matchby ) {
-			$matchby_ids[] = $individual_matchby->term_id;
-		}
-		$args     = array(
-			$matchin . '__in'     => $matchby_ids,
-			'post__not_in'        => array( $post->ID ),
-			'showposts'           => 3, // Number of related posts that will be shown.
-			'ignore_sticky_posts' => 1
-		);
-		$my_query = new wp_query( $args );
-		if ( $my_query->have_posts() ) {
-			echo '<h4>' . __( 'Similar posts', 'evolve' ) . '</h4><div class="list-group my-4">';
-			while ( $my_query->have_posts() ) {
-				$my_query->the_post(); ?>
-
-                <a href="<?php the_permalink() ?>" rel="bookmark"
-                   title="<?php esc_html_e( 'Permanent Link to', 'evolve' ); ?> <?php the_title(); ?>"
-                   class="list-group-item list-group-item-action flex-column align-items-start">
-
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1"><?php if ( get_the_title() ) {
-								the_title( '', '' );
-							} else {
-								echo esc_html__( "Untitled", "evolve" );
-							} ?></h5>
-                        <small><?php the_time( get_option( 'date_format' ) ); ?></small>
-                    </div>
-
-					<?php if ( get_the_content() ) {
-						the_excerpt();
-					} ?>
-
-                </a>
-
-			<?php }
-			echo '</div>';
-		}
-	}
-	wp_reset_query();
 }
 
 /*
@@ -472,177 +417,6 @@ function evolve_hex_rgba( $hex, $alpha = false ) {
 
 	return implode( array_keys( $rgb ) ) . '(' . implode( ', ', $rgb ) . ')';
 }
-
-/*
-   Share This Buttons
-   ======================================= */
-
-function evolve_sharethis() {
-	if ( evolve_theme_mod( 'evl_share_this', 'single' ) == "disable" || is_search() || is_page() || is_attachment() ) {
-		return;
-	}
-
-	if ( ( is_single() || evolve_theme_mod( 'evl_post_layout', 'two' ) == "one" ) && ( ( evolve_theme_mod( 'evl_share_this', 'single' ) == "single" && is_single() ) || ( evolve_theme_mod( 'evl_share_this', 'single' ) == "single_archive" && ! is_home() ) || ( evolve_theme_mod( 'evl_share_this', 'single' ) == "all" ) ) ) {
-
-		global $post;
-		$image_url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
-		if ( empty( $image_url ) ) {
-			$image_url = get_template_directory_uri() . '/assets/images/no-thumbnail-post.jpg';
-		}
-		?>
-
-        <div class="col-md-6">
-            <div class="share-this">
-
-                <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-                   title="<?php esc_html_e( 'Share on Twitter', 'evolve' ); ?>" target="_blank"
-                   href="http://twitter.com/intent/tweet?status=<?php echo $post->post_title; ?>+&raquo;+<?php echo esc_url( evolve_tinyurl( get_permalink() ) ); ?>">
-
-					<?php echo evolve_get_svg( 'twitter' ); ?>
-
-                </a>
-                <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-                   title="<?php esc_html_e( 'Share on Facebook', 'evolve' ); ?>" target="_blank"
-                   href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&amp;t=<?php echo $post->post_title; ?>">
-
-					<?php echo evolve_get_svg( 'facebook' ); ?>
-
-                </a>
-                <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-                   title="<?php esc_html_e( 'Share on Google Plus', 'evolve' ); ?>" target="_blank"
-                   href="https://plus.google.com/share?url=<?php the_permalink(); ?>">
-
-					<?php echo evolve_get_svg( 'google-plus' ); ?>
-
-                </a>
-                <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-                   title="<?php esc_html_e( 'Share on Pinterest', 'evolve' ); ?>" target="_blank"
-                   href="http://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $image_url; ?>&description=<?php echo $post->post_title; ?>">
-
-					<?php echo evolve_get_svg( 'pinterest' ); ?>
-
-                </a>
-                <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-                   title="<?php esc_html_e( 'Share by Email', 'evolve' ); ?>" target="_blank"
-                   href="http://www.addtoany.com/email?linkurl=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>">
-
-					<?php echo evolve_get_svg( 'email' ); ?>
-
-                </a>
-                <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-                   title="<?php esc_html_e( 'More options', 'evolve' ); ?>"
-                   target="_blank"
-                   href="http://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>">
-
-					<?php echo evolve_get_svg( 'more' ); ?>
-
-                </a>
-
-            </div><!-- .share-this -->
-        </div><!-- .col -->
-
-	<?php }
-}
-
-/*
-   Bootstrap Slider
-   ======================================= */
-
-function evolve_bootstrap() {
-	$wrap   = false;
-	$slides = 0;
-	for ( $i = 1; $i <= 5; $i ++ ) {
-		if ( evolve_theme_mod( "evl_bootstrap_slide{$i}" ) == 1 ) {
-			$active = "";
-			if ( ! $wrap ) {
-				$wrap = true;
-				echo "<div id='bootstrap-slider' class='carousel slide' data-ride='carousel' data-interval='" . evolve_theme_mod( 'evl_bootstrap_speed', '7000' ) . "'>";
-				echo "<div class='carousel-inner'>";
-				$active = " active";
-			}
-			echo "<div class='carousel-item item-" . $i . $active . "'>";
-			echo "<img class='d-block" . ( ( evolve_theme_mod( 'evl_bootstrap_100', '' ) == '1' ) ? "" : " w-100" ) . "' src='" . evolve_theme_mod( "evl_bootstrap_slide{$i}_img" ) . "' alt='" . evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) . "' />";
-			echo '<div class="carousel-caption ' . evolve_bootstrap_layout_class() . '">';
-			if ( strlen( evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) ) > 0 ) {
-				echo "<h5>" . esc_attr( evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) ) . "</h5>";
-			}
-			if ( strlen( evolve_theme_mod( "evl_bootstrap_slide{$i}_desc" ) ) > 0 ) {
-				echo "<p class='d-none d-md-block'>" . esc_attr( evolve_theme_mod( "evl_bootstrap_slide{$i}_desc" ) ) . "</p>";
-			}
-			echo do_shortcode( evolve_theme_mod( "evl_bootstrap_slide{$i}_button" ) );
-			echo "</div>";
-			echo "</div>";
-			++ $slides;
-		}
-	}
-	if ( $wrap ) {
-		echo "</div>";
-		if ( $slides > 1 ) {
-			echo "<a class='carousel-control-prev' href='#bootstrap-slider' role='button' data-slide='prev'>
-                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                    <span class='sr-only'>" . __( 'Previous', 'evolve' ) . "</span>
-                </a>
-                <a class='carousel-control-next' href='#bootstrap-slider' role='button' data-slide='next'>
-                <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                <span class='sr-only'>" . __( 'Next', 'evolve' ) . "</span>
-                </a>";
-		}
-
-		echo "</div>";
-	}
-}
-
-/*
-   Function For Add CSS Class In Bootstrap Slider
-   ======================================= */
-
-function evolve_bootstrap_layout_class() {
-	$bootstrap_layout        = '';
-	$evolve_bootstrap_layout = evolve_theme_mod( 'evl_bootstrap_layout', 'bootstrap_left' );
-	if ( $evolve_bootstrap_layout == "bootstrap_left" ) {
-		$bootstrap_layout = 'layout-left';
-	}
-
-	return $bootstrap_layout;
-}
-
-/*
-   Parallax Slider
-   ======================================= */
-
-function evolve_parallax() {
-	global $evolve_options;
-	if ( evolve_theme_mod( 'evl_show_slide1' ) == "1" || evolve_theme_mod( 'evl_show_slide2' ) == "1" || evolve_theme_mod( 'evl_show_slide3' ) == "1" || evolve_theme_mod( 'evl_show_slide4' ) == "1" || evolve_theme_mod( 'evl_show_slide5' ) == "1" ) {
-		echo "<div id='da-slider' class='da-slider'>";
-		for ( $i = 1; $i <= 5; $i ++ ) {
-			if ( evolve_theme_mod( "evl_show_slide{$i}" ) == "1" ) {
-				echo "<div class='da-slide'>";
-				echo "<h2>" . esc_attr( evolve_theme_mod( "evl_slide{$i}_title" ) ) . "</h2>";
-				echo "<p>" . esc_attr( evolve_theme_mod( "evl_slide{$i}_desc" ) ) . "</p>";
-				echo do_shortcode( evolve_theme_mod( "evl_slide{$i}_button" ) );
-				echo "<div class='da-img'><img class='img-responsive' src='" . evolve_theme_mod( "evl_slide{$i}_img" ) . "' alt='" . evolve_theme_mod( "evl_slide{$i}_title" ) . "' /></div>";
-				echo "</div>";
-			}
-		}
-		echo "<nav class='da-arrows'><span class='da-arrows-prev'></span><span class='da-arrows-next'></span></nav></div>";
-	}
-}
-
-/**
- * Set Custom Menu Walker For All Menus
- *
- *
- * function evolve_modify_nav_menu_args( $args ) {
- * return array_merge( $args, array(
- * 'walker' => evolve_custom_menu_walker(),
- * ) );
- * }
- *
- *
- *
- * add_filter( 'wp_nav_menu_args', 'evolve_modify_nav_menu_args' );
- *
- *  * */
 
 /*
    Custom Menu Walker
@@ -1170,221 +944,6 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 }
 
 /*
-   Breadcrumbs
-   ======================================= */
-
-add_action( 'evolve_before_post_title', 'evolve_breadcrumbs', 10 );
-
-function evolve_breadcrumbs() {
-
-	global $post;
-
-	if ( ( class_exists( 'bbPress' ) && is_bbpress() ) || evolve_theme_mod( 'evl_breadcrumbs', '1' ) != "1" || ( is_front_page() && is_page() ) || is_home() || ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) ) {
-		return;
-	}
-
-	echo '<nav aria-label="breadcrumb"><ol class="breadcrumb">';
-	echo '<li class="breadcrumb-item"><a class="home" href="';
-	echo home_url();
-	echo '">' . __( 'Home', 'evolve' );
-	echo "</a></li>";
-	$params['link_none'] = '';
-	$separator           = '';
-	if ( is_category() ) {
-		$thisCat = get_category( get_query_var( 'cat' ), false );
-		if ( $thisCat->parent != 0 ) {
-			$cats = get_category_parents( $thisCat->parent, true );
-			$cats = explode( '</a>/', $cats );
-			foreach ( $cats as $key => $cat ) {
-				if ( $cat ) {
-					echo '<li>' . $cat . '</a></li>';
-				}
-			}
-		}
-		echo '<li class="breadcrumb-item active">' . $thisCat->name . '</li>';
-	}
-	if ( is_tax() ) {
-		$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-		echo '<li class="breadcrumb-item active">' . $term->name . '</li>';
-	}
-	if ( is_home() ) {
-		echo '<li class="breadcrumb-item active">' . __( 'Blog', 'evolve' ) . '</li>';
-	}
-	if ( is_page() && ! is_front_page() ) {
-		$parents   = array();
-		$parent_id = $post->post_parent;
-		while ( $parent_id ) :
-			$page = get_page( $parent_id );
-			if ( $params["link_none"] ) {
-				$parents[] = get_the_title( $page->ID );
-			} else {
-				$parents[] = '<li class="breadcrumb-item"><a href="' . get_permalink( $page->ID ) . '" title="' . get_the_title( $page->ID ) . '">' . get_the_title( $page->ID ) . '</a></li>' . $separator;
-			}
-			$parent_id = $page->post_parent;
-		endwhile;
-		$parents = array_reverse( $parents );
-		echo join( ' ', $parents );
-		echo '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
-	}
-	if ( is_single() && ! is_attachment() ) {
-		$cat_1_line   = '';
-		$categories_1 = get_the_category( $post->ID );
-		if ( $categories_1 ):
-			foreach ( $categories_1 as $cat_1 ):
-				$cat_1_ids[] = $cat_1->term_id;
-			endforeach;
-			$cat_1_line = implode( ',', $cat_1_ids );
-		endif;
-		$categories = get_categories( array(
-			'include' => $cat_1_line,
-			'orderby' => 'id'
-		) );
-		if ( $categories ) :
-			foreach ( $categories as $cat ) :
-				$cats[] = '<li class="breadcrumb-item"><a href="' . get_category_link( $cat->term_id ) . '" title="' . $cat->name . '">' . $cat->name . '</a></li>';
-			endforeach;
-			echo join( ' ', $cats );
-		endif;
-		echo '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
-	}
-	if ( is_tag() ) {
-		echo '<li class="breadcrumb-item active">' . "Tag: " . single_tag_title( '', false ) . '</li>';
-	}
-	if ( is_404() ) {
-		echo '<li class="breadcrumb-item active">' . __( "404 - Page not Found", 'evolve' ) . '</li>';
-	}
-	if ( is_search() ) {
-		echo '<li class="breadcrumb-item active">' . __( "Search", 'evolve' ) . '</li>';
-	}
-	if ( is_day() ) {
-		echo '<li class="breadcrumb-item"><a href="' . get_year_link( get_the_time( 'Y' ) ) . '">' . get_the_time( 'Y' ) . '</a></li>';
-		echo '<li class="breadcrumb-item"><a href="' . get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ) . '">' . get_the_time( 'F' ) . '</a></li>';
-		echo '<li class="breadcrumb-item active">' . get_the_time( 'd' ) . '</li>';
-	}
-	if ( is_month() ) {
-		echo '<li class="breadcrumb-item"><a href="' . get_year_link( get_the_time( 'Y' ) ) . '">' . get_the_time( 'Y' ) . '</a></li>';
-		echo '<li class="breadcrumb-item active">' . get_the_time( 'F' ) . '</li>';
-	}
-	if ( is_year() ) {
-		echo '<li class="breadcrumb-item active">' . get_the_time( 'Y' ) . '</li>';
-	}
-	if ( is_attachment() ) {
-		if ( ! empty( $post->post_parent ) ) {
-			echo '<li class="breadcrumb-item"><a href="' . get_permalink( $post->post_parent ) . '">' . get_the_title( $post->post_parent ) . '</a></li>';
-		}
-		echo '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
-	}
-	echo '</ul></nav>';
-}
-
-/*
-   Posts Slider
-   ======================================= */
-
-function evolve_posts_slider() { ?>
-
-    <div id="posts-slider" class="carousel slide" data-ride="carousel"
-         data-interval="<?php echo evolve_theme_mod( 'evl_carousel_speed', '3500' ); ?>">
-        <div class="carousel-inner">
-
-			<?php
-			$slides                  = 0;
-			$number_items            = evolve_theme_mod( 'evl_posts_number', '5' );
-			$slider_content          = evolve_theme_mod( 'evl_posts_slider_content', 'recent' );
-			$slider_content_category = '';
-			$slider_content_category = evolve_theme_mod( 'evl_posts_slider_id', '' );
-			//make array categories into string with commas.
-			if ( is_array( $slider_content_category ) ) {
-				$slider_content_category = implode( ",", $slider_content_category );
-			}
-			if ( $slider_content == "category" && ! empty( $slider_content_category ) ) {
-				$slider_content_ID = $slider_content_category;
-			} else {
-				$slider_content_ID = '';
-			}
-			$args = array(
-				'cat'                 => $slider_content_ID,
-				'showposts'           => $number_items,
-				'post_status'         => 'publish',
-				'ignore_sticky_posts' => 1,
-			);
-			query_posts( $args );
-			if ( have_posts() ) : $featured = new WP_Query( $args );
-				while ( $featured->have_posts() ) : $featured->the_post(); ?>
-
-                    <div class="carousel-item<?php if ( $slides == 0 ) {
-						echo ' active';
-					} ?>">
-
-                        <div class="carousel-caption layout-left">
-                            <h5>
-                                <a class="title" href="<?php the_permalink() ?>">
-
-									<?php $title = the_title( '', '', false );
-									$length      = evolve_theme_mod( 'evl_posts_slider_title_length', 40 );
-									evolve_truncate( $length, $title, '...' ); ?>
-
-                                </a>
-                            </h5>
-                            <p class="d-none d-md-block">
-
-								<?php $excerpt_length = evolve_theme_mod( 'evl_posts_slider_excerpt_length', 40 );
-								echo evolve_excerpt_max_charlength( $excerpt_length ); ?>
-
-                            </p>
-                            <a class="btn d-none d-sm-inline-block"
-                               href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'evolve' ); ?></a>
-                        </div>
-
-                        <div class="row justify-content-end">
-                            <div class="col-lg-6 p-0">
-
-								<?php if ( has_post_thumbnail() ) {
-									the_post_thumbnail( 'evolve-slider-thumbnail', array( 'class' => 'd-block w-100' ) );
-								} else if ( $image = evolve_get_first_image() ) {
-									if ( $image ):
-										the_permalink();
-										echo ' < img class="d-block w-100" src = "' . $image . '" alt = "';
-										the_title();
-										echo '" />';
-									endif;
-								} else {
-									echo '<img class="d-block w-100" src="' . get_template_directory_uri() . '/assets/images/no-thumbnail-slider.jpg" alt="';
-									the_title();
-									echo '" />';
-								} ?>
-
-                            </div>
-                        </div>
-                    </div>
-
-					<?php ++ $slides; endwhile;
-			else: ?>
-
-                <h5><?php esc_html_e( 'Oops, no posts to display! Please check your Post Slider Category( ID ) settings', 'evolve' ); ?></h5>
-
-			<?php endif;
-			wp_reset_query(); ?>
-
-        </div>
-
-		<?php if ( $slides > 1 ) {
-			echo "<a class='carousel-control-prev' href='#posts-slider' role='button' data-slide='prev'>
-	              <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                    <span class='sr-only'> " . __( 'Previous', 'evolve' ) . "</span>
-                </a>
-                <a class='carousel-control-next' href='#posts-slider' role='button' data-slide='next'>
-                <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                <span class='sr-only'>" . __( 'Next', 'evolve' ) . "</span>
-                </a>";
-		} ?>
-
-    </div>
-
-	<?php
-}
-
-/*
    Get BuddyPress Page ID
    ======================================= */
 
@@ -1765,96 +1324,6 @@ function evolve_print_fonts( $name, $css_class, $additional_css = '', $additiona
 }
 
 /*
-   Number Pagination
-   ======================================= */
-
-function evolve_number_pagination( WP_Query $wp_query = null, $echo = true ) {
-
-	if ( ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "number_pagination" && ! class_exists( 'Woocommerce' ) ) || ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "number_pagination" && class_exists( 'Woocommerce' ) && ! is_shop() ) ) {
-		return;
-	}
-
-	if ( null === $wp_query ) {
-		global $wp_query;
-	}
-	if ( get_option( 'permalink_structure' ) ) {
-		$format = '&paged=%#%';
-	} else {
-		$format = 'page/%#%/';
-	}
-	$pages = paginate_links( [
-			'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
-			'format'       => $format,
-			'current'      => max( 1, get_query_var( 'paged' ) ),
-			'total'        => $wp_query->max_num_pages,
-			'type'         => 'array',
-			'show_all'     => false,
-			'end_size'     => 3,
-			'mid_size'     => 1,
-			'prev_next'    => true,
-			'prev_text'    => sprintf( __( 'Previous', 'evolve' ) ),
-			'next_text'    => sprintf( __( 'Next', 'evolve' ) ),
-			'add_args'     => false,
-			'add_fragment' => ''
-		]
-	);
-	if ( is_array( $pages ) ) {
-		//$paged = ( get_query_var( 'paged' ) == 0 ) ? 1 : get_query_var( 'paged' );
-		$pagination = '<ul class="pagination justify-content-center">';
-		foreach ( $pages as $page ) {
-			$pagination .= '<li class="page-item"> ' . str_replace( 'page-numbers', 'page-link', $page ) . '</li>';
-		}
-		$pagination .= '</ul>';
-		if ( $echo ) {
-			echo $pagination;
-		} else {
-			return $pagination;
-		}
-	}
-
-	return null;
-}
-
-/*
-   Custom Post Pagination
-   ======================================= */
-
-function evolve_link_pages( $args = array() ) {
-	$defaults = array(
-		'before'           => '<nav aria-label="navigation" class="navigation"><ul class="pagination number-pagination"><li class="page-item disabled"><span class="page-link">' . __( 'Pages:', 'evolve' ) . '</span></li>',
-		'after'            => '</ul></nav>',
-		'before_link'      => '<li class="page-item">',
-		'after_link'       => '</li>',
-		'current_before'   => '<li class="page-item">',
-		'current_after'    => '</li>',
-		'nextpagelink'     => __( 'Next', 'evolve' ),
-		'previouspagelink' => __( 'Previous', 'evolve' ),
-		'link_before'      => '',
-		'link_after'       => '',
-		'pagelink'         => '%',
-		'echo'             => 1
-	);
-	$r        = wp_parse_args( $args, $defaults );
-	$r        = apply_filters( 'wp_link_pages_args', $r );
-	extract( $r, EXTR_SKIP );
-	global $page, $numpages, $multipage, $more, $pagenow;
-	if ( ! $multipage ) {
-		return;
-	}
-	$output = $before;
-	for ( $i = 1; $i < ( $numpages + 1 ); $i ++ ) {
-		$j      = str_replace( '%', $i, $pagelink );
-		$output .= ' ';
-		if ( $i != $page || ( ! $more && 1 == $page ) ) {
-			$output .= "{$before_link}" . _wp_link_page( $i ) . "{$link_before}{$j}{$link_after}</a>{$after_link}";
-		} else {
-			$output .= "{$current_before}{$link_before}<span aria-current='page' class='page-link current'>{$j}</span>{$link_after}{$current_after}";
-		}
-	}
-	print $output . $after;
-}
-
-/*
    Change Prefix pyre To evolve (For Older Versions)
    ======================================= */
 
@@ -1873,12 +1342,6 @@ function evolve_change_prefix() {
 		$wpdb->query( "UPDATE $wpdb->postmeta SET meta_key = REPLACE(meta_key, '$original_meta_key', '$change_meta_key')" );
 	}
 }
-
-/*
-   Filter Added For BuddyPress Docs Comment Show
-   ======================================= */
-
-add_filter( 'bp_docs_allow_comment_section', '__return_true', 100 );
 
 /*
    Switch evolve Theme To Other Theme
@@ -2118,29 +1581,6 @@ function evolve_scripts() {
 add_action( 'wp_enqueue_scripts', 'evolve_scripts' );
 
 /*
-   Migrate Custom CSS Code
-   From Theme options To Additional CSS
-   ======================================= */
-
-if ( function_exists( 'wp_update_custom_css_post' ) && ! defined( 'DOING_AJAX' ) ) {
-	$custom_css = '';
-	$data       = get_option( 'evl_options' );
-	if ( isset( $data['evl_css_content'] ) ) {
-		$custom_css = $data['evl_css_content'];
-	}
-	if ( $custom_css ) {
-		$additional_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
-		$return         = wp_update_custom_css_post( $additional_css . $custom_css );
-		if ( ! is_wp_error( $return ) ) {
-			$data                    = get_option( 'evl_options' );
-			$data['evl_css_content'] = '';
-			update_option( 'evl_options', $data );
-		}
-	}
-}
-add_filter( 'wp_calculate_image_srcset', '__return_false', PHP_INT_MAX );
-
-/*
    WooCommerce Support
    ======================================= */
 
@@ -2218,133 +1658,6 @@ function evolve_front_page_builder() {
 }
 
 /*
-   Add Button Class To Read More Link
-   ======================================= */
-
-function evolve_read_more_link() {
-	return '<a class="btn btn-sm" href="' . get_permalink() . '">' . __( 'Read More', 'evolve' ) . '</a>';
-}
-
-add_filter( 'the_content_more_link', 'evolve_read_more_link' );
-
-/*
-   Featured Images
-   ======================================= */
-
-function evolve_featured_image( $type = '' ) {
-	if ( evolve_theme_mod( 'evl_featured_images', '1' ) == "0" ) {
-		return;
-	}
-
-	if ( $type == '1' && is_single() && evolve_theme_mod( 'evl_blog_featured_image', '0' ) == "1" && has_post_thumbnail() ) {
-		echo '<div class="thumbnail-post-single">';
-		the_post_thumbnail( 'evolve-post-thumbnail', array( 'class' => 'd-block w-100' ) );
-		echo '</div>';
-
-	} elseif ( $type == '2' && ! is_page() && ! is_single() ) {
-		if ( has_post_thumbnail() ) {
-			echo '<div class="thumbnail-post"><a href="';
-			the_permalink();
-			echo '">';
-			the_post_thumbnail( 'evolve-post-thumbnail', array( 'class' => 'd-block w-100' ) );
-			echo '<div class="mask"><div class="icon"></div></div></a></div>';
-		} else {
-			if ( evolve_get_first_image() ):
-				echo '<div class="thumbnail-post"><a href="';
-				the_permalink();
-				echo '"><img class="d-block w-100" src="' . evolve_get_first_image() . '" alt="';
-				the_title();
-				echo '" /><div class="mask"><div class="icon"></div></div>	</a></div>';
-			else:
-				if ( evolve_theme_mod( 'evl_thumbnail_default_images', '0' ) == 0 ) {
-					echo '<div class="thumbnail-post"><a href="';
-					the_permalink();
-					echo '"><img class="d-block w-100" src="' . get_template_directory_uri() . '/assets/images/no-thumbnail-post.jpg" alt="';
-					the_title();
-					echo '" /><div class="mask"><div class="icon"></div></div></a></div>';
-				}
-			endif;
-		}
-	}
-}
-
-/*
-   Edit Post Link
-   ======================================= */
-
-function evolve_edit_post() {
-	if ( evolve_theme_mod( 'evl_edit_post', '0' ) == "0" ) {
-		return;
-	}
-	global $post;
-	if ( current_user_can( 'edit_post', $post->ID ) ):
-		edit_post_link( '', '<span class="btn btn-sm edit-post">' . evolve_get_svg( 'pencil' ) . '', '</span>' );
-	endif;
-}
-
-/*
-   Post Meta
-   ======================================= */
-
-function evolve_post_meta( $type = '' ) {
-	if ( $type == "header" ) {
-		if ( evolve_theme_mod( 'evl_header_meta', 'single_archive' ) == 'disable' && evolve_theme_mod( 'evl_edit_post', '0' ) == "0" ) {
-			return;
-		}
-		global $authordata;
-
-		if ( ! is_page() && ( evolve_theme_mod( 'evl_header_meta', 'single_archive' ) == "single_archive" || ( evolve_theme_mod( 'evl_header_meta', 'single_archive' ) == "single" && is_single() ) ) ) {
-
-			echo '<div class="row post-meta align-items-center">';
-
-			if ( evolve_theme_mod( 'evl_author_avatar', '0' ) == "1" ) {
-				echo '<div class="col-auto avatar-meta">' . get_avatar( get_the_author_meta( 'email' ), '30', '', '', array( 'class' => 'rounded-circle' ) ) . '</div>';
-			}
-
-			echo '<div class="col author vcard">';
-
-			if ( ! is_page() && ! is_single() ) {
-				echo '<a href="' . get_the_permalink() . '">';
-			}
-			if ( ! is_page() ) {
-				echo '<span class="published updated">';
-				the_time( get_option( 'date_format' ) );
-				echo '</span>';
-			}
-			if ( ! is_page() && ! is_single() ) {
-				echo '</a>';
-			}
-			if ( ! is_page() ) {
-				_e( 'Written by', 'evolve' );
-				printf( ' <a class="url fn" href="' . get_author_posts_url( $authordata->ID, $authordata->user_nicename ) . '" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'evolve' ), $authordata->display_name ) ) . '">' . get_the_author() . '</a>' );
-			}
-
-			evolve_edit_post();
-
-			echo '</div><!-- .col .author .vcard -->';
-
-			if ( ! is_page() && ( ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "one" || is_single() ) && ( comments_open() || get_comments_number() ) ) ) :
-				echo '<div class="col comment-count">' .
-				     evolve_get_svg( 'comment' );
-				comments_popup_link( __( 'Leave a Comment', 'evolve' ), __( '1 Comment', 'evolve' ), __( '% Comments', 'evolve' ) );
-				echo '</div><!-- .col .comment-count -->';
-			endif;
-
-			echo '</div><!-- .row .post-meta .align-items-top -->';
-		} else {
-			evolve_edit_post();
-		}
-
-	} elseif ( $type == "footer" && ( evolve_get_terms( 'cats' ) || evolve_get_terms( 'tags' ) ) ) {
-		echo '<div class="col">' . evolve_get_svg( 'category' ) . evolve_get_terms( 'cats' );
-		if ( ( evolve_theme_mod( 'evl_post_layout', 'two' ) == "one" && evolve_get_terms( 'tags' ) || is_single() ) ) {
-			echo evolve_get_svg( 'tag' ) . evolve_get_terms( 'tags' );
-		}
-		echo '</div><!-- .col -->';
-	}
-}
-
-/*
    Wrapper For Customizer Preview
    ======================================= */
 
@@ -2359,9 +1672,23 @@ function evolve_wrapper_class() {
 }
 
 /*
-   Custom Post Password Form
-   ======================================= */
+    Custom Filters
+    ======================================= */
 
+/*
+    Add Button Class To Read More Link
+    --------------------------------------- */
+
+add_filter( 'the_content_more_link', 'evolve_read_more_link' );
+function evolve_read_more_link() {
+	return '<a class="btn btn-sm" href="' . get_permalink() . '">' . __( 'Read More', 'evolve' ) . '</a>';
+}
+
+/*
+    Custom Post Password Form
+    --------------------------------------- */
+
+add_filter( 'the_password_form', 'evolve_password_form' );
 function evolve_password_form() {
 	global $post;
 	$label = 'pwbox-' . ( empty( $post->ID ) ? rand() : $post->ID );
@@ -2374,4 +1701,31 @@ function evolve_password_form() {
 	return $o;
 }
 
-add_filter( 'the_password_form', 'evolve_password_form' );
+/*
+    Migrate Custom CSS Code
+    From Theme options To Additional CSS
+    --------------------------------------- */
+
+add_filter( 'wp_calculate_image_srcset', '__return_false', PHP_INT_MAX );
+if ( function_exists( 'wp_update_custom_css_post' ) && ! defined( 'DOING_AJAX' ) ) {
+	$custom_css = '';
+	$data       = get_option( 'evl_options' );
+	if ( isset( $data['evl_css_content'] ) ) {
+		$custom_css = $data['evl_css_content'];
+	}
+	if ( $custom_css ) {
+		$additional_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
+		$return         = wp_update_custom_css_post( $additional_css . $custom_css );
+		if ( ! is_wp_error( $return ) ) {
+			$data                    = get_option( 'evl_options' );
+			$data['evl_css_content'] = '';
+			update_option( 'evl_options', $data );
+		}
+	}
+}
+
+/*
+   Filter Added For BuddyPress Docs Comment Show
+   --------------------------------------- */
+
+add_filter( 'bp_docs_allow_comment_section', '__return_true', 100 );

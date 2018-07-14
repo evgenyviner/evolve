@@ -29,7 +29,7 @@
 			echo '<div class="' . $evolve_social_woo_class . '">';
 
 			if ( evolve_theme_mod( 'evl_social_links', 0 ) ) {
-				get_template_part( 'template-parts/header/header', 'social-buttons' );
+				evolve_social_media_links();
 			}
 
 			if ( function_exists( 'evolve_woocommerce_menu' ) ) {
@@ -39,7 +39,7 @@
 			echo '</div>';
 
 			if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" ) {
-				get_template_part( 'template-parts/header/header', 'logo' );
+				evolve_header_logo();
 			}
 
 			get_template_part( 'template-parts/header/header', 'tagline-above' );
@@ -85,21 +85,9 @@
 				}
 			}
 
-			if ( evolve_theme_mod( 'evl_searchbox', true ) ) { ?>
-
-                <form action="<?php echo home_url(); ?>" method="get"
-                      class="header-search search-form col-sm-1 ml-auto">
-                    <label>
-                        <input type="text" tabindex="1" name="s" class="form-control"
-                               placeholder="<?php esc_html_e( 'Type your search', 'evolve' ); ?>"/>
-
-						<?php echo evolve_get_svg( 'search' ); ?>
-
-                    </label>
-
-                </form>
-
-			<?php } ?>
+			if ( evolve_theme_mod( 'evl_searchbox', true ) ) {
+				evolve_header_search( '1' );
+			} ?>
 
         </div><!-- .row -->
     </div><!-- .container .container-menu -->

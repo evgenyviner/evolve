@@ -5,18 +5,22 @@ function evolve_get_render_callback( $option_name ) {
 		Header
 		======================================= */
 
-	if ( $option_name['evl_sticky_header'] ) {
-		return get_theme_mod( $option_name, 1 );
+	if ( $option_name == 'evl_sticky_header' ) {
+		if ( get_theme_mod( $option_name, 0 ) ) {
+			evolve_sticky_header();
+		}
 	}
-	if ( $option_name['evl_header_logo'] ) {
-		return '<img src="' . get_theme_mod( $option_name, '' ) . '" />';
+	if ( $option_name == 'evl_header_logo' ) {
+		if ( get_theme_mod( $option_name, 0 ) ) {
+			evolve_header_logo();
+		}
 	}
 
 	/*
 		Footer
 		======================================= */
 
-	if ( $option_name['evl_footer_content'] ) {
+	if ( $option_name == 'evl_footer_content' ) {
 		return get_theme_mod( $option_name, '' );
 	}
 
@@ -28,7 +32,7 @@ function evolve_get_render_callback( $option_name ) {
 		-- Breadcrumbs
 		--------------------------------------- */
 
-	if ( $option_name['evl_breadcrumbs'] ) {
+	if ( $option_name == 'evl_breadcrumbs' ) {
 		return get_theme_mod( $option_name, 1 );
 	}
 
@@ -50,11 +54,19 @@ function evolve_get_render_callback( $option_name ) {
 	}
 
 	/*
-	-- Search Form
-	--------------------------------------- */
+		-- Search Form
+		--------------------------------------- */
 
-	if ( $option_name['evl_searchbox'] ) {
-		return get_theme_mod( $option_name, 1 );
+	if ( $option_name == 'evl_searchbox' ) {
+		if ( get_theme_mod( $option_name, 0 ) ) {
+			evolve_header_search( '1' );
+		}
+	}
+
+	if ( $option_name == 'evl_searchbox_sticky_header' ) {
+		if ( get_theme_mod( $option_name, 0 ) ) {
+			evolve_header_search( 'sticky' );
+		}
 	}
 
 	/*
@@ -65,7 +77,7 @@ function evolve_get_render_callback( $option_name ) {
 		-- Front Page Content Boxes
 		--------------------------------------- */
 
-	if ( $option_name['evl_content_boxes_title'] ) {
+	if ( $option_name == 'evl_content_boxes_title' ) {
 		return get_theme_mod( $option_name, '' );
 	}
 
@@ -90,30 +102,32 @@ function evolve_get_render_callback( $option_name ) {
 		Social Media Links
 		======================================= */
 
-	if ( $option_name['evl_social_links'] ) {
-		return get_theme_mod( $option_name, 0 );
+	if ( $option_name == 'evl_social_links' ) {
+		if ( get_theme_mod( $option_name, 0 ) ) {
+			evolve_social_media_links();
+		}
 	}
 
 	/*
 		WooCommerce
 		======================================= */
 
-	if ( $option_name['evl_woocommerce_evolve_ordering'] ) {
+	if ( $option_name == 'evl_woocommerce_evolve_ordering' ) {
 		return get_theme_mod( $option_name, 0 );
 	}
-	if ( $option_name['evl_woocommerce_enable_order_notes'] ) {
+	if ( $option_name == 'evl_woocommerce_enable_order_notes' ) {
 		return get_theme_mod( $option_name, 0 );
 	}
-	if ( $option_name['evl_woocommerce_acc_link_main_nav'] ) {
+	if ( $option_name == 'evl_woocommerce_acc_link_main_nav' ) {
 		return get_theme_mod( $option_name, 0 );
 	}
-	if ( $option_name['evl_woocommerce_cart_link_main_nav'] ) {
+	if ( $option_name == 'evl_woocommerce_cart_link_main_nav' ) {
 		return get_theme_mod( $option_name, 0 );
 	}
-	if ( $option_name['evl_woo_acc_msg_1'] ) {
+	if ( $option_name == 'evl_woo_acc_msg_1' ) {
 		return get_theme_mod( $option_name, '' );
 	}
-	if ( $option_name['evl_woo_acc_msg_2'] ) {
+	if ( $option_name == 'evl_woo_acc_msg_2' ) {
 		return get_theme_mod( $option_name, '' );
 	}
 }

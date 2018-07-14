@@ -24,9 +24,7 @@ $evolve_sticky_header                  = evolve_theme_mod( 'evl_sticky_header', 
                     <div class="top-menu-social-container">
                         <!--BEGIN #subscribe-follow-->
                         <div class="top-menu-social">
-							<?php
-							get_template_part( 'template-parts/header/header', 'social-buttons' );
-							?>
+							<?php evolve_social_media_links(); ?>
                         </div>
                     </div>
                     <!--END #subscribe-follow-->
@@ -177,10 +175,12 @@ $evolve_sticky_header                  = evolve_theme_mod( 'evl_sticky_header', 
 							if ( $evolve_blog_title == "0" || ! $evolve_blog_title ) {
 								if ( is_front_page() ) :
 									?>
-                                    <h1 id="website-title"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
+                                    <h1 id="website-title"><a
+                                                href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
                                     </h1>
 								<?php else : ?>
-                                    <h4 id="website-title"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
+                                    <h4 id="website-title"><a
+                                                href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
                                     </h4>
 								<?php
 								endif;
