@@ -86,12 +86,12 @@ if ( $attachment_ids ) {
 		<?php if ( $loop > 2 ) {
 			echo "<a class='left carousel-control-prev carousel-control' href='#carousel-slider-thumbnails' role='button'
            data-slide='prev'>
-            <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+            <span class='carousel-control-button carousel-control-prev-icon' aria-hidden='true'></span>
             <span class='sr-only'><?php echo __( 'Previous', 'evolve' ); ?></span>
         </a>
         <a class='right carousel-control-next carousel-control' href='#carousel-slider-thumbnails' role='button'
            data-slide='next'>
-            <span class='carousel-control-next-icon' aria-hidden='true'></span>
+            <span class='carousel-control-button carousel-control-next-icon' aria-hidden='true'></span>
             <span class='sr-only'><?php echo __( 'Next', 'evolve' ); ?></span>
         </a>";
 		} ?>

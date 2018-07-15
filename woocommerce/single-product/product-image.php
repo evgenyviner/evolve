@@ -74,11 +74,11 @@ global $post, $product; ?>
 
 			if ( $loop > 0 ) {
 				echo "<a class='carousel-control-prev carousel-control' href='#carousel-slider-product' role='button' data-slide='prev'>
-                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                    <span class='carousel-control-button carousel-control-prev-icon' aria-hidden='true'></span>
                     <span class='sr-only'>" . __( 'Previous', 'evolve' ) . "</span>
                 </a>
                 <a class='carousel-control-next carousel-control' href='#carousel-slider-product' role='button' data-slide='next'>
-                <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                <span class='carousel-control-button carousel-control-next-icon' aria-hidden='true'></span>
                 <span class='sr-only'>" . __( 'Next', 'evolve' ) . "</span>
                 </a>";
 			} ?>

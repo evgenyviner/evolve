@@ -8,12 +8,11 @@ Additional Licenses
 Kirki Customizer Framework - http://aristath.github.io/kirki/ - MIT License
 FontAwesome Icons - http://fortawesome.github.io/Font-Awesome/ - GPL License
 Bootstrap - http://getbootstrap.com/ - MIT License
-Parallax Slider - http://tympanus.net/codrops/2012/03/15/parallax-content-slider-with-css3-and-jquery/ - GPL License
-Modernizr - https://modernizr.com/download?-cssanimations-csstransitions-setclasses-dontmin - MIT License
 Custom DropDown plugin - http://designwithpc.com - GPL License
 Infinite Ajax Scroll - http://infiniteajaxscroll.com - MIT License
 IcoMoon Fonts - https://icomoon.io - GPL License
 Dropdown Hover - https://kybarg.github.io/bootstrap-dropdown-hover/ - MIT License
+Animate.css - http://daneden.me/animate - MIT License
 
 Bootstrap Slider pictures - CC0 1.0 Universal:
 Sylwia Bartyzel - https://twitter.com/SylwiaBartyzel

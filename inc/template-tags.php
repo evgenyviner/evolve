@@ -25,10 +25,8 @@
 
     - Social Media Links
     - Share This Buttons
-*/
 
 
-/*
     Header
     ======================================= */
 
@@ -109,7 +107,7 @@ if ( ! function_exists( 'evolve_sticky_header' ) ) {
 					} else {
 
 						if ( evolve_theme_mod( 'evl_header_logo', '' ) ) {
-							echo "<div class=\"col-1\"><a href=" . home_url() . "><img src=" . evolve_theme_mod( 'evl_header_logo', '' ) . "  alt=" . get_bloginfo( 'name' ) . "/></a></div>";
+							echo "<div class='" . ( ( evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) ? 'col-2' : 'col-1' ) . "'><a href=" . home_url() . "><img src=" . evolve_theme_mod( 'evl_header_logo', '' ) . "  alt=" . get_bloginfo( 'name' ) . "/></a></div>";
 						}
 					}
 
@@ -594,8 +592,7 @@ if ( ! function_exists( 'evolve_bootstrap' ) ) {
 					echo "<p class='d-none d-md-block'>" . esc_attr( evolve_theme_mod( "evl_bootstrap_slide{$i}_desc" ) ) . "</p>";
 				}
 				echo do_shortcode( evolve_theme_mod( "evl_bootstrap_slide{$i}_button" ) );
-				echo "</div>";
-				echo "</div>";
+				echo "</div></div>";
 				++ $slides;
 			}
 		}
@@ -603,11 +600,11 @@ if ( ! function_exists( 'evolve_bootstrap' ) ) {
 			echo "</div>";
 			if ( $slides > 1 ) {
 				echo "<a class='carousel-control-prev' href='#bootstrap-slider' role='button' data-slide='prev'>
-                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                    <span class='carousel-control-button carousel-control-prev-icon' aria-hidden='true'></span>
                     <span class='sr-only'>" . __( 'Previous', 'evolve' ) . "</span>
                 </a>
                 <a class='carousel-control-next' href='#bootstrap-slider' role='button' data-slide='next'>
-                <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                <span class='carousel-control-button carousel-control-next-icon' aria-hidden='true'></span>
                 <span class='sr-only'>" . __( 'Next', 'evolve' ) . "</span>
                 </a>";
 			}
@@ -623,19 +620,48 @@ if ( ! function_exists( 'evolve_bootstrap' ) ) {
 
 if ( ! function_exists( 'evolve_parallax' ) ) {
 	function evolve_parallax() {
-		if ( evolve_theme_mod( 'evl_show_slide1' ) == "1" || evolve_theme_mod( 'evl_show_slide2' ) == "1" || evolve_theme_mod( 'evl_show_slide3' ) == "1" || evolve_theme_mod( 'evl_show_slide4' ) == "1" || evolve_theme_mod( 'evl_show_slide5' ) == "1" ) {
-			echo "<div id='da-slider' class='da-slider'>";
-			for ( $i = 1; $i <= 5; $i ++ ) {
-				if ( evolve_theme_mod( "evl_show_slide{$i}" ) == "1" ) {
-					echo "<div class='da-slide'>";
-					echo "<h2>" . esc_attr( evolve_theme_mod( "evl_slide{$i}_title" ) ) . "</h2>";
-					echo "<p>" . esc_attr( evolve_theme_mod( "evl_slide{$i}_desc" ) ) . "</p>";
-					echo do_shortcode( evolve_theme_mod( "evl_slide{$i}_button" ) );
-					echo "<div class='da-img'><img class='img-responsive' src='" . evolve_theme_mod( "evl_slide{$i}_img" ) . "' alt='" . evolve_theme_mod( "evl_slide{$i}_title" ) . "' /></div>";
-					echo "</div>";
+		$wrap   = false;
+		$slides = 0;
+		for ( $i = 1; $i <= 5; $i ++ ) {
+			if ( evolve_theme_mod( "evl_show_slide{$i}" ) == 1 ) {
+				$active = "";
+				if ( ! $wrap ) {
+					$wrap = true;
+					echo "<div id='parallax-slider' class='carousel slide' data-ride='carousel' data-interval='" . evolve_theme_mod( 'evl_parallax_speed', '7000' ) . "'>";
+					echo "<div class='carousel-inner'>";
+					$active = " active";
 				}
+				echo "<div class='carousel-item" . $active . "'>";
+				echo '<div class="carousel-caption layout-left">';
+				if ( strlen( evolve_theme_mod( "evl_slide{$i}_title" ) ) > 0 ) {
+					echo "<h5 data-animation='animated fadeInRight'>" . esc_attr( evolve_theme_mod( "evl_slide{$i}_title" ) ) . "</h5>";
+				}
+				if ( strlen( evolve_theme_mod( "evl_slide{$i}_desc" ) ) > 0 ) {
+					echo "<p data-animation='animated fadeInRight' class='d-none d-md-block'>" . esc_attr( evolve_theme_mod( "evl_slide{$i}_desc" ) ) . "</p>";
+				}
+				echo do_shortcode( evolve_theme_mod( "evl_slide{$i}_button" ) );
+				echo "</div>";
+
+				echo "<div class='row justify-content-end'><div class='col-lg-6 p-0'><img data-animation='animated fadeInRight' class='d-block' src='" . evolve_theme_mod( "evl_slide{$i}_img" ) . "' alt='" . evolve_theme_mod( "evl_slide{$i}_title" ) . "' /></div></div>";
+
+				echo "</div>";
+				++ $slides;
 			}
-			echo "<nav class='da-arrows'><span class='da-arrows-prev'></span><span class='da-arrows-next'></span></nav></div>";
+		}
+		if ( $wrap ) {
+			echo "</div>";
+			if ( $slides > 1 ) {
+				echo "<a class='carousel-control-prev' href='#parallax-slider' role='button' data-slide='prev'>
+                    <span class='carousel-control-button carousel-control-prev-icon' aria-hidden='true'></span>
+                    <span class='sr-only'>" . __( 'Previous', 'evolve' ) . "</span>
+                </a>
+                <a class='carousel-control-next' href='#parallax-slider' role='button' data-slide='next'>
+                <span class='carousel-control-button carousel-control-next-icon' aria-hidden='true'></span>
+                <span class='sr-only'>" . __( 'Next', 'evolve' ) . "</span>
+                </a>";
+			}
+
+			echo "</div>";
 		}
 	}
 }
@@ -734,11 +760,11 @@ if ( ! function_exists( 'evolve_posts_slider' ) ) {
 
 			<?php if ( $slides > 1 ) {
 				echo "<a class='carousel-control-prev' href='#posts-slider' role='button' data-slide='prev'>
-	              <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+	              <span class='carousel-control-button carousel-control-prev-icon' aria-hidden='true'></span>
                     <span class='sr-only'> " . __( 'Previous', 'evolve' ) . "</span>
                 </a>
                 <a class='carousel-control-next' href='#posts-slider' role='button' data-slide='next'>
-                <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                <span class='carousel-control-button carousel-control-next-icon' aria-hidden='true'></span>
                 <span class='sr-only'>" . __( 'Next', 'evolve' ) . "</span>
                 </a>";
 			} ?>
