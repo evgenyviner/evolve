@@ -3421,7 +3421,7 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Footer Reveal Effect', 'evolve' ),
 					'subtitle' => esc_attr__( 'Check this box if you want to enable Footer Reveal Effect', 'evolve' ),
 					'type'     => 'checkbox',
-					'default'  => '1'
+					'default'  => '0'
 				),
 				array(
 					'id'        => 'evl_footer_background_image',

@@ -307,12 +307,6 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 		wp_enqueue_script( 'main', get_theme_file_uri( '/assets/js/main.min.js' ), array( 'jquery' ), '', true );
 		wp_enqueue_script( 'main_backend', get_theme_file_uri( '/assets/js/main_backend.min.js' ), array( 'jquery' ), '', true );
 
-		if ( evolve_theme_mod( 'evl_footer_reveal', '1' ) == '1' ) {
-			wp_enqueue_script( 'footer-reveal', get_template_directory_uri() . '/assets/js/footer-reveal.min.js', array( 'jquery' ), '', true );
-			wp_enqueue_script( 'footer-reveal-fix', get_template_directory_uri() . '/assets/js/footer-reveal-fix.min.js', array( 'jquery' ), '', true );
-			wp_enqueue_style( 'footer-revealcss', get_template_directory_uri() . '/assets/css/footer-reveal.min.css' );
-		}
-
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
@@ -373,6 +367,12 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 			$local_variables['infinite_scroll_text_finished'] = __( 'You reached the end', 'evolve' );
 			$local_variables['infinite_scroll_text']          = __( 'Load more items', 'evolve' );
 		}
+
+		// Footer Reveal Effect
+
+		if ( evolve_theme_mod( 'evl_footer_reveal', '0' ) == "1" ) :
+			$local_variables['footer_reveal'] = true;
+		endif;
 
 		wp_localize_script( 'main', 'evolve_js_local_vars', $local_variables );
 	}

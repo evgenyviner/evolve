@@ -740,7 +740,15 @@ if ( $evolve_shortcode_button_border_width || ( $evolve_shortcode_button_type ==
 
 if ( $evolve_shadow_effect == 'disable' ) {
 } else {
-	$evolve_css_data .= ' #wrapper { text-shadow: 0 1px 1px ' . evolve_theme_mod( 'evl_shadow_effect_color', 'rgba(150,150,150,0.7)' ) . '; } #wrapper, .wrapper-customizer { -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .2); box-shadow: 0 0 3px rgba(0, 0, 0, .2); } .header-block { -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05); box-shadow: 0 1px 1px rgba(0, 0, 0, .05); } .footer::before, .footer::after, .widget::before, .widget::after { -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.6); box-shadow: 0 0 9px rgba(0, 0, 0, 0.6); } .widget-content, thead { -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, .9) inset; box-shadow: 1px 1px 0 rgba(255, 255, 255, .9) inset; } .formatted-post { -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .1) inset; box-shadow: 0 0 20px rgba(0, 0, 0, .1) inset; }';
+	$evolve_css_data .= ' #wrapper { text-shadow: 0 1px 1px ' . evolve_theme_mod( 'evl_shadow_effect_color', 'rgba(150,150,150,0.7)' ) . '; } #wrapper, .wrapper-customizer { -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .2); box-shadow: 0 0 3px rgba(0, 0, 0, .2); } .header-block { -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05); box-shadow: 0 1px 1px rgba(0, 0, 0, .05); } .formatted-post { -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .1) inset; box-shadow: 0 0 20px rgba(0, 0, 0, .1) inset; }';
+
+	if ( $evolve_widget_background_image == "0" ) {
+		$evolve_css_data .= ' .widget::before, .widget::after { -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.6); box-shadow: 0 0 9px rgba(0, 0, 0, 0.6); } .widget-content, thead { -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, .9) inset; box-shadow: 1px 1px 0 rgba(255, 255, 255, .9) inset; }';
+	}
+
+	if ( evolve_theme_mod( 'evl_footer_reveal', '0' ) != '1' ) {
+		$evolve_css_data .= ' .footer::before, .footer::after { -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.6); box-shadow: 0 0 9px rgba(0, 0, 0, 0.6); }';
+	}
 }
 
 /*

@@ -13,6 +13,7 @@ Infinite Ajax Scroll - http://infiniteajaxscroll.com - MIT License
 IcoMoon Fonts - https://icomoon.io - GPL License
 Dropdown Hover - https://kybarg.github.io/bootstrap-dropdown-hover/ - MIT License
 Animate.css - http://daneden.me/animate - MIT License
+Footer Reveal - https://github.com/IainAndrew - MIT License
 
 Bootstrap Slider pictures - CC0 1.0 Universal:
 Sylwia Bartyzel - https://twitter.com/SylwiaBartyzel

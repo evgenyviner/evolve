@@ -6436,3 +6436,65 @@ if (evolve_js_local_vars.buttons_effect !== 'disable') {
 
 }
 
+/*
+    Footer Reveal Effect
+    ======================================= */
+
+if (evolve_js_local_vars.footer_reveal === '1') {
+
+    /* footer-reveal.js
+     *
+     * Licensed under the MIT license.
+     * http://www.opensource.org/licenses/mit-license.php
+     *
+     * Copyright 2014 Iain Andrew
+     * https://github.com/IainAndrew
+     */
+
+    jQuery(function ($) {
+        $.fn.footerReveal = function (options) {
+
+            var $this = $(this),
+                $prev = $this.prev(),
+                $win = $(window),
+
+                defaults = $.extend({
+                    shadow: false,
+                    shadowOpacity: 0.6,
+                    zIndex: -100
+                }, options),
+
+                settings = $.extend(true, {}, defaults, options);
+
+            if ($this.outerHeight() <= $win.outerHeight() && $this.offset().top >= $win.outerHeight()) {
+                $this.css({
+                    'z-index': defaults.zIndex,
+                    position: 'fixed',
+                    bottom: 0
+                });
+
+                if (defaults.shadow) {
+                    $prev.css({
+                        '-webkit-box-shadow': ' 0 0 9px rgba(0,0,0,' + defaults.shadowOpacity + ')',
+                        'box-shadow': ' 0 0 9px rgba(0,0,0,' + defaults.shadowOpacity + ')'
+                    });
+                }
+
+                $win.on('load resize footerRevealResize', function () {
+                    $this.css({
+                        'width': $prev.outerWidth()
+                    });
+                    $prev.css({
+                        'margin-bottom': $this.outerHeight()
+                    });
+                });
+            }
+            return this;
+        };
+
+        var widths = $('#wrapper').width();
+        $('.footer').footerReveal({width: widths});
+    });
+
+}
+
