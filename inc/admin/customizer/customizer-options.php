@@ -179,7 +179,7 @@ class evolve_Kirki {
 				if ( isset( $value['type'] ) && $value['type'] == 'color_rgba' ) {
 					$value_temp['type'] = 'color';
 					if ( isset( $value['default']['color'] ) ) {
-						$value_temp['default']          = evolve_hex2rgba( $value['default']['color'], $value['default']['alpha'] );
+						$value_temp['default']          = evolve_hex_rgba( $value['default']['color'], $value['default']['alpha'] );
 						$value_temp['choices']['alpha'] = true;
 					}
 				}
@@ -308,7 +308,7 @@ $evolve_videourl = esc_url( "https://youtu.be/dgvjt6dJfWM" );
 $evolve_fb_url   = esc_url( "https://www.facebook.com/Theme4Press" );
 
 // If using image radio buttons, define a directory path
-$evolve_imagepath       = get_template_directory_uri() . '/assets/images/customizer/';
+$evolve_imagepath       = get_template_directory_uri() . '/inc/admin/customizer/assets/images/';
 $evolve_imagepathfolder = get_template_directory_uri() . '/assets/images/';
 
 // OLD DATA MIGRATION
@@ -472,11 +472,11 @@ if ( class_exists( 'Woocommerce' ) ) {
 	//Content Area Options
 	$content_area = array(
 		'enabled'  => array(
-			'content_box' => esc_attr__( 'Content Boxes', 'evolve' ),
+			'blog_post' => esc_attr__( 'Blog/Page Content (REORDER ONLY)', 'evolve' ),
 		),
 		'disabled' => array(
+			'content_box'         => esc_attr__( 'Content Boxes', 'evolve' ),
 			'testimonial'         => esc_attr__( 'Testimonials', 'evolve' ),
-			'blog_post'           => esc_attr__( 'Blog Posts', 'evolve' ),
 			'woocommerce_product' => esc_attr__( 'WooCommerce Products', 'evolve' ),
 			'counter_circle'      => esc_attr__( 'Counter Circles', 'evolve' ),
 			'custom_content'      => esc_attr__( 'Custom Content', 'evolve' ),
@@ -486,11 +486,11 @@ if ( class_exists( 'Woocommerce' ) ) {
 	//Content Area Options
 	$content_area = array(
 		'enabled'  => array(
-			'content_box' => esc_attr__( 'Content Boxes', 'evolve' ),
+			'blog_post' => esc_attr__( 'Blog/Page Content (REORDER ONLY)', 'evolve' ),
 		),
 		'disabled' => array(
+			'content_box'    => esc_attr__( 'Content Boxes', 'evolve' ),
 			'testimonial'    => esc_attr__( 'Testimonials', 'evolve' ),
-			'blog_post'      => esc_attr__( 'Blog Posts', 'evolve' ),
 			'counter_circle' => esc_attr__( 'Counter Circles', 'evolve' ),
 			'custom_content' => esc_attr__( 'Custom Content', 'evolve' ),
 		)
@@ -727,6 +727,17 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
+					'id'       => 'evl_front_elements_content_display',
+					'title'    => esc_attr__( 'Content Elements Position', 'evolve' ),
+					'subtitle' => esc_attr__( 'Select the position of front page elements', 'evolve' ),
+					'type'     => 'select',
+					'options'  => array(
+						'above' => esc_attr__( 'Above Content and Sidebar', 'evolve' ),
+						'next'  => esc_attr__( 'In Content And Next To Sidebar', 'evolve' ),
+					),
+					'default'  => 'above'
+				),
+				array(
 					'id'       => 'evl_front_elements_content_area',
 					'title'    => esc_attr__( 'Content Area', 'evolve' ),
 					'type'     => 'sorter',
@@ -737,349 +748,10 @@ if ( true || is_customize_preview() ) {
 		)
 	);
 
-// Front Page Blog Sections
-	evolve_Kirki::setSection( $evolve_opt_name, array(
-			'id'         => 'evl-fp-blog-general-tab',
-			'title'      => esc_attr__( 'Blog', 'evolve' ),
-			'subsection' => true,
-			'fields'     => array(
-				array(
-					'id'       => 'evl_fp_blog_layout',
-					'title'    => esc_attr__( 'Blog Layout', 'evolve' ),
-					'subtitle' => esc_attr__( 'Select the layout for the Blog Element', 'evolve' ),
-					'type'     => 'select',
-					'options'  => array(
-						'grid'  => esc_attr__( 'Grid', 'evolve' ),
-						'large' => esc_attr__( 'Large', 'evolve' ),
-					),
-					'default'  => 'grid'
-				),
-				array(
-					'id'       => 'evl_fp_blog_number_posts',
-					'title'    => esc_attr__( 'Posts Per Page', 'evolve' ),
-					'subtitle' => esc_attr__( 'Select number of posts per page', 'evolve' ),
-					'type'     => 'select',
-					'options'  => evolve_shortcodes_range( 25, true, true ),
-					'default'  => '4'
-				),
-				array(
-					'id'       => 'evl_fp_blog_cat_slug',
-					'title'    => esc_attr__( 'Categories', 'evolve' ),
-					'subtitle' => esc_attr__( 'Select a category or leave blank for all', 'evolve' ),
-					'type'     => 'select',
-					'multi'    => true,
-					'options'  => evolve_shortcodes_categories( 'category' ),
-					'default'  => ''
-				),
-				array(
-					'id'       => 'evl_fp_blog_exclude_cats',
-					'title'    => esc_attr__( 'Exclude Categories', 'evolve' ),
-					'subtitle' => esc_attr__( 'Select a category to exclude', 'evolve' ),
-					'type'     => 'select',
-					'multi'    => true,
-					'options'  => evolve_shortcodes_categories( 'category' ),
-					'default'  => ''
-				),
-				array(
-					'id'       => 'evl_fp_blog_show_title',
-					'title'    => esc_attr__( 'Show Title', 'evolve' ),
-					'subtitle' => esc_attr__( 'Display the post title below the featured image', 'evolve' ),
-					'type'     => 'radio',
-					'options'  => array( 'yes' => esc_attr__( 'Yes', 'evolve' ), 'no' => esc_attr__( 'No', 'evolve' ) ),
-					'default'  => 'yes'
-				),
-				array(
-					'id'       => 'evl_fp_blog_title_link',
-					'title'    => esc_attr__( 'Link Title To Post', 'evolve' ),
-					'subtitle' => esc_attr__( 'Choose if the title should be a link to the single post page', 'evolve' ),
-					'type'     => 'radio',
-					'options'  => array( 'yes' => esc_attr__( 'Yes', 'evolve' ), 'no' => esc_attr__( 'No', 'evolve' ) ),
-					'default'  => 'yes'
-				),
-				array(
-					'id'       => 'evl_fp_blog_thumbnail',
-					'title'    => esc_attr__( 'Show Thumbnail', 'evolve' ),
-					'subtitle' => esc_attr__( 'Display the post featured image', 'evolve' ),
-					'type'     => 'radio',
-					'options'  => array( 'yes' => esc_attr__( 'Yes', 'evolve' ), 'no' => esc_attr__( 'No', 'evolve' ) ),
-					'default'  => 'yes'
-				),
-				array(
-					'id'       => 'evl_fp_blog_excerpt',
-					'title'    => esc_attr__( 'Show Excerpt', 'evolve' ),
-					'subtitle' => esc_attr__( 'Choose to display the post excerpt', 'evolve' ),
-					'type'     => 'radio',
-					'options'  => array( 'yes' => esc_attr__( 'Yes', 'evolve' ), 'no' => esc_attr__( 'No', 'evolve' ) ),
-					'default'  => 'yes'
-				),
-				array(
-					'id'       => 'evl_fp_blog_excerpt_length',
-					'title'    => esc_attr__( 'Number of Words in Excerpt', 'evolve' ),
-					'subtitle' => esc_attr__( 'Controls the excerpt length based on words', 'evolve' ),
-					'type'     => 'slider',
-					'min'      => '0',
-					'max'      => '100',
-					'default'  => '35'
-				),
-				array(
-					'id'       => 'evl_fp_blog_meta_all',
-					'title'    => esc_attr__( 'Show Meta Info', 'evolve' ),
-					'subtitle' => esc_attr__( 'Choose to show all meta data', 'evolve' ),
-					'type'     => 'radio',
-					'options'  => array( 'yes' => esc_attr__( 'Yes', 'evolve' ), 'no' => esc_attr__( 'No', 'evolve' ) ),
-					'default'  => 'yes'
-				),
-				array(
-					'id'       => 'evl_fp_blog_meta_author',
-					'title'    => esc_attr__( 'Show Author Name', 'evolve' ),
-					'subtitle' => esc_attr__( 'Choose to show the author', 'evolve' ),
-					'type'     => 'radio',
-					'options'  => array( 'yes' => esc_attr__( 'Yes', 'evolve' ), 'no' => esc_attr__( 'No', 'evolve' ) ),
-					'default'  => 'yes'
-				),
-				array(
-					'id'       => 'evl_fp_blog_meta_categories',
-					'title'    => esc_attr__( 'Show Categories', 'evolve' ),
-					'subtitle' => esc_attr__( 'Choose to show the categories', 'evolve' ),
-					'type'     => 'radio',
-					'options'  => array( 'yes' => esc_attr__( 'Yes', 'evolve' ), 'no' => esc_attr__( 'No', 'evolve' ) ),
-					'default'  => 'yes'
-				),
-				array(
-					'id'       => 'evl_fp_blog_meta_comments',
-					'title'    => esc_attr__( 'Show Comment Count', 'evolve' ),
-					'subtitle' => esc_attr__( 'Choose to show the comments', 'evolve' ),
-					'type'     => 'radio',
-					'options'  => array( 'yes' => esc_attr__( 'Yes', 'evolve' ), 'no' => esc_attr__( 'No', 'evolve' ) ),
-					'default'  => 'yes'
-				),
-				array(
-					'id'       => 'evl_fp_blog_meta_date',
-					'title'    => esc_attr__( 'Show Date', 'evolve' ),
-					'subtitle' => esc_attr__( 'Choose to show the date', 'evolve' ),
-					'type'     => 'radio',
-					'options'  => array( 'yes' => esc_attr__( 'Yes', 'evolve' ), 'no' => esc_attr__( 'No', 'evolve' ) ),
-					'default'  => 'yes'
-				),
-				array(
-					'title'    => esc_attr__( 'Show Read More Link', 'evolve' ),
-					'id'       => 'evl_fp_blog_meta_link',
-					'type'     => 'radio',
-					'default'  => 'yes',
-					'options'  => array( 'yes' => esc_attr__( 'Yes', 'evolve' ), 'no' => esc_attr__( 'No', 'evolve' ) ),
-					'subtitle' => esc_attr__( 'Choose to show the Read More link', 'evolve' ),
-				),
-				array(
-					'title'    => esc_attr__( 'Show Tags', 'evolve' ),
-					'id'       => 'evl_fp_blog_meta_tags',
-					'type'     => 'radio',
-					'default'  => 'yes',
-					'options'  => array( 'yes' => esc_attr__( 'Yes', 'evolve' ), 'no' => esc_attr__( 'No', 'evolve' ) ),
-					'subtitle' => esc_attr__( 'Choose to show the tags', 'evolve' ),
-				),
-				array(
-					'title'    => esc_attr__( 'Show Pagination', 'evolve' ),
-					'id'       => 'evl_fp_blog_paging',
-					'type'     => 'radio',
-					'default'  => 'yes',
-					'options'  => array( 'yes' => esc_attr__( 'Yes', 'evolve' ), 'no' => esc_attr__( 'No', 'evolve' ) ),
-					'subtitle' => esc_attr__( 'Show numerical pagination boxes', 'evolve' ),
-				),
-				array(
-					'title'    => esc_attr__( 'Pagination Type', 'evolve' ),
-					'id'       => 'evl_fp_blog_scrolling',
-					'type'     => 'select',
-					'default'  => 'pagination',
-					'options'  => array(
-						'pagination' => esc_attr__( 'Pagination', 'evolve' ),
-						'infinite'   => esc_attr__( 'Infinite Scroll', 'evolve' )
-					),
-					'subtitle' => esc_attr__( 'Select the pagination type', 'evolve' )
-				),
-				array(
-					'title'    => esc_attr__( 'Grid Layout # of Columns', 'evolve' ),
-					'id'       => 'evl_fp_blog_blog_grid_columns',
-					'type'     => 'select',
-					'class'    => 'input-sm',
-					'default'  => '2',
-					'options'  => array(
-						'2' => '2',
-						'3' => '3',
-						'4' => '4',
-					),
-					'subtitle' => esc_attr__( 'Select whether to display the Grid Layout in 2, 3 or 4 columns', 'evolve' )
-				),
-				array(
-					'title'    => esc_attr__( 'Strip HTML from Post Excerpt', 'evolve' ),
-					'id'       => 'evl_fp_blog_strip_html',
-					'type'     => 'radio',
-					'default'  => 'yes',
-					'options'  => array( 'yes' => esc_attr__( 'Yes', 'evolve' ), 'no' => esc_attr__( 'No', 'evolve' ) ),
-					'subtitle' => esc_attr__( 'Strip HTML from the post excerpt', 'evolve' ),
-				),
-				array(
-					'id'     => 'evl-front-page-subsec-blog-section-start',
-					'title'  => esc_attr__( 'Section Settings', 'evolve' ),
-					'type'   => 'info',
-					'indent' => true
-				),
-				array(
-					'id'              => 'evl_blog_section_title',
-					'title'           => esc_attr__( 'Title of Blog Section', 'evolve' ),
-					'type'            => 'text',
-					'selector'        => 'h3.blog-section-title',
-					'render_callback' => 'evl_blog_section_title'
-				),
-				array(
-					'id'          => 'evl_blog_section_title_alignment',
-					'title'       => esc_attr__( 'Title Font, Alignment and Color', 'evolve' ),
-					'subtitle'    => esc_attr__( 'Select the font, alignment and color of the section title', 'evolve' ),
-					'type'        => 'typography',
-					'text-align'  => true,
-					'line-height' => false,
-					'default'     => array(
-						'font-size'   => '1.9rem',
-						'color'       => '#444444',
-						'font-family' => 'Roboto',
-						'font-weight' => '700',
-						'text-align'  => 'center'
-					),
-					'transport'   => 'postMessage',
-					'js_vars'     => array(
-						array(
-							'element' => 'h3.blog-section-title'
-						)
-					)
-				),
-				array(
-					'id'        => 'evl_blog_section_padding',
-					'title'     => esc_attr__( 'Section Padding', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Enter the section padding', 'evolve' ),
-					'type'      => 'spacing',
-					'units'     => array( 'px', 'em' ),
-					'default'   => array(
-						'padding-top'    => '40px',
-						'padding-right'  => '0',
-						'padding-bottom' => '40px',
-						'padding-left'   => '0',
-						'units'          => 'px'
-					),
-					'selector'  => '.t4p-fp-blog .container',
-					'transport' => 'postMessage',
-					'js_vars'   => array(
-						array(
-							'element'  => '.t4p-fp-blog',
-							'function' => 'css',
-							'property' => 'padding'
-						)
-					),
-				),
-				array(
-					'id'        => 'evl_blog_section_background_image',
-					'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
-					'type'      => 'media',
-					'url'       => true,
-					'transport' => 'postMessage',
-					'js_vars'   => array(
-						array(
-							'element'  => '.t4p-fp-blog',
-							'function' => 'css',
-							'property' => 'background-image'
-						)
-					)
-				),
-				array(
-					'id'        => 'evl_blog_section_image',
-					'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
-					'type'      => 'select',
-					'options'   => array(
-						'cover'   => esc_attr__( 'Cover', 'evolve' ),
-						'contain' => esc_attr__( 'Contain', 'evolve' ),
-						'none'    => esc_attr__( 'None', 'evolve' ),
-					),
-					'default'   => 'cover',
-					'transport' => 'postMessage',
-					'js_vars'   => array(
-						array(
-							'element'  => '.t4p-fp-blog',
-							'function' => 'css',
-							'property' => 'background-size'
-						)
-					)
-				),
-				array(
-					'id'        => 'evl_blog_section_image_background_repeat',
-					'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
-					'type'      => 'select',
-					'options'   => array(
-						'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
-						'repeat'    => esc_attr__( 'repeat', 'evolve' ),
-						'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
-						'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
-					),
-					'default'   => 'no-repeat',
-					'transport' => 'postMessage',
-					'js_vars'   => array(
-						array(
-							'element'  => '.t4p-fp-blog',
-							'function' => 'css',
-							'property' => 'background-repeat'
-						)
-					)
-				),
-				array(
-					'id'        => 'evl_blog_section_image_background_position',
-					'title'     => esc_attr__( 'Background Position', 'evolve' ),
-					'type'      => 'select',
-					'options'   => array(
-						'center top'    => esc_attr__( 'center top', 'evolve' ),
-						'center center' => esc_attr__( 'center center', 'evolve' ),
-						'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
-						'left top'      => esc_attr__( 'left top', 'evolve' ),
-						'left center'   => esc_attr__( 'left center', 'evolve' ),
-						'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
-						'right top'     => esc_attr__( 'right top', 'evolve' ),
-						'right center'  => esc_attr__( 'right center', 'evolve' ),
-						'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
-					),
-					'default'   => 'center top',
-					'transport' => 'postMessage',
-					'js_vars'   => array(
-						array(
-							'element'  => '.t4p-fp-blog',
-							'function' => 'css',
-							'property' => 'background-position'
-						)
-					)
-				),
-				array(
-					'id'        => 'evl_blog_section_back_color',
-					'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
-					'default'   => '#ffffff',
-					'transport' => 'postMessage',
-					'js_vars'   => array(
-						array(
-							'element'  => '.t4p-fp-blog',
-							'function' => 'css',
-							'property' => 'background-color'
-						)
-					)
-				),
-				array(
-					'id'     => 'evl-front-page-subsec-blog-section-end',
-					'type'   => 'section',
-					'indent' => false
-				)
-			)
-		)
-	);
+	/*
+		Front Page Content Boxes
+		======================================= */
 
-// Front Page Content Boxes
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-frontpage-content-boxes-tab',
 			'title'      => esc_attr__( 'Content Boxes', 'evolve' ),
@@ -1090,18 +762,6 @@ if ( true || is_customize_preview() ) {
 					'title'  => esc_attr__( 'General', 'evolve' ),
 					'type'   => 'section',
 					'indent' => true
-				),
-				array(
-					'id'       => 'evl_content_boxes_pos',
-					'title'    => esc_attr__( 'Content Boxes Position', 'evolve' ),
-					'subtitle' => sprintf( '%s<br />%s', esc_attr( 'Above means the content boxes display outside of Content Area (above Sidebar).', 'evolve' ), esc_attr( 'Below means the content boxes display inside of Content Area (next to Sidebar)', 'evolve' ) ),
-					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
-						'above' => esc_attr__( 'Above', 'evolve' ),
-						'below' => esc_attr__( 'Below', 'evolve' )
-					),
-					'default'  => 'above'
 				),
 				array(
 					'id'        => 'evl_content_box_background_color',
@@ -1442,7 +1102,6 @@ if ( true || is_customize_preview() ) {
 						array( 'evl_content_box4_enable', '=', '1' )
 					)
 				),
-				// Section settings
 				array(
 					'id'     => 'evl-front-page-subsec-content-boxes-section-start',
 					'title'  => esc_attr__( 'Section Settings', 'evolve' ),
@@ -1597,6 +1256,273 @@ if ( true || is_customize_preview() ) {
 				),
 				array(
 					'id'     => 'evl-front-page-subsec-content-boxes-section-end',
+					'type'   => 'section',
+					'indent' => false
+				)
+			)
+		)
+	);
+
+	/*
+		Testimonials
+		======================================= */
+
+	$testimonialfields = array();
+
+	for ( $i = 1; $i <= 2; $i ++ ) {
+
+		$testimonialfields[] = array(
+			'id'      => "{$evolve_shortname}_fp_testimonial{$i}",
+			'title'   => sprintf( esc_attr__( 'Enable Testimonial %d', 'evolve' ), $i ),
+			'type'    => 'switch',
+			'on'      => esc_attr__( 'Enabled', 'evolve' ),
+			'off'     => esc_attr__( 'Disabled', 'evolve' ),
+			'default' => 1
+		);
+
+		$testimonialfields[] = array(
+			'id'       => "{$evolve_shortname}_fp_testimonial{$i}_avatar",
+			'title'    => sprintf( esc_attr__( 'Testimonial %d Avatar', 'evolve' ), $i ),
+			'subtitle' => sprintf( esc_attr__( 'Upload an image for the Testimonial %d, or specify an image URL directly', 'evolve' ), $i ),
+			'type'     => "media",
+			'url'      => true,
+			'readonly' => false,
+			'required' => array( array( "{$evolve_shortname}_fp_testimonial{$i}", '=', '1' ) )
+		);
+
+		$testimonialfields[] = array(
+			'id'              => "{$evolve_shortname}_fp_testimonial{$i}_name",
+			'title'           => sprintf( esc_attr__( 'Testimonial %d Name', 'evolve' ), $i ),
+			'type'            => "text",
+			'selector'        => ".home-testimonials .item-{$i} .blockquote-footer strong",
+			'render_callback' => "{$evolve_shortname}_fp_testimonial{$i}_name",
+			'required'        => array( array( "{$evolve_shortname}_fp_testimonial{$i}", '=', '1' ) )
+		);
+
+		$testimonialfields[] = array(
+			'id'       => "{$evolve_shortname}_fp_testimonial{$i}_content",
+			'title'    => sprintf( esc_attr__( 'Testimonial %d Content', 'evolve' ), $i ),
+			'type'     => "textarea",
+			"rows"     => 5,
+			'required' => array( array( "{$evolve_shortname}_fp_testimonial{$i}", '=', '1' ) )
+		);
+	}
+
+	evolve_Kirki::setSection( $evolve_opt_name, array(
+			'id'         => 'evl-front-page-testimonials-tab',
+			'title'      => esc_attr__( 'Testimonials', 'evolve' ),
+			'subsection' => true,
+			'fields'     => array(
+				array(
+					'id'     => 'evl-fp-testimonials-general-start',
+					'title'  => esc_attr__( 'General', 'evolve' ),
+					'type'   => 'section',
+					'indent' => true
+				),
+				array(
+					'id'        => 'evl_fp_testimonials_bg_color',
+					'title'     => esc_attr__( 'Background Color', 'evolve' ),
+					'type'      => 'color',
+					'compiler'  => true,
+					'default'   => '',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.home-content-boxes blockquote',
+							'function' => 'css',
+							'property' => 'background-color'
+						)
+					)
+				),
+				array(
+					'id'        => 'evl_fp_testimonials_text_color',
+					'title'     => esc_attr__( 'Text Color', 'evolve' ),
+					'type'      => 'color',
+					'compiler'  => true,
+					'default'   => '#333333',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.home-content-boxes blockquote',
+							'function' => 'css',
+							'property' => 'color'
+						)
+					)
+				),
+				array(
+					'id'     => 'evl-fp-testimonials-general-end',
+					'type'   => 'section',
+					'indent' => false,
+				),
+				$testimonialfields[0],
+				$testimonialfields[1],
+				$testimonialfields[2],
+				$testimonialfields[3],
+				$testimonialfields[4],
+				$testimonialfields[5],
+				$testimonialfields[6],
+				$testimonialfields[7],
+				array(
+					'id'     => 'evl-fp-testimonial-slides-end',
+					'type'   => 'section',
+					'indent' => false
+				),
+				// Section settings
+				array(
+					'id'     => 'evl-front-page-subsec-testimonials-section-start',
+					'title'  => esc_attr__( 'Section Settings', 'evolve' ),
+					'type'   => 'info',
+					'indent' => true
+				),
+				array(
+					'id'              => 'evl_testimonials_title',
+					'title'           => esc_attr__( 'Title of Testimonials Section', 'evolve' ),
+					'type'            => 'text',
+					'selector'        => 'h3.testimonials-section-title',
+					'render_callback' => 'evl_testimonials_title'
+				),
+				array(
+					'id'          => 'evl_testimonials_title_alignment',
+					'title'       => esc_attr__( 'Title Font, Alignment and Color', 'evolve' ),
+					'subtitle'    => esc_attr__( 'Select the font, alignment and color of the section title', 'evolve' ),
+					'type'        => 'typography',
+					'text-align'  => true,
+					'line-height' => false,
+					'default'     => array(
+						'font-size'   => '1.9rem',
+						'color'       => '#333333',
+						'font-family' => 'Roboto',
+						'font-weight' => '700',
+						'text-align'  => 'center'
+					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => 'h3.testimonials-section-title'
+						)
+					)
+				),
+				array(
+					'id'        => 'evl_testimonials_section_padding',
+					'title'     => esc_attr__( 'Section Padding', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Enter the section padding', 'evolve' ),
+					'type'      => 'spacing',
+					'units'     => array( 'px', 'em' ),
+					'default'   => array(
+						'padding-top'    => '40px',
+						'padding-right'  => '40px',
+						'padding-bottom' => '40px',
+						'padding-left'   => '40px',
+						'units'          => 'px'
+					),
+					'selector'  => '.home-testimonials .container',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.home-testimonials',
+							'function' => 'css',
+							'property' => 'padding'
+						)
+					)
+				),
+				array(
+					'id'        => 'evl_testimonials_section_background_image',
+					'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
+					'type'      => 'media',
+					'url'       => true,
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.home-testimonials',
+							'function' => 'css',
+							'property' => 'background-image'
+						)
+					)
+				),
+				array(
+					'id'        => 'evl_testimonials_section_image',
+					'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
+						'cover'   => esc_attr__( 'Cover', 'evolve' ),
+						'contain' => esc_attr__( 'Contain', 'evolve' ),
+						'none'    => esc_attr__( 'None', 'evolve' )
+					),
+					'default'   => 'cover',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.home-testimonials',
+							'function' => 'css',
+							'property' => 'background-size'
+						)
+					)
+				),
+				array(
+					'id'        => 'evl_testimonials_section_image_background_repeat',
+					'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
+						'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
+						'repeat'    => esc_attr__( 'repeat', 'evolve' ),
+						'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
+						'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
+					),
+					'default'   => 'no-repeat',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.home-testimonials',
+							'function' => 'css',
+							'property' => 'background-repeat'
+						)
+					)
+				),
+				array(
+					'id'        => 'evl_testimonials_section_image_background_position',
+					'title'     => esc_attr__( 'Background Position', 'evolve' ),
+					'type'      => 'select',
+					'options'   => array(
+						'center top'    => esc_attr__( 'center top', 'evolve' ),
+						'center center' => esc_attr__( 'center center', 'evolve' ),
+						'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
+						'left top'      => esc_attr__( 'left top', 'evolve' ),
+						'left center'   => esc_attr__( 'left center', 'evolve' ),
+						'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
+						'right top'     => esc_attr__( 'right top', 'evolve' ),
+						'right center'  => esc_attr__( 'right center', 'evolve' ),
+						'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
+					),
+					'default'   => 'center top',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.home-testimonials',
+							'function' => 'css',
+							'property' => 'background-position'
+						)
+					)
+				),
+				array(
+					'id'        => 'evl_testimonials_section_back_color',
+					'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
+					'type'      => 'color',
+					'compiler'  => true,
+					'default'   => '#efefef',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.home-testimonials',
+							'function' => 'css',
+							'property' => 'background-color'
+						)
+					)
+				),
+				array(
+					'id'     => 'evl-front-page-subsec-testimonials-section-end',
 					'type'   => 'section',
 					'indent' => false
 				)
@@ -1848,213 +1774,6 @@ if ( true || is_customize_preview() ) {
 				),
 				array(
 					'id'     => 'evl-front-page-subsec-counter-circle-section-end',
-					'type'   => 'section',
-					'indent' => false
-				)
-			)
-		)
-	);
-
-// Testimonials Dynamic Fields
-	$testimonialfields = array();
-
-	for ( $i = 1; $i <= 2; $i ++ ) {
-
-		$testimonialfields[] = array(
-			'id'      => "{$evolve_shortname}_fp_testimonial{$i}",
-			'title'   => sprintf( esc_attr__( 'Enable Testimonial %d', 'evolve' ), $i ),
-			'type'    => 'switch',
-			'on'      => esc_attr__( 'Enabled', 'evolve' ),
-			'off'     => esc_attr__( 'Disabled', 'evolve' ),
-			'default' => 1
-		);
-
-		$testimonialfields[] = array(
-			'id'       => "{$evolve_shortname}_fp_testimonial{$i}_avatar",
-			'title'    => sprintf( esc_attr__( 'Testimonial %d Avatar', 'evolve' ), $i ),
-			'subtitle' => sprintf( esc_attr__( 'Upload an image for the Testimonial %d, or specify an image URL directly', 'evolve' ), $i ),
-			'type'     => "media",
-			'url'      => true,
-			'readonly' => false,
-			'required' => array( array( "{$evolve_shortname}_fp_testimonial{$i}", '=', '1' ) )
-		);
-
-		$testimonialfields[] = array(
-			'id'       => "{$evolve_shortname}_fp_testimonial{$i}_name",
-			'title'    => sprintf( esc_attr__( 'Testimonial %d Name', 'evolve' ), $i ),
-			'type'     => "text",
-			'required' => array( array( "{$evolve_shortname}_fp_testimonial{$i}", '=', '1' ) )
-		);
-
-		$testimonialfields[] = array(
-			'id'       => "{$evolve_shortname}_fp_testimonial{$i}_content",
-			'title'    => sprintf( esc_attr__( 'Testimonial %d Content', 'evolve' ), $i ),
-			'type'     => "textarea",
-			"rows"     => 5,
-			'required' => array( array( "{$evolve_shortname}_fp_testimonial{$i}", '=', '1' ) )
-		);
-	}
-
-	evolve_Kirki::setSection( $evolve_opt_name, array(
-			'id'         => 'evl-front-page-testimonials-tab',
-			'title'      => esc_attr__( 'Testimonials', 'evolve' ),
-			'subsection' => true,
-			'fields'     => array(
-				// Testimonials General
-				array(
-					'id'     => 'evl-fp-testimonials-general-start',
-					'title'  => esc_attr__( 'General', 'evolve' ),
-					'type'   => 'section',
-					'indent' => true
-				),
-				array(
-					'id'       => 'evl_fp_testimonials_bg_color',
-					'title'    => esc_attr__( 'Background Color', 'evolve' ),
-					'type'     => 'color',
-					'compiler' => true,
-					'default'  => '#71989e'
-				),
-				array(
-					'id'       => 'evl_fp_testimonials_text_color',
-					'title'    => esc_attr__( 'Text Color', 'evolve' ),
-					'type'     => 'color',
-					'compiler' => true,
-					'default'  => '#ffffff'
-				),
-				array(
-					'id'     => 'evl-fp-testimonials-general-end',
-					'type'   => 'section',
-					'indent' => false,
-				),
-				$testimonialfields[0],
-				$testimonialfields[1],
-				$testimonialfields[2],
-				$testimonialfields[3],
-				$testimonialfields[4],
-				$testimonialfields[5],
-				$testimonialfields[6],
-				$testimonialfields[7],
-				array(
-					'id'     => 'evl-fp-testimonial-slides-end',
-					'type'   => 'section',
-					'indent' => false
-				),
-				// Section settings
-				array(
-					'id'     => 'evl-front-page-subsec-testimonials-section-start',
-					'title'  => esc_attr__( 'Section Settings', 'evolve' ),
-					'type'   => 'info',
-					'indent' => true
-				),
-				array(
-					'id'              => 'evl_testimonials_title',
-					'title'           => esc_attr__( 'Title of Testimonials Section', 'evolve' ),
-					'type'            => 'text',
-					'selector'        => 'h3.testimonials-section-title',
-					'render_callback' => 'evl_testimonials_title'
-				),
-				array(
-					'id'          => 'evl_testimonials_title_alignment',
-					'title'       => esc_attr__( 'Title Font, Alignment and Color', 'evolve' ),
-					'subtitle'    => esc_attr__( 'Select the font, alignment and color of the section title', 'evolve' ),
-					'type'        => 'typography',
-					'text-align'  => true,
-					'line-height' => false,
-					'default'     => array(
-						'font-size'   => '1.9rem',
-						'color'       => '#ffffff',
-						'font-family' => 'Roboto',
-						'font-weight' => '700',
-						'text-align'  => 'center'
-					),
-					'transport'   => 'postMessage',
-					'js_vars'     => array(
-						array(
-							'element' => 'h3.testimonials-section-title'
-						)
-					)
-				),
-				array(
-					'id'        => 'evl_testimonials_section_padding',
-					'title'     => esc_attr__( 'Section Padding', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Enter the section padding', 'evolve' ),
-					'type'      => 'spacing',
-					'units'     => array( 'px', 'em' ),
-					'default'   => array(
-						'padding-top'    => '40px',
-						'padding-right'  => '40px',
-						'padding-bottom' => '40px',
-						'padding-left'   => '40px',
-						'units'          => 'px'
-					),
-					'selector'  => '.t4p-testimonials .container',
-					'transport' => 'postMessage',
-					'js_vars'   => array(
-						array(
-							'element'  => '.t4p-testimonials',
-							'function' => 'css',
-							'property' => 'padding'
-						)
-					)
-				),
-				array(
-					'id'       => 'evl_testimonials_section_background_image',
-					'title'    => esc_attr__( 'Section Background Image', 'evolve' ),
-					'subtitle' => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
-					'type'     => 'media',
-					'url'      => true
-				),
-				array(
-					'id'       => 'evl_testimonials_section_image',
-					'title'    => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
-					'subtitle' => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
-					'type'     => 'select',
-					'options'  => array(
-						'cover'   => esc_attr__( 'Cover', 'evolve' ),
-						'contain' => esc_attr__( 'Contain', 'evolve' ),
-						'none'    => esc_attr__( 'None', 'evolve' )
-					),
-					'default'  => 'cover'
-				),
-				array(
-					'id'      => 'evl_testimonials_section_image_background_repeat',
-					'title'   => esc_attr__( 'Background Repeat', 'evolve' ),
-					'type'    => 'select',
-					'options' => array(
-						'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
-						'repeat'    => esc_attr__( 'repeat', 'evolve' ),
-						'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
-						'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
-					),
-					'default' => 'no-repeat'
-				),
-				array(
-					'id'      => 'evl_testimonials_section_image_background_position',
-					'title'   => esc_attr__( 'Background Position', 'evolve' ),
-					'type'    => 'select',
-					'options' => array(
-						'center top'    => esc_attr__( 'center top', 'evolve' ),
-						'center center' => esc_attr__( 'center center', 'evolve' ),
-						'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
-						'left top'      => esc_attr__( 'left top', 'evolve' ),
-						'left center'   => esc_attr__( 'left center', 'evolve' ),
-						'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
-						'right top'     => esc_attr__( 'right top', 'evolve' ),
-						'right center'  => esc_attr__( 'right center', 'evolve' ),
-						'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
-					),
-					'default' => 'center top'
-				),
-				array(
-					'id'       => 'evl_testimonials_section_back_color',
-					'title'    => esc_attr__( 'Section Background Color', 'evolve' ),
-					'subtitle' => esc_attr__( 'Custom background color of section', 'evolve' ),
-					'type'     => 'color',
-					'compiler' => true,
-					'default'  => '#8bb9c1'
-				),
-				array(
-					'id'     => 'evl-front-page-subsec-testimonials-section-end',
 					'type'   => 'section',
 					'indent' => false
 				)
@@ -4403,6 +4122,17 @@ if ( true || is_customize_preview() ) {
 					'required' => array(
 						array( 'evl_featured_images', '=', '1' )
 					)
+				),
+				array(
+					'id'       => 'evl_animatecss',
+					'title'    => esc_attr__( 'Enable Hover Effect on Featured Images', 'evolve' ),
+					'subtitle' => esc_attr__( 'Check this box if you want to enable hover effect on featured images', 'evolve' ),
+					'type'     => 'checkbox',
+					'compiler' => true,
+					'default'  => '1',
+					'required' => array(
+						array( 'evl_featured_images', '=', '1' )
+					)
 				)
 			)
 		)
@@ -5255,14 +4985,6 @@ if ( true || is_customize_preview() ) {
 			'title'   => esc_attr__( 'Advanced', 'evolve' ),
 			'iconfix' => 'evolve-icon evolve-icon-appbarlistcheck',
 			'fields'  => array(
-				array(
-					'id'       => 'evl_animatecss',
-					'title'    => esc_attr__( 'Enable Animate.css Plugin Support', 'evolve' ),
-					'subtitle' => esc_attr__( 'Check this box if you want to enable Animate.css plugin support - (menu hover effect, featured image hover effect, button hover effect, etc.)', 'evolve' ),
-					'type'     => 'checkbox',
-					'compiler' => true,
-					'default'  => '1'
-				),
 				array(
 					'id'       => 'evl_fontawesome',
 					'title'    => esc_attr__( 'Disable Font Awesome', 'evolve' ),

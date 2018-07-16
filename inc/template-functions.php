@@ -1126,20 +1126,13 @@ if ( ! function_exists( 'evolve_remove_comma' ) ) {
 
 if ( ! function_exists( 'evolve_front_page_builder' ) ) {
 	function evolve_front_page_builder() {
-		if ( ! evolve_theme_mod( 'evl_front_elements_content_area' ) && ( ! is_home() || ! is_front_page() ) ) {
-			return;
-		}
-
-		$content_boxes_pos = evolve_theme_mod( 'evl_content_boxes_pos', 'above' );
 
 		foreach ( evolve_theme_mod( 'evl_front_elements_content_area' ) as $elementkey => $elementval ) {
 
 			switch ( $elementval ) {
 
 				case 'content_box':
-					if ( $elementval && $content_boxes_pos == 'below' ) {
-						evolve_content_boxes();
-					}
+					evolve_content_boxes();
 					break;
 				case 'testimonial':
 					if ( $elementval ) {
@@ -1148,7 +1141,32 @@ if ( ! function_exists( 'evolve_front_page_builder' ) ) {
 					break;
 				case 'blog_post':
 					if ( $elementval ) {
-						evolve_blog_posts();
+						if ( evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) == 'above' ) { ?>
+                            <div class="content">
+                            <div class="container">
+                            <div class="row">
+                            <div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?>">
+						<?php }
+
+						evolve_blog_page_content();
+
+						if ( evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) == 'above' ) { ?>
+                            </div><!-- #primary -->
+
+							<?php if ( evolve_lets_get_sidebar_2() == true ):
+								get_sidebar( '2' );
+							endif;
+
+							if ( evolve_lets_get_sidebar() == true ):
+								get_sidebar();
+							endif; ?>
+
+                            </div><!-- .row -->
+                            </div><!-- .container -->
+                            </div><!-- .content -->
+
+							<?php
+						}
 					}
 					break;
 				case 'woocommerce_product':

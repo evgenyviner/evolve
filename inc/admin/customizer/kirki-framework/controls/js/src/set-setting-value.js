@@ -62,6 +62,7 @@ if ( _.isUndefined( window.kirkiSetSettingValue ) ) {
 					break;
 
 				case 'kirki-select':
+				case 'kirki-preset':
 				case 'kirki-fontawesome':
 					$this.setSelectWoo( $this.findElement( setting, 'select' ), value );
 					break;

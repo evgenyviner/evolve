@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer Control: dimension
+ * Customizer Control: preset.
  *
  * @package     Kirki
  * @subpackage  Controls
@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * A text control with validation for CSS units.
+ * Preset control (modified select).
  */
-class Kirki_Control_Dimension extends Kirki_Control_Base {
+class Kirki_Control_Preset extends Kirki_Control_Base {
 
 	/**
 	 * The control type.
@@ -25,20 +25,7 @@ class Kirki_Control_Dimension extends Kirki_Control_Base {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kirki-dimension';
-
-	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-		parent::enqueue();
-
-		wp_localize_script( 'kirki-script', 'dimensionkirkiL10n', array(
-			'invalid-value' => esc_attr__( 'Invalid Value', 'evolve' ),
-		) );
-	}
+	public $type = 'kirki-preset';
 
 	/**
 	 * An Underscore (JS) template for this control's content (but not its container).
@@ -52,13 +39,17 @@ class Kirki_Control_Dimension extends Kirki_Control_Base {
 	 */
 	protected function content_template() {
 		?>
-		<label class="customizer-text">
+		<# if ( ! data.choices ) return; #>
+		<label>
 			<# if ( data.label ) { #><span class="customize-control-title">{{{ data.label }}}</span><# } #>
 			<# if ( data.description ) { #><span class="description customize-control-description">{{{ data.description }}}</span><# } #>
-			<div class="input-wrapper">
-				<# var val = ( data.value && _.isString( data.value ) ) ? data.value.replace( '%%', '%' ) : ''; #>
-				<input {{{ data.inputAttrs }}} type="text" value="{{ val }}"/>
-			</div>
+			<select {{{ data.inputAttrs }}} {{{ data.link }}} data-multiple="1">
+				<# for ( key in data.choices ) { #>
+					<option value="{{ key }}"<# if ( key === data.value ) { #>selected<# } #>>
+						{{ data.choices[ key ]['label'] }}
+					</option>
+				<# } #>
+			</select>
 		</label>
 		<?php
 	}

@@ -88,6 +88,7 @@ h3.accordion-section-title.dashicons-before.el {
     max-width: 80px;
 }
 
-li.kirki-sortable-item[data-value="header"] i.dashicons.dashicons-visibility.visibility {
+li.kirki-sortable-item[data-value="header"] i.dashicons.dashicons-visibility.visibility,
+li.kirki-sortable-item[data-value="blog_post"] i.dashicons.dashicons-visibility.visibility {
     display: none;
 }

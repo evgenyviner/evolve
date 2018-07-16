@@ -99,6 +99,19 @@ function evolve_get_render_callback( $option_name ) {
 	}
 
 	/*
+		-- Testimonials
+		--------------------------------------- */
+
+	if ( $option_name == 'evl_testimonials_title' ) {
+		return get_theme_mod( $option_name, '' );
+	}
+
+	$check = preg_match( '/^evl__fp_testimonial._name$/', $option_name );
+	if ( $check ) {
+		return get_theme_mod( $option_name, '' );
+	}
+
+	/*
 		Social Media Links
 		======================================= */
 

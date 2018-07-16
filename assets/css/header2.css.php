@@ -1,6 +1,6 @@
 <?php
 
-$evolve_css_data = '
+$css_data = '
 .woocommerce-menu,
 .woocommerce-menu ul {
     list-style: none;
@@ -242,7 +242,7 @@ $evolve_menu_font = evolve_theme_mod('evl_menu_font');
 $evolve_tagline_font = evolve_theme_mod('evl_tagline_font');
 if ($evolve_tagline_font['color'] !='') {
 $color = $evolve_tagline_font['color'];
-$evolve_css_data .= '
+$css_data .= '
 .woocommerce-menu .cart > a,
 .woocommerce-menu .my-account > a {
     border: 1px solid '. $color .';

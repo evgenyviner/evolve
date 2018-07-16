@@ -8,9 +8,7 @@ get_header(); ?>
 
     <div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?>">
 
-		<?php evolve_front_page_builder();
-
-		if ( have_posts() ) :
+		<?php if ( have_posts() ) :
 
 			if ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "infinite" ) :
 				get_template_part( 'template-parts/navigation/navigation', 'index' );

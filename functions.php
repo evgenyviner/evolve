@@ -264,10 +264,9 @@ if ( ! function_exists( 'evolve_theme_mod' ) ) {
 
 if ( ! function_exists( 'evolve_scripts' ) ) {
 	function evolve_scripts() {
-		global $post, $frontpage_slider_status, $evolve_css_data;
+		global $post, $css_data;
 
 		if ( evolve_theme_mod( 'evl_fontawesome', '0' ) != "1" ) {
-
 			// FontAwesome
 			wp_enqueue_style( 'fontawesomecss', get_template_directory_uri() . '/assets/fonts/fontawesome/css/font-awesome.min.css', false );
 		}
@@ -283,26 +282,14 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 		require get_parent_theme_file_path( '/inc/dynamic-css.php' );
 
 		$header_type = evolve_theme_mod( 'evl_header_type', 'none' );
+
 		switch ( $header_type ) {
 			case "h1":
 				require get_parent_theme_file_path( '/assets/css/header2.css.min.php' );
 				break;
 		}
-		wp_add_inline_style( 'evolve-style', $evolve_css_data );
 
-		// Check If The Slider Is Enabled Globally or Per Post/Page
-		$slider_page_id = '';
-		if ( ! empty( $post->ID ) ) {
-			if ( ! is_home() && ! is_front_page() && ! is_archive() ) {
-				$slider_page_id = $post->ID;
-			}
-			if ( ! is_home() && is_front_page() ) {
-				$slider_page_id = $post->ID;
-			}
-		}
-		if ( is_home() && ! is_front_page() ) {
-			$slider_page_id = get_option( 'page_for_posts' );
-		}
+		wp_add_inline_style( 'evolve-style', evolve_dynamic_css($css_data) );
 
 		wp_enqueue_script( 'main', get_theme_file_uri( '/assets/js/main.min.js' ), array( 'jquery' ), '', true );
 		wp_enqueue_script( 'main_backend', get_theme_file_uri( '/assets/js/main_backend.min.js' ), array( 'jquery' ), '', true );
@@ -355,6 +342,19 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 		}
 
 		// Parallax Slider
+
+		$slider_page_id = '';
+		if ( ! empty( $post->ID ) ) {
+			if ( ! is_home() && ! is_front_page() && ! is_archive() ) {
+				$slider_page_id = $post->ID;
+			}
+			if ( ! is_home() && is_front_page() ) {
+				$slider_page_id = $post->ID;
+			}
+		}
+		if ( is_home() && ! is_front_page() ) {
+			$slider_page_id = get_option( 'page_for_posts' );
+		}
 
 		if ( ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'parallax' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" ) || ( evolve_theme_mod( 'evl_parallax_slider', '0' ) == "1" && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ):
 			$local_variables['parallax_slider'] = true;
@@ -496,10 +496,10 @@ require get_parent_theme_file_path( '/inc/comments.php' );
 require get_parent_theme_file_path( '/inc/template-tags.php' );
 
 /*
-    Front Page
+    Front Page Elements
     ======================================= */
 
-require get_parent_theme_file_path( '/inc/front-page.php' );
+require get_parent_theme_file_path( '/inc/front-page-elements.php' );
 
 /*
     Customizer

@@ -4,11 +4,13 @@
    Displays Footer
    ======================================= */
 
-?>
+if ( ( ( is_front_page() ) && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) != 'above' ) || ! is_front_page() ) { ?>
 
-</div><!-- .row -->
-</div><!-- .container -->
-</div><!-- .content -->
+    </div><!-- .row -->
+    </div><!-- .container -->
+    </div><!-- .content -->
+
+<?php } ?>
 
 <footer class="footer">
     <div class="container">

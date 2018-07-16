@@ -46,13 +46,13 @@ class Kirki_Control_Image extends Kirki_Control_Base {
 
 		data.choices.labels = _.isObject( data.choices.labels ) ? data.choices.labels : {};
 		data.choices.labels = _.defaults( data.choices.labels, {
-			select: '<?php esc_attr_e( 'Select image', 'kirki' ); ?>',
-			change: '<?php esc_attr_e( 'Change image', 'kirki' ); ?>',
-			'default': '<?php esc_attr_e( 'Default', 'kirki' ); ?>',
-			remove: '<?php esc_attr_e( 'Remove', 'kirki' ); ?>',
-			placeholder: '<?php esc_attr_e( 'No image selected', 'kirki' ); ?>',
-			frame_title: '<?php esc_attr_e( 'Select image', 'kirki' ); ?>',
-			frame_button: '<?php esc_attr_e( 'Choose image', 'kirki' ); ?>',
+			select: '<?php esc_attr_e( 'Select image', 'evolve' ); ?>',
+			change: '<?php esc_attr_e( 'Change image', 'evolve' ); ?>',
+			'default': '<?php esc_attr_e( 'Default', 'evolve' ); ?>',
+			remove: '<?php esc_attr_e( 'Remove', 'evolve' ); ?>',
+			placeholder: '<?php esc_attr_e( 'No image selected', 'evolve' ); ?>',
+			frame_title: '<?php esc_attr_e( 'Select image', 'evolve' ); ?>',
+			frame_button: '<?php esc_attr_e( 'Choose image', 'evolve' ); ?>',
 		} );
 		#>
 		<label>
@@ -66,12 +66,14 @@ class Kirki_Control_Image extends Kirki_Control_Base {
 		<div class="image-wrapper attachment-media-view image-upload">
 			<# if ( data.value['url'] || '' !== url ) { #>
 				<div class="thumbnail thumbnail-image">
-					<img src="{{ url }}"/>
+					<img src="{{ url }}" alt="" />
 				</div>
 			<# } else { #>
 				<div class="placeholder">{{ data.choices.labels.placeholder }}</div>
 			<# } #>
 			<div class="actions">
+			<br />
+				<input type="url" value="{{ url }}" />
 				<button class="button image-upload-remove-button<# if ( '' === url ) { #> hidden <# } #>">{{ data.choices.labels.remove }}</button>
 				<# if ( data.default && '' !== data.default ) { #>
 					<button type="button" class="button image-default-button"<# if ( data.default === data.value || ( ! _.isUndefined( data.value.url ) && data.default === data.value.url ) ) { #> style="display:none;"<# } #>>{{ data.choices.labels['default'] }}</button>

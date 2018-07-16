@@ -1,6 +1,6 @@
 <div class='t4p_metabox'>
     <?php
-    $imagepath = get_template_directory_uri() . '/assets/images/customizer/';
+    $imagepath = get_template_directory_uri() . '/inc/admin/customizer/assets/images/';
     $this->evolve_image_radio_button(
             'sidebar_position', __('Sidebar Position', 'evolve'), array(
         'default' => $imagepath . '1c.png',

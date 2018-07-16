@@ -62,6 +62,7 @@ if ( _.isUndefined( window.kirkiSetSettingValue ) ) {
 					break;
 
 				case 'kirki-select':
+				case 'kirki-preset':
 				case 'kirki-fontawesome':
 					$this.setSelectWoo( $this.findElement( setting, 'select' ), value );
 					break;
@@ -1940,27 +1941,23 @@ wp.customize.controlConstructor['kirki-image'] = wp.customize.Control.extend( {
 
 					// This will return the selected image from the Media Uploader, the result is an object.
 					var uploadedImage = image.state().get( 'selection' ).first(),
-						jsonImg       = uploadedImage.toJSON(),
-						previewImage  = jsonImg.url;
+						previewImage  = uploadedImage.toJSON().sizes.full.url;
 
-					if ( ! _.isUndefined( jsonImg.sizes ) ) {
-						previewImg = jsonImg.sizes.full.url;
-						if ( ! _.isUndefined( jsonImg.sizes.medium ) ) {
-							previewImage = jsonImg.sizes.medium.url;
-						} else if ( ! _.isUndefined( jsonImg.sizes.thumbnail ) ) {
-							previewImage = jsonImg.sizes.thumbnail.url;
-						}
+					if ( ! _.isUndefined( uploadedImage.toJSON().sizes.medium ) ) {
+						previewImage = uploadedImage.toJSON().sizes.medium.url;
+					} else if ( ! _.isUndefined( uploadedImage.toJSON().sizes.thumbnail ) ) {
+						previewImage = uploadedImage.toJSON().sizes.thumbnail.url;
 					}
 
 					if ( 'array' === saveAs ) {
-						control.saveValue( 'id', jsonImg.id );
-						control.saveValue( 'url', jsonImg.sizes.full.url );
-						control.saveValue( 'width', jsonImg.width );
-						control.saveValue( 'height', jsonImg.height );
+						control.saveValue( 'id', uploadedImage.toJSON().id );
+						control.saveValue( 'url', uploadedImage.toJSON().sizes.full.url );
+						control.saveValue( 'width', uploadedImage.toJSON().width );
+						control.saveValue( 'height', uploadedImage.toJSON().height );
 					} else if ( 'id' === saveAs ) {
-						control.saveValue( 'id', jsonImg.id );
+						control.saveValue( 'id', uploadedImage.toJSON().id );
 					} else {
-						control.saveValue( 'url', ( ( ! _.isUndefined( jsonImg.sizes ) ) ? jsonImg.sizes.full.url : jsonImg.url ) );
+						control.saveValue( 'url', uploadedImage.toJSON().sizes.full.url );
 					}
 
 					if ( preview.length ) {
@@ -2025,6 +2022,29 @@ wp.customize.controlConstructor['kirki-image'] = wp.customize.Control.extend( {
 				defaultButton.hide();
 			}
 		} );
+		
+		control.container.on( 'change', '.actions input', function( e ) {
+
+			var preview,
+				removeButton,
+				defaultButton;
+
+			e.preventDefault();
+
+			control.saveValue( 'url', this.value );
+
+			preview       = control.container.find( '.placeholder, .thumbnail' );
+			removeButton  = control.container.find( '.image-upload-remove-button' );
+			defaultButton = control.container.find( '.image-default-button' );
+
+			if ( preview.length ) {
+				preview.removeClass().addClass( 'thumbnail thumbnail-image' ).html( '<img src="' + this.value + '" alt="" />' );
+			}
+			if ( removeButton.length ) {
+				removeButton.show();
+				defaultButton.hide();
+			}
+		} );
 	},
 
 	/**
@@ -2061,6 +2081,8 @@ wp.customize.controlConstructor['kirki-image'] = wp.customize.Control.extend( {
 			return;
 		}
 		control.setting.set( value );
+		control.container.find('.actions input').val(value);
+		// alert(value);
 		control.container.find( 'button' ).trigger( 'change' );
 	}
 } );
@@ -2171,6 +2193,42 @@ wp.customize.controlConstructor['kirki-multicolor'] = wp.customize.Control.exten
 	}
 } );
 wp.customize.controlConstructor['kirki-palette'] = wp.customize.kirkiDynamicControl.extend( {} );
+/* global kirkiSetSettingValue */
+wp.customize.controlConstructor['kirki-preset'] = wp.customize.kirkiDynamicControl.extend( {
+
+	initKirkiControl: function() {
+
+		var control = this,
+			selectValue;
+
+		// Trigger a change
+		this.container.on( 'change', 'select', function() {
+
+			// Get the control's value
+			selectValue = jQuery( this ).val();
+
+			// Update the value using the customizer API and trigger the "save" button
+			control.setting.set( selectValue );
+
+			// We have to get the choices of this control
+			// and then start parsing them to see what we have to do for each of the choices.
+			jQuery.each( control.params.choices, function( key, value ) {
+
+				// If the current value of the control is the key of the choice,
+				// then we can continue processing, Otherwise there's no reason to do anything.
+				if ( selectValue === key ) {
+
+					// Each choice has an array of settings defined in it.
+					// We'll have to loop through them all and apply the changes needed to them.
+					jQuery.each( value.settings, function( presetSetting, presetSettingValue ) {
+						kirkiSetSettingValue.set( presetSetting, presetSettingValue );
+					} );
+				}
+			} );
+			wp.customize.previewer.refresh();
+		} );
+	}
+} );
 wp.customize.controlConstructor['kirki-radio-buttonset'] = wp.customize.kirkiDynamicControl.extend( {} );
 wp.customize.controlConstructor['kirki-radio-image'] = wp.customize.kirkiDynamicControl.extend( {} );
 /* global kirkiControlLoader */
@@ -3063,7 +3121,7 @@ wp.customize.controlConstructor.repeater = wp.customize.Control.extend( {
 		data = data || {};
 		data[ dataField ] = data[ dataField ] || '';
 
-		$select = jQuery( dropdown ).selectWoo( selectWooOptions ).val( data[ dataField ] || jQuery( dropdown ).val() );
+		$select = jQuery( dropdown ).selectWoo( selectWooOptions ).val( data[ dataField ] );
 
 		this.container.on( 'change', '.repeater-field select', function( event ) {
 
@@ -3232,7 +3290,6 @@ wp.customize.controlConstructor['kirki-typography'] = wp.customize.kirkiDynamicC
 		control.renderFontSelector();
 		control.renderBackupFontSelector();
 		control.renderVariantSelector();
-		control.localFontsCheckbox();
 
 		// Font-size.
 		if ( control.params.default['font-size'] ) {
@@ -3360,7 +3417,7 @@ wp.customize.controlConstructor['kirki-typography'] = wp.customize.kirkiDynamicC
 				text: kirkiL10n.defaultCSSValues,
 				children: [
 					{ id: '', text: kirkiL10n.defaultBrowserFamily },
-					{ id: 'initial', text: 'initial' },
+					{ id: 'inherit', text: 'initial' },
 					{ id: 'inherit', text: 'inherit' }
 				]
 			},
@@ -3387,7 +3444,7 @@ wp.customize.controlConstructor['kirki-typography'] = wp.customize.kirkiDynamicC
 		} );
 
 		// Set the initial value.
-		if ( value['font-family'] || '' === value['font-family'] ) {
+		if ( value['font-family'] ) {
 			fontSelect.val( value['font-family'].replace( /'/g, '"' ) ).trigger( 'change' );
 		}
 
@@ -3424,7 +3481,7 @@ wp.customize.controlConstructor['kirki-typography'] = wp.customize.kirkiDynamicC
 		}
 
 		// Hide if we're not on a google-font.
-		if ( 'inherit' === fontFamily || 'initial' === fontFamily || 'google' !== kirki.util.webfonts.getFontType( fontFamily ) ) {
+		if ( 'inherit' === fontFamily || 'google' !== kirki.util.webfonts.getFontType( fontFamily ) ) {
 			jQuery( control.selector + ' .font-backup' ).hide();
 			return;
 		}
@@ -3493,7 +3550,7 @@ wp.customize.controlConstructor['kirki-typography'] = wp.customize.kirkiDynamicC
 			console.info( variants );
 		}
 
-		if ( 'inherit' === fontFamily || 'initial' === fontFamily || '' === fontFamily ) {
+		if ( 'inherit' === fontFamily ) {
 			value.variant = 'inherit';
 			variants      = [ '' ];
 			jQuery( control.selector + ' .variant' ).hide();
@@ -3627,22 +3684,6 @@ wp.customize.controlConstructor['kirki-typography'] = wp.customize.kirkiDynamicC
 			google: googleFonts,
 			standard: standardFonts
 		};
-	},
-
-	localFontsCheckbox: function() {
-		var control           = this,
-			checkboxContainer = control.container.find( '.kirki-host-font-locally' ),
-			checkbox          = control.container.find( '.kirki-host-font-locally input' ),
-			checked           = jQuery( checkbox ).is( ':checked' );
-
-		if ( control.setting._value && control.setting._value.downloadFont ) {
-			jQuery( checkbox ).attr( 'checked', 'checked' );
-		}
-
-		jQuery( checkbox ).on( 'change', function() {
-			checked = jQuery( checkbox ).is( ':checked' );
-			control.saveValue( 'downloadFont', checked );
-		} );
 	},
 
 	/**
