@@ -83,7 +83,7 @@ function evolve_discussion_rss() {
    ======================================= */
 
 function evolve_comment_navigation( $fragment_type ) {
-	$pages = paginate_comments_links( array(
+	$page_list = paginate_comments_links( array(
 		'echo'         => false,
 		'type'         => 'array',
 		'prev_text'    => __( 'Previous', 'evolve' ),
@@ -91,15 +91,15 @@ function evolve_comment_navigation( $fragment_type ) {
 		'add_fragment' => $fragment_type
 	) );
 
-	if ( ! is_array( $pages ) ) {
+	if ( ! is_array( $page_list ) ) {
 		return;
 	}
 
 	$output = '';
-	foreach ( $pages as $page ) {
-		$page   = "\n<li class='page-item'>$page</li>\n";
-		$page   = str_replace( [ 'page-numbers' ], [ 'page-link' ], $page );
-		$output .= $page;
+	foreach ( $page_list as $individual_page ) {
+		$individual_page   = "\n<li class='page-item'>$individual_page</li>\n";
+		$individual_page   = str_replace( [ 'page-numbers' ], [ 'page-link' ], $individual_page );
+		$output .= $individual_page;
 	}
 
 	echo '<nav aria-label="navigation" class="navigation mb-5"><ul class="pagination justify-content-center">' . $output . '</ul></nav>';

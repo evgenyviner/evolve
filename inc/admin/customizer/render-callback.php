@@ -106,7 +106,12 @@ function evolve_get_render_callback( $option_name ) {
 		return get_theme_mod( $option_name, '' );
 	}
 
-	$check = preg_match( '/^evl__fp_testimonial._name$/', $option_name );
+	$check = preg_match( '/^evl_fp_testimonial._name$/', $option_name );
+	if ( $check ) {
+		return get_theme_mod( $option_name, '' );
+	}
+
+	$check = preg_match( '/^evl_fp_testimonial._content$/', $option_name );
 	if ( $check ) {
 		return get_theme_mod( $option_name, '' );
 	}

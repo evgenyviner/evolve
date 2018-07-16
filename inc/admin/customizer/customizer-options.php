@@ -451,8 +451,8 @@ $args       = array(
 	'post_type'    => 'page',
 	'post_status'  => 'publish'
 );
-$pages      = get_pages( $args );
-foreach ( $pages as $key => $page_instance ) {
+$page_list      = get_pages( $args );
+foreach ( $page_list as $key => $page_instance ) {
 	$page_title[ $page_instance->ID ] = $page_instance->post_title;
 }
 
@@ -532,15 +532,6 @@ $options_categories_obj = get_categories();
 foreach ( $options_categories_obj as $category ) {
 	$options_categories[ $category->cat_ID ] = $category->cat_name;
 }
-
-// Pull all the pages into an array
-$options_pages     = array();
-$options_pages_obj = get_pages( 'sort_column=post_parent,menu_order' );
-$options_pages[''] = 'Select a page:';
-foreach ( $options_pages_obj as $page ) {
-	$options_pages[ $page->ID ] = $page->post_title;
-}
-
 
 if ( true || is_customize_preview() ) {
 
@@ -1300,11 +1291,13 @@ if ( true || is_customize_preview() ) {
 		);
 
 		$testimonialfields[] = array(
-			'id'       => "{$evolve_shortname}_fp_testimonial{$i}_content",
-			'title'    => sprintf( esc_attr__( 'Testimonial %d Content', 'evolve' ), $i ),
-			'type'     => "textarea",
-			"rows"     => 5,
-			'required' => array( array( "{$evolve_shortname}_fp_testimonial{$i}", '=', '1' ) )
+			'id'              => "{$evolve_shortname}_fp_testimonial{$i}_content",
+			'title'           => sprintf( esc_attr__( 'Testimonial %d Content', 'evolve' ), $i ),
+			'type'            => "textarea",
+			"rows"            => 5,
+			'selector'        => ".home-testimonials .item-{$i} p",
+			'render_callback' => "{$evolve_shortname}_fp_testimonial{$i}_content",
+			'required'        => array( array( "{$evolve_shortname}_fp_testimonial{$i}", '=', '1' ) )
 		);
 	}
 
@@ -4857,7 +4850,7 @@ if ( true || is_customize_preview() ) {
 					'subtitle' => esc_attr__( 'Select post categories as content for the posts slideshow', 'evolve' ),
 					'type'     => 'select',
 					'multi'    => true,
-					'data'     => 'categories',
+					'data'     => evolve_shortcodes_categories('category'),
 					'required' => array(
 						array( 'evl_posts_slider_content', '=', 'category' )
 					)

@@ -168,7 +168,7 @@ function evolve_testimonials() {
 	if ( evolve_theme_mod( 'evl_content_boxes_title', '' ) ) {
 		$testimonials_section_title = '<div class="col-12"><h3 class="testimonials-section-title section-title">' . evolve_theme_mod( 'evl_testimonials_title', '' ) . '</h3></div>';
 	}
-	echo "<div class='row'>" . $testimonials_section_title . "<div class='carousel slide carousel-fade col-12' data-ride='carousel' data-interval='5000'><div class='carousel-inner'>";
+	echo "<div class='row'>" . $testimonials_section_title . "<div class='carousel slide carousel-fade col-12' data-ride='carousel'><div class='carousel-inner'>";
 
 	for ( $i = 1; $i <= 2; $i ++ ) {
 		$active  = "";

@@ -510,7 +510,7 @@ if ( ! function_exists( 'evolve_number_pagination' ) ) {
 		} else {
 			$format = 'page/%#%/';
 		}
-		$pages = paginate_links( [
+		$page_list = paginate_links( [
 				'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
 				'format'       => $format,
 				'current'      => max( 1, get_query_var( 'paged' ) ),
@@ -526,11 +526,11 @@ if ( ! function_exists( 'evolve_number_pagination' ) ) {
 				'add_fragment' => ''
 			]
 		);
-		if ( is_array( $pages ) ) {
+		if ( is_array( $page_list ) ) {
 			//$paged = ( get_query_var( 'paged' ) == 0 ) ? 1 : get_query_var( 'paged' );
 			$pagination = '<ul class="pagination justify-content-center">';
-			foreach ( $pages as $page ) {
-				$pagination .= '<li class="page-item"> ' . str_replace( 'page-numbers', 'page-link', $page ) . '</li>';
+			foreach ( $page_list as $individual_page ) {
+				$pagination .= '<li class="page-item"> ' . str_replace( 'page-numbers', 'page-link', $individual_page ) . '</li>';
 			}
 			$pagination .= '</ul>';
 			if ( $echo ) {
@@ -592,7 +592,7 @@ if ( ! function_exists( 'evolve_link_pages' ) ) {
 if ( ! function_exists( 'evolve_breadcrumbs' ) ) {
 	function evolve_breadcrumbs() {
 
-		global $post;
+		global $post, $page;
 
 		if ( ( class_exists( 'bbPress' ) && is_bbpress() ) || evolve_theme_mod( 'evl_breadcrumbs', '1' ) != "1" || ( is_front_page() && is_page() ) || is_home() || ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) ) {
 			return;

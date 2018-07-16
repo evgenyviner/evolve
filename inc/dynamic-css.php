@@ -579,19 +579,15 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 
 			$css_data .= ' .home-testimonials {' . $home_testimonials_css_data . ' }';
 
-			$home_testimonials_blockquote_css_data = '';
-			$testimonials_back_color               = evolve_theme_mod( "evl_fp_testimonials_bg_color" );
-			$testimonials_textcolor                = evolve_theme_mod( "evl_fp_testimonials_text_color" );
+			$testimonials_back_color = evolve_theme_mod( "evl_fp_testimonials_bg_color" );
+			$testimonials_textcolor  = evolve_theme_mod( "evl_fp_testimonials_text_color" );
 
 			if ( $testimonials_back_color ) {
-				$home_testimonials_blockquote_css_data .= sprintf( ' background-color: %s;', $testimonials_back_color );
+				$css_data .= ' .home-testimonials .carousel { padding: 2rem; background-color:' . $testimonials_back_color . ' }';
 			}
 			if ( $testimonials_textcolor ) {
-				$home_testimonials_blockquote_css_data .= sprintf( ' color: %s;', $testimonials_textcolor );
+				$css_data .= ' .home-testimonials blockquote, .home-testimonials blockquote footer { color:' . $testimonials_textcolor . ' }';
 			}
-
-			$css_data .= ' .home-testimonials blockquote, .home-testimonials blockquote footer {' . $home_testimonials_blockquote_css_data . ' }';
-
 		}
 
 		/*
