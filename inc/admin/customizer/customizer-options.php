@@ -451,7 +451,7 @@ $args       = array(
 	'post_type'    => 'page',
 	'post_status'  => 'publish'
 );
-$page_list      = get_pages( $args );
+$page_list  = get_pages( $args );
 foreach ( $page_list as $key => $page_instance ) {
 	$page_title[ $page_instance->ID ] = $page_instance->post_title;
 }
@@ -4849,8 +4849,8 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Category ID(s)', 'evolve' ),
 					'subtitle' => esc_attr__( 'Select post categories as content for the posts slideshow', 'evolve' ),
 					'type'     => 'select',
-					'multi'    => true,
-					'data'     => evolve_shortcodes_categories('category'),
+					'multi'    => 1,
+					'options'  => evolve_shortcodes_categories( 'category' ),
 					'required' => array(
 						array( 'evl_posts_slider_content', '=', 'category' )
 					)
