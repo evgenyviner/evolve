@@ -14,20 +14,8 @@ IcoMoon Fonts - https://icomoon.io - GPL License
 Dropdown Hover - https://kybarg.github.io/bootstrap-dropdown-hover/ - MIT License
 Animate.css - http://daneden.me/animate - MIT License
 Footer Reveal - https://github.com/IainAndrew - MIT License
-
-Bootstrap Slider pictures - CC0 1.0 Universal:
-Sylwia Bartyzel - https://twitter.com/SylwiaBartyzel
-Ben Moore - http://twitter.com/benmooredaily
-Vee-O - http://dribbble.com/veeo
-Wolfgang Moritzer - http://500px.com/wmoritzer
-Lukas Schweizer - http://www.lukas-schweizer.ch/
-Jordan Grimmer - http://www.jordangrimmer.co.uk
-Helloquence - https://unsplash.com/@helloquence
-
-Additional photos - CC0 1.0 Universal:
-Philipp Reiner - http://www.philippreiner.de/
-Vee-O - http://dribbble.com/veeo
-PublicDomainPictures - http://www.publicdomainpictures.net
+jQuery Waypoints - http://imakewebthings.com/waypoints/guides/getting-started - MIT License
+easyPieChart - http://rendro.github.io/easy-pie-chart/ - MIT License
 
 Other images (icons, theme images, background images, etc.) are licensed under GPL v2.0.
 

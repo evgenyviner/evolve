@@ -2,460 +2,1334 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EvoLve PL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-30 11:00+0100\n"
-"PO-Revision-Date: 2016-06-18 13:12+0530\n"
+"POT-Creation-Date: 2018-07-17 14:03+0100\n"
+"PO-Revision-Date: 2018-07-17 14:03+0100\n"
 "Last-Translator: \n"
 "Language-Team: Hector <kontakt@poisonedcraft.pl>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
-"Language: pl\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../evolve/comments.php:10
+#: ../404.php:19
+#, fuzzy
+msgid "Yay! 404 Not Found"
+msgstr "Nie znaleziono"
+
+#: ../404.php:21 ../template-parts/post/content-none.php:19
+#, fuzzy
+msgid ""
+"Sorry, but you are looking for something that isn't here or it's been moved. "
+"Try a search?"
+msgstr "Przepraszamy, ale szukasz czegoś, czego tu nie ma."
+
+#: ../archive.php:20
+#, fuzzy
+msgid "You are browsing archives for"
+msgstr "Roczne archiwum dla"
+
+#: ../comments.php:8
 msgid "This post is password protected. Enter the password to view comments."
 msgstr "Ten post jest chroniony hasłem. Wpisz hasło, aby zobaczyć komentarze."
 
-#: ../evolve/comments.php:49
+#: ../comments.php:54 ../inc/comments.php:37
 msgid "No Comments Yet"
 msgstr "Brak komentarzy"
 
-#: ../evolve/footer.php:126
-msgid "Back to Top"
-msgstr "Wróć na górę"
+#: ../comments.php:70
+msgid "Comments are closed"
+msgstr ""
 
-#: ../evolve/functions.php:95
-msgid "Right &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Prawy &nbsp;&nbsp;&nbsp;(domyślne)"
-
-#: ../evolve/functions.php:99 ../evolve/functions.php:398
-msgid "Left"
-msgstr "Lewy"
-
-#: ../evolve/functions.php:103
-msgid "Left + Right"
-msgstr "Lewy + Prawy"
-
-#: ../evolve/functions.php:110
-msgid "Left &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Lewy &nbsp;&nbsp;&nbsp;(domyślne)"
-
-#: ../evolve/functions.php:114 ../evolve/functions.php:402
-msgid "Right"
-msgstr "Prawy"
-
-#: ../evolve/functions.php:118 ../evolve/functions.php:133
-#: ../evolve/functions.php:159 ../evolve/functions.php:174
-#: ../evolve/functions.php:189 ../evolve/functions.php:426
-#: ../evolve/functions.php:441 ../evolve/functions.php:460
-#: ../evolve/functions.php:479
-msgid "Disable"
-msgstr "Wyłączony"
-
-#: ../evolve/functions.php:125 ../evolve/functions.php:251
-msgid "1 &nbsp;&nbsp;&nbsp;(default)"
-msgstr "1 &nbsp;&nbsp;&nbsp;(domyślne)"
-
-#: ../evolve/functions.php:129 ../evolve/functions.php:255
-#: ../evolve/functions.php:321 ../evolve/functions.php:345
-msgid "2"
-msgstr "2"
-
-#: ../evolve/functions.php:140
-msgid "Fixed &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Stała &nbsp;&nbsp;&nbsp;(domyślne)"
-
-#: ../evolve/functions.php:144
-msgid "Fluid"
-msgstr "Zmienna"
-
-#: ../evolve/functions.php:151 ../evolve/functions.php:166
-#: ../evolve/functions.php:181
-msgid "Search Field + Subscribe Buttons &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Pole wyszukiwania + Pole subskrypcji &nbsp;&nbsp;&nbsp;(domyślne)"
-
-#: ../evolve/functions.php:155 ../evolve/functions.php:170
-#: ../evolve/functions.php:185
-msgid "Recent Posts + Search Field + Subscribe Buttons"
-msgstr "Popularne posty +Pole wyszukiwania + Przycisk subskrypcji"
-
-#: ../evolve/functions.php:197 ../evolve/functions.php:208
-msgid "Light &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Jasny &nbsp;&nbsp;&nbsp;(domyślne)"
-
-#: ../evolve/functions.php:201 ../evolve/functions.php:212
-msgid "Dark"
-msgstr "Ciemny"
-
-#: ../evolve/functions.php:220
-msgid "Dark Grey + Blue &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Ciemny szary + niebieski &nbsp;&nbsp;&nbsp;(domyślne)"
-
-#: ../evolve/functions.php:224
-msgid "Light Grey + Blue"
-msgstr "Jasny szary + Niebieski"
-
-#: ../evolve/functions.php:228
-msgid "Green + Yellow"
-msgstr "Zielony + Żółty"
-
-#: ../evolve/functions.php:232
-msgid "Red + Yellow"
-msgstr "Czerwony + Fioletowy"
-
-#: ../evolve/functions.php:236
-msgid "Pink + Purple"
-msgstr "Różowy + Fioletowy"
-
-#: ../evolve/functions.php:240
-msgid "Light Blue + Blue"
-msgstr "Jasny niebieski + Niebieski"
-
-#: ../evolve/functions.php:244
-msgid "Brown + Yellow"
-msgstr "Brązowy + Żółty"
-
-#: ../evolve/functions.php:259 ../evolve/functions.php:325
-#: ../evolve/functions.php:349
-msgid "3"
-msgstr "3"
-
-#: ../evolve/functions.php:266 ../evolve/functions.php:289
-msgid "Myriad Pro &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Myriad Pro &nbsp;&nbsp;&nbsp;(domyślne)"
-
-#: ../evolve/functions.php:270
-msgid "Tahoma"
-msgstr "Tahoma"
-
-#: ../evolve/functions.php:274 ../evolve/functions.php:297
-msgid "Georgia"
-msgstr "Georgia"
-
-#: ../evolve/functions.php:278 ../evolve/functions.php:293
-msgid "Arial"
-msgstr "Arial"
-
-#: ../evolve/functions.php:282 ../evolve/functions.php:305
-msgid "Calibri"
-msgstr "Calibri"
-
-#: ../evolve/functions.php:301
-msgid "Segoe UI"
-msgstr "Segoe UI"
-
-#: ../evolve/functions.php:313 ../evolve/functions.php:337
-#: ../evolve/functions.php:375 ../evolve/functions.php:394
-#: ../evolve/functions.php:486
-msgid "Disable &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Wyłączony &nbsp;&nbsp;&nbsp;(domyślne)"
-
-#: ../evolve/functions.php:317 ../evolve/functions.php:341
-msgid "1"
-msgstr "1"
-
-#: ../evolve/functions.php:329 ../evolve/functions.php:353
-msgid "4"
-msgstr "4"
-
-#: ../evolve/functions.php:360
-msgid "After posts &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Po postach &nbsp;&nbsp;&nbsp;(domyślne)"
-
-#: ../evolve/functions.php:364
-msgid "Before posts"
-msgstr "Przed postami"
-
-#: ../evolve/functions.php:368 ../evolve/functions.php:456
-msgid "Both"
-msgstr "Oba"
-
-#: ../evolve/functions.php:379
-msgid "Normal"
-msgstr "Normalny"
-
-#: ../evolve/functions.php:383
-msgid "Slow"
-msgstr "Wolny"
-
-#: ../evolve/functions.php:387
-msgid "Fast"
-msgstr "Szybki"
-
-#: ../evolve/functions.php:406
-msgid "Middle"
-msgstr "Środek"
-
-#: ../evolve/functions.php:414
-msgid "Single posts &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Pojedyńcze posty &nbsp;&nbsp;&nbsp;(domyślne)"
-
-#: ../evolve/functions.php:418
-msgid "Single posts + Archive pages"
-msgstr "Pojedyńcze posty + Archiwalne strony"
-
-#: ../evolve/functions.php:422
-msgid "All pages"
-msgstr "Wszystkie strony"
-
-#: ../evolve/functions.php:433
-msgid "Single posts + Archive pages &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Pojedyńcze posty + Archiwalne strony &nbsp;&nbsp;&nbsp;(domyślne)"
-
-#: ../evolve/functions.php:437
-msgid "Single posts"
-msgstr "Pojedyńcze posty"
-
-#: ../evolve/functions.php:448
-msgid "After post content &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Po treści posta &nbsp;&nbsp;&nbsp;(domyślne)"
-
-#: ../evolve/functions.php:452
-msgid "Before post content"
-msgstr "Przed treścią posta"
-
-#: ../evolve/functions.php:467
-msgid "Next to blog title &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Obok tytułu bloga &nbsp;&nbsp;&nbsp;(domyślne)"
-
-#: ../evolve/functions.php:471
-msgid "Above blog title"
-msgstr "Nad tytułem bloga"
-
-#: ../evolve/functions.php:475
-msgid "Under blog title"
-msgstr "Pod tytułem bloga"
-
-#: ../evolve/functions.php:490
-msgid "Match by categories"
-msgstr "Dopasuj wg. kategorii"
-
-#: ../evolve/functions.php:494
-msgid "Match by tags"
-msgstr "Dopasuj wg. tagów"
-
-#: ../evolve/functions.php:2745
-msgid "Primary Menu"
-msgstr "Główne menu"
-
-#: ../evolve/functions.php:2801
-msgid "<div style=\"padding:5px;margin-bottom:40px;\"><h5 style=\"font-style:italic;\">Similar posts</h5><ul style=\"margin-bottom:0px;\">"
-msgstr "<div style=\"padding:5px;margin-bottom:40px;\"><h5 style=\"font-style:italic;\">Podobne posty</h5><ul style=\"margin-bottom:0px;\">"
-
-#: ../evolve/functions.php:2962
-msgid "SHARE THIS"
-msgstr "PODZIEL SIĘ"
-
-#: ../evolve/functions.php:2967
-msgid "E-mail"
-msgstr "E-mail"
-
-#: ../evolve/functions.php:2968
-msgid "More options"
-msgstr "Więcej opcji"
-
-#: ../evolve/header-content.php:28 ../evolve/header-content.php:179
-msgid "Follow"
-msgstr "Kanał RSS"
-
-#: ../evolve/header-content.php:129
-msgid "Read more &raquo;"
-msgstr "Więcej... &raquo;"
-
-#: ../evolve/header-content.php:144
-msgid "Oops, please try to refresh the page"
-msgstr "Ups, spróbuj odświerzyć stronę"
-
-#: ../evolve/header.php:31
+#: ../functions.php:73
 #, php-format
 msgid "Page %s"
 msgstr "Strona %s"
 
-#: ../evolve/index.php:59 ../evolve/index.php:208 ../evolve/index.php:445
-#: ../evolve/index.php:469 ../evolve/index.php:631 ../evolve/index.php:661
-#: ../evolve/index.php:828 ../evolve/no-sidebar.php:24
-msgid "Untitled"
-msgstr "Bez nazwy"
+#: ../functions.php:115
+msgid "Primary Menu"
+msgstr "Główne menu"
 
-#: ../evolve/index.php:68 ../evolve/index.php:216 ../evolve/index.php:520
-#: ../evolve/index.php:638
-msgid "Leave a Comment"
-msgstr "Napisz komentarz"
+#: ../functions.php:116
+msgid "Sticky Header Menu"
+msgstr ""
 
-#: ../evolve/index.php:68 ../evolve/index.php:216 ../evolve/index.php:520
-#: ../evolve/index.php:638
-msgid "1 Comment"
-msgstr "1 Komentarz"
+#: ../functions.php:304
+msgid "Details"
+msgstr ""
 
-#: ../evolve/index.php:68 ../evolve/index.php:216 ../evolve/index.php:520
-#: ../evolve/index.php:638
-msgid "% Comments"
-msgstr "% Komentarzy"
+#: ../functions.php:364
+msgid "You reached the end"
+msgstr ""
 
-#: ../evolve/index.php:82
-msgid "By"
-msgstr "Przez"
+#: ../functions.php:365
+msgid "Load more items"
+msgstr ""
 
-#: ../evolve/index.php:84 ../evolve/index.php:233 ../evolve/index.php:459
-#: ../evolve/index.php:655
-msgid "edit"
-msgstr "edytuj"
+#: ../functions.php:403 ../template-parts/post/content-post.php:63
+#, fuzzy
+msgid "Read More"
+msgstr "Więcej... &raquo;"
 
-#: ../evolve/index.php:95 ../evolve/index.php:241 ../evolve/index.php:474
-#: ../evolve/index.php:665 ../evolve/index.php:832 ../evolve/no-sidebar.php:28
-msgid "EDIT"
-msgstr "EDYTUJ"
+#: ../functions.php:418
+msgid "To view this protected content, enter the password below"
+msgstr ""
 
-#: ../evolve/index.php:230 ../evolve/index.php:457 ../evolve/index.php:651
-msgid "Written by"
-msgstr "Napisany przez"
+#: ../functions.php:419
+msgid "Password:"
+msgstr ""
 
-#: ../evolve/index.php:264 ../evolve/index.php:516 ../evolve/index.php:700
-#: ../evolve/index.php:706 ../evolve/index.php:841 ../evolve/no-sidebar.php:37
-msgid "READ MORE &raquo;"
-msgstr "WIĘCEJ... &raquo;"
-
-#: ../evolve/index.php:265 ../evolve/index.php:708
-msgid "<strong>Pages:</strong>"
-msgstr "<strong>Strony:</strong>"
-
-#: ../evolve/index.php:288 ../evolve/index.php:722
-msgid "Posted in"
-msgstr "Napisano w"
-
-#: ../evolve/index.php:291 ../evolve/index.php:726
-msgid "Tagged"
-msgstr "Otagowany"
-
-#: ../evolve/index.php:327 ../evolve/index.php:567 ../evolve/index.php:783
-#: ../evolve/index.php:867
-msgid "Not Found"
-msgstr "Nie znaleziono"
-
-#: ../evolve/index.php:333 ../evolve/index.php:571 ../evolve/index.php:787
-#: ../evolve/index.php:871
-msgid "Sorry, but you are looking for something that isn't here."
-msgstr "Przepraszamy, ale szukasz czegoś, czego tu nie ma."
-
-#: ../evolve/index.php:365
-msgid "Daily archives for"
-msgstr "Dzienne archiwum dla"
-
-#: ../evolve/index.php:367
-msgid "Monthly archives for"
-msgstr "Miesięczne archiwum dla"
-
-#: ../evolve/index.php:369
-msgid "Yearly archives for"
-msgstr "Roczne archiwum dla"
-
-#: ../evolve/index.php:373
-msgid "Posts in category"
-msgstr "Posty w kategorii"
-
-#: ../evolve/index.php:377
-msgid "Posts tagged"
-msgstr "Posty otagowane"
-
-#: ../evolve/index.php:383
-msgid "Search results for"
+#: ../search.php:14
+#, fuzzy, php-format
+msgid "Search results for %s"
 msgstr "Wyniki wyszukiwania dla"
 
-#: ../evolve/index.php:388
-msgid "Posts by"
-msgstr "Posty napisane przez"
-
-#: ../evolve/index.php:547 ../evolve/index.php:763
-msgid "Your search for"
-msgstr "Wyszukiwanie dla"
-
-#: ../evolve/index.php:547 ../evolve/index.php:763
-msgid "did not match any entries"
+#: ../search.php:20
+#, fuzzy, php-format
+msgid "Your search for %s didn't match any entries"
 msgstr "nie pasuje do żadnego wpisu"
 
-#: ../evolve/index.php:552 ../evolve/index.php:768
-msgid "Suggestions:"
+#: ../search.php:50 ../woocommerce/loop/no-products-found.php:29
+#, fuzzy
+msgid "Suggestions"
 msgstr "Sugestie:"
 
-#: ../evolve/index.php:554 ../evolve/index.php:770
+#: ../search.php:52 ../woocommerce/loop/no-products-found.php:31
 msgid "Make sure all words are spelled correctly."
 msgstr "Upewnij się, że prawidłowo napisałeś słowa."
 
-#: ../evolve/index.php:555 ../evolve/index.php:771
+#: ../search.php:53 ../woocommerce/loop/no-products-found.php:32
 msgid "Try different keywords."
 msgstr "Użyj innych słów kluczowych."
 
-#: ../evolve/index.php:556 ../evolve/index.php:772
+#: ../search.php:54 ../woocommerce/loop/no-products-found.php:33
 msgid "Try more general keywords."
 msgstr "Użyj ogólniejszych słów kluczowych."
 
-#: ../evolve/navigation.php:23
-msgid "<span class=\"nav-meta\">&larr;</span> Older Entries"
-msgstr "<span class=\"nav-meta\">&larr;</span> Starsze wpisy"
-
-#: ../evolve/navigation.php:24
-msgid "Newer Entries <span class=\"nav-meta\">&rarr;</span>"
-msgstr "Nowsze wpisy <span class=\"nav-meta\">&rarr;</span>"
-
-#: ../evolve/searchform.php:14
+#: ../searchform.php:12
 msgid "Type your search"
 msgstr "Szukaj..."
 
-#: ../evolve/searchform.php:20
+#: ../bbpress/content-single-topic-lead.php:15
+msgid "Open"
+msgstr ""
+
+#: ../bbpress/content-single-topic-lead.php:17
+msgid "Closed"
+msgstr ""
+
+#: ../bbpress/content-single-topic-lead.php:20
+msgid "Pinned"
+msgstr ""
+
+#: ../bbpress/content-statistics.php:17
+msgid "Registered Users"
+msgstr ""
+
+#: ../bbpress/content-statistics.php:22
+msgid "Forums"
+msgstr ""
+
+#: ../bbpress/content-statistics.php:27
+msgid "Topics"
+msgstr ""
+
+#: ../bbpress/content-statistics.php:32
+msgid "Replies"
+msgstr ""
+
+#: ../bbpress/content-statistics.php:37
+msgid "Topic Tags"
+msgstr ""
+
+#: ../bbpress/content-statistics.php:44
+msgid "Empty Topic Tags"
+msgstr ""
+
+#: ../bbpress/content-statistics.php:53
+msgid "Hidden Topics"
+msgstr ""
+
+#: ../bbpress/content-statistics.php:64
+msgid "Hidden Replies"
+msgstr ""
+
+#: ../bbpress/form-anonymous.php:19
+msgid "Your email address will not be published. Required fields are marked *"
+msgstr ""
+
+#: ../bbpress/form-anonymous.php:23
+msgid "Name*"
+msgstr ""
+
+#: ../bbpress/form-anonymous.php:29
+#, fuzzy
+msgid "Email*"
+msgstr "E-mail"
+
+#: ../bbpress/form-anonymous.php:35 ../bbpress/form-user-edit.php:79
+#: ../inc/comments.php:232
+msgid "Website"
+msgstr ""
+
+#: ../bbpress/form-reply-move.php:18
+#, php-format
+msgid "Move reply \"%s\""
+msgstr ""
+
+#: ../bbpress/form-reply-move.php:35 ../bbpress/form-topic-split.php:33
+#, php-format
+msgid "New topic in <strong>%s</strong> titled:"
+msgstr ""
+
+#: ../bbpress/form-reply-move.php:39
+#, php-format
+msgid "Moved: %s"
+msgstr ""
+
+#: ../bbpress/form-reply-move.php:65 ../bbpress/form-topic-split.php:64
+msgid "No other topics found!"
+msgstr ""
+
+#: ../bbpress/form-reply-move.php:71 ../bbpress/form-topic-merge.php:100
+msgid "<strong>WARNING:</strong> This process cannot be undone"
+msgstr ""
+
+#: ../bbpress/form-reply.php:23
+#, php-format
+msgid "Now editing reply to %s"
+msgstr ""
+
+#: ../bbpress/form-reply.php:25
+#, php-format
+msgid "Reply to %s"
+msgstr ""
+
+#: ../bbpress/form-reply.php:38
+msgid ""
+"This topic is marked as closed to new replies, however your posting "
+"capabilities still allow you to do so"
+msgstr ""
+
+#: ../bbpress/form-reply.php:65 ../bbpress/form-topic.php:80
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes:"
+msgstr ""
+
+#: ../bbpress/form-reply.php:80 ../bbpress/form-topic.php:95
+msgid "Your account has the ability to post unrestricted HTML content"
+msgstr ""
+
+#: ../bbpress/form-reply.php:122 ../bbpress/form-topic.php:197
+msgid "Optional reason for editing"
+msgstr ""
+
+#: ../bbpress/form-reply.php:198
+#, php-format
+msgid "The topic <b>%s</b> is closed to new replies"
+msgstr ""
+
+#: ../bbpress/form-reply.php:203
+#, php-format
+msgid "The forum <b>%s</b> is closed to new topics and replies"
+msgstr ""
+
+#: ../bbpress/form-topic-merge.php:17
+#, php-format
+msgid "Merge topic \"%s\""
+msgstr ""
+
+#: ../bbpress/form-topic-merge.php:50
+msgid "No topics were found to which the topic could be merged to!"
+msgstr ""
+
+#: ../bbpress/form-topic-split.php:18
+#, php-format
+msgid "Split topic \"%s\""
+msgstr ""
+
+#: ../bbpress/form-topic-split.php:37
+#, php-format
+msgid "Split: %s"
+msgstr ""
+
+#: ../bbpress/form-topic-split.php:105
+msgid "<strong>WARNING:</strong> This process cannot be undone."
+msgstr ""
+
+#: ../bbpress/form-topic-tag.php:15
+#, php-format
+msgid "Manage Tag: \"%s\""
+msgstr ""
+
+#: ../bbpress/form-topic-tag.php:70
+#, php-format
+msgid ""
+"Are you sure you want to merge the \"%s\" tag into the tag you specified?"
+msgstr ""
+
+#: ../bbpress/form-topic-tag.php:98
+#, php-format
+msgid ""
+"Are you sure you want to delete the \"%s\" tag? This is permanent and cannot "
+"be undone."
+msgstr ""
+
+#: ../bbpress/form-topic.php:23
+#, php-format
+msgid "Now editing %s"
+msgstr ""
+
+#: ../bbpress/form-topic.php:25
+#, php-format
+msgid "Create new topic in %s"
+msgstr ""
+
+#: ../bbpress/form-topic.php:38
+msgid ""
+"This forum is marked as closed to new topics, however your posting "
+"capabilities still allow you to do so"
+msgstr ""
+
+#: ../bbpress/form-topic.php:53
+#, php-format
+msgid "Topic title (maximum length: %d)"
+msgstr ""
+
+#: ../bbpress/form-topic.php:134
+msgid "No forum"
+msgstr ""
+
+#: ../bbpress/form-topic.php:272
+#, php-format
+msgid "The forum %s is closed to new topics and replies"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:17 ../inc/comments.php:222
+#: ../inc/woocommerce-support.php:280
+msgid "Name"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:28
+msgid "First name"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:38
+msgid "Last name"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:48
+msgid "Nickname"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:58
+msgid "Display name"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:70
+msgid "Contact info"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:106
+msgid "About yourself"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:106
+msgid "About the user"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:115
+msgid "Biographical info"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:124
+msgid "Account"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:129 ../bbpress/form-user-login.php:16
+#: ../bbpress/form-user-register.php:21
+msgid "Username"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:137 ../bbpress/form-user-register.php:28
+#: ../inc/comments.php:227
+#, fuzzy
+msgid "Email"
+msgstr "E-mail"
+
+#: ../bbpress/form-user-edit.php:153
+#, php-format
+msgid ""
+"There is a pending email address change to <code>%1$s</code>. <a href=\"%2$s"
+"\">Cancel</a>"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:162
+msgid "New Password"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:166
+msgid ""
+"If you would like to change the password type a new one. Otherwise leave "
+"this blank"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:176
+msgid "Type your new password again"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:187
+msgid ""
+"Your password should be at least ten characters long. Use upper and lower "
+"case letters, numbers, and symbols to make it even stronger"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:197
+msgid "User role"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:204
+msgid "Network Role"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:209
+msgid "Grant this user super admin privileges for the Network."
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:229
+msgid "Update Profile"
+msgstr ""
+
+#: ../bbpress/form-user-edit.php:229
+msgid "Update User"
+msgstr ""
+
+#: ../bbpress/form-user-login.php:13 ../bbpress/form-user-login.php:40
+msgid "Log In"
+msgstr ""
+
+#: ../bbpress/form-user-login.php:23
+msgid "Password"
+msgstr ""
+
+#: ../bbpress/form-user-login.php:33
+msgid "Keep me signed in"
+msgstr ""
+
+#: ../bbpress/form-user-lost-pass.php:14
+msgid "Lost Password"
+msgstr ""
+
+#: ../bbpress/form-user-lost-pass.php:18
+msgid "Username or Email"
+msgstr ""
+
+#: ../bbpress/form-user-lost-pass.php:27
+msgid "Reset My Password"
+msgstr ""
+
+#: ../bbpress/form-user-register.php:13
+msgid "Create an account"
+msgstr ""
+
+#: ../bbpress/form-user-register.php:16
+msgid "Your username must be unique, and cannot be changed later."
+msgstr ""
+
+#: ../bbpress/form-user-register.php:17
+msgid ""
+"We use your email address to email you a secure password and verify your "
+"account."
+msgstr ""
+
+#: ../bbpress/form-user-register.php:38
+msgid "Register"
+msgstr ""
+
+#: ../bbpress/loop-search-forum.php:27
+#, php-format
+msgid "Last updated %s"
+msgstr ""
+
+#: ../bbpress/loop-search-topic.php:50 ../bbpress/loop-single-topic.php:76
+#, php-format
+msgid "Started by %1$s"
+msgstr ""
+
+#: ../bbpress/loop-search-topic.php:65 ../bbpress/loop-single-topic.php:91
+#, php-format
+msgid "in <a href=\"%1$s\"><b>%2$s</b></a>"
+msgstr ""
+
+#: ../bbpress/loop-search.php:10
+msgid "Reply"
+msgstr ""
+
+#: ../bbpress/loop-search.php:11
+msgid "Topic"
+msgstr ""
+
+#: ../bbpress/loop-search.php:12
+msgid "Forum"
+msgstr ""
+
+#: ../bbpress/loop-single-reply.php:45
+#, fuzzy, php-format
+msgid "Posts: %s"
+msgstr "Posty napisane przez"
+
+#: ../bbpress/user-favorites.php:17
+msgid "Favorite torum topics"
+msgstr ""
+
+#: ../bbpress/user-favorites.php:34
+msgid "You currently have no favorite topics"
+msgstr ""
+
+#: ../bbpress/user-favorites.php:34
+msgid "This user has no favorite topics"
+msgstr ""
+
+#: ../bbpress/user-profile.php:27
+msgid "Forum role:"
+msgstr ""
+
+#: ../bbpress/user-profile.php:30
+msgid "Topics started:"
+msgstr ""
+
+#: ../bbpress/user-profile.php:33
+msgid "Replies created:"
+msgstr ""
+
+#: ../bbpress/user-replies-created.php:17
+msgid "Forum replies created"
+msgstr ""
+
+#: ../bbpress/user-replies-created.php:34
+msgid "You have not replied to any topics"
+msgstr ""
+
+#: ../bbpress/user-replies-created.php:34
+msgid "This user has not replied to any topics"
+msgstr ""
+
+#: ../bbpress/user-subscriptions.php:21
+msgid "Subscribed forums"
+msgstr ""
+
+#: ../bbpress/user-subscriptions.php:34
+msgid "You are not currently subscribed to any forums"
+msgstr ""
+
+#: ../bbpress/user-subscriptions.php:34
+msgid "This user is not currently subscribed to any forums"
+msgstr ""
+
+#: ../bbpress/user-subscriptions.php:44
+msgid "Subscribed topics"
+msgstr ""
+
+#: ../bbpress/user-subscriptions.php:61
+msgid "You are not currently subscribed to any topics"
+msgstr ""
+
+#: ../bbpress/user-subscriptions.php:61
+msgid "This user is not currently subscribed to any topics"
+msgstr ""
+
+#: ../bbpress/user-topics-created.php:17
+msgid "Forum topics started"
+msgstr ""
+
+#: ../bbpress/user-topics-created.php:34
+msgid "You have not created any topics."
+msgstr ""
+
+#: ../bbpress/user-topics-created.php:34
+msgid "This user has not created any topics."
+msgstr ""
+
+#: ../inc/bbpress-support.php:70 ../inc/comments.php:89
+#: ../inc/template-tags.php:523 ../inc/template-tags.php:561
+#: ../inc/template-tags.php:738 ../inc/template-tags.php:790
+#: ../inc/template-tags.php:898
+#: ../woocommerce/single-product/product-image.php:78
+msgid "Previous"
+msgstr ""
+
+#: ../inc/bbpress-support.php:71 ../inc/comments.php:90
+#: ../inc/template-tags.php:524 ../inc/template-tags.php:560
+#: ../inc/template-tags.php:742 ../inc/template-tags.php:794
+#: ../inc/template-tags.php:902
+#: ../woocommerce/single-product/product-image.php:82
+msgid "Next"
+msgstr ""
+
+#: ../inc/comments.php:36 ../inc/template-tags.php:389
+#: ../template-parts/post/content-post.php:49
+msgid "% Comments"
+msgstr "% Komentarzy"
+
+#: ../inc/comments.php:38 ../inc/template-tags.php:389
+#: ../template-parts/post/content-post.php:49
+msgid "1 Comment"
+msgstr "1 Komentarz"
+
+#: ../inc/comments.php:42
+#, fuzzy
+msgid "% Pings/Trackbacks"
+msgstr "% Trackbacków"
+
+#: ../inc/comments.php:44
+#, fuzzy
+msgid "1 Ping/Trackback"
+msgstr "1 Trackback"
+
+#: ../inc/comments.php:77
+#, fuzzy
+msgid "Follow replies"
+msgstr "Kanał RSS"
+
+#: ../inc/comments.php:147
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: ../inc/comments.php:148
+msgid "Author"
+msgstr ""
+
+#: ../inc/comments.php:149
+msgid "Pingback"
+msgstr ""
+
+#: ../inc/comments.php:150
+msgid "Verified buyer"
+msgstr ""
+
+#: ../inc/comments.php:157
+#, php-format
+msgid "%1$s - %2$s"
+msgstr ""
+
+#: ../inc/comments.php:176
+msgid "Your comment is awaiting moderation"
+msgstr ""
+
+#: ../inc/comments.php:237
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+
+#: ../inc/comments.php:270
+msgid "Cancel reply"
+msgstr ""
+
+#: ../inc/tabs-widget.php:9
+msgid "evolve: Tabs"
+msgstr ""
+
+#: ../inc/tabs-widget.php:12
+msgid "Popular posts, recent posts and comments."
+msgstr ""
+
+#: ../inc/template-tags.php:378
+msgid "Written by"
+msgstr "Napisany przez"
+
+#: ../inc/template-tags.php:379
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: ../inc/template-tags.php:389 ../template-parts/post/content-post.php:49
+msgid "Leave a Comment"
+msgstr "Napisz komentarz"
+
+#: ../inc/template-tags.php:455
+#, fuzzy
+msgid "Similar posts"
+msgstr "Pojedyńcze posty"
+
+#: ../inc/template-tags.php:554
+#, fuzzy
+msgid "Pages:"
+msgstr "Strony"
+
+#: ../inc/template-tags.php:604
+msgid "Home"
+msgstr ""
+
+#: ../inc/template-tags.php:626
+msgid "Blog"
+msgstr ""
+
+#: ../inc/template-tags.php:669
+msgid "404 - Page not Found"
+msgstr ""
+
+#: ../inc/template-tags.php:672
+msgid "Search"
+msgstr ""
+
+#: ../inc/widgets.php:10
+msgid "Sidebar 1"
+msgstr ""
+
+#: ../inc/widgets.php:19
+msgid "Sidebar 2"
+msgstr ""
+
+#: ../inc/widgets.php:48
+msgid "Header 1"
+msgstr ""
+
+#: ../inc/widgets.php:57
+#, php-format
+msgid "Header %d"
+msgstr ""
+
+#: ../inc/widgets.php:92
+msgid "Footer 1"
+msgstr ""
+
+#: ../inc/widgets.php:101
+#, php-format
+msgid "Footer %d"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:228
+msgid "Search..."
+msgstr ""
+
+#: ../inc/woocommerce-support.php:277 ../inc/woocommerce-support.php:279
+#: ../inc/woocommerce-support.php:280 ../inc/woocommerce-support.php:281
+#: ../inc/woocommerce-support.php:282 ../inc/woocommerce-support.php:283
+#: ../inc/woocommerce-support.php:284
+msgid "Sort by"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:277 ../inc/woocommerce-support.php:279
+msgid "Default order"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:281
+msgid "Price"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:282 ../inc/woocommerce-support.php:1157
+msgid "Date"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:283
+msgid "Popularity"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:284
+msgid "Rating"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:289 ../inc/woocommerce-support.php:291
+#: ../inc/woocommerce-support.php:292 ../inc/woocommerce-support.php:293
+#: ../inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:4
+#: ../inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:10
+msgid "Show"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:289
+msgid " Products"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:291 ../inc/woocommerce-support.php:292
+#: ../inc/woocommerce-support.php:293
+msgid "Products"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:470
+msgid "Show details"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1041
+#: ../woocommerce/checkout/form-checkout.php:28
+#, php-format
+msgid "Hello, %s"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1156
+msgid "Order"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1158
+msgid "Status"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1159 ../woocommerce/cart/cart-totals.php:93
+msgid "Total"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1177
+#, fuzzy
+msgid "Recent orders"
+msgstr "Popularne posty"
+
+#: ../inc/woocommerce-support.php:1227
+msgid "Pay"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1231
+msgid "View"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1235
+msgid "Cancel"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1290
+msgid "Available downloads"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1350 ../inc/woocommerce-support.php:1356
+msgid "Billing address"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1351
+msgid "Shipping address"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1362
+msgid "The following addresses will be used on the checkout page by default."
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1397
+msgid "You have not set up this type of address yet."
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1594
+msgid "is a required field."
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1607
+msgid "Please enter a valid postcode/ZIP."
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1616
+msgid "is not a valid phone number."
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1623
+msgid "is not a valid email address."
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1638
+msgid "Address changed successfully."
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1791
+#, php-format
+msgid "Download file%s"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1856
+msgid "Note:"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1859
+#, fuzzy
+msgid "Email:"
+msgstr "E-mail"
+
+#: ../inc/woocommerce-support.php:1862
+msgid "Telephone:"
+msgstr ""
+
+#: ../inc/woocommerce-support.php:1888 ../inc/woocommerce-support.php:1905
+msgid "N/A"
+msgstr ""
+
+#: ../inc/admin/customizer/customizer-options.php:428
+msgid "All"
+msgstr ""
+
+#: ../inc/admin/customizer/customizer-options.php:432
+#: ../inc/admin/metaboxes/page-tabs/tab-slider.php:4
+msgid "Default"
+msgstr ""
+
+#: ../inc/admin/metaboxes/metaboxes.php:257
+msgid "Layout"
+msgstr ""
+
+#: ../inc/admin/metaboxes/metaboxes.php:258
+msgid "Page Title / Breadcrumbs / Page Title Bar"
+msgstr ""
+
+#: ../inc/admin/metaboxes/metaboxes.php:259
+msgid "Widgets"
+msgstr ""
+
+#: ../inc/admin/metaboxes/metaboxes.php:260
+msgid "Slider"
+msgstr ""
+
+#: ../inc/admin/metaboxes/metaboxes.php:261
+msgid "Sidebar"
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-layout.php:5
+msgid "Sidebar Position"
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-layout.php:18
+msgid "Full Width"
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-layout.php:19
+#: ../inc/admin/metaboxes/page-tabs/tab-widget.php:4
+msgid "No"
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-layout.php:20
+#: ../inc/admin/metaboxes/page-tabs/tab-widget.php:5
+msgid "Yes"
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:3
+msgid "Page Title"
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:5
+#: ../inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:11
+msgid "Hide"
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:9
+msgid "Page Breadcrumb"
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-slider.php:3
+msgid "Slider Position"
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-slider.php:5
+msgid "Below"
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-slider.php:6
+msgid "Above"
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-slider.php:7
+msgid ""
+"Select if the slider shows below or above the header. This only works for "
+"the slider assigned in page options, not with shortcodes."
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-slider.php:10
+msgid "Slider Type"
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-slider.php:11
+msgid "No Slider"
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-slider.php:12
+msgid "Parallax Slider"
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-slider.php:13
+#, fuzzy
+msgid "Posts Slider"
+msgstr "Posty w kategorii"
+
+#: ../inc/admin/metaboxes/page-tabs/tab-slider.php:14
+msgid "Bootstrap Slider"
+msgstr ""
+
+#: ../inc/admin/metaboxes/page-tabs/tab-widget.php:3
+msgid "Enable Header Widgets"
+msgstr ""
+
+#: ../template-parts/navigation/navigation.php:31
+msgid "Newer Entries"
+msgstr ""
+
+#: ../template-parts/navigation/navigation.php:32
+msgid "Older Entries"
+msgstr ""
+
+#: ../template-parts/post/content-none.php:9
+msgid "Nothing To Show Yet"
+msgstr ""
+
+#: ../template-parts/post/content-none.php:13
+msgid "Get started with your website"
+msgstr ""
+
+#: ../template-parts/post/content-none.php:15
+#, php-format
+msgid "<a href=\"%1$s\" class=\"btn btn-lg\">Publish your first post</a>."
+msgstr ""
+
+#: ../woocommerce/single-product-reviews.php:38
+msgid "Reviews"
+msgstr ""
+
+#: ../woocommerce/single-product-reviews.php:57
+msgid "There are no reviews yet"
+msgstr ""
+
+#: ../woocommerce/single-product-reviews.php:70
+msgid "Add a review"
+msgstr ""
+
+#: ../woocommerce/single-product-reviews.php:70
+#, php-format
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr ""
+
+#: ../woocommerce/single-product-reviews.php:77
 msgid "Submit"
 msgstr "Dalej"
 
-#: ../evolve/sidebar-2.php:35
-msgid "Pages"
-msgstr "Strony"
+#: ../woocommerce/single-product-reviews.php:83
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a review"
+msgstr ""
 
-#: ../evolve/sidebar-2.php:45
-msgid "Categories"
-msgstr "Kategorie"
+#: ../woocommerce/single-product-reviews.php:103
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
 
-#: ../evolve/sidebar-2.php:55
-msgid "RSS Syndication"
-msgstr "Kanał RSS"
+#: ../woocommerce/cart/cart-shipping.php:50
+#: ../woocommerce/cart/cart-shipping.php:52
+msgid ""
+"There are no shipping methods available. Please ensure that your address has "
+"been entered correctly, or contact us if you need any help."
+msgstr ""
 
-#: ../evolve/sidebar-2.php:57
-msgid "All posts"
-msgstr "Wszystkie posty"
+#: ../woocommerce/cart/cart-shipping.php:56
+msgid "Enter your full address to see shipping costs."
+msgstr ""
 
-#: ../evolve/sidebar-2.php:58
-msgid "All comments"
-msgstr "Wszystkie komentarze"
+#: ../woocommerce/cart/cart-totals.php:29
+msgid "Cart totals"
+msgstr ""
 
-#: ../evolve/sidebar.php:34
-msgid "Recent Posts"
-msgstr "Popularne posty"
+#: ../woocommerce/cart/cart-totals.php:34
+msgid "Subtotal"
+msgstr ""
 
-#: ../evolve/sidebar.php:47
-msgid "Recent Comments"
-msgstr "Popularne komentarze"
+#: ../woocommerce/cart/cart-totals.php:56
+msgid "Shipping"
+msgstr ""
 
-#: ../evolve/sidebar.php:80
-msgid "Calendar"
-msgstr "Kalendarz"
+#: ../woocommerce/cart/cart-totals.php:72
+#, php-format
+msgid "(estimated for %s)"
+msgstr ""
 
-#: ../evolve/sidebar.php:93
-msgid "Tags"
-msgstr "Tagi"
+#: ../woocommerce/cart/cart.php:125
+msgid "Remove this item"
+msgstr ""
 
-#: ../evolve/sidebar.php:102
-msgid "Archives"
-msgstr "Archiwa"
+#: ../woocommerce/checkout/form-billing.php:29
+msgid "Billing &amp; Shipping"
+msgstr ""
 
-#: ../evolve/sidebar.php:112
-msgid "Meta"
-msgstr "Meta"
+#: ../woocommerce/checkout/form-billing.php:33
+msgid "Billing details"
+msgstr ""
 
-#: ../evolve/inc/custom-functions/comments.php:33
-msgid "% Trackbacks"
-msgstr "% Trackbacków"
+#: ../woocommerce/checkout/form-billing.php:64
+msgid "Create an account?"
+msgstr ""
 
-#: ../evolve/inc/custom-functions/comments.php:35
-msgid "1 Trackback"
-msgstr "1 Trackback"
+#: ../woocommerce/checkout/form-checkout.php:71
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: ../woocommerce/checkout/form-shipping.php:36
+msgid "Ship to a different address?"
+msgstr ""
+
+#: ../woocommerce/checkout/form-shipping.php:70
+#: ../woocommerce/single-product/tabs/additional-information.php:25
+msgid "Additional information"
+msgstr ""
+
+#: ../woocommerce/checkout/thankyou.php:41
+#: ../woocommerce/checkout/thankyou.php:73
+msgid "Thank you. Your order has been received."
+msgstr ""
+
+#: ../woocommerce/global/quantity-input.php:29
+#, php-format
+msgid "%s quantity"
+msgstr ""
+
+#: ../woocommerce/loop/add-to-cart.php:28
+#: ../woocommerce/loop/add-to-cart.php:52
+#: ../woocommerce/loop/add-to-cart.php:63
+#, fuzzy
+msgid "Read more"
+msgstr "Więcej... &raquo;"
+
+#: ../woocommerce/loop/add-to-cart.php:42
+#, fuzzy
+msgid "Select options"
+msgstr "Więcej opcji"
+
+#: ../woocommerce/loop/add-to-cart.php:47
+#, fuzzy
+msgid "View options"
+msgstr "Więcej opcji"
+
+#: ../woocommerce/loop/add-to-cart.php:58
+msgid "Add to cart"
+msgstr ""
+
+#: ../woocommerce/loop/no-products-found.php:26
+msgid "No products were found matching your selection"
+msgstr ""
+
+#: ../woocommerce/single-product/tabs/description.php:15
+msgid "Product description"
+msgstr ""
+
+#~ msgid "Back to Top"
+#~ msgstr "Wróć na górę"
+
+#~ msgid "Right &nbsp;&nbsp;&nbsp;(default)"
+#~ msgstr "Prawy &nbsp;&nbsp;&nbsp;(domyślne)"
+
+#~ msgid "Left"
+#~ msgstr "Lewy"
+
+#~ msgid "Left + Right"
+#~ msgstr "Lewy + Prawy"
+
+#~ msgid "Left &nbsp;&nbsp;&nbsp;(default)"
+#~ msgstr "Lewy &nbsp;&nbsp;&nbsp;(domyślne)"
+
+#~ msgid "Right"
+#~ msgstr "Prawy"
+
+#~ msgid "Disable"
+#~ msgstr "Wyłączony"
+
+#~ msgid "1 &nbsp;&nbsp;&nbsp;(default)"
+#~ msgstr "1 &nbsp;&nbsp;&nbsp;(domyślne)"
+
+#~ msgid "2"
+#~ msgstr "2"
+
+#~ msgid "Fixed &nbsp;&nbsp;&nbsp;(default)"
+#~ msgstr "Stała &nbsp;&nbsp;&nbsp;(domyślne)"
+
+#~ msgid "Fluid"
+#~ msgstr "Zmienna"
+
+#~ msgid "Search Field + Subscribe Buttons &nbsp;&nbsp;&nbsp;(default)"
+#~ msgstr "Pole wyszukiwania + Pole subskrypcji &nbsp;&nbsp;&nbsp;(domyślne)"
+
+#~ msgid "Recent Posts + Search Field + Subscribe Buttons"
+#~ msgstr "Popularne posty +Pole wyszukiwania + Przycisk subskrypcji"
+
+#~ msgid "Light &nbsp;&nbsp;&nbsp;(default)"
+#~ msgstr "Jasny &nbsp;&nbsp;&nbsp;(domyślne)"
+
+#~ msgid "Dark"
+#~ msgstr "Ciemny"
+
+#~ msgid "Dark Grey + Blue &nbsp;&nbsp;&nbsp;(default)"
+#~ msgstr "Ciemny szary + niebieski &nbsp;&nbsp;&nbsp;(domyślne)"
+
+#~ msgid "Light Grey + Blue"
+#~ msgstr "Jasny szary + Niebieski"
+
+#~ msgid "Green + Yellow"
+#~ msgstr "Zielony + Żółty"
+
+#~ msgid "Red + Yellow"
+#~ msgstr "Czerwony + Fioletowy"
+
+#~ msgid "Pink + Purple"
+#~ msgstr "Różowy + Fioletowy"
+
+#~ msgid "Light Blue + Blue"
+#~ msgstr "Jasny niebieski + Niebieski"
+
+#~ msgid "Brown + Yellow"
+#~ msgstr "Brązowy + Żółty"
+
+#~ msgid "3"
+#~ msgstr "3"
+
+#~ msgid "Myriad Pro &nbsp;&nbsp;&nbsp;(default)"
+#~ msgstr "Myriad Pro &nbsp;&nbsp;&nbsp;(domyślne)"
+
+#~ msgid "Tahoma"
+#~ msgstr "Tahoma"
+
+#~ msgid "Georgia"
+#~ msgstr "Georgia"
+
+#~ msgid "Arial"
+#~ msgstr "Arial"
+
+#~ msgid "Calibri"
+#~ msgstr "Calibri"
+
+#~ msgid "Segoe UI"
+#~ msgstr "Segoe UI"
+
+#~ msgid "Disable &nbsp;&nbsp;&nbsp;(default)"
+#~ msgstr "Wyłączony &nbsp;&nbsp;&nbsp;(domyślne)"
+
+#~ msgid "1"
+#~ msgstr "1"
+
+#~ msgid "4"
+#~ msgstr "4"
+
+#~ msgid "After posts &nbsp;&nbsp;&nbsp;(default)"
+#~ msgstr "Po postach &nbsp;&nbsp;&nbsp;(domyślne)"
+
+#~ msgid "Before posts"
+#~ msgstr "Przed postami"
+
+#~ msgid "Both"
+#~ msgstr "Oba"
+
+#~ msgid "Normal"
+#~ msgstr "Normalny"
+
+#~ msgid "Slow"
+#~ msgstr "Wolny"
+
+#~ msgid "Fast"
+#~ msgstr "Szybki"
+
+#~ msgid "Middle"
+#~ msgstr "Środek"
+
+#~ msgid "Single posts &nbsp;&nbsp;&nbsp;(default)"
+#~ msgstr "Pojedyńcze posty &nbsp;&nbsp;&nbsp;(domyślne)"
+
+#~ msgid "Single posts + Archive pages"
+#~ msgstr "Pojedyńcze posty + Archiwalne strony"
+
+#~ msgid "All pages"
+#~ msgstr "Wszystkie strony"
+
+#~ msgid "Single posts + Archive pages &nbsp;&nbsp;&nbsp;(default)"
+#~ msgstr "Pojedyńcze posty + Archiwalne strony &nbsp;&nbsp;&nbsp;(domyślne)"
+
+#~ msgid "After post content &nbsp;&nbsp;&nbsp;(default)"
+#~ msgstr "Po treści posta &nbsp;&nbsp;&nbsp;(domyślne)"
+
+#~ msgid "Before post content"
+#~ msgstr "Przed treścią posta"
+
+#~ msgid "Next to blog title &nbsp;&nbsp;&nbsp;(default)"
+#~ msgstr "Obok tytułu bloga &nbsp;&nbsp;&nbsp;(domyślne)"
+
+#~ msgid "Above blog title"
+#~ msgstr "Nad tytułem bloga"
+
+#~ msgid "Under blog title"
+#~ msgstr "Pod tytułem bloga"
+
+#~ msgid "Match by categories"
+#~ msgstr "Dopasuj wg. kategorii"
+
+#~ msgid "Match by tags"
+#~ msgstr "Dopasuj wg. tagów"
+
+#~ msgid ""
+#~ "<div style=\"padding:5px;margin-bottom:40px;\"><h5 style=\"font-style:"
+#~ "italic;\">Similar posts</h5><ul style=\"margin-bottom:0px;\">"
+#~ msgstr ""
+#~ "<div style=\"padding:5px;margin-bottom:40px;\"><h5 style=\"font-style:"
+#~ "italic;\">Podobne posty</h5><ul style=\"margin-bottom:0px;\">"
+
+#~ msgid "SHARE THIS"
+#~ msgstr "PODZIEL SIĘ"
+
+#~ msgid "Oops, please try to refresh the page"
+#~ msgstr "Ups, spróbuj odświerzyć stronę"
+
+#~ msgid "Untitled"
+#~ msgstr "Bez nazwy"
+
+#~ msgid "By"
+#~ msgstr "Przez"
+
+#~ msgid "edit"
+#~ msgstr "edytuj"
+
+#~ msgid "EDIT"
+#~ msgstr "EDYTUJ"
+
+#~ msgid "READ MORE &raquo;"
+#~ msgstr "WIĘCEJ... &raquo;"
+
+#~ msgid "<strong>Pages:</strong>"
+#~ msgstr "<strong>Strony:</strong>"
+
+#~ msgid "Posted in"
+#~ msgstr "Napisano w"
+
+#~ msgid "Tagged"
+#~ msgstr "Otagowany"
+
+#~ msgid "Daily archives for"
+#~ msgstr "Dzienne archiwum dla"
+
+#~ msgid "Monthly archives for"
+#~ msgstr "Miesięczne archiwum dla"
+
+#~ msgid "Posts tagged"
+#~ msgstr "Posty otagowane"
+
+#~ msgid "Your search for"
+#~ msgstr "Wyszukiwanie dla"
+
+#~ msgid "<span class=\"nav-meta\">&larr;</span> Older Entries"
+#~ msgstr "<span class=\"nav-meta\">&larr;</span> Starsze wpisy"
+
+#~ msgid "Newer Entries <span class=\"nav-meta\">&rarr;</span>"
+#~ msgstr "Nowsze wpisy <span class=\"nav-meta\">&rarr;</span>"
+
+#~ msgid "Categories"
+#~ msgstr "Kategorie"
+
+#~ msgid "RSS Syndication"
+#~ msgstr "Kanał RSS"
+
+#~ msgid "All posts"
+#~ msgstr "Wszystkie posty"
+
+#~ msgid "All comments"
+#~ msgstr "Wszystkie komentarze"
+
+#~ msgid "Recent Comments"
+#~ msgstr "Popularne komentarze"
+
+#~ msgid "Calendar"
+#~ msgstr "Kalendarz"
+
+#~ msgid "Tags"
+#~ msgstr "Tagi"
+
+#~ msgid "Archives"
+#~ msgstr "Archiwa"
+
+#~ msgid "Meta"
+#~ msgstr "Meta"

@@ -2,577 +2,1175 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EvoLve\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-08 21:14+0100\n"
-"PO-Revision-Date: 2016-06-18 13:05+0530\n"
+"POT-Creation-Date: 2018-07-17 13:58+0100\n"
+"PO-Revision-Date: 2018-07-17 13:58+0100\n"
 "Last-Translator: Noé Martínez <noah@iespana.es>\n"
 "Language-Team: \n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
 "X-Textdomain-Support: yes\n"
-"Language: es_ES\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
 # @ evolve
-#: comments.php:10
-msgid "This post is password protected. Enter the password to view comments."
-msgstr "Este art&iacute;culo esta protegido por contrase&ntilde;a. Introduzca la contrase&ntilde;a para ver los comentarios."
+#: 404.php:19
+#, fuzzy
+msgid "Yay! 404 Not Found"
+msgstr "No se ha encontrado"
 
 # @ evolve
-#: comments.php:49 library/custom-functions/comments.php:28
+#: 404.php:21 template-parts/post/content-none.php:19
+#, fuzzy
+msgid ""
+"Sorry, but you are looking for something that isn't here or it's been moved. "
+"Try a search?"
+msgstr "Lo sentimos, pero usted esta buscando algo que no esta aqu&iacute;."
+
+# @ evolve
+#: archive.php:20
+#, fuzzy
+msgid "You are browsing archives for"
+msgstr "Archivos anuales  de"
+
+# @ evolve
+#: comments.php:8
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+"Este art&iacute;culo esta protegido por contrase&ntilde;a. Introduzca la "
+"contrase&ntilde;a para ver los comentarios."
+
+# @ evolve
+#: comments.php:54 inc/comments.php:37
 msgid "No Comments Yet"
 msgstr "No se han encontrado comentarios"
 
-# @ evolve
-#: footer.php:124
-msgid "Back to Top"
-msgstr "Volver al principio"
-
-# @ evolve
-#: functions.php:97
-msgid "Right &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Derecha &nbsp;&nbsp;&nbsp;(por defecto)"
-
-# @ evolve
-#: functions.php:101 functions.php:400
-msgid "Left"
-msgstr "Izquierda"
-
-# @ evolve
-#: functions.php:105
-msgid "Left + Right"
-msgstr "Izquierda + Derecha"
-
-# @ evolve
-#: functions.php:112
-msgid "Left &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Izquierda &nbsp;&nbsp;&nbsp;(por defecto)"
-
-# @ evolve
-#: functions.php:116 functions.php:404
-msgid "Right"
-msgstr "Derecha"
-
-# @ evolve
-#: functions.php:120 functions.php:135 functions.php:161 functions.php:176
-#: functions.php:191 functions.php:428 functions.php:443 functions.php:462
-#: functions.php:481
-msgid "Disable"
-msgstr "Desactivar"
-
-# @ evolve
-#: functions.php:127 functions.php:253
-msgid "1 &nbsp;&nbsp;&nbsp;(default)"
-msgstr "1 &nbsp;&nbsp;&nbsp;(por defecto)"
-
-# @ evolve
-#: functions.php:131 functions.php:257 functions.php:323 functions.php:347
-msgid "2"
+#: comments.php:70
+msgid "Comments are closed"
 msgstr ""
 
 # @ evolve
-#: functions.php:142
-msgid "Fixed &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Fijo &nbsp;&nbsp;&nbsp;(default)"
-
-# @ evolve
-#: functions.php:146
-msgid "Fluid"
-msgstr "Fluido"
-
-# @ evolve
-#: functions.php:153 functions.php:168 functions.php:183
-msgid "Search Field + Subscribe Buttons &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Campo de B&uacute;squeda + Botones de subscripci&oacute;n &nbsp;&nbsp;&nbsp;(por defecto)"
-
-# @ evolve
-#: functions.php:157 functions.php:172 functions.php:187
-msgid "Recent Posts + Search Field + Subscribe Buttons"
-msgstr "Mensajes recientes + Campo de B&uacute;squeda + Botones de Subscripci&oacute;n"
-
-# @ evolve
-#: functions.php:199 functions.php:210
-msgid "Light &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Claro &nbsp;&nbsp;&nbsp;(por defecto)"
-
-# @ evolve
-#: functions.php:203 functions.php:214
-msgid "Dark"
-msgstr "Oscuro"
-
-# @ evolve
-#: functions.php:222
-msgid "Dark Grey + Blue &nbsp;&nbsp;&nbsp;(default)"
-msgstr ""
-
-# @ evolve
-#: functions.php:226
-msgid "Light Grey + Blue"
-msgstr "Gris claro + Azul"
-
-# @ evolve
-#: functions.php:230
-msgid "Green + Yellow"
-msgstr "Verde + Amarillo"
-
-# @ evolve
-#: functions.php:234
-msgid "Red + Yellow"
-msgstr "Rojo + Amarillo"
-
-# @ evolve
-#: functions.php:238
-msgid "Pink + Purple"
-msgstr "Rosa + Púrura"
-
-# @ evolve
-#: functions.php:242
-msgid "Light Blue + Blue"
-msgstr "Azul Claro + Azul"
-
-# @ evolve
-#: functions.php:246
-msgid "Brown + Yellow"
-msgstr "Marr&oacute;n + Amarillo"
-
-# @ evolve
-#: functions.php:261 functions.php:327 functions.php:351
-msgid "3"
-msgstr ""
-
-# @ evolve
-#: functions.php:268
-msgid "Impact &nbsp;&nbsp;&nbsp;(default)"
-msgstr ""
-
-# @ evolve
-#: functions.php:272
-msgid "Tahoma"
-msgstr ""
-
-# @ evolve
-#: functions.php:276 functions.php:299
-msgid "Georgia"
-msgstr ""
-
-# @ evolve
-#: functions.php:280 functions.php:295
-msgid "Arial"
-msgstr ""
-
-# @ evolve
-#: functions.php:284 functions.php:307
-msgid "Calibri"
-msgstr ""
-
-# @ evolve
-#: functions.php:291
-msgid "Segoe UI &nbsp;&nbsp;&nbsp;(default)"
-msgstr ""
-
-# @ evolve
-#: functions.php:303
-msgid "Courier New"
-msgstr ""
-
-# @ evolve
-#: functions.php:315 functions.php:339 functions.php:377 functions.php:396
-#: functions.php:488
-msgid "Disable &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Desactivar &nbsp;&nbsp;&nbsp;(por defecto)"
-
-# @ evolve
-#: functions.php:319 functions.php:343
-msgid "1"
-msgstr ""
-
-# @ evolve
-#: functions.php:331 functions.php:355
-msgid "4"
-msgstr ""
-
-# @ evolve
-#: functions.php:362
-msgid "After posts &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Despu&eacte;s de mensajes &nbsp;&nbsp;&nbsp;(por defecto)"
-
-# @ evolve
-#: functions.php:366
-msgid "Before posts"
-msgstr "Antes de mensajes"
-
-# @ evolve
-#: functions.php:370 functions.php:458
-msgid "Both"
-msgstr "Ambos"
-
-# @ evolve
-#: functions.php:381
-msgid "Normal"
-msgstr ""
-
-# @ evolve
-#: functions.php:385
-msgid "Slow"
-msgstr "Lento"
-
-# @ evolve
-#: functions.php:389
-msgid "Fast"
-msgstr "R&aacute;pido"
-
-# @ evolve
-#: functions.php:408
-msgid "Middle"
-msgstr "Medio"
-
-# @ evolve
-#: functions.php:416
-msgid "Single posts &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Mensajes Individuales &nbsp;&nbsp;&nbsp;(por defecto)"
-
-# @ evolve
-#: functions.php:420
-msgid "Single posts + Archive pages"
-msgstr "Mensajes Individuales + Archivo de páginas"
-
-# @ evolve
-#: functions.php:424
-msgid "All pages"
-msgstr "Todas las p&aacute;ginas"
-
-# @ evolve
-#: functions.php:435
-msgid "Single posts + Archive pages &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Mensajes Individuales + Archivo de p&aacute;ginas &nbsp;&nbsp;&nbsp;(por defecto)"
-
-# @ evolve
-#: functions.php:439
-msgid "Single posts"
-msgstr "Mensajes Individuales"
-
-# @ evolve
-#: functions.php:450
-msgid "After post content &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Despu&eacute;s del contenido del mensaje  &nbsp;&nbsp;&nbsp;(por defecto)"
-
-# @ evolve
-#: functions.php:454
-msgid "Before post content"
-msgstr "Antes del contenido del mensaje"
-
-# @ evolve
-#: functions.php:469
-msgid "Next to blog title &nbsp;&nbsp;&nbsp;(default)"
-msgstr "Junto al t&iacute;tulo del blog  &nbsp;&nbsp;&nbsp;(por defecto)"
-
-# @ evolve
-#: functions.php:473
-msgid "Above blog title"
-msgstr "Sobre el t&iacute;tulo del blog"
-
-# @ evolve
-#: functions.php:477
-msgid "Under blog title"
-msgstr "Bajo t&iacute;tulo del blog"
-
-# @ evolve
-#: functions.php:492
-msgid "Match by categories"
-msgstr "Corresponder con Categorías"
-
-# @ evolve
-#: functions.php:496
-msgid "Match by tags"
-msgstr "Corresponder con etiquetas"
-
-# @ evolve
-#: functions.php:2822
-msgid "Primary Menu"
-msgstr "Men&uacute; Principal"
-
-# @ evolve
-#: functions.php:2879
-msgid "<div style=\"padding:5px;margin-bottom:40px;\"><h5 style=\"font-style:italic;\">Similar posts</h5><ul style=\"margin-bottom:0px;\">"
-msgstr "<div style=\"padding:5px;margin-bottom:40px;\"><h5 style=\"font-style:italic;\">Mensajes similares</h5><ul style=\"margin-bottom:0px;\">"
-
-# @ evolve
-#: functions.php:3040
-msgid "SHARE THIS"
-msgstr "COMPARTE ESTO CON"
-
-# @ evolve
-#: functions.php:3045
-msgid "E-mail"
-msgstr "Correo Electr&oacute;nico"
-
-# @ evolve
-#: functions.php:3046
-msgid "More options"
-msgstr "M&aacute;s opciones"
-
-# @ evolve
-#: header-content.php:28 header-content.php:179
-msgid "KEEP IN TOUCH"
-msgstr "CONECTARSE CON"
-
-# @ evolve
-#: header-content.php:129
-msgid "Read more"
-msgstr "Leer m&aacute;s"
-
-# @ evolve
-#: header-content.php:144
-msgid "Oops, please try to refresh the page"
-msgstr "Por favor, intente volver a cargar la p&aacute;gina"
-
-# @ evolve
-#: header.php:31
+#: functions.php:73
 #, php-format
 msgid "Page %s"
 msgstr "P&aacute;gina %s"
 
 # @ evolve
-#: index.php:59 index.php:208 index.php:456 index.php:480 index.php:642
-#: index.php:672 index.php:839 no-sidebar.php:24
-msgid "Untitled"
-msgstr "Sin t&iacute;tulo"
+#: functions.php:115
+msgid "Primary Menu"
+msgstr "Men&uacute; Principal"
+
+#: functions.php:116
+msgid "Sticky Header Menu"
+msgstr ""
+
+#: functions.php:304
+msgid "Details"
+msgstr ""
+
+#: functions.php:364
+msgid "You reached the end"
+msgstr ""
+
+#: functions.php:365
+msgid "Load more items"
+msgstr ""
 
 # @ evolve
-#: index.php:82
-msgid "By"
-msgstr "Por"
+#: functions.php:403 template-parts/post/content-post.php:63
+#, fuzzy
+msgid "Read More"
+msgstr "Leer m&aacute;s"
+
+#: functions.php:418
+msgid "To view this protected content, enter the password below"
+msgstr ""
+
+#: functions.php:419
+msgid "Password:"
+msgstr ""
 
 # @ evolve
-#: index.php:84 index.php:233 index.php:470 index.php:666
-msgid "edit"
-msgstr "editar"
-
-# @ evolve
-#: index.php:95 index.php:241 index.php:485 index.php:676 index.php:843
-#: no-sidebar.php:28
-msgid "EDIT"
-msgstr "EDITAR"
-
-# @ evolve
-#: index.php:230 index.php:468 index.php:662
-msgid "Written by"
-msgstr "Escrito por"
-
-# @ evolve
-#: index.php:264 index.php:717 index.php:852 no-sidebar.php:37
-msgid "READ MORE &raquo;"
-msgstr "LEER M&Aacute;S &raquo;"
-
-# @ evolve
-#: index.php:299 index.php:733
-msgid "Posted in"
-msgstr "Publicado en"
-
-# @ evolve
-#: index.php:302 index.php:737
-msgid "Tagged"
-msgstr "Etiquetado"
-
-# @ evolve
-#: index.php:338 index.php:578 index.php:794 index.php:878
-msgid "Not Found"
-msgstr "No se ha encontrado"
-
-# @ evolve
-#: index.php:344 index.php:582 index.php:798 index.php:882
-msgid "Sorry, but you are looking for something that isn't here."
-msgstr "Lo sentimos, pero usted esta buscando algo que no esta aqu&iacute;."
-
-# @ evolve
-#: index.php:376
-msgid "Daily archives for"
-msgstr "Diario de archivos"
-
-# @ evolve
-#: index.php:378
-msgid "Monthly archives for"
-msgstr "Archivos mensuales de"
-
-# @ evolve
-#: index.php:380
-msgid "Yearly archives for"
-msgstr "Archivos anuales  de"
-
-# @ evolve
-#: index.php:384
-msgid "Posts in category"
-msgstr "Mensajes en la categor&iacute;a"
-
-# @ evolve
-#: index.php:388
-msgid "Posts tagged"
-msgstr "Mensajes etiquetados"
-
-# @ evolve
-#: index.php:394
-msgid "Search results for"
+#: search.php:14
+#, fuzzy, php-format
+msgid "Search results for %s"
 msgstr "Resultados de la b&uacute;squeda de"
 
 # @ evolve
-#: index.php:399
-msgid "Posts by"
-msgstr "Escrito por"
-
-# @ evolve
-#: index.php:527 index.php:711
-msgid "READ MORE"
-msgstr "LEER M&Aacute;S"
-
-# @ evolve
-#: index.php:558 index.php:774
-msgid "Your search for"
-msgstr "Su b&uacute,squeda de"
-
-# @ evolve
-#: index.php:558 index.php:774
-msgid "did not match any entries"
+#: search.php:20
+#, fuzzy, php-format
+msgid "Your search for %s didn't match any entries"
 msgstr "No se ha encontrado en esta página"
 
 # @ evolve
-#: index.php:563 index.php:779
-msgid "Suggestions:"
+#: search.php:50 woocommerce/loop/no-products-found.php:29
+#, fuzzy
+msgid "Suggestions"
 msgstr "Sugerencias:"
 
 # @ evolve
-#: index.php:565 index.php:781
+#: search.php:52 woocommerce/loop/no-products-found.php:31
 msgid "Make sure all words are spelled correctly."
-msgstr "Aseg&uacute;rese de que todas las palabras est&eacute;n escritas correctamente."
+msgstr ""
+"Aseg&uacute;rese de que todas las palabras est&eacute;n escritas "
+"correctamente."
 
 # @ evolve
-#: index.php:566 index.php:782
+#: search.php:53 woocommerce/loop/no-products-found.php:32
 msgid "Try different keywords."
 msgstr "Intente usar palabras diferentes."
 
 # @ evolve
-#: index.php:567 index.php:783
+#: search.php:54 woocommerce/loop/no-products-found.php:33
 msgid "Try more general keywords."
 msgstr "Intente usar palabras m&aacute;s comunes."
 
 # @ evolve
-#: navigation.php:12
-#, php-format
-msgid "<span class=\"nav-meta\">&laquo;</span> %link"
-msgstr ""
-
-# @ evolve
-#: navigation.php:13
-#, php-format
-msgid "<span class=\"nav-meta\">&raquo;</span> %link"
-msgstr ""
-
-# @ evolve
-#: navigation.php:23
-msgid "<span class=\"nav-meta\">&laquo;</span> Older Entries"
-msgstr "<span class=\"nav-meta\">&laquo;</span> Entradas Anteriores"
-
-# @ evolve
-#: navigation.php:24
-msgid "Newer Entries <span class=\"nav-meta\">&raquo;</span>"
-msgstr "Nuevas Entradas <span class=\"nav-meta\">&raquo;</span>"
-
-# @ evolve
-#: searchform.php:18
+#: searchform.php:12
 msgid "Type your search"
 msgstr "Escriba el texto a buscar"
 
-# @ evolve
-#: searchform.php:31
-msgid "GO"
-msgstr "BUSCAR"
+#: bbpress/content-single-topic-lead.php:15
+msgid "Open"
+msgstr ""
 
-# @ evolve
-#: sidebar-2.php:35
-msgid "Pages"
-msgstr "P&aacute;ginas"
+#: bbpress/content-single-topic-lead.php:17
+msgid "Closed"
+msgstr ""
 
-# @ evolve
-#: sidebar-2.php:47
-msgid "Archives"
-msgstr "Archivos"
+#: bbpress/content-single-topic-lead.php:20
+msgid "Pinned"
+msgstr ""
 
-# @ evolve
-#: sidebar-2.php:58
-msgid "Recent Comments"
-msgstr "Comentarios recientes"
+#: bbpress/content-statistics.php:17
+msgid "Registered Users"
+msgstr ""
 
-# @ evolve
-#: sidebar-2.php:92
-msgid "Calendar"
-msgstr "Calendario"
+#: bbpress/content-statistics.php:22
+msgid "Forums"
+msgstr ""
 
-# @ evolve
-#: sidebar-2.php:102
-msgid "Meta"
+#: bbpress/content-statistics.php:27
+msgid "Topics"
+msgstr ""
+
+#: bbpress/content-statistics.php:32
+msgid "Replies"
+msgstr ""
+
+#: bbpress/content-statistics.php:37
+msgid "Topic Tags"
+msgstr ""
+
+#: bbpress/content-statistics.php:44
+msgid "Empty Topic Tags"
+msgstr ""
+
+#: bbpress/content-statistics.php:53
+msgid "Hidden Topics"
+msgstr ""
+
+#: bbpress/content-statistics.php:64
+msgid "Hidden Replies"
+msgstr ""
+
+#: bbpress/form-anonymous.php:19
+msgid "Your email address will not be published. Required fields are marked *"
+msgstr ""
+
+#: bbpress/form-anonymous.php:23
+msgid "Name*"
 msgstr ""
 
 # @ evolve
-#: sidebar.php:34
-msgid "Recent Posts"
-msgstr "Mensajes recientes"
+#: bbpress/form-anonymous.php:29
+#, fuzzy
+msgid "Email*"
+msgstr "Correo Electr&oacute;nico"
+
+#: bbpress/form-anonymous.php:35 bbpress/form-user-edit.php:79
+#: inc/comments.php:232
+msgid "Website"
+msgstr ""
+
+#: bbpress/form-reply-move.php:18
+#, php-format
+msgid "Move reply \"%s\""
+msgstr ""
+
+#: bbpress/form-reply-move.php:35 bbpress/form-topic-split.php:33
+#, php-format
+msgid "New topic in <strong>%s</strong> titled:"
+msgstr ""
+
+#: bbpress/form-reply-move.php:39
+#, php-format
+msgid "Moved: %s"
+msgstr ""
+
+#: bbpress/form-reply-move.php:65 bbpress/form-topic-split.php:64
+msgid "No other topics found!"
+msgstr ""
+
+#: bbpress/form-reply-move.php:71 bbpress/form-topic-merge.php:100
+msgid "<strong>WARNING:</strong> This process cannot be undone"
+msgstr ""
+
+#: bbpress/form-reply.php:23
+#, php-format
+msgid "Now editing reply to %s"
+msgstr ""
+
+#: bbpress/form-reply.php:25
+#, php-format
+msgid "Reply to %s"
+msgstr ""
+
+#: bbpress/form-reply.php:38
+msgid ""
+"This topic is marked as closed to new replies, however your posting "
+"capabilities still allow you to do so"
+msgstr ""
+
+#: bbpress/form-reply.php:65 bbpress/form-topic.php:80
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes:"
+msgstr ""
+
+#: bbpress/form-reply.php:80 bbpress/form-topic.php:95
+msgid "Your account has the ability to post unrestricted HTML content"
+msgstr ""
+
+#: bbpress/form-reply.php:122 bbpress/form-topic.php:197
+msgid "Optional reason for editing"
+msgstr ""
+
+#: bbpress/form-reply.php:198
+#, php-format
+msgid "The topic <b>%s</b> is closed to new replies"
+msgstr ""
+
+#: bbpress/form-reply.php:203
+#, php-format
+msgid "The forum <b>%s</b> is closed to new topics and replies"
+msgstr ""
+
+#: bbpress/form-topic-merge.php:17
+#, php-format
+msgid "Merge topic \"%s\""
+msgstr ""
+
+#: bbpress/form-topic-merge.php:50
+msgid "No topics were found to which the topic could be merged to!"
+msgstr ""
+
+#: bbpress/form-topic-split.php:18
+#, php-format
+msgid "Split topic \"%s\""
+msgstr ""
+
+#: bbpress/form-topic-split.php:37
+#, php-format
+msgid "Split: %s"
+msgstr ""
+
+#: bbpress/form-topic-split.php:105
+msgid "<strong>WARNING:</strong> This process cannot be undone."
+msgstr ""
+
+#: bbpress/form-topic-tag.php:15
+#, php-format
+msgid "Manage Tag: \"%s\""
+msgstr ""
+
+#: bbpress/form-topic-tag.php:70
+#, php-format
+msgid ""
+"Are you sure you want to merge the \"%s\" tag into the tag you specified?"
+msgstr ""
+
+#: bbpress/form-topic-tag.php:98
+#, php-format
+msgid ""
+"Are you sure you want to delete the \"%s\" tag? This is permanent and cannot "
+"be undone."
+msgstr ""
+
+#: bbpress/form-topic.php:23
+#, php-format
+msgid "Now editing %s"
+msgstr ""
+
+#: bbpress/form-topic.php:25
+#, php-format
+msgid "Create new topic in %s"
+msgstr ""
+
+#: bbpress/form-topic.php:38
+msgid ""
+"This forum is marked as closed to new topics, however your posting "
+"capabilities still allow you to do so"
+msgstr ""
+
+#: bbpress/form-topic.php:53
+#, php-format
+msgid "Topic title (maximum length: %d)"
+msgstr ""
+
+#: bbpress/form-topic.php:134
+msgid "No forum"
+msgstr ""
+
+#: bbpress/form-topic.php:272
+#, php-format
+msgid "The forum %s is closed to new topics and replies"
+msgstr ""
+
+#: bbpress/form-user-edit.php:17 inc/comments.php:222
+#: inc/woocommerce-support.php:280
+msgid "Name"
+msgstr ""
+
+#: bbpress/form-user-edit.php:28
+msgid "First name"
+msgstr ""
+
+#: bbpress/form-user-edit.php:38
+msgid "Last name"
+msgstr ""
+
+#: bbpress/form-user-edit.php:48
+msgid "Nickname"
+msgstr ""
+
+#: bbpress/form-user-edit.php:58
+msgid "Display name"
+msgstr ""
+
+#: bbpress/form-user-edit.php:70
+msgid "Contact info"
+msgstr ""
+
+#: bbpress/form-user-edit.php:106
+msgid "About yourself"
+msgstr ""
+
+#: bbpress/form-user-edit.php:106
+msgid "About the user"
+msgstr ""
+
+#: bbpress/form-user-edit.php:115
+msgid "Biographical info"
+msgstr ""
+
+#: bbpress/form-user-edit.php:124
+msgid "Account"
+msgstr ""
+
+#: bbpress/form-user-edit.php:129 bbpress/form-user-login.php:16
+#: bbpress/form-user-register.php:21
+msgid "Username"
+msgstr ""
 
 # @ evolve
-#: sidebar.php:47
-msgid "Categories"
-msgstr "Categor&iacute;as"
+#: bbpress/form-user-edit.php:137 bbpress/form-user-register.php:28
+#: inc/comments.php:227
+#, fuzzy
+msgid "Email"
+msgstr "Correo Electr&oacute;nico"
+
+#: bbpress/form-user-edit.php:153
+#, php-format
+msgid ""
+"There is a pending email address change to <code>%1$s</code>. <a href=\"%2$s"
+"\">Cancel</a>"
+msgstr ""
+
+#: bbpress/form-user-edit.php:162
+msgid "New Password"
+msgstr ""
+
+#: bbpress/form-user-edit.php:166
+msgid ""
+"If you would like to change the password type a new one. Otherwise leave "
+"this blank"
+msgstr ""
+
+#: bbpress/form-user-edit.php:176
+msgid "Type your new password again"
+msgstr ""
+
+#: bbpress/form-user-edit.php:187
+msgid ""
+"Your password should be at least ten characters long. Use upper and lower "
+"case letters, numbers, and symbols to make it even stronger"
+msgstr ""
+
+#: bbpress/form-user-edit.php:197
+msgid "User role"
+msgstr ""
+
+#: bbpress/form-user-edit.php:204
+msgid "Network Role"
+msgstr ""
+
+#: bbpress/form-user-edit.php:209
+msgid "Grant this user super admin privileges for the Network."
+msgstr ""
+
+#: bbpress/form-user-edit.php:229
+msgid "Update Profile"
+msgstr ""
+
+#: bbpress/form-user-edit.php:229
+msgid "Update User"
+msgstr ""
+
+#: bbpress/form-user-login.php:13 bbpress/form-user-login.php:40
+msgid "Log In"
+msgstr ""
+
+#: bbpress/form-user-login.php:23
+msgid "Password"
+msgstr ""
+
+#: bbpress/form-user-login.php:33
+msgid "Keep me signed in"
+msgstr ""
+
+#: bbpress/form-user-lost-pass.php:14
+msgid "Lost Password"
+msgstr ""
+
+#: bbpress/form-user-lost-pass.php:18
+msgid "Username or Email"
+msgstr ""
+
+#: bbpress/form-user-lost-pass.php:27
+msgid "Reset My Password"
+msgstr ""
+
+#: bbpress/form-user-register.php:13
+msgid "Create an account"
+msgstr ""
+
+#: bbpress/form-user-register.php:16
+msgid "Your username must be unique, and cannot be changed later."
+msgstr ""
+
+#: bbpress/form-user-register.php:17
+msgid ""
+"We use your email address to email you a secure password and verify your "
+"account."
+msgstr ""
+
+#: bbpress/form-user-register.php:38
+msgid "Register"
+msgstr ""
+
+#: bbpress/loop-search-forum.php:27
+#, php-format
+msgid "Last updated %s"
+msgstr ""
+
+#: bbpress/loop-search-topic.php:50 bbpress/loop-single-topic.php:76
+#, php-format
+msgid "Started by %1$s"
+msgstr ""
+
+#: bbpress/loop-search-topic.php:65 bbpress/loop-single-topic.php:91
+#, php-format
+msgid "in <a href=\"%1$s\"><b>%2$s</b></a>"
+msgstr ""
+
+#: bbpress/loop-search.php:10
+msgid "Reply"
+msgstr ""
+
+#: bbpress/loop-search.php:11
+msgid "Topic"
+msgstr ""
+
+#: bbpress/loop-search.php:12
+msgid "Forum"
+msgstr ""
 
 # @ evolve
-#: sidebar.php:57
-msgid "Tags"
-msgstr "Etiquetas"
+#: bbpress/loop-single-reply.php:45
+#, fuzzy, php-format
+msgid "Posts: %s"
+msgstr "Escrito por"
+
+#: bbpress/user-favorites.php:17
+msgid "Favorite torum topics"
+msgstr ""
+
+#: bbpress/user-favorites.php:34
+msgid "You currently have no favorite topics"
+msgstr ""
+
+#: bbpress/user-favorites.php:34
+msgid "This user has no favorite topics"
+msgstr ""
+
+#: bbpress/user-profile.php:27
+msgid "Forum role:"
+msgstr ""
+
+#: bbpress/user-profile.php:30
+msgid "Topics started:"
+msgstr ""
+
+#: bbpress/user-profile.php:33
+msgid "Replies created:"
+msgstr ""
+
+#: bbpress/user-replies-created.php:17
+msgid "Forum replies created"
+msgstr ""
+
+#: bbpress/user-replies-created.php:34
+msgid "You have not replied to any topics"
+msgstr ""
+
+#: bbpress/user-replies-created.php:34
+msgid "This user has not replied to any topics"
+msgstr ""
+
+#: bbpress/user-subscriptions.php:21
+msgid "Subscribed forums"
+msgstr ""
+
+#: bbpress/user-subscriptions.php:34
+msgid "You are not currently subscribed to any forums"
+msgstr ""
+
+#: bbpress/user-subscriptions.php:34
+msgid "This user is not currently subscribed to any forums"
+msgstr ""
+
+#: bbpress/user-subscriptions.php:44
+msgid "Subscribed topics"
+msgstr ""
+
+#: bbpress/user-subscriptions.php:61
+msgid "You are not currently subscribed to any topics"
+msgstr ""
+
+#: bbpress/user-subscriptions.php:61
+msgid "This user is not currently subscribed to any topics"
+msgstr ""
+
+#: bbpress/user-topics-created.php:17
+msgid "Forum topics started"
+msgstr ""
+
+#: bbpress/user-topics-created.php:34
+msgid "You have not created any topics."
+msgstr ""
+
+#: bbpress/user-topics-created.php:34
+msgid "This user has not created any topics."
+msgstr ""
+
+#: inc/bbpress-support.php:70 inc/comments.php:89 inc/template-tags.php:523
+#: inc/template-tags.php:561 inc/template-tags.php:738
+#: inc/template-tags.php:790 inc/template-tags.php:898
+#: woocommerce/single-product/product-image.php:78
+msgid "Previous"
+msgstr ""
+
+#: inc/bbpress-support.php:71 inc/comments.php:90 inc/template-tags.php:524
+#: inc/template-tags.php:560 inc/template-tags.php:742
+#: inc/template-tags.php:794 inc/template-tags.php:902
+#: woocommerce/single-product/product-image.php:82
+msgid "Next"
+msgstr ""
 
 # @ evolve
-#: sidebar.php:65
-msgid "RSS Syndication"
-msgstr "Sindicaci&oacute;n RSS"
-
-# @ evolve
-#: sidebar.php:67
-msgid "All posts"
-msgstr "Todos los mensajes"
-
-# @ evolve
-#: sidebar.php:68
-msgid "All comments"
-msgstr "Todos los comentarios"
-
-# @ evolve
-#: index.php:68 index.php:216 index.php:531 index.php:649
-msgid "Leave a Comment"
-msgstr "Deja tu cometario"
-
-# @ evolve
-#: index.php:68 index.php:216 index.php:531 index.php:649
-#: library/custom-functions/comments.php:29
-msgid "1 Comment"
-msgstr "!  Comentario"
-
-# @ evolve
-#: index.php:68 index.php:216 index.php:531 index.php:649
-#: library/custom-functions/comments.php:27
+#: inc/comments.php:36 inc/template-tags.php:389
+#: template-parts/post/content-post.php:49
 msgid "% Comments"
 msgstr "% Comentarios"
 
 # @ evolve
-#: index.php:265 index.php:719
-msgid "<strong>Pages:</strong>"
-msgstr "<strong>Páginas:</strong>"
+#: inc/comments.php:38 inc/template-tags.php:389
+#: template-parts/post/content-post.php:49
+msgid "1 Comment"
+msgstr "!  Comentario"
 
-# @ evolve
-#: library/custom-functions/comments.php:33
-msgid "% Trackbacks"
+#: inc/comments.php:42
+msgid "% Pings/Trackbacks"
+msgstr ""
+
+#: inc/comments.php:44
+msgid "1 Ping/Trackback"
+msgstr ""
+
+#: inc/comments.php:77
+msgid "Follow replies"
+msgstr ""
+
+#: inc/comments.php:147
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: inc/comments.php:148
+msgid "Author"
+msgstr ""
+
+#: inc/comments.php:149
+msgid "Pingback"
+msgstr ""
+
+#: inc/comments.php:150
+msgid "Verified buyer"
+msgstr ""
+
+#: inc/comments.php:157
+#, php-format
+msgid "%1$s - %2$s"
+msgstr ""
+
+#: inc/comments.php:176
+msgid "Your comment is awaiting moderation"
+msgstr ""
+
+#: inc/comments.php:237
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+
+#: inc/comments.php:270
+msgid "Cancel reply"
+msgstr ""
+
+#: inc/tabs-widget.php:9
+msgid "evolve: Tabs"
+msgstr ""
+
+#: inc/tabs-widget.php:12
+msgid "Popular posts, recent posts and comments."
 msgstr ""
 
 # @ evolve
-#: library/custom-functions/comments.php:35
-msgid "1 Trackback"
+#: inc/template-tags.php:378
+msgid "Written by"
+msgstr "Escrito por"
+
+#: inc/template-tags.php:379
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+# @ evolve
+#: inc/template-tags.php:389 template-parts/post/content-post.php:49
+msgid "Leave a Comment"
+msgstr "Deja tu cometario"
+
+# @ evolve
+#: inc/template-tags.php:455
+#, fuzzy
+msgid "Similar posts"
+msgstr "Mensajes Individuales"
+
+# @ evolve
+#: inc/template-tags.php:554
+#, fuzzy
+msgid "Pages:"
+msgstr "P&aacute;ginas"
+
+#: inc/template-tags.php:604
+msgid "Home"
+msgstr ""
+
+#: inc/template-tags.php:626
+msgid "Blog"
+msgstr ""
+
+#: inc/template-tags.php:669
+msgid "404 - Page not Found"
+msgstr ""
+
+#: inc/template-tags.php:672
+msgid "Search"
+msgstr ""
+
+#: inc/widgets.php:10
+msgid "Sidebar 1"
+msgstr ""
+
+#: inc/widgets.php:19
+msgid "Sidebar 2"
+msgstr ""
+
+#: inc/widgets.php:48
+msgid "Header 1"
+msgstr ""
+
+#: inc/widgets.php:57
+#, php-format
+msgid "Header %d"
+msgstr ""
+
+#: inc/widgets.php:92
+msgid "Footer 1"
+msgstr ""
+
+#: inc/widgets.php:101
+#, php-format
+msgid "Footer %d"
+msgstr ""
+
+#: inc/woocommerce-support.php:217
+msgctxt "breadcrumb"
+msgid "Home"
+msgstr ""
+
+#: inc/woocommerce-support.php:228
+msgid "Search..."
+msgstr ""
+
+#: inc/woocommerce-support.php:277 inc/woocommerce-support.php:279
+#: inc/woocommerce-support.php:280 inc/woocommerce-support.php:281
+#: inc/woocommerce-support.php:282 inc/woocommerce-support.php:283
+#: inc/woocommerce-support.php:284
+msgid "Sort by"
+msgstr ""
+
+#: inc/woocommerce-support.php:277 inc/woocommerce-support.php:279
+msgid "Default order"
+msgstr ""
+
+#: inc/woocommerce-support.php:281
+msgid "Price"
+msgstr ""
+
+#: inc/woocommerce-support.php:282 inc/woocommerce-support.php:1157
+msgid "Date"
+msgstr ""
+
+#: inc/woocommerce-support.php:283
+msgid "Popularity"
+msgstr ""
+
+#: inc/woocommerce-support.php:284
+msgid "Rating"
+msgstr ""
+
+#: inc/woocommerce-support.php:289 inc/woocommerce-support.php:291
+#: inc/woocommerce-support.php:292 inc/woocommerce-support.php:293
+#: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:4
+#: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:10
+msgid "Show"
+msgstr ""
+
+#: inc/woocommerce-support.php:289
+msgid " Products"
+msgstr ""
+
+#: inc/woocommerce-support.php:291 inc/woocommerce-support.php:292
+#: inc/woocommerce-support.php:293
+msgid "Products"
+msgstr ""
+
+#: inc/woocommerce-support.php:470
+msgid "Show details"
+msgstr ""
+
+#: inc/woocommerce-support.php:508 inc/woocommerce-support.php:2186
+#, php-format
+msgid "%s item"
+msgid_plural "%s items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/woocommerce-support.php:584
+#, php-format
+msgid "You have %s item in your cart"
+msgid_plural "You have %s items in your cart"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/woocommerce-support.php:1041 woocommerce/checkout/form-checkout.php:28
+#, php-format
+msgid "Hello, %s"
+msgstr ""
+
+#: inc/woocommerce-support.php:1156
+msgid "Order"
+msgstr ""
+
+#: inc/woocommerce-support.php:1158
+msgid "Status"
+msgstr ""
+
+#: inc/woocommerce-support.php:1159 woocommerce/cart/cart-totals.php:93
+msgid "Total"
+msgstr ""
+
+# @ evolve
+#: inc/woocommerce-support.php:1177
+#, fuzzy
+msgid "Recent orders"
+msgstr "Mensajes recientes"
+
+#: inc/woocommerce-support.php:1210
+msgctxt "hash before order number"
+msgid "#"
+msgstr ""
+
+#: inc/woocommerce-support.php:1220
+#, php-format
+msgid "%1$s for %2$s item"
+msgid_plural "%1$s for %2$s items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/woocommerce-support.php:1227
+msgid "Pay"
+msgstr ""
+
+#: inc/woocommerce-support.php:1231
+msgid "View"
+msgstr ""
+
+#: inc/woocommerce-support.php:1235
+msgid "Cancel"
+msgstr ""
+
+#: inc/woocommerce-support.php:1290
+msgid "Available downloads"
+msgstr ""
+
+#: inc/woocommerce-support.php:1303
+#, php-format
+msgid "%s download remaining"
+msgid_plural "%s downloads remaining"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/woocommerce-support.php:1350 inc/woocommerce-support.php:1356
+msgid "Billing address"
+msgstr ""
+
+#: inc/woocommerce-support.php:1351
+msgid "Shipping address"
+msgstr ""
+
+#: inc/woocommerce-support.php:1362
+msgid "The following addresses will be used on the checkout page by default."
+msgstr ""
+
+#: inc/woocommerce-support.php:1397
+msgid "You have not set up this type of address yet."
+msgstr ""
+
+#: inc/woocommerce-support.php:1594
+msgid "is a required field."
+msgstr ""
+
+#: inc/woocommerce-support.php:1607
+msgid "Please enter a valid postcode/ZIP."
+msgstr ""
+
+#: inc/woocommerce-support.php:1616
+msgid "is not a valid phone number."
+msgstr ""
+
+#: inc/woocommerce-support.php:1623
+msgid "is not a valid email address."
+msgstr ""
+
+#: inc/woocommerce-support.php:1638
+msgid "Address changed successfully."
+msgstr ""
+
+#: inc/woocommerce-support.php:1791
+#, php-format
+msgid "Download file%s"
+msgstr ""
+
+#: inc/woocommerce-support.php:1856
+msgid "Note:"
+msgstr ""
+
+# @ evolve
+#: inc/woocommerce-support.php:1859
+#, fuzzy
+msgid "Email:"
+msgstr "Correo Electr&oacute;nico"
+
+#: inc/woocommerce-support.php:1862
+msgid "Telephone:"
+msgstr ""
+
+#: inc/woocommerce-support.php:1888 inc/woocommerce-support.php:1905
+msgid "N/A"
+msgstr ""
+
+#: inc/admin/customizer/customizer-options.php:428
+msgid "All"
+msgstr ""
+
+#: inc/admin/customizer/customizer-options.php:432
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:4
+msgid "Default"
+msgstr ""
+
+#: inc/admin/metaboxes/metaboxes.php:257
+msgid "Layout"
+msgstr ""
+
+#: inc/admin/metaboxes/metaboxes.php:258
+msgid "Page Title / Breadcrumbs / Page Title Bar"
+msgstr ""
+
+#: inc/admin/metaboxes/metaboxes.php:259
+msgid "Widgets"
+msgstr ""
+
+#: inc/admin/metaboxes/metaboxes.php:260
+msgid "Slider"
+msgstr ""
+
+#: inc/admin/metaboxes/metaboxes.php:261
+msgid "Sidebar"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-layout.php:5
+msgid "Sidebar Position"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-layout.php:18
+msgid "Full Width"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-layout.php:19
+#: inc/admin/metaboxes/page-tabs/tab-widget.php:4
+msgid "No"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-layout.php:20
+#: inc/admin/metaboxes/page-tabs/tab-widget.php:5
+msgid "Yes"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:3
+msgid "Page Title"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:5
+#: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:11
+msgid "Hide"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:9
+msgid "Page Breadcrumb"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:3
+msgid "Slider Position"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:5
+msgid "Below"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:6
+msgid "Above"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:7
+msgid ""
+"Select if the slider shows below or above the header. This only works for "
+"the slider assigned in page options, not with shortcodes."
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:10
+msgid "Slider Type"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:11
+msgid "No Slider"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:12
+msgid "Parallax Slider"
+msgstr ""
+
+# @ evolve
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:13
+#, fuzzy
+msgid "Posts Slider"
+msgstr "Mensajes en la categor&iacute;a"
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:14
+msgid "Bootstrap Slider"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-widget.php:3
+msgid "Enable Header Widgets"
+msgstr ""
+
+#: template-parts/navigation/navigation.php:31
+msgid "Newer Entries"
+msgstr ""
+
+#: template-parts/navigation/navigation.php:32
+msgid "Older Entries"
+msgstr ""
+
+#: template-parts/post/content-none.php:9
+msgid "Nothing To Show Yet"
+msgstr ""
+
+#: template-parts/post/content-none.php:13
+msgid "Get started with your website"
+msgstr ""
+
+#: template-parts/post/content-none.php:15
+#, php-format
+msgid "<a href=\"%1$s\" class=\"btn btn-lg\">Publish your first post</a>."
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:36
+#, php-format
+msgid "%1$s Review for %2$s"
+msgid_plural "%1$s Reviews for %2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product-reviews.php:38
+msgid "Reviews"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:57
+msgid "There are no reviews yet"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:70
+msgid "Add a review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:70
+#, php-format
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:77
+msgid "Submit"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:83
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:103
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:50 woocommerce/cart/cart-shipping.php:52
+msgid ""
+"There are no shipping methods available. Please ensure that your address has "
+"been entered correctly, or contact us if you need any help."
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:56
+msgid "Enter your full address to see shipping costs."
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:29
+msgid "Cart totals"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:34
+msgid "Subtotal"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:56
+msgid "Shipping"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:72
+#, php-format
+msgid "(estimated for %s)"
+msgstr ""
+
+#: woocommerce/cart/cart.php:125
+msgid "Remove this item"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:29
+msgid "Billing &amp; Shipping"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:33
+msgid "Billing details"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:64
+msgid "Create an account?"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:71
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:36
+msgid "Ship to a different address?"
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:70
+#: woocommerce/single-product/tabs/additional-information.php:25
+msgid "Additional information"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:41 woocommerce/checkout/thankyou.php:73
+msgid "Thank you. Your order has been received."
+msgstr ""
+
+#: woocommerce/global/quantity-input.php:29
+#, php-format
+msgid "%s quantity"
+msgstr ""
+
+# @ evolve
+#: woocommerce/loop/add-to-cart.php:28 woocommerce/loop/add-to-cart.php:52
+#: woocommerce/loop/add-to-cart.php:63
+msgid "Read more"
+msgstr "Leer m&aacute;s"
+
+# @ evolve
+#: woocommerce/loop/add-to-cart.php:42
+#, fuzzy
+msgid "Select options"
+msgstr "M&aacute;s opciones"
+
+# @ evolve
+#: woocommerce/loop/add-to-cart.php:47
+#, fuzzy
+msgid "View options"
+msgstr "M&aacute;s opciones"
+
+#: woocommerce/loop/add-to-cart.php:58
+msgid "Add to cart"
+msgstr ""
+
+#: woocommerce/loop/no-products-found.php:26
+msgid "No products were found matching your selection"
+msgstr ""
+
+#: woocommerce/single-product/tabs/description.php:15
+msgid "Product description"
 msgstr ""

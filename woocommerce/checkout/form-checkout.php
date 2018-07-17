@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 $woocommerce_one_page_checkout = evolve_theme_mod( 'evl_woocommerce_one_page_checkout', '0' );
 
 global $woocommerce, $current_user;
-$woo_acc_msg_1 = evolve_theme_mod( 'evl_woo_acc_msg_1', 'Call us - <i class="t4p-icon-phone"></i> 7438 882 764' );
-$woo_acc_msg_2 = evolve_theme_mod( 'evl_woo_acc_msg_2', 'Email us - <i class="t4p-icon-envelope-o"></i> contact@example.com' );
+$woo_acc_msg_1 = evolve_theme_mod( 'evl_woo_acc_msg_1', '' );
+$woo_acc_msg_2 = evolve_theme_mod( 'evl_woo_acc_msg_2', '' );
 ?>
 
     <div class="myaccount_user_container">

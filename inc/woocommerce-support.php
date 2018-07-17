@@ -215,6 +215,7 @@ function evolve_woocommerce_breadcrumbs() {
 		'before'      => '<li class="breadcrumb-item">',
 		'after'       => '</li>',
 		'home'        => _x( 'Home', 'breadcrumb', 'evolve' ),
+		'delimiter'   => ''
 	);
 }
 

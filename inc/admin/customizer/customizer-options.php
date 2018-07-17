@@ -425,18 +425,18 @@ function evolve_shortcodes_categories( $taxonomy, $empty_choice = false ) {
  */
 function evolve_shortcodes_range( $range, $all = true, $default = false, $range_start = 1 ) {
 	if ( $all ) {
-		$number_of_posts['-1'] = 'All';
+		$number_of_products['-1'] = __( 'All', 'evolve' );
 	}
 
 	if ( $default ) {
-		$number_of_posts[''] = 'Default';
+		$number_of_products[''] = __( 'Default', 'evolve' );
 	}
 
 	foreach ( range( $range_start, $range ) as $number ) {
-		$number_of_posts[ $number ] = $number;
+		$number_of_products[ $number ] = $number;
 	}
 
-	return $number_of_posts;
+	return $number_of_products;
 }
 
 //Get Page Title List
@@ -463,10 +463,10 @@ if ( class_exists( 'Woocommerce' ) ) {
 	$terms      = $wpdb->get_results( $term_query );
 	if ( $terms ) {
 		foreach ( $terms as $term ) {
-			$product_texonomy[ $term->slug ] = $term->name;
+			$product_taxonomy[ $term->slug ] = $term->name;
 		}
 	} else {
-		$product_texonomy = array( 'none' => 'No categories found' );
+		$product_taxonomy = array( 'none' => 'No categories found' );
 	}
 
 	//Content Area Options
@@ -740,7 +740,7 @@ if ( true || is_customize_preview() ) {
 	);
 
 	/*
-		Front Page Content Boxes
+		Content Boxes
 		======================================= */
 
 	evolve_Kirki::setSection( $evolve_opt_name, array(
@@ -1140,7 +1140,6 @@ if ( true || is_customize_preview() ) {
 						'padding-left'   => '0',
 						'units'          => 'px'
 					),
-					'selector'  => '.home-content-boxes .container',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -1321,7 +1320,7 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.home-content-boxes blockquote',
+							'element'  => '.home-testimonials .carousel',
 							'function' => 'css',
 							'property' => 'background-color'
 						)
@@ -1336,7 +1335,7 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.home-content-boxes blockquote',
+							'element'  => '.home-testimonials blockquote, .home-testimonials blockquote footer',
 							'function' => 'css',
 							'property' => 'color'
 						)
@@ -1382,10 +1381,10 @@ if ( true || is_customize_preview() ) {
 					'text-align'  => true,
 					'line-height' => false,
 					'default'     => array(
-						'font-size'   => '1.9rem',
+						'font-size'   => '2.5rem',
 						'color'       => '#333333',
 						'font-family' => 'Roboto',
-						'font-weight' => '700',
+						'font-weight' => '300',
 						'text-align'  => 'center'
 					),
 					'transport'   => 'postMessage',
@@ -1403,12 +1402,11 @@ if ( true || is_customize_preview() ) {
 					'units'     => array( 'px', 'em' ),
 					'default'   => array(
 						'padding-top'    => '40px',
-						'padding-right'  => '40px',
+						'padding-right'  => '0',
 						'padding-bottom' => '40px',
-						'padding-left'   => '40px',
+						'padding-left'   => '0',
 						'units'          => 'px'
 					),
-					'selector'  => '.home-testimonials .container',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -1523,7 +1521,7 @@ if ( true || is_customize_preview() ) {
 		)
 	);
 
-// Front Page Counter Circle Dynamic Fields
+// Counter Circle Dynamic Fields
 	$counter_circle_fields = array();
 
 	for ( $i = 1; $i <= 3; $i ++ ) {
@@ -1538,28 +1536,35 @@ if ( true || is_customize_preview() ) {
 		);
 
 		$counter_circle_fields[] = array(
-			'id'       => "{$evolve_shortname}_fp_counter_circle{$i}_icon",
-			'title'    => sprintf( esc_attr__( 'Counter Circle %d Icon', 'evolve' ), $i ),
-			'subtitle' => esc_attr__( 'Click an icon to select', 'evolve' ),
-			'type'     => 'text',
-			'class'    => 'iconpicker-icon',
-			'required' => array( array( "{$evolve_shortname}_fp_counter_circle{$i}", '=', '1' ) )
+			'id'              => "{$evolve_shortname}_fp_counter_circle{$i}_icon",
+			'title'           => sprintf( esc_attr__( 'Counter Circle %d Icon', 'evolve' ), $i ),
+			'subtitle'        => esc_attr__( 'Click an icon to select', 'evolve' ),
+			'type'            => 'text',
+			'class'           => 'iconpicker-icon',
+			'selector'        => ".home-counter-circle .item-{$i} .counter-icon",
+			'render_callback' => "{$evolve_shortname}_fp_counter_circle{$i}_icon",
+			'required'        => array( array( "{$evolve_shortname}_fp_counter_circle{$i}", '=', '1' ) )
 		);
 
 		$counter_circle_fields[] = array(
 			'id'       => "{$evolve_shortname}_fp_counter_circle{$i}_percentage",
 			'title'    => sprintf( esc_attr__( 'Counter Circle %d Percentage', 'evolve' ), $i ),
 			'subtitle' => esc_attr__( 'From 1% to 100%', 'evolve' ),
-			'type'     => 'text',
+			'type'     => 'slider',
+			'min'      => '0',
+			'max'      => '100',
+			'default'  => '33',
 			'required' => array( array( "{$evolve_shortname}_fp_counter_circle{$i}", '=', '1' ) )
 		);
 
 		$counter_circle_fields[] = array(
-			'id'       => "{$evolve_shortname}_fp_counter_circle{$i}_text",
-			'title'    => sprintf( esc_attr__( 'Counter Circle %d Text', 'evolve' ), $i ),
-			'subtitle' => esc_attr__( 'Insert text for counter circle box, keep it short', 'evolve' ),
-			'type'     => 'text',
-			'required' => array( array( "{$evolve_shortname}_fp_counter_circle{$i}", '=', '1' ) )
+			'id'              => "{$evolve_shortname}_fp_counter_circle{$i}_text",
+			'title'           => sprintf( esc_attr__( 'Counter Circle %d Text', 'evolve' ), $i ),
+			'subtitle'        => esc_attr__( 'Insert text for counter circle box, keep it short', 'evolve' ),
+			'type'            => 'text',
+			'selector'        => ".home-counter-circle .item-{$i} .counter-text-title",
+			'render_callback' => "{$evolve_shortname}_fp_counter_circle{$i}_text",
+			'required'        => array( array( "{$evolve_shortname}_fp_counter_circle{$i}", '=', '1' ) )
 		);
 
 		$counter_circle_fields[] = array(
@@ -1568,7 +1573,7 @@ if ( true || is_customize_preview() ) {
 			'subtitle' => esc_attr__( 'Controls the color of the filled in area', 'evolve' ),
 			'type'     => 'color',
 			'compiler' => true,
-			'default'  => '#242c42',
+			'default'  => '#3e9c91',
 			'required' => array( array( "{$evolve_shortname}_fp_counter_circle{$i}", '=', '1' ) )
 		);
 
@@ -1578,7 +1583,7 @@ if ( true || is_customize_preview() ) {
 			'subtitle' => esc_attr__( 'Controls the color of the unfilled in area', 'evolve' ),
 			'type'     => 'color',
 			'compiler' => true,
-			'default'  => '#e1e1e1',
+			'default'  => '#53cabc',
 			'required' => array( array( "{$evolve_shortname}_fp_counter_circle{$i}", '=', '1' ) )
 		);
 	}
@@ -1588,6 +1593,26 @@ if ( true || is_customize_preview() ) {
 			'title'      => esc_attr__( 'Counter Circle', 'evolve' ),
 			'subsection' => true,
 			'fields'     => array(
+				array(
+					'id'          => 'evl_counter_circle_title_text',
+					'title'       => esc_attr__( 'Counter Circle Text Font', 'evolve' ),
+					'subtitle'    => esc_attr__( 'Select the font and color of the counter circle text and icon', 'evolve' ),
+					'type'        => 'typography',
+					'text-align'  => true,
+					'line-height' => false,
+					'default'     => array(
+						'font-size'   => '1.5rem',
+						'color'       => '#ffffff',
+						'font-family' => 'Roboto',
+						'font-weight' => '300',
+					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '.counter-circle-text, .counter-circle-text h5'
+						)
+					)
+				),
 				$counter_circle_fields[0],
 				$counter_circle_fields[1],
 				$counter_circle_fields[2],
@@ -1633,10 +1658,10 @@ if ( true || is_customize_preview() ) {
 					'text-align'  => true,
 					'line-height' => false,
 					'default'     => array(
-						'font-size'   => '1.9rem',
+						'font-size'   => '2rem',
 						'color'       => '#ffffff',
 						'font-family' => 'Roboto',
-						'font-weight' => '700',
+						'font-weight' => '500',
 						'text-align'  => 'center'
 					),
 					'transport'   => 'postMessage',
@@ -1659,11 +1684,10 @@ if ( true || is_customize_preview() ) {
 						'padding-left'   => '0',
 						'units'          => 'px'
 					),
-					'selector'  => '.t4p-counters-circle .container',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.t4p-counters-circle',
+							'element'  => '.home-counter-circle',
 							'function' => 'css',
 							'property' => 'padding'
 						)
@@ -1678,7 +1702,7 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.t4p-counters-circle',
+							'element'  => '.home-counter-circle',
 							'function' => 'css',
 							'property' => 'background-image'
 						)
@@ -1698,7 +1722,7 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.t4p-counters-circle',
+							'element'  => '.home-counter-circle',
 							'function' => 'css',
 							'property' => 'background-size'
 						)
@@ -1718,7 +1742,7 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.t4p-counters-circle',
+							'element'  => '.home-counter-circle',
 							'function' => 'css',
 							'property' => 'background-repeat'
 						)
@@ -1743,7 +1767,7 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.t4p-counters-circle',
+							'element'  => '.home-counter-circle',
 							'function' => 'css',
 							'property' => 'background-position'
 						)
@@ -1755,11 +1779,11 @@ if ( true || is_customize_preview() ) {
 					'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
 					'type'      => 'color',
 					'compiler'  => true,
-					'default'   => '#f0f0f0',
+					'default'   => '#41d6c2',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.t4p-counters-circle',
+							'element'  => '.home-counter-circle',
 							'function' => 'css',
 							'property' => 'background-color'
 						)
@@ -1786,13 +1810,14 @@ if ( true || is_customize_preview() ) {
 						'title'    => esc_attr__( 'Product Categories', 'evolve' ),
 						'subtitle' => esc_attr__( 'Please select a category which contains some products', 'evolve' ),
 						'type'     => 'select',
-						'options'  => $product_texonomy,
+						'multi'    => 1,
+						'options'  => $product_taxonomy,
 						'default'  => 'none'
 					),
 					array(
 						'id'       => 'evl_fp_woo_product_number',
-						'title'    => esc_attr__( 'Products Per Page', 'evolve' ),
-						'subtitle' => esc_attr__( 'Select number of Products per page', 'evolve' ),
+						'title'    => esc_attr__( 'Number Of Products To Display', 'evolve' ),
+						'subtitle' => esc_attr__( 'Select the number of Products To Display', 'evolve' ),
 						'type'     => 'select',
 						'options'  => evolve_shortcodes_range( 36, true, true ),
 						'default'  => '12'
@@ -1820,7 +1845,7 @@ if ( true || is_customize_preview() ) {
 						'line-height' => false,
 						'default'     => array(
 							'font-size'   => '1.9rem',
-							'color'       => '#111111',
+							'color'       => '#333333',
 							'font-family' => 'Roboto',
 							'font-weight' => '700',
 							'text-align'  => 'center'
@@ -1845,11 +1870,10 @@ if ( true || is_customize_preview() ) {
 							'padding-left'   => '0',
 							'units'          => 'px'
 						),
-						'selector'  => '.t4p-woo-product .container',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
-								'element'  => '.t4p-woo-product',
+								'element'  => '.home-woo-product',
 								'function' => 'css',
 								'property' => 'padding'
 							)
@@ -1864,7 +1888,7 @@ if ( true || is_customize_preview() ) {
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
-								'element'  => '.t4p-woo-product',
+								'element'  => '.home-woo-product',
 								'function' => 'css',
 								'property' => 'background-image'
 							)
@@ -1884,7 +1908,7 @@ if ( true || is_customize_preview() ) {
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
-								'element'  => '.t4p-woo-product',
+								'element'  => '.home-woo-product',
 								'function' => 'css',
 								'property' => 'background-size'
 							)
@@ -1904,7 +1928,7 @@ if ( true || is_customize_preview() ) {
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
-								'element'  => '.t4p-woo-product',
+								'element'  => '.home-woo-product',
 								'function' => 'css',
 								'property' => 'background-repeat'
 							)
@@ -1929,7 +1953,7 @@ if ( true || is_customize_preview() ) {
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
-								'element'  => '.t4p-woo-product',
+								'element'  => '.home-woo-product',
 								'function' => 'css',
 								'property' => 'background-position'
 							)
@@ -1945,7 +1969,7 @@ if ( true || is_customize_preview() ) {
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
-								'element'  => '.t4p-woo-product',
+								'element'  => '.home-woo-product',
 								'function' => 'css',
 								'property' => 'background-color'
 							)
@@ -1969,10 +1993,12 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'id'       => 'evl_fp_custom_content_editor',
-					'title'    => esc_attr__( 'Custom Content', 'evolve' ),
-					'subtitle' => esc_attr__( 'Add Custom Content to Front Page', 'evolve' ),
-					'type'     => 'editor'
+					'id'              => 'evl_fp_custom_content_editor',
+					'title'           => esc_attr__( 'Custom Content', 'evolve' ),
+					'subtitle'        => esc_attr__( 'Add Custom Content to Front Page', 'evolve' ),
+					'type'            => 'editor',
+					'selector'        => '.home-custom-content .custom-content-wrapper',
+					'render_callback' => 'evl_fp_custom_content_editor'
 				),
 				// Section settings
 				array(
@@ -1997,9 +2023,9 @@ if ( true || is_customize_preview() ) {
 					'line-height' => false,
 					'default'     => array(
 						'font-size'   => '1.9rem',
-						'color'       => '#ffffff',
+						'color'       => '#333333',
 						'font-family' => 'Roboto',
-						'font-weight' => '700',
+						'font-weight' => '500',
 						'text-align'  => 'center'
 					),
 					'transport'   => 'postMessage',
@@ -2022,11 +2048,10 @@ if ( true || is_customize_preview() ) {
 						'padding-left'   => '0',
 						'units'          => 'px'
 					),
-					'selector'  => '.t4p-text .container',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.t4p-text',
+							'element'  => '.home-custom-content',
 							'function' => 'css',
 							'property' => 'padding'
 						)
@@ -2041,7 +2066,7 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.t4p-text',
+							'element'  => '.home-custom-content',
 							'function' => 'css',
 							'property' => 'background-image'
 						)
@@ -2061,7 +2086,7 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.t4p-text',
+							'element'  => '.home-custom-content',
 							'function' => 'css',
 							'property' => 'background-size'
 						)
@@ -2081,7 +2106,7 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.t4p-text',
+							'element'  => '.home-custom-content',
 							'function' => 'css',
 							'property' => 'background-repeat'
 						)
@@ -2106,7 +2131,7 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.t4p-text',
+							'element'  => '.home-custom-content',
 							'function' => 'css',
 							'property' => 'background-position'
 						)
@@ -2122,7 +2147,7 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.t4p-text',
+							'element'  => '.home-custom-content',
 							'function' => 'css',
 							'property' => 'background-color'
 						)
@@ -2729,7 +2754,7 @@ if ( true || is_customize_preview() ) {
 
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'         => 'evl-front-page-content-boxes',
-			'title'      => esc_attr__( 'Front Page Content Boxes', 'evolve' ),
+			'title'      => esc_attr__( 'Content Boxes', 'evolve' ),
 			'subsection' => true,
 			'fields'     => array(
 				array(
@@ -4846,7 +4871,7 @@ if ( true || is_customize_preview() ) {
 				),
 				array(
 					'id'       => 'evl_posts_slider_id',
-					'title'    => esc_attr__( 'Category ID(s)', 'evolve' ),
+					'title'    => esc_attr__( 'Category Name(s)', 'evolve' ),
 					'subtitle' => esc_attr__( 'Select post categories as content for the posts slideshow', 'evolve' ),
 					'type'     => 'select',
 					'multi'    => 1,

@@ -1,14 +1,13 @@
 /*!
-  * Bootstrap v4.1.0 (https://getbootstrap.com/)
+  * Bootstrap v4.1.2 (https://getbootstrap.com/)
   * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery')) :
         typeof define === 'function' && define.amd ? define(['exports', 'jquery'], factory) :
-            (factory((global.bootstrap = {}), global.jQuery));
-}(this, (function (exports, $) {
-    'use strict';
+            (factory((global.bootstrap = {}),global.jQuery));
+}(this, (function (exports,$) { 'use strict';
 
     $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
 
@@ -70,7 +69,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.0): util.js
+     * Bootstrap (v4.1.2): util.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -122,7 +121,6 @@
             $$$1.fn.emulateTransitionEnd = transitionEndEmulator;
             $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
         }
-
         /**
          * --------------------------------------------------------------------------
          * Public Util Api
@@ -148,8 +146,7 @@
                 }
 
                 try {
-                    var $selector = $$$1(document).find(selector);
-                    return $selector.length > 0 ? selector : null;
+                    return document.querySelector(selector) ? selector : null;
                 } catch (err) {
                     return null;
                 }
@@ -204,7 +201,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.0): alert.js
+     * Bootstrap (v4.1.2): alert.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -216,7 +213,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'alert';
-        var VERSION = '4.1.0';
+        var VERSION = '4.1.2';
         var DATA_KEY = 'bs.alert';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
@@ -253,9 +250,11 @@
 
                 // Public
                 _proto.close = function close(element) {
-                    element = element || this._element;
+                    var rootElement = this._element;
 
-                    var rootElement = this._getRootElement(element);
+                    if (element) {
+                        rootElement = this._getRootElement(element);
+                    }
 
                     var customEvent = this._triggerCloseEvent(rootElement);
 
@@ -277,7 +276,7 @@
                     var parent = false;
 
                     if (selector) {
-                        parent = $$$1(selector)[0];
+                        parent = document.querySelector(selector);
                     }
 
                     if (!parent) {
@@ -377,7 +376,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.0): button.js
+     * Bootstrap (v4.1.2): button.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -389,7 +388,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'button';
-        var VERSION = '4.1.0';
+        var VERSION = '4.1.2';
         var DATA_KEY = 'bs.button';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
@@ -434,14 +433,14 @@
                     var rootElement = $$$1(this._element).closest(Selector.DATA_TOGGLE)[0];
 
                     if (rootElement) {
-                        var input = $$$1(this._element).find(Selector.INPUT)[0];
+                        var input = this._element.querySelector(Selector.INPUT);
 
                         if (input) {
                             if (input.type === 'radio') {
-                                if (input.checked && $$$1(this._element).hasClass(ClassName.ACTIVE)) {
+                                if (input.checked && this._element.classList.contains(ClassName.ACTIVE)) {
                                     triggerChangeEvent = false;
                                 } else {
-                                    var activeElement = $$$1(rootElement).find(Selector.ACTIVE)[0];
+                                    var activeElement = rootElement.querySelector(Selector.ACTIVE);
 
                                     if (activeElement) {
                                         $$$1(activeElement).removeClass(ClassName.ACTIVE);
@@ -454,7 +453,7 @@
                                     return;
                                 }
 
-                                input.checked = !$$$1(this._element).hasClass(ClassName.ACTIVE);
+                                input.checked = !this._element.classList.contains(ClassName.ACTIVE);
                                 $$$1(input).trigger('change');
                             }
 
@@ -464,7 +463,7 @@
                     }
 
                     if (addAriaPressed) {
-                        this._element.setAttribute('aria-pressed', !$$$1(this._element).hasClass(ClassName.ACTIVE));
+                        this._element.setAttribute('aria-pressed', !this._element.classList.contains(ClassName.ACTIVE));
                     }
 
                     if (triggerChangeEvent) {
@@ -541,7 +540,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.0): carousel.js
+     * Bootstrap (v4.1.2): carousel.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -553,7 +552,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'carousel';
-        var VERSION = '4.1.0';
+        var VERSION = '4.1.2';
         var DATA_KEY = 'bs.carousel';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
@@ -632,7 +631,7 @@
                     this.touchTimeout = null;
                     this._config = this._getConfig(config);
                     this._element = $$$1(element)[0];
-                    this._indicatorsElement = $$$1(this._element).find(Selector.INDICATORS)[0];
+                    this._indicatorsElement = this._element.querySelector(Selector.INDICATORS);
 
                     this._addEventListeners();
                 } // Getters
@@ -666,7 +665,7 @@
                         this._isPaused = true;
                     }
 
-                    if ($$$1(this._element).find(Selector.NEXT_PREV)[0]) {
+                    if (this._element.querySelector(Selector.NEXT_PREV)) {
                         Util.triggerTransitionEnd(this._element);
                         this.cycle(true);
                     }
@@ -693,7 +692,7 @@
                 _proto.to = function to(index) {
                     var _this = this;
 
-                    this._activeElement = $$$1(this._element).find(Selector.ACTIVE_ITEM)[0];
+                    this._activeElement = this._element.querySelector(Selector.ACTIVE_ITEM);
 
                     var activeIndex = this._getItemIndex(this._activeElement);
 
@@ -799,7 +798,7 @@
                 };
 
                 _proto._getItemIndex = function _getItemIndex(element) {
-                    this._items = $$$1.makeArray($$$1(element).parent().find(Selector.ITEM));
+                    this._items = element && element.parentNode ? [].slice.call(element.parentNode.querySelectorAll(Selector.ITEM)) : [];
                     return this._items.indexOf(element);
                 };
 
@@ -824,7 +823,7 @@
                 _proto._triggerSlideEvent = function _triggerSlideEvent(relatedTarget, eventDirectionName) {
                     var targetIndex = this._getItemIndex(relatedTarget);
 
-                    var fromIndex = this._getItemIndex($$$1(this._element).find(Selector.ACTIVE_ITEM)[0]);
+                    var fromIndex = this._getItemIndex(this._element.querySelector(Selector.ACTIVE_ITEM));
 
                     var slideEvent = $$$1.Event(Event.SLIDE, {
                         relatedTarget: relatedTarget,
@@ -838,7 +837,8 @@
 
                 _proto._setActiveIndicatorElement = function _setActiveIndicatorElement(element) {
                     if (this._indicatorsElement) {
-                        $$$1(this._indicatorsElement).find(Selector.ACTIVE).removeClass(ClassName.ACTIVE);
+                        var indicators = [].slice.call(this._indicatorsElement.querySelectorAll(Selector.ACTIVE));
+                        $$$1(indicators).removeClass(ClassName.ACTIVE);
 
                         var nextIndicator = this._indicatorsElement.children[this._getItemIndex(element)];
 
@@ -851,7 +851,7 @@
                 _proto._slide = function _slide(direction, element) {
                     var _this3 = this;
 
-                    var activeElement = $$$1(this._element).find(Selector.ACTIVE_ITEM)[0];
+                    var activeElement = this._element.querySelector(Selector.ACTIVE_ITEM);
 
                     var activeElementIndex = this._getItemIndex(activeElement);
 
@@ -1017,11 +1017,13 @@
 
         $$$1(document).on(Event.CLICK_DATA_API, Selector.DATA_SLIDE, Carousel._dataApiClickHandler);
         $$$1(window).on(Event.LOAD_DATA_API, function () {
-            $$$1(Selector.DATA_RIDE).each(function () {
-                var $carousel = $$$1(this);
+            var carousels = [].slice.call(document.querySelectorAll(Selector.DATA_RIDE));
+
+            for (var i = 0, len = carousels.length; i < len; i++) {
+                var $carousel = $$$1(carousels[i]);
 
                 Carousel._jQueryInterface.call($carousel, $carousel.data());
-            });
+            }
         });
         /**
          * ------------------------------------------------------------------------
@@ -1042,7 +1044,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.0): collapse.js
+     * Bootstrap (v4.1.2): collapse.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -1054,7 +1056,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'collapse';
-        var VERSION = '4.1.0';
+        var VERSION = '4.1.2';
         var DATA_KEY = 'bs.collapse';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
@@ -1102,14 +1104,17 @@
                     this._isTransitioning = false;
                     this._element = element;
                     this._config = this._getConfig(config);
-                    this._triggerArray = $$$1.makeArray($$$1("[data-toggle=\"collapse\"][href=\"#" + element.id + "\"]," + ("[data-toggle=\"collapse\"][data-target=\"#" + element.id + "\"]")));
-                    var tabToggles = $$$1(Selector.DATA_TOGGLE);
+                    this._triggerArray = $$$1.makeArray(document.querySelectorAll("[data-toggle=\"collapse\"][href=\"#" + element.id + "\"]," + ("[data-toggle=\"collapse\"][data-target=\"#" + element.id + "\"]")));
+                    var toggleList = [].slice.call(document.querySelectorAll(Selector.DATA_TOGGLE));
 
-                    for (var i = 0; i < tabToggles.length; i++) {
-                        var elem = tabToggles[i];
+                    for (var i = 0, len = toggleList.length; i < len; i++) {
+                        var elem = toggleList[i];
                         var selector = Util.getSelectorFromElement(elem);
+                        var filterElement = [].slice.call(document.querySelectorAll(selector)).filter(function (foundElem) {
+                            return foundElem === element;
+                        });
 
-                        if (selector !== null && $$$1(selector).filter(element).length > 0) {
+                        if (selector !== null && filterElement.length > 0) {
                             this._selector = selector;
 
                             this._triggerArray.push(elem);
@@ -1150,7 +1155,9 @@
                     var activesData;
 
                     if (this._parent) {
-                        actives = $$$1.makeArray($$$1(this._parent).find(Selector.ACTIVES).filter("[data-parent=\"" + this._config.parent + "\"]"));
+                        actives = [].slice.call(this._parent.querySelectorAll(Selector.ACTIVES)).filter(function (elem) {
+                            return elem.getAttribute('data-parent') === _this._config.parent;
+                        });
 
                         if (actives.length === 0) {
                             actives = null;
@@ -1185,7 +1192,7 @@
                     $$$1(this._element).removeClass(ClassName.COLLAPSE).addClass(ClassName.COLLAPSING);
                     this._element.style[dimension] = 0;
 
-                    if (this._triggerArray.length > 0) {
+                    if (this._triggerArray.length) {
                         $$$1(this._triggerArray).removeClass(ClassName.COLLAPSED).attr('aria-expanded', true);
                     }
 
@@ -1226,14 +1233,15 @@
                     this._element.style[dimension] = this._element.getBoundingClientRect()[dimension] + "px";
                     Util.reflow(this._element);
                     $$$1(this._element).addClass(ClassName.COLLAPSING).removeClass(ClassName.COLLAPSE).removeClass(ClassName.SHOW);
+                    var triggerArrayLength = this._triggerArray.length;
 
-                    if (this._triggerArray.length > 0) {
-                        for (var i = 0; i < this._triggerArray.length; i++) {
+                    if (triggerArrayLength > 0) {
+                        for (var i = 0; i < triggerArrayLength; i++) {
                             var trigger = this._triggerArray[i];
                             var selector = Util.getSelectorFromElement(trigger);
 
                             if (selector !== null) {
-                                var $elem = $$$1(selector);
+                                var $elem = $$$1([].slice.call(document.querySelectorAll(selector)));
 
                                 if (!$elem.hasClass(ClassName.SHOW)) {
                                     $$$1(trigger).addClass(ClassName.COLLAPSED).attr('aria-expanded', false);
@@ -1294,11 +1302,12 @@
                             parent = this._config.parent[0];
                         }
                     } else {
-                        parent = $$$1(this._config.parent)[0];
+                        parent = document.querySelector(this._config.parent);
                     }
 
                     var selector = "[data-toggle=\"collapse\"][data-parent=\"" + this._config.parent + "\"]";
-                    $$$1(parent).find(selector).each(function (i, element) {
+                    var children = [].slice.call(parent.querySelectorAll(selector));
+                    $$$1(children).each(function (i, element) {
                         _this3._addAriaAndCollapsedClass(Collapse._getTargetFromElement(element), [element]);
                     });
                     return parent;
@@ -1308,7 +1317,7 @@
                     if (element) {
                         var isOpen = $$$1(element).hasClass(ClassName.SHOW);
 
-                        if (triggerArray.length > 0) {
+                        if (triggerArray.length) {
                             $$$1(triggerArray).toggleClass(ClassName.COLLAPSED, !isOpen).attr('aria-expanded', isOpen);
                         }
                     }
@@ -1317,7 +1326,7 @@
 
                 Collapse._getTargetFromElement = function _getTargetFromElement(element) {
                     var selector = Util.getSelectorFromElement(element);
-                    return selector ? $$$1(selector)[0] : null;
+                    return selector ? document.querySelector(selector) : null;
                 };
 
                 Collapse._jQueryInterface = function _jQueryInterface(config) {
@@ -1325,7 +1334,7 @@
                         var $this = $$$1(this);
                         var data = $this.data(DATA_KEY);
 
-                        var _config = _objectSpread({}, Default, $this.data(), typeof config === 'object' && config);
+                        var _config = _objectSpread({}, Default, $this.data(), typeof config === 'object' && config ? config : {});
 
                         if (!data && _config.toggle && /show|hide/.test(config)) {
                             _config.toggle = false;
@@ -1375,7 +1384,8 @@
 
             var $trigger = $$$1(this);
             var selector = Util.getSelectorFromElement(this);
-            $$$1(selector).each(function () {
+            var selectors = [].slice.call(document.querySelectorAll(selector));
+            $$$1(selectors).each(function () {
                 var $target = $$$1(this);
                 var data = $target.data(DATA_KEY);
                 var config = data ? 'toggle' : $trigger.data();
@@ -1402,7 +1412,7 @@
 
     /**!
      * @fileOverview Kickass library to create and place poppers near their reference elements.
-     * @version 1.14.1
+     * @version 1.14.3
      * @license
      * Copyright (c) 2016 Federico Zivolo and contributors
      *
@@ -1425,6 +1435,7 @@
      * SOFTWARE.
      */
     var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
+
     var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
     var timeoutDuration = 0;
     for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
@@ -1551,40 +1562,25 @@
         return getScrollParent(getParentNode(element));
     }
 
+    var isIE11 = isBrowser && !!(window.MSInputMethodContext && document.documentMode);
+    var isIE10 = isBrowser && /MSIE 10/.test(navigator.userAgent);
+
     /**
-     * Tells if you are running Internet Explorer
+     * Determines if the browser is Internet Explorer
      * @method
      * @memberof Popper.Utils
-     * @argument {number} version to check
+     * @param {Number} version to check
      * @returns {Boolean} isIE
      */
-    var cache = {};
-
-    var isIE = function () {
-        var version = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'all';
-
-        version = version.toString();
-        if (cache.hasOwnProperty(version)) {
-            return cache[version];
+    function isIE(version) {
+        if (version === 11) {
+            return isIE11;
         }
-        switch (version) {
-            case '11':
-                cache[version] = navigator.userAgent.indexOf('Trident') !== -1;
-                break;
-            case '10':
-                cache[version] = navigator.appVersion.indexOf('MSIE 10') !== -1;
-                break;
-            case 'all':
-                cache[version] = navigator.userAgent.indexOf('Trident') !== -1 || navigator.userAgent.indexOf('MSIE') !== -1;
-                break;
+        if (version === 10) {
+            return isIE10;
         }
-
-        //Set IE
-        cache.all = cache.all || Object.keys(cache).some(function (key) {
-            return cache[key];
-        });
-        return cache[version];
-    };
+        return isIE11 || isIE10;
+    }
 
     /**
      * Returns the offset parent of the given element
@@ -1792,6 +1788,9 @@
     }();
 
 
+
+
+
     var defineProperty = function (obj, key, value) {
         if (key in obj) {
             Object.defineProperty(obj, key, {
@@ -1860,8 +1859,7 @@
             } else {
                 rect = element.getBoundingClientRect();
             }
-        } catch (e) {
-        }
+        } catch (e) {}
 
         var result = {
             left: rect.left,
@@ -2020,7 +2018,7 @@
 
         // NOTE: 1 DOM access here
 
-        var boundaries = {top: 0, left: 0};
+        var boundaries = { top: 0, left: 0 };
         var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference);
 
         // Handle viewport case
@@ -2177,7 +2175,7 @@
      * @returns {String} flipped placement
      */
     function getOppositePlacement(placement) {
-        var hash = {left: 'right', right: 'left', bottom: 'top', top: 'bottom'};
+        var hash = { left: 'right', right: 'left', bottom: 'top', top: 'bottom' };
         return placement.replace(/left|right|bottom|top/g, function (matched) {
             return hash[matched];
         });
@@ -2335,6 +2333,7 @@
 
         // compute the popper offsets
         data.offsets.popper = getPopperOffsets(this.popper, data.offsets.reference, data.placement);
+
         data.offsets.popper.position = this.options.positionFixed ? 'fixed' : 'absolute';
 
         // run the modifiers
@@ -2428,7 +2427,7 @@
     function attachToScrollParents(scrollParent, event, callback, scrollParents) {
         var isBody = scrollParent.nodeName === 'BODY';
         var target = isBody ? scrollParent.ownerDocument.defaultView : scrollParent;
-        target.addEventListener(event, callback, {passive: true});
+        target.addEventListener(event, callback, { passive: true });
 
         if (!isBody) {
             attachToScrollParents(getScrollParent(target.parentNode), event, callback, scrollParents);
@@ -2445,7 +2444,7 @@
     function setupEventListeners(reference, options, state, updateBound) {
         // Resize event listener on window
         state.updateBound = updateBound;
-        getWindow(reference).addEventListener('resize', state.updateBound, {passive: true});
+        getWindow(reference).addEventListener('resize', state.updateBound, { passive: true });
 
         // Scroll event listener on scroll parents
         var scrollElement = getScrollParent(reference);
@@ -2605,7 +2604,7 @@
 
         // Apply `position` to popper before anything else because
         // without the position applied we can't guarantee correct computations
-        setStyles(popper, {position: options.positionFixed ? 'fixed' : 'absolute'});
+        setStyles(popper, { position: options.positionFixed ? 'fixed' : 'absolute' });
 
         return options;
     }
@@ -2640,11 +2639,13 @@
             position: popper.position
         };
 
-        // floor sides to avoid blurry text
+        // Avoid blurry text by using full pixel integers.
+        // For pixel-perfect positioning, top/bottom prefers rounded
+        // values, while left/right prefers floored values.
         var offsets = {
             left: Math.floor(popper.left),
-            top: Math.floor(popper.top),
-            bottom: Math.floor(popper.bottom),
+            top: Math.round(popper.top),
+            bottom: Math.round(popper.bottom),
             right: Math.floor(popper.right)
         };
 
@@ -3200,7 +3201,27 @@
             boundariesElement = getOffsetParent(boundariesElement);
         }
 
+        // NOTE: DOM access here
+        // resets the popper's position so that the document size can be calculated excluding
+        // the size of the popper element itself
+        var transformProp = getSupportedPropertyName('transform');
+        var popperStyles = data.instance.popper.style; // assignment to help minification
+        var top = popperStyles.top,
+            left = popperStyles.left,
+            transform = popperStyles[transformProp];
+
+        popperStyles.top = '';
+        popperStyles.left = '';
+        popperStyles[transformProp] = '';
+
         var boundaries = getBoundaries(data.instance.popper, data.instance.reference, options.padding, boundariesElement, data.positionFixed);
+
+        // NOTE: DOM access here
+        // restores the original style properties after the offsets have been computed
+        popperStyles.top = top;
+        popperStyles.left = left;
+        popperStyles[transformProp] = transform;
+
         options.boundaries = boundaries;
 
         var order = options.priority;
@@ -3722,8 +3743,7 @@
          * Access Popper.js instance with `data.instance`.
          * @prop {onCreate}
          */
-        onCreate: function onCreate() {
-        },
+        onCreate: function onCreate() {},
 
         /**
          * Callback called when the popper is updated, this callback is not called
@@ -3733,8 +3753,7 @@
          * Access Popper.js instance with `data.instance`.
          * @prop {onUpdate}
          */
-        onUpdate: function onUpdate() {
-        },
+        onUpdate: function onUpdate() {},
 
         /**
          * List of modifiers used to modify the offsets before they are applied to the popper.
@@ -3911,7 +3930,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.0): dropdown.js
+     * Bootstrap (v4.1.2): dropdown.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -3923,7 +3942,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'dropdown';
-        var VERSION = '4.1.0';
+        var VERSION = '4.1.2';
         var DATA_KEY = 'bs.dropdown';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
@@ -4132,14 +4151,16 @@
                     if (!this._menu) {
                         var parent = Dropdown._getParentFromElement(this._element);
 
-                        this._menu = $$$1(parent).find(Selector.MENU)[0];
+                        if (parent) {
+                            this._menu = parent.querySelector(Selector.MENU);
+                        }
                     }
 
                     return this._menu;
                 };
 
                 _proto._getPlacement = function _getPlacement() {
-                    var $parentDropdown = $$$1(this._element).parent();
+                    var $parentDropdown = $$$1(this._element.parentNode);
                     var placement = AttachmentMap.BOTTOM; // Handle dropup
 
                     if ($parentDropdown.hasClass(ClassName.DROPUP)) {
@@ -4227,15 +4248,19 @@
                         return;
                     }
 
-                    var toggles = $$$1.makeArray($$$1(Selector.DATA_TOGGLE));
+                    var toggles = [].slice.call(document.querySelectorAll(Selector.DATA_TOGGLE));
 
-                    for (var i = 0; i < toggles.length; i++) {
+                    for (var i = 0, len = toggles.length; i < len; i++) {
                         var parent = Dropdown._getParentFromElement(toggles[i]);
 
                         var context = $$$1(toggles[i]).data(DATA_KEY);
                         var relatedTarget = {
                             relatedTarget: toggles[i]
                         };
+
+                        if (event && event.type === 'click') {
+                            relatedTarget.clickEvent = event;
+                        }
 
                         if (!context) {
                             continue;
@@ -4275,7 +4300,7 @@
                     var selector = Util.getSelectorFromElement(element);
 
                     if (selector) {
-                        parent = $$$1(selector)[0];
+                        parent = document.querySelector(selector);
                     }
 
                     return parent || element.parentNode;
@@ -4307,7 +4332,7 @@
 
                     if (!isActive && (event.which !== ESCAPE_KEYCODE || event.which !== SPACE_KEYCODE) || isActive && (event.which === ESCAPE_KEYCODE || event.which === SPACE_KEYCODE)) {
                         if (event.which === ESCAPE_KEYCODE) {
-                            var toggle = $$$1(parent).find(Selector.DATA_TOGGLE)[0];
+                            var toggle = parent.querySelector(Selector.DATA_TOGGLE);
                             $$$1(toggle).trigger('focus');
                         }
 
@@ -4315,7 +4340,7 @@
                         return;
                     }
 
-                    var items = $$$1(parent).find(Selector.VISIBLE_ITEMS).get();
+                    var items = [].slice.call(parent.querySelectorAll(Selector.VISIBLE_ITEMS));
 
                     if (items.length === 0) {
                         return;
@@ -4393,7 +4418,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.0): tooltip.js
+     * Bootstrap (v4.1.2): tooltip.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -4405,7 +4430,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'tooltip';
-        var VERSION = '4.1.0';
+        var VERSION = '4.1.2';
         var DATA_KEY = 'bs.tooltip';
         var EVENT_KEY = "." + DATA_KEY;
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
@@ -4615,7 +4640,7 @@
                         var attachment = this._getAttachment(placement);
 
                         this.addAttachmentClass(attachment);
-                        var container = this.config.container === false ? document.body : $$$1(this.config.container);
+                        var container = this.config.container === false ? document.body : $$$1(document).find(this.config.container);
                         $$$1(tip).data(this.constructor.DATA_KEY, this);
 
                         if (!$$$1.contains(this.element.ownerDocument.documentElement, this.tip)) {
@@ -4754,9 +4779,9 @@
                 };
 
                 _proto.setContent = function setContent() {
-                    var $tip = $$$1(this.getTipElement());
-                    this.setElementContent($tip.find(Selector.TOOLTIP_INNER), this.getTitle());
-                    $tip.removeClass(ClassName.FADE + " " + ClassName.SHOW);
+                    var tip = this.getTipElement();
+                    this.setElementContent($$$1(tip.querySelectorAll(Selector.TOOLTIP_INNER)), this.getTitle());
+                    $$$1(tip).removeClass(ClassName.FADE + " " + ClassName.SHOW);
                 };
 
                 _proto.setElementContent = function setElementContent($element, content) {
@@ -4910,7 +4935,7 @@
                 };
 
                 _proto._getConfig = function _getConfig(config) {
-                    config = _objectSpread({}, this.constructor.Default, $$$1(this.element).data(), config);
+                    config = _objectSpread({}, this.constructor.Default, $$$1(this.element).data(), typeof config === 'object' && config ? config : {});
 
                     if (typeof config.delay === 'number') {
                         config.delay = {
@@ -4949,15 +4974,18 @@
                     var $tip = $$$1(this.getTipElement());
                     var tabClass = $tip.attr('class').match(BSCLS_PREFIX_REGEX);
 
-                    if (tabClass !== null && tabClass.length > 0) {
+                    if (tabClass !== null && tabClass.length) {
                         $tip.removeClass(tabClass.join(''));
                     }
                 };
 
-                _proto._handlePopperPlacementChange = function _handlePopperPlacementChange(data) {
+                _proto._handlePopperPlacementChange = function _handlePopperPlacementChange(popperData) {
+                    var popperInstance = popperData.instance;
+                    this.tip = popperInstance.popper;
+
                     this._cleanTipClass();
 
-                    this.addAttachmentClass(this._getAttachment(data.placement));
+                    this.addAttachmentClass(this._getAttachment(popperData.placement));
                 };
 
                 _proto._fixTransition = function _fixTransition() {
@@ -5060,7 +5088,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.0): tab.js
+     * Bootstrap (v4.1.2): tab.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -5072,7 +5100,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'tab';
-        var VERSION = '4.1.0';
+        var VERSION = '4.1.2';
         var DATA_KEY = 'bs.tab';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
@@ -5154,7 +5182,7 @@
                     }
 
                     if (selector) {
-                        target = $$$1(selector)[0];
+                        target = document.querySelector(selector);
                     }
 
                     this._activate(this._element, listElement);
@@ -5236,7 +5264,8 @@
                         var dropdownElement = $$$1(element).closest(Selector.DROPDOWN)[0];
 
                         if (dropdownElement) {
-                            $$$1(dropdownElement).find(Selector.DROPDOWN_TOGGLE).addClass(ClassName.ACTIVE);
+                            var dropdownToggleList = [].slice.call(dropdownElement.querySelectorAll(Selector.DROPDOWN_TOGGLE));
+                            $$$1(dropdownToggleList).addClass(ClassName.ACTIVE);
                         }
 
                         element.setAttribute('aria-expanded', true);
@@ -5308,7 +5337,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.0.0): index.js
+     * Bootstrap (v4.1.2): index.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -5339,9 +5368,10 @@
     exports.Tab = Tab;
     exports.Tooltip = Tooltip;
 
-    Object.defineProperty(exports, '__esModule', {value: true});
+    Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
+//# sourceMappingURL=bootstrap.bundle.js.map
 
 /*
     Make Mobile Menu Clickable
@@ -6432,6 +6462,957 @@ if (evolve_js_local_vars.buttons_effect !== 'disable') {
                 $(this).removeClass(evolve_js_local_vars.buttons_effect)
             }
         )
+    });
+
+}
+
+/*
+    Counter Circle
+    ======================================= */
+
+if (evolve_js_local_vars.counter_circle === '1') {
+
+    /*
+        jQuery Waypoints - v4.0.1
+        https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
+    */
+
+    jQuery((function () {
+        var __indexOf = [].indexOf || function (item) {
+                for (var i = 0, l = this.length; i < l; i++) {
+                    if (i in this && this[i] === item)
+                        return i;
+                }
+                return -1;
+            },
+            __slice = [].slice;
+
+        (function (root, factory) {
+            if (typeof define === 'function' && define.amd) {
+                return define('waypoints', ['jquery'], function ($) {
+                    return factory($, root);
+                });
+            } else {
+                return factory(root.jQuery, root);
+            }
+        })(this, function ($, window) {
+            var $w, Context, Waypoint, allWaypoints, contextCounter, contextKey, contexts, isTouch, jQMethods, methods,
+                resizeEvent, scrollEvent, waypointCounter, waypointKey, wp, wps;
+
+            $w = $(window);
+            isTouch = __indexOf.call(window, 'ontouchstart') >= 0;
+            allWaypoints = {
+                horizontal: {},
+                vertical: {}
+            };
+            contextCounter = 1;
+            contexts = {};
+            contextKey = 'waypoints-context-id';
+            resizeEvent = 'resize.waypoints';
+            scrollEvent = 'scroll.waypoints';
+            waypointCounter = 1;
+            waypointKey = 'waypoints-waypoint-ids';
+            wp = 'waypoint';
+            wps = 'waypoints';
+            Context = (function () {
+                function Context($element) {
+                    var _this = this;
+
+                    this.$element = $element;
+                    this.element = $element[0];
+                    this.didResize = false;
+                    this.didScroll = false;
+                    this.id = 'context' + contextCounter++;
+                    this.oldScroll = {
+                        x: $element.scrollLeft(),
+                        y: $element.scrollTop()
+                    };
+                    this.waypoints = {
+                        horizontal: {},
+                        vertical: {}
+                    };
+                    $element.data(contextKey, this.id);
+                    contexts[this.id] = this;
+                    $element.bind(scrollEvent, function () {
+                        var scrollHandler;
+
+                        if (!(_this.didScroll || isTouch)) {
+                            _this.didScroll = true;
+                            scrollHandler = function () {
+                                _this.doScroll();
+                                return _this.didScroll = false;
+                            };
+                            return window.setTimeout(scrollHandler, $[wps].settings.scrollThrottle);
+                        }
+                    });
+                    $element.bind(resizeEvent, function () {
+                        var resizeHandler;
+
+                        if (!_this.didResize) {
+                            _this.didResize = true;
+                            resizeHandler = function () {
+                                $[wps]('refresh');
+                                return _this.didResize = false;
+                            };
+                            return window.setTimeout(resizeHandler, $[wps].settings.resizeThrottle);
+                        }
+                    });
+                }
+
+                Context.prototype.doScroll = function () {
+                    var axes,
+                        _this = this;
+
+                    axes = {
+                        horizontal: {
+                            newScroll: this.$element.scrollLeft(),
+                            oldScroll: this.oldScroll.x,
+                            forward: 'right',
+                            backward: 'left'
+                        },
+                        vertical: {
+                            newScroll: this.$element.scrollTop(),
+                            oldScroll: this.oldScroll.y,
+                            forward: 'down',
+                            backward: 'up'
+                        }
+                    };
+                    if (isTouch && (!axes.vertical.oldScroll || !axes.vertical.newScroll)) {
+                        $[wps]('refresh');
+                    }
+                    $.each(axes, function (aKey, axis) {
+                        var direction, isForward, triggered;
+
+                        triggered = [];
+                        isForward = axis.newScroll > axis.oldScroll;
+                        direction = isForward ? axis.forward : axis.backward;
+                        $.each(_this.waypoints[aKey], function (wKey, waypoint) {
+                            var _ref, _ref1;
+
+                            if ((axis.oldScroll < (_ref = waypoint.offset) && _ref <= axis.newScroll)) {
+                                return triggered.push(waypoint);
+                            } else if ((axis.newScroll < (_ref1 = waypoint.offset) && _ref1 <= axis.oldScroll)) {
+                                return triggered.push(waypoint);
+                            }
+                        });
+                        triggered.sort(function (a, b) {
+                            return a.offset - b.offset;
+                        });
+                        if (!isForward) {
+                            triggered.reverse();
+                        }
+                        return $.each(triggered, function (i, waypoint) {
+                            if (waypoint.options.continuous || i === triggered.length - 1) {
+                                return waypoint.trigger([direction]);
+                            }
+                        });
+                    });
+                    return this.oldScroll = {
+                        x: axes.horizontal.newScroll,
+                        y: axes.vertical.newScroll
+                    };
+                };
+
+                Context.prototype.refresh = function () {
+                    var axes, cOffset, isWin,
+                        _this = this;
+
+                    isWin = $.isWindow(this.element);
+                    cOffset = this.$element.offset();
+                    this.doScroll();
+                    axes = {
+                        horizontal: {
+                            contextOffset: isWin ? 0 : cOffset.left,
+                            contextScroll: isWin ? 0 : this.oldScroll.x,
+                            contextDimension: this.$element.width(),
+                            oldScroll: this.oldScroll.x,
+                            forward: 'right',
+                            backward: 'left',
+                            offsetProp: 'left'
+                        },
+                        vertical: {
+                            contextOffset: isWin ? 0 : cOffset.top,
+                            contextScroll: isWin ? 0 : this.oldScroll.y,
+                            contextDimension: isWin ? $[wps]('viewportHeight') : this.$element.height(),
+                            oldScroll: this.oldScroll.y,
+                            forward: 'down',
+                            backward: 'up',
+                            offsetProp: 'top'
+                        }
+                    };
+                    return $.each(axes, function (aKey, axis) {
+                        return $.each(_this.waypoints[aKey], function (i, waypoint) {
+                            var adjustment, elementOffset, oldOffset, _ref, _ref1;
+
+                            adjustment = waypoint.options.offset;
+                            oldOffset = waypoint.offset;
+                            elementOffset = $.isWindow(waypoint.element) ? 0 : waypoint.$element.offset()[axis.offsetProp];
+                            if ($.isFunction(adjustment)) {
+                                adjustment = adjustment.apply(waypoint.element);
+                            } else if (typeof adjustment === 'string') {
+                                adjustment = parseFloat(adjustment);
+                                if (waypoint.options.offset.indexOf('%') > -1) {
+                                    adjustment = Math.ceil(axis.contextDimension * adjustment / 100);
+                                }
+                            }
+                            waypoint.offset = elementOffset - axis.contextOffset + axis.contextScroll - adjustment;
+                            if ((waypoint.options.onlyOnScroll && (oldOffset != null)) || !waypoint.enabled) {
+                                return;
+                            }
+                            if (oldOffset !== null && (oldOffset < (_ref = axis.oldScroll) && _ref <= waypoint.offset)) {
+                                return waypoint.trigger([axis.backward]);
+                            } else if (oldOffset !== null && (oldOffset > (_ref1 = axis.oldScroll) && _ref1 >= waypoint.offset)) {
+                                return waypoint.trigger([axis.forward]);
+                            } else if (oldOffset === null && axis.oldScroll >= waypoint.offset) {
+                                return waypoint.trigger([axis.forward]);
+                            }
+                        });
+                    });
+                };
+
+                Context.prototype.checkEmpty = function () {
+                    if ($.isEmptyObject(this.waypoints.horizontal) && $.isEmptyObject(this.waypoints.vertical)) {
+                        this.$element.unbind([resizeEvent, scrollEvent].join(' '));
+                        return delete contexts[this.id];
+                    }
+                };
+
+                return Context;
+
+            })();
+            Waypoint = (function () {
+                function Waypoint($element, context, options) {
+                    var idList, _ref;
+
+                    options = $.extend({}, $.fn[wp].defaults, options);
+                    if (options.offset === 'bottom-in-view') {
+                        options.offset = function () {
+                            var contextHeight;
+
+                            contextHeight = $[wps]('viewportHeight');
+                            if (!$.isWindow(context.element)) {
+                                contextHeight = context.$element.height();
+                            }
+                            return contextHeight - $(this).outerHeight();
+                        };
+                    }
+                    this.$element = $element;
+                    this.element = $element[0];
+                    this.axis = options.horizontal ? 'horizontal' : 'vertical';
+                    this.callback = options.handler;
+                    this.context = context;
+                    this.enabled = options.enabled;
+                    this.id = 'waypoints' + waypointCounter++;
+                    this.offset = null;
+                    this.options = options;
+                    context.waypoints[this.axis][this.id] = this;
+                    allWaypoints[this.axis][this.id] = this;
+                    idList = (_ref = $element.data(waypointKey)) != null ? _ref : [];
+                    idList.push(this.id);
+                    $element.data(waypointKey, idList);
+                }
+
+                Waypoint.prototype.trigger = function (args) {
+                    if (!this.enabled) {
+                        return;
+                    }
+                    if (this.callback != null) {
+                        this.callback.apply(this.element, args);
+                    }
+                    if (this.options.triggerOnce) {
+                        return this.destroy();
+                    }
+                };
+
+                Waypoint.prototype.disable = function () {
+                    return this.enabled = false;
+                };
+
+                Waypoint.prototype.enable = function () {
+                    this.context.refresh();
+                    return this.enabled = true;
+                };
+
+                Waypoint.prototype.destroy = function () {
+                    delete allWaypoints[this.axis][this.id];
+                    delete this.context.waypoints[this.axis][this.id];
+                    return this.context.checkEmpty();
+                };
+
+                Waypoint.getWaypointsByElement = function (element) {
+                    var all, ids;
+
+                    ids = $(element).data(waypointKey);
+                    if (!ids) {
+                        return [];
+                    }
+                    all = $.extend({}, allWaypoints.horizontal, allWaypoints.vertical);
+                    return $.map(ids, function (id) {
+                        return all[id];
+                    });
+                };
+
+                return Waypoint;
+
+            })();
+            methods = {
+                init: function (f, options) {
+                    var _ref;
+
+                    if (options == null) {
+                        options = {};
+                    }
+                    if ((_ref = options.handler) == null) {
+                        options.handler = f;
+                    }
+                    this.each(function () {
+                        var $this, context, contextElement, _ref1;
+
+                        $this = $(this);
+                        contextElement = (_ref1 = options.context) != null ? _ref1 : $.fn[wp].defaults.context;
+                        if (!$.isWindow(contextElement)) {
+                            contextElement = $this.closest(contextElement);
+                        }
+                        contextElement = $(contextElement);
+                        context = contexts[contextElement.data(contextKey)];
+                        if (!context) {
+                            context = new Context(contextElement);
+                        }
+                        return new Waypoint($this, context, options);
+                    });
+                    $[wps]('refresh');
+                    return this;
+                },
+                disable: function () {
+                    return methods._invoke(this, 'disable');
+                },
+                enable: function () {
+                    return methods._invoke(this, 'enable');
+                },
+                destroy: function () {
+                    return methods._invoke(this, 'destroy');
+                },
+                prev: function (axis, selector) {
+                    return methods._traverse.call(this, axis, selector, function (stack, index, waypoints) {
+                        if (index > 0) {
+                            return stack.push(waypoints[index - 1]);
+                        }
+                    });
+                },
+                next: function (axis, selector) {
+                    return methods._traverse.call(this, axis, selector, function (stack, index, waypoints) {
+                        if (index < waypoints.length - 1) {
+                            return stack.push(waypoints[index + 1]);
+                        }
+                    });
+                },
+                _traverse: function (axis, selector, push) {
+                    var stack, waypoints;
+
+                    if (axis == null) {
+                        axis = 'vertical';
+                    }
+                    if (selector == null) {
+                        selector = window;
+                    }
+                    waypoints = jQMethods.aggregate(selector);
+                    stack = [];
+                    this.each(function () {
+                        var index;
+
+                        index = $.inArray(this, waypoints[axis]);
+                        return push(stack, index, waypoints[axis]);
+                    });
+                    return this.pushStack(stack);
+                },
+                _invoke: function ($elements, method) {
+                    $elements.each(function () {
+                        var waypoints;
+
+                        waypoints = Waypoint.getWaypointsByElement(this);
+                        return $.each(waypoints, function (i, waypoint) {
+                            waypoint[method]();
+                            return true;
+                        });
+                    });
+                    return this;
+                }
+            };
+            $.fn[wp] = function () {
+                var args, method;
+
+                method = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+                if (methods[method]) {
+                    return methods[method].apply(this, args);
+                } else if ($.isFunction(method)) {
+                    return methods.init.apply(this, arguments);
+                } else if ($.isPlainObject(method)) {
+                    return methods.init.apply(this, [null, method]);
+                } else if (!method) {
+                    return $.error("jQuery Waypoints needs a callback function or handler option.");
+                } else {
+                    return $.error("The " + method + " method does not exist in jQuery Waypoints.");
+                }
+            };
+            $.fn[wp].defaults = {
+                context: window,
+                continuous: true,
+                enabled: true,
+                horizontal: false,
+                offset: 0,
+                triggerOnce: false
+            };
+            jQMethods = {
+                refresh: function () {
+                    return $.each(contexts, function (i, context) {
+                        return context.refresh();
+                    });
+                },
+                viewportHeight: function () {
+                    var _ref;
+
+                    return (_ref = window.innerHeight) != null ? _ref : $w.height();
+                },
+                aggregate: function (contextSelector) {
+                    var collection, waypoints, _ref;
+
+                    collection = allWaypoints;
+                    if (contextSelector) {
+                        collection = (_ref = contexts[$(contextSelector).data(contextKey)]) != null ? _ref.waypoints : void 0;
+                    }
+                    if (!collection) {
+                        return [];
+                    }
+                    waypoints = {
+                        horizontal: [],
+                        vertical: []
+                    };
+                    $.each(waypoints, function (axis, arr) {
+                        $.each(collection[axis], function (key, waypoint) {
+                            return arr.push(waypoint);
+                        });
+                        arr.sort(function (a, b) {
+                            return a.offset - b.offset;
+                        });
+                        waypoints[axis] = $.map(arr, function (waypoint) {
+                            return waypoint.element;
+                        });
+                        return waypoints[axis] = $.unique(waypoints[axis]);
+                    });
+                    return waypoints;
+                },
+                above: function (contextSelector) {
+                    if (contextSelector == null) {
+                        contextSelector = window;
+                    }
+                    return jQMethods._filter(contextSelector, 'vertical', function (context, waypoint) {
+                        return waypoint.offset <= context.oldScroll.y;
+                    });
+                },
+                below: function (contextSelector) {
+                    if (contextSelector == null) {
+                        contextSelector = window;
+                    }
+                    return jQMethods._filter(contextSelector, 'vertical', function (context, waypoint) {
+                        return waypoint.offset > context.oldScroll.y;
+                    });
+                },
+                left: function (contextSelector) {
+                    if (contextSelector == null) {
+                        contextSelector = window;
+                    }
+                    return jQMethods._filter(contextSelector, 'horizontal', function (context, waypoint) {
+                        return waypoint.offset <= context.oldScroll.x;
+                    });
+                },
+                right: function (contextSelector) {
+                    if (contextSelector == null) {
+                        contextSelector = window;
+                    }
+                    return jQMethods._filter(contextSelector, 'horizontal', function (context, waypoint) {
+                        return waypoint.offset > context.oldScroll.x;
+                    });
+                },
+                enable: function () {
+                    return jQMethods._invoke('enable');
+                },
+                disable: function () {
+                    return jQMethods._invoke('disable');
+                },
+                destroy: function () {
+                    return jQMethods._invoke('destroy');
+                },
+                extendFn: function (methodName, f) {
+                    return methods[methodName] = f;
+                },
+                _invoke: function (method) {
+                    var waypoints;
+
+                    waypoints = $.extend({}, allWaypoints.vertical, allWaypoints.horizontal);
+                    return $.each(waypoints, function (key, waypoint) {
+                        waypoint[method]();
+                        return true;
+                    });
+                },
+                _filter: function (selector, axis, test) {
+                    var context, waypoints;
+
+                    context = contexts[$(selector).data(contextKey)];
+                    if (!context) {
+                        return [];
+                    }
+                    waypoints = [];
+                    $.each(context.waypoints[axis], function (i, waypoint) {
+                        if (test(context, waypoint)) {
+                            return waypoints.push(waypoint);
+                        }
+                    });
+                    waypoints.sort(function (a, b) {
+                        return a.offset - b.offset;
+                    });
+                    return $.map(waypoints, function (waypoint) {
+                        return waypoint.element;
+                    });
+                }
+            };
+            $[wps] = function () {
+                var args, method;
+
+                method = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+                if (jQMethods[method]) {
+                    return jQMethods[method].apply(null, args);
+                } else {
+                    return jQMethods.aggregate.call(null, method);
+                }
+            };
+            $[wps].settings = {
+                resizeThrottle: 100,
+                scrollThrottle: 30
+            };
+            return $w.load(function () {
+                return $[wps]('refresh');
+            });
+        });
+
+    }).call(this));
+
+
+    /*
+        easyPieChart - v2.1.7
+        https://github.com/rendro/easy-pie-chart
+    */
+
+    (function (root, factory) {
+        if (typeof exports === 'object') {
+            module.exports = factory(require('jquery'));
+        } else if (typeof define === 'function' && define.amd) {
+            define(['jquery'], factory);
+        } else {
+            factory(root.jQuery);
+        }
+    }(this, function ($) {
+        /**
+         * Renderer to render the chart on a canvas object
+         * @param {DOMElement} el      DOM element to host the canvas (root of the plugin)
+         * @param {object}     options options object of the plugin
+         */
+        var CanvasRenderer = function (el, options) {
+            var cachedBackground;
+            var canvas = document.createElement('canvas');
+
+            el.appendChild(canvas);
+
+            if (typeof(G_vmlCanvasManager) === 'object') {
+                G_vmlCanvasManager.initElement(canvas);
+            }
+
+            var ctx = canvas.getContext('2d');
+
+            canvas.width = canvas.height = options.size;
+
+            // canvas on retina devices
+            var scaleBy = 1;
+            if (window.devicePixelRatio > 1) {
+                scaleBy = window.devicePixelRatio;
+                canvas.style.width = canvas.style.height = [options.size, 'px'].join('');
+                canvas.width = canvas.height = options.size * scaleBy;
+                ctx.scale(scaleBy, scaleBy);
+            }
+
+            // move 0,0 coordinates to the center
+            ctx.translate(options.size / 2, options.size / 2);
+
+            // rotate canvas -90deg
+            ctx.rotate((-1 / 2 + options.rotate / 180) * Math.PI);
+
+            var radius = (options.size - options.lineWidth) / 2;
+            if (options.scaleColor && options.scaleLength) {
+                radius -= options.scaleLength + 2; // 2 is the distance between scale and bar
+            }
+
+            // IE polyfill for Date
+            Date.now = Date.now || function () {
+                return +(new Date());
+            };
+
+            /**
+             * Draw a circle around the center of the canvas
+             * @param {strong} color     Valid CSS color string
+             * @param {number} lineWidth Width of the line in px
+             * @param {number} percent   Percentage to draw (float between -1 and 1)
+             */
+            var drawCircle = function (color, lineWidth, percent) {
+                percent = Math.min(Math.max(-1, percent || 0), 1);
+                var isNegative = percent <= 0 ? true : false;
+
+                ctx.beginPath();
+                ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, isNegative);
+
+                ctx.strokeStyle = color;
+                ctx.lineWidth = lineWidth;
+
+                ctx.stroke();
+            };
+
+            /**
+             * Draw the scale of the chart
+             */
+            var drawScale = function () {
+                var offset;
+                var length;
+
+                ctx.lineWidth = 1;
+                ctx.fillStyle = options.scaleColor;
+
+                ctx.save();
+                for (var i = 24; i > 0; --i) {
+                    if (i % 6 === 0) {
+                        length = options.scaleLength;
+                        offset = 0;
+                    } else {
+                        length = options.scaleLength * 0.6;
+                        offset = options.scaleLength - length;
+                    }
+                    ctx.fillRect(-options.size / 2 + offset, 0, length, 1);
+                    ctx.rotate(Math.PI / 12);
+                }
+                ctx.restore();
+            };
+
+            /**
+             * Request animation frame wrapper with polyfill
+             * @return {function} Request animation frame method or timeout fallback
+             */
+            var reqAnimationFrame = (function () {
+                return window.requestAnimationFrame ||
+                    window.webkitRequestAnimationFrame ||
+                    window.mozRequestAnimationFrame ||
+                    function (callback) {
+                        window.setTimeout(callback, 1000 / 60);
+                    };
+            }());
+
+            /**
+             * Draw the background of the plugin including the scale and the track
+             */
+            var drawBackground = function () {
+                if (options.scaleColor) drawScale();
+                if (options.trackColor) drawCircle(options.trackColor, options.trackWidth || options.lineWidth, 1);
+            };
+
+            /**
+             * Canvas accessor
+             */
+            this.getCanvas = function () {
+                return canvas;
+            };
+
+            /**
+             * Canvas 2D context 'ctx' accessor
+             */
+            this.getCtx = function () {
+                return ctx;
+            };
+
+            /**
+             * Clear the complete canvas
+             */
+            this.clear = function () {
+                ctx.clearRect(options.size / -2, options.size / -2, options.size, options.size);
+            };
+
+            /**
+             * Draw the complete chart
+             * @param {number} percent Percent shown by the chart between -100 and 100
+             */
+            this.draw = function (percent) {
+                // do we need to render a background
+                if (!!options.scaleColor || !!options.trackColor) {
+                    // getImageData and putImageData are supported
+                    if (ctx.getImageData && ctx.putImageData) {
+                        if (!cachedBackground) {
+                            drawBackground();
+                            cachedBackground = ctx.getImageData(0, 0, options.size * scaleBy, options.size * scaleBy);
+                        } else {
+                            ctx.putImageData(cachedBackground, 0, 0);
+                        }
+                    } else {
+                        this.clear();
+                        drawBackground();
+                    }
+                } else {
+                    this.clear();
+                }
+
+                ctx.lineCap = options.lineCap;
+
+                // if barcolor is a function execute it and pass the percent as a value
+                var color;
+                if (typeof(options.barColor) === 'function') {
+                    color = options.barColor(percent);
+                } else {
+                    color = options.barColor;
+                }
+
+                // draw bar
+                drawCircle(color, options.lineWidth, percent / 100);
+            }.bind(this);
+
+            /**
+             * Animate from some percent to some other percentage
+             * @param {number} from Starting percentage
+             * @param {number} to   Final percentage
+             */
+            this.animate = function (from, to) {
+                var startTime = Date.now();
+                options.onStart(from, to);
+                var animation = function () {
+                    var process = Math.min(Date.now() - startTime, options.animate.duration);
+                    var currentValue = options.easing(this, process, from, to - from, options.animate.duration);
+                    this.draw(currentValue);
+                    options.onStep(from, to, currentValue);
+                    if (process >= options.animate.duration) {
+                        options.onStop(from, to);
+                    } else {
+                        reqAnimationFrame(animation);
+                    }
+                }.bind(this);
+
+                reqAnimationFrame(animation);
+            }.bind(this);
+        };
+
+        var EasyPieChart = function (el, opts) {
+            var defaultOptions = {
+                barColor: '#ef1e25',
+                trackColor: '#f9f9f9',
+                scaleColor: '#dfe0e0',
+                scaleLength: 5,
+                lineCap: 'round',
+                lineWidth: 3,
+                trackWidth: undefined,
+                size: 110,
+                rotate: 0,
+                animate: {
+                    duration: 1000,
+                    enabled: true
+                },
+                easing: function (x, t, b, c, d) { // more can be found here: http://gsgd.co.uk/sandbox/jquery/easing/
+                    t = t / (d / 2);
+                    if (t < 1) {
+                        return c / 2 * t * t + b;
+                    }
+                    return -c / 2 * ((--t) * (t - 2) - 1) + b;
+                },
+                onStart: function (from, to) {
+                    return;
+                },
+                onStep: function (from, to, currentValue) {
+                    return;
+                },
+                onStop: function (from, to) {
+                    return;
+                }
+            };
+
+            // detect present renderer
+            if (typeof(CanvasRenderer) !== 'undefined') {
+                defaultOptions.renderer = CanvasRenderer;
+            } else if (typeof(SVGRenderer) !== 'undefined') {
+                defaultOptions.renderer = SVGRenderer;
+            } else {
+                throw new Error('Please load either the SVG- or the CanvasRenderer');
+            }
+
+            var options = {};
+            var currentValue = 0;
+
+            /**
+             * Initialize the plugin by creating the options object and initialize rendering
+             */
+            var init = function () {
+                this.el = el;
+                this.options = options;
+
+                // merge user options into default options
+                for (var i in defaultOptions) {
+                    if (defaultOptions.hasOwnProperty(i)) {
+                        options[i] = opts && typeof(opts[i]) !== 'undefined' ? opts[i] : defaultOptions[i];
+                        if (typeof(options[i]) === 'function') {
+                            options[i] = options[i].bind(this);
+                        }
+                    }
+                }
+
+                // check for jQuery easing
+                if (typeof(options.easing) === 'string' && typeof(jQuery) !== 'undefined' && jQuery.isFunction(jQuery.easing[options.easing])) {
+                    options.easing = jQuery.easing[options.easing];
+                } else {
+                    options.easing = defaultOptions.easing;
+                }
+
+                // process earlier animate option to avoid bc breaks
+                if (typeof(options.animate) === 'number') {
+                    options.animate = {
+                        duration: options.animate,
+                        enabled: true
+                    };
+                }
+
+                if (typeof(options.animate) === 'boolean' && !options.animate) {
+                    options.animate = {
+                        duration: 1000,
+                        enabled: options.animate
+                    };
+                }
+
+                // create renderer
+                this.renderer = new options.renderer(el, options);
+
+                // initial draw
+                this.renderer.draw(currentValue);
+
+                // initial update
+                if (el.dataset && el.dataset.percent) {
+                    this.update(parseFloat(el.dataset.percent));
+                } else if (el.getAttribute && el.getAttribute('data-percent')) {
+                    this.update(parseFloat(el.getAttribute('data-percent')));
+                }
+            }.bind(this);
+
+            /**
+             * Update the value of the chart
+             * @param  {number} newValue Number between 0 and 100
+             * @return {object}          Instance of the plugin for method chaining
+             */
+            this.update = function (newValue) {
+                newValue = parseFloat(newValue);
+                if (options.animate.enabled) {
+                    this.renderer.animate(currentValue, newValue);
+                } else {
+                    this.renderer.draw(newValue);
+                }
+                currentValue = newValue;
+                return this;
+            }.bind(this);
+
+            /**
+             * Disable animation
+             * @return {object} Instance of the plugin for method chaining
+             */
+            this.disableAnimation = function () {
+                options.animate.enabled = false;
+                return this;
+            };
+
+            /**
+             * Enable animation
+             * @return {object} Instance of the plugin for method chaining
+             */
+            this.enableAnimation = function () {
+                options.animate.enabled = true;
+                return this;
+            };
+
+            init();
+        };
+
+        $.fn.easyPieChart = function (options) {
+            return this.each(function () {
+                var instanceOptions;
+
+                if (!$.data(this, 'easyPieChart')) {
+                    instanceOptions = $.extend({}, options, $(this).data());
+                    $.data(this, 'easyPieChart', new EasyPieChart(this, instanceOptions));
+                }
+            });
+        };
+
+    }));
+
+    (function (jQuery) {
+
+        "use strict";
+
+        jQuery.fn.draw_circles = function () {
+            var circle = jQuery(this);
+            var countdown = circle.children('.counter-circle-content').attr('data-countdown');
+            var filledcolor = circle.children('.counter-circle-content').attr('data-filledcolor');
+            var unfilledcolor = circle.children('.counter-circle-content').attr('data-unfilledcolor');
+            var scale = circle.children('.counter-circle-content').attr('data-scale');
+            var size = circle.children('.counter-circle-content').attr('data-size');
+            var speed = circle.children('.counter-circle-content').attr('data-speed');
+            var stroksize = circle.children('.counter-circle-content').attr('data-strokesize');
+
+            var percentage = circle.children('.counter-circle-content').attr('data-percent');
+
+            if (scale) {
+                scale = jQuery('body').css('color');
+            }
+
+            if (countdown) {
+                circle.children('.counter-circle-content').attr('data-percent', 100);
+
+                circle.children('.counter-circle-content').easyPieChart({
+                    barColor: filledcolor,
+                    trackColor: unfilledcolor,
+                    scaleColor: scale,
+                    scaleLength: 5,
+                    lineCap: 'round',
+                    lineWidth: stroksize,
+                    size: size,
+                    rotate: 0,
+                    animate: {
+                        duration: speed, enabled: true
+                    }
+                });
+                circle.children('.counter-circle-content').data('easyPieChart').enableAnimation();
+                circle.children('.counter-circle-content').data('easyPieChart').update(percentage);
+            } else {
+                circle.children('.counter-circle-content').easyPieChart({
+                    barColor: filledcolor,
+                    trackColor: unfilledcolor,
+                    scaleColor: scale,
+                    scaleLength: 5,
+                    lineCap: 'round',
+                    lineWidth: stroksize,
+                    size: size,
+                    rotate: 0,
+                    animate: {
+                        duration: speed, enabled: true
+                    }
+                });
+            }
+        };
+    })(jQuery);
+
+    jQuery(window).load(function () {
+        jQuery('.counter-circle').waypoint(function () {
+            jQuery(this).draw_circles();
+        }, {
+            triggerOnce: true,
+            offset: 'bottom-in-view'
+        });
     });
 
 }

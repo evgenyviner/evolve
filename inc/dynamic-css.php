@@ -159,7 +159,6 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$content_boxes_section_background_repeat   = evolve_theme_mod( 'evl_content_boxes_section_image_background_repeat', 'no-repeat' );
 		$content_boxes_section_background_position = evolve_theme_mod( 'evl_content_boxes_section_image_background_position', 'center top' );
 
-
 		/*
 			Testimonials Section
 			======================================= */
@@ -174,6 +173,51 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$testimonials_section_image               = evolve_theme_mod( 'evl_testimonials_section_image', 'cover' );
 		$testimonials_section_background_repeat   = evolve_theme_mod( 'evl_testimonials_section_image_background_repeat', 'no-repeat' );
 		$testimonials_section_background_position = evolve_theme_mod( 'evl_testimonials_section_image_background_position', 'center top' );
+
+		/*
+			Counter Circle Section
+			======================================= */
+
+		$counter_circle_section_padding             = evolve_theme_mod( 'evl_counter_circle_section_padding' );
+		$counter_circle_section_padding_top         = $counter_circle_section_padding['top'];
+		$counter_circle_section_padding_bottom      = $counter_circle_section_padding['bottom'];
+		$counter_circle_section_padding_left        = $counter_circle_section_padding['left'];
+		$counter_circle_section_padding_right       = $counter_circle_section_padding['right'];
+		$counter_circle_section_back_color          = evolve_theme_mod( 'evl_counter_circle_section_back_color', '' );
+		$counter_circle_section_image_src           = evolve_theme_mod( 'evl_counter_circle_section_background_image' );
+		$counter_circle_section_image               = evolve_theme_mod( 'evl_counter_circle_section_image', 'cover' );
+		$counter_circle_section_background_repeat   = evolve_theme_mod( 'evl_counter_circle_section_image_background_repeat', 'no-repeat' );
+		$counter_circle_section_background_position = evolve_theme_mod( 'evl_counter_circle_section_image_background_position', 'center top' );
+
+		/*
+		    WooCommerce Products
+			======================================= */
+
+		$woo_product_section_padding             = evolve_theme_mod( 'evl_woo_product_section_padding' );
+		$woo_product_section_padding_top         = $woo_product_section_padding['top'];
+		$woo_product_section_padding_bottom      = $woo_product_section_padding['bottom'];
+		$woo_product_section_padding_left        = $woo_product_section_padding['left'];
+		$woo_product_section_padding_right       = $woo_product_section_padding['right'];
+		$woo_product_section_back_color          = evolve_theme_mod( 'evl_woo_product_section_back_color', '' );
+		$woo_product_section_image_src           = evolve_theme_mod( 'evl_woo_product_section_background_image' );
+		$woo_product_section_image               = evolve_theme_mod( 'evl_woo_product_section_image', 'cover' );
+		$woo_product_section_background_repeat   = evolve_theme_mod( 'evl_woo_product_section_image_background_repeat', 'no-repeat' );
+		$woo_product_section_background_position = evolve_theme_mod( 'evl_woo_product_section_image_background_position', 'center top' );
+
+		/*
+			Custom Content
+			======================================= */
+
+		$custom_content_section_padding             = evolve_theme_mod( 'evl_custom_content_section_padding' );
+		$custom_content_section_padding_top         = $custom_content_section_padding['top'];
+		$custom_content_section_padding_bottom      = $custom_content_section_padding['bottom'];
+		$custom_content_section_padding_left        = $custom_content_section_padding['left'];
+		$custom_content_section_padding_right       = $custom_content_section_padding['right'];
+		$custom_content_section_back_color          = evolve_theme_mod( 'evl_custom_content_section_back_color', '' );
+		$custom_content_section_image_src           = evolve_theme_mod( 'evl_custom_content_section_background_image' );
+		$custom_content_section_image               = evolve_theme_mod( 'evl_custom_content_section_image', 'cover' );
+		$custom_content_section_background_repeat   = evolve_theme_mod( 'evl_custom_content_section_image_background_repeat', 'no-repeat' );
+		$custom_content_section_background_position = evolve_theme_mod( 'evl_custom_content_section_image_background_position', 'center top' );
 
 		/*
 			Custom CSS Begin
@@ -284,6 +328,12 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		if ( ! empty( $custom_header_color ) ) {
 			$css_data .= ' .header-pattern { background: ' . $custom_header_color . '; }';
 		}
+
+		/*
+			Header Search Form
+			--------------------------------------- */
+
+		$css_data .= ' .header-search .form-control, .header-search .form-control:focus, .header-search .form-control::placeholder { color: ' . $menu_font['color'] . '; }';
 
 		/*
 			Header and Footer Pattern
@@ -419,57 +469,59 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 
 		$css_data .= evolve_print_fonts( 'evl_widget_content_font', ' .widget-content, .aside, .aside a', '', $additional_color_css_class = '.widget-content, .widget-content a, .widget-content .tab-holder .news-list li .post-holder a, .widget-content .tab-holder .news-list li .post-holder .meta' );
 
-		/*
-			Front Page Content Boxes Title Font
-			--------------------------------------- */
+		if ( is_front_page() ) {
 
-		$css_data .= evolve_print_fonts( 'evl_content_boxes_title_font', ' .content-box h5.card-title' );
+			/*
+				Content Boxes Title Font
+				--------------------------------------- */
 
-		/*
-			Front Page Content Boxes Description Font
-			--------------------------------------- */
+			$css_data .= evolve_print_fonts( 'evl_content_boxes_title_font', ' .content-box h5.card-title' );
 
-		$css_data .= evolve_print_fonts( 'evl_content_boxes_description_font', ' .content-box p' );
+			/*
+				Content Boxes Description Font
+				--------------------------------------- */
 
-		/*
-			Content Boxes Title Section
-			--------------------------------------- */
+			$css_data .= evolve_print_fonts( 'evl_content_boxes_description_font', ' .content-box p' );
 
-		$css_data .= evolve_print_fonts( 'evl_content_boxes_title_alignment', ' h3.content-box-section-title' );
+			/*
+				Content Boxes Title Section
+				--------------------------------------- */
 
-		/*
-			Testimonials Title Section
-			--------------------------------------- */
+			$css_data .= evolve_print_fonts( 'evl_content_boxes_title_alignment', ' h3.content-box-section-title' );
 
-		$css_data .= evolve_print_fonts( 'evl_testimonials_title_alignment', ' h3.testimonials-section-title' );
+			/*
+				Testimonials Title Section
+				--------------------------------------- */
 
-		/*
-			Counters Circle Title Section
-			--------------------------------------- */
+			$css_data .= evolve_print_fonts( 'evl_testimonials_title_alignment', ' h3.testimonials-section-title' );
 
-		$css_data .= evolve_print_fonts( 'evl_counter_circle_title_alignment', ' h3.counter-circle-section-title' );
+			/*
+				Counter Circle Title Section
+				--------------------------------------- */
 
-		$css_data .= ' .header-search .form-control, .header-search .form-control:focus, .header-search .form-control::placeholder { color: ' . $menu_font['color'] . '; }';
+			$css_data .= evolve_print_fonts( 'evl_counter_circle_title_alignment', ' h3.counter-circle-section-title' );
 
-		/*
-			WooCommerce Product Title Section
-			--------------------------------------- */
+			/*
+				Counter Circle Text Font
+				--------------------------------------- */
 
-		if ( class_exists( 'Woocommerce' ) ) :
-			$css_data .= evolve_print_fonts( 'evl_woo_product_title_alignment', ' h3.woo-product-section-title' );
-		endif;
+			$css_data .= evolve_print_fonts( 'evl_counter_circle_title_text', ' .counter-circle-text, .counter-circle-text h5' );
 
-		/*
-			Custom Content Title Section
-			--------------------------------------- */
+			/*
+				WooCommerce Product Title Section
+				--------------------------------------- */
 
-		$css_data .= evolve_print_fonts( 'evl_custom_content_title_alignment', ' h4.custom_content_section_title' );
+			if ( class_exists( 'Woocommerce' ) ) :
+				$css_data .= evolve_print_fonts( 'evl_woo_product_title_alignment', ' h3.woo-product-section-title' );
+			endif;
 
-		/*
-			Blog Title Section
-			--------------------------------------- */
+			/*
+				Custom Content Title Section
+				--------------------------------------- */
 
-		$css_data .= evolve_print_fonts( 'evl_blog_section_title_alignment', ' h4.fp_blog_section_title' );
+			$css_data .= evolve_print_fonts( 'evl_custom_content_title_alignment', ' h3.custom-content-section-title' );
+
+		}
 
 		/*
 			H1 Font, H2 Font, H3 Font, H4 Font, H5 Font and H6 Font
@@ -504,16 +556,17 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 				$home_content_boxes_css_data .= sprintf( ' background-color: %s;', $content_boxes_section_back_color );
 			}
 			if ( $content_boxes_section_image_src ) {
-				$home_content_boxes_css_data .= sprintf( ' background-image: url(%s);', $content_boxes_section_image_src );
-			}
-			if ( $content_boxes_section_image ) {
-				$home_content_boxes_css_data .= sprintf( ' background-size: %s;', $content_boxes_section_image );
-			}
-			if ( $content_boxes_section_background_position ) {
-				$home_content_boxes_css_data .= sprintf( ' background-position: %s;', $content_boxes_section_background_position );
-			}
-			if ( $content_boxes_section_background_repeat ) {
-				$home_content_boxes_css_data .= sprintf( ' background-repeat: %s;', $content_boxes_section_background_repeat );
+				$home_content_boxes_css_data .= sprintf( ' background: url(%s)', $content_boxes_section_image_src );
+
+				if ( $content_boxes_section_background_repeat ) {
+					$home_content_boxes_css_data .= sprintf( ' %s', $content_boxes_section_background_repeat );
+				}
+				if ( $content_boxes_section_background_position ) {
+					$home_content_boxes_css_data .= sprintf( ' %s;', $content_boxes_section_background_position );
+				}
+				if ( $content_boxes_section_image != 'none' ) {
+					$home_content_boxes_css_data .= sprintf( ' background-size: %s;', $content_boxes_section_image );
+				}
 			}
 			if ( $content_boxes_section_padding_top ) {
 				$home_content_boxes_css_data .= sprintf( ' padding-top: %s;', $content_boxes_section_padding_top );
@@ -553,16 +606,16 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 				$home_testimonials_css_data .= sprintf( ' background-color: %s;', $testimonials_section_back_color );
 			}
 			if ( $testimonials_section_image_src ) {
-				$home_testimonials_css_data .= sprintf( ' background-image: url(%s);', $testimonials_section_image_src );
-			}
-			if ( $testimonials_section_image ) {
-				$home_testimonials_css_data .= sprintf( ' background-size: %s;', $testimonials_section_image );
-			}
-			if ( $testimonials_section_background_position ) {
-				$home_testimonials_css_data .= sprintf( ' background-position: %s;', $testimonials_section_background_position );
-			}
-			if ( $testimonials_section_background_repeat ) {
-				$home_testimonials_css_data .= sprintf( ' background-repeat: %s;', $testimonials_section_background_repeat );
+				$home_testimonials_css_data .= sprintf( ' background: url(%s)', $testimonials_section_image_src );
+				if ( $testimonials_section_background_repeat ) {
+					$home_testimonials_css_data .= sprintf( ' %s', $testimonials_section_background_repeat );
+				}
+				if ( $testimonials_section_background_position ) {
+					$home_testimonials_css_data .= sprintf( ' %s;', $testimonials_section_background_position );
+				}
+				if ( $testimonials_section_image != 'none' ) {
+					$home_testimonials_css_data .= sprintf( ' background-size: %s;', $testimonials_section_image );
+				}
 			}
 			if ( $testimonials_section_padding_top ) {
 				$home_testimonials_css_data .= sprintf( ' padding-top: %s;', $testimonials_section_padding_top );
@@ -583,11 +636,134 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			$testimonials_textcolor  = evolve_theme_mod( "evl_fp_testimonials_text_color" );
 
 			if ( $testimonials_back_color ) {
-				$css_data .= ' .home-testimonials .carousel { padding: 2rem; background-color:' . $testimonials_back_color . ' }';
+				$css_data .= ' .home-testimonials .carousel { background-color:' . $testimonials_back_color . '; padding: 2rem; }';
 			}
 			if ( $testimonials_textcolor ) {
 				$css_data .= ' .home-testimonials blockquote, .home-testimonials blockquote footer { color:' . $testimonials_textcolor . ' }';
 			}
+
+			/*
+				-- Counter Circle
+				--------------------------------------- */
+
+			$home_counter_circle_css_data = '';
+
+			if ( $counter_circle_section_back_color ) {
+				$home_counter_circle_css_data .= sprintf( ' background-color: %s;', $counter_circle_section_back_color );
+			}
+			if ( $counter_circle_section_image_src ) {
+				$home_counter_circle_css_data .= sprintf( ' background: url(%s)', $counter_circle_section_image_src );
+				if ( $counter_circle_section_background_repeat ) {
+					$home_counter_circle_css_data .= sprintf( ' %s', $counter_circle_section_background_repeat );
+				}
+				if ( $counter_circle_section_background_position ) {
+					$home_counter_circle_css_data .= sprintf( ' %s;', $counter_circle_section_background_position );
+				}
+				if ( $counter_circle_section_image != 'none' ) {
+					$home_counter_circle_css_data .= sprintf( ' background-size: %s;', $counter_circle_section_image );
+				}
+			}
+			if ( $counter_circle_section_padding_top ) {
+				$home_counter_circle_css_data .= sprintf( ' padding-top: %s;', $counter_circle_section_padding_top );
+			}
+			if ( $counter_circle_section_padding_bottom ) {
+				$home_counter_circle_css_data .= sprintf( ' padding-bottom: %s;', $counter_circle_section_padding_bottom );
+			}
+			if ( $counter_circle_section_padding_left ) {
+				$home_counter_circle_css_data .= sprintf( ' padding-left: %s;', $counter_circle_section_padding_left );
+			}
+			if ( $counter_circle_section_padding_right ) {
+				$home_counter_circle_css_data .= sprintf( ' padding-right: %s;', $counter_circle_section_padding_right );
+			}
+
+			$css_data .= ' .home-counter-circle {' . $home_counter_circle_css_data . ' }';
+
+			/*
+				-- WooCommerce Products
+				--------------------------------------- */
+
+			if ( class_exists( 'Woocommerce' ) ) {
+
+				$woo_product_enabled = '';
+				$woo_product         = evolve_theme_mod( 'evl_front_elements_content_area', array() );
+
+				if ( ! empty( $woo_product ) && is_array( $woo_product ) ) {
+					foreach ( $woo_product as $woo_product_id => $woo_product_id_label ) {
+						if ( 'woocommerce_product' == $woo_product_id ) {
+							$woo_product_enabled = true;
+						}
+					}
+
+					$home_woo_product_css_data = '';
+
+					if ( $woo_product_section_back_color ) {
+						$home_woo_product_css_data .= sprintf( ' background-color: %s;', $woo_product_section_back_color );
+					}
+					if ( $woo_product_section_image_src ) {
+						$home_woo_product_css_data .= sprintf( ' background: url(%s)', $woo_product_section_image_src );
+						if ( $woo_product_section_background_repeat ) {
+							$home_woo_product_css_data .= sprintf( ' %s', $woo_product_section_background_repeat );
+						}
+						if ( $woo_product_section_background_position ) {
+							$home_woo_product_css_data .= sprintf( ' %s;', $woo_product_section_background_position );
+						}
+						if ( $woo_product_section_image != 'none' ) {
+							$home_woo_product_css_data .= sprintf( ' background-size: %s;', $woo_product_section_image );
+						}
+					}
+					if ( $woo_product_section_padding_top ) {
+						$home_woo_product_css_data .= sprintf( ' padding-top: %s;', $woo_product_section_padding_top );
+					}
+					if ( $woo_product_section_padding_bottom ) {
+						$home_woo_product_css_data .= sprintf( ' padding-bottom: %s;', $woo_product_section_padding_bottom );
+					}
+					if ( $woo_product_section_padding_left ) {
+						$home_woo_product_css_data .= sprintf( ' padding-left: %s;', $woo_product_section_padding_left );
+					}
+					if ( $woo_product_section_padding_right ) {
+						$home_woo_product_css_data .= sprintf( ' padding-right: %s;', $woo_product_section_padding_right );
+					}
+
+					$css_data .= ' .home-woo-product {' . $home_woo_product_css_data . ' }';
+				}
+			}
+
+
+			/*
+				-- Custom Content
+				--------------------------------------- */
+
+			$home_custom_content_css_data = '';
+
+			if ( $custom_content_section_back_color ) {
+				$home_custom_content_css_data .= sprintf( ' background-color: %s;', $custom_content_section_back_color );
+			}
+			if ( isset( $custom_content_section_image_src ) && $custom_content_section_image_src ) {
+				$home_custom_content_css_data .= sprintf( ' background: url(%s)', $custom_content_section_image_src );
+				if ( $custom_content_section_background_repeat ) {
+					$home_custom_content_css_data .= sprintf( ' %s', $custom_content_section_background_repeat );
+				}
+				if ( $custom_content_section_background_position ) {
+					$home_custom_content_css_data .= sprintf( ' %s;', $custom_content_section_background_position );
+				}
+				if ( $custom_content_section_image != 'none' ) {
+					$home_custom_content_css_data .= sprintf( ' background-size: %s;', $custom_content_section_image );
+				}
+			}
+			if ( $custom_content_section_padding_top ) {
+				$home_custom_content_css_data .= sprintf( ' padding-top: %s;', $custom_content_section_padding_top );
+			}
+			if ( $custom_content_section_padding_bottom ) {
+				$home_custom_content_css_data .= sprintf( ' padding-bottom: %s;', $custom_content_section_padding_bottom );
+			}
+			if ( $custom_content_section_padding_left ) {
+				$home_custom_content_css_data .= sprintf( ' padding-left: %s;', $custom_content_section_padding_left );
+			}
+			if ( $custom_content_section_padding_right ) {
+				$home_custom_content_css_data .= sprintf( ' padding-right: %s;', $custom_content_section_padding_right );
+			}
+
+			$css_data .= ' .home-custom-content {' . $home_custom_content_css_data . ' }';
 		}
 
 		/*
@@ -942,8 +1118,10 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			WooCommerce
 			--------------------------------------- */
 
-		if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() || is_woocommerce() ) ) {
-			$css_data .= ' .products.card-columns { -webkit-column-count: ' . esc_attr( wc_get_loop_prop( 'columns' ) ) . '; column-count: ' . esc_attr( wc_get_loop_prop( 'columns' ) ) . '; }';
+		if ( class_exists( 'Woocommerce' ) ) {
+			if ( is_shop() || is_product_category() || is_product_tag() || is_woocommerce() || ( is_front_page() && $woo_product_enabled ) ) {
+				$css_data .= ' .products.card-columns { -webkit-column-count: ' . esc_attr( wc_get_loop_prop( 'columns' ) ) . '; column-count: ' . esc_attr( wc_get_loop_prop( 'columns' ) ) . '; }';
+			}
 		}
 
 		/*
@@ -980,8 +1158,10 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			-- WooCommerce
 			--------------------------------------- */
 
-		if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() || is_product() || is_woocommerce() ) ) {
-			$css_data .= ' .products.card-columns { -webkit-column-count: 3; column-count: 3; }';
+		if ( class_exists( 'Woocommerce' ) ) {
+			if ( is_shop() || is_product_category() || is_product_tag() || is_product() || is_woocommerce() || ( is_front_page() && $woo_product_enabled ) ) {
+				$css_data .= ' .products.card-columns { -webkit-column-count: 3; column-count: 3; }';
+			}
 		}
 		$css_data .= '}';
 
@@ -1049,8 +1229,10 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			-- WooCommerce
 			--------------------------------------- */
 
-		if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() || is_product() || is_woocommerce() ) ) {
-			$css_data .= ' .products.card-columns { -webkit-column-count: 2; column-count: 2; }';
+		if ( class_exists( 'Woocommerce' ) ) {
+			if ( is_shop() || is_product_category() || is_product_tag() || is_product() || is_woocommerce() || ( is_front_page() && $woo_product_enabled ) ) {
+				$css_data .= ' .products.card-columns { -webkit-column-count: 2; column-count: 2; }';
+			}
 		}
 
 		$css_data .= '}';
@@ -1083,8 +1265,10 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			-- WooCommerce
 			--------------------------------------- */
 
-		if ( class_exists( 'Woocommerce' ) && ( is_shop() || is_product_category() || is_product_tag() || is_product() || is_woocommerce() ) ) {
-			$css_data .= ' .products.card-columns { -webkit-column-count: 1; column-count: 1; }';
+		if ( class_exists( 'Woocommerce' ) ) {
+			if ( is_shop() || is_product_category() || is_product_tag() || is_product() || is_woocommerce() || ( is_front_page() && $woo_product_enabled ) ) {
+				$css_data .= ' .products.card-columns { -webkit-column-count: 1; column-count: 1; }';
+			}
 		}
 
 		$css_data .= '}';

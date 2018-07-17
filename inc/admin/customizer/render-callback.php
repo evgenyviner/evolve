@@ -74,7 +74,7 @@ function evolve_get_render_callback( $option_name ) {
 		======================================= */
 
 	/*
-		-- Front Page Content Boxes
+		-- Content Boxes
 		--------------------------------------- */
 
 	if ( $option_name == 'evl_content_boxes_title' ) {
@@ -113,6 +113,40 @@ function evolve_get_render_callback( $option_name ) {
 
 	$check = preg_match( '/^evl_fp_testimonial._content$/', $option_name );
 	if ( $check ) {
+		return get_theme_mod( $option_name, '' );
+	}
+
+	/*
+		-- Counter Circle
+		--------------------------------------- */
+
+	if ( $option_name == 'evl_counter_circle_title' ) {
+		return get_theme_mod( $option_name, '' );
+	}
+
+	$check = preg_match( '/^evl_fp_counter_circle._text$/', $option_name );
+	if ( $check ) {
+		return get_theme_mod( $option_name, '' );
+	}
+
+	$check = preg_match( '/^evl_fp_counter_circle._icon$/', $option_name );
+	if ( $check ) {
+		return '<i class="fa fa-' . get_theme_mod( $option_name, '' ) . '" aria-hidden="true"></i>';
+	}
+
+	/*
+		-- WooCommerce Products
+		--------------------------------------- */
+
+	if ( $option_name == 'evl_woo_product_title' ) {
+		return get_theme_mod( $option_name, '' );
+	}
+
+	/*
+		-- Custom Content
+		--------------------------------------- */
+	
+	if ( $option_name == 'evl_fp_custom_content_editor' ) {
 		return get_theme_mod( $option_name, '' );
 	}
 

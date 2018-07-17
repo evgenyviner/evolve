@@ -264,19 +264,15 @@ if ( ! function_exists( 'evolve_theme_mod' ) ) {
 
 if ( ! function_exists( 'evolve_scripts' ) ) {
 	function evolve_scripts() {
-		global $post, $css_data;
+		global $post, $css_data, $evolve_options;
 
 		if ( evolve_theme_mod( 'evl_fontawesome', '0' ) != "1" ) {
 			// FontAwesome
 			wp_enqueue_style( 'fontawesomecss', get_template_directory_uri() . '/assets/fonts/fontawesome/css/font-awesome.min.css', false );
 		}
 
-		// Main Stylesheet
+		// Main CSS
 		wp_enqueue_style( 'evolve-style', get_stylesheet_uri(), false );
-
-		// Load The IE 9 Stylesheet
-		wp_enqueue_style( 'evolve-ie9', get_theme_file_uri( '/assets/css/ie.min.css' ), array( 'evolve-style' ), '1.0' );
-		wp_style_add_data( 'evolve-ie9', 'conditional', 'lt IE 9' );
 
 		// Dynamic CSS Definitions
 		require get_parent_theme_file_path( '/inc/dynamic-css.php' );
@@ -289,10 +285,11 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 				break;
 		}
 
-		wp_add_inline_style( 'evolve-style', evolve_dynamic_css($css_data) );
+		wp_add_inline_style( 'evolve-style', evolve_dynamic_css( $css_data ) );
+
+		// Main JS
 
 		wp_enqueue_script( 'main', get_theme_file_uri( '/assets/js/main.min.js' ), array( 'jquery' ), '', true );
-		wp_enqueue_script( 'main_backend', get_theme_file_uri( '/assets/js/main_backend.min.js' ), array( 'jquery' ), '', true );
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
@@ -366,6 +363,19 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 			$local_variables['infinite_scroll_enabled']       = true;
 			$local_variables['infinite_scroll_text_finished'] = __( 'You reached the end', 'evolve' );
 			$local_variables['infinite_scroll_text']          = __( 'Load more items', 'evolve' );
+		}
+
+		// Counter Circle
+
+		if ( is_front_page() ) {
+			$counter_circle = evolve_theme_mod( 'evl_front_elements_content_area', array() );
+			if ( ! empty( $counter_circle ) && is_array( $counter_circle ) ) {
+				foreach ( $counter_circle as $counter_circle_id => $counter_circle_id_label ) {
+					if ( 'counter_circle' == $counter_circle_id ) {
+						$local_variables['counter_circle'] = true;
+					}
+				}
+			}
 		}
 
 		// Footer Reveal Effect

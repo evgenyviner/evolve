@@ -47,7 +47,7 @@ Table of Contents:
         -- Search Form
     -- Tooltips
 - Front Page Section
-    -- Front Page Content Boxes
+    -- Content Boxes
     -- Testimonials
     -- Counter Circle
 - Back To Top Button (Scroll to Top)
@@ -73,7 +73,7 @@ Table of Contents:
 
     Bootstrap Framework CSS
     ======================================= */
-@import url("assets/css/bootstrap.css");
+@import url("assets/css/bootstrap.min.css");
 /*
     Animate CSS
     ======================================= */
@@ -1632,7 +1632,7 @@ select:not([size]):not([multiple]) {
 }
 
 /*
-    -- Front Page Content Boxes
+    -- Content Boxes
     --------------------------------------- */
 
 .home-content-boxes .card-deck {
@@ -1677,7 +1677,7 @@ select:not([size]):not([multiple]) {
     padding: 0;
 }
 
-/*F
+/*
     -- Testimonials
     --------------------------------------- */
 
@@ -1696,65 +1696,34 @@ select:not([size]):not([multiple]) {
     -- Counter Circle
     --------------------------------------- */
 
-body.home .t4p-counters-circle {
-    margin-bottom: 0;
-}
-
-.t4p-counters-circle {
-    text-align: center;
-}
-
-.t4p-element-counters_circle {
-    margin-bottom: 20px;
-}
-
-.t4p-counters-circle .counter-circle-wrapper {
-    display: inline-block;
-    height: 220px;
-    margin-bottom: 20px;
-    margin-right: 60px;
+.counter-circle {
+    display: block;
+    margin: 0 auto;
+    max-height: 220px;
+    max-width: 220px;
     position: relative;
     text-align: center;
     vertical-align: middle;
-    width: 220px;
 }
 
-.t4p-counters-circle .counter-circle {
+.counter-circle .fa {
+    display: block;
     font-size: 50px;
-    height: 220px;
-    line-height: 220px;
-    position: relative;
-    text-align: center;
-    width: 220px;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, .05);
 }
 
-.t4p-counters-circle .counter-circle .fontawesome-icon {
-    float: none;
-    font-size: 50px;
-    margin: 0;
-}
-
-.t4p-counters-circle .counter-circle canvas {
-    left: 0;
+.counter-circle-text {
+    bottom: 50%;
     position: absolute;
-    top: 0;
-}
-
-.t4p-counters-circle:last-child {
-    margin-right: 0;
-}
-
-.t4p-counters-circle-text {
-    position: absolute;
-    right: 0;
     width: 100%;
+    -webkit-transform: translate(0, 50%);
+    -ms-transform: translate(0, 50%);
+    transform: translate(0, 50%);
 }
 
-.t4p-counters-circle-info {
-    font-size: 16px;
-    position: absolute;
-    right: 0;
-    width: 100%;
+.home-counter-circle .col:last-child {
+    margin-bottom: 0 !important;
 }
 
 /*

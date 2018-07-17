@@ -1,324 +1,674 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: evolve\n"
-"POT-Creation-Date: 2014-01-31 19:11+0100\n"
-"PO-Revision-Date: 2016-06-18 13:09+0530\n"
+"POT-Creation-Date: 2018-07-17 14:01+0100\n"
+"PO-Revision-Date: 2018-07-17 14:02+0100\n"
 "Last-Translator: Andreja Dodov <andreja.dodov@gmail.com>\n"
 "Language-Team: \n"
+"Language: mk_MK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"X-Poedit-Basepath: .\n"
-"Language: mk_MK\n"
+"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
-"X-Poedit-SearchPath-0: D:/xampp/htdocs/wordpress/wp-content/themes/evolve\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/comments.php:10
+#: 404.php:19
+#, fuzzy
+msgid "Yay! 404 Not Found"
+msgstr "Не е најдено"
+
+#: 404.php:21 template-parts/post/content-none.php:19
+#, fuzzy
+msgid ""
+"Sorry, but you are looking for something that isn't here or it's been moved. "
+"Try a search?"
+msgstr ""
+"Извини, ама тоа што го бараш моментално не е достапно. Проблемот не е до "
+"тебе... до мене е."
+
+#: archive.php:20
+#, fuzzy
+msgid "You are browsing archives for"
+msgstr "Годишни објави за"
+
+#: comments.php:8
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
 "Оваа објава е заштитена со лозинка. Впиши ја лозинката за да ги видиш "
 "коментарите."
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/comments.php:55
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/comments.php:28
+#: comments.php:54 inc/comments.php:37
 msgid "No Comments Yet"
 msgstr "Нема коментари"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/contact.php:62
-msgid "Name:"
-msgstr "Име:"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/contact.php:63
-msgid "Email:"
+#: comments.php:70
+msgid "Comments are closed"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/contact.php:64
-msgid "Subject:"
-msgstr "Предмет:"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/contact.php:65
-msgid "Comments:"
-msgstr "Коментари:"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/contact.php:91
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:110
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:285
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:112
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:255
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:459
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:667
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:856
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/no-sidebar.php:28
-msgid "EDIT"
-msgstr "УРЕДИ"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/contact.php:101
-msgid ""
-"Please check if you've filled all the fields with valid information. Thank "
-"you."
-msgstr ""
-"Провери дали се пополнети сите полиња со валидни информации. Благодарам."
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/contact.php:106
-msgid "Thank you"
-msgstr "Ти благодарам"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/contact.php:106
-msgid "for using my contact form! Your email was successfully sent!"
-msgstr "за користењето на формуларот. Твојата порака е успешно пратена!"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/contact.php:114
-msgid "Name (required)"
-msgstr "Name (потребно)"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/contact.php:116
-msgid "Email (required)"
-msgstr "Email (потребно)"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/contact.php:118
-msgid "Subject"
-msgstr "Предмет"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/contact.php:126
-msgid "Message"
-msgstr "Порака"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/contact.php:144
-msgid "Send Message"
-msgstr "Прати порака"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:93
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:271
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:244
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:442
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:653
-msgid "Written by"
-msgstr "Напишано од"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:95
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:275
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:101
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:247
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:444
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:657
-msgid "edit"
-msgstr "уреди"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:167
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:334
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:518
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:718
-msgid "READ MORE"
-msgstr "ПРОЧИТАЈ ПОВЕЌЕ"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:171
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:258
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:87
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:230
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:522
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:640
-msgid "Leave a Comment"
-msgstr "Остави коментар"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:171
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:258
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:87
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:230
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:522
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:640
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/comments.php:29
-msgid "1 Comment"
-msgstr "1 коментар"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:171
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:258
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:87
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:230
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:522
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:640
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/comments.php:27
-msgid "% Comments"
-msgstr "% коментари"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:340
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:266
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:724
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:865
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/no-sidebar.php:37
-msgid "READ MORE &raquo;"
-msgstr "ПРОЧИТАЈ ПОВЕЌЕ &raquo;"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/content-blog.php:342
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:267
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:726
-msgid "<strong>Pages:</strong>"
-msgstr "<strong>Страни:</strong>"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/header.php:161
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/searchform.php:14
-msgid "Type your search"
-msgstr "Впиши го пребарувањето"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:99
-msgid "By"
-msgstr "Од"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:325
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:569
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:807
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:891
-msgid "Not Found"
-msgstr "Не е најдено"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:331
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:573
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:811
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:895
-msgid "Sorry, but you are looking for something that isn't here."
-msgstr ""
-"Извини, ама тоа што го бараш моментално не е достапно. Проблемот не е до "
-"тебе... до мене е."
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:363
-msgid "Daily archives for"
-msgstr "Дневни објави за"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:365
-msgid "Monthly archives for"
-msgstr "Месечни објави за"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:367
-msgid "Yearly archives for"
-msgstr "Годишни објави за"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:371
-msgid "Posts in category"
-msgstr "Објави во категорија"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:375
-msgid "Posts tagged"
-msgstr "Објави кои вклучуваат "
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:381
-msgid "Search results for"
-msgstr "Пребарано во "
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:386
-msgid "Posts by"
-msgstr "Објави од"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:549
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:787
-msgid "Your search for"
-msgstr "Твоето пребарување за"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:549
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:787
-msgid "did not match any entries"
-msgstr "не дадени резултати"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:554
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:792
-msgid "Suggestions:"
-msgstr "Предлози:"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:556
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:794
-msgid "Make sure all words are spelled correctly."
-msgstr ""
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:557
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:795
-msgid "Try different keywords."
-msgstr ""
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:558
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/index.php:796
-msgid "Try more general keywords."
-msgstr ""
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/navigation.php:23
-msgid ""
-"<div class=\"btn btn-left icon-arrow-left icon-big\">Newer Entries</div>"
-msgstr ""
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/navigation.php:24
-msgid ""
-"<div class=\"btn btn-right icon-arrow-right icon-big\">Older Entries</div>"
-msgstr ""
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/no-sidebar.php:24
-msgid "Untitled"
-msgstr "Неименувано"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/sidebar-2.php:22
-msgid "Pages"
-msgstr "Страни"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/sidebar-2.php:32
-msgid "Categories"
-msgstr "Категории"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/sidebar-2.php:42
-msgid "RSS Syndication"
-msgstr ""
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/sidebar-2.php:44
-msgid "All posts"
-msgstr "Сите објави"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/sidebar-2.php:45
-msgid "All comments"
-msgstr "Сите коментари"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/sidebar.php:22
-msgid "Bootstrap Examples"
-msgstr ""
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:114
-msgid "Primary Menu"
-msgstr ""
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:158
-msgid "<div class=\"similar-posts\"><h5>Similar posts</h5><ul>"
-msgstr "<div class=\"similar-posts\"><h5>Слични објави</h5><ul>"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:455
+#: functions.php:73
 #, php-format
 msgid "Page %s"
 msgstr "Страни %s"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:476
-msgid "Share on Twitter"
-msgstr "Сподели на Twitter"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:477
-msgid "Share on Facebook"
-msgstr "Сподели на FaceBook"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:478
-msgid "Share on Google Plus"
-msgstr "Сподели на Google+"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:479
-msgid "Share on Pinterest"
+#: functions.php:115
+msgid "Primary Menu"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:480
-msgid "Share by Email"
-msgstr "Сподели по e-mail"
+#: functions.php:116
+msgid "Sticky Header Menu"
+msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:481
-msgid "More options"
-msgstr "повеќе опции"
+#: functions.php:304
+msgid "Details"
+msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:919
+#: functions.php:364
+msgid "You reached the end"
+msgstr ""
+
+#: functions.php:365
+msgid "Load more items"
+msgstr ""
+
+#: functions.php:403 template-parts/post/content-post.php:63
+#, fuzzy
+msgid "Read More"
+msgstr "Прочитај повеќе"
+
+#: functions.php:418
+msgid "To view this protected content, enter the password below"
+msgstr ""
+
+#: functions.php:419
+msgid "Password:"
+msgstr ""
+
+#: search.php:14
+#, fuzzy, php-format
+msgid "Search results for %s"
+msgstr "Пребарано во "
+
+#: search.php:20
+#, fuzzy, php-format
+msgid "Your search for %s didn't match any entries"
+msgstr "не дадени резултати"
+
+#: search.php:50 woocommerce/loop/no-products-found.php:29
+#, fuzzy
+msgid "Suggestions"
+msgstr "Предлози:"
+
+#: search.php:52 woocommerce/loop/no-products-found.php:31
+msgid "Make sure all words are spelled correctly."
+msgstr ""
+
+#: search.php:53 woocommerce/loop/no-products-found.php:32
+msgid "Try different keywords."
+msgstr ""
+
+#: search.php:54 woocommerce/loop/no-products-found.php:33
+msgid "Try more general keywords."
+msgstr ""
+
+#: searchform.php:12
+msgid "Type your search"
+msgstr "Впиши го пребарувањето"
+
+#: bbpress/content-single-topic-lead.php:15
+msgid "Open"
+msgstr ""
+
+#: bbpress/content-single-topic-lead.php:17
+msgid "Closed"
+msgstr ""
+
+#: bbpress/content-single-topic-lead.php:20
+msgid "Pinned"
+msgstr ""
+
+#: bbpress/content-statistics.php:17
+msgid "Registered Users"
+msgstr ""
+
+#: bbpress/content-statistics.php:22
+msgid "Forums"
+msgstr ""
+
+#: bbpress/content-statistics.php:27
+msgid "Topics"
+msgstr ""
+
+#: bbpress/content-statistics.php:32
+msgid "Replies"
+msgstr ""
+
+#: bbpress/content-statistics.php:37
+msgid "Topic Tags"
+msgstr ""
+
+#: bbpress/content-statistics.php:44
+msgid "Empty Topic Tags"
+msgstr ""
+
+#: bbpress/content-statistics.php:53
+msgid "Hidden Topics"
+msgstr ""
+
+#: bbpress/content-statistics.php:64
+msgid "Hidden Replies"
+msgstr ""
+
+#: bbpress/form-anonymous.php:19
+msgid "Your email address will not be published. Required fields are marked *"
+msgstr ""
+
+#: bbpress/form-anonymous.php:23
+#, fuzzy
+msgid "Name*"
+msgstr "Име:"
+
+#: bbpress/form-anonymous.php:29
+msgid "Email*"
+msgstr ""
+
+#: bbpress/form-anonymous.php:35 bbpress/form-user-edit.php:79
+#: inc/comments.php:232
+msgid "Website"
+msgstr ""
+
+#: bbpress/form-reply-move.php:18
+#, php-format
+msgid "Move reply \"%s\""
+msgstr ""
+
+#: bbpress/form-reply-move.php:35 bbpress/form-topic-split.php:33
+#, php-format
+msgid "New topic in <strong>%s</strong> titled:"
+msgstr ""
+
+#: bbpress/form-reply-move.php:39
+#, php-format
+msgid "Moved: %s"
+msgstr ""
+
+#: bbpress/form-reply-move.php:65 bbpress/form-topic-split.php:64
+msgid "No other topics found!"
+msgstr ""
+
+#: bbpress/form-reply-move.php:71 bbpress/form-topic-merge.php:100
+msgid "<strong>WARNING:</strong> This process cannot be undone"
+msgstr ""
+
+#: bbpress/form-reply.php:23
+#, php-format
+msgid "Now editing reply to %s"
+msgstr ""
+
+#: bbpress/form-reply.php:25
+#, php-format
+msgid "Reply to %s"
+msgstr ""
+
+#: bbpress/form-reply.php:38
+msgid ""
+"This topic is marked as closed to new replies, however your posting "
+"capabilities still allow you to do so"
+msgstr ""
+
+#: bbpress/form-reply.php:65 bbpress/form-topic.php:80
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes:"
+msgstr ""
+
+#: bbpress/form-reply.php:80 bbpress/form-topic.php:95
+msgid "Your account has the ability to post unrestricted HTML content"
+msgstr ""
+
+#: bbpress/form-reply.php:122 bbpress/form-topic.php:197
+msgid "Optional reason for editing"
+msgstr ""
+
+#: bbpress/form-reply.php:198
+#, php-format
+msgid "The topic <b>%s</b> is closed to new replies"
+msgstr ""
+
+#: bbpress/form-reply.php:203
+#, php-format
+msgid "The forum <b>%s</b> is closed to new topics and replies"
+msgstr ""
+
+#: bbpress/form-topic-merge.php:17
+#, php-format
+msgid "Merge topic \"%s\""
+msgstr ""
+
+#: bbpress/form-topic-merge.php:50
+msgid "No topics were found to which the topic could be merged to!"
+msgstr ""
+
+#: bbpress/form-topic-split.php:18
+#, php-format
+msgid "Split topic \"%s\""
+msgstr ""
+
+#: bbpress/form-topic-split.php:37
+#, php-format
+msgid "Split: %s"
+msgstr ""
+
+#: bbpress/form-topic-split.php:105
+msgid "<strong>WARNING:</strong> This process cannot be undone."
+msgstr ""
+
+#: bbpress/form-topic-tag.php:15
+#, php-format
+msgid "Manage Tag: \"%s\""
+msgstr ""
+
+#: bbpress/form-topic-tag.php:70
+#, php-format
+msgid ""
+"Are you sure you want to merge the \"%s\" tag into the tag you specified?"
+msgstr ""
+
+#: bbpress/form-topic-tag.php:98
+#, php-format
+msgid ""
+"Are you sure you want to delete the \"%s\" tag? This is permanent and cannot "
+"be undone."
+msgstr ""
+
+#: bbpress/form-topic.php:23
+#, php-format
+msgid "Now editing %s"
+msgstr ""
+
+#: bbpress/form-topic.php:25
+#, php-format
+msgid "Create new topic in %s"
+msgstr ""
+
+#: bbpress/form-topic.php:38
+msgid ""
+"This forum is marked as closed to new topics, however your posting "
+"capabilities still allow you to do so"
+msgstr ""
+
+#: bbpress/form-topic.php:53
+#, php-format
+msgid "Topic title (maximum length: %d)"
+msgstr ""
+
+#: bbpress/form-topic.php:134
+msgid "No forum"
+msgstr ""
+
+#: bbpress/form-topic.php:272
+#, php-format
+msgid "The forum %s is closed to new topics and replies"
+msgstr ""
+
+#: bbpress/form-user-edit.php:17 inc/comments.php:222
+#: inc/woocommerce-support.php:280
+#, fuzzy
+msgid "Name"
+msgstr "Име:"
+
+#: bbpress/form-user-edit.php:28
+msgid "First name"
+msgstr ""
+
+#: bbpress/form-user-edit.php:38
+msgid "Last name"
+msgstr ""
+
+#: bbpress/form-user-edit.php:48
+msgid "Nickname"
+msgstr ""
+
+#: bbpress/form-user-edit.php:58
+msgid "Display name"
+msgstr ""
+
+#: bbpress/form-user-edit.php:70
+msgid "Contact info"
+msgstr ""
+
+#: bbpress/form-user-edit.php:106
+msgid "About yourself"
+msgstr ""
+
+#: bbpress/form-user-edit.php:106
+msgid "About the user"
+msgstr ""
+
+#: bbpress/form-user-edit.php:115
+msgid "Biographical info"
+msgstr ""
+
+#: bbpress/form-user-edit.php:124
+msgid "Account"
+msgstr ""
+
+#: bbpress/form-user-edit.php:129 bbpress/form-user-login.php:16
+#: bbpress/form-user-register.php:21
+msgid "Username"
+msgstr ""
+
+#: bbpress/form-user-edit.php:137 bbpress/form-user-register.php:28
+#: inc/comments.php:227
+msgid "Email"
+msgstr ""
+
+#: bbpress/form-user-edit.php:153
+#, php-format
+msgid ""
+"There is a pending email address change to <code>%1$s</code>. <a href=\"%2$s"
+"\">Cancel</a>"
+msgstr ""
+
+#: bbpress/form-user-edit.php:162
+msgid "New Password"
+msgstr ""
+
+#: bbpress/form-user-edit.php:166
+msgid ""
+"If you would like to change the password type a new one. Otherwise leave "
+"this blank"
+msgstr ""
+
+#: bbpress/form-user-edit.php:176
+msgid "Type your new password again"
+msgstr ""
+
+#: bbpress/form-user-edit.php:187
+msgid ""
+"Your password should be at least ten characters long. Use upper and lower "
+"case letters, numbers, and symbols to make it even stronger"
+msgstr ""
+
+#: bbpress/form-user-edit.php:197
+msgid "User role"
+msgstr ""
+
+#: bbpress/form-user-edit.php:204
+msgid "Network Role"
+msgstr ""
+
+#: bbpress/form-user-edit.php:209
+msgid "Grant this user super admin privileges for the Network."
+msgstr ""
+
+#: bbpress/form-user-edit.php:229
+msgid "Update Profile"
+msgstr ""
+
+#: bbpress/form-user-edit.php:229
+msgid "Update User"
+msgstr ""
+
+#: bbpress/form-user-login.php:13 bbpress/form-user-login.php:40
+msgid "Log In"
+msgstr ""
+
+#: bbpress/form-user-login.php:23
+msgid "Password"
+msgstr ""
+
+#: bbpress/form-user-login.php:33
+msgid "Keep me signed in"
+msgstr ""
+
+#: bbpress/form-user-lost-pass.php:14
+msgid "Lost Password"
+msgstr ""
+
+#: bbpress/form-user-lost-pass.php:18
+msgid "Username or Email"
+msgstr ""
+
+#: bbpress/form-user-lost-pass.php:27
+msgid "Reset My Password"
+msgstr ""
+
+#: bbpress/form-user-register.php:13
+msgid "Create an account"
+msgstr ""
+
+#: bbpress/form-user-register.php:16
+msgid "Your username must be unique, and cannot be changed later."
+msgstr ""
+
+#: bbpress/form-user-register.php:17
+msgid ""
+"We use your email address to email you a secure password and verify your "
+"account."
+msgstr ""
+
+#: bbpress/form-user-register.php:38
+msgid "Register"
+msgstr ""
+
+#: bbpress/loop-search-forum.php:27
+#, php-format
+msgid "Last updated %s"
+msgstr ""
+
+#: bbpress/loop-search-topic.php:50 bbpress/loop-single-topic.php:76
+#, php-format
+msgid "Started by %1$s"
+msgstr ""
+
+#: bbpress/loop-search-topic.php:65 bbpress/loop-single-topic.php:91
+#, php-format
+msgid "in <a href=\"%1$s\"><b>%2$s</b></a>"
+msgstr ""
+
+#: bbpress/loop-search.php:10
+msgid "Reply"
+msgstr ""
+
+#: bbpress/loop-search.php:11
+msgid "Topic"
+msgstr ""
+
+#: bbpress/loop-search.php:12
+msgid "Forum"
+msgstr ""
+
+#: bbpress/loop-single-reply.php:45
+#, fuzzy, php-format
+msgid "Posts: %s"
+msgstr "Објави од"
+
+#: bbpress/user-favorites.php:17
+msgid "Favorite torum topics"
+msgstr ""
+
+#: bbpress/user-favorites.php:34
+msgid "You currently have no favorite topics"
+msgstr ""
+
+#: bbpress/user-favorites.php:34
+msgid "This user has no favorite topics"
+msgstr ""
+
+#: bbpress/user-profile.php:27
+msgid "Forum role:"
+msgstr ""
+
+#: bbpress/user-profile.php:30
+msgid "Topics started:"
+msgstr ""
+
+#: bbpress/user-profile.php:33
+msgid "Replies created:"
+msgstr ""
+
+#: bbpress/user-replies-created.php:17
+msgid "Forum replies created"
+msgstr ""
+
+#: bbpress/user-replies-created.php:34
+msgid "You have not replied to any topics"
+msgstr ""
+
+#: bbpress/user-replies-created.php:34
+msgid "This user has not replied to any topics"
+msgstr ""
+
+#: bbpress/user-subscriptions.php:21
+msgid "Subscribed forums"
+msgstr ""
+
+#: bbpress/user-subscriptions.php:34
+msgid "You are not currently subscribed to any forums"
+msgstr ""
+
+#: bbpress/user-subscriptions.php:34
+msgid "This user is not currently subscribed to any forums"
+msgstr ""
+
+#: bbpress/user-subscriptions.php:44
+msgid "Subscribed topics"
+msgstr ""
+
+#: bbpress/user-subscriptions.php:61
+msgid "You are not currently subscribed to any topics"
+msgstr ""
+
+#: bbpress/user-subscriptions.php:61
+msgid "This user is not currently subscribed to any topics"
+msgstr ""
+
+#: bbpress/user-topics-created.php:17
+msgid "Forum topics started"
+msgstr ""
+
+#: bbpress/user-topics-created.php:34
+msgid "You have not created any topics."
+msgstr ""
+
+#: bbpress/user-topics-created.php:34
+msgid "This user has not created any topics."
+msgstr ""
+
+#: inc/bbpress-support.php:70 inc/comments.php:89 inc/template-tags.php:523
+#: inc/template-tags.php:561 inc/template-tags.php:738
+#: inc/template-tags.php:790 inc/template-tags.php:898
+#: woocommerce/single-product/product-image.php:78
+msgid "Previous"
+msgstr ""
+
+#: inc/bbpress-support.php:71 inc/comments.php:90 inc/template-tags.php:524
+#: inc/template-tags.php:560 inc/template-tags.php:742
+#: inc/template-tags.php:794 inc/template-tags.php:902
+#: woocommerce/single-product/product-image.php:82
+msgid "Next"
+msgstr ""
+
+#: inc/comments.php:36 inc/template-tags.php:389
+#: template-parts/post/content-post.php:49
+msgid "% Comments"
+msgstr "% коментари"
+
+#: inc/comments.php:38 inc/template-tags.php:389
+#: template-parts/post/content-post.php:49
+msgid "1 Comment"
+msgstr "1 коментар"
+
+#: inc/comments.php:42
+msgid "% Pings/Trackbacks"
+msgstr ""
+
+#: inc/comments.php:44
+msgid "1 Ping/Trackback"
+msgstr ""
+
+#: inc/comments.php:77
+msgid "Follow replies"
+msgstr ""
+
+#: inc/comments.php:147
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: inc/comments.php:148
+msgid "Author"
+msgstr ""
+
+#: inc/comments.php:149
+msgid "Pingback"
+msgstr ""
+
+#: inc/comments.php:150
+msgid "Verified buyer"
+msgstr ""
+
+#: inc/comments.php:157
+#, php-format
+msgid "%1$s - %2$s"
+msgstr ""
+
+#: inc/comments.php:176
+msgid "Your comment is awaiting moderation"
+msgstr ""
+
+#: inc/comments.php:237
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+
+#: inc/comments.php:270
+msgid "Cancel reply"
+msgstr ""
+
+#: inc/tabs-widget.php:9
+msgid "evolve: Tabs"
+msgstr ""
+
+#: inc/tabs-widget.php:12
+msgid "Popular posts, recent posts and comments."
+msgstr ""
+
+#: inc/template-tags.php:378
+msgid "Written by"
+msgstr "Напишано од"
+
+#: inc/template-tags.php:379
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: inc/template-tags.php:389 template-parts/post/content-post.php:49
+msgid "Leave a Comment"
+msgstr "Остави коментар"
+
+#: inc/template-tags.php:455
+#, fuzzy
+msgid "Similar posts"
+msgstr "Сите објави"
+
+#: inc/template-tags.php:554
+#, fuzzy
+msgid "Pages:"
+msgstr "Страни"
+
+#: inc/template-tags.php:604
 msgid "Home"
 msgstr "Дома"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:974
+#: inc/template-tags.php:626
+msgid "Blog"
+msgstr ""
+
+#: inc/template-tags.php:669
 msgid "404 - Page not Found"
 msgstr ""
 "404... Охх, како сега да ти кажам... нешто не чини, мора да е до тебе зошто "
@@ -326,196 +676,522 @@ msgstr ""
 "се надевам дека администраторов тука ќе го реши проблемов наскоро. Имај убав "
 "ден!"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:975
+#: inc/template-tags.php:672
 msgid "Search"
 msgstr "Пребарај"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:1046
+#: inc/widgets.php:10
+msgid "Sidebar 1"
+msgstr ""
+
+#: inc/widgets.php:19
+msgid "Sidebar 2"
+msgstr ""
+
+#: inc/widgets.php:48
+msgid "Header 1"
+msgstr ""
+
+#: inc/widgets.php:57
+#, php-format
+msgid "Header %d"
+msgstr ""
+
+#: inc/widgets.php:92
+msgid "Footer 1"
+msgstr ""
+
+#: inc/widgets.php:101
+#, php-format
+msgid "Footer %d"
+msgstr ""
+
+#: inc/woocommerce-support.php:228
+#, fuzzy
+msgid "Search..."
+msgstr "Пребарај"
+
+#: inc/woocommerce-support.php:277 inc/woocommerce-support.php:279
+#: inc/woocommerce-support.php:280 inc/woocommerce-support.php:281
+#: inc/woocommerce-support.php:282 inc/woocommerce-support.php:283
+#: inc/woocommerce-support.php:284
+msgid "Sort by"
+msgstr ""
+
+#: inc/woocommerce-support.php:277 inc/woocommerce-support.php:279
+msgid "Default order"
+msgstr ""
+
+#: inc/woocommerce-support.php:281
+msgid "Price"
+msgstr ""
+
+#: inc/woocommerce-support.php:282 inc/woocommerce-support.php:1157
+msgid "Date"
+msgstr ""
+
+#: inc/woocommerce-support.php:283
+msgid "Popularity"
+msgstr ""
+
+#: inc/woocommerce-support.php:284
+msgid "Rating"
+msgstr ""
+
+#: inc/woocommerce-support.php:289 inc/woocommerce-support.php:291
+#: inc/woocommerce-support.php:292 inc/woocommerce-support.php:293
+#: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:4
+#: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:10
+msgid "Show"
+msgstr ""
+
+#: inc/woocommerce-support.php:289
+msgid " Products"
+msgstr ""
+
+#: inc/woocommerce-support.php:291 inc/woocommerce-support.php:292
+#: inc/woocommerce-support.php:293
+msgid "Products"
+msgstr ""
+
+#: inc/woocommerce-support.php:470
+msgid "Show details"
+msgstr ""
+
+#: inc/woocommerce-support.php:1041 woocommerce/checkout/form-checkout.php:28
+#, php-format
+msgid "Hello, %s"
+msgstr ""
+
+#: inc/woocommerce-support.php:1156
+msgid "Order"
+msgstr ""
+
+#: inc/woocommerce-support.php:1158
+msgid "Status"
+msgstr ""
+
+#: inc/woocommerce-support.php:1159 woocommerce/cart/cart-totals.php:93
+msgid "Total"
+msgstr ""
+
+#: inc/woocommerce-support.php:1177
+msgid "Recent orders"
+msgstr ""
+
+#: inc/woocommerce-support.php:1227
+msgid "Pay"
+msgstr ""
+
+#: inc/woocommerce-support.php:1231
+msgid "View"
+msgstr ""
+
+#: inc/woocommerce-support.php:1235
+msgid "Cancel"
+msgstr ""
+
+#: inc/woocommerce-support.php:1290
+msgid "Available downloads"
+msgstr ""
+
+#: inc/woocommerce-support.php:1350 inc/woocommerce-support.php:1356
+msgid "Billing address"
+msgstr ""
+
+#: inc/woocommerce-support.php:1351
+msgid "Shipping address"
+msgstr ""
+
+#: inc/woocommerce-support.php:1362
+msgid "The following addresses will be used on the checkout page by default."
+msgstr ""
+
+#: inc/woocommerce-support.php:1397
+msgid "You have not set up this type of address yet."
+msgstr ""
+
+#: inc/woocommerce-support.php:1594
+msgid "is a required field."
+msgstr ""
+
+#: inc/woocommerce-support.php:1607
+msgid "Please enter a valid postcode/ZIP."
+msgstr ""
+
+#: inc/woocommerce-support.php:1616
+msgid "is not a valid phone number."
+msgstr ""
+
+#: inc/woocommerce-support.php:1623
+msgid "is not a valid email address."
+msgstr ""
+
+#: inc/woocommerce-support.php:1638
+msgid "Address changed successfully."
+msgstr ""
+
+#: inc/woocommerce-support.php:1791
+#, php-format
+msgid "Download file%s"
+msgstr ""
+
+#: inc/woocommerce-support.php:1856
+msgid "Note:"
+msgstr ""
+
+#: inc/woocommerce-support.php:1859
+msgid "Email:"
+msgstr ""
+
+#: inc/woocommerce-support.php:1862
+msgid "Telephone:"
+msgstr ""
+
+#: inc/woocommerce-support.php:1888 inc/woocommerce-support.php:1905
+msgid "N/A"
+msgstr ""
+
+#: inc/admin/customizer/customizer-options.php:428
+msgid "All"
+msgstr ""
+
+#: inc/admin/customizer/customizer-options.php:432
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:4
+msgid "Default"
+msgstr ""
+
+#: inc/admin/metaboxes/metaboxes.php:257
+msgid "Layout"
+msgstr ""
+
+#: inc/admin/metaboxes/metaboxes.php:258
+msgid "Page Title / Breadcrumbs / Page Title Bar"
+msgstr ""
+
+#: inc/admin/metaboxes/metaboxes.php:259
+msgid "Widgets"
+msgstr ""
+
+#: inc/admin/metaboxes/metaboxes.php:260
+msgid "Slider"
+msgstr ""
+
+#: inc/admin/metaboxes/metaboxes.php:261
+msgid "Sidebar"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-layout.php:5
+msgid "Sidebar Position"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-layout.php:18
+msgid "Full Width"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-layout.php:19
+#: inc/admin/metaboxes/page-tabs/tab-widget.php:4
+msgid "No"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-layout.php:20
+#: inc/admin/metaboxes/page-tabs/tab-widget.php:5
+msgid "Yes"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:3
+#, fuzzy
+msgid "Page Title"
+msgstr "Наслов:"
+
+#: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:5
+#: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:11
+msgid "Hide"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:9
+msgid "Page Breadcrumb"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:3
+msgid "Slider Position"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:5
+msgid "Below"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:6
+msgid "Above"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:7
+msgid ""
+"Select if the slider shows below or above the header. This only works for "
+"the slider assigned in page options, not with shortcodes."
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:10
+msgid "Slider Type"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:11
+msgid "No Slider"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:12
+msgid "Parallax Slider"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:13
+#, fuzzy
+msgid "Posts Slider"
+msgstr "Објави во категорија"
+
+#: inc/admin/metaboxes/page-tabs/tab-slider.php:14
+msgid "Bootstrap Slider"
+msgstr ""
+
+#: inc/admin/metaboxes/page-tabs/tab-widget.php:3
+msgid "Enable Header Widgets"
+msgstr ""
+
+#: template-parts/navigation/navigation.php:31
+msgid "Newer Entries"
+msgstr ""
+
+#: template-parts/navigation/navigation.php:32
+msgid "Older Entries"
+msgstr ""
+
+#: template-parts/post/content-none.php:9
+msgid "Nothing To Show Yet"
+msgstr ""
+
+#: template-parts/post/content-none.php:13
+msgid "Get started with your website"
+msgstr ""
+
+#: template-parts/post/content-none.php:15
+#, php-format
+msgid "<a href=\"%1$s\" class=\"btn btn-lg\">Publish your first post</a>."
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:38
+msgid "Reviews"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:57
+msgid "There are no reviews yet"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:70
+msgid "Add a review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:70
+#, php-format
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:77
+msgid "Submit"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:83
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:103
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:50 woocommerce/cart/cart-shipping.php:52
+msgid ""
+"There are no shipping methods available. Please ensure that your address has "
+"been entered correctly, or contact us if you need any help."
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:56
+msgid "Enter your full address to see shipping costs."
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:29
+msgid "Cart totals"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:34
+msgid "Subtotal"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:56
+msgid "Shipping"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:72
+#, php-format
+msgid "(estimated for %s)"
+msgstr ""
+
+#: woocommerce/cart/cart.php:125
+msgid "Remove this item"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:29
+msgid "Billing &amp; Shipping"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:33
+msgid "Billing details"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:64
+msgid "Create an account?"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:71
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:36
+msgid "Ship to a different address?"
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:70
+#: woocommerce/single-product/tabs/additional-information.php:25
+msgid "Additional information"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:41 woocommerce/checkout/thankyou.php:73
+msgid "Thank you. Your order has been received."
+msgstr ""
+
+#: woocommerce/global/quantity-input.php:29
+#, php-format
+msgid "%s quantity"
+msgstr ""
+
+#: woocommerce/loop/add-to-cart.php:28 woocommerce/loop/add-to-cart.php:52
+#: woocommerce/loop/add-to-cart.php:63
 msgid "Read more"
 msgstr "Прочитај повеќе"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/basic-functions.php:1054
-msgid ""
-"<h2 style=\"color:#fff;\">Oops, no posts to display! Please check your post "
-"slider Category (ID) settings</h2>"
+#: woocommerce/loop/add-to-cart.php:42
+#, fuzzy
+msgid "Select options"
+msgstr "повеќе опции"
+
+#: woocommerce/loop/add-to-cart.php:47
+#, fuzzy
+msgid "View options"
+msgstr "повеќе опции"
+
+#: woocommerce/loop/add-to-cart.php:58
+msgid "Add to cart"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/comments.php:33
-msgid "% Trackbacks"
+#: woocommerce/loop/no-products-found.php:26
+msgid "No products were found matching your selection"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/comments.php:35
-msgid "1 Trackback"
+#: woocommerce/single-product/tabs/description.php:15
+msgid "Product description"
 msgstr ""
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:70
-msgid "evolve Setting Import / Export"
-msgstr ""
+#~ msgid "Subject:"
+#~ msgstr "Предмет:"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:70
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:99
-msgid "evolve Backup"
-msgstr ""
+#~ msgid "Comments:"
+#~ msgstr "Коментари:"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:101
-msgid "Import Settings"
-msgstr ""
+#~ msgid "EDIT"
+#~ msgstr "УРЕДИ"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:102
-msgid ""
-"If you have settings in a backup file on your computer, the Import / Export "
-"system can import those into this site. To get started, upload your backup "
-"file to import from below."
-msgstr ""
+#~ msgid ""
+#~ "Please check if you've filled all the fields with valid information. "
+#~ "Thank you."
+#~ msgstr ""
+#~ "Провери дали се пополнети сите полиња со валидни информации. Благодарам."
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:107
-#, php-format
-msgid "Upload File: (Maximum Size: %s)"
-msgstr ""
+#~ msgid "Thank you"
+#~ msgstr "Ти благодарам"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:110
-msgid "Upload File and Import"
-msgstr ""
+#~ msgid "for using my contact form! Your email was successfully sent!"
+#~ msgstr "за користењето на формуларот. Твојата порака е успешно пратена!"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:115
-msgid "Export Settings"
-msgstr ""
+#~ msgid "Name (required)"
+#~ msgstr "Name (потребно)"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:116
-msgid ""
-"When you click the button below, the Import / Export system will create a "
-"text file for you to save to your computer."
-msgstr ""
+#~ msgid "Email (required)"
+#~ msgstr "Email (потребно)"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:117
-#, php-format
-msgid ""
-"This text file can be used to restore your settings here on \"%s\", or to "
-"easily setup another website with the same settings\"."
-msgstr ""
+#~ msgid "Subject"
+#~ msgstr "Предмет"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:121
-msgid "Download Export File"
-msgstr ""
+#~ msgid "Message"
+#~ msgstr "Порака"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:142
-msgid "Backup Manager"
-msgstr ""
+#~ msgid "Send Message"
+#~ msgstr "Прати порака"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:143
-msgid "Welcome to the evolve Backup Manager."
-msgstr ""
+#~ msgid "edit"
+#~ msgstr "уреди"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:144
-msgid "Here are a few notes on using this screen."
-msgstr ""
+#~ msgid "READ MORE"
+#~ msgstr "ПРОЧИТАЈ ПОВЕЌЕ"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:145
-msgid ""
-"The backup manager allows you to backup or restore your \"Theme Options\" "
-"and other settings to or from a text file."
-msgstr ""
+#~ msgid "READ MORE &raquo;"
+#~ msgstr "ПРОЧИТАЈ ПОВЕЌЕ &raquo;"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:146
-msgid ""
-"To create a backup, simply select the setting type you'd like to backup (or "
-"\"All Settings\") and hit the \"Download Export File\" button."
-msgstr ""
+#~ msgid "<strong>Pages:</strong>"
+#~ msgstr "<strong>Страни:</strong>"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:147
-msgid ""
-"To restore your settings from a backup, browse your computer for the file "
-"(under the \"Import Settings\" heading) and hit the \"Upload File and Import"
-"\" button. This will restore only the settings that have changed since the "
-"backup."
-msgstr ""
+#~ msgid "By"
+#~ msgstr "Од"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:148
-msgid ""
-"Please note that only valid backup files generated through the evolve Backup "
-"Manager should be imported."
-msgstr ""
+#~ msgid "Daily archives for"
+#~ msgstr "Дневни објави за"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:167
-#, php-format
-msgid ""
-"Please note that this backup manager backs up only your settings and not "
-"your content. To backup your content, please use the %sWordPress Export Tool"
-"%s."
-msgstr ""
+#~ msgid "Monthly archives for"
+#~ msgstr "Месечни објави за"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:170
-msgid "There was a problem importing your settings. Please Try again."
-msgstr ""
+#~ msgid "Posts tagged"
+#~ msgstr "Објави кои вклучуваат "
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:172
-msgid "There was a problem exporting your settings. Please Try again."
-msgstr ""
+#~ msgid "Your search for"
+#~ msgstr "Твоето пребарување за"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:174
-msgid "The import file you've provided is invalid. Please try again."
-msgstr ""
+#~ msgid "Untitled"
+#~ msgstr "Неименувано"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-backup.php:176
-#, php-format
-msgid "Settings successfully imported. | Return to %sTheme Options%s"
-msgstr ""
+#~ msgid "Categories"
+#~ msgstr "Категории"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-framework.php:317
-msgid ""
-"<div id=\"t4p-popup-reset\" class=\"t4p-save-popup\"><div class=\"t4p-save-"
-"reset\">Options Reset</div></div>"
-msgstr ""
+#~ msgid "All comments"
+#~ msgstr "Сите коментари"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-framework.php:358
-msgid ""
-"<div id=\"t4p-popup-save\" class=\"t4p-save-popup\"><div class=\"t4p-save-"
-"reset\">Options Updated</div></div>"
-msgstr ""
+#~ msgid "<div class=\"similar-posts\"><h5>Similar posts</h5><ul>"
+#~ msgstr "<div class=\"similar-posts\"><h5>Слични објави</h5><ul>"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-framework.php:416
-msgid "Theme Options"
-msgstr "Опции на Темата"
+#~ msgid "Share on Twitter"
+#~ msgstr "Сподели на Twitter"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-medialibrary-uploader.php:18
-msgid "Options Framework Internal Container"
-msgstr ""
+#~ msgid "Share on Facebook"
+#~ msgstr "Сподели на FaceBook"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-medialibrary-uploader.php:81
-msgid "Upload"
-msgstr ""
+#~ msgid "Share on Google Plus"
+#~ msgstr "Сподели на Google+"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-medialibrary-uploader.php:104
-msgid "View File"
-msgstr ""
+#~ msgid "Share by Email"
+#~ msgstr "Сподели по e-mail"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-medialibrary-uploader.php:241
-msgid "Gallery"
-msgstr "Галерија"
+#~ msgid "Theme Options"
+#~ msgstr "Опции на Темата"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/options-medialibrary-uploader.php:241
-msgid "Previously Uploaded"
-msgstr ""
+#~ msgid "Gallery"
+#~ msgstr "Галерија"
 
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/tabs-widget.php:129
-msgid "says"
-msgstr "вели"
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/widgets.php:27
-msgid ""
-"You are using one column layout. Please visit theme settings page and change "
-"layout to enable sidebar widgets. Widgets placed on this area won't be "
-"active."
-msgstr ""
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/widgets.php:231
-msgid "Insert your custom image slides"
-msgstr ""
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/widgets.php:233
-msgid "evolve: Carousel Slider"
-msgstr ""
-
-#: D:\xampp\htdocs\wordpress\wp-content\themes\evolve/inc/custom-functions/widgets.php:317
-msgid "Title:"
-msgstr "Наслов:"
+#~ msgid "says"
+#~ msgstr "вели"

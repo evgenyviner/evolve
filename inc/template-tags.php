@@ -827,7 +827,7 @@ if ( ! function_exists( 'evolve_posts_slider' ) ) {
 					$slider_content_ID = '';
 				}
 				$args = array(
-					'cat'                 => $slider_content_ID,
+					'category_name'       => $slider_content_ID,
 					'showposts'           => $number_items,
 					'post_status'         => 'publish',
 					'ignore_sticky_posts' => 1,
