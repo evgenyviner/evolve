@@ -1,6 +1,9 @@
 <?php
-function evolve_get_render_callback( $option_name ) {
 
+function evolve_get_render_callback( $value ) {
+	
+	$option_name = $value->id;
+	
 	/*
 		Header
 		======================================= */

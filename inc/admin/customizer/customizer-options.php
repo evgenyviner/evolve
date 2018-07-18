@@ -262,10 +262,7 @@ class evolve_Kirki {
 					$value_temp['partial_refresh'] = array(
 						$value['id'] => array(
 							'selector'        => $value['selector'],
-							'render_callback' =>
-								function ( $value ) {
-									return evolve_get_render_callback( $value->id );
-								}
+							'render_callback' => 'evolve_get_render_callback'
 						)
 					);
 				}
