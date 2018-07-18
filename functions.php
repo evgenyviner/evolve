@@ -277,14 +277,6 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 		// Dynamic CSS Definitions
 		require get_parent_theme_file_path( '/inc/dynamic-css.php' );
 
-		$header_type = evolve_theme_mod( 'evl_header_type', 'none' );
-
-		switch ( $header_type ) {
-			case "h1":
-				require get_parent_theme_file_path( '/assets/css/header2.css.min.php' );
-				break;
-		}
-
 		wp_add_inline_style( 'evolve-style', evolve_dynamic_css( $css_data ) );
 
 		// Main JS
@@ -334,7 +326,7 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 
 		// Back To Top Button (Scroll to Top)
 
-		if ( evolve_theme_mod( 'evl_pos_button', 'right' ) !== "disable" && ! empty( evolve_theme_mod( 'evl_pos_button', 'right' ) ) ) {
+		if ( evolve_theme_mod( 'evl_pos_button', 'right' ) !== "disable" && '' != evolve_theme_mod( 'evl_pos_button', 'right' ) ) {
 			$local_variables['scroll_to_top'] = true;
 		}
 

@@ -15,7 +15,7 @@ $evolve_post_layout = evolve_theme_mod( 'evl_post_layout', 'two' );
                             class="fn"><?php the_author_posts_link(); ?></span></span>
                 <div class="post-content">
 					<?php the_content();
-					evolve_link_pages();
+					evolve_wp_link_pages();
 					?>
                 </div>
             </div>

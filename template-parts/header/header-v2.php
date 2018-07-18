@@ -1,272 +1,80 @@
-<?php
+<div class="header-v2 header-wrapper">
+    <div class="top-bar py-2">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 col-sm-12">
+					<?php if ( evolve_theme_mod( 'evl_social_links', 0 ) ) {
+						evolve_social_media_links();
+					} ?>
+                </div>
+                <div class="col-md-6 col-sm-12">
 
-$evolve_social_links                   = evolve_theme_mod( 'evl_social_links', 0 );
-$evolve_responsive_menu_layout         = evolve_theme_mod( 'evl_responsive_menu_layout', 'basic' );
-$evolve_woocommerce_cart_link_main_nav = evolve_theme_mod( 'evl_woocommerce_cart_link_main_nav', '0' );
-$evolve_woocommerce_acc_link_main_nav  = evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', '0' );
-$evolve_width_layout                   = evolve_theme_mod( 'evl_width_layout', 'fixed' );
-$evolve_header_logo                    = evolve_theme_mod( 'evl_header_logo', '' );
-$evolve_tagline_pos                    = evolve_theme_mod( 'evl_tagline_pos', 'disable' );
-$evolve_blog_title                     = evolve_theme_mod( 'evl_blog_title', '0' );
-$evolve_main_menu                      = evolve_theme_mod( 'evl_main_menu', '0' );
-$evolve_searchbox                      = evolve_theme_mod( 'evl_searchbox', '1' );
-$evolve_sticky_header                  = evolve_theme_mod( 'evl_sticky_header', '1' );
+					<?php if ( class_exists( 'Woocommerce' ) ) {
+						evolve_woocommerce_menu();
+					} ?>
 
-?>
-
-<div class="new-top-menu">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 col-sm-12">
-				<?php
-				if ( $evolve_social_links == "1" ) {
-					?>
-                    <div class="top-menu-social-container">
-                        <!--BEGIN #subscribe-follow-->
-                        <div class="top-menu-social">
-							<?php evolve_social_media_links(); ?>
-                        </div>
-                    </div>
-                    <!--END #subscribe-follow-->
-				<?php } ?>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <!--BEGIN #Woocommerce-->
-				<?php
-
-				if ( class_exists( 'Woocommerce' ) && ( $evolve_woocommerce_acc_link_main_nav || $evolve_woocommerce_cart_link_main_nav ) ) {
-					global $woocommerce;
-					?>
-                    <div class="woocommerce-menu-holder">
-                        <ul class="woocommerce-menu">
-							<?php if ( $evolve_woocommerce_cart_link_main_nav ): ?>
-                                <li class="cart">
-									<?php if ( ! $woocommerce->cart->cart_contents_count ): ?>
-                                        <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
-											<?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
-                                        </a>
-                                        <div class="cart-contents">
-                                            <div class="cart-content" style="width:180px!important;">
-                                                <strong style="padding:7px 10px;line-height:35px;">
-													<?php esc_html_e( 'Your cart is currently empty.', 'evolve' ); ?>
-                                                </strong>
-                                            </div>
-                                        </div>
-
-									<?php else: ?>
-                                        <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>">
-											<?php echo wc_price( $woocommerce->cart->cart_contents_total ); ?>
-                                        </a>
-                                        <div class="cart-contents">
-											<?php
-											foreach ( $woocommerce->cart->cart_contents as $cart_item ): //var_dump($cart_item);
-												$cart_item_key = $cart_item['key'];
-												$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-												?>
-                                                <div class="cart-content">
-                                                    <a href="<?php echo get_permalink( $cart_item['product_id'] ); ?>">
-														<?php
-														$evolve_thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
-														echo $evolve_thumbnail;
-														?>
-                                                        <div class="cart-desc">
-                                                            <span class="cart-title"><?php echo $cart_item['data']->get_name(); ?></span>
-                                                            <span class="product-quantity">
-                                                                <?php echo $cart_item['quantity']; ?>
-                                                                x <?php echo $woocommerce->cart->get_product_subtotal( $cart_item['data'], $cart_item['quantity'] ); ?>
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-											<?php endforeach; ?>
-                                            <div class="cart-checkout">
-                                                <div class="cart-link">
-                                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"><?php esc_html_e( 'View Cart', 'evolve' ); ?></a>
-                                                </div>
-                                                <div class="checkout-link">
-                                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_checkout_page_id' ) ); ?>"><?php esc_html_e( 'Checkout', 'evolve' ); ?></a>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.cart-contents -->
-									<?php endif; //if(!$woocommerce->cart->cart_contents_count):      ?>
-                                </li><!-- /li.cart -->
-							<?php
-							endif;
-
-							if ( $evolve_woocommerce_acc_link_main_nav ):
-								?>
-                                <li class="my-account">
-                                    <a href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>"
-                                       class="">
-                                        <i class="t4p-icon-user"></i>
-										<?php esc_html_e( 'My Account', 'evolve' ); ?></a>
-									<?php if ( ! is_user_logged_in() ): ?>
-                                        <div class="login-box">
-                                            <form action="<?php echo wp_login_url(); ?>" name="loginform" method="post">
-                                                <p>
-                                                    <input type="text" class="input-text" name="log" id="username"
-                                                           value=""
-                                                           placeholder="<?php echo esc_html__( 'Username', 'evolve' ); ?>"/>
-                                                </p>
-                                                <p>
-                                                    <input type="password" class="input-text" name="pwd" id="pasword"
-                                                           value=""
-                                                           placeholder="<?php echo esc_html__( 'Password', 'evolve' ); ?>"/>
-                                                </p>
-                                                <p class="forgetmenot">
-                                                    <label for="rememberme"><input name="rememberme" type="checkbox"
-                                                                                   id="rememberme"
-                                                                                   value="forever"> <?php esc_html_e( 'Remember Me', 'evolve' ); ?>
-                                                    </label>
-                                                </p>
-                                                <p class="submit">
-                                                    <input type="submit" name="wp-submit" id="wp-submit"
-                                                           class="btn btn-sm"
-                                                           value="<?php esc_html_e( 'Log In', 'evolve' ); ?>">
-                                                    <input type="hidden" name="redirect_to"
-                                                           value="<?php if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
-														       echo $_SERVER['HTTP_REFERER'];
-													       } ?>">
-                                                    <input type="hidden" name="testcookie" value="1">
-                                                </p>
-                                                <div class="clear"></div>
-                                            </form>
-                                        </div>
-									<?php else: ?>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="<?php echo wp_logout_url( get_permalink() ); ?>"><?php esc_html_e( 'Logout', 'evolve' ); ?></a>
-                                            </li>
-                                        </ul>
-									<?php endif; ?>
-                                </li><!-- /li.my-account -->
-							<?php endif; ?>
-                        </ul><!-- /ul.woocommerce-menu -->
-                    </div><!-- /span .woocommerce-menu-holder -->
-				<?php } ?>
-                <!--END #Woocommerce-->
-            </div>
-        </div>
-    </div>
-</div>
-<div class="clearfix"></div>
-
-<div class="header-pattern">
-    <div class="menu-header-sticky">
-        <div class="header-border<?php
-		if ( get_header_image() ) {
-			echo ' custom-header';
-		}
-		?>">
-            <div class="header-bg"></div>
-            <!--BEGIN .header-->
-            <div class="header">
-                <div class="container nacked-menu container-menu">
-                    <div class="row align-items-center">
-                        <div class="col">
-							<?php
-
-							if ( $evolve_header_logo ) {
-								echo "<div class='header-logo-container clearfix'><a href=" . home_url() . "><img class='img-responsive' alt='" . get_bloginfo( 'name' ) . "' src=" . $evolve_header_logo . " /></a></div>";
-							}
-
-							$evolve_tagline = '<span id="tagline">' . get_bloginfo( 'description' ) . '</span>';
-
-							if ( $evolve_blog_title == "0" || ! $evolve_blog_title ) {
-								if ( is_front_page() ) :
-									?>
-                                    <h1 id="website-title"><a
-                                                href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
-                                    </h1>
-								<?php else : ?>
-                                    <h4 id="website-title"><a
-                                                href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
-                                    </h4>
-								<?php
-								endif;
-							} else {
-
-							}
-							if ( ( $evolve_tagline_pos !== "disable" ) ) {
-								echo $evolve_tagline;
-							}
-							?>
-                        </div>
-                        <div class="headerbar col-md-6">
-                            <!--BEGIN .container-menu-->
-                            <div class="container-menu">
-								<?php
-								if ( $evolve_main_menu == "1" ) {
-									?>
-
-								<?php } else { ?>
-                                    <div class="p-menu-stick">
-
-										<?php
-										if ( has_nav_menu( 'primary-menu' ) ) {
-											echo '<nav class="nav nav-holder link-effect">';
-											wp_nav_menu( array(
-												'theme_location' => 'primary-menu',
-												'menu_class'     => 'nav-menu',
-												'fallback_cb'    => 'wp_page_menu',
-												'walker'         => new evolve_custom_menu_walker()
-											) );
-
-											if ( $evolve_responsive_menu_layout == 'dropdown' ) {
-												wp_nav_menu( array(
-													'theme_location'  => 'primary-menu',
-													'container_class' => 'evolve_mobile_menu',
-													'menu_class'      => 'nav-menu'
-												) );
-											}
-										} else {
-										?>
-                                        <nav class="nav nav-holder">
-											<?php
-											wp_nav_menu( array(
-												'theme_location' => 'primary-menu',
-												'menu_class'     => 'nav-menu'
-											) );
-											}
-											?>
-                                        </nav>
-                                    </div><!-- /.primary-menu -->
-								<?php } ?>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-						<?php
-
-						if ( $evolve_searchbox == "1" ) {
-							?>
-                            <div class="col-md-3">
-                                <!--BEGIN #searchform-->
-                                <form action="<?php echo home_url(); ?>" method="get" class="searchform">
-                                    <div id="search-text-box">
-                                        <label class="searchfield" id="search_label_top" for="search-text-top"><input
-                                                    id="search-text-top" type="text" tabindex="1" name="s"
-                                                    class="search"
-                                                    placeholder="<?php esc_html_e( 'Type your search', 'evolve' ); ?>"/><span
-                                                    class="srch-btn"></span></label>
-                                    </div>
-                                </form>
-                            </div>
-						<?php } ?>
-                        <div class="menu-header">
-							<?php
-
-							if ( $evolve_sticky_header == "1" ) {
-								// sticky header
-								get_template_part( 'template-parts/sticky-header' );
-							}
-							?>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <div class="clearfix"></div>
-            <!--END .header-->
         </div>
-        <!--END .header-border-->
     </div>
-</div>
+    <div class="header-pattern">
+
+		<?php if ( get_header_image() ) {
+			echo '<div class="custom-header">';
+		} ?>
+
+        <div class="header container">
+            <div class="row align-items-center">
+
+				<?php if ( '' == evolve_theme_mod( 'evl_blog_title', '0' ) || evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== 'disable' ) { ?>
+                <div class="col-md-6 col-lg-auto">
+					<?php } ?>
+
+					<?php if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" ) {
+						evolve_header_logo();
+					}
+
+					get_template_part( 'template-parts/header/header', 'tagline-above' );
+
+					if ( '' == evolve_theme_mod( 'evl_blog_title', '0' ) ) {
+						get_template_part( 'template-parts/header/header', 'website-title' );
+					}
+
+					get_template_part( 'template-parts/header/header', 'tagline-next-under' ); ?>
+
+					<?php if ( '' == evolve_theme_mod( 'evl_blog_title', '0' ) || evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== 'disable' ) { ?>
+                </div>
+			<?php } ?>
+
+				<?php if ( evolve_theme_mod( 'evl_main_menu', false ) !== true ) {
+					if ( has_nav_menu( 'primary-menu' ) ) {
+						echo '<nav class="navbar navbar-expand-md mt-3 mt-md-0 order-3 col-sm-11 col-md-8 col-lg-6">
+                                <div class="navbar-toggler" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
+                                    ' . evolve_get_svg( 'menu' ) . '
+                                    </div>
+                                <div id="primary-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
+						wp_nav_menu( array(
+							'theme_location' => 'primary-menu',
+							'depth'          => 10,
+							'container'      => false,
+							'menu_class'     => 'navbar-nav mr-auto',
+							'fallback_cb'    => 'evolve_custom_menu_walker::fallback',
+							'walker'         => new evolve_custom_menu_walker()
+						) );
+						echo '</div></nav>';
+					}
+				} ?>
+
+				<?php if ( evolve_theme_mod( 'evl_searchbox', true ) ) {
+					evolve_header_search( '2' );
+				} ?>
+
+            </div><!-- .row .align-items-center -->
+        </div><!-- .header .container -->
+
+		<?php if ( get_header_image() ) {
+			echo '</div><!-- .custom-header -->';
+		} ?>
+
+    </div><!-- .header-pattern -->
+</div><!-- .header-v2 -->

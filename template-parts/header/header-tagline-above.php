@@ -17,7 +17,7 @@ if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== "disable" && evolve_th
 	echo $evolve_title_tagline_class_1;
 }
 
-if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' ) {
+if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) != "disable" ) {
 	if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "center" ) {
 		$evolve_helper_tagline_class_1 = '<div class="col-12 order-3">';
 	}

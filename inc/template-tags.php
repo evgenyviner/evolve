@@ -64,6 +64,9 @@ if ( ! function_exists( 'evolve_header_search' ) ) {
 			case '1':
 				$class = ' col-sm-1 ml-md-auto';
 				break;
+			case '2':
+				$class = ' col-sm-1 col-md-3 ml-md-auto mt-3 mt-md-0 order-4';
+				break;
 			case 'sticky':
 				$class = ' col-1 ml-auto';
 				break;
@@ -95,34 +98,39 @@ if ( ! function_exists( 'evolve_sticky_header' ) ) {
 	function evolve_sticky_header() { ?>
 
         <div class="sticky-header">
-
-			<?php
-			$pos_logo   = evolve_theme_mod( 'evl_pos_logo', 'left' );
-			$blog_title = evolve_theme_mod( 'evl_blog_title', '0' );
-			?>
-
-            <div class="container container-menu">
+            <div class="container">
                 <div class="row align-items-center">
 
-					<?php if ( $pos_logo == "disable" ) {
+					<?php if ( '' == evolve_theme_mod( 'evl_blog_title', '0' ) || evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== 'disable' ) { ?>
+                    <div class="col-md-2">
+                        <div class="row">
+							<?php } ?>
 
-					} else {
+							<?php if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
 
-						if ( evolve_theme_mod( 'evl_header_logo', '' ) ) {
-							echo "<div class='" . ( ( evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) ? 'col-2' : 'col-1' ) . "'><a href=" . home_url() . "><img src=" . evolve_theme_mod( 'evl_header_logo', '' ) . "  alt=" . get_bloginfo( 'name' ) . "/></a></div>";
-						}
-					}
+							} else {
 
-					if ( $blog_title == "0" ) { ?>
+								if ( evolve_theme_mod( 'evl_header_logo', '' ) ) {
+									echo "<div class='" . ( ( evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) ? 'col' : 'col-6' ) . "'><a href=" . home_url() . "><img src=" . evolve_theme_mod( 'evl_header_logo', '' ) . "  alt=" . get_bloginfo( 'name' ) . "/></a></div>";
+								}
+							}
 
-                        <div class="col-2">
-                            <a id="sticky-title" href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
+							if ( evolve_theme_mod( 'evl_blog_title', '0' ) == "0" ) { ?>
+
+                                <div class="<?php echo( '' != ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" ) ? 'col-6' : 'col' ) ?>">
+                                    <a id="sticky-title"
+                                       href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
+                                </div>
+
+							<?php } ?>
+
+							<?php if ( '' == evolve_theme_mod( 'evl_blog_title', '0' ) || evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== 'disable' ) { ?>
                         </div>
-
-					<?php } ?>
+                    </div>
+				<?php } ?>
 
 					<?php if ( has_nav_menu( 'sticky_navigation' ) ) {
-						echo '<nav class="navbar navbar-expand-md col-' . ( ( $pos_logo == 'disable' || '' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) ? "9" : "8" ) . '">
+						echo '<nav class="navbar navbar-expand-md col-9">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#sticky-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon-svg"></span>
                                 </div><div id="sticky-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
@@ -136,7 +144,7 @@ if ( ! function_exists( 'evolve_sticky_header' ) ) {
 						) );
 						echo '</div></nav>';
 					} elseif ( has_nav_menu( 'primary-menu' ) ) {
-						echo '<nav class="navbar navbar-expand-md col-' . ( ( $pos_logo == 'disable' || '' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) ? "9" : "8" ) . '">
+						echo '<nav class="navbar navbar-expand-md col-9">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#sticky-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon-svg"></span>
                                 </div><div id="sticky-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
@@ -548,40 +556,67 @@ if ( ! function_exists( 'evolve_number_pagination' ) ) {
    -- Custom Post Pagination
    --------------------------------------- */
 
-if ( ! function_exists( 'evolve_link_pages' ) ) {
-	function evolve_link_pages( $args = array() ) {
+if ( ! function_exists( 'evolve_wp_link_pages' ) ) {
+	function evolve_wp_link_pages( $args = '' ) {
+		global $page, $numpages, $multipage, $more;
 		$defaults = array(
-			'before'           => '<nav aria-label="navigation" class="navigation"><ul class="pagination number-pagination"><li class="page-item disabled"><span class="page-link">' . __( 'Pages:', 'evolve' ) . '</span></li>',
-			'after'            => '</ul></nav>',
-			'before_link'      => '<li class="page-item">',
-			'after_link'       => '</li>',
-			'current_before'   => '<li class="page-item">',
-			'current_after'    => '</li>',
-			'nextpagelink'     => __( 'Next', 'evolve' ),
-			'previouspagelink' => __( 'Previous', 'evolve' ),
-			'link_before'      => '',
-			'link_after'       => '',
-			'pagelink'         => '%',
-			'echo'             => 1
+			'before'             => '<nav aria-label="navigation" class="navigation"><ul class="pagination number-pagination"><li class="page-item disabled"><span class="page-link">' . __( 'Pages:', 'evolve' ) . '</span></li>',
+			'after'              => '</ul></nav>',
+			'link_before'        => '',
+			'link_after'         => '',
+			'item_before'        => '<li class="page-item">',
+			'item_after'         => '</li>',
+			'item_before_active' => '<li class="page-item"><span aria-current="page" class="page-link current">',
+			'item_after_active'  => '</span></li>',
+			'nextpagelink'       => __( 'Next', 'evolve' ),
+			'previouspagelink'   => __( 'Previous', 'evolve' ),
+			'next_or_number'     => 'number',
+			'separator'          => ' ',
+			'pagelink'           => '%',
+			'echo'               => 1
 		);
-		$r        = wp_parse_args( $args, $defaults );
-		$r        = apply_filters( 'wp_link_pages_args', $r );
-		extract( $r, EXTR_SKIP );
-		global $page, $numpages, $multipage, $more, $pagenow;
-		if ( ! $multipage ) {
-			return;
-		}
-		$output = $before;
-		for ( $i = 1; $i < ( $numpages + 1 ); $i ++ ) {
-			$j      = str_replace( '%', $i, $pagelink );
-			$output .= ' ';
-			if ( $i != $page || ( ! $more && 1 == $page ) ) {
-				$output .= "{$before_link}" . _wp_link_page( $i ) . "{$link_before}{$j}{$link_after}</a>{$after_link}";
-			} else {
-				$output .= "{$current_before}{$link_before}<span aria-current='page' class='page-link current'>{$j}</span>{$link_after}{$current_after}";
+		$params   = wp_parse_args( $args, $defaults );
+		$r        = apply_filters( 'wp_link_pages_args', $params );
+		$output   = '';
+		if ( $multipage ) {
+			if ( 'number' == $r['next_or_number'] ) {
+				$output .= $r['before'];
+				for ( $i = 1; $i <= $numpages; $i ++ ) {
+					$link = $r['link_before'] . str_replace( '%', $i, $r['pagelink'] ) . $r['link_after'];
+					if ( $i != $page || ! $more && 1 == $page ) {
+						$link = $r['item_before'] . _wp_link_page( $i ) . $link . '</a>' . $r['item_after'];
+					} else {
+						$link = $r['item_before_active'] . $link . $r['item_after_active'];
+					}
+					$link   = apply_filters( 'wp_link_pages_link', $link, $i );
+					$output .= ( 1 === $i ) ? ' ' : $r['separator'];
+					$output .= $link;
+				}
+				$output .= $r['after'];
+			} elseif ( $more ) {
+				$output .= $r['before'];
+				$prev   = $page - 1;
+				if ( $prev > 0 ) {
+					$link   = _wp_link_page( $prev ) . $r['link_before'] . $r['previouspagelink'] . $r['link_after'] . '</a>';
+					$output .= apply_filters( 'wp_link_pages_link', $link, $prev );
+				}
+				$next = $page + 1;
+				if ( $next <= $numpages ) {
+					if ( $prev ) {
+						$output .= $r['separator'];
+					}
+					$link   = _wp_link_page( $next ) . $r['link_before'] . $r['nextpagelink'] . $r['link_after'] . '</a>';
+					$output .= apply_filters( 'wp_link_pages_link', $link, $next );
+				}
+				$output .= $r['after'];
 			}
 		}
-		print $output . $after;
+		$html = apply_filters( 'wp_link_pages', $output, $args );
+		if ( $r['echo'] ) {
+			echo $html;
+		}
+
+		return $html;
 	}
 }
 
@@ -592,7 +627,7 @@ if ( ! function_exists( 'evolve_link_pages' ) ) {
 if ( ! function_exists( 'evolve_breadcrumbs' ) ) {
 	function evolve_breadcrumbs() {
 
-		global $post, $page;
+		global $post;
 
 		if ( ( class_exists( 'bbPress' ) && is_bbpress() ) || evolve_theme_mod( 'evl_breadcrumbs', '1' ) != "1" || ( is_front_page() && is_page() ) || is_home() || ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) ) {
 			return;
@@ -629,13 +664,13 @@ if ( ! function_exists( 'evolve_breadcrumbs' ) ) {
 			$parents   = array();
 			$parent_id = $post->post_parent;
 			while ( $parent_id ) :
-				$page = get_page( $parent_id );
+				$page_ID = get_post( $parent_id );
 				if ( $params["link_none"] ) {
-					$parents[] = get_the_title( $page->ID );
+					$parents[] = get_the_title( $page_ID->ID );
 				} else {
-					$parents[] = '<li class="breadcrumb-item"><a href="' . get_permalink( $page->ID ) . '" title="' . get_the_title( $page->ID ) . '">' . get_the_title( $page->ID ) . '</a></li>' . $separator;
+					$parents[] = '<li class="breadcrumb-item"><a href="' . get_permalink( $page_ID->ID ) . '" title="' . get_the_title( $page_ID->ID ) . '">' . get_the_title( $page_ID->ID ) . '</a></li>' . $separator;
 				}
-				$parent_id = $page->post_parent;
+				$parent_id = $page_ID->post_parent;
 			endwhile;
 			$parents = array_reverse( $parents );
 			echo join( ' ', $parents );
@@ -735,11 +770,11 @@ if ( ! function_exists( 'evolve_bootstrap' ) ) {
 			if ( $slides > 1 ) {
 				echo "<a class='carousel-control-prev' href='#bootstrap-slider' role='button' data-slide='prev'>
                     <span class='carousel-control-button carousel-control-prev-icon' aria-hidden='true'></span>
-                    <span class='sr-only'>" . __( 'Previous', 'evolve' ) . "</span>
+                    <span class='screen-reader-text sr-only'>" . __( 'Previous', 'evolve' ) . "</span>
                 </a>
                 <a class='carousel-control-next' href='#bootstrap-slider' role='button' data-slide='next'>
                 <span class='carousel-control-button carousel-control-next-icon' aria-hidden='true'></span>
-                <span class='sr-only'>" . __( 'Next', 'evolve' ) . "</span>
+                <span class='screen-reader-text sr-only'>" . __( 'Next', 'evolve' ) . "</span>
                 </a>";
 			}
 
@@ -787,11 +822,11 @@ if ( ! function_exists( 'evolve_parallax' ) ) {
 			if ( $slides > 1 ) {
 				echo "<a class='carousel-control-prev' href='#parallax-slider' role='button' data-slide='prev'>
                     <span class='carousel-control-button carousel-control-prev-icon' aria-hidden='true'></span>
-                    <span class='sr-only'>" . __( 'Previous', 'evolve' ) . "</span>
+                    <span class='screen-reader-text sr-only'>" . __( 'Previous', 'evolve' ) . "</span>
                 </a>
                 <a class='carousel-control-next' href='#parallax-slider' role='button' data-slide='next'>
                 <span class='carousel-control-button carousel-control-next-icon' aria-hidden='true'></span>
-                <span class='sr-only'>" . __( 'Next', 'evolve' ) . "</span>
+                <span class='screen-reader-text sr-only'>" . __( 'Next', 'evolve' ) . "</span>
                 </a>";
 			}
 
@@ -895,11 +930,11 @@ if ( ! function_exists( 'evolve_posts_slider' ) ) {
 			<?php if ( $slides > 1 ) {
 				echo "<a class='carousel-control-prev' href='#posts-slider' role='button' data-slide='prev'>
 	              <span class='carousel-control-button carousel-control-prev-icon' aria-hidden='true'></span>
-                    <span class='sr-only'> " . __( 'Previous', 'evolve' ) . "</span>
+                    <span class='screen-reader-text sr-only'> " . __( 'Previous', 'evolve' ) . "</span>
                 </a>
                 <a class='carousel-control-next' href='#posts-slider' role='button' data-slide='next'>
                 <span class='carousel-control-button carousel-control-next-icon' aria-hidden='true'></span>
-                <span class='sr-only'>" . __( 'Next', 'evolve' ) . "</span>
+                <span class='screen-reader-text sr-only'>" . __( 'Next', 'evolve' ) . "</span>
                 </a>";
 			} ?>
 
@@ -927,9 +962,19 @@ if ( ! function_exists( 'evolve_social_media_links' ) ) {
 		$linkedin   = evolve_theme_mod( 'evl_linkedin', '' );
 		$pinterest  = evolve_theme_mod( 'evl_pinterest', '' );
 		$tumblr     = evolve_theme_mod( 'evl_tumblr', '' );
-		?>
 
-        <ul class="social-media-links ml-md-3 float-md-right">
+		switch ( evolve_theme_mod( 'evl_header_type', 'none' ) ) {
+			case "none":
+				$social_float = 'right';
+				$social_m     = 'ml';
+				break;
+			case "h1":
+				$social_float = 'left';
+				$social_m     = 'mr';
+				break;
+		} ?>
+
+        <ul class="social-media-links <?php echo $social_m; ?>-md-3 float-md-<?php echo $social_float; ?>">
 
 			<?php if ( ! empty( $rss_feed ) ) { ?>
 

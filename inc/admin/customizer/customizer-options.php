@@ -842,7 +842,7 @@ if ( true || is_customize_preview() ) {
 				array(
 					'id'              => 'evl_content_box1_button',
 					'title'           => esc_attr__( 'Content Box 1 Button', 'evolve' ),
-					'subtitle'        => sprintf( esc_attr__( 'Default: %s<a class="btn btn-sm" href="#">Learn more</a>%s', 'evolve' ), '<code>', '</code>' ),
+					'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn btn-sm" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
 					'type'            => 'textarea',
 					'selector'        => '.content-box.content-box-1 .card-footer',
 					'render_callback' => 'evl_content_box1_button',
@@ -923,7 +923,7 @@ if ( true || is_customize_preview() ) {
 				array(
 					'id'              => 'evl_content_box2_button',
 					'title'           => esc_attr__( 'Content Box 2 Button', 'evolve' ),
-					'subtitle'        => sprintf( esc_attr__( 'Default: %s<a class="btn btn-sm" href="#">Learn more</a>%s', 'evolve' ), '<code>', '</code>' ),
+					'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn btn-sm" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
 					'type'            => 'textarea',
 					'selector'        => '.content-box.content-box-2 .card-footer',
 					'render_callback' => 'evl_content_box2_button',
@@ -1004,7 +1004,7 @@ if ( true || is_customize_preview() ) {
 				array(
 					'id'              => 'evl_content_box3_button',
 					'title'           => esc_attr__( 'Content Box 3 Button', 'evolve' ),
-					'subtitle'        => sprintf( esc_attr__( 'Default: %s<a class="btn btn-sm" href="#">Learn more</a>%s', 'evolve' ), '<code>', '</code>' ),
+					'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn btn-sm" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
 					'type'            => 'textarea',
 					'selector'        => '.content-box.content-box-3 .card-footer',
 					'render_callback' => 'evl_content_box3_button',
@@ -1085,7 +1085,7 @@ if ( true || is_customize_preview() ) {
 				array(
 					'id'              => 'evl_content_box4_button',
 					'title'           => esc_attr__( 'Content Box 4 Button', 'evolve' ),
-					'subtitle'        => sprintf( esc_attr__( 'Default: %s<a class="btn btn-sm" href="#">Learn more</a>%s', 'evolve' ), '<code>', '</code>' ),
+					'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn btn-sm" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
 					'type'            => 'textarea',
 					'selector'        => '.content-box.content-box-4 .card-footer',
 					'render_callback' => 'evl_content_box4_button',
@@ -2220,7 +2220,7 @@ if ( true || is_customize_preview() ) {
 					'on'              => esc_attr__( 'Enabled', 'evolve' ),
 					'off'             => esc_attr__( 'Disabled', 'evolve' ),
 					'default'         => 1,
-					'selector'        => '.menu-header .header-search',
+					'selector'        => '.header-wrapper .header-search',
 					'render_callback' => 'evl_searchbox'
 				),
 				array(
@@ -2242,8 +2242,8 @@ if ( true || is_customize_preview() ) {
 					'type'     => 'image_select',
 					'compiler' => true,
 					'options'  => array(
-						'none' => $evolve_imagepathfolder . '/header/h0.png',
-						'h1'   => $evolve_imagepathfolder . '/header/h1.png'
+						'none' => $evolve_imagepath . 'h0.jpg',
+						'h1'   => $evolve_imagepath . 'h1.jpg'
 					),
 					'default'  => 'none'
 				)
@@ -2490,7 +2490,7 @@ if ( true || is_customize_preview() ) {
 				array(
 					'id'              => 'evl_footer_content',
 					'title'           => esc_attr__( 'Custom Footer', 'evolve' ),
-					'subtitle'        => sprintf( esc_attr__( 'Available %sHTML%s tags and attributes: %s Default: %s<div id="copyright"><a href="%s">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a></div>%s', 'evolve' ), '<strong>', '</strong>', '<br /><br /> <code> &lt;b&gt; &lt;i&gt; &lt;a href="" title=""&gt; &lt;blockquote&gt; &lt;del datetime=""&gt; <br /> &lt;ins datetime=""&gt; &lt;img src="" alt="" /&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; <br /> &lt;code&gt; &lt;em&gt; &lt;strong&gt; &lt;div&gt; &lt;span&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt; <br /> &lt;table&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt; &lt;br /&gt; &lt;hr /&gt;</code><br /><br />', '<code>', $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/', '</code>' ),
+					'subtitle'        => sprintf( esc_attr__( 'Available %1$sHTML%2$s tags and attributes: %3$s Default: %4$s<div id="copyright"><a href="%5$s">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a></div>%6$s', 'evolve' ), '<strong>', '</strong>', '<br /><br /> <code> &lt;b&gt; &lt;i&gt; &lt;a href="" title=""&gt; &lt;blockquote&gt; &lt;del datetime=""&gt; <br /> &lt;ins datetime=""&gt; &lt;img src="" alt="" /&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; <br /> &lt;code&gt; &lt;em&gt; &lt;strong&gt; &lt;div&gt; &lt;span&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt; <br /> &lt;table&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt; &lt;br /&gt; &lt;hr /&gt;</code><br /><br />', '<code>', $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/', '</code>' ),
 					'type'            => 'textarea',
 					'default'         => '<div id="copyright">' . sprintf( esc_attr__( '<a href="%s">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a>', 'evolve' ), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/' ) . '</div>',
 					'selector'        => '.custom-footer',
@@ -2627,26 +2627,6 @@ if ( true || is_customize_preview() ) {
 					'js_vars'     => array(
 						array(
 							'element' => '.navbar-nav .nav-link, .navbar-nav .dropdown-item, .menu-header, .sticky-header, .navbar-toggler'
-						)
-					)
-				),
-				array(
-					'id'          => 'evl_top_menu_font',
-					'title'       => esc_attr__( 'Top Menu Font', 'evolve' ),
-					'subtitle'    => esc_attr__( 'Select the typography you want for your Top Menu', 'evolve' ),
-					'type'        => 'typography',
-					'text-align'  => false,
-					'line-height' => false,
-					'default'     => array(
-						'font-size'   => '.75rem',
-						'color'       => '#c1c1c1',
-						'font-family' => 'Roboto',
-						'font-weight' => '300'
-					),
-					'transport'   => 'postMessage',
-					'js_vars'     => array(
-						array(
-							'element' => '.new-top-menu ul.nav-menu a, .top-menu, .header .woocommerce-menu .dropdown-menu'
 						)
 					)
 				)
@@ -3337,8 +3317,8 @@ if ( true || is_customize_preview() ) {
 				),
 				array(
 					'id'       => 'evl_top_menu_back',
-					'title'    => esc_attr__( 'Top Menu Color', 'evolve' ),
-					'subtitle' => esc_attr__( 'Background color of Top Menu for Header #2', 'evolve' ),
+					'title'    => esc_attr__( 'Top Bar Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Background color of Top Bar for Header #2', 'evolve' ),
 					'type'     => 'color',
 					'compiler' => true,
 					'default'  => '#273039'
@@ -3661,7 +3641,7 @@ if ( true || is_customize_preview() ) {
 						'Round'  => esc_attr__( 'Round', 'evolve' ),
 						'Pill'   => esc_attr__( 'Pill', 'evolve' )
 					),
-					'default'  => 'Round'
+					'default'  => 'Pill'
 				),
 				array(
 					'id'       => 'evl_shortcode_button_type',
@@ -4023,7 +4003,7 @@ if ( true || is_customize_preview() ) {
 				array(
 					'id'       => 'evl_nav_links',
 					'title'    => esc_attr__( 'Position of Navigation Links', 'evolve' ),
-					'subtitle' => sprintf( esc_attr__( 'Choose the position of the %sOlder/Newer Posts%s links', 'evolve' ), '<strong>', '</strong>' ),
+					'subtitle' => sprintf( esc_attr__( 'Choose the position of the %1$sOlder/Newer Posts%2$s links', 'evolve' ), '<strong>', '</strong>' ),
 					'type'     => 'select',
 					'options'  => array(
 						'after'  => esc_attr__( 'After Posts', 'evolve' ),
@@ -4083,7 +4063,7 @@ if ( true || is_customize_preview() ) {
 				array(
 					'id'       => 'evl_post_links',
 					'title'    => esc_attr__( 'Position of Previous/Next Posts Links', 'evolve' ),
-					'subtitle' => sprintf( esc_attr__( 'Choose the position of the %sPrevious/Next Post%s links', 'evolve' ), '<strong>', '</strong>' ),
+					'subtitle' => sprintf( esc_attr__( 'Choose the position of the %1$sPrevious/Next Post%2$s links', 'evolve' ), '<strong>', '</strong>' ),
 					'type'     => 'select',
 					'options'  => array(
 						'after'  => esc_attr__( 'After Posts', 'evolve' ),
@@ -4095,7 +4075,7 @@ if ( true || is_customize_preview() ) {
 				array(
 					'id'       => 'evl_similar_posts',
 					'title'    => esc_attr__( 'Display Similar Posts', 'evolve' ),
-					'subtitle' => sprintf( esc_attr__( 'Choose if you want to display %sSimilar posts%s in articles', 'evolve' ), '<strong>', '</strong>' ),
+					'subtitle' => sprintf( esc_attr__( 'Choose if you want to display %1$sSimilar posts%2$s in articles', 'evolve' ), '<strong>', '</strong>' ),
 					'type'     => 'select',
 					'options'  => array(
 						'disable'  => esc_attr__( 'Disabled', 'evolve' ),
@@ -4362,7 +4342,7 @@ if ( true || is_customize_preview() ) {
 				array(
 					'id'       => 'evl_rss_feed',
 					'title'    => esc_attr__( 'RSS Feed', 'evolve' ),
-					'subtitle' => sprintf( esc_attr__( 'Insert custom RSS Feed URL, e.g. %s%s%s', 'evolve' ), '<strong>', $evolve_rss_url, '</strong>' ),
+					'subtitle' => sprintf( esc_attr__( 'Insert custom RSS Feed URL, e.g. %1$s%2$s%3$s', 'evolve' ), '<strong>', $evolve_rss_url, '</strong>' ),
 					'type'     => 'text',
 					'required' => array(
 						array( 'evl_social_links', '=', '1' )
@@ -4371,7 +4351,7 @@ if ( true || is_customize_preview() ) {
 				array(
 					'id'       => 'evl_newsletter',
 					'title'    => esc_attr__( 'Newsletter', 'evolve' ),
-					'subtitle' => sprintf( esc_attr__( 'Insert custom newsletter URL, e.g. %shttp://feedburner.google.com/fb/a/mailverify?uri=Example&amp;loc=en_US%s', 'evolve' ), '<strong>', '</strong>' ),
+					'subtitle' => sprintf( esc_attr__( 'Insert custom newsletter URL, e.g. %1$shttp://feedburner.google.com/fb/a/mailverify?uri=Example&amp;loc=en_US%2$s', 'evolve' ), '<strong>', '</strong>' ),
 					'type'     => 'text',
 					'required' => array(
 						array( 'evl_social_links', '=', '1' )
@@ -4514,7 +4494,7 @@ if ( true || is_customize_preview() ) {
 		$fields[] = array(
 			'id'              => "{$evolve_shortname}_bootstrap_slide{$i}_button",
 			'title'           => sprintf( esc_attr__( 'Slide %d Button', 'evolve' ), $i ),
-			'subtitle'        => sprintf( esc_attr__( 'Default: %s<a class="btn d-none d-sm-inline-block" href="#">Learn more</a>%s', 'evolve' ), '<code>', '</code>' ),
+			'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn d-none d-sm-inline-block" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
 			'type'            => "textarea",
 			"rows"            => 3,
 			'required'        => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
@@ -4665,8 +4645,8 @@ if ( true || is_customize_preview() ) {
 					'type'     => 'image_select',
 					'compiler' => true,
 					'options'  => array(
-						'bootstrap_left'   => $evolve_imagepathfolder . 'bootstrap-slider/bootstrap_1.jpg',
-						'bootstrap_center' => $evolve_imagepathfolder . 'bootstrap-slider/bootstrap_2.jpg'
+						'bootstrap_left'   => $evolve_imagepath . 'b1.jpg',
+						'bootstrap_center' => $evolve_imagepath . 'b2.jpg'
 					),
 					'default'  => 'bootstrap_left',
 					'required' => array(
@@ -4726,7 +4706,7 @@ if ( true || is_customize_preview() ) {
 		$fields[] = array(
 			'id'       => "{$evolve_shortname}_slide{$i}_button",
 			'title'    => sprintf( esc_attr__( 'Slide %s Button', 'evolve' ), $i ),
-			'subtitle' => sprintf( esc_attr__( 'Default: %s<a class="btn d-none d-sm-inline-block" href="#">Learn more</a>%s', 'evolve' ), '<code>', '</code>' ),
+			'subtitle' => sprintf( esc_attr__( 'Default: %1$s<a class="btn d-none d-sm-inline-block" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
 			'type'     => "textarea",
 			'required' => array( array( "{$evolve_shortname}_show_slide{$i}", '=', '1' ) )
 		);
@@ -5295,8 +5275,8 @@ if ( is_user_logged_in() && get_option( 'old_new_upgrade_themeoptions', 'false' 
 	}
 
 	//set slider on homepage/frontpage
-	( $evolve_parallax_slider_support == '1' ) ? $parallaxslider_status = ' (ACTIVE)' : $parallaxslider_status = ' (INACTIVE)';
-	( $evolve_carousel_slider == '1' ) ? $postslider_status = ' (ACTIVE)' : $postslider_status = ' (INACTIVE)';
+	( $evolve_parallax_slider_support == '1' ) ? $parallaxslider_status = esc_attr__( ' (ACTIVE)', 'evolve' ) : $parallaxslider_status = esc_attr__( ' (INACTIVE)', 'evolve' );
+	( $evolve_carousel_slider == '1' ) ? $postslider_status = esc_attr__( ' (ACTIVE)', 'evolve' ) : $postslider_status = esc_attr__( ' (INACTIVE)', 'evolve' );
 
 	$evolve_current_post_slider_position = get_post_meta( $postspage_id, 'evolve_slider_position', true );
 	$evolve_current_post_slider_position = get_post_meta( $frontpage_id, 'evolve_slider_position', true );
@@ -5623,6 +5603,6 @@ if ( ! is_customize_preview() ) {
 function evolve_enqueue_frontend_scripts() {
 	$protocol = is_ssl() ? "https:" : "http:";
 	global $evolve_list_google_fonts;
-	wp_register_style( 'evolve-google-fonts-frontend', $protocol . evolve_Kirki::kirkiMakeGoogleWebfontLink( $evolve_list_google_fonts ), '' );
-	wp_enqueue_style( 'evolve-google-fonts-frontend' );
+	wp_register_style( 'evolve-google-fonts', $protocol . evolve_Kirki::kirkiMakeGoogleWebfontLink( $evolve_list_google_fonts ), '' );
+	wp_enqueue_style( 'evolve-google-fonts' );
 }

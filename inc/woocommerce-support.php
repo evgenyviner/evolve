@@ -49,6 +49,8 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 			add_filter( 'woocommerce_sale_flash', array( $this,'sale_flash'), 10, 3 );
 			remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
 			add_filter( 'woocommerce_shop_loop_item_title', array( $this,'shop_loop_item_title'), 10 );
+			remove_action( 'woocommerce_shop_loop_subcategory_title', 'woocommerce_template_loop_category_title', 10 );
+			add_filter( 'woocommerce_shop_loop_subcategory_title', array( $this,'template_loop_category_title'), 10 );
 		}
 
 		private static function get_wc_version() {
@@ -85,6 +87,18 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
         function sale_flash() {
             return '<span class="onsale badge badge-pill badge-primary">' . esc_html__( 'Sale!', 'evolve' ) .'</span>';
         }
+
+        function template_loop_category_title( $category ) { ?>
+
+		<h5 class="woocommerce-loop-category__title card-title mb-0">
+			<?php
+			echo esc_html( $category->name );
+
+			if ( $category->count > 0 ) {
+				echo apply_filters( 'woocommerce_subcategory_count_html', ' <span class="count badge badge-pill badge-secondary">(' . esc_html( $category->count ) . ')</span>', $category ); // WPCS: XSS ok.
+			} ?>
+		</h5>
+		<?php }
 
 		function add_sidebar_2() {
 			$sidebar_css = '';
@@ -478,7 +492,7 @@ function evolve_woocommerce_header_add_to_cart_fragment( $fragments ) {
 
 	ob_start(); ?>
 
-    <li class="nav-item dropdown cart">
+    <li class="nav-item dropdown cart ml-md-auto">
 
 		<?php if ( ! $woocommerce->cart->cart_contents_count ): ?>
 
@@ -494,7 +508,7 @@ function evolve_woocommerce_header_add_to_cart_fragment( $fragments ) {
             <div class="dropdown-menu p-3 dropdownhover-bottom dropdown-menu-right" aria-labelledby="cart_dropdown">
                 <span class="dropdown-item">
 
-				    <?php esc_html_e( 'Your cart is currently empty.', 'evolve' ); ?>
+				    <?php esc_html_e( 'Your cart is currently empty', 'evolve' ); ?>
 
                 </span>
             </div>
@@ -2068,6 +2082,7 @@ function evolve_build_url( $url_data ) {
    WooCommerce My Account / Cart Menu
    ======================================= */
 
+if ( !function_exists( 'evolve_woocommerce_menu' ) ) {
 function evolve_woocommerce_menu() {
 if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve_theme_mod( 'evl_woocommerce_cart_link_main_nav', 0 ) == "0" ) {
 	return;
@@ -2096,7 +2111,7 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
 
 							<?php if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) ): ?>
 
-                                <li class="nav-item dropdown my-account">
+                                <li class="nav-item dropdown my-account ml-md-auto">
                                     <a href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>"
                                        class="nav-link dropdown-toggle" id="myaccount_dropdown" role="button"
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -2155,7 +2170,7 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
 
 							if ( evolve_theme_mod( 'evl_woocommerce_cart_link_main_nav', 0 ) ): ?>
 
-                                <li class="nav-item dropdown cart">
+                                <li class="nav-item dropdown cart ml-md-auto">
 
 									<?php if ( ! $woocommerce->cart->cart_contents_count ): ?>
 
@@ -2172,7 +2187,7 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
                                         <div class="dropdown-menu p-3 dropdownhover-bottom dropdown-menu-right" aria-labelledby="cart_dropdown">
                                             <span class="dropdown-item">
 
-											    <?php esc_html_e( 'Your cart is currently empty.', 'evolve' ); ?>
+											    <?php esc_html_e( 'Your cart is currently empty', 'evolve' ); ?>
 
                                             </span>
                                         </div>
@@ -2238,3 +2253,4 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
                 </nav><!-- .navbar -->
 
  <?php }
+}

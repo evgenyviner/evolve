@@ -1,97 +1,96 @@
-<div class="header-pattern">
+<div class="header-v1 header-wrapper">
+    <div class="header-pattern">
 
-	<?php if ( get_header_image() ) {
-		echo '<div class="custom-header">';
-	} ?>
+		<?php if ( get_header_image() ) {
+			echo '<div class="custom-header">';
+		} ?>
 
-    <div class="header container header_v0">
-        <div class="row align-items-center">
+        <div class="header container header_v0">
+            <div class="row align-items-center justify-content-between">
 
-			<?php
-			if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" ) {
-				$evolve_social_woo_class = 'col order-1 order-md-3';
-			} else {
-				$evolve_social_woo_class = 'col order-1 order-md-2';
-			}
-
-			if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' ) {
-				if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "center" ) {
-					$evolve_social_woo_class = 'col-12 order-1';
+				<?php
+				if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" ) {
+					$evolve_social_woo_class = 'col order-1 order-md-3';
+				} else {
+					$evolve_social_woo_class = 'col order-1 order-md-2';
 				}
-				if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "left" ) {
-					$evolve_social_woo_class = 'col col-lg-7 order-1 order-md-3';
+
+				if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' ) {
+					if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "center" ) {
+						$evolve_social_woo_class = 'col-12 order-1';
+					}
+					if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "left" ) {
+						$evolve_social_woo_class = 'col col-lg-7 order-1 order-md-3';
+					}
+					if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "right" ) {
+						$evolve_social_woo_class = 'col-12 order-1';
+					}
 				}
-				if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "right" ) {
-					$evolve_social_woo_class = 'col-12 order-1';
+
+				echo '<div class="' . $evolve_social_woo_class . '">';
+
+				if ( evolve_theme_mod( 'evl_social_links', 0 ) ) {
+					evolve_social_media_links();
 				}
-			}
 
-			echo '<div class="' . $evolve_social_woo_class . '">';
+				if ( class_exists( 'Woocommerce' ) ) {
+					evolve_woocommerce_menu();
+				}
 
-			if ( evolve_theme_mod( 'evl_social_links', 0 ) ) {
-				evolve_social_media_links();
-			}
+				echo '</div>';
 
-			if ( function_exists( 'evolve_woocommerce_menu' ) ) {
-				evolve_woocommerce_menu();
-			}
+				if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" ) {
+					evolve_header_logo();
+				}
 
-			echo '</div>';
+				get_template_part( 'template-parts/header/header', 'tagline-above' );
 
-			if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" ) {
-				evolve_header_logo();
-			}
+				if ( evolve_theme_mod( 'evl_blog_title', '0' ) != "1" ) {
+					get_template_part( 'template-parts/header/header', 'website-title' );
+				}
 
-			get_template_part( 'template-parts/header/header', 'tagline-above' );
+				get_template_part( 'template-parts/header/header', 'tagline-next-under' ); ?>
 
-			if ( evolve_theme_mod( 'evl_blog_title', '0' ) != "1" ) {
-				get_template_part( 'template-parts/header/header', 'website-title' );
-			}
+            </div><!-- .row .align-items-center -->
+        </div><!-- .header .container .header_v0 -->
 
-			get_template_part( 'template-parts/header/header', 'tagline-next-under' ); ?>
-
-        </div><!-- .row .align-items-center -->
-
-		<?php
-		if ( get_header_image() ) {
+		<?php if ( get_header_image() ) {
 			echo '</div><!-- .custom-header -->';
-		}
-		?>
+		} ?>
 
-    </div><!-- .header .container .header_v0 -->
-</div><!-- .header-pattern -->
+    </div><!-- .header-pattern -->
 
-<header class="menu-header">
-    <div class="container container-menu">
-        <div class="row align-items-center">
+    <header class="menu-header">
+        <div class="container">
+            <div class="row align-items-center ">
 
-			<?php if ( evolve_theme_mod( 'evl_main_menu', false ) !== true ) {
+				<?php if ( evolve_theme_mod( 'evl_main_menu', false ) !== true ) {
 
-				if ( has_nav_menu( 'primary-menu' ) ) {
-					echo '<nav class="navbar navbar-expand-md mr-auto col-sm-11">
+					if ( has_nav_menu( 'primary-menu' ) ) {
+						echo '<nav class="navbar navbar-expand-md mr-auto col-sm-11">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
                                     ' . evolve_get_svg( 'menu' ) . '
                                     </div>
                                 <div id="primary-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
-					wp_nav_menu( array(
-						'theme_location' => 'primary-menu',
-						'depth'          => 10,
-						'container'      => false,
-						'menu_class'     => 'navbar-nav mr-auto',
-						'fallback_cb'    => 'evolve_custom_menu_walker::fallback',
-						'walker'         => new evolve_custom_menu_walker()
-					) );
-					echo '</div></nav>';
+						wp_nav_menu( array(
+							'theme_location' => 'primary-menu',
+							'depth'          => 10,
+							'container'      => false,
+							'menu_class'     => 'navbar-nav mr-auto',
+							'fallback_cb'    => 'evolve_custom_menu_walker::fallback',
+							'walker'         => new evolve_custom_menu_walker()
+						) );
+						echo '</div></nav>';
+					}
 				}
-			}
 
-			if ( evolve_theme_mod( 'evl_searchbox', true ) ) {
-				evolve_header_search( '1' );
-			} ?>
+				if ( evolve_theme_mod( 'evl_searchbox', true ) ) {
+					evolve_header_search( '1' );
+				} ?>
 
-        </div><!-- .row -->
-    </div><!-- .container .container-menu -->
-</header><!-- .menu-header -->
-
+            </div><!-- .row .align-items-center -->
+        </div><!-- .container -->
+    </header><!-- .menu-header -->
+</div><!-- .header-v1 -->
 
 

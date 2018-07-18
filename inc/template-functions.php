@@ -657,7 +657,7 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 		 */
 		private function wrap_for_screen_reader( $text = '' ) {
 			if ( $text ) {
-				$text = '<span class="sr-only">' . $text . '</span>';
+				$text = '<span class="screen-reader-text sr-only">' . $text . '</span>';
 			}
 
 			return $text;

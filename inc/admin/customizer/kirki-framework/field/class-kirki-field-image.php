@@ -38,13 +38,13 @@ class Kirki_Field_Image extends Kirki_Field {
 	protected function set_button_labels() {
 		$this->button_labels = wp_parse_args( $this->button_labels,
 			array(
-				'select'       => esc_attr__( 'Select image', 'evolve' ),
-				'change'       => esc_attr__( 'Change image', 'evolve' ),
-				'default'      => esc_attr__( 'Default', 'evolve' ),
-				'remove'       => esc_attr__( 'Remove', 'evolve' ),
-				'placeholder'  => esc_attr__( 'No image selected', 'evolve' ),
-				'frame_title'  => esc_attr__( 'Select image', 'evolve' ),
-				'frame_button' => esc_attr__( 'Choose image', 'evolve' ),
+				'select'       => esc_attr__( 'Select image', 'kirki' ),
+				'change'       => esc_attr__( 'Change image', 'kirki' ),
+				'default'      => esc_attr__( 'Default', 'kirki' ),
+				'remove'       => esc_attr__( 'Remove', 'kirki' ),
+				'placeholder'  => esc_attr__( 'No image selected', 'kirki' ),
+				'frame_title'  => esc_attr__( 'Select image', 'kirki' ),
+				'frame_button' => esc_attr__( 'Choose image', 'kirki' ),
 			)
 		);
 	}

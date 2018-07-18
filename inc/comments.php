@@ -9,7 +9,7 @@
    ======================================= */
 
 function evolve_discussion_title( $type = null, $echo = true ) {
-	if ( ! $type && empty( get_comments_number() ) ) {
+	if ( ! $type && '' == get_comments_number() ) {
 		return;
 	}
 
@@ -97,9 +97,9 @@ function evolve_comment_navigation( $fragment_type ) {
 
 	$output = '';
 	foreach ( $page_list as $individual_page ) {
-		$individual_page   = "\n<li class='page-item'>$individual_page</li>\n";
-		$individual_page   = str_replace( [ 'page-numbers' ], [ 'page-link' ], $individual_page );
-		$output .= $individual_page;
+		$individual_page = "\n<li class='page-item'>$individual_page</li>\n";
+		$individual_page = str_replace( [ 'page-numbers' ], [ 'page-link' ], $individual_page );
+		$output          .= $individual_page;
 	}
 
 	echo '<nav aria-label="navigation" class="navigation mb-5"><ul class="pagination justify-content-center">' . $output . '</ul></nav>';

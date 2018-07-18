@@ -83,20 +83,26 @@ Table of Contents:
     Default WordPress Definitions
     ======================================= */
 
-.screen-reader-text,
-.bypostauthor {
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
 }
 
 .screen-reader-text:focus {
     background-color: #f1f1f1;
+    -webkit-border-radius: 3px;
     border-radius: 3px;
-    -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, .6);
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, .6);
-    clip: auto;
+    -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
     color: #21759b;
     display: block;
-    font-size: .875rem;
-    font-weight: bold;
+    font-size: 1rem;
+    font-weight: 700;
     height: auto;
     left: 5px;
     line-height: normal;
@@ -202,7 +208,7 @@ body {
     Header Layout
     --------------------------------------- */
 
-.header h4#website-title {
+.header-wrapper h4#website-title {
     font-size: 2.5rem;
 }
 
@@ -224,16 +230,11 @@ body {
     background-repeat: repeat-y;
 }
 
-.top-menu-social {
-    margin: 15px 0 5px;
-    overflow: hidden;
-}
-
 /*
     Menu Bar (Navigation)
     --------------------------------------- */
 
-.navbar {
+.header-v1 .navbar {
     padding-left: 0;
     padding-right: 0;
 }
@@ -362,13 +363,13 @@ body {
     WooCommerce Menu
     --------------------------------------- */
 
-.header .woocommerce-menu .btn {
+.header-wrapper .woocommerce-menu .btn {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
 
-.header .woocommerce-menu li.my-account > a::after,
-.header .woocommerce-menu li.cart > a::after {
+.header-wrapper .woocommerce-menu li.my-account > a::after,
+.header-wrapper .woocommerce-menu li.cart > a::after {
     border: solid;
     border-width: 0 .1em .1em 0;
     display: inline-block;
@@ -381,7 +382,7 @@ body {
     transform: rotate(45deg);
 }
 
-.header .woocommerce-menu .cart .dropdown-item {
+.header-wrapper .woocommerce-menu .cart .dropdown-item {
     padding: 0;
 }
 
@@ -444,7 +445,7 @@ body {
 .btn .icon,
 .button .icon,
 button .icon,
-.header .woocommerce-menu .icon {
+.header-wrapper .woocommerce-menu .icon {
     margin-right: .6rem
 }
 
@@ -478,7 +479,8 @@ img {
     text-align: center;
 }
 
-.wp-caption-text {
+.wp-caption-text,
+.gallery-caption {
     font-size: .8rem;
     padding: .8rem;
 }
@@ -853,6 +855,10 @@ video {
     border-radius: 3px;
     padding: 2rem;
     margin-bottom: 2rem;
+}
+
+.comment.bypostauthor {
+    border-left-width: 2px;
 }
 
 .pingback,
@@ -2524,6 +2530,10 @@ select:not([size]):not([multiple]) {
     margin-left: auto;
 }
 
+#calc_shipping_state_field > span {
+    width: 100%;
+}
+
 .select2-container--default .select2-selection--single .select2-selection__arrow {
     height: 36px;
 }
@@ -2791,43 +2801,43 @@ ul.nav-menu li.menu-item-language ul {
     }
 
     .header > .container,
-    .new-top-menu > .container {
+    .top-bar > .container {
         width: 100%;
     }
 
-    .header .woocommerce-menu > li {
+    .header-wrapper .woocommerce-menu > li {
         padding: 0;
     }
 
-    .header .woocommerce-menu > li a.nav-link {
+    .header-wrapper .woocommerce-menu > li a.nav-link {
         padding: 0 1rem;
     }
 
-    .header .woocommerce-menu > li a,
-    .header .woocommerce-menu .dropdown-item {
+    .header-wrapper .woocommerce-menu > li a,
+    .header-wrapper .woocommerce-menu .dropdown-item {
         font-size: .8rem;
     }
 
-    .header .woocommerce-menu > li.cart {
+    .header-wrapper .woocommerce-menu > li.cart {
         margin-left: .5rem;
     }
 
-    .header .woocommerce-menu .my-account .logout {
-        padding: .5rem 1rem;
+    .header-wrapper .woocommerce-menu .my-account .logout {
+        padding: .6rem 1rem;
     }
 
-    .header .woocommerce-menu .my-account .logout a {
+    .header-wrapper .woocommerce-menu .my-account .logout a {
         padding: 0;
     }
 
     .navbar-nav li a {
-        overflow: hidden;
         line-height: 2.5em;
+        overflow: hidden;
     }
 
     a span.link-effect {
-        position: relative;
         display: inline-block;
+        position: relative;
         -webkit-transition: -webkit-transform .3s;
         transition: -webkit-transform .3s;
         -o-transition: transform .3s;
@@ -2835,17 +2845,22 @@ ul.nav-menu li.menu-item-language ul {
     }
 
     a span.link-effect::before {
+        content: attr(data-hover);
+        height: 100%;
         position: absolute;
         top: 100%;
-        height: 100%;
         width: 100%;
-        content: attr(data-hover);
     }
 
     #carousel-slider-thumbnails .carousel-inner .active,
     #carousel-slider-thumbnails .carousel-inner .active + .carousel-item,
-    #carousel-slider-thumbnails .carousel-inner .active + .carousel-item + .carousel-item {
+    #carousel-slider-thumbnails .carousel-inner .active + .carousel-item + .carousel-item,
+    #carousel-slider-thumbnails .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
         display: block;
+        -webkit-transition: -webkit-transform .6s;
+        transition: -webkit-transform .6s;
+        -o-transition: transform .6s;
+        transition: transform .6s;
     }
 
     #carousel-slider-thumbnails .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
@@ -2867,8 +2882,7 @@ ul.nav-menu li.menu-item-language ul {
         position: absolute;
         top: 0;
         right: -33.333333%;
-        z-index: -1;
-        display: block;
+        z-index: 0;
         visibility: visible;
     }
 
@@ -2886,7 +2900,7 @@ ul.nav-menu li.menu-item-language ul {
         position: absolute;
         top: 0;
         left: 0;
-        z-index: -1;
+        z-index: 0;
         display: block;
         visibility: visible;
     }
@@ -3014,17 +3028,17 @@ ul.nav-menu li.menu-item-language ul {
         border-bottom-color: transparent;
     }
 
-    .menu-header .search-form {
+    .header-wrapper .search-form {
         margin: 1rem;
     }
 
-    .menu-header .search-form .form-control {
+    .header-wrapper .search-form .form-control {
         text-indent: 1px;
         border-width: 1px;
         width: 100%;
     }
 
-    .menu-header .search-form .form-control:focus {
+    .header-wrapper .search-form .form-control:focus {
         width: 100%;
     }
 
