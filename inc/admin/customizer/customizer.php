@@ -25,7 +25,7 @@ class evolve_Customizer {
 	}
 
 	public function custom_customize_enqueue() {
-		wp_enqueue_style( 'evolve-customizer-icomoon', get_template_directory_uri() . '/inc/admin/customizer/assets/fonts/icomoon/style.min.css', array(), '', 'all' );
+		wp_enqueue_style( 'evolve-customizer-icomoon', get_template_directory_uri() . '/inc/admin/customizer/assets/fonts/fontastic/styles.min.css', array(), '', 'all' );
 		wp_enqueue_style( 'evolve-customizer-css', get_template_directory_uri() . '/inc/admin/customizer/assets/css/customizer.min.css', array(), '', 'all' );
 		wp_enqueue_script( 'evolve-customizer-js', get_template_directory_uri() . '/inc/admin/customizer/assets/js/customizer.min.js', array(
 			'customize-preview',

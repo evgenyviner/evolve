@@ -98,7 +98,7 @@ function evolve_comment_navigation( $fragment_type ) {
 	$output = '';
 	foreach ( $page_list as $individual_page ) {
 		$individual_page = "\n<li class='page-item'>$individual_page</li>\n";
-		$individual_page = str_replace( [ 'page-numbers' ], [ 'page-link' ], $individual_page );
+		$individual_page = str_replace( array( "page-numbers" ), array( "page-link" ), $individual_page );
 		$output          .= $individual_page;
 	}
 
@@ -144,7 +144,7 @@ function evolve_comments_callback( $comment, $args, $depth ) {
 
         <b class="fn">
 
-			<?php printf( __( '%s', 'evolve' ), get_comment_author_link() );
+			<?php printf( '%s', get_comment_author_link() );
 			echo ( ( ( class_exists( 'Woocommerce' ) && ! is_product() ) || ! class_exists( 'Woocommerce' ) ) && $comment->user_id === $post->post_author ) ? '<span class="badge badge-pill badge-primary ml-2"> ' . __( 'Author', 'evolve' ) . '</span>' : '';
 			echo ( get_comment_type() === "pingback" ) ? '<span class="badge badge-pill badge-secondary ml-2"> ' . __( 'Pingback', 'evolve' ) . '</span>' : '';
 			echo ( class_exists( 'Woocommerce' ) && is_product() && 'yes' === get_option( 'woocommerce_review_rating_verification_label' ) && $verified ) ? '<span class="badge badge-pill badge-primary ml-2"> ' . __( 'Verified buyer', 'evolve' ) . '</span>' : ''; ?>

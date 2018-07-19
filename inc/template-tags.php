@@ -299,7 +299,6 @@ if ( ! function_exists( 'evolve_header_block_below' ) ) {
 
 		echo $headerblock_class_2; // <!-- .header-block -->
 	}
-
 }
 
 /*
@@ -518,7 +517,7 @@ if ( ! function_exists( 'evolve_number_pagination' ) ) {
 		} else {
 			$format = 'page/%#%/';
 		}
-		$page_list = paginate_links( [
+		$page_list = paginate_links( array(
 				'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
 				'format'       => $format,
 				'current'      => max( 1, get_query_var( 'paged' ) ),
@@ -532,7 +531,7 @@ if ( ! function_exists( 'evolve_number_pagination' ) ) {
 				'next_text'    => sprintf( __( 'Next', 'evolve' ) ),
 				'add_args'     => false,
 				'add_fragment' => ''
-			]
+			)
 		);
 		if ( is_array( $page_list ) ) {
 			//$paged = ( get_query_var( 'paged' ) == 0 ) ? 1 : get_query_var( 'paged' );
@@ -678,6 +677,7 @@ if ( ! function_exists( 'evolve_breadcrumbs' ) ) {
 		}
 		if ( is_single() && ! is_attachment() ) {
 			$cat_1_line   = '';
+			$cat_1_ids    = '';
 			$categories_1 = get_the_category( $post->ID );
 			if ( $categories_1 ):
 				foreach ( $categories_1 as $cat_1 ):
@@ -971,6 +971,10 @@ if ( ! function_exists( 'evolve_social_media_links' ) ) {
 			case "h1":
 				$social_float = 'left';
 				$social_m     = 'mr';
+				break;
+			default;
+				$social_float = '';
+				$social_m     = '';
 				break;
 		} ?>
 

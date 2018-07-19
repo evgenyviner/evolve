@@ -49,20 +49,20 @@ class evolve_ThemeFrameworkMetaboxes {
     }
 
     public function evolve_post_options() {
-        get_template_part('inc/views/metaboxes/style.min');
+        get_template_part('inc/admin/metaboxes/style.min');
         $this->evolve_render_option_tabs(array('layout', 'pagetitlebar', 'widget', 'slider'));
     }
 
     public function evolve_page_options() {
-        get_template_part('inc/views/metaboxes/style.min');
+        get_template_part('inc/admin/metaboxes/style.min');
         $this->evolve_render_option_tabs(array('layout', 'pagetitlebar', 'widget', 'slider'));
     }
 
     public function evolve_print_metabox_scripts() {
         wp_register_style(
-                'evolve-icomoon', get_template_directory_uri() . '/inc/admin/customizer/icomoon-admin/style.min.css', array(), time(), 'all'
+                'evolve-metaboxes-icon', get_template_directory_uri() . '/inc/admin/customizer/assets/fonts/fontastic/styles.min.css', array(), time(), 'all'
         );
-        wp_enqueue_style('evolve-icomoon');
+        wp_enqueue_style('evolve-metaboxes-icon');
     }
 
     public function evolve_text($id, $label, $desc = '') {
@@ -262,11 +262,11 @@ class evolve_ThemeFrameworkMetaboxes {
         );
 
         $tabs_icons = array(
-            'layout' => 't4p-icon-appbartools',
-            'pagetitlebar' => 't4p-icon-file2',
-            'widget' => 't4p-icon-appbarimagebacklight',
-            'slider' => 't4p-icon-appbarmonitor',
-            'sidebars' => 't4p-icon-file',
+            'layout' => 'evolve-icon-general',
+            'pagetitlebar' => 'evolve-icon-breadcrumbs',
+            'widget' => 'evolve-icon-blog',
+            'slider' => 'evolve-icon-parallax',
+            'sidebars' => 'evolve-icon-sidebar',
         );
 
         echo '<ul class="t4p_metabox_tabs">';

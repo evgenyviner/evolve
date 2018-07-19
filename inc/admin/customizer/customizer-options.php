@@ -539,8 +539,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-theme-links-main-tab',
 			'title'   => esc_attr__( 'Theme Links', 'evolve' ),
-			'icon'    => 'el el-brush',
-			'iconfix' => 'dashicons-admin-customizer',
+			'iconfix' => 'evolve-icon evolve-icon-logo',
 			'class'   => 'theme_links',
 			'fields'  => array(
 				array(
@@ -555,7 +554,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-general-main-tab',
 			'title'   => esc_attr__( 'General', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-appbartools'
+			'iconfix' => 'evolve-icon evolve-icon-general'
 		)
 	);
 
@@ -674,7 +673,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-frontpage-main-tab',
 			'title'   => esc_attr__( 'Custom Front Page Builder', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-hammer'
+			'iconfix' => 'evolve-icon evolve-icon-builder'
 		)
 	);
 
@@ -2163,7 +2162,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-header-main-tab',
 			'title'   => esc_attr__( 'Header', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-file3'
+			'iconfix' => 'evolve-icon evolve-icon-header'
 		)
 	);
 
@@ -2452,7 +2451,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-footer-main-tab',
 			'title'   => esc_attr__( 'Footer', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-file4'
+			'iconfix' => 'evolve-icon evolve-icon-footer'
 		)
 	);
 
@@ -2500,7 +2499,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-typography-main-tab',
 			'title'   => esc_attr__( 'Typography', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-appbartextserif'
+			'iconfix' => 'evolve-icon evolve-icon-typography'
 		)
 	);
 
@@ -2939,7 +2938,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-pagetitlebar-tab',
 			'title'   => esc_attr__( 'Breadcrumbs', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-titlebar',
+			'iconfix' => 'evolve-icon evolve-icon-breadcrumbs',
 			'fields'  => array(
 				array(
 					'id'              => 'evl_breadcrumbs',
@@ -2957,7 +2956,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-styling-main-tab',
 			'title'   => esc_attr__( 'Styling', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-appbardrawpaintbrush',
+			'iconfix' => 'evolve-icon evolve-icon-styling',
 		)
 	);
 
@@ -3618,7 +3617,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-component-main-tab',
 			'title'   => esc_attr__( 'Components', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-appbardrawbrush'
+			'iconfix' => 'evolve-icon evolve-icon-components'
 		)
 	);
 
@@ -3938,7 +3937,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-blog-main-tab',
 			'title'   => esc_attr__( 'Blog', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-appbarclipboardvariantedit'
+			'iconfix' => 'evolve-icon evolve-icon-blog'
 		)
 	);
 
@@ -4235,7 +4234,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-social-links-main-tab',
 			'title'   => esc_attr__( 'Social Media Links', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-appbarsocialtwitter',
+			'iconfix' => 'evolve-icon evolve-icon-social-media',
 			'fields'  => array(
 				array(
 					'id'              => 'evl_social_links',
@@ -4503,7 +4502,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-bootstrap-slider-main-tab',
 			'title'   => esc_attr__( 'Bootstrap Slider', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-appbarimageselect'
+			'iconfix' => 'evolve-icon evolve-icon-bootstrap'
 		)
 	);
 
@@ -4712,7 +4711,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-parallax-slider-main-tab',
 			'title'   => esc_attr__( 'Parallax Slider', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-appbarmonitor'
+			'iconfix' => 'evolve-icon evolve-icon-parallax'
 		)
 	);
 
@@ -4802,7 +4801,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-posts-slider-main-tab',
 			'title'   => esc_attr__( 'Posts Slider', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-appbarvideogallery',
+			'iconfix' => 'evolve-icon evolve-icon-posts-slider',
 			'fields'  => array(
 				array(
 					'id'       => 'evl_carousel_slider',
@@ -4949,7 +4948,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-extra-main-tab',
 			'title'   => esc_attr__( 'Extra', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-appbarsettings',
+			'iconfix' => 'evolve-icon evolve-icon-extra',
 			'fields'  => array(
 				array(
 					'id'       => 'evl_pos_button',
@@ -4970,16 +4969,7 @@ if ( true || is_customize_preview() ) {
 					'subtitle' => esc_attr__( 'Check this box if you want to display edit post/page link', 'evolve' ),
 					'type'     => 'checkbox',
 					'default'  => '0'
-				)
-			)
-		)
-	);
-
-	evolve_Kirki::setSection( $evolve_opt_name, array(
-			'id'      => 'evl-advanced-main-tab',
-			'title'   => esc_attr__( 'Advanced', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-appbarlistcheck',
-			'fields'  => array(
+				),
 				array(
 					'id'       => 'evl_fontawesome',
 					'title'    => esc_attr__( 'Disable Font Awesome', 'evolve' ),
@@ -4994,7 +4984,7 @@ if ( true || is_customize_preview() ) {
 	evolve_Kirki::setSection( $evolve_opt_name, array(
 			'id'      => 'evl-woocommerce-main-tab',
 			'title'   => esc_attr__( 'WooCommerce', 'evolve' ),
-			'iconfix' => 'evolve-icon evolve-icon-appbarcart',
+			'iconfix' => 'evolve-icon evolve-icon-woocommerce',
 			'fields'  => array(
 				array(
 					'id'              => 'evl_woocommerce_evolve_ordering',

@@ -1,5 +1,5 @@
 .preview-notice .panel-title.dashicons-before::before {
-    line-height: 28px;
+    line-height: 16px;
     padding-right: 3px;
 }
 
@@ -30,12 +30,12 @@
 }
 
 .evolve-icon::before {
-    font-family: IcoMoon;
-    font-size: 30px;
-    height: 30px;
-    line-height: 30px;
+    font-size: 16px;
+    height: 16px;
+    line-height: 16px;
+    margin-right: .5rem;
     vertical-align: middle;
-    width: 30px;
+    width: 16px;
 }
 
 .customize-control-kirki-custom {

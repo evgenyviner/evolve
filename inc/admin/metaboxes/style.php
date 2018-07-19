@@ -38,7 +38,7 @@
 }
 
 .t4p_metabox_tabs i {
-    font-size: 1.8em;
+    font-size: 1;
     line-height: .8em;
     vertical-align: middle;
     margin-right: 5px;

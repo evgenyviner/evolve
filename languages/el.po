@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EvoLve\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-17 14:00+0100\n"
-"PO-Revision-Date: 2018-07-17 14:00+0100\n"
+"POT-Creation-Date: 2018-07-19 06:21+0100\n"
+"PO-Revision-Date: 2018-07-19 06:21+0100\n"
 "Last-Translator: Pepe <petrosgd@yahoo.gr>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -59,28 +59,28 @@ msgstr ""
 msgid "Sticky Header Menu"
 msgstr ""
 
-#: functions.php:304
+#: functions.php:296
 msgid "Details"
 msgstr ""
 
-#: functions.php:364
+#: functions.php:356
 msgid "You reached the end"
 msgstr ""
 
-#: functions.php:365
+#: functions.php:357
 msgid "Load more items"
 msgstr ""
 
-#: functions.php:403 template-parts/post/content-post.php:63
+#: functions.php:395 template-parts/post/content-post.php:63
 #, fuzzy
 msgid "Read More"
 msgstr "Διαβάστε το άρθρο"
 
-#: functions.php:418
+#: functions.php:410
 msgid "To view this protected content, enter the password below"
 msgstr ""
 
-#: functions.php:419
+#: functions.php:411
 msgid "Password:"
 msgstr ""
 
@@ -310,7 +310,7 @@ msgid "The forum %s is closed to new topics and replies"
 msgstr ""
 
 #: bbpress/form-user-edit.php:17 inc/comments.php:222
-#: inc/woocommerce-support.php:280
+#: inc/woocommerce-support.php:294
 msgid "Name"
 msgstr ""
 
@@ -553,26 +553,26 @@ msgstr ""
 msgid "This user has not created any topics."
 msgstr ""
 
-#: inc/bbpress-support.php:70 inc/comments.php:89 inc/template-tags.php:523
-#: inc/template-tags.php:561 inc/template-tags.php:738
-#: inc/template-tags.php:790 inc/template-tags.php:898
+#: inc/bbpress-support.php:70 inc/comments.php:89 inc/template-tags.php:530
+#: inc/template-tags.php:571 inc/template-tags.php:773
+#: inc/template-tags.php:825 inc/template-tags.php:933
 #: woocommerce/single-product/product-image.php:78
 msgid "Previous"
 msgstr ""
 
-#: inc/bbpress-support.php:71 inc/comments.php:90 inc/template-tags.php:524
-#: inc/template-tags.php:560 inc/template-tags.php:742
-#: inc/template-tags.php:794 inc/template-tags.php:902
+#: inc/bbpress-support.php:71 inc/comments.php:90 inc/template-tags.php:531
+#: inc/template-tags.php:570 inc/template-tags.php:777
+#: inc/template-tags.php:829 inc/template-tags.php:937
 #: woocommerce/single-product/product-image.php:82
 msgid "Next"
 msgstr ""
 
-#: inc/comments.php:36 inc/template-tags.php:389
+#: inc/comments.php:36 inc/template-tags.php:396
 #: template-parts/post/content-post.php:49
 msgid "% Comments"
 msgstr "% Σχόλια"
 
-#: inc/comments.php:38 inc/template-tags.php:389
+#: inc/comments.php:38 inc/template-tags.php:396
 #: template-parts/post/content-post.php:49
 msgid "1 Comment"
 msgstr "1 Σχόλιο"
@@ -589,11 +589,6 @@ msgstr ""
 #, fuzzy
 msgid "Follow replies"
 msgstr "Εγγραφή RSS"
-
-#: inc/comments.php:147
-#, php-format
-msgid "%s"
-msgstr ""
 
 #: inc/comments.php:148
 msgid "Author"
@@ -633,40 +628,40 @@ msgstr ""
 msgid "Popular posts, recent posts and comments."
 msgstr ""
 
-#: inc/template-tags.php:378
+#: inc/template-tags.php:385
 msgid "Written by"
 msgstr "Συντάκτης"
 
-#: inc/template-tags.php:379
+#: inc/template-tags.php:386
 #, php-format
 msgid "View all posts by %s"
 msgstr ""
 
-#: inc/template-tags.php:389 template-parts/post/content-post.php:49
+#: inc/template-tags.php:396 template-parts/post/content-post.php:49
 msgid "Leave a Comment"
 msgstr "Σχολίασε το"
 
-#: inc/template-tags.php:455
+#: inc/template-tags.php:462
 msgid "Similar posts"
 msgstr ""
 
-#: inc/template-tags.php:554
+#: inc/template-tags.php:562
 msgid "Pages:"
 msgstr ""
 
-#: inc/template-tags.php:604
+#: inc/template-tags.php:638
 msgid "Home"
 msgstr ""
 
-#: inc/template-tags.php:626
+#: inc/template-tags.php:660
 msgid "Blog"
 msgstr ""
 
-#: inc/template-tags.php:669
+#: inc/template-tags.php:704
 msgid "404 - Page not Found"
 msgstr ""
 
-#: inc/template-tags.php:672
+#: inc/template-tags.php:707
 msgid "Search"
 msgstr ""
 
@@ -696,157 +691,157 @@ msgstr ""
 msgid "Footer %d"
 msgstr ""
 
-#: inc/woocommerce-support.php:228
+#: inc/woocommerce-support.php:242
 msgid "Search..."
 msgstr ""
 
-#: inc/woocommerce-support.php:277 inc/woocommerce-support.php:279
-#: inc/woocommerce-support.php:280 inc/woocommerce-support.php:281
-#: inc/woocommerce-support.php:282 inc/woocommerce-support.php:283
-#: inc/woocommerce-support.php:284
+#: inc/woocommerce-support.php:291 inc/woocommerce-support.php:293
+#: inc/woocommerce-support.php:294 inc/woocommerce-support.php:295
+#: inc/woocommerce-support.php:296 inc/woocommerce-support.php:297
+#: inc/woocommerce-support.php:298
 msgid "Sort by"
 msgstr ""
 
-#: inc/woocommerce-support.php:277 inc/woocommerce-support.php:279
+#: inc/woocommerce-support.php:291 inc/woocommerce-support.php:293
 msgid "Default order"
 msgstr ""
 
-#: inc/woocommerce-support.php:281
+#: inc/woocommerce-support.php:295
 msgid "Price"
 msgstr ""
 
-#: inc/woocommerce-support.php:282 inc/woocommerce-support.php:1157
+#: inc/woocommerce-support.php:296 inc/woocommerce-support.php:1171
 msgid "Date"
 msgstr ""
 
-#: inc/woocommerce-support.php:283
+#: inc/woocommerce-support.php:297
 msgid "Popularity"
 msgstr ""
 
-#: inc/woocommerce-support.php:284
+#: inc/woocommerce-support.php:298
 msgid "Rating"
 msgstr ""
 
-#: inc/woocommerce-support.php:289 inc/woocommerce-support.php:291
-#: inc/woocommerce-support.php:292 inc/woocommerce-support.php:293
+#: inc/woocommerce-support.php:303 inc/woocommerce-support.php:305
+#: inc/woocommerce-support.php:306 inc/woocommerce-support.php:307
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:4
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:10
 msgid "Show"
 msgstr ""
 
-#: inc/woocommerce-support.php:289
+#: inc/woocommerce-support.php:303
 msgid " Products"
 msgstr ""
 
-#: inc/woocommerce-support.php:291 inc/woocommerce-support.php:292
-#: inc/woocommerce-support.php:293
+#: inc/woocommerce-support.php:305 inc/woocommerce-support.php:306
+#: inc/woocommerce-support.php:307
 msgid "Products"
 msgstr ""
 
-#: inc/woocommerce-support.php:470
+#: inc/woocommerce-support.php:484
 msgid "Show details"
 msgstr ""
 
-#: inc/woocommerce-support.php:1041 woocommerce/checkout/form-checkout.php:28
+#: inc/woocommerce-support.php:1055 woocommerce/checkout/form-checkout.php:28
 #, php-format
 msgid "Hello, %s"
 msgstr ""
 
-#: inc/woocommerce-support.php:1156
+#: inc/woocommerce-support.php:1170
 msgid "Order"
 msgstr ""
 
-#: inc/woocommerce-support.php:1158
+#: inc/woocommerce-support.php:1172
 msgid "Status"
 msgstr ""
 
-#: inc/woocommerce-support.php:1159 woocommerce/cart/cart-totals.php:93
+#: inc/woocommerce-support.php:1173 woocommerce/cart/cart-totals.php:93
 msgid "Total"
 msgstr ""
 
-#: inc/woocommerce-support.php:1177
+#: inc/woocommerce-support.php:1191
 #, fuzzy
 msgid "Recent orders"
 msgstr "Πρόσφατα Σχόλια"
 
-#: inc/woocommerce-support.php:1227
+#: inc/woocommerce-support.php:1241
 msgid "Pay"
 msgstr ""
 
-#: inc/woocommerce-support.php:1231
+#: inc/woocommerce-support.php:1245
 msgid "View"
 msgstr ""
 
-#: inc/woocommerce-support.php:1235
+#: inc/woocommerce-support.php:1249
 msgid "Cancel"
 msgstr ""
 
-#: inc/woocommerce-support.php:1290
+#: inc/woocommerce-support.php:1304
 msgid "Available downloads"
 msgstr ""
 
-#: inc/woocommerce-support.php:1350 inc/woocommerce-support.php:1356
+#: inc/woocommerce-support.php:1364 inc/woocommerce-support.php:1370
 msgid "Billing address"
 msgstr ""
 
-#: inc/woocommerce-support.php:1351
+#: inc/woocommerce-support.php:1365
 msgid "Shipping address"
 msgstr ""
 
-#: inc/woocommerce-support.php:1362
+#: inc/woocommerce-support.php:1376
 msgid "The following addresses will be used on the checkout page by default."
 msgstr ""
 
-#: inc/woocommerce-support.php:1397
+#: inc/woocommerce-support.php:1411
 msgid "You have not set up this type of address yet."
 msgstr ""
 
-#: inc/woocommerce-support.php:1594
+#: inc/woocommerce-support.php:1608
 msgid "is a required field."
 msgstr ""
 
-#: inc/woocommerce-support.php:1607
+#: inc/woocommerce-support.php:1621
 msgid "Please enter a valid postcode/ZIP."
 msgstr ""
 
-#: inc/woocommerce-support.php:1616
+#: inc/woocommerce-support.php:1630
 msgid "is not a valid phone number."
 msgstr ""
 
-#: inc/woocommerce-support.php:1623
+#: inc/woocommerce-support.php:1637
 msgid "is not a valid email address."
 msgstr ""
 
-#: inc/woocommerce-support.php:1638
+#: inc/woocommerce-support.php:1652
 msgid "Address changed successfully."
 msgstr ""
 
-#: inc/woocommerce-support.php:1791
+#: inc/woocommerce-support.php:1805
 #, php-format
 msgid "Download file%s"
 msgstr ""
 
-#: inc/woocommerce-support.php:1856
+#: inc/woocommerce-support.php:1870
 msgid "Note:"
 msgstr ""
 
-#: inc/woocommerce-support.php:1859
+#: inc/woocommerce-support.php:1873
 msgid "Email:"
 msgstr ""
 
-#: inc/woocommerce-support.php:1862
+#: inc/woocommerce-support.php:1876
 msgid "Telephone:"
 msgstr ""
 
-#: inc/woocommerce-support.php:1888 inc/woocommerce-support.php:1905
+#: inc/woocommerce-support.php:1902 inc/woocommerce-support.php:1919
 msgid "N/A"
 msgstr ""
 
-#: inc/admin/customizer/customizer-options.php:428
+#: inc/admin/customizer/customizer-options.php:425
 msgid "All"
 msgstr ""
 
-#: inc/admin/customizer/customizer-options.php:432
+#: inc/admin/customizer/customizer-options.php:429
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:4
 msgid "Default"
 msgstr ""
