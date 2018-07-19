@@ -296,7 +296,8 @@ class evolve_ThemeFrameworkMetaboxes {
                 $class_active = 'active';
             }
             printf('<div class="t4p_metabox_tab %s" id="t4p_tab_%s">', $class_active, $tab_name);
-            require_once( sprintf('page-tabs/tab-%s.php', $tab_name) );
+            // require_once( sprintf('page-tabs/tab-%s.php', $tab_name) );
+			include( locate_template( sprintf('inc/admin/metaboxes/page-tabs/tab-%s.php', $tab_name), false, false ) );
             echo '</div>';
         }
 
