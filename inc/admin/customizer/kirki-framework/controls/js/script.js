@@ -1270,6 +1270,11 @@ kirki = jQuery.extend( kirki, {
 					numericValue,
 					unit;
 
+				// Allow unitless.
+				if ( ! value ) {
+					return;
+				}
+				
 				// Whitelist values.
 				if ( 0 === value || '0' === value || 'auto' === value || 'inherit' === value || 'initial' === value ) {
 					return true;
@@ -1285,11 +1290,6 @@ kirki = jQuery.extend( kirki, {
 
 				// Get the unit
 				unit = value.replace( numericValue, '' );
-
-				// Allow unitless.
-				if ( ! value ) {
-					return;
-				}
 
 				// Check the validity of the numeric value and units.
 				return ( ! isNaN( numericValue ) && -1 < jQuery.inArray( unit, validUnits ) );
