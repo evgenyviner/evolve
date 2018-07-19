@@ -297,7 +297,8 @@ class evolve_ThemeFrameworkMetaboxes {
             }
             printf('<div class="t4p_metabox_tab %s" id="t4p_tab_%s">', $class_active, $tab_name);
             // require_once( sprintf('page-tabs/tab-%s.php', $tab_name) );
-			include( locate_template( sprintf('inc/admin/metaboxes/page-tabs/tab-%s.php', $tab_name), false, false ) );
+			// include( locate_template( sprintf('inc/admin/metaboxes/page-tabs/tab-%s.php', $tab_name), false, false ) );
+			get_template_part('inc/admin/metaboxes/page-tabs/tab', $tab_name);
             echo '</div>';
         }
 
@@ -306,5 +307,5 @@ class evolve_ThemeFrameworkMetaboxes {
     }
 
 }
-
+global $metaboxes;
 $metaboxes = new evolve_ThemeFrameworkMetaboxes;

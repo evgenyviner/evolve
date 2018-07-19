@@ -648,8 +648,6 @@ if ( true || is_customize_preview() ) {
 					'default'   => array(
 						'padding-top'    => '2rem',
 						'padding-bottom' => '0rem',
-						'padding-left'   => '2rem',
-						'padding-right'  => '0rem',
 						'units'          => 'rem'
 					),
 					'transport' => 'postMessage',
@@ -719,7 +717,7 @@ if ( true || is_customize_preview() ) {
 					'subtitle' => esc_attr__( 'Select the position of front page elements', 'evolve' ),
 					'type'     => 'select',
 					'options'  => array(
-						'above' => esc_attr__( 'Above Content and Sidebar', 'evolve' ),
+						'above' => esc_attr__( 'Above/Below Content and Sidebar', 'evolve' ),
 						'next'  => esc_attr__( 'In Content And Next To Sidebar', 'evolve' ),
 					),
 					'default'  => 'above'

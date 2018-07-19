@@ -259,6 +259,11 @@ kirki = jQuery.extend( kirki, {
 				var validUnits = [ 'fr', 'rem', 'em', 'ex', '%', 'px', 'cm', 'mm', 'in', 'pt', 'pc', 'ch', 'vh', 'vw', 'vmin', 'vmax' ],
 					numericValue,
 					unit;
+				// evolve modification
+				// Allow unitless.
+				if ( ! value ) {
+					return;
+				}
 
 				// Whitelist values.
 				if ( 0 === value || '0' === value || 'auto' === value || 'inherit' === value || 'initial' === value ) {
@@ -275,11 +280,6 @@ kirki = jQuery.extend( kirki, {
 
 				// Get the unit
 				unit = value.replace( numericValue, '' );
-
-				// Allow unitless.
-				if ( ! value ) {
-					return;
-				}
 
 				// Check the validity of the numeric value and units.
 				return ( ! isNaN( numericValue ) && -1 < jQuery.inArray( unit, validUnits ) );
