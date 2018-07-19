@@ -646,7 +646,7 @@ if ( ! function_exists( 'evolve_breadcrumbs' ) ) {
 				$cats = explode( '</a>/', $cats );
 				foreach ( $cats as $key => $cat ) {
 					if ( $cat ) {
-						echo '<li>' . $cat . '</a></li>';
+						echo '<li class="breadcrumb-item">' . $cat . '</a></li>';
 					}
 				}
 			}
@@ -676,17 +676,7 @@ if ( ! function_exists( 'evolve_breadcrumbs' ) ) {
 			echo '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
 		}
 		if ( is_single() && ! is_attachment() ) {
-			$cat_1_line   = '';
-			$cat_1_ids    = '';
-			$categories_1 = get_the_category( $post->ID );
-			if ( $categories_1 ):
-				foreach ( $categories_1 as $cat_1 ):
-					$cat_1_ids[] = $cat_1->term_id;
-				endforeach;
-				$cat_1_line = implode( ',', $cat_1_ids );
-			endif;
 			$categories = get_categories( array(
-				'include' => $cat_1_line,
 				'orderby' => 'id'
 			) );
 			if ( $categories ) :
