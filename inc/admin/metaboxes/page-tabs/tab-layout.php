@@ -1,7 +1,8 @@
 <div class='t4p_metabox'>
     <?php
+	global $metaboxes;
     $imagepath = get_template_directory_uri() . '/inc/admin/customizer/assets/images/';
-    $this->evolve_image_radio_button(
+    $metaboxes->evolve_image_radio_button(
             'sidebar_position', __('Sidebar Position', 'evolve'), array(
         'default' => $imagepath . '1c.png',
         '2cl' => $imagepath . '2cl.png',
@@ -15,7 +16,7 @@
     <span class="description"><?php esc_html_e('Use this setting to select and set position of sidebar', 'evolve'); ?></span>
     <span class="description"><?php esc_html_e('If "No Sidebar" is selected, this layout will follow the settings of Theme Options -> General -> Select a layout.', 'evolve'); ?></span>
     <?php
-    $this->evolve_select('full_width', __('Full Width', 'evolve'), array(
+    $metaboxes->evolve_select('full_width', __('Full Width', 'evolve'), array(
         'no' => __('No', 'evolve'),
         'yes' => __('Yes', 'evolve'),
             ), ''
