@@ -1,49 +1,40 @@
-# Translation of the EvoLve by Theme4Press.
-# This file is distributed under the same license as the EvoLve package.
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: EvoLve\n"
+"Project-Id-Version: evolve\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-20 10:15+0000\n"
-"PO-Revision-Date: 2018-07-20 10:18+0000\n"
-"Last-Translator: admin <senditme@centrum.sk>\n"
-"Language-Team: Dutch\n"
-"Language: nl_NL\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: _e;__\n"
-"X-Generator: Loco https://localise.biz/\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-SearchPath-0: .\n"
-"Plural-Forms: nplurals=2; plural=n != 1;"
+"X-Generator: Loco https://localise.biz/"
 
 #: 404.php:19
-#, fuzzy
 msgid "Yay! 404 Not Found"
-msgstr "Niet gevonden"
+msgstr ""
 
 #: 404.php:21 template-parts/post/content-none.php:19
-#, fuzzy
 msgid ""
 "Sorry, but you are looking for something that isn't here or it's been moved. "
 "Try a search?"
-msgstr "Sorry, maar u bent op zoek naar iets dat niet bestaat"
+msgstr ""
 
 #: archive.php:20
-#, fuzzy
 msgid "You are browsing archives for"
-msgstr "Jaarlijks archief van"
+msgstr ""
 
 #: comments.php:8
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
-"Dit bericht is beschermd met een wachtwoord. Geef het wachtwoord in om de "
-"commentaren op dit bericht te kunnen lezen."
 
 #: comments.php:54 inc/comments.php:37
 msgid "No Comments Yet"
-msgstr "Nog geen commentaren"
+msgstr ""
 
 #: comments.php:70
 msgid "Comments are closed"
@@ -52,11 +43,11 @@ msgstr ""
 #: functions.php:73
 #, php-format
 msgid "Page %s"
-msgstr "Pagina %s"
+msgstr ""
 
 #: functions.php:115
 msgid "Primary Menu"
-msgstr "Hoofdmenu"
+msgstr ""
 
 #: functions.php:116
 msgid "Sticky Header Menu"
@@ -76,9 +67,8 @@ msgstr ""
 
 #: functions.php:404 inc/template-tags.php:885
 #: template-parts/post/content-post.php:63
-#, fuzzy
 msgid "Read More"
-msgstr "Lees verder"
+msgstr ""
 
 #: functions.php:419
 msgid "To view this protected content, enter the password below"
@@ -95,35 +85,34 @@ msgid "Submit"
 msgstr ""
 
 #: search.php:14
-#, fuzzy, php-format
+#, php-format
 msgid "Search results for %s"
-msgstr "Zoekresultaten voor"
+msgstr ""
 
 #: search.php:20
-#, fuzzy, php-format
+#, php-format
 msgid "Your search for %s didn't match any entries"
-msgstr "heeft geen resultaat opgeleverd"
+msgstr ""
 
 #: search.php:50 woocommerce/loop/no-products-found.php:29
-#, fuzzy
 msgid "Suggestions"
-msgstr "Suggesties:"
+msgstr ""
 
 #: search.php:52 woocommerce/loop/no-products-found.php:31
 msgid "Make sure all words are spelled correctly."
-msgstr "Kijk even eea goed na, of alle woorden goed gespeld zijn "
+msgstr ""
 
 #: search.php:53 woocommerce/loop/no-products-found.php:32
 msgid "Try different keywords."
-msgstr "Probeer andere trefwoorden"
+msgstr ""
 
 #: search.php:54 woocommerce/loop/no-products-found.php:33
 msgid "Try more general keywords."
-msgstr "Probeer meer algemene trefwoorden"
+msgstr ""
 
 #: searchform.php:12 inc/template-tags.php:81
 msgid "Type your search"
-msgstr "Geef uw zoekcriteria"
+msgstr ""
 
 #: bbpress/content-archive-forum.php:15 bbpress/content-single-forum.php:15
 #: bbpress/content-single-topic-lead.php:37
@@ -197,9 +186,8 @@ msgid "Name*"
 msgstr ""
 
 #: bbpress/form-anonymous.php:29
-#, fuzzy
 msgid "Email*"
-msgstr "Email"
+msgstr ""
 
 #: bbpress/form-anonymous.php:35 bbpress/form-user-edit.php:79
 #: inc/comments.php:232
@@ -607,9 +595,8 @@ msgstr ""
 
 #: bbpress/form-user-edit.php:137 bbpress/form-user-register.php:28
 #: inc/comments.php:227 woocommerce/single-product-reviews.php:74
-#, fuzzy
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 #: bbpress/form-user-edit.php:153
 #, php-format
@@ -754,9 +741,9 @@ msgid "In reply to "
 msgstr ""
 
 #: bbpress/loop-single-reply.php:45
-#, fuzzy, php-format
+#, php-format
 msgid "Posts: %s"
-msgstr "Berichten van"
+msgstr ""
 
 #: bbpress/loop-topics.php:17
 msgid "Voices"
@@ -905,12 +892,12 @@ msgstr ""
 #: inc/comments.php:36 inc/template-tags.php:396
 #: template-parts/post/content-post.php:49
 msgid "% Comments"
-msgstr "% commentaren"
+msgstr ""
 
 #: inc/comments.php:38 inc/template-tags.php:396
 #: template-parts/post/content-post.php:49
 msgid "1 Comment"
-msgstr "1 commentaar"
+msgstr ""
 
 #: inc/comments.php:42
 msgid "% Pings/Trackbacks"
@@ -1020,7 +1007,7 @@ msgstr ""
 
 #: inc/template-tags.php:385
 msgid "Written by"
-msgstr "Geschreven door"
+msgstr ""
 
 #: inc/template-tags.php:386
 #, php-format
@@ -1029,12 +1016,11 @@ msgstr ""
 
 #: inc/template-tags.php:396 template-parts/post/content-post.php:49
 msgid "Leave a Comment"
-msgstr "Geef commentaar"
+msgstr ""
 
 #: inc/template-tags.php:462
-#, fuzzy
 msgid "Similar posts"
-msgstr "Enkele berichten"
+msgstr ""
 
 #: inc/template-tags.php:467
 msgid "Permanent Link to"
@@ -1045,9 +1031,8 @@ msgid "Untitled"
 msgstr ""
 
 #: inc/template-tags.php:562
-#, fuzzy
 msgid "Pages:"
-msgstr "Pagina's"
+msgstr ""
 
 #: inc/template-tags.php:638 inc/woocommerce-support.php:231
 msgid "Home"
@@ -1378,9 +1363,8 @@ msgid "Total"
 msgstr ""
 
 #: inc/woocommerce-support.php:1191
-#, fuzzy
 msgid "Recent orders"
-msgstr "Recente berichten"
+msgstr ""
 
 #: inc/woocommerce-support.php:1224
 msgctxt "hash before order number"
@@ -1528,9 +1512,8 @@ msgid "Note:"
 msgstr ""
 
 #: inc/woocommerce-support.php:1873
-#, fuzzy
 msgid "Email:"
-msgstr "Email"
+msgstr ""
 
 #: inc/woocommerce-support.php:1876
 msgid "Telephone:"
@@ -1755,6 +1738,7 @@ msgstr ""
 msgid "Payment method:"
 msgstr ""
 
+#. %s: Quantity.
 #: woocommerce/global/quantity-input.php:29
 #, php-format
 msgid "%s quantity"
@@ -1768,17 +1752,15 @@ msgstr ""
 #: woocommerce/loop/add-to-cart.php:28 woocommerce/loop/add-to-cart.php:52
 #: woocommerce/loop/add-to-cart.php:63
 msgid "Read more"
-msgstr "Lees verder"
+msgstr ""
 
 #: woocommerce/loop/add-to-cart.php:42
-#, fuzzy
 msgid "Select options"
-msgstr "Meer opties"
+msgstr ""
 
 #: woocommerce/loop/add-to-cart.php:47
-#, fuzzy
 msgid "View options"
-msgstr "Meer opties"
+msgstr ""
 
 #: woocommerce/loop/add-to-cart.php:58
 msgid "Add to cart"
@@ -2102,9 +2084,8 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:5444
 #: inc/admin/customizer/customizer-options.php:5459
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:14
-#, fuzzy
 msgid "Posts Slider"
-msgstr "Berichten met categorie"
+msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:716
 msgid "Content Elements Position"

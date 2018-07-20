@@ -205,7 +205,7 @@ if ( bbp_current_user_can_access_create_reply_form() ) : ?>
 <?php else : ?>
 
     <p class="alert alert-warning"
-       role="alert"><?php is_user_logged_in() ? esc_html_e( 'You cannot reply to this topic', 'evolve' ) : esc_html_e( 'You must be logged in to reply to this topic.', 'evolve' ); ?></p>
+       role="alert"><?php is_user_logged_in() ? esc_html_e( 'You cannot reply to this topic', 'evolve' ) : esc_html_e( 'You must be logged in to reply to this topic', 'evolve' ); ?></p>
 
 <?php endif;
 

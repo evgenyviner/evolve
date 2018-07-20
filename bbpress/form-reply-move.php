@@ -85,7 +85,7 @@
 	<?php else : ?>
 
         <p class="alert alert-danger" role="alert">
-			<?php is_user_logged_in() ? esc_html_e( 'You do not have the permissions to edit this reply!', 'evolve' ) : esc_html_e( 'You cannot edit this reply.', 'evolve' ); ?>
+			<?php is_user_logged_in() ? esc_html_e( 'You do not have the permissions to edit this reply!', 'evolve' ) : esc_html_e( 'You cannot edit this reply', 'evolve' ); ?>
         </p>
 
 	<?php endif; ?>

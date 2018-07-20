@@ -228,7 +228,7 @@ function evolve_woocommerce_breadcrumbs() {
 		'wrap_after'  => '</ol></nav>',
 		'before'      => '<li class="breadcrumb-item">',
 		'after'       => '</li>',
-		'home'        => _x( 'Home', 'breadcrumb', 'evolve' ),
+		'home'        => __( 'Home', 'evolve' ),
 		'delimiter'   => ''
 	);
 }
@@ -1408,7 +1408,7 @@ function evolve_woocommerce_before_my_account( $args ) {
 								$formatted_address = WC()->countries->get_formatted_address( $address );
 
 								if ( ! $formatted_address ) {
-									_e( 'You have not set up this type of address yet.', 'evolve' );
+									_e( 'You have not set up this type of address yet', 'evolve' );
 								} else {
 									echo $formatted_address;
 								}

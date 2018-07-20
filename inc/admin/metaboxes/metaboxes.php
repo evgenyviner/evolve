@@ -255,7 +255,7 @@ class evolve_ThemeFrameworkMetaboxes {
     public function evolve_render_option_tabs($requested_tabs, $post_type = 'default') {
         $tabs_names = array(
             'layout' => __('Layout', 'evolve'),
-            'pagetitlebar' => __('Page Title / Breadcrumbs / Page Title Bar', 'evolve'),
+            'pagetitlebar' => __('Breadcrumbs', 'evolve'),
             'widget' => __('Widgets', 'evolve'),
             'slider' => __('Slider', 'evolve'),
             'sidebars' => __('Sidebar', 'evolve'),

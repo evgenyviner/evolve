@@ -385,7 +385,7 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 				$item_output .= self::linkmod_element_open( $linkmod_type, $attributes );
 			} else {
 				// With no link mod type set this must be a standard <a> tag.
-				if ( evolve_theme_mod( 'evl_main_menu_hover_effect', 'rollover' ) == "disable" ) {
+				if ( evolve_theme_mod( 'evl_main_menu_hover_effect', 'rollover' ) == "disable" || strpos( $class_names, 'menu-item-language' ) == true ) {
 					$item_output .= '<a' . $attributes . '>';
 				} else {
 					$item_output .= '<a' . $attributes . '><span class="link-effect" data-hover="' . $item->title . '">';

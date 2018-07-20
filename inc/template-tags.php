@@ -910,7 +910,7 @@ if ( ! function_exists( 'evolve_posts_slider' ) ) {
 						<?php ++ $slides; endwhile;
 				else: ?>
 
-                    <h5><?php esc_html_e( 'Oops, no posts to display! Please check your Post Slider Category( ID ) settings', 'evolve' ); ?></h5>
+                    <h5><?php esc_html_e( 'Oops, no posts to display! Please check your Post Slider Category Name(s) settings', 'evolve' ); ?></h5>
 
 				<?php endif;
 				wp_reset_query(); ?>

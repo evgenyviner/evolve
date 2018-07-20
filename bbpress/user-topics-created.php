@@ -31,7 +31,7 @@
 
             <p class="alert alert-warning" role="alert">
 
-				<?php bbp_is_user_home() ? _e( 'You have not created any topics.', 'evolve' ) : _e( 'This user has not created any topics.', 'evolve' ); ?>
+				<?php bbp_is_user_home() ? _e( 'You have not created any topics', 'evolve' ) : _e( 'This user has not created any topics', 'evolve' ); ?>
 
             </p>
 

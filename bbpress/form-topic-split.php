@@ -102,7 +102,7 @@
 				<?php endif; ?>
 
                 <p class="alert alert-danger" role="alert">
-					<?php _e( '<strong>WARNING:</strong> This process cannot be undone.', 'evolve' ); ?>
+					<?php _e( '<strong>WARNING:</strong> This process cannot be undone', 'evolve' ); ?>
                 </p>
 
                 <p>

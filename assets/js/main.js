@@ -6,8 +6,9 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery')) :
         typeof define === 'function' && define.amd ? define(['exports', 'jquery'], factory) :
-            (factory((global.bootstrap = {}),global.jQuery));
-}(this, (function (exports,$) { 'use strict';
+            (factory((global.bootstrap = {}), global.jQuery));
+}(this, (function (exports, $) {
+    'use strict';
 
     $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
 
@@ -121,6 +122,7 @@
             $$$1.fn.emulateTransitionEnd = transitionEndEmulator;
             $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
         }
+
         /**
          * --------------------------------------------------------------------------
          * Public Util Api
@@ -1788,9 +1790,6 @@
     }();
 
 
-
-
-
     var defineProperty = function (obj, key, value) {
         if (key in obj) {
             Object.defineProperty(obj, key, {
@@ -1859,7 +1858,8 @@
             } else {
                 rect = element.getBoundingClientRect();
             }
-        } catch (e) {}
+        } catch (e) {
+        }
 
         var result = {
             left: rect.left,
@@ -2018,7 +2018,7 @@
 
         // NOTE: 1 DOM access here
 
-        var boundaries = { top: 0, left: 0 };
+        var boundaries = {top: 0, left: 0};
         var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference);
 
         // Handle viewport case
@@ -2175,7 +2175,7 @@
      * @returns {String} flipped placement
      */
     function getOppositePlacement(placement) {
-        var hash = { left: 'right', right: 'left', bottom: 'top', top: 'bottom' };
+        var hash = {left: 'right', right: 'left', bottom: 'top', top: 'bottom'};
         return placement.replace(/left|right|bottom|top/g, function (matched) {
             return hash[matched];
         });
@@ -2427,7 +2427,7 @@
     function attachToScrollParents(scrollParent, event, callback, scrollParents) {
         var isBody = scrollParent.nodeName === 'BODY';
         var target = isBody ? scrollParent.ownerDocument.defaultView : scrollParent;
-        target.addEventListener(event, callback, { passive: true });
+        target.addEventListener(event, callback, {passive: true});
 
         if (!isBody) {
             attachToScrollParents(getScrollParent(target.parentNode), event, callback, scrollParents);
@@ -2444,7 +2444,7 @@
     function setupEventListeners(reference, options, state, updateBound) {
         // Resize event listener on window
         state.updateBound = updateBound;
-        getWindow(reference).addEventListener('resize', state.updateBound, { passive: true });
+        getWindow(reference).addEventListener('resize', state.updateBound, {passive: true});
 
         // Scroll event listener on scroll parents
         var scrollElement = getScrollParent(reference);
@@ -2604,7 +2604,7 @@
 
         // Apply `position` to popper before anything else because
         // without the position applied we can't guarantee correct computations
-        setStyles(popper, { position: options.positionFixed ? 'fixed' : 'absolute' });
+        setStyles(popper, {position: options.positionFixed ? 'fixed' : 'absolute'});
 
         return options;
     }
@@ -3743,7 +3743,8 @@
          * Access Popper.js instance with `data.instance`.
          * @prop {onCreate}
          */
-        onCreate: function onCreate() {},
+        onCreate: function onCreate() {
+        },
 
         /**
          * Callback called when the popper is updated, this callback is not called
@@ -3753,7 +3754,8 @@
          * Access Popper.js instance with `data.instance`.
          * @prop {onUpdate}
          */
-        onUpdate: function onUpdate() {},
+        onUpdate: function onUpdate() {
+        },
 
         /**
          * List of modifiers used to modify the offsets before they are applied to the popper.
@@ -5368,7 +5370,7 @@
     exports.Tab = Tab;
     exports.Tooltip = Tooltip;
 
-    Object.defineProperty(exports, '__esModule', { value: true });
+    Object.defineProperty(exports, '__esModule', {value: true});
 
 })));
 //# sourceMappingURL=bootstrap.bundle.js.map
@@ -5664,13 +5666,36 @@ if (evolve_js_local_vars.sticky_header === '1') {
     ======================================= */
 
 jQuery(function ($) {
-    $('.carousel').on('slide.bs.carousel', function (event) {
-        var height = $(event.relatedTarget).height();
-        var $innerCarousel = $(event.target).find('.carousel-inner');
-        $innerCarousel.animate({
-            height: height
+    if (true) {
+        $('.carousel').on('slide.bs.carousel', function (event) {
+            var height = $(event.relatedTarget).height();
+            var $innerCarousel = $(event.target).find('.carousel-inner');
+            $innerCarousel.animate({
+                height: height
+            });
         });
-    });
+
+        var finishTime;
+
+        function resizeBootstrapSlider() {
+            resizeBootstrapSliderFinish();
+            finishTime = setTimeout(function () {
+                var height = $('.carousel-inner .active').height();
+                var $innerCarousel = $('.carousel-inner .active').closest('.carousel-inner');
+                $innerCarousel.animate({
+                    height: height
+                });
+            }, 100);
+        }
+
+        function resizeBootstrapSliderFinish() {
+            clearTimeout(finishTime);
+        }
+
+        $(window).resize(function () {
+            resizeBootstrapSlider();
+        });
+    }
 });
 
 /*
@@ -5727,22 +5752,33 @@ jQuery(function ($) {
 });
 
 /*
-    Add Menu Effect To WPML Menu Items
+    WPML Menu Items
     ======================================= */
 
-jQuery(document).ready(function () {
-    jQuery('.navbar .menu-item-language a, .sticky-header .menu-item-language a').each(function () {
-        var el = jQuery(this);
-        plan_text = el.text();
-        if (jQuery(this).find('img').length) {
-            img_src = jQuery(this).find('img').attr('src');
-            jQuery(this).find('img').remove();
-            el.html('<img src="' + img_src + '"> <span data-hover=" ' + plan_text + '"> ' + plan_text + '</span>');
-        } else {
-            el.html('<span data-hover="' + plan_text + '">' + plan_text + '</span>');
-        }
+if (evolve_js_local_vars.wpml_menu === '1') {
+    jQuery(document).ready(function () {
+        jQuery('.navbar .menu-item-language a').each(function () {
+            var el = jQuery(this);
+            plan_text = el.text();
+            if (jQuery(this).find('img').length) {
+                img_src = jQuery(this).find('img').attr('src');
+                jQuery(this).find('img').remove();
+                if (evolve_js_local_vars.wpml_menu_effect === '1') {
+                    el.html('<img src="' + img_src + '"> <span class="link-effect" data-hover=" ' + plan_text + '">' + plan_text + '</span>');
+                } else {
+                    el.html('<img src="' + img_src + '"> ' + plan_text);
+
+                }
+            } else {
+                if (evolve_js_local_vars.wpml_menu_effect === '1') {
+                    el.html('<span class="link-effect" data-hover="' + plan_text + '">' + plan_text + '</span>');
+                } else {
+                    el.html(plan_text);
+                }
+            }
+        });
     });
-});
+}
 
 /*
     Tabs Widget

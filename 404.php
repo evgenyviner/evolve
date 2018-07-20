@@ -20,7 +20,7 @@ get_header(); ?>
 
         <p class="lead"><?php _e( 'Sorry, but you are looking for something that isn\'t here or it\'s been moved. Try a search?', 'evolve' ); ?></p>
 
-        <div class="search-full-width">
+        <div class="search-full-width mb-0">
 
 			<?php get_search_form(); ?>
 

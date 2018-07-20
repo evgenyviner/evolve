@@ -1,6 +1,7 @@
 Version:         3.9  
 Date:         19/7/18       
 
+- Major release of the theme - backup of previous version and database backup are highly recommended prior to update
 - Converted theme Customizer framework to Kirki
 - Added Visual Shortcuts in Customizer for faster design development
 - Upgraded Bootstrap framework to version 4+

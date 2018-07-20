@@ -376,6 +376,15 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 			$local_variables['footer_reveal'] = true;
 		endif;
 
+		// WPML Menu
+
+		if ( function_exists( 'icl_object_id' ) ) {
+			$local_variables['wpml_menu'] = true;
+			if ( evolve_theme_mod( 'evl_main_menu_hover_effect', 'rollover' ) !== "disable" ) :
+				$local_variables['wpml_menu_effect'] = true;
+			endif;
+		}
+
 		wp_localize_script( 'main', 'evolve_js_local_vars', $local_variables );
 	}
 }

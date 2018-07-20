@@ -977,7 +977,6 @@ video {
 .widget-title-background {
     color: #333;
     padding-top: .8rem;
-    text-shadow: 0 1px 1px #fff;
 }
 
 .widget-content {
@@ -1500,7 +1499,9 @@ input[type=submit] {
 .input-text,
 input[type=text],
 input[type=password],
-select {
+select,
+a.wpml-ls-item-toggle,
+.wpml-ls-sub-menu a {
     background-clip: padding-box;
     background-color: #fff;
     border: 1px solid #ced4da;
@@ -2722,26 +2723,29 @@ select:not([size]):not([multiple]) {
     WPML Definitions
     ======================================= */
 
-/* TODO remove */
-ul.nav-menu li.menu-item-language {
-    position: relative;
+.menu-item-language img {
+    margin-right: .5rem;
 }
 
-ul.nav-menu li.menu-item-language ul {
-    left: 0;
-    width: 14em;
+.widget .wpml-ls {
+    width: 100%;
 }
 
-.submenu-languages .menu-item-language a span {
-    display: inline-block;
+.widget_icl_lang_sel_widget {
+    z-index: 1;
 }
 
-.menu-item-language a::after {
-    left: 3px;
+.wpml-ls-legacy-list-horizontal .wpml-ls-flag + span,
+.wpml-ls-legacy-list-vertical .wpml-ls-flag + span {
+    margin-left: .5rem;
 }
 
-#lang_sel ul {
-    list-style-image: none;
+.wpml-ls-legacy-list-horizontal a {
+    margin-right: 1rem;
+}
+
+.widget .wpml-ls-item-legacy-list-vertical > a {
+    padding: .5rem;
 }
 
 /*

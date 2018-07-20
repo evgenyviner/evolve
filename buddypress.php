@@ -1,9 +1,10 @@
 <?php
-get_header();
 
-$evolve_layout      = evolve_theme_mod( 'evl_layout', '2cl' );
-$evolve_post_layout = evolve_theme_mod( 'evl_post_layout', 'two' );
-?>
+/*
+   Main Template For BuddyPress
+   ======================================= */
+
+get_header(); ?>
 
     <div id="primary" class="<?php evolve_layout_class( $type = 2 ); ?>">
 
@@ -23,8 +24,8 @@ $evolve_post_layout = evolve_theme_mod( 'evl_post_layout', 'two' );
 		<?php endif; ?>
 
     </div>
-<?php
-wp_reset_query();
+
+<?php wp_reset_query();
 
 if ( evolve_lets_get_sidebar_2() == true ):
 	get_sidebar( '2' );

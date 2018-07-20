@@ -3580,7 +3580,7 @@ if ( true || is_customize_preview() ) {
 				array(
 					'id'       => 'evl_shadow_effect',
 					'title'    => esc_attr__( 'Shadow Effect', 'evolve' ),
-					'subtitle' => esc_attr__( 'Enables the shadow effect on the elements, enables text shadows', 'evolve' ),
+					'subtitle' => esc_attr__( 'Enables the shadow effect on the elements', 'evolve' ),
 					'type'     => 'select',
 					'compiler' => true,
 					'options'  => array(
@@ -3595,10 +3595,7 @@ if ( true || is_customize_preview() ) {
 					'subtitle'  => esc_attr__( 'Select the text shadow effect custom color', 'evolve' ),
 					'type'      => 'color_rgba',
 					'compiler'  => true,
-					'default'   => 'rgba(150,150,150,0.7)',
-					'required'  => array(
-						array( 'evl_shadow_effect', '=', 'enable' )
-					),
+					'default'   => '',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(

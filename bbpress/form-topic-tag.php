@@ -56,7 +56,7 @@ if (current_user_can('edit_topic_tags')) :
                 <legend><?php esc_html_e('Merge', 'evolve'); ?></legend>
 
                 <div class="bbp-template-notice">
-                    <p><?php esc_html_e('Merging tags together cannot be undone.', 'evolve'); ?></p>
+                    <p><?php esc_html_e('Merging tags together cannot be undone', 'evolve'); ?></p>
                 </div>
 
                 <form id="merge_tag" name="merge_tag" method="post" action="<?php the_permalink(); ?>">
