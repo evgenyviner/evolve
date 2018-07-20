@@ -42,7 +42,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$padding_right          = $header_padding['right'];
 		$menu_padding           = evolve_theme_mod( 'evl_main_menu_padding', '8' );
 		$menu_font              = evolve_theme_mod( 'evl_menu_font' );
-		$responsive_menu_layout = evolve_theme_mod( 'evl_responsive_menu_layout', 'basic' );
+		$responsive_menu_layout = evolve_theme_mod( 'evl_responsive_menu_layout', 'dropdown' );
 
 		/*
 			Background, Color, Image
@@ -54,7 +54,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$top_bar_back_color                 = evolve_theme_mod( 'evl_top_menu_back', '#273039' );
 		$custom_main_color                  = evolve_theme_mod( 'evl_header_footer_back_color', '' );
 		$custom_header_color                = evolve_theme_mod( 'evl_header_background_color', '#313a43' );
-		$main_pattern                       = evolve_theme_mod( 'evl_pattern', '' );
+		$main_pattern                       = evolve_theme_mod( 'evl_pattern', 'none' );
 		$scheme_widgets                     = evolve_theme_mod( 'evl_scheme_widgets', '#273039' );
 		$widget_background                  = evolve_theme_mod( 'evl_widget_background', '0' );
 		$widget_bgcolor                     = evolve_theme_mod( 'evl_widget_bgcolor', '#273039' );
@@ -63,20 +63,20 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$social_color                       = evolve_theme_mod( 'evl_social_color_scheme', '#999999' );
 		$scheme_background                  = evolve_theme_mod( 'evl_scheme_background', '' );
 		$scheme_background_100              = evolve_theme_mod( 'evl_scheme_background_100', '0' );
-		$scheme_background_repeat           = evolve_theme_mod( 'evl_scheme_background_repeat', 'repeat' );
-		$primary_link                       = evolve_theme_mod( 'evl_general_link', '#0bb697' );
+		$scheme_background_repeat           = evolve_theme_mod( 'evl_scheme_background_repeat', 'no-repeat' );
+		$primary_link                       = evolve_theme_mod( 'evl_general_link', '#0d9078' );
 		$secondary_link                     = evolve_theme_mod( 'evl_secondary_link', '#999999' );
 		$content_box1_icon_color            = evolve_theme_mod( 'evl_content_box1_icon_color', '#8bb9c1' );
 		$content_box2_icon_color            = evolve_theme_mod( 'evl_content_box2_icon_color', '#8ba3c1' );
 		$content_box3_icon_color            = evolve_theme_mod( 'evl_content_box3_icon_color', '#8dc4b8' );
 		$content_box4_icon_color            = evolve_theme_mod( 'evl_content_box4_icon_color', '#92bf89' );
 		$header_image                       = evolve_theme_mod( 'evl_header_image', 'cover' );
-		$content_background_image           = evolve_theme_mod( 'evl_content_background_image' );
+		$content_background_image           = evolve_theme_mod( 'evl_content_background_image', '' );
 		$content_background_color           = evolve_theme_mod( 'evl_content_background_color', '' );
 		$content_image_responsiveness       = evolve_theme_mod( 'evl_content_image_responsiveness', 'cover' );
 		$shadow_effect                      = evolve_theme_mod( 'evl_shadow_effect', 'disable' );
-		$content_box_background_color       = evolve_theme_mod( 'evl_content_box_background_color', '#efefef' );
-		$form_bg_color                      = evolve_theme_mod( 'evl_form_bg_color', '#ffffff' );
+		$content_box_background_color       = evolve_theme_mod( 'evl_content_box_background_color', '#f9f9f9' );
+		$form_bg_color                      = evolve_theme_mod( 'evl_form_bg_color', '#fcfcfc' );
 		$form_text_color                    = evolve_theme_mod( 'evl_form_text_color', '#888888' );
 		$form_border_color                  = evolve_theme_mod( 'evl_form_border_color', '#E0E0E0' );
 		$header_logo                        = evolve_theme_mod( 'evl_header_logo', '' );
@@ -84,30 +84,30 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$social_box_radius                  = evolve_theme_mod( 'evl_social_box_radius', 'disabled' );
 		$background_repeat                  = evolve_theme_mod( 'evl_header_image_background_repeat', 'no-repeat' );
 		$background_position                = evolve_theme_mod( 'evl_header_image_background_position', 'center top' );
-		$footer_image_src                   = evolve_theme_mod( 'evl_footer_background_image' );
+		$footer_image_src                   = evolve_theme_mod( 'evl_footer_background_image', '' );
 		$footer_image                       = evolve_theme_mod( 'evl_footer_image', 'cover' );
 		$footer_background_repeat           = evolve_theme_mod( 'evl_footer_image_background_repeat', 'no-repeat' );
 		$footer_background_position         = evolve_theme_mod( 'evl_footer_image_background_position', 'center top' );
-		$component_color                    = evolve_theme_mod( 'evl_form_item_color', '#0bb697' );
-		$bootstrap_slide_title_font_rgba    = evolve_theme_mod( 'evl_bootstrap_slide_title_font_rgba' );
-		$bootstrap_slide_subtitle_font_rgba = evolve_theme_mod( 'evl_bootstrap_slide_subtitle_font_rgba' );
+		$component_color                    = evolve_theme_mod( 'evl_form_item_color', '#0d9078' );
+		$bootstrap_slide_title_font_rgba    = evolve_theme_mod( 'evl_bootstrap_slide_title_font_rgba', '' );
+		$bootstrap_slide_subtitle_font_rgba = evolve_theme_mod( 'evl_bootstrap_slide_subtitle_font_rgba', '' );
 
 		/*
 			Button
 			======================================= */
 
-		$button_shape                       = evolve_theme_mod( 'evl_shortcode_button_shape', 'Round' );
-		$button_type                        = evolve_theme_mod( 'evl_shortcode_button_type', '3d' );
-		$button_gradient_top_color          = evolve_theme_mod( 'evl_shortcode_button_gradient_top_color', '#0bb697' );
-		$button_gradient_bottom_color       = evolve_theme_mod( 'evl_shortcode_button_gradient_bottom_color', '#0bb697' );
+		$button_shape                       = evolve_theme_mod( 'evl_shortcode_button_shape', 'Pill' );
+		$button_type                        = evolve_theme_mod( 'evl_shortcode_button_type', 'Flat' );
+		$button_gradient_top_color          = evolve_theme_mod( 'evl_shortcode_button_gradient_top_color', '#0d9078' );
+		$button_gradient_bottom_color       = evolve_theme_mod( 'evl_shortcode_button_gradient_bottom_color', '#0d9078' );
 		$button_gradient_top_hover_color    = evolve_theme_mod( 'evl_shortcode_button_gradient_top_hover_color', '#313a43' );
 		$button_gradient_bottom_hover_color = evolve_theme_mod( 'evl_shortcode_button_gradient_bottom_hover_color', '#313a43' );
 		$button_accent_color                = evolve_theme_mod( 'evl_shortcode_button_accent_color', '#f4f4f4' );
 		$button_accent_hover_color          = evolve_theme_mod( 'evl_shortcode_button_accent_hover_color', '#ffffff' );
 		$button_bevel_color                 = evolve_theme_mod( 'evl_shortcode_button_bevel_color', '#1d6e72' );
-		$button_border_color                = evolve_theme_mod( 'evl_shortcode_button_border_color', '#0bb697' );
+		$button_border_color                = evolve_theme_mod( 'evl_shortcode_button_border_color', '#0d9078' );
 		$button_border_hover_color          = evolve_theme_mod( 'evl_shortcode_button_border_hover_color', '#313a43' );
-		$button_border_width                = evolve_theme_mod( 'evl_shortcode_button_border_width', '1' );
+		$button_border_width                = evolve_theme_mod( 'evl_shortcode_button_border_width', '3' );
 		$button_shadow                      = evolve_theme_mod( 'evl_shortcode_button_shadow', '1' );
 		$button_classes                     = " .btn, a.btn, button, .button, .widget .button, input#submit, input[type=submit], .post-content a.btn, .carousel-control-button, .woocommerce .button";
 		$button_hover_classes               = " .btn:hover, a.btn:hover, button:hover, .button:hover, .widget .button:hover, input#submit:hover, input[type=submit]:hover, .carousel-control-button:hover";
@@ -152,7 +152,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$content_boxes_section_padding_left        = $content_boxes_section_padding['left'];
 		$content_boxes_section_padding_right       = $content_boxes_section_padding['right'];
 		$content_boxes_section_back_color          = evolve_theme_mod( 'evl_content_boxes_section_back_color', '' );
-		$content_boxes_section_image_src           = evolve_theme_mod( 'evl_content_boxes_section_background_image' );
+		$content_boxes_section_image_src           = evolve_theme_mod( 'evl_content_boxes_section_background_image', '' );
 		$content_boxes_section_image               = evolve_theme_mod( 'evl_content_boxes_section_image', 'cover' );
 		$content_boxes_section_background_repeat   = evolve_theme_mod( 'evl_content_boxes_section_image_background_repeat', 'no-repeat' );
 		$content_boxes_section_background_position = evolve_theme_mod( 'evl_content_boxes_section_image_background_position', 'center top' );
@@ -166,8 +166,8 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$testimonials_section_padding_bottom      = $testimonials_section_padding['bottom'];
 		$testimonials_section_padding_left        = $testimonials_section_padding['left'];
 		$testimonials_section_padding_right       = $testimonials_section_padding['right'];
-		$testimonials_section_back_color          = evolve_theme_mod( 'evl_testimonials_section_back_color', '' );
-		$testimonials_section_image_src           = evolve_theme_mod( 'evl_testimonials_section_background_image' );
+		$testimonials_section_back_color          = evolve_theme_mod( 'evl_testimonials_section_back_color', '#efefef' );
+		$testimonials_section_image_src           = evolve_theme_mod( 'evl_testimonials_section_background_image', '' );
 		$testimonials_section_image               = evolve_theme_mod( 'evl_testimonials_section_image', 'cover' );
 		$testimonials_section_background_repeat   = evolve_theme_mod( 'evl_testimonials_section_image_background_repeat', 'no-repeat' );
 		$testimonials_section_background_position = evolve_theme_mod( 'evl_testimonials_section_image_background_position', 'center top' );
@@ -181,8 +181,8 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$counter_circle_section_padding_bottom      = $counter_circle_section_padding['bottom'];
 		$counter_circle_section_padding_left        = $counter_circle_section_padding['left'];
 		$counter_circle_section_padding_right       = $counter_circle_section_padding['right'];
-		$counter_circle_section_back_color          = evolve_theme_mod( 'evl_counter_circle_section_back_color', '' );
-		$counter_circle_section_image_src           = evolve_theme_mod( 'evl_counter_circle_section_background_image' );
+		$counter_circle_section_back_color          = evolve_theme_mod( 'evl_counter_circle_section_back_color', '#41d6c2' );
+		$counter_circle_section_image_src           = evolve_theme_mod( 'evl_counter_circle_section_background_image', '' );
 		$counter_circle_section_image               = evolve_theme_mod( 'evl_counter_circle_section_image', 'cover' );
 		$counter_circle_section_background_repeat   = evolve_theme_mod( 'evl_counter_circle_section_image_background_repeat', 'no-repeat' );
 		$counter_circle_section_background_position = evolve_theme_mod( 'evl_counter_circle_section_image_background_position', 'center top' );
@@ -196,8 +196,8 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$woo_product_section_padding_bottom      = $woo_product_section_padding['bottom'];
 		$woo_product_section_padding_left        = $woo_product_section_padding['left'];
 		$woo_product_section_padding_right       = $woo_product_section_padding['right'];
-		$woo_product_section_back_color          = evolve_theme_mod( 'evl_woo_product_section_back_color', '' );
-		$woo_product_section_image_src           = evolve_theme_mod( 'evl_woo_product_section_background_image' );
+		$woo_product_section_back_color          = evolve_theme_mod( 'evl_woo_product_section_back_color', '#fafafa' );
+		$woo_product_section_image_src           = evolve_theme_mod( 'evl_woo_product_section_background_image', '' );
 		$woo_product_section_image               = evolve_theme_mod( 'evl_woo_product_section_image', 'cover' );
 		$woo_product_section_background_repeat   = evolve_theme_mod( 'evl_woo_product_section_image_background_repeat', 'no-repeat' );
 		$woo_product_section_background_position = evolve_theme_mod( 'evl_woo_product_section_image_background_position', 'center top' );
@@ -211,8 +211,8 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$custom_content_section_padding_bottom      = $custom_content_section_padding['bottom'];
 		$custom_content_section_padding_left        = $custom_content_section_padding['left'];
 		$custom_content_section_padding_right       = $custom_content_section_padding['right'];
-		$custom_content_section_back_color          = evolve_theme_mod( 'evl_custom_content_section_back_color', '' );
-		$custom_content_section_image_src           = evolve_theme_mod( 'evl_custom_content_section_background_image' );
+		$custom_content_section_back_color          = evolve_theme_mod( 'evl_custom_content_section_back_color', '#93f2d7' );
+		$custom_content_section_image_src           = evolve_theme_mod( 'evl_custom_content_section_background_image', '' );
 		$custom_content_section_image               = evolve_theme_mod( 'evl_custom_content_section_image', 'cover' );
 		$custom_content_section_background_repeat   = evolve_theme_mod( 'evl_custom_content_section_image_background_repeat', 'no-repeat' );
 		$custom_content_section_background_position = evolve_theme_mod( 'evl_custom_content_section_image_background_position', 'center top' );
@@ -276,7 +276,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			--------------------------------------- */
 
 		if ( ! ( '' == evolve_theme_mod( 'evl_menu_back_color', '#273039' ) ) ) {
-			$css_data .= ' .navbar-nav .dropdown-menu, .navbar-nav .dropdown-item:focus, .navbar-nav .dropdown-item:hover { background: ' . $menu_back_color . '; } .menu-header, .sticky-header { background: ' . $menu_back_color . '; ';
+			$css_data .= ' .navbar-nav .dropdown-menu, .navbar-nav .dropdown-item:focus, .navbar-nav .dropdown-item:hover { background: ' . $menu_back_color . '; } .menu-header, .sticky-header { background: ' . $menu_back_color . ';';
 
 			/*
 				-- Enable Menu Gradient, Shadow Effects
@@ -407,7 +407,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 
 		$css_data .= evolve_print_fonts( 'evl_menu_font', ' .navbar-nav .nav-link, .navbar-nav .dropdown-item, .navbar-nav .dropdown-menu, .menu-header, .header-wrapper .header-search, .sticky-header, .navbar-toggler' );
 
-		if ( ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider', '0' ) == '1' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) ) {
+		if ( ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider', '0' ) == '1' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) ) {
 
 			/*
 				Bootstrap Slider --> Slider Title Font
@@ -628,8 +628,8 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 
 			$css_data .= ' .home-testimonials {' . $home_testimonials_css_data . ' }';
 
-			$testimonials_back_color = evolve_theme_mod( "evl_fp_testimonials_bg_color" );
-			$testimonials_textcolor  = evolve_theme_mod( "evl_fp_testimonials_text_color" );
+			$testimonials_back_color = evolve_theme_mod( "evl_fp_testimonials_bg_color", '' );
+			$testimonials_textcolor  = evolve_theme_mod( "evl_fp_testimonials_text_color", '' );
 
 			if ( $testimonials_back_color ) {
 				$css_data .= ' .home-testimonials .carousel { background-color:' . $testimonials_back_color . '; padding: 2rem; }';
@@ -1098,7 +1098,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			Bootstrap Slider Style
 			--------------------------------------- */
 
-		if ( ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider', '0' ) == '1' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) ) {
+		if ( ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider', '0' ) == '1' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) ) {
 			if ( ! empty( $bootstrap_slide_title_font_rgba ) ) {
 				$css_data .= ' .carousel .carousel-caption h5 { background: ' . $bootstrap_slide_title_font_rgba . '; padding: 1rem; }';
 			}
@@ -1254,7 +1254,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			-- Bootstrap / Parallax / Posts Slider
 			--------------------------------------- */
 
-		if ( ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider', '0' ) == '1' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'posts' && evolve_theme_mod( 'evl_carousel_slider', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_posts_slider', '0' ) == '1' && evolve_theme_mod( 'evl_carousel_slider', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_carousel_slider', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'posts_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_carousel_slider', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'posts_slider' ) ) ) ) || ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'parallax' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_parallax_slider', '0' ) == '1' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ) {
+		if ( ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider', '0' ) == '1' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'posts' && evolve_theme_mod( 'evl_carousel_slider', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_posts_slider', '0' ) == '1' && evolve_theme_mod( 'evl_carousel_slider', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_carousel_slider', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'posts_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_carousel_slider', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'posts_slider' ) ) ) ) || ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'parallax' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_parallax_slider', '0' ) == '1' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ) {
 			$css_data .= ' #bootstrap-slider .carousel-caption h5, #parallax-slider .carousel-caption h5, #posts-slider .carousel-caption h5 { font-size: 1.8rem; }';
 		}
 
@@ -1303,7 +1303,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			-- Bootstrap / Parallax / Posts Slider
 			--------------------------------------- */
 
-		if ( ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider', '0' ) == '1' && evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'posts' && evolve_theme_mod( 'evl_carousel_slider', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_posts_slider', '0' ) == '1' && evolve_theme_mod( 'evl_carousel_slider', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_carousel_slider', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'posts_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_carousel_slider', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'posts_slider' ) ) ) ) || ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'parallax' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_parallax_slider', '0' ) == '1' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ) {
+		if ( ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider', '0' ) == '1' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'posts' && evolve_theme_mod( 'evl_carousel_slider', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_posts_slider', '0' ) == '1' && evolve_theme_mod( 'evl_carousel_slider', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_carousel_slider', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'posts_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_carousel_slider', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'posts_slider' ) ) ) ) || ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'parallax' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_parallax_slider', '0' ) == '1' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '1' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ) {
 			$css_data .= ' #bootstrap-slider .carousel-caption h5, #parallax-slider .carousel-caption h5, #posts-slider .carousel-caption h5 { font-size: 1.5rem; margin: 0; }';
 		}
 

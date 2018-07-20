@@ -300,7 +300,7 @@ $evolve_opt_name = "evl_options";
 $evolve_rss_url  = get_bloginfo( 'rss_url' );
 $evolve_theme    = wp_get_theme();
 
-$evolve_t4p_url  = esc_url( "http://theme4press.com/" );
+$evolve_home_url  = esc_url( "http://theme4press.com/" );
 $evolve_videourl = esc_url( "https://youtu.be/dgvjt6dJfWM" );
 $evolve_fb_url   = esc_url( "https://www.facebook.com/Theme4Press" );
 
@@ -474,8 +474,8 @@ if ( class_exists( 'Woocommerce' ) ) {
 		'disabled' => array(
 			'content_box'         => esc_attr__( 'Content Boxes', 'evolve' ),
 			'testimonial'         => esc_attr__( 'Testimonials', 'evolve' ),
-			'woocommerce_product' => esc_attr__( 'WooCommerce Products', 'evolve' ),
 			'counter_circle'      => esc_attr__( 'Counter Circles', 'evolve' ),
+			'woocommerce_product' => esc_attr__( 'WooCommerce Products', 'evolve' ),
 			'custom_content'      => esc_attr__( 'Custom Content', 'evolve' ),
 		)
 	);
@@ -545,7 +545,7 @@ if ( true || is_customize_preview() ) {
 				array(
 					'type' => 'info',
 					'id'   => 'evl_theme_links',
-					'desc' => '<a class="button button-primary" target="_blank" href="' . $evolve_t4p_url . 'alora-evolve-theme-comparison/"><i class="el el-tint"></i> Compare with the Pro Version</a> <a class="button" target="_blank" href="' . $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/"><i class="el el-home"></i> Theme Homepage</a> <a class="button" target="_blank" href="' . $evolve_videourl . '"><i class="el el-youtube"></i> Watch on YouTube</a> <a class="button" target="_blank" href="' . $evolve_t4p_url . 'docs/"><i class="el el-file"></i> Documentation</a> <a class="button" target="_blank" href="' . $evolve_t4p_url . 'support-forums/"><i class="el el-comment-alt"></i> Support</a>'
+					'desc' => '<a class="button button-primary" target="_blank" href="' . $evolve_home_url . 'alora-evolve-theme-comparison/"><i class="el el-tint"></i> Compare with the Pro Version</a> <a class="button" target="_blank" href="' . $evolve_home_url . 'evolve-multipurpose-wordpress-theme/"><i class="el el-home"></i> Theme Homepage</a> <a class="button" target="_blank" href="' . $evolve_videourl . '"><i class="el el-youtube"></i> Watch on YouTube</a> <a class="button" target="_blank" href="' . $evolve_home_url . 'docs/"><i class="el el-file"></i> Documentation</a> <a class="button" target="_blank" href="' . $evolve_home_url . 'support-forums/"><i class="el el-comment-alt"></i> Support</a>'
 				)
 			)
 		)
@@ -644,7 +644,6 @@ if ( true || is_customize_preview() ) {
 					'subtitle'  => esc_attr__( 'Enter the page Content Top & Bottom Padding', 'evolve' ),
 					'type'      => 'spacing',
 					'units'     => array( 'px', 'em' ),
-					'left'      => false, // this parameter not working
 					'default'   => array(
 						'padding-top'    => '2rem',
 						'padding-bottom' => '0rem',
@@ -676,7 +675,7 @@ if ( true || is_customize_preview() ) {
 	);
 
 //Check status of parallax and post slider
-	$theme_options['evl_bootstrap_slider_support'] = evolve_theme_mod( 'evl_bootstrap_slider_support', '1' );
+	$theme_options['evl_bootstrap_slider_support'] = evolve_theme_mod( 'evl_bootstrap_slider_support', '0' );
 	$theme_options['evl_parallax_slider_support']  = evolve_theme_mod( 'evl_parallax_slider_support', '0' );
 	$theme_options['evl_carousel_slider']          = evolve_theme_mod( 'evl_carousel_slider' );
 
@@ -781,7 +780,7 @@ if ( true || is_customize_preview() ) {
 					'type'    => 'switch',
 					'on'      => esc_attr__( 'Enabled', 'evolve' ),
 					'off'     => esc_attr__( 'Disabled', 'evolve' ),
-					'default' => 1
+					'default' => 0
 				),
 				array(
 					'id'              => 'evl_content_box1_title',
@@ -799,7 +798,6 @@ if ( true || is_customize_preview() ) {
 					'type'            => 'text',
 					'selector'        => '.content-box.content-box-1 .card-img-top',
 					'render_callback' => 'evl_content_box1_icon',
-					'input_attrs'     => 'fas fa-cube',
 					'class'           => 'iconpicker-icon',
 					'required'        => array(
 						array( 'evl_content_box1_enable', '=', '1' )
@@ -862,7 +860,7 @@ if ( true || is_customize_preview() ) {
 					'type'    => 'switch',
 					'on'      => esc_attr__( 'Enabled', 'evolve' ),
 					'off'     => esc_attr__( 'Disabled', 'evolve' ),
-					'default' => 1
+					'default' => 0
 				),
 				array(
 					'id'              => 'evl_content_box2_title',
@@ -880,7 +878,6 @@ if ( true || is_customize_preview() ) {
 					'type'            => 'text',
 					'selector'        => '.content-box.content-box-2 .card-img-top',
 					'render_callback' => 'evl_content_box2_icon',
-					'input_attrs'     => 'fas fa-circle-o-notch',
 					'class'           => 'iconpicker-icon',
 					'required'        => array(
 						array( 'evl_content_box2_enable', '=', '1' )
@@ -943,7 +940,7 @@ if ( true || is_customize_preview() ) {
 					'type'    => 'switch',
 					'on'      => esc_attr__( 'Enabled', 'evolve' ),
 					'off'     => esc_attr__( 'Disabled', 'evolve' ),
-					'default' => 1
+					'default' => 0
 				),
 				array(
 					'id'              => 'evl_content_box3_title',
@@ -961,7 +958,6 @@ if ( true || is_customize_preview() ) {
 					'type'            => 'text',
 					'selector'        => '.content-box.content-box-3 .card-img-top',
 					'render_callback' => 'evl_content_box3_icon',
-					'input_attrs'     => 'fas fa-shopping-basket',
 					'class'           => 'iconpicker-icon',
 					'required'        => array(
 						array( 'evl_content_box3_enable', '=', '1' )
@@ -1024,7 +1020,7 @@ if ( true || is_customize_preview() ) {
 					'type'    => 'switch',
 					'on'      => esc_attr__( 'Enabled', 'evolve' ),
 					'off'     => esc_attr__( 'Disabled', 'evolve' ),
-					'default' => 1
+					'default' => 0
 				),
 				array(
 					'id'              => 'evl_content_box4_title',
@@ -1042,7 +1038,6 @@ if ( true || is_customize_preview() ) {
 					'type'            => 'text',
 					'selector'        => '.content-box.content-box-4 .card-img-top',
 					'render_callback' => 'evl_content_box4_icon',
-					'input_attrs'     => 'far fa-object-ungroup',
 					'class'           => 'iconpicker-icon',
 					'required'        => array(
 						array( 'evl_content_box4_enable', '=', '1' )
@@ -1261,7 +1256,7 @@ if ( true || is_customize_preview() ) {
 			'type'    => 'switch',
 			'on'      => esc_attr__( 'Enabled', 'evolve' ),
 			'off'     => esc_attr__( 'Disabled', 'evolve' ),
-			'default' => 1
+			'default' => 0
 		);
 
 		$testimonialfields[] = array(
@@ -1526,7 +1521,7 @@ if ( true || is_customize_preview() ) {
 			'type'    => 'switch',
 			'on'      => esc_attr__( 'Enabled', 'evolve' ),
 			'off'     => esc_attr__( 'Disabled', 'evolve' ),
-			'default' => 1
+			'default' => 0
 		);
 
 		$counter_circle_fields[] = array(
@@ -2484,9 +2479,9 @@ if ( true || is_customize_preview() ) {
 				array(
 					'id'              => 'evl_footer_content',
 					'title'           => esc_attr__( 'Custom Footer', 'evolve' ),
-					'subtitle'        => sprintf( esc_attr__( 'Available %1$sHTML%2$s tags and attributes: %3$s Default: %4$s<div id="copyright"><a href="%5$s">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a></div>%6$s', 'evolve' ), '<strong>', '</strong>', '<br /><br /> <code> &lt;b&gt; &lt;i&gt; &lt;a href="" title=""&gt; &lt;blockquote&gt; &lt;del datetime=""&gt; <br /> &lt;ins datetime=""&gt; &lt;img src="" alt="" /&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; <br /> &lt;code&gt; &lt;em&gt; &lt;strong&gt; &lt;div&gt; &lt;span&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt; <br /> &lt;table&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt; &lt;br /&gt; &lt;hr /&gt;</code><br /><br />', '<code>', $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/', '</code>' ),
+					'subtitle'        => sprintf( esc_attr__( 'Available %1$sHTML%2$s tags and attributes: %3$s Default: %4$s<div id="copyright"><a href="%5$s">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a></div>%6$s', 'evolve' ), '<strong>', '</strong>', '<br /><br /> <code> &lt;b&gt; &lt;i&gt; &lt;a href="" title=""&gt; &lt;blockquote&gt; &lt;del datetime=""&gt; <br /> &lt;ins datetime=""&gt; &lt;img src="" alt="" /&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; <br /> &lt;code&gt; &lt;em&gt; &lt;strong&gt; &lt;div&gt; &lt;span&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt; <br /> &lt;table&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt; &lt;br /&gt; &lt;hr /&gt;</code><br /><br />', '<code>', $evolve_home_url . 'evolve-multipurpose-wordpress-theme/', '</code>' ),
 					'type'            => 'textarea',
-					'default'         => '<div id="copyright">' . sprintf( esc_attr__( '<a href="%s">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a>', 'evolve' ), $evolve_t4p_url . 'evolve-multipurpose-wordpress-theme/' ) . '</div>',
+					'default'         => sprintf( '<div id="copyright"><a href="%s">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a></div>', $evolve_home_url . 'evolve-multipurpose-wordpress-theme/' ),
 					'selector'        => '.custom-footer',
 					'render_callback' => 'evl_footer_content'
 				)
@@ -2546,7 +2541,7 @@ if ( true || is_customize_preview() ) {
 						'font-size'   => '2.4rem',
 						'color'       => '#ffffff',
 						'font-family' => 'Roboto',
-						'font-weight' => '300'
+						'font-weight' => '500'
 					),
 					'transport'   => 'postMessage',
 					'js_vars'     => array(
@@ -2586,7 +2581,7 @@ if ( true || is_customize_preview() ) {
 						'font-size'   => '1.6rem',
 						'color'       => '#ffffff',
 						'font-family' => 'Roboto',
-						'font-weight' => '300'
+						'font-weight' => '500'
 					),
 					'transport'   => 'postMessage',
 					'js_vars'     => array(
@@ -2690,7 +2685,7 @@ if ( true || is_customize_preview() ) {
 					'text-align'  => false,
 					'line-height' => false,
 					'default'     => array(
-						'font-size'   => '1.75rem',
+						'font-size'   => '2rem',
 						'color'       => '#51545C',
 						'font-family' => 'Roboto',
 						'font-weight' => '700'
@@ -3644,7 +3639,7 @@ if ( true || is_customize_preview() ) {
 						'Flat' => esc_attr__( 'Flat', 'evolve' ),
 						'3d'   => esc_attr__( '3d', 'evolve' )
 					),
-					'default'  => '3d'
+					'default'  => 'Flat'
 				),
 				array(
 					'id'        => 'evl_shortcode_button_gradient_top_color',
@@ -3809,7 +3804,7 @@ if ( true || is_customize_preview() ) {
 					'type'      => 'slider',
 					'min'       => '0',
 					'max'       => '10',
-					'default'   => '1',
+					'default'   => '3',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -4450,7 +4445,7 @@ if ( true || is_customize_preview() ) {
 			'title'    => sprintf( esc_attr__( 'Enable Slide %d', 'evolve' ), $i ),
 			'subtitle' => sprintf( esc_attr__( 'Enable or Disable Slide %d', 'evolve' ), $i ),
 			'type'     => "switch",
-			'default'  => "1"
+			'default'  => "0"
 		);
 
 		$fields[] = array(
@@ -4511,7 +4506,7 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Enable Bootstrap Slider', 'evolve' ),
 					'subtitle' => esc_attr__( 'Check this box if you want to enable Bootstrap Slider', 'evolve' ),
 					'type'     => 'checkbox',
-					'default'  => '1'
+					'default'  => '0'
 				),
 				array(
 					'id'       => 'evl_bootstrap_slider',
@@ -4665,7 +4660,7 @@ if ( true || is_customize_preview() ) {
 			'title'    => sprintf( esc_attr__( 'Enable Slide %d', 'evolve' ), $i ),
 			'subtitle' => sprintf( esc_attr__( 'Enable or Disable Slide %d', 'evolve' ), $i ),
 			'type'     => "switch",
-			'default'  => "1"
+			'default'  => "0"
 		);
 
 		$fields[] = array(
@@ -5227,8 +5222,8 @@ if ( is_user_logged_in() && get_option( 'old_new_upgrade_themeoptions', 'false' 
 
 	//Reset content boxes section settings
 	$evolve_options['evl_content_boxes_title']                             = '';
-	$evolve_options['evl_content_boxes_section_padding']['padding-top']    = '0';
-	$evolve_options['evl_content_boxes_section_padding']['padding-bottom'] = '0';
+	$evolve_options['evl_content_boxes_section_padding']['padding-top']    = '25px';
+	$evolve_options['evl_content_boxes_section_padding']['padding-bottom'] = '25px';
 	$evolve_options['evl_content_boxes_section_padding']['padding-left']   = '0';
 	$evolve_options['evl_content_boxes_section_padding']['padding-right']  = '0';
 

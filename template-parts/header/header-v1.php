@@ -5,7 +5,7 @@
 			echo '<div class="custom-header">';
 		} ?>
 
-        <div class="header container header_v0">
+        <div class="header container">
             <div class="row align-items-center justify-content-between">
 
 				<?php
@@ -52,7 +52,7 @@
 				get_template_part( 'template-parts/header/header', 'tagline-next-under' ); ?>
 
             </div><!-- .row .align-items-center -->
-        </div><!-- .header .container .header_v0 -->
+        </div><!-- .header .container -->
 
 		<?php if ( get_header_image() ) {
 			echo '</div><!-- .custom-header -->';
@@ -62,7 +62,7 @@
 
     <header class="menu-header">
         <div class="container">
-            <div class="row align-items-center ">
+            <div class="row align-items-center">
 
 				<?php if ( evolve_theme_mod( 'evl_main_menu', false ) !== true ) {
 

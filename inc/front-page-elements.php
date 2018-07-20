@@ -6,9 +6,9 @@
 
 if ( ! function_exists( 'evolve_frontpage_bootstrap_slider' ) ) {
 	function evolve_frontpage_bootstrap_slider() {
-		$bootstrap_on = evolve_theme_mod( 'evl_bootstrap_slider_support', '1' );
+		$bootstrap_on = evolve_theme_mod( 'evl_bootstrap_slider_support', '0' );
 		if ( ( $bootstrap_on == "1" && is_front_page() ) || ( $bootstrap_on == "1" && is_home() ) ):
-			$bootstrap_slider = evolve_theme_mod( 'evl_bootstrap_slider_support', '1' );
+			$bootstrap_slider = evolve_theme_mod( 'evl_bootstrap_slider_support', '0' );
 			if ( $bootstrap_slider == "1" ):
 				evolve_bootstrap();
 			endif;
@@ -54,19 +54,19 @@ if ( ! function_exists( 'evolve_frontpage_post_slider' ) ) {
 
 if ( ! function_exists( 'evolve_content_boxes' ) ) {
 	function evolve_content_boxes() {
-		$content_box1_enable = evolve_theme_mod( 'evl_content_box1_enable', '1' );
+		$content_box1_enable = evolve_theme_mod( 'evl_content_box1_enable', '0' );
 		if ( $content_box1_enable === false ) {
 			$content_box1_enable = '';
 		}
-		$content_box2_enable = evolve_theme_mod( 'evl_content_box2_enable', '1' );
+		$content_box2_enable = evolve_theme_mod( 'evl_content_box2_enable', '0' );
 		if ( $content_box2_enable === false ) {
 			$content_box2_enable = '';
 		}
-		$content_box3_enable = evolve_theme_mod( 'evl_content_box3_enable', '1' );
+		$content_box3_enable = evolve_theme_mod( 'evl_content_box3_enable', '0' );
 		if ( $content_box3_enable === false ) {
 			$content_box3_enable = '';
 		}
-		$content_box4_enable = evolve_theme_mod( 'evl_content_box4_enable', '1' );
+		$content_box4_enable = evolve_theme_mod( 'evl_content_box4_enable', '0' );
 		if ( $content_box4_enable === false ) {
 			$content_box4_enable = '';
 		}
@@ -223,26 +223,24 @@ if ( ! function_exists( 'evolve_testimonials' ) ) {
 
 		for ( $i = 1; $i <= 2; $i ++ ) {
 			$active  = "";
-			$enabled = evolve_theme_mod( "evl_fp_testimonial{$i}" );
+			$enabled = evolve_theme_mod( "evl_fp_testimonial{$i}", '0' );
 			if ( $enabled == 1 ) {
-				$name   = evolve_theme_mod( "evl_fp_testimonial{$i}_name" );
+				$name   = evolve_theme_mod( "evl_fp_testimonial{$i}_name", '' );
 				$avatar = 'image';
-				$image  = evolve_theme_mod( "evl_fp_testimonial{$i}_avatar" );
+				$image  = evolve_theme_mod( "evl_fp_testimonial{$i}_avatar", '' );
 				if ( isset( $image['url'] ) ) {
 					$image = $image['url'];
 				}
 
-				$content = evolve_theme_mod( "evl_fp_testimonial{$i}_content" );
+				$content = evolve_theme_mod( "evl_fp_testimonial{$i}_content", '' );
 
 				$inner_content = $testimonials_thumbnail = $pic = $alt = '';
 				if ( $name ) {
-					if ( $avatar == 'image' &&
-					     $image
-					) {
-						$attr['class'] = 'testimonial-image';
-						$attr['src']   = $image;
-						$attr['alt']   = $alt;
-						$image_id      = evolve_get_attachment_id_from_url( $image );
+					if ( $avatar == 'image' && $image ) {
+						$attr['src'] = $image;
+						$attr['alt'] = $alt;
+						$image_id    = evolve_get_attachment_id_from_url( $image );
+						$image       = wp_get_attachment_image_src( $image_id, 'evolve-testimonial-avatar' )[0];
 						if ( $image_id ) {
 							$alt = get_post_field( 'post_excerpt', $image_id );
 						}
@@ -304,13 +302,13 @@ if ( ! function_exists( 'evolve_counter_circle' ) ) {
 
 		echo "<div class='home-counter-circle'><div class='container'>";
 
-		$counter_circle_section_title = evolve_theme_mod( 'evl_testimonials_title', '' );
-		if ( evolve_theme_mod( 'evl_testimonials_title', '' ) ) {
+		$counter_circle_section_title = evolve_theme_mod( 'evl_counter_circle_title', '' );
+		if ( evolve_theme_mod( 'evl_counter_circle_title', '' ) ) {
 			$counter_circle_section_title = '<div class="row"><div class="col-12"><h3 class="counter-circle-section-title section-title">' . evolve_theme_mod( 'evl_counter_circle_title', '' ) . '</h3></div></div>';
 		}
 		echo $counter_circle_section_title . "<div class='row'>";
 		for ( $i = 1; $i <= 3; $i ++ ) {
-			$enabled = evolve_theme_mod( "evl_fp_counter_circle{$i}" );
+			$enabled = evolve_theme_mod( "evl_fp_counter_circle{$i}", '0' );
 			if ( $enabled == 1 ) {
 				$title               = evolve_theme_mod( "evl_fp_counter_circle{$i}_text" );
 				$value               = evolve_theme_mod( "evl_fp_counter_circle{$i}_percentage" );
@@ -378,7 +376,7 @@ if ( ! function_exists( 'evolve_woocommerce_products' ) ) {
 
 if ( ! function_exists( 'evolve_custom_content' ) ) {
 	function evolve_custom_content() {
-		$content = evolve_theme_mod( "evl_fp_custom_content_editor" );
+		$content = evolve_theme_mod( "evl_fp_custom_content_editor", '' );
 
 		$html = '';
 

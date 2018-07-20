@@ -50,6 +50,7 @@ if ( ! function_exists( 'evolve_setup' ) ) {
 		add_image_size( 'evolve-post-thumbnail', 680, 330, true );
 		add_image_size( 'evolve-slider-thumbnail', 400, 300, true );
 		add_image_size( 'evolve-tabs-img', 50, 50, true );
+		add_image_size( 'evolve-testimonial-avatar', 80, 80, true );
 
 		// Editor Style Support
 		add_editor_style( 'assets/css/editor-style.css' );

@@ -118,14 +118,14 @@ Table of Contents:
     ======================================= */
 
 a {
-    color: #0bb697;
+    color: #0d9078;
     -webkit-transition: all .2s;
     -o-transition: all .2s;
     transition: all .2s;
 }
 
 a:hover {
-    color: #0bb697;
+    color: #0d9078;
     text-decoration: none;
 }
 
@@ -1481,8 +1481,8 @@ input#submit,
 input[type=submit] {
     -webkit-box-shadow: 0 2px 0 #1d6e72;
     box-shadow: 0 2px 0 #1d6e72;
-    border: 1px solid #0bb697;
-    background: #0bb697;
+    border: 1px solid #0d9078;
+    background: #0d9078;
     cursor: pointer;
     display: inline-block;
     padding: .7rem 1.4rem;
@@ -2048,7 +2048,7 @@ select:not([size]):not([multiple]) {
     --------------------------------------- */
 
 .woocommerce-store-notice {
-    background: #0bb697;
+    background: #0d9078;
     color: #fff;
     padding: 1em;
     position: absolute;

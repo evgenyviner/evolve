@@ -52,7 +52,8 @@ class Kirki_Control_Sortable extends Kirki_Control_Base {
 					<li {{{ data.inputAttrs }}} class='kirki-sortable-item' data-value='{{ choiceID }}'>
 						<i class='dashicons dashicons-menu'></i>
 						<i class="dashicons dashicons-visibility visibility"></i>
-						{{{ data.choices[ choiceID ] }}}
+                        <!-- evolve modification -->
+						<span>{{{ data.choices[ choiceID ] }}}</span>
 					</li>
 				<# }); #>
 				<# _.each( data.choices, function( choiceLabel, choiceID ) { #>
@@ -60,7 +61,8 @@ class Kirki_Control_Sortable extends Kirki_Control_Base {
 						<li {{{ data.inputAttrs }}} class='kirki-sortable-item invisible' data-value='{{ choiceID }}'>
 							<i class='dashicons dashicons-menu'></i>
 							<i class="dashicons dashicons-visibility visibility"></i>
-							{{{ data.choices[ choiceID ] }}}
+                            <!-- evolve modification -->
+							<span>{{{ data.choices[ choiceID ] }}}</span>
 						</li>
 					<# } #>
 				<# }); #>
