@@ -349,7 +349,9 @@ if ( ! function_exists( 'evolve_woocommerce_products' ) ) {
 	function evolve_woocommerce_products() {
 		$product_categories = evolve_theme_mod( "evl_fp_woo_product" );
 		$product_number     = evolve_theme_mod( "evl_fp_woo_product_number" );
-		$product_cat        = implode( ",", $product_categories );
+		$product_cat        = '';
+		if( $product_categories )
+			$product_cat        = implode( ",", $product_categories );
 
 		$html = '';
 

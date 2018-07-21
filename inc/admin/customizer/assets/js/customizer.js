@@ -83,7 +83,7 @@ var ColorPalettes = {
         'color_palette_2': [
             {fieldType: 'color', fieldName: 'evl_title_font', fieldValue: '#4c4c4c'},
             {fieldType: 'color', fieldName: 'evl_tagline_font', fieldValue: '#000000'},
-            {fieldType: 'color', fieldName: 'evl_menu_blog_title_font', fieldValue: '#ffffff'},
+            {fieldType: 'color', fieldName: 'evl_menu_blog_title_font', fieldValue: '#4c4c4c'},
             {fieldType: 'color', fieldName: 'evl_menu_font', fieldValue: '#727272'},
             {fieldType: 'color', fieldName: 'evl_widget_title_font', fieldValue: '#333333'},
             {fieldType: 'color', fieldName: 'evl_widget_content_font', fieldValue: '#333333'},
@@ -206,7 +206,7 @@ var ColorPalettes = {
         'color_palette_5': [
             {fieldType: 'color', fieldName: 'evl_title_font', fieldValue: '#d4c081'},
             {fieldType: 'color', fieldName: 'evl_tagline_font', fieldValue: '#000000'},
-            {fieldType: 'color', fieldName: 'evl_menu_blog_title_font', fieldValue: '#ffffff'},
+            {fieldType: 'color', fieldName: 'evl_menu_blog_title_font', fieldValue: '#d4c081'},
             {fieldType: 'color', fieldName: 'evl_menu_font', fieldValue: '#000000'},
             {fieldType: 'color', fieldName: 'evl_widget_title_font', fieldValue: '#333333'},
             {fieldType: 'color', fieldName: 'evl_widget_content_font', fieldValue: '#333333'},
@@ -247,7 +247,7 @@ var ColorPalettes = {
         'color_palette_6': [
             {fieldType: 'color', fieldName: 'evl_title_font', fieldValue: '#4c4c4c'},
             {fieldType: 'color', fieldName: 'evl_tagline_font', fieldValue: '#bcbcbc'},
-            {fieldType: 'color', fieldName: 'evl_menu_blog_title_font', fieldValue: '#ffffff'},
+            {fieldType: 'color', fieldName: 'evl_menu_blog_title_font', fieldValue: '#4c4c4c'},
             {fieldType: 'color', fieldName: 'evl_menu_font', fieldValue: '#666666'},
             {fieldType: 'color', fieldName: 'evl_widget_title_font', fieldValue: '#333333'},
             {fieldType: 'color', fieldName: 'evl_widget_content_font', fieldValue: '#333333'},
@@ -288,7 +288,7 @@ var ColorPalettes = {
         'color_palette_7': [
             {fieldType: 'color', fieldName: 'evl_title_font', fieldValue: '#ff8d52'},
             {fieldType: 'color', fieldName: 'evl_tagline_font', fieldValue: '#bcbcbc'},
-            {fieldType: 'color', fieldName: 'evl_menu_blog_title_font', fieldValue: '#ffffff'},
+            {fieldType: 'color', fieldName: 'evl_menu_blog_title_font', fieldValue: '#ff8d52'},
             {fieldType: 'color', fieldName: 'evl_menu_font', fieldValue: '#3c4d56'},
             {fieldType: 'color', fieldName: 'evl_widget_title_font', fieldValue: '#333333'},
             {fieldType: 'color', fieldName: 'evl_widget_content_font', fieldValue: '#333333'},
@@ -370,7 +370,7 @@ var ColorPalettes = {
         'color_palette_9': [
             {fieldType: 'color', fieldName: 'evl_title_font', fieldValue: '#444444'},
             {fieldType: 'color', fieldName: 'evl_tagline_font', fieldValue: '#bcbcbc'},
-            {fieldType: 'color', fieldName: 'evl_menu_blog_title_font', fieldValue: '#ffffff'},
+            {fieldType: 'color', fieldName: 'evl_menu_blog_title_font', fieldValue: '#444444'},
             {fieldType: 'color', fieldName: 'evl_menu_font', fieldValue: '#444444'},
             {fieldType: 'color', fieldName: 'evl_widget_title_font', fieldValue: '#333333'},
             {fieldType: 'color', fieldName: 'evl_widget_content_font', fieldValue: '#333333'},
@@ -470,7 +470,8 @@ var ColorPalettes = {
                         if (wp.customize.control(v.fieldName).params.type == 'kirki-typography') {
                             var old_value = wp.customize.value(v.fieldName).get();
                             old_value.color = v.fieldValue;
-                            wp.customize.value(v.fieldName)(old_value);
+                            wp.customize.value(v.fieldName)(JSON.stringify(old_value));
+                            wp.customize.value(v.fieldName)((old_value));
                         }
                         else {
                             wp.customize.value(v.fieldName)(v.fieldValue);
