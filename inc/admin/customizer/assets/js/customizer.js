@@ -411,7 +411,8 @@ var ColorPalettes = {
                         if (wp.customize.control( v.fieldName ).params.type == 'kirki-typography') {
                             var old_value = wp.customize.value( v.fieldName ).get();
                             old_value.color = v.fieldValue;
-                            wp.customize.value( v.fieldName )(old_value);
+                            wp.customize.value( v.fieldName )(JSON.stringify(old_value));
+                            wp.customize.value( v.fieldName )((old_value));
                         }
                         else{
                             wp.customize.value( v.fieldName )(v.fieldValue);
