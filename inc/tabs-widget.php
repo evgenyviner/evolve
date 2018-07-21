@@ -19,18 +19,22 @@ class evolve_Tabs_Widget extends WP_Widget {
 
 		extract( $args );
 
-		$posts              = $instance['posts'];
-		$comments           = $instance['comments'];
-		$tags_count         = $instance['tags'];
+		if ( ! empty( $instance['posts'] ) ) {
+			$posts = $instance['posts'];
+		}
+		if ( ! empty( $instance['comments'] ) ) {
+			$number = $instance['comments'];
+		}
+		if ( ! empty( $instance['tags'] ) ) {
+			$tags_count = $instance['tags'];
+		}
+		if ( ! empty( $instance['orderby'] ) ) {
+			$orderby = $instance['orderby'];
+		}
+
 		$show_popular_posts = isset( $instance['show_popular_posts'] ) ? 'true' : 'false';
 		$show_recent_posts  = isset( $instance['show_recent_posts'] ) ? 'true' : 'false';
 		$show_comments      = isset( $instance['show_comments'] ) ? 'true' : 'false';
-		$show_tags          = isset( $instance['show_tags'] ) ? 'true' : 'false';
-		$orderby            = $instance['orderby'];
-
-		if ( ! $orderby ) {
-			$orderby = 'Highest Comments';
-		}
 
 		echo $before_widget; ?>
 
@@ -165,7 +169,6 @@ class evolve_Tabs_Widget extends WP_Widget {
                     <ul>
 
 						<?php
-						$number = $instance['comments'];
 						global $wpdb;
 						$recent_comments = "SELECT DISTINCT ID, post_title, post_password, comment_ID, comment_post_ID, comment_author, comment_author_email, comment_date_gmt, comment_approved, comment_type, comment_author_url, SUBSTRING(comment_content,1,110) AS com_excerpt FROM $wpdb->comments LEFT OUTER JOIN $wpdb->posts ON ($wpdb->comments.comment_post_ID = $wpdb->posts.ID) WHERE comment_approved = '1' AND comment_type = '' AND post_password = '' ORDER BY comment_date_gmt DESC LIMIT $number";
 						$the_comments    = $wpdb->get_results( $recent_comments );
@@ -220,17 +223,16 @@ class evolve_Tabs_Widget extends WP_Widget {
 
 	function form( $instance ) {
 		$defaults = array(
-			'posts'              => 3,
+			'posts'              => '3',
 			'comments'           => '3',
-			'tags'               => 3,
+			'tags'               => '3',
 			'show_popular_posts' => 'on',
 			'show_recent_posts'  => 'on',
 			'show_comments'      => 'on',
 			'show_tags'          => 'on',
 			'orderby'            => 'Highest Comments'
 		);
-		$instance = wp_parse_args( (array) $instance, $defaults );
-		?>
+		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 
         <p>
             <label for="<?php echo $this->get_field_id( 'orderby' ); ?>"><?php esc_html_e( 'Popular Posts Order By', 'evolve' ); ?>
