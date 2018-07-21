@@ -65,6 +65,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_scheme_widgets', fieldValue: '#273039'},
             {fieldType: 'color', fieldName: 'evl_content_background_color', fieldValue: ''},
             {fieldType: 'color', fieldName: 'evl_general_link', fieldValue: '#0d9078'},
+            {fieldType: 'color', fieldName: 'evl_secondary_link', fieldValue: '#999999'},
             {fieldType: 'color', fieldName: 'evl_form_bg_color', fieldValue: '#fcfcfc'},
             {fieldType: 'color', fieldName: 'evl_form_text_color', fieldValue: '#888888'},
             {fieldType: 'color', fieldName: 'evl_form_border_color', fieldValue: '#E0E0E0'},
@@ -77,6 +78,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_shortcode_button_bevel_color', fieldValue: '#1d6e72'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_color', fieldValue: '#0d9078'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_hover_color', fieldValue: '#313a43'},
+            {fieldType: 'color', fieldName: 'evl_form_item_color', fieldValue: '#0d9078'},
         ],
         'color_palette_2': [
             {fieldType: 'color', fieldName: 'evl_title_font', fieldValue: '#4c4c4c'},
@@ -104,6 +106,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_scheme_widgets', fieldValue: '#273039'},
             {fieldType: 'color', fieldName: 'evl_content_background_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_general_link', fieldValue: '#000000'},
+            {fieldType: 'color', fieldName: 'evl_secondary_link', fieldValue: '#999999'},
             {fieldType: 'color', fieldName: 'evl_form_bg_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_form_text_color', fieldValue: '#888888'},
             {fieldType: 'color', fieldName: 'evl_form_border_color', fieldValue: '#E0E0E0'},
@@ -116,6 +119,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_shortcode_button_bevel_color', fieldValue: '#f4f4f4'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_color', fieldValue: '#f4f4f4'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_hover_color', fieldValue: '#222222'},
+            {fieldType: 'color', fieldName: 'evl_form_item_color', fieldValue: '#d4c081'},
         ],
         'color_palette_3': [
             {fieldType: 'color', fieldName: 'evl_title_font', fieldValue: '#ffffff'},
@@ -143,6 +147,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_scheme_widgets', fieldValue: '#273039'},
             {fieldType: 'color', fieldName: 'evl_content_background_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_general_link', fieldValue: '#a2c43c'},
+            {fieldType: 'color', fieldName: 'evl_secondary_link', fieldValue: '#999999'},
             {fieldType: 'color', fieldName: 'evl_form_bg_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_form_text_color', fieldValue: '#888888'},
             {fieldType: 'color', fieldName: 'evl_form_border_color', fieldValue: '#E0E0E0'},
@@ -155,6 +160,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_shortcode_button_bevel_color', fieldValue: '#4c4c4c'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_color', fieldValue: '#4c4c4c'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_hover_color', fieldValue: '#6d6d6d'},
+            {fieldType: 'color', fieldName: 'evl_form_item_color', fieldValue: '#a2c43c'},
         ],
         'color_palette_4': [
             {fieldType: 'color', fieldName: 'evl_title_font', fieldValue: '#242c42'},
@@ -182,6 +188,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_scheme_widgets', fieldValue: '#273039'},
             {fieldType: 'color', fieldName: 'evl_content_background_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_general_link', fieldValue: '#282c59'},
+            {fieldType: 'color', fieldName: 'evl_secondary_link', fieldValue: '#999999'},
             {fieldType: 'color', fieldName: 'evl_form_bg_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_form_text_color', fieldValue: '#888888'},
             {fieldType: 'color', fieldName: 'evl_form_border_color', fieldValue: '#E0E0E0'},
@@ -194,6 +201,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_shortcode_button_bevel_color', fieldValue: '#f7505a'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_color', fieldValue: '#f7505a'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_hover_color', fieldValue: '#3d3d3d'},
+            {fieldType: 'color', fieldName: 'evl_form_item_color', fieldValue: '#f7505a'},
         ],
         'color_palette_5': [
             {fieldType: 'color', fieldName: 'evl_title_font', fieldValue: '#d4c081'},
@@ -221,6 +229,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_scheme_widgets', fieldValue: '#273039'},
             {fieldType: 'color', fieldName: 'evl_content_background_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_general_link', fieldValue: '#d4c081'},
+            {fieldType: 'color', fieldName: 'evl_secondary_link', fieldValue: '#999999'},
             {fieldType: 'color', fieldName: 'evl_form_bg_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_form_text_color', fieldValue: '#888888'},
             {fieldType: 'color', fieldName: 'evl_form_border_color', fieldValue: '#E0E0E0'},
@@ -233,6 +242,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_shortcode_button_bevel_color', fieldValue: '#D4C081'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_color', fieldValue: '#D4C081'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_hover_color', fieldValue: '#222222'},
+            {fieldType: 'color', fieldName: 'evl_form_item_color', fieldValue: '#D4C081'},
         ],
         'color_palette_6': [
             {fieldType: 'color', fieldName: 'evl_title_font', fieldValue: '#4c4c4c'},
@@ -260,6 +270,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_scheme_widgets', fieldValue: '#273039'},
             {fieldType: 'color', fieldName: 'evl_content_background_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_general_link', fieldValue: '#000000'},
+            {fieldType: 'color', fieldName: 'evl_secondary_link', fieldValue: '#999999'},
             {fieldType: 'color', fieldName: 'evl_form_bg_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_form_text_color', fieldValue: '#888888'},
             {fieldType: 'color', fieldName: 'evl_form_border_color', fieldValue: '#E0E0E0'},
@@ -272,6 +283,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_shortcode_button_bevel_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_hover_color', fieldValue: '#222222'},
+            {fieldType: 'color', fieldName: 'evl_form_item_color', fieldValue: '#222222'},
         ],
         'color_palette_7': [
             {fieldType: 'color', fieldName: 'evl_title_font', fieldValue: '#ff8d52'},
@@ -299,6 +311,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_scheme_widgets', fieldValue: '#3c4d56'},
             {fieldType: 'color', fieldName: 'evl_content_background_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_general_link', fieldValue: '#000000'},
+            {fieldType: 'color', fieldName: 'evl_secondary_link', fieldValue: '#999999'},
             {fieldType: 'color', fieldName: 'evl_form_bg_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_form_text_color', fieldValue: '#888888'},
             {fieldType: 'color', fieldName: 'evl_form_border_color', fieldValue: '#E0E0E0'},
@@ -311,6 +324,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_shortcode_button_bevel_color', fieldValue: '#ff8d52'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_color', fieldValue: '#ff8d52'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_hover_color', fieldValue: '#787878'},
+            {fieldType: 'color', fieldName: 'evl_form_item_color', fieldValue: '#ff8d52'},
         ],
         'color_palette_8': [
             {fieldType: 'color', fieldName: 'evl_title_font', fieldValue: '#000000'},
@@ -338,6 +352,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_scheme_widgets', fieldValue: '#3c4d56'},
             {fieldType: 'color', fieldName: 'evl_content_background_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_general_link', fieldValue: '#09589e'},
+            {fieldType: 'color', fieldName: 'evl_secondary_link', fieldValue: '#999999'},
             {fieldType: 'color', fieldName: 'evl_form_bg_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_form_text_color', fieldValue: '#888888'},
             {fieldType: 'color', fieldName: 'evl_form_border_color', fieldValue: '#E0E0E0'},
@@ -350,6 +365,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_shortcode_button_bevel_color', fieldValue: '#09589e'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_color', fieldValue: '#09589e'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_hover_color', fieldValue: '#ffffff'},
+            {fieldType: 'color', fieldName: 'evl_form_item_color', fieldValue: '#09589e'},
         ],
         'color_palette_9': [
             {fieldType: 'color', fieldName: 'evl_title_font', fieldValue: '#444444'},
@@ -377,6 +393,7 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_scheme_widgets', fieldValue: '#22b5ce'},
             {fieldType: 'color', fieldName: 'evl_content_background_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_general_link', fieldValue: '#22b5ce'},
+            {fieldType: 'color', fieldName: 'evl_secondary_link', fieldValue: '#999999'},
             {fieldType: 'color', fieldName: 'evl_form_bg_color', fieldValue: '#ffffff'},
             {fieldType: 'color', fieldName: 'evl_form_text_color', fieldValue: '#888888'},
             {fieldType: 'color', fieldName: 'evl_form_border_color', fieldValue: '#E0E0E0'},
@@ -389,35 +406,77 @@ var ColorPalettes = {
             {fieldType: 'color', fieldName: 'evl_shortcode_button_bevel_color', fieldValue: '#22b5ce'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_color', fieldValue: '#22b5ce'},
             {fieldType: 'color', fieldName: 'evl_shortcode_button_border_hover_color', fieldValue: '#787878'},
+            {fieldType: 'color', fieldName: 'evl_form_item_color', fieldValue: '#22b5ce'},
+        ],
+        'color_palette_10': [
+            {fieldType: 'color', fieldName: 'evl_title_font', fieldValue: '#cbbde2'},
+            {fieldType: 'color', fieldName: 'evl_tagline_font', fieldValue: '#aaaaaa'},
+            {fieldType: 'color', fieldName: 'evl_menu_blog_title_font', fieldValue: '#ffffff'},
+            {fieldType: 'color', fieldName: 'evl_menu_font', fieldValue: '#999999'},
+            {fieldType: 'color', fieldName: 'evl_widget_title_font', fieldValue: '#bababa'},
+            {fieldType: 'color', fieldName: 'evl_widget_content_font', fieldValue: '#bababa'},
+            {fieldType: 'color', fieldName: 'evl_post_font', fieldValue: '#ffe484'},
+            {fieldType: 'color', fieldName: 'evl_content_font', fieldValue: '#bababa'},
+            {fieldType: 'color', fieldName: 'evl_content_box_background_color', fieldValue: '#f9f9f9'},
+            {fieldType: 'color', fieldName: 'evl_content_boxes_title_font', fieldValue: '#6b6b6b'},
+            {fieldType: 'color', fieldName: 'evl_content_boxes_description_font', fieldValue: '#888888'},
+            {fieldType: 'color', fieldName: 'evl_content_h1_font', fieldValue: '#bababa'},
+            {fieldType: 'color', fieldName: 'evl_content_h2_font', fieldValue: '#bababa'},
+            {fieldType: 'color', fieldName: 'evl_content_h3_font', fieldValue: '#bababa'},
+            {fieldType: 'color', fieldName: 'evl_content_h4_font', fieldValue: '#bababa'},
+            {fieldType: 'color', fieldName: 'evl_content_h5_font', fieldValue: '#bababa'},
+            {fieldType: 'color', fieldName: 'evl_content_h6_font', fieldValue: '#bababa'},
+            {fieldType: 'color', fieldName: 'evl_header_background_color', fieldValue: '#563d7c'},
+            {fieldType: 'color', fieldName: 'evl_header_footer_back_color', fieldValue: '#563d7c'},
+            {fieldType: 'color', fieldName: 'evl_menu_back_color', fieldValue: '#232323'},
+            {fieldType: 'color', fieldName: 'evl_top_menu_back', fieldValue: '#483667'},
+            {fieldType: 'color', fieldName: 'evl_top_menu_hover_font_color', fieldValue: '#ffffff'},
+            {fieldType: 'color', fieldName: 'evl_scheme_widgets', fieldValue: '#232323'},
+            {fieldType: 'color', fieldName: 'evl_content_background_color', fieldValue: '#232323'},
+            {fieldType: 'color', fieldName: 'evl_general_link', fieldValue: '#563d7c'},
+            {fieldType: 'color', fieldName: 'evl_secondary_link', fieldValue: '#757575'},
+            {fieldType: 'color', fieldName: 'evl_form_bg_color', fieldValue: '#1e1e1e'},
+            {fieldType: 'color', fieldName: 'evl_form_text_color', fieldValue: '#c9c9c9'},
+            {fieldType: 'color', fieldName: 'evl_form_border_color', fieldValue: '#262626'},
+            {fieldType: 'color', fieldName: 'evl_shortcode_button_gradient_top_color', fieldValue: '#232323'},
+            {fieldType: 'color', fieldName: 'evl_shortcode_button_gradient_bottom_color', fieldValue: '#232323'},
+            {fieldType: 'color', fieldName: 'evl_shortcode_button_gradient_top_hover_color', fieldValue: '#ffe484'},
+            {fieldType: 'color', fieldName: 'evl_shortcode_button_gradient_bottom_hover_color', fieldValue: '#ffe484'},
+            {fieldType: 'color', fieldName: 'evl_shortcode_button_accent_color', fieldValue: '#ffe484'},
+            {fieldType: 'color', fieldName: 'evl_shortcode_button_accent_hover_color', fieldValue: '#563d7c'},
+            {fieldType: 'color', fieldName: 'evl_shortcode_button_bevel_color', fieldValue: '#ffe484'},
+            {fieldType: 'color', fieldName: 'evl_shortcode_button_border_color', fieldValue: '#ffe484'},
+            {fieldType: 'color', fieldName: 'evl_shortcode_button_border_hover_color', fieldValue: '#ffe484'},
+            {fieldType: 'color', fieldName: 'evl_form_item_color', fieldValue: '#ffe484'},
         ]
     }
     ,
     bind: function () {
         var t = this;
-        $(document).on('click', '#input_evl_color_palettes input:checked + label', function(event){
+        $(document).on('click', '#input_evl_color_palettes input:checked + label', function (event) {
             event.preventDefault();
         });
 
-        $(document).on('click', '#input_evl_color_palettes input:not(:checked) + label', function(event){
+        $(document).on('click', '#input_evl_color_palettes input:not(:checked) + label', function (event) {
             event.preventDefault();
             var currentValue = jQuery(this).attr('for');
             currentValue = currentValue.replace('evl_color_palettes', '');
-            wp.customize.value( 'evl_color_palettes' )(currentValue);
+            wp.customize.value('evl_color_palettes')(currentValue);
             if (t.colorpalettesValue.hasOwnProperty(currentValue)) {
                 console.log('do changes');
                 var cgs = t.colorpalettesValue[currentValue];
                 jQuery.each(cgs, function (i, v) {
                     try {
-                        if (wp.customize.control( v.fieldName ).params.type == 'kirki-typography') {
-                            var old_value = wp.customize.value( v.fieldName ).get();
+                        if (wp.customize.control(v.fieldName).params.type == 'kirki-typography') {
+                            var old_value = wp.customize.value(v.fieldName).get();
                             old_value.color = v.fieldValue;
-                            wp.customize.value( v.fieldName )(old_value);
+                            wp.customize.value(v.fieldName)(old_value);
                         }
-                        else{
-                            wp.customize.value( v.fieldName )(v.fieldValue);
+                        else {
+                            wp.customize.value(v.fieldName)(v.fieldValue);
                         }
                     }
-                    catch(err) {
+                    catch (err) {
                         console.log(err);
                     }
                 })
@@ -428,6 +487,6 @@ var ColorPalettes = {
 
 };
 
-jQuery(document).ready(function($){
+jQuery(document).ready(function ($) {
     ColorPalettes.bind();
 });

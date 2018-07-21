@@ -300,7 +300,7 @@ $evolve_opt_name = "evl_options";
 $evolve_rss_url  = get_bloginfo( 'rss_url' );
 $evolve_theme    = wp_get_theme();
 
-$evolve_home_url  = esc_url( "http://theme4press.com/" );
+$evolve_home_url = esc_url( "http://theme4press.com/" );
 $evolve_videourl = esc_url( "https://youtu.be/dgvjt6dJfWM" );
 $evolve_fb_url   = esc_url( "https://www.facebook.com/Theme4Press" );
 
@@ -2965,58 +2965,65 @@ if ( true || is_customize_preview() ) {
 					'type'     => 'palette',
 					'palettes' => array(
 						'color_palette_1' => array(
+							'#999999',
 							'#313a43',
 							'#273039',
-							'#0d9078',
-							'#999999'
+							'#0d9078'
 						),
 						'color_palette_2' => array(
-							'#f9f9f9',
 							'#ffffff',
-							'#000000',
-							'#727272'
+							'#f9f9f9',
+							'#727272',
+							'#000000'
 						),
 						'color_palette_3' => array(
-							'#a2c43c',
+							'#ffffff',
+							'#d6d6d6',
 							'#3d3d3d',
-							'#a2c43c',
-							'#ffffff'
+							'#a2c43c'
+
 						),
 						'color_palette_4' => array(
 							'#ffffff',
+							'#fab0ad',
 							'#f7505a',
-							'#282c59',
-							'#ffffff'
+							'#282c59'
 						),
 						'color_palette_5' => array(
 							'#ffffff',
-							'#ffffff',
-							'#d4c081',
-							'#000000'
+							'#E0E0E0',
+							'#000000',
+							'#d4c081'
 						),
 						'color_palette_6' => array(
 							'#ffffff',
-							'#ffffff',
-							'#000000',
-							'#666666'
+							'#bcbcbc',
+							'#666666',
+							'#000000'
 						),
 						'color_palette_7' => array(
 							'#ffffff',
 							'#f0f0f0',
-							'#ff8d52',
-							'#3c4d56'
+							'#3c4d56',
+							'#ff8d52'
 						),
 						'color_palette_8' => array(
 							'#ffffff',
-							'#09589e',
+							'#E0E0E0',
 							'#c1c1c1',
-							'#ffffff'
+							'#09589e'
 						),
 						'color_palette_9' => array(
 							'#ffffff',
 							'#f0f0f0',
-							'#22b5ce',
-							'#444444'
+							'#444444',
+							'#22b5ce'
+						),
+						'color_palette_10' => array(
+							'#ffe484',
+							'#313a43',
+							'#273039',
+							'#563d7c'
 						),
 					),
 					'default'  => 'color_palette_1'
@@ -3310,7 +3317,15 @@ if ( true || is_customize_preview() ) {
 					'subtitle' => esc_attr__( 'Background color of Top Bar for Header #2', 'evolve' ),
 					'type'     => 'color',
 					'compiler' => true,
-					'default'  => '#273039'
+					'default'  => '#273039',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '.top-bar',
+							'function' => 'css',
+							'property' => 'background-color'
+						)
+					)
 				),
 				array(
 					'id'        => 'evl_top_menu_hover_font_color',

@@ -1,5 +1,5 @@
 Version:         3.9  
-Date:         19/7/18       
+Date:         21/7/18
 
 - Major release of the theme - backup of previous version and database backup are highly recommended prior to update
 - Converted theme Customizer framework to Kirki
@@ -12,7 +12,7 @@ Date:         19/7/18
 - SEO Optimizations
 - Removed Features per WP requirements: Import Demo Function and Contents, Contact Form, Google Maps
 - Changed file folder structure for better development
-- Improved overall speed - now theme includes one JS file, removed unused functions, files, optimized Dynamic CSS generation
+- Improved overall speed - now theme includes one front end JS file, removed unused functions, files, optimized Dynamic CSS generation
 - Many visual and function fixes
 
 
