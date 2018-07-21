@@ -2300,7 +2300,7 @@ if ( true || is_customize_preview() ) {
 						'right'   => esc_attr__( 'Right', 'evolve' ),
 						'disable' => esc_attr__( 'Disabled', 'evolve' )
 					),
-					'default'  => 'center'
+					'default'  => 'left'
 				)
 			)
 		)

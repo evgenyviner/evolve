@@ -52,7 +52,8 @@ function evolve_bbpress_breadcrumb() {
 	$args['include_current'] = true;
 
 	// Separator
-	$args['sep'] = '';
+	$args['sep'] = true;
+	$args['sep'] = ' ';
 
 	// Crumbs
 	$args['crumb_before'] = '<li class="breadcrumb-item">';

@@ -240,7 +240,8 @@ if ( ! function_exists( 'evolve_testimonials' ) ) {
 						$attr['src'] = $image;
 						$attr['alt'] = $alt;
 						$image_id    = evolve_get_attachment_id_from_url( $image );
-						$image       = wp_get_attachment_image_src( $image_id, 'evolve-testimonial-avatar' )[0];
+						$image_url   = wp_get_attachment_image_src( $image_id, 'evolve-testimonial-avatar' );
+						$image       = $image_url[0];
 						if ( $image_id ) {
 							$alt = get_post_field( 'post_excerpt', $image_id );
 						}

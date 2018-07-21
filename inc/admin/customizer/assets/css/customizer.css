@@ -29,7 +29,9 @@
     font-weight: 700;
 }
 
-.evolve-icon::before {
+.evolve-icon::before,
+.dashicons,
+.dashicons-before:before {
     font-size: 16px;
     height: 16px;
     line-height: 16px;
