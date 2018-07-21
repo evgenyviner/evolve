@@ -31,10 +31,6 @@ class evolve_Customizer {
 			'customize-preview',
 			'jquery'
 		), '', true );
-		wp_enqueue_script( 'evolve-colorpalettes', get_template_directory_uri() . '/inc/admin/customizer/colorpalettes/colorpalettes.min.js', array(
-			'customize-preview',
-			'jquery'
-		), '', true );
 	}
 }
 
