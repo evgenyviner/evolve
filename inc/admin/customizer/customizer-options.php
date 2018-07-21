@@ -5120,14 +5120,14 @@ function fix_data_from_redux_to_kirki( $value ) {
 		'evl_slide5_img',
 	);
 
-	if ( in_array( $key, $bootstrapsliderKeys ) ) {
+	if ( isset( $key ) && in_array( $key, $bootstrapsliderKeys ) ) {
 		$img_name               = basename( $value['url'] );
 		$plugin_options[ $key ] = array( 'url' => "{$evolve_imagepathfolder}bootstrap-slider/{$img_name}" );
-	} elseif ( in_array( $key, $parallaxsliderKeys ) ) {
+	} elseif ( isset( $key ) && in_array( $key, $parallaxsliderKeys ) ) {
 		$img_name               = basename( $value['url'] );
 		$plugin_options[ $key ] = array( 'url' => "{$evolve_imagepathfolder}parallax/{$img_name}" );
 	} else {
-		if ( isset( $plugin_options[ $key ] ) && $plugin_options[ $key ] != $value ) {
+		if ( isset( $key ) && isset( $plugin_options[ $key ] ) && $plugin_options[ $key ] != $value ) {
 			$changed_values[ $key ] = $value;
 			$plugin_options[ $key ] = $value;
 		}
