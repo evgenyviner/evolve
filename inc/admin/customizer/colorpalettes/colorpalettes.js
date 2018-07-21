@@ -366,8 +366,7 @@ var ColorPalettes = {
     }
     ,
     bind: function () {
-
-        var t = this;			
+		var t = this;			
 		$(document).on('click', '#input_evl_color_palettes input:checked + label', function(event){
 			event.preventDefault();
 		});
@@ -377,17 +376,31 @@ var ColorPalettes = {
 			var currentValue = jQuery(this).attr('for');
 			currentValue = currentValue.replace('evl_color_palettes', '');
 			wp.customize.value( 'evl_color_palettes' )(currentValue);
-            if (t.colorpalettesValue.hasOwnProperty(currentValue)) {
-                console.log('do changes');
-                var cgs = t.colorpalettesValue[currentValue];
-                jQuery.each(cgs, function (i, v) {
-					wp.customize.value( v.fieldName )(v.fieldValue);
-                })
-            }
+			if (t.colorpalettesValue.hasOwnProperty(currentValue)) {
+				console.log('do changes');
+				var cgs = t.colorpalettesValue[currentValue];
+				jQuery.each(cgs, function (i, v) {
+					try {
+						if (wp.customize.control( v.fieldName ).params.type == 'kirki-typography') {
+							var old_value = wp.customize.value( v.fieldName ).get();
+							old_value.color = v.fieldValue;
+							wp.customize.value( v.fieldName )(old_value);
+						}
+						else{
+							wp.customize.value( v.fieldName )(v.fieldValue);
+						}
+					}
+					catch(err) {
+						console.log(err);
+					}
+				})
+			}
 			
 		});
     }
 
 };
 
+		jQuery(document).ready(function($){
 ColorPalettes.bind();
+		});
