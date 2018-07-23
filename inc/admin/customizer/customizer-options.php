@@ -309,7 +309,7 @@ $evolve_imagepath       = get_template_directory_uri() . '/inc/admin/customizer/
 $evolve_imagepathfolder = get_template_directory_uri() . '/assets/images/';
 
 // OLD DATA MIGRATION
-add_action( 'after_setup_theme', 'evolve_migrate_options' );
+add_action( 'after_setup_theme', 'evolve_migrate_options', 10, 2 );
 
 function evolve_migrate_options() {
 	global $evolve_shortname, $evolve_opt_name;
@@ -5102,7 +5102,7 @@ add_action( 'customize_register', 'evolve_register_custom_section' );
 
 // update_option('update_theme_from_redux_to_kirki', false);
 if ( is_user_logged_in() ) {
-	add_action( 'init', 'update_theme_from_redux_to_kirki' );
+	add_action( 'after_setup_theme', 'update_theme_from_redux_to_kirki', 10, 3 );
 }
 function update_theme_from_redux_to_kirki() {
 	$update_theme_from_redux_to_kirki = get_option( 'update_theme_from_redux_to_kirki', false );
@@ -5150,7 +5150,7 @@ function fix_data_from_redux_to_kirki( $value ) {
 	if ( $value && is_array( $value ) && count( $value ) && isset( $value["enabled"] ) && is_array( $value["enabled"] ) && count( $value["enabled"] ) ) {
 		$enabled_temp = array();
 		foreach ( $value["enabled"] as $enabled_key => $items ) {
-			if ( 'placebo' != $enabled_key ) {
+			if ( 'placebo' != $enabled_key && 'google_map' != $enabled_key ) {
 				$enabled_temp[] = $enabled_key;
 			}
 		}
