@@ -94,3 +94,7 @@ li.kirki-sortable-item[data-value="header"] i.dashicons.dashicons-visibility.vis
 li.kirki-sortable-item[data-value="blog_post"] i.dashicons.dashicons-visibility.visibility {
     display: none;
 }
+li.invisible.kirki-sortable-item[data-value="header"] i.dashicons.dashicons-visibility.visibility,
+li.invisible.kirki-sortable-item[data-value="blog_post"] i.dashicons.dashicons-visibility.visibility {
+    display: inline;
+}
