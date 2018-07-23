@@ -5154,6 +5154,9 @@ function fix_data_from_redux_to_kirki( $value ) {
 				$enabled_temp[] = $enabled_key;
 			}
 		}
+		if(isset($value["disabled"]["blog_post"])){
+			$enabled_temp[] = 'blog_post';
+		}
 		$value = $enabled_temp;
 	}
 
