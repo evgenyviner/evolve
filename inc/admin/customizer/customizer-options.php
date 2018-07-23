@@ -497,32 +497,6 @@ if ( class_exists( 'Woocommerce' ) ) {
 // Upgrade from version 3.3 and below
 $upgrade_from_33 = get_option( 'evolve', false );
 
-// If the Redux plugin is installed
-// if (class_exists('ReduxFrameworkPlugin')) {
-// Redux::setArgs($evolve_opt_name, array(
-// 'customizer_only' => false,
-// 'customizer' => true,
-// ));
-// } else {
-// // No Redux plugin. Use embedded. Customizer only!
-// Redux::setArgs($evolve_opt_name, array(
-// 'customizer_only' => true,
-// ));
-// }
-
-//Register sidebar options for category/archive pages
-global $wp_registered_sidebars;
-$sidebar_options[] = 'None';
-for ( $i = 0; $i < 1; $i ++ ) {
-	$sidebars = $wp_registered_sidebars; // sidebar_generator::get_sidebars();
-	//var_dump($sidebars);
-	if ( is_array( $sidebars ) && ! empty( $sidebars ) ) {
-		foreach ( $sidebars as $key => $sidebar ) {
-			$sidebar_options[ $key ] = $sidebar['name'];
-		}
-	}
-}
-
 // Pull all the categories into an array
 $options_categories     = array();
 $options_categories_obj = get_categories();
@@ -5100,25 +5074,24 @@ function evolve_register_custom_section( $wp_customize ) {
 
 add_action( 'customize_register', 'evolve_register_custom_section' );
 
-// update_option('update_theme_from_redux_to_kirki', false);
 if ( is_user_logged_in() ) {
-	add_action( 'after_setup_theme', 'update_theme_from_redux_to_kirki', 10, 3 );
+	add_action( 'after_setup_theme', 'evolve_convert_framework', 10, 3 );
 }
-function update_theme_from_redux_to_kirki() {
-	$update_theme_from_redux_to_kirki = get_option( 'update_theme_from_redux_to_kirki', false );
-	if ( $update_theme_from_redux_to_kirki == false ) {
+function evolve_convert_framework() {
+	$evolve_convert_framework = get_option( 'evolve_convert_framework', false );
+	if ( $evolve_convert_framework == false ) {
 		$data_options = get_option( 'evl_options' );
 		if ( $data_options ) {
 			foreach ( $data_options as $key => $value ) {
-				$value = fix_data_from_redux_to_kirki( $value );
+				$value = evolve_data_fix( $value );
 				set_theme_mod( $key, $value );
 			}
 		}
-		update_option( 'update_theme_from_redux_to_kirki', time() );
+		update_option( 'evolve_convert_framework', time() );
 	}
 }
 
-function fix_data_from_redux_to_kirki( $value ) {
+function evolve_data_fix( $value ) {
 	$evolve_imagepathfolder = get_template_directory_uri() . '/assets/images/';
 	$bootstrapsliderKeys    = array(
 		'evl_bootstrap_slide1_img',

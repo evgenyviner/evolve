@@ -842,10 +842,6 @@ video {
     margin-bottom: 0;
 }
 
-.pingback .comment-content p:last-child {
-    margin-bottom: 1rem;
-}
-
 .comment,
 .pingback,
 .comment.depth-1,
@@ -861,7 +857,6 @@ video {
     border-left-width: 2px;
 }
 
-.pingback,
 .comment.depth-1.parent {
     padding: 1rem 2rem 0;
 }
