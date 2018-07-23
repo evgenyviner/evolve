@@ -687,9 +687,20 @@ if ( ! function_exists( 'evolve_breadcrumbs' ) ) {
 			echo '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
 		}
 		if ( is_single() && ! is_attachment() ) {
-			$categories = get_categories( array(
+			$cat_1_line   = '';
+			$cat_1_ids    = '';
+			$categories_1 = get_the_category( $post->ID );
+			if ( $categories_1 ):
+				foreach ( $categories_1 as $cat_1 ):
+					$cat_1_ids[] = $cat_1->term_id;
+				endforeach;
+				$cat_1_line = implode( ',', $cat_1_ids );
+			endif;
+			$args       = array(
+				'include' => $cat_1_line,
 				'orderby' => 'id'
-			) );
+			);
+			$categories = get_categories( $args );
 			if ( $categories ) :
 				foreach ( $categories as $cat ) :
 					$cats[] = '<li class="breadcrumb-item"><a href="' . get_category_link( $cat->term_id ) . '" title="' . $cat->name . '">' . $cat->name . '</a></li>';

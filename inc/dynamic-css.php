@@ -997,7 +997,9 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			if ( evolve_theme_mod( 'evl_footer_reveal', '0' ) != '1' ) {
 				$css_data .= ' .footer::before, .footer::after { -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.6); box-shadow: 0 0 9px rgba(0, 0, 0, 0.6); }';
 			}
-			$css_data .= ' .widget-title-background { -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 5px rgba(0, 0, 0, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 5px rgba(0, 0, 0, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29); }';
+			if ( $widget_background == "1" ) {
+				$css_data .= ' .widget-title-background { -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 5px rgba(0, 0, 0, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 5px rgba(0, 0, 0, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.29); }';
+			}
 		}
 
 		/*
@@ -1005,7 +1007,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			--------------------------------------- */
 
 		if ( ! empty( $form_bg_color ) || ! empty( $form_text_color ) || ! empty( $form_border_color ) ) :
-			$css_data .= ' input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus, .select2-container--default .select2-selection--single, a.wpml-ls-item-toggle, .wpml-ls-sub-menu a {';
+			$css_data .= ' input[type=text], input[type=email], input[type=url], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus, .select2-container--default .select2-selection--single, a.wpml-ls-item-toggle, .wpml-ls-sub-menu a {';
 			if ( ! empty( $form_bg_color ) ) {
 				$css_data .= ' background-color: ' . $form_bg_color . ';';
 			}
@@ -1019,7 +1021,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		endif;
 
 		if ( $component_color ) {
-			$css_data .= ' .custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale, .stars a:hover, .stars a.active { background: ' . $component_color . '; } .form-control:focus, .input-text:focus, input[type=text]:focus, .page-link:focus, select:focus { border-color: ' . $component_color . '; box-shadow: 0 0 0 0.2rem ' . evolve_hex_rgba( $component_color, .25 ) . '; } .custom-control-input:focus~.custom-control-label::before { box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem  ' . evolve_hex_rgba( $component_color, .25 ) . '; } .btn.focus, .btn:focus { box-shadow: 0 0 0 0.2rem ' . evolve_hex_rgba( $component_color, .25 ) . '; } :focus { outline-color: ' . evolve_hex_rgba( $component_color, .25 ) . '; } code { border-left-color: ' . $component_color . '; }';
+			$css_data .= ' .custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale, .stars a:hover, .stars a.active { background: ' . $component_color . '; } .form-control:focus, .input-text:focus, input[type=text]:focus, input[type=email]:focus, input[type=url]:focus, input[type=password]:focus, input[type=file]:focus, input[type=tel]:focus, textarea:focus, .page-link:focus, select:focus { border-color: ' . $component_color . '; box-shadow: 0 0 0 0.2rem ' . evolve_hex_rgba( $component_color, .25 ) . '; } .custom-control-input:focus~.custom-control-label::before { box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem  ' . evolve_hex_rgba( $component_color, .25 ) . '; } .btn.focus, .btn:focus { box-shadow: 0 0 0 0.2rem ' . evolve_hex_rgba( $component_color, .25 ) . '; } :focus { outline-color: ' . evolve_hex_rgba( $component_color, .25 ) . '; } code { border-left-color: ' . $component_color . '; }';
 		}
 
 		if ( class_exists( 'Woocommerce' ) && is_user_logged_in() && current_user_can( 'manage_options' ) ) :
