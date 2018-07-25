@@ -542,8 +542,8 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Select Front Page Layout', 'evolve' ),
 					'subtitle' => esc_attr__( 'Select Content and Sidebar alignment for Front Page', 'evolve' ),
 					'type'     => 'image_select',
-					'compiler' => true,
-					'options'  => array(
+
+					'options' => array(
 						'1c'  => $evolve_imagepath . '1c.png',
 						'2cl' => $evolve_imagepath . '2cl.png',
 						'2cr' => $evolve_imagepath . '2cr.png',
@@ -551,26 +551,26 @@ if ( true || is_customize_preview() ) {
 						'3cr' => $evolve_imagepath . '3cr.png',
 						'3cl' => $evolve_imagepath . '3cl.png',
 					),
-					'default'  => '1c'
+					'default' => '1c'
 				),
 				array(
-					'id'       => 'evl_frontpage_width_layout',
-					'title'    => esc_attr__( 'Front Page Layout Width Style', 'evolve' ),
-					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
+					'id'    => 'evl_frontpage_width_layout',
+					'title' => esc_attr__( 'Front Page Layout Width Style', 'evolve' ),
+					'type'  => 'select',
+
+					'options' => array(
 						'fixed' => esc_attr__( 'Boxed', 'evolve' ),
 						'fluid' => esc_attr__( 'Wide', 'evolve' ),
 					),
-					'default'  => 'fixed'
+					'default' => 'fixed'
 				),
 				array(
 					'id'       => 'evl_layout',
 					'title'    => esc_attr__( 'Select General Layout', 'evolve' ),
 					'subtitle' => esc_attr__( 'Select general Content and Sidebar alignment', 'evolve' ),
 					'type'     => 'image_select',
-					'compiler' => true,
-					'options'  => array(
+
+					'options' => array(
 						'1c'  => $evolve_imagepath . '1c.png',
 						'2cl' => $evolve_imagepath . '2cl.png',
 						'2cr' => $evolve_imagepath . '2cr.png',
@@ -578,25 +578,25 @@ if ( true || is_customize_preview() ) {
 						'3cr' => $evolve_imagepath . '3cr.png',
 						'3cl' => $evolve_imagepath . '3cl.png',
 					),
-					'default'  => '2cl'
+					'default' => '2cl'
 				),
 				array(
-					'id'       => 'evl_width_layout',
-					'title'    => esc_attr__( 'General Layout Width Style', 'evolve' ),
-					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
+					'id'    => 'evl_width_layout',
+					'title' => esc_attr__( 'General Layout Width Style', 'evolve' ),
+					'type'  => 'select',
+
+					'options' => array(
 						'fixed' => esc_attr__( 'Boxed', 'evolve' ),
 						'fluid' => esc_attr__( 'Wide', 'evolve' ),
 					),
-					'default'  => 'fixed',
+					'default' => 'fixed',
 				),
 				array(
-					'id'        => 'evl_width_px',
-					'title'     => esc_attr__( 'Max Content Layout Width', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Select the maximum content width for your website (px)', 'evolve' ),
-					'type'      => 'slider',
-					'compiler'  => true,
+					'id'       => 'evl_width_px',
+					'title'    => esc_attr__( 'Max Content Layout Width', 'evolve' ),
+					'subtitle' => esc_attr__( 'Select the maximum content width for your website (px)', 'evolve' ),
+					'type'     => 'slider',
+
 					'options'   => array(
 						'min'  => '720',
 						'max'  => '2000',
@@ -669,11 +669,11 @@ if ( true || is_customize_preview() ) {
 					'indent' => true
 				),
 				array(
-					'id'       => 'evl_front_elements_header_area',
-					'title'    => esc_attr__( 'Header Area', 'evolve' ),
-					'type'     => 'sorter',
-					'compiler' => true,
-					'options'  => array(
+					'id'    => 'evl_front_elements_header_area',
+					'title' => esc_attr__( 'Header Area', 'evolve' ),
+					'type'  => 'sorter',
+
+					'options' => array(
 						'enabled'  => array(
 							'header' => esc_attr__( 'Header (REORDER ONLY)', 'evolve' ),
 						),
@@ -696,11 +696,11 @@ if ( true || is_customize_preview() ) {
 					'default'  => 'above'
 				),
 				array(
-					'id'       => 'evl_front_elements_content_area',
-					'title'    => esc_attr__( 'Content Area', 'evolve' ),
-					'type'     => 'sorter',
-					'compiler' => true,
-					'options'  => $content_area
+					'id'    => 'evl_front_elements_content_area',
+					'title' => esc_attr__( 'Content Area', 'evolve' ),
+					'type'  => 'sorter',
+
+					'options' => $content_area
 				)
 			)
 		)
@@ -722,10 +722,10 @@ if ( true || is_customize_preview() ) {
 					'indent' => true
 				),
 				array(
-					'id'        => 'evl_content_box_background_color',
-					'title'     => esc_attr__( 'Content Boxes Background Color', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'    => 'evl_content_box_background_color',
+					'title' => esc_attr__( 'Content Boxes Background Color', 'evolve' ),
+					'type'  => 'color',
+
 					'default'   => '#f9f9f9',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -778,10 +778,10 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_content_box1_icon_color',
-					'title'     => esc_attr__( 'Content Box 1 Icon Color', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'    => 'evl_content_box1_icon_color',
+					'title' => esc_attr__( 'Content Box 1 Icon Color', 'evolve' ),
+					'type'  => 'color',
+
 					'default'   => '#8bb9c1',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -858,10 +858,10 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_content_box2_icon_color',
-					'title'     => esc_attr__( 'Content Box 2 Icon Color', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'    => 'evl_content_box2_icon_color',
+					'title' => esc_attr__( 'Content Box 2 Icon Color', 'evolve' ),
+					'type'  => 'color',
+
 					'default'   => '#8ba3c1',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -938,10 +938,10 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_content_box3_icon_color',
-					'title'     => esc_attr__( 'Content Box 3 Icon Color', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'    => 'evl_content_box3_icon_color',
+					'title' => esc_attr__( 'Content Box 3 Icon Color', 'evolve' ),
+					'type'  => 'color',
+
 					'default'   => '#8dc4b8',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -1018,10 +1018,10 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_content_box4_icon_color',
-					'title'     => esc_attr__( 'Content Box 4 Icon Color', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'    => 'evl_content_box4_icon_color',
+					'title' => esc_attr__( 'Content Box 4 Icon Color', 'evolve' ),
+					'type'  => 'color',
+
 					'default'   => '#92bf89',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -1193,11 +1193,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_content_boxes_section_back_color',
-					'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_content_boxes_section_back_color',
+					'title'    => esc_attr__( 'Section Background Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Custom background color of section', 'evolve' ),
+					'type'     => 'color',
+
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -1275,10 +1275,10 @@ if ( true || is_customize_preview() ) {
 					'indent' => true
 				),
 				array(
-					'id'        => 'evl_fp_testimonials_bg_color',
-					'title'     => esc_attr__( 'Background Color', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'    => 'evl_fp_testimonials_bg_color',
+					'title' => esc_attr__( 'Background Color', 'evolve' ),
+					'type'  => 'color',
+
 					'default'   => '',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -1290,10 +1290,10 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_fp_testimonials_text_color',
-					'title'     => esc_attr__( 'Text Color', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'    => 'evl_fp_testimonials_text_color',
+					'title' => esc_attr__( 'Text Color', 'evolve' ),
+					'type'  => 'color',
+
 					'default'   => '#333333',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -1460,11 +1460,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_testimonials_section_back_color',
-					'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_testimonials_section_back_color',
+					'title'    => esc_attr__( 'Section Background Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Custom background color of section', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#efefef',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -1535,7 +1535,7 @@ if ( true || is_customize_preview() ) {
 			'title'    => sprintf( esc_attr__( 'Counter Circle %d Filled Color', 'evolve' ), $i ),
 			'subtitle' => esc_attr__( 'Controls the color of the filled in area', 'evolve' ),
 			'type'     => 'color',
-			'compiler' => true,
+
 			'default'  => '#3e9c91',
 			'required' => array( array( "{$evolve_shortname}_fp_counter_circle{$i}", '=', '1' ) )
 		);
@@ -1545,7 +1545,7 @@ if ( true || is_customize_preview() ) {
 			'title'    => sprintf( esc_attr__( 'Counter Circle %d Unfilled Color', 'evolve' ), $i ),
 			'subtitle' => esc_attr__( 'Controls the color of the unfilled in area', 'evolve' ),
 			'type'     => 'color',
-			'compiler' => true,
+
 			'default'  => '#53cabc',
 			'required' => array( array( "{$evolve_shortname}_fp_counter_circle{$i}", '=', '1' ) )
 		);
@@ -1737,11 +1737,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_counter_circle_section_back_color',
-					'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_counter_circle_section_back_color',
+					'title'    => esc_attr__( 'Section Background Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Custom background color of section', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#41d6c2',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -1923,11 +1923,11 @@ if ( true || is_customize_preview() ) {
 						)
 					),
 					array(
-						'id'        => 'evl_woo_product_section_back_color',
-						'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
-						'type'      => 'color',
-						'compiler'  => true,
+						'id'       => 'evl_woo_product_section_back_color',
+						'title'    => esc_attr__( 'Section Background Color', 'evolve' ),
+						'subtitle' => esc_attr__( 'Custom background color of section', 'evolve' ),
+						'type'     => 'color',
+
 						'default'   => '#fafafa',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
@@ -2101,11 +2101,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_custom_content_section_back_color',
-					'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_custom_content_section_back_color',
+					'title'    => esc_attr__( 'Section Background Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Custom background color of section', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#93f2d7',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -2190,25 +2190,25 @@ if ( true || is_customize_preview() ) {
 					'id'       => 'evl_slider_position',
 					'title'    => esc_attr__( 'General Slider Position', 'evolve' ),
 					'subtitle' => esc_attr__( 'Select if the slider shows below or above the header. This only works for the slider assigned in Post/Page Options, not in Front Page. Can be overwritten in Post/Page Options', 'evolve' ),
-					'compiler' => true,
-					'type'     => 'select',
-					'options'  => array(
+
+					'type'    => 'select',
+					'options' => array(
 						'below' => esc_attr__( 'Below Header', 'evolve' ),
 						'above' => esc_attr__( 'Above Header', 'evolve' )
 					),
-					'default'  => 'below'
+					'default' => 'below'
 				),
 				array(
 					'id'       => 'evl_header_type',
 					'title'    => esc_attr__( 'Choose Header Type', 'evolve' ),
 					'subtitle' => esc_attr__( 'Choose your Header Type', 'evolve' ),
 					'type'     => 'image_select',
-					'compiler' => true,
-					'options'  => array(
+
+					'options' => array(
 						'none' => $evolve_imagepath . 'h0.jpg',
 						'h1'   => $evolve_imagepath . 'h1.jpg'
 					),
-					'default'  => 'none'
+					'default' => 'none'
 				)
 			)
 		)
@@ -2267,14 +2267,14 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Logo Position', 'evolve' ),
 					'subtitle' => esc_attr__( 'Choose the position of your Custom Logo for Header #1', 'evolve' ),
 					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
+
+					'options' => array(
 						'left'    => esc_attr__( 'Left', 'evolve' ),
 						'center'  => esc_attr__( 'Center', 'evolve' ),
 						'right'   => esc_attr__( 'Right', 'evolve' ),
 						'disable' => esc_attr__( 'Disabled', 'evolve' )
 					),
-					'default'  => 'left'
+					'default' => 'left'
 				)
 			)
 		)
@@ -2297,14 +2297,14 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Website Tagline Position', 'evolve' ),
 					'subtitle' => esc_attr__( 'Choose the position of website tagline', 'evolve' ),
 					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
+
+					'options' => array(
 						'next'    => esc_attr__( 'Next to Website Title', 'evolve' ),
 						'above'   => esc_attr__( 'Above Website Title', 'evolve' ),
 						'under'   => esc_attr__( 'Under Website Title', 'evolve' ),
 						'disable' => esc_attr__( 'Disabled', 'evolve' )
 					),
-					'default'  => 'disable'
+					'default' => 'disable'
 				)
 			)
 		)
@@ -2938,56 +2938,56 @@ if ( true || is_customize_preview() ) {
 					'subtitle' => esc_attr__( 'Please select the predefined color scheme for your website', 'evolve' ),
 					'type'     => 'palette',
 					'palettes' => array(
-						'color_palette_1' => array(
+						'color_palette_1'  => array(
 							'#999999',
 							'#313a43',
 							'#273039',
 							'#0d9078'
 						),
-						'color_palette_2' => array(
+						'color_palette_2'  => array(
 							'#ffffff',
 							'#f9f9f9',
 							'#727272',
 							'#000000'
 						),
-						'color_palette_3' => array(
+						'color_palette_3'  => array(
 							'#ffffff',
 							'#d6d6d6',
 							'#3d3d3d',
 							'#a2c43c'
 
 						),
-						'color_palette_4' => array(
+						'color_palette_4'  => array(
 							'#ffffff',
 							'#fab0ad',
 							'#f7505a',
 							'#282c59'
 						),
-						'color_palette_5' => array(
+						'color_palette_5'  => array(
 							'#ffffff',
 							'#E0E0E0',
 							'#000000',
 							'#d4c081'
 						),
-						'color_palette_6' => array(
+						'color_palette_6'  => array(
 							'#ffffff',
 							'#bcbcbc',
 							'#666666',
 							'#000000'
 						),
-						'color_palette_7' => array(
+						'color_palette_7'  => array(
 							'#ffffff',
 							'#f0f0f0',
 							'#3c4d56',
 							'#ff8d52'
 						),
-						'color_palette_8' => array(
+						'color_palette_8'  => array(
 							'#ffffff',
 							'#E0E0E0',
 							'#c1c1c1',
 							'#09589e'
 						),
-						'color_palette_9' => array(
+						'color_palette_9'  => array(
 							'#ffffff',
 							'#f0f0f0',
 							'#444444',
@@ -3017,11 +3017,11 @@ if ( true || is_customize_preview() ) {
 					'type'  => 'info'
 				),
 				array(
-					'id'        => 'evl_header_image',
-					'title'     => esc_attr__( 'Header Background Image Responsiveness Style', 'evolve' ),
-					'subtitle'  => sprintf( '%s<a href="%s">Header Background</a>', esc_attr__( 'Select if the header background image should be displayed in cover or contain size. Change ', 'evolve' ), '' . esc_url( admin_url( 'customize.php?return=&autofocus%5Bcontrol%5D=header_image' ) ) . '' ),
-					'type'      => 'select',
-					'compiler'  => true,
+					'id'       => 'evl_header_image',
+					'title'    => esc_attr__( 'Header Background Image Responsiveness Style', 'evolve' ),
+					'subtitle' => sprintf( '%s<a href="%s">Header Background</a>', esc_attr__( 'Select if the header background image should be displayed in cover or contain size. Change ', 'evolve' ), '' . esc_url( admin_url( 'customize.php?return=&autofocus%5Bcontrol%5D=header_image' ) ) . '' ),
+					'type'     => 'select',
+
 					'options'   => array(
 						'cover'   => esc_attr__( 'Cover', 'evolve' ),
 						'contain' => esc_attr__( 'Contain', 'evolve' ),
@@ -3083,11 +3083,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_header_background_color',
-					'title'     => esc_attr__( 'Header Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Custom background color of Header', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_header_background_color',
+					'title'    => esc_attr__( 'Header Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Custom background color of Header', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#313a43',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3191,11 +3191,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_header_footer_back_color',
-					'title'     => esc_attr__( 'Footer Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Custom background color of Footer', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_header_footer_back_color',
+					'title'    => esc_attr__( 'Footer Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Custom background color of Footer', 'evolve' ),
+					'type'     => 'color',
+
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -3211,11 +3211,11 @@ if ( true || is_customize_preview() ) {
 					'type'  => 'info'
 				),
 				array(
-					'id'        => 'evl_pattern',
-					'title'     => esc_attr__( 'Header and Footer Pattern', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Choose the pattern for header and footer background', 'evolve' ),
-					'type'      => 'image_select',
-					'compiler'  => true,
+					'id'       => 'evl_pattern',
+					'title'    => esc_attr__( 'Header and Footer Pattern', 'evolve' ),
+					'subtitle' => esc_attr__( 'Choose the pattern for header and footer background', 'evolve' ),
+					'type'     => 'image_select',
+
 					'options'   => array(
 						'none'      => $evolve_imagepathfolder . 'pattern/none.jpg',
 						'pattern_1' => $evolve_imagepathfolder . 'pattern/pattern_1.png',
@@ -3247,11 +3247,11 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'id'        => 'evl_menu_back_color',
-					'title'     => esc_attr__( 'Main Menu Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Custom background color of Main Menu', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_menu_back_color',
+					'title'    => esc_attr__( 'Main Menu Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Custom background color of Main Menu', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#273039',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3267,15 +3267,15 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Disable Main Menu Background Gradient, Shadow and Borders', 'evolve' ),
 					'subtitle' => esc_attr__( 'Check this box if you want to disable main menu background gradient, shadow effect and borders', 'evolve' ),
 					'type'     => 'checkbox',
-					'compiler' => true,
-					'default'  => '1'
+
+					'default' => '1'
 				),
 				array(
 					'id'       => 'evl_menu_back',
 					'title'    => esc_attr__( 'Text Shadow Effect Color', 'evolve' ),
 					'subtitle' => esc_attr__( 'Enables the text shadow effect on the menu items', 'evolve' ),
 					'type'     => 'select',
-					'compiler' => true,
+
 					'options'  => array(
 						'light' => esc_attr__( 'Light', 'evolve' ),
 						'dark'  => esc_attr__( 'Dark', 'evolve' )
@@ -3290,8 +3290,8 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Top Bar Color', 'evolve' ),
 					'subtitle' => esc_attr__( 'Background color of Top Bar for Header #2', 'evolve' ),
 					'type'     => 'color',
-					'compiler' => true,
-					'default'  => '#273039',
+
+					'default'   => '#273039',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -3302,11 +3302,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_top_menu_hover_font_color',
-					'title'     => esc_attr__( 'Menu Hover Font Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Menu hover font color', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_top_menu_hover_font_color',
+					'title'    => esc_attr__( 'Menu Hover Font Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Menu hover font color', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#ffffff',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3327,11 +3327,11 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'id'        => 'evl_scheme_widgets',
-					'title'     => esc_attr__( 'Color Scheme of The Header Block Area', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Choose the color scheme for the Header Block area', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_scheme_widgets',
+					'title'    => esc_attr__( 'Color Scheme of The Header Block Area', 'evolve' ),
+					'subtitle' => esc_attr__( 'Choose the color scheme for the Header Block area', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#273039',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3343,11 +3343,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_scheme_background',
-					'title'     => esc_attr__( 'Background Image of The Header Block Area', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Upload an image for the Header Block area', 'evolve' ),
-					'type'      => 'media',
-					'compiler'  => true,
+					'id'       => 'evl_scheme_background',
+					'title'    => esc_attr__( 'Background Image of The Header Block Area', 'evolve' ),
+					'subtitle' => esc_attr__( 'Upload an image for the Header Block area', 'evolve' ),
+					'type'     => 'media',
+
 					'url'       => true,
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3363,16 +3363,16 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( '100% Background Image', 'evolve' ),
 					'subtitle' => esc_attr__( 'Have background image always at 100% in width and height and scale according to the browser size', 'evolve' ),
 					'type'     => 'switch',
-					'compiler' => true,
-					'on'       => esc_attr__( 'Enabled', 'evolve' ),
-					'off'      => esc_attr__( 'Disabled', 'evolve' ),
-					'default'  => 0
+
+					'on'      => esc_attr__( 'Enabled', 'evolve' ),
+					'off'     => esc_attr__( 'Disabled', 'evolve' ),
+					'default' => 0
 				),
 				array(
-					'id'        => 'evl_scheme_background_repeat',
-					'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
-					'type'      => 'select',
-					'compiler'  => true,
+					'id'    => 'evl_scheme_background_repeat',
+					'title' => esc_attr__( 'Background Repeat', 'evolve' ),
+					'type'  => 'select',
+
 					'options'   => array(
 						'repeat'    => esc_attr__( 'repeat', 'evolve' ),
 						'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
@@ -3399,11 +3399,11 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'id'        => 'evl_content_background_image',
-					'title'     => esc_attr__( 'Content Image', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Upload a content background image for your website, or specify an image URL directly', 'evolve' ),
-					'type'      => 'media',
-					'compiler'  => true,
+					'id'       => 'evl_content_background_image',
+					'title'    => esc_attr__( 'Content Image', 'evolve' ),
+					'subtitle' => esc_attr__( 'Upload a content background image for your website, or specify an image URL directly', 'evolve' ),
+					'type'     => 'media',
+
 					'url'       => true,
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3415,11 +3415,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_content_image_responsiveness',
-					'title'     => esc_attr__( 'Content Background Image Responsiveness Style', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Select if the content background image should be displayed in cover or contain size', 'evolve' ),
-					'type'      => 'select',
-					'compiler'  => true,
+					'id'       => 'evl_content_image_responsiveness',
+					'title'    => esc_attr__( 'Content Background Image Responsiveness Style', 'evolve' ),
+					'subtitle' => esc_attr__( 'Select if the content background image should be displayed in cover or contain size', 'evolve' ),
+					'type'     => 'select',
+
 					'options'   => array(
 						'cover'   => esc_attr__( 'Cover', 'evolve' ),
 						'contain' => esc_attr__( 'Contain', 'evolve' )
@@ -3446,11 +3446,11 @@ if ( true || is_customize_preview() ) {
 					'default'  => 'light'
 				),
 				array(
-					'id'        => 'evl_content_background_color',
-					'title'     => esc_attr__( 'Or Custom Content Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Custom background color of content area', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_content_background_color',
+					'title'    => esc_attr__( 'Or Custom Content Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Custom background color of content area', 'evolve' ),
+					'type'     => 'color',
+
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
@@ -3474,17 +3474,17 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Enable Widget Title Custom Background', 'evolve' ),
 					'subtitle' => esc_attr__( 'Check this box if you want to enable custom background for widget titles', 'evolve' ),
 					'type'     => 'switch',
-					'compiler' => true,
-					'on'       => esc_attr__( 'Enabled', 'evolve' ),
-					'off'      => esc_attr__( 'Disabled', 'evolve' ),
-					'default'  => 0
+
+					'on'      => esc_attr__( 'Enabled', 'evolve' ),
+					'off'     => esc_attr__( 'Disabled', 'evolve' ),
+					'default' => 0
 				),
 				array(
-					'id'        => 'evl_widget_bgcolor',
-					'title'     => esc_attr__( 'Widget Title Custom Background', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Choose the color scheme for widgets background', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_widget_bgcolor',
+					'title'    => esc_attr__( 'Widget Title Custom Background', 'evolve' ),
+					'subtitle' => esc_attr__( 'Choose the color scheme for widgets background', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#273039',
 					'required'  => array(
 						array( 'evl_widget_background', '=', '1' )
@@ -3508,8 +3508,8 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Disable Widget Content Boxed Background', 'evolve' ),
 					'subtitle' => esc_attr__( 'Check this box if you want to disable widget content boxed background', 'evolve' ),
 					'type'     => 'checkbox',
-					'compiler' => true,
-					'default'  => 1
+
+					'default' => 1
 				)
 			)
 		)
@@ -3521,11 +3521,11 @@ if ( true || is_customize_preview() ) {
 			'subsection' => true,
 			'fields'     => array(
 				array(
-					'id'        => 'evl_general_link',
-					'title'     => esc_attr__( 'Primary Link Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Custom color for content links', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_general_link',
+					'title'    => esc_attr__( 'Primary Link Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Custom color for content links', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#0d9078',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3537,11 +3537,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_secondary_link',
-					'title'     => esc_attr__( 'Secondary Link Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Custom color for links in post metas, widgets, navigation etc.', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_secondary_link',
+					'title'    => esc_attr__( 'Secondary Link Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Custom color for links in post metas, widgets, navigation etc.', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#999999',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3566,19 +3566,19 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Shadow Effect', 'evolve' ),
 					'subtitle' => esc_attr__( 'Enables the shadow effect on the elements', 'evolve' ),
 					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
+
+					'options' => array(
 						'enable'  => esc_attr__( 'Enabled', 'evolve' ),
 						'disable' => esc_attr__( 'Disabled', 'evolve' )
 					),
-					'default'  => 'disable'
+					'default' => 'disable'
 				),
 				array(
-					'id'        => 'evl_shadow_effect_color',
-					'title'     => esc_attr__( 'Text Shadow Effect Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Select the text shadow effect custom color', 'evolve' ),
-					'type'      => 'color_rgba',
-					'compiler'  => true,
+					'id'       => 'evl_shadow_effect_color',
+					'title'    => esc_attr__( 'Text Shadow Effect Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Select the text shadow effect custom color', 'evolve' ),
+					'type'     => 'color_rgba',
+
 					'default'   => '',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3610,32 +3610,32 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Button Shape', 'evolve' ),
 					'subtitle' => esc_attr__( 'Select the default shape for buttons', 'evolve' ),
 					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
+
+					'options' => array(
 						'Square' => esc_attr__( 'Square', 'evolve' ),
 						'Round'  => esc_attr__( 'Round', 'evolve' ),
 						'Pill'   => esc_attr__( 'Pill', 'evolve' )
 					),
-					'default'  => 'Pill'
+					'default' => 'Pill'
 				),
 				array(
 					'id'       => 'evl_shortcode_button_type',
 					'title'    => esc_attr__( 'Button Type', 'evolve' ),
 					'subtitle' => esc_attr__( 'Select the default button type', 'evolve' ),
 					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
+
+					'options' => array(
 						'Flat' => esc_attr__( 'Flat', 'evolve' ),
 						'3d'   => esc_attr__( '3d', 'evolve' )
 					),
-					'default'  => 'Flat'
+					'default' => 'Flat'
 				),
 				array(
-					'id'        => 'evl_shortcode_button_gradient_top_color',
-					'title'     => esc_attr__( 'Button Gradient Top Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Controls the top color of the button gradients', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_shortcode_button_gradient_top_color',
+					'title'    => esc_attr__( 'Button Gradient Top Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Controls the top color of the button gradients', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#0d9078',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3650,11 +3650,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_shortcode_button_gradient_bottom_color',
-					'title'     => esc_attr__( 'Button Gradient Bottom Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Controls the bottom color of the button gradients', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_shortcode_button_gradient_bottom_color',
+					'title'    => esc_attr__( 'Button Gradient Bottom Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Controls the bottom color of the button gradients', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#0d9078',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3669,11 +3669,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_shortcode_button_gradient_top_hover_color',
-					'title'     => esc_attr__( 'Button Gradient Top Hover Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Controls the top hover color of the button gradients', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_shortcode_button_gradient_top_hover_color',
+					'title'    => esc_attr__( 'Button Gradient Top Hover Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Controls the top hover color of the button gradients', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#313a43',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3688,11 +3688,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_shortcode_button_gradient_bottom_hover_color',
-					'title'     => esc_attr__( 'Button Gradient Bottom Hover Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Controls the bottom hover color of the button gradients', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_shortcode_button_gradient_bottom_hover_color',
+					'title'    => esc_attr__( 'Button Gradient Bottom Hover Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Controls the bottom hover color of the button gradients', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#313a43',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3707,11 +3707,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_shortcode_button_accent_color',
-					'title'     => esc_attr__( 'Button Accent Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'This option controls the color of the button text and icon', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_shortcode_button_accent_color',
+					'title'    => esc_attr__( 'Button Accent Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'This option controls the color of the button text and icon', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#f4f4f4',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3723,11 +3723,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_shortcode_button_accent_hover_color',
-					'title'     => esc_attr__( 'Button Accent Hover Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'This option controls the hover color of the button text and icon', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_shortcode_button_accent_hover_color',
+					'title'    => esc_attr__( 'Button Accent Hover Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'This option controls the hover color of the button text and icon', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#ffffff',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3739,11 +3739,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_shortcode_button_bevel_color',
-					'title'     => esc_attr__( 'Button Bevel Color (3D Mode Only)', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Controls the default bevel color of the buttons', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_shortcode_button_bevel_color',
+					'title'    => esc_attr__( 'Button Bevel Color (3D Mode Only)', 'evolve' ),
+					'subtitle' => esc_attr__( 'Controls the default bevel color of the buttons', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#1d6e72',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3755,11 +3755,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_shortcode_button_border_color',
-					'title'     => esc_attr__( 'Button Border Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Controls the border color of the buttons', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_shortcode_button_border_color',
+					'title'    => esc_attr__( 'Button Border Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Controls the border color of the buttons', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#0d9078',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3771,11 +3771,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_shortcode_button_border_hover_color',
-					'title'     => esc_attr__( 'Button Border Hover Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Controls the border hover color of the buttons', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_shortcode_button_border_hover_color',
+					'title'    => esc_attr__( 'Button Border Hover Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Controls the border hover color of the buttons', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#313a43',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -3815,8 +3815,8 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Button Hover Effect', 'evolve' ),
 					'subtitle' => esc_attr__( 'Select the hover effect for buttons or disable it', 'evolve' ),
 					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
+
+					'options' => array(
 						'pulse'      => esc_attr__( 'Pulse', 'evolve' ),
 						'rubberBand' => esc_attr__( 'RubberBand', 'evolve' ),
 						'shake'      => esc_attr__( 'Shake', 'evolve' ),
@@ -3826,7 +3826,7 @@ if ( true || is_customize_preview() ) {
 						'jello'      => esc_attr__( 'Jello', 'evolve' ),
 						'disable'    => esc_attr__( 'Disabled', 'evolve' )
 					),
-					'default'  => 'pulse'
+					'default' => 'pulse'
 				),
 			)
 		)
@@ -3930,13 +3930,13 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Blog Layout', 'evolve' ),
 					'subtitle' => esc_attr__( 'Grid layout with 3 posts per row is recommended to use with disabled Sidebar(s)', 'evolve' ),
 					'type'     => 'image_select',
-					'compiler' => true,
-					'options'  => array(
+
+					'options' => array(
 						'one'   => $evolve_imagepath . 'one-post.png',
 						'two'   => $evolve_imagepath . 'two-posts.png',
 						'three' => $evolve_imagepath . 'three-posts.png'
 					),
-					'default'  => 'two'
+					'default' => 'two'
 				),
 				array(
 					'id'       => 'evl_category_page_title',
@@ -3967,13 +3967,13 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Pagination Type', 'evolve' ),
 					'subtitle' => esc_attr__( 'Select the pagination type for the assigned blog page in Settings > Reading.', 'evolve' ),
 					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
+
+					'options' => array(
 						'pagination'        => esc_attr__( 'Navigation Links', 'evolve' ),
 						'number_pagination' => esc_attr__( 'Number Pagination', 'evolve' ),
 						'infinite'          => esc_attr__( 'Infinite Scroll', 'evolve' )
 					),
-					'default'  => 'pagination'
+					'default' => 'pagination'
 				),
 				array(
 					'id'       => 'evl_nav_links',
@@ -4101,7 +4101,7 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Enable Hover Effect on Featured Images', 'evolve' ),
 					'subtitle' => esc_attr__( 'Check this box if you want to enable hover effect on featured images', 'evolve' ),
 					'type'     => 'checkbox',
-					'compiler' => true,
+
 					'default'  => '1',
 					'required' => array(
 						array( 'evl_featured_images', '=', '1' )
@@ -4227,11 +4227,11 @@ if ( true || is_customize_preview() ) {
 					'render_callback' => 'evl_social_links'
 				),
 				array(
-					'id'        => 'evl_social_color_scheme',
-					'title'     => esc_attr__( 'Subscribe/Social Icons Color', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Choose the color scheme of Subscribe/Social Icons', 'evolve' ),
-					'type'      => 'color',
-					'compiler'  => true,
+					'id'       => 'evl_social_color_scheme',
+					'title'    => esc_attr__( 'Subscribe/Social Icons Color', 'evolve' ),
+					'subtitle' => esc_attr__( 'Choose the color scheme of Subscribe/Social Icons', 'evolve' ),
+					'type'     => 'color',
+
 					'default'   => '#999999',
 					'transport' => 'postMessage',
 					'js_vars'   => array(
@@ -4246,11 +4246,11 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
-					'id'        => 'evl_social_icons_size',
-					'title'     => esc_attr__( 'Subscribe/Social Icons Size', 'evolve' ),
-					'subtitle'  => esc_attr__( 'Choose the size of Subscribe/Social Icons', 'evolve' ),
-					'type'      => 'select',
-					'compiler'  => true,
+					'id'       => 'evl_social_icons_size',
+					'title'    => esc_attr__( 'Subscribe/Social Icons Size', 'evolve' ),
+					'subtitle' => esc_attr__( 'Choose the size of Subscribe/Social Icons', 'evolve' ),
+					'type'     => 'select',
+
 					'options'   => array(
 						'1rem'   => esc_attr__( 'Normal', 'evolve' ),
 						'.8rem'  => esc_attr__( 'Small', 'evolve' ),
@@ -4618,7 +4618,7 @@ if ( true || is_customize_preview() ) {
 					'title'    => esc_attr__( 'Choose Bootstrap Layout Type', 'evolve' ),
 					'subtitle' => esc_attr__( 'Choose your Bootstrap Slider layout style', 'evolve' ),
 					'type'     => 'image_select',
-					'compiler' => true,
+
 					'options'  => array(
 						'bootstrap_left'   => $evolve_imagepath . 'b1.jpg',
 						'bootstrap_center' => $evolve_imagepath . 'b2.jpg'
@@ -4930,17 +4930,17 @@ if ( true || is_customize_preview() ) {
 			'iconfix' => 'evolve-icon evolve-icon-extra',
 			'fields'  => array(
 				array(
-					'id'       => 'evl_pos_button',
-					'title'    => esc_attr__( 'Position of \'Back to Top\' Button', 'evolve' ),
-					'type'     => 'select',
-					'compiler' => true,
-					'options'  => array(
+					'id'    => 'evl_pos_button',
+					'title' => esc_attr__( 'Position of \'Back to Top\' Button', 'evolve' ),
+					'type'  => 'select',
+
+					'options' => array(
 						'disable' => esc_attr__( 'Disabled', 'evolve' ),
 						'left'    => esc_attr__( 'Left', 'evolve' ),
 						'right'   => esc_attr__( 'Right', 'evolve' ),
 						'middle'  => esc_attr__( 'Middle', 'evolve' )
 					),
-					'default'  => 'right'
+					'default' => 'right'
 				),
 				array(
 					'id'       => 'evl_edit_post',
@@ -5022,11 +5022,6 @@ if ( true || is_customize_preview() ) {
 	);
 
 }
-
-// }
-
-// Function to test the compiler hook and demo CSS output.
-// Above 10 is a priority, but 2 in necessary to include the dynamically generated CSS to be sent to the function.
 
 global $evolve_options, $geted_for_preview;
 $geted_for_preview = false;
@@ -5136,7 +5131,7 @@ function evolve_data_fix( $value ) {
 				$enabled_temp[] = $enabled_key;
 			}
 		}
-		if(isset($value["disabled"]["blog_post"])){
+		if ( isset( $value["disabled"]["blog_post"] ) ) {
 			$enabled_temp[] = 'blog_post';
 		}
 		$value = $enabled_temp;

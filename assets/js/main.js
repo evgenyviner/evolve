@@ -5376,19 +5376,11 @@
 //# sourceMappingURL=bootstrap.bundle.js.map
 
 /*
-    Make Mobile Menu Clickable
+    Make Menu Clickable
     ======================================= */
 
 jQuery(function ($) {
-    if ($(window).width() < 767) {
-        $(".dropdown-toggle").attr('data-toggle', 'dropdown');
-        $('.dropdown').on('show.bs.dropdown', function () {
-            $(this).siblings('.open').removeClass('open').find('a.dropdown-toggle').attr('data-toggle', 'dropdown');
-            $(this).find('a.dropdown-toggle').removeAttr('data-toggle');
-        });
-    } else {
-        $(".dropdown-toggle").removeAttr('data-toggle dropdown');
-    }
+    $(".dropdown-toggle").removeAttr('data-toggle dropdown');
 });
 
 /*

@@ -195,7 +195,7 @@ if ( ! function_exists( 'evolve_hex_rgba' ) ) {
 
 if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 	/**
-	 * WP_Bootstrap_Navwalker class.
+	 * evolve_custom_menu_walker class.
 	 *
 	 * @extends Walker_Nav_Menu
 	 */
