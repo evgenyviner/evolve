@@ -5115,6 +5115,15 @@ function evolve_data_fix( $value ) {
 			$plugin_options[ $key ] = $value;
 		}
 	}
+	if ( $value && is_array( $value ) && count( $value ) && isset( $value["disabled"] ) && is_array( $value["disabled"] ) && count( $value["disabled"] ) ) {
+		if( !isset( $value["enabled"] ) ){
+			$enabled_temp = array();
+			if(isset($value["disabled"]["blog_post"])){
+				$enabled_temp[] = 'blog_post';
+			}
+			return $enabled_temp;
+		}
+	}
 	if ( $value && is_array( $value ) && count( $value ) && isset( $value["enabled"] ) && is_array( $value["enabled"] ) && count( $value["enabled"] ) ) {
 		$enabled_temp = array();
 		foreach ( $value["enabled"] as $enabled_key => $items ) {
