@@ -168,12 +168,15 @@ if ( ! function_exists( 'evolve_fix_get_theme_mod' ) ) {
 	function evolve_fix_get_theme_mod( $array_in ) {
 		if ( $array_in && is_array( $array_in ) && count( $array_in ) ) {
 			$enabled_temp = array();
-			foreach ( $array_in as $items ) {
-				if ( 'placebo' != $items && is_string( $items ) && isset( $enabled_temp[ $items ] ) ) {
-					$enabled_temp[ $items ] = $items;
+			foreach ( $array_in as $key => $items ) {
+				if ( 'placebo' != $items ) {
+					if(is_string( $key ))
+						$enabled_temp[ $key ] = $key;
+					if(is_numeric( $key ))
+						$enabled_temp[ $items ] = $items;
 				}
 			}
-
+			
 			return $enabled_temp;
 		}
 
@@ -210,7 +213,7 @@ if ( ! function_exists( 'evolve_theme_mod' ) ) {
 			foreach ( $result["enabled"] as $enabled_key => $items ) {
 				$enabled_temp[] = $enabled_key;
 			}
-			$result = $enabled_temp;
+			return $enabled_temp;
 		}
 
 		return $result;
