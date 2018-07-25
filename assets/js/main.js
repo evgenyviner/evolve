@@ -6872,34 +6872,20 @@ jQuery(function ($) {
 
 if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
 
-    /*
-       For WooCommerce Product page, Checkout page and Cart page
-       ======================================= */
+    jQuery(function ($) {
 
-    jQuery(document).ready(function ($) {
+        /*
+            Product Catalog
+            --------------------------------------- */
 
-        jQuery('.woocommerce .images #carousel a').click(function (e) {
-            e.preventDefault();
+        $('.catalog-ordering .orderby .current-item').html($('.catalog-ordering .orderby .current').html());
+        $('.catalog-ordering .sort-count .current-item').html($('.catalog-ordering .sort-count .current').html());
+
+        $('.rtl .woocommerce .wc-forward').each(function () {
+            $(this).val($('.rtl .woocommerce .wc-forward').val().replace('\u2192', '\u2190'));
         });
 
-        jQuery('.catalog-ordering .orderby .current-item').html(jQuery('.catalog-ordering .orderby .current').html());
-        jQuery('.catalog-ordering .sort-count .current-item').html(jQuery('.catalog-ordering .sort-count .current').html());
-        jQuery('.woocommerce .woocommerce-input-wrapper').addClass('col-sm-8');
-        jQuery('.woocommerce .shop_table .variation dd').after('<br />');
-        jQuery('.woocommerce .evolve-myaccount-data th.order-actions').text(evolve_js_local_vars.order_actions);
-
-        jQuery('.rtl .woocommerce .wc-forward').each(function () {
-            jQuery(this).val(jQuery('.rtl .woocommerce .wc-forward').val().replace('\u2192', '\u2190'));
-        });
-
-        jQuery('.woocommerce input').each(function () {
-            if (!jQuery(this).has('#coupon_code')) {
-                name = jQuery(this).attr('id');
-                jQuery(this).attr('placeholder', jQuery(this).parent().find('label[for=' + name + ']').text());
-            }
-        });
-
-        jQuery('.woocommerce-checkout-nav a, .continue-checkout').click(function (e) {
+        $('.woocommerce-checkout-nav a, .continue-checkout').click(function (e) {
             e.preventDefault();
 
             var data_name = $(this).attr('data-name');
@@ -6908,40 +6894,39 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
                 name = '.' + data_name;
             }
 
-            jQuery('.woocommerce-checkout-nav li').removeClass('active');
-            jQuery('.woocommerce-checkout-nav').find('[data-name=' + data_name + ']').parent().addClass('active');
+            $('.woocommerce-checkout-nav li').removeClass('active');
+            $('.woocommerce-checkout-nav').find('[data-name=' + data_name + ']').parent().addClass('active');
         });
 
-        jQuery('a.add_to_cart_button').click(function (e) {
+        $('a.add_to_cart_button').click(function (e) {
             var link = this;
-            jQuery(link).closest('.products .product').find('.cart-loading').find('div').removeClass('ok').addClass('loader');
-            jQuery(this).closest('.products .product').find('.cart-loading').addClass('fadein');
+            $(link).closest('.products .product').find('.cart-loading').find('div').removeClass('ok').addClass('loader');
+            $(this).closest('.products .product').find('.cart-loading').addClass('fadein');
             setTimeout(function () {
-                jQuery(link).closest('.products .product').find('.cart-loading').find('div').removeClass('fadein').removeClass('loader').addClass('ok').addClass('fadein');
+                $(link).closest('.products .product').find('.cart-loading').find('div').removeClass('fadein').removeClass('loader').addClass('ok').addClass('fadein');
 
                 setTimeout(function () {
-                    jQuery(link).closest('.products .product').find('.cart-loading').removeClass('fadein').closest('.products .product').find('.product-images img').animate({opacity: 1});
+                    $(link).closest('.products .product').find('.cart-loading').removeClass('fadein').closest('.products .product').find('.product-images img').animate({opacity: 1});
                 }, 2000);
             }, 2000);
         });
 
-        jQuery('.products .product').mouseenter(function () {
-            if (jQuery(this).find('.cart-loading').find('div').hasClass('ok')) {
-                jQuery(this).find('.cart-loading').addClass('fadein');
+        $('.products .product').mouseenter(function () {
+            if ($(this).find('.cart-loading').find('div').hasClass('ok')) {
+                $(this).find('.cart-loading').addClass('fadein');
             }
         }).mouseleave(function () {
-            if (jQuery(this).find('.cart-loading').find('div').hasClass('ok')) {
-                jQuery(this).find('.cart-loading').stop().removeClass('fadein');
+            if ($(this).find('.cart-loading').find('div').hasClass('ok')) {
+                $(this).find('.cart-loading').stop().removeClass('fadein');
             }
         });
 
-    });
+        /*
+            Checkout and Account Tabs
+            --------------------------------------- */
 
-    /*
-       WooCommerce Checkout and Account Tabs
-       ======================================= */
+        $('.woocommerce .woocommerce-input-wrapper').addClass('col-sm-8');
 
-    jQuery(function ($) {
         $('#checkout-tab a[href="#checkout-billing"]').tab('show');
         $('#account-tab a[href="#account-dashboard"]').tab('show');
 
@@ -6960,13 +6945,11 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
         $(".edit-account-link").click(function () {
             $("a#account-edit-tab").click();
         });
-    });
 
-    /*
-        Single Product Tabs
-        --------------------------------------- */
+        /*
+            Single Product Tabs
+            --------------------------------------- */
 
-    jQuery(function ($) {
         $('.woocommerce-tabs a:first-child').tab('show')
 
         $(".woocommerce-review-link").click(function () {
@@ -6976,68 +6959,61 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
         if (window.location.hash === "#reviews") {
             $('.woocommerce-tabs a[href="#tab-reviews"]').tab('show');
         }
-    });
 
-    /*
-       For WooCommerce Edit-addresss Form
-       ======================================= */
+        /*
+            Edit Address Form
+            --------------------------------------- */
 
-    jQuery('#account-tab a.account-tab').click(function (e) {
-        e.preventDefault();
-
-        jQuery('.editaddress_billing').hide();
-        jQuery('.editaddress_shipping').hide();
-
-    });
-
-    jQuery(document).ready(function ($) {
-
-        jQuery('.woo_editaddress').click(function (e) {
+        $('#account-tab a.account-tab').click(function (e) {
             e.preventDefault();
 
-            var editaddress = $(this).attr('id');
+            $('.editaddress_billing').hide();
+            $('.editaddress_shipping').hide();
 
-            if (editaddress == 'editaddress_billing') {
-                jQuery('.editaddress_billing').fadeIn();
-                jQuery('.editaddress_shipping').hide();
-            } else if (editaddress == 'editaddress_shipping') {
-                jQuery('.editaddress_shipping').fadeIn();
-                jQuery('.editaddress_billing').hide();
-            }
         });
 
-        jQuery('#saveaddress').click(function () {
-            var formvalue = $('#formvalue').val();
+        $(document).ready(function ($) {
 
-            if (formvalue == 'billing') {
-                jQuery('.editaddress_billing').fadeIn();
-                jQuery('.editaddress_shipping').hide();
-            } else if (formvalue == 'shipping') {
-                jQuery('.editaddress_shipping').fadeIn();
-                jQuery('.editaddress_billing').hide();
-            }
+            $('.woo_editaddress').click(function (e) {
+                e.preventDefault();
+
+                var editaddress = $(this).attr('id');
+
+                if (editaddress == 'editaddress_billing') {
+                    $('.editaddress_billing').fadeIn();
+                    $('.editaddress_shipping').hide();
+                } else if (editaddress == 'editaddress_shipping') {
+                    $('.editaddress_shipping').fadeIn();
+                    $('.editaddress_billing').hide();
+                }
+            });
+
+            $('#saveaddress').click(function () {
+                var formvalue = $('#formvalue').val();
+
+                if (formvalue == 'billing') {
+                    $('.editaddress_billing').fadeIn();
+                    $('.editaddress_shipping').hide();
+                } else if (formvalue == 'shipping') {
+                    $('.editaddress_shipping').fadeIn();
+                    $('.editaddress_billing').hide();
+                }
+            });
+
         });
 
-    });
+        /*
+            Change Lightbox img When Change Variation img In WooCommerce Product Description Page
+            --------------------------------------- */
 
-    /*
-       Change Lightbox img When Change Variation img In WooCommerce Product Description Page
-       ======================================= */
-
-    jQuery(document).ready(function ($) {
-
-        jQuery('.attachment-shop_single').on('load', function () {
-            var img_src = jQuery(".woocommerce-product-gallery__image .attachment-shop_single").attr('src');
-            jQuery(".woocommerce-product-gallery__image").attr("href", img_src);
+        $('.attachment-shop_single').on('load', function () {
+            var img_src = $(".woocommerce-product-gallery__image .attachment-shop_single").attr('src');
+            $(".woocommerce-product-gallery__image").attr("href", img_src);
         });
 
-    });
-
-    /*
-        Bootstrap Product Slider
-        --------------------------------------- */
-
-    jQuery(function ($) {
+        /*
+            Bootstrap Product Slider
+            --------------------------------------- */
 
         $('.product-carousel').carousel({
             interval: false,
@@ -7097,17 +7073,14 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
             Bootstrap Product Thumbnails Slider
             --------------------------------------- */
 
-        jQuery(function ($) {
-            $('#carousel-slider-thumbnails').find('.carousel-arrow').hide();
-            $('#carousel-slider-thumbnails').hover(function () {
-                $(this).find('.carousel-arrow').stop(true, true).fadeIn(200).show(10);
-            }, function () {
-                $(this).find('.carousel-arrow').stop(true, true).fadeOut(200).hide(10);
-            });
+        $carouselsliderthumbnails.find('.carousel-arrow').hide();
+        $carouselsliderthumbnails.hover(function () {
+            $(this).find('.carousel-arrow').stop(true, true).fadeIn(200).show(10);
+        }, function () {
+            $(this).find('.carousel-arrow').stop(true, true).fadeOut(200).hide(10);
         });
 
     });
-
 }
 
 /*

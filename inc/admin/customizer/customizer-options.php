@@ -1764,7 +1764,7 @@ if ( true || is_customize_preview() ) {
 						'subtitle' => esc_attr__( 'Select the number of Products To Display', 'evolve' ),
 						'type'     => 'select',
 						'options'  => evolve_shortcodes_range( 36, true, true ),
-						'default'  => '12'
+						'default'  => '4'
 					),
 					// Section settings
 					array(

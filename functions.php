@@ -297,7 +297,6 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 
 		$local_variables = array(
 			'theme_url'     => get_template_directory_uri(),
-			'order_actions' => __( 'Details', 'evolve' ),
 		);
 
 		// Sticky Header

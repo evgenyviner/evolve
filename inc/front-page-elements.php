@@ -348,10 +348,11 @@ if ( ! function_exists( 'evolve_counter_circle' ) ) {
 if ( ! function_exists( 'evolve_woocommerce_products' ) ) {
 	function evolve_woocommerce_products() {
 		$product_categories = evolve_theme_mod( "evl_fp_woo_product" );
-		$product_number     = evolve_theme_mod( "evl_fp_woo_product_number" );
+		$product_number     = evolve_theme_mod( "evl_fp_woo_product_number", "4" );
 		$product_cat        = '';
-		if( $product_categories )
-			$product_cat        = implode( ",", $product_categories );
+		if ( $product_categories ) {
+			$product_cat = implode( ",", $product_categories );
+		}
 
 		$html = '';
 
