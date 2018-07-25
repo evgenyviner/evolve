@@ -35,7 +35,7 @@ if ( ! function_exists( 'evolve_setup' ) ) {
 		$width_px         = apply_filters( 'evolve_header_image_width', $width_px_default );
 
 		// Load Textdomain
-		load_theme_textdomain( 'evolve' );
+		load_theme_textdomain( 'evolve', get_template_directory() . '/languages' );
 
 		// Feed Links
 		add_theme_support( 'automatic-feed-links' );

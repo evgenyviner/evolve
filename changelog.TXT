@@ -1,4 +1,15 @@
-Version:         3.9  
+Version:         3.9.1
+Date:         24/7/18
+
+- Fixed No Content On Front Page
+- Fixed Mobile Menu
+- Fixed Breadcrumbs issue
+- Fixed Translation Issue
+- Fixed Error Messages
+- Fixed Visual Bugs
+
+
+Version:         3.9
 Date:         21/7/18
 
 - Major release of the theme - backup of previous version and database backup are highly recommended prior to update
