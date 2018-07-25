@@ -13,7 +13,7 @@ if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_tagline
 }
 
 if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" ) {
-	$evolve_tagline_class_1 = '<div class="col-md-auto order-2 order-md-2">';
+	$evolve_tagline_class_1 = '<div class="col order-2 order-md-2">';
 	$evolve_tagline_class_2 = '</div>';
 } else {
 	$evolve_tagline_class_1 = '';

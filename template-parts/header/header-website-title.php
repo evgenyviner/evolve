@@ -1,7 +1,7 @@
 <?php
 
 if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" ) {
-	$evolve_title_class_1 = '<div class="col-md-auto order-1">';
+	$evolve_title_class_1 = '<div class="col order-1">';
 	$evolve_title_class_2 = '</div>';
 } else if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "disable" && '' == ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) {
 	$evolve_title_class_1 = "<div class='col-md-auto mr-md-auto order-2 order-md-1'>";

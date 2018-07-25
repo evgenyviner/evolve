@@ -8593,4 +8593,3 @@ if (evolve_js_local_vars.footer_reveal === '1') {
     });
 
 }
-

@@ -41,6 +41,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$padding_left           = $header_padding['left'];
 		$padding_right          = $header_padding['right'];
 		$menu_padding           = evolve_theme_mod( 'evl_main_menu_padding', '8' );
+		$menu_height            = evolve_theme_mod( 'evl_main_menu_height', '8' );
 		$menu_font              = evolve_theme_mod( 'evl_menu_font' );
 		$responsive_menu_layout = evolve_theme_mod( 'evl_responsive_menu_layout', 'dropdown' );
 
@@ -367,7 +368,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			Website Title Font
 			--------------------------------------- */
 
-		$css_data .= evolve_print_fonts( 'evl_title_font', ' .header-wrapper #website-title, .header-wrapper #website-title a' );
+		$css_data .= evolve_print_fonts( 'evl_title_font', ' #website-title, #website-title a' );
 
 		/*
 			Website Tagline Font
@@ -1174,6 +1175,12 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 
 		$css_data .= ' @media (min-width: 768px) {';
 		$css_data .= ' .sticky-header { width: 100%; left: 0; right: 0; margin: 0 auto; }';
+
+		$css_data .= ' .header-wrapper .main-menu { padding-top: ' . $menu_height . 'px; padding-bottom: ' . $menu_height . 'px; }';
+
+		if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == 'next' || evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == 'above' ) {
+			$css_data .= ' #website-title { margin: 0; }';
+		}
 
 		if ( evolve_theme_mod( 'evl_main_menu_hover_effect', 'rollover' ) != 'disabled' ) {
 			$css_data .= ' a:hover span.link-effect, a:focus span.link-effect { -webkit-transform: translateY(-100%); -ms-transform: translateY(-100%); transform: translateY(-100%); }';

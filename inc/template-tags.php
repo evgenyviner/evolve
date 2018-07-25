@@ -49,7 +49,7 @@ if ( ! function_exists( 'evolve_header_logo' ) ) {
 			if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "right" ) {
 				$logo_class = 'col col-md-6 col-sm-12 order-2 order-md-3';
 			}
-			echo "<div class='" . $logo_class . " header-logo-container pr-md-0'><a href=" . home_url() . "><img class='img-responsive' alt='" . get_bloginfo( 'name' ) . "' src=" . evolve_theme_mod( 'evl_header_logo', '' ) . " /></a></div>";
+			echo "<div class='" . $logo_class . " header-logo-container pr-md-0'><a href=" . home_url() . "><img alt='" . get_bloginfo( 'name' ) . "' src=" . evolve_theme_mod( 'evl_header_logo', '' ) . " /></a></div>";
 		}
 	}
 }
