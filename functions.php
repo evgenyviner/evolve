@@ -169,7 +169,7 @@ if ( ! function_exists( 'evolve_fix_get_theme_mod' ) ) {
 		if ( $array_in && is_array( $array_in ) && count( $array_in ) ) {
 			$enabled_temp = array();
 			foreach ( $array_in as $items ) {
-				if ( 'placebo' != $items && is_string( $items ) && isset( $enabled_temp[ $items ] ) ) {
+				if ( 'placebo' != $items ) {
 					$enabled_temp[ $items ] = $items;
 				}
 			}
