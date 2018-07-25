@@ -101,7 +101,7 @@ if ( ! function_exists( 'evolve_sticky_header' ) ) {
             <div class="container">
                 <div class="row align-items-center">
 
-					<?php if ( '' == evolve_theme_mod( 'evl_blog_title', '0' ) || evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' ) { ?>
+					<?php if ( evolve_theme_mod( 'evl_blog_title', '0' ) != '1' && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' && '' != ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) { ?>
                     <div class="col-md-3">
                         <div class="row align-items-center">
 							<?php } ?>
@@ -117,51 +117,60 @@ if ( ! function_exists( 'evolve_sticky_header' ) ) {
 
 							if ( evolve_theme_mod( 'evl_blog_title', '0' ) == "0" ) { ?>
 
-                                <div class="<?php echo( '' != ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" ) ? 'col-6' : 'col' ) ?>">
+                                <div class="<?php echo( '' != ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" ) ? 'col-6 pr-0' : 'col' ) ?>">
                                     <a id="sticky-title"
                                        href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
                                 </div>
 
 							<?php } ?>
 
-							<?php if ( '' == evolve_theme_mod( 'evl_blog_title', '0' ) || evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' ) { ?>
+							<?php if ( evolve_theme_mod( 'evl_blog_title', '0' ) != '1' && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' && '' != ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) { ?>
                         </div>
                     </div>
-				<?php } ?>
+				<?php }
 
-					<?php if ( has_nav_menu( 'sticky_navigation' ) ) {
-						echo '<nav class="navbar navbar-expand-md ' . ( ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == 'disable' && evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) ? 'col-11 pl-0' : 'col-8' ) . '">
+				$evolve_nav_class = '';
+				if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == 'disable' && evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) {
+					$evolve_nav_class = ' col-11 pl-0';
+				} else if ( evolve_theme_mod( 'evl_blog_title', '0' ) == '1' || '' == evolve_theme_mod( 'evl_header_logo', '' ) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == 'disable' ) {
+					$evolve_nav_class = ' col-9';
+				} else {
+					$evolve_nav_class = ' col-8';
+				}
+
+				if ( has_nav_menu( 'sticky_navigation' ) ) {
+					echo '<nav class="navbar navbar-expand-md' . $evolve_nav_class . '">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#sticky-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon-svg"></span>
                                 </div><div id="sticky-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
-						wp_nav_menu( array(
-							'theme_location' => 'sticky_navigation',
-							'depth'          => 10,
-							'container'      => false,
-							'menu_class'     => 'navbar-nav mr-auto',
-							'fallback_cb'    => 'evolve_custom_menu_walker::fallback',
-							'walker'         => new evolve_custom_menu_walker()
-						) );
-						echo '</div></nav>';
-					} elseif ( has_nav_menu( 'primary-menu' ) ) {
-						echo '<nav class="navbar navbar-expand-md ' . ( ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == 'disable' && evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) ? 'col-11 pl-0' : 'col-8' ) . '">
+					wp_nav_menu( array(
+						'theme_location' => 'sticky_navigation',
+						'depth'          => 10,
+						'container'      => false,
+						'menu_class'     => 'navbar-nav mr-auto',
+						'fallback_cb'    => 'evolve_custom_menu_walker::fallback',
+						'walker'         => new evolve_custom_menu_walker()
+					) );
+					echo '</div></nav>';
+				} elseif ( has_nav_menu( 'primary-menu' ) ) {
+					echo '<nav class="navbar navbar-expand-md' . $evolve_nav_class . '">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#sticky-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon-svg"></span>
                                 </div><div id="sticky-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
-						wp_nav_menu( array(
-							'theme_location' => 'primary-menu',
-							'depth'          => 10,
-							'container'      => false,
-							'menu_class'     => 'navbar-nav mr-auto',
-							'fallback_cb'    => 'evolve_custom_menu_walker::fallback',
-							'walker'         => new evolve_custom_menu_walker()
-						) );
-						echo '</div></nav>';
-					}
+					wp_nav_menu( array(
+						'theme_location' => 'primary-menu',
+						'depth'          => 10,
+						'container'      => false,
+						'menu_class'     => 'navbar-nav mr-auto',
+						'fallback_cb'    => 'evolve_custom_menu_walker::fallback',
+						'walker'         => new evolve_custom_menu_walker()
+					) );
+					echo '</div></nav>';
+				}
 
-					if ( evolve_theme_mod( 'evl_searchbox_sticky_header', '1' ) == "1" ) {
-						evolve_header_search( 'sticky' );
-					} ?>
+				if ( evolve_theme_mod( 'evl_searchbox_sticky_header', '1' ) == "1" ) {
+					evolve_header_search( 'sticky' );
+				} ?>
 
                 </div>
             </div>
@@ -914,8 +923,7 @@ if ( ! function_exists( 'evolve_posts_slider' ) ) {
 										the_post_thumbnail( 'evolve-slider-thumbnail', array( 'class' => 'd-block w-100' ) );
 									} else if ( $image = evolve_get_first_image() ) {
 										if ( $image ):
-											the_permalink();
-											echo ' < img class="d-block w-100" src = "' . $image . '" alt = "';
+											echo '<img class="d-block w-100" src="' . $image . '" alt="';
 											the_title();
 											echo '" />';
 										endif;

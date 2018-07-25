@@ -367,7 +367,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			Website Title Font
 			--------------------------------------- */
 
-		$css_data .= evolve_print_fonts( 'evl_title_font', ' #website-title a' );
+		$css_data .= evolve_print_fonts( 'evl_title_font', ' .header-wrapper #website-title, .header-wrapper #website-title a' );
 
 		/*
 			Website Tagline Font
@@ -1102,10 +1102,10 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 
 		if ( ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider', '0' ) == '1' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) ) {
 			if ( ! empty( $bootstrap_slide_title_font_rgba ) ) {
-				$css_data .= ' .carousel .carousel-caption h5 { background: ' . $bootstrap_slide_title_font_rgba . '; padding: 1rem; }';
+				$css_data .= ' #bootstrap-slider .carousel-caption h5 { background: ' . $bootstrap_slide_title_font_rgba . '; padding: 1rem; }';
 			}
 			if ( ! empty( $bootstrap_slide_subtitle_font_rgba ) ) {
-				$css_data .= ' .carousel .carousel-caption p { background: ' . $bootstrap_slide_subtitle_font_rgba . '; padding: 1rem; }';
+				$css_data .= ' #bootstrap-slider .carousel-caption p { background: ' . $bootstrap_slide_subtitle_font_rgba . '; padding: 1rem; }';
 			}
 		}
 

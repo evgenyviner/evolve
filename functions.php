@@ -176,7 +176,7 @@ if ( ! function_exists( 'evolve_fix_get_theme_mod' ) ) {
 						$enabled_temp[ $items ] = $items;
 				}
 			}
-			
+
 			return $enabled_temp;
 		}
 

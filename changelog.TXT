@@ -1,6 +1,8 @@
 Version:         3.9.1
-Date:         24/7/18
+Date:         25/7/18
 
+- Updated Bootstrap Framework
+- Improved Sticky Header Responsiveness
 - Fixed No Content On Front Page
 - Fixed Mobile Menu
 - Fixed Breadcrumbs issue

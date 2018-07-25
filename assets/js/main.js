@@ -1,5 +1,5 @@
 /*!
-  * Bootstrap v4.1.2 (https://getbootstrap.com/)
+  * Bootstrap v4.1.3 (https://getbootstrap.com/)
   * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
@@ -70,7 +70,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.2): util.js
+     * Bootstrap (v4.1.3): util.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -203,7 +203,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.2): alert.js
+     * Bootstrap (v4.1.3): alert.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -215,7 +215,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'alert';
-        var VERSION = '4.1.2';
+        var VERSION = '4.1.3';
         var DATA_KEY = 'bs.alert';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
@@ -378,7 +378,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.2): button.js
+     * Bootstrap (v4.1.3): button.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -390,7 +390,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'button';
-        var VERSION = '4.1.2';
+        var VERSION = '4.1.3';
         var DATA_KEY = 'bs.button';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
@@ -542,7 +542,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.2): carousel.js
+     * Bootstrap (v4.1.3): carousel.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -554,7 +554,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'carousel';
-        var VERSION = '4.1.2';
+        var VERSION = '4.1.3';
         var DATA_KEY = 'bs.carousel';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
@@ -1046,7 +1046,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.2): collapse.js
+     * Bootstrap (v4.1.3): collapse.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -1058,7 +1058,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'collapse';
-        var VERSION = '4.1.2';
+        var VERSION = '4.1.3';
         var DATA_KEY = 'bs.collapse';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
@@ -3932,7 +3932,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.2): dropdown.js
+     * Bootstrap (v4.1.3): dropdown.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -3944,7 +3944,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'dropdown';
-        var VERSION = '4.1.2';
+        var VERSION = '4.1.3';
         var DATA_KEY = 'bs.dropdown';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
@@ -4420,7 +4420,578 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.2): tooltip.js
+     * Bootstrap (v4.1.3): modal.js
+     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+     * --------------------------------------------------------------------------
+     */
+
+    var Modal = function ($$$1) {
+        /**
+         * ------------------------------------------------------------------------
+         * Constants
+         * ------------------------------------------------------------------------
+         */
+        var NAME = 'modal';
+        var VERSION = '4.1.3';
+        var DATA_KEY = 'bs.modal';
+        var EVENT_KEY = "." + DATA_KEY;
+        var DATA_API_KEY = '.data-api';
+        var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
+        var ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
+
+        var Default = {
+            backdrop: true,
+            keyboard: true,
+            focus: true,
+            show: true
+        };
+        var DefaultType = {
+            backdrop: '(boolean|string)',
+            keyboard: 'boolean',
+            focus: 'boolean',
+            show: 'boolean'
+        };
+        var Event = {
+            HIDE: "hide" + EVENT_KEY,
+            HIDDEN: "hidden" + EVENT_KEY,
+            SHOW: "show" + EVENT_KEY,
+            SHOWN: "shown" + EVENT_KEY,
+            FOCUSIN: "focusin" + EVENT_KEY,
+            RESIZE: "resize" + EVENT_KEY,
+            CLICK_DISMISS: "click.dismiss" + EVENT_KEY,
+            KEYDOWN_DISMISS: "keydown.dismiss" + EVENT_KEY,
+            MOUSEUP_DISMISS: "mouseup.dismiss" + EVENT_KEY,
+            MOUSEDOWN_DISMISS: "mousedown.dismiss" + EVENT_KEY,
+            CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
+        };
+        var ClassName = {
+            SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
+            BACKDROP: 'modal-backdrop',
+            OPEN: 'modal-open',
+            FADE: 'fade',
+            SHOW: 'show'
+        };
+        var Selector = {
+            DIALOG: '.modal-dialog',
+            DATA_TOGGLE: '[data-toggle="modal"]',
+            DATA_DISMISS: '[data-dismiss="modal"]',
+            FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
+            STICKY_CONTENT: '.sticky-top'
+            /**
+             * ------------------------------------------------------------------------
+             * Class Definition
+             * ------------------------------------------------------------------------
+             */
+
+        };
+
+        var Modal =
+            /*#__PURE__*/
+            function () {
+                function Modal(element, config) {
+                    this._config = this._getConfig(config);
+                    this._element = element;
+                    this._dialog = element.querySelector(Selector.DIALOG);
+                    this._backdrop = null;
+                    this._isShown = false;
+                    this._isBodyOverflowing = false;
+                    this._ignoreBackdropClick = false;
+                    this._scrollbarWidth = 0;
+                } // Getters
+
+
+                var _proto = Modal.prototype;
+
+                // Public
+                _proto.toggle = function toggle(relatedTarget) {
+                    return this._isShown ? this.hide() : this.show(relatedTarget);
+                };
+
+                _proto.show = function show(relatedTarget) {
+                    var _this = this;
+
+                    if (this._isTransitioning || this._isShown) {
+                        return;
+                    }
+
+                    if ($$$1(this._element).hasClass(ClassName.FADE)) {
+                        this._isTransitioning = true;
+                    }
+
+                    var showEvent = $$$1.Event(Event.SHOW, {
+                        relatedTarget: relatedTarget
+                    });
+                    $$$1(this._element).trigger(showEvent);
+
+                    if (this._isShown || showEvent.isDefaultPrevented()) {
+                        return;
+                    }
+
+                    this._isShown = true;
+
+                    this._checkScrollbar();
+
+                    this._setScrollbar();
+
+                    this._adjustDialog();
+
+                    $$$1(document.body).addClass(ClassName.OPEN);
+
+                    this._setEscapeEvent();
+
+                    this._setResizeEvent();
+
+                    $$$1(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, function (event) {
+                        return _this.hide(event);
+                    });
+                    $$$1(this._dialog).on(Event.MOUSEDOWN_DISMISS, function () {
+                        $$$1(_this._element).one(Event.MOUSEUP_DISMISS, function (event) {
+                            if ($$$1(event.target).is(_this._element)) {
+                                _this._ignoreBackdropClick = true;
+                            }
+                        });
+                    });
+
+                    this._showBackdrop(function () {
+                        return _this._showElement(relatedTarget);
+                    });
+                };
+
+                _proto.hide = function hide(event) {
+                    var _this2 = this;
+
+                    if (event) {
+                        event.preventDefault();
+                    }
+
+                    if (this._isTransitioning || !this._isShown) {
+                        return;
+                    }
+
+                    var hideEvent = $$$1.Event(Event.HIDE);
+                    $$$1(this._element).trigger(hideEvent);
+
+                    if (!this._isShown || hideEvent.isDefaultPrevented()) {
+                        return;
+                    }
+
+                    this._isShown = false;
+                    var transition = $$$1(this._element).hasClass(ClassName.FADE);
+
+                    if (transition) {
+                        this._isTransitioning = true;
+                    }
+
+                    this._setEscapeEvent();
+
+                    this._setResizeEvent();
+
+                    $$$1(document).off(Event.FOCUSIN);
+                    $$$1(this._element).removeClass(ClassName.SHOW);
+                    $$$1(this._element).off(Event.CLICK_DISMISS);
+                    $$$1(this._dialog).off(Event.MOUSEDOWN_DISMISS);
+
+                    if (transition) {
+                        var transitionDuration = Util.getTransitionDurationFromElement(this._element);
+                        $$$1(this._element).one(Util.TRANSITION_END, function (event) {
+                            return _this2._hideModal(event);
+                        }).emulateTransitionEnd(transitionDuration);
+                    } else {
+                        this._hideModal();
+                    }
+                };
+
+                _proto.dispose = function dispose() {
+                    $$$1.removeData(this._element, DATA_KEY);
+                    $$$1(window, document, this._element, this._backdrop).off(EVENT_KEY);
+                    this._config = null;
+                    this._element = null;
+                    this._dialog = null;
+                    this._backdrop = null;
+                    this._isShown = null;
+                    this._isBodyOverflowing = null;
+                    this._ignoreBackdropClick = null;
+                    this._scrollbarWidth = null;
+                };
+
+                _proto.handleUpdate = function handleUpdate() {
+                    this._adjustDialog();
+                }; // Private
+
+
+                _proto._getConfig = function _getConfig(config) {
+                    config = _objectSpread({}, Default, config);
+                    Util.typeCheckConfig(NAME, config, DefaultType);
+                    return config;
+                };
+
+                _proto._showElement = function _showElement(relatedTarget) {
+                    var _this3 = this;
+
+                    var transition = $$$1(this._element).hasClass(ClassName.FADE);
+
+                    if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
+                        // Don't move modal's DOM position
+                        document.body.appendChild(this._element);
+                    }
+
+                    this._element.style.display = 'block';
+
+                    this._element.removeAttribute('aria-hidden');
+
+                    this._element.scrollTop = 0;
+
+                    if (transition) {
+                        Util.reflow(this._element);
+                    }
+
+                    $$$1(this._element).addClass(ClassName.SHOW);
+
+                    if (this._config.focus) {
+                        this._enforceFocus();
+                    }
+
+                    var shownEvent = $$$1.Event(Event.SHOWN, {
+                        relatedTarget: relatedTarget
+                    });
+
+                    var transitionComplete = function transitionComplete() {
+                        if (_this3._config.focus) {
+                            _this3._element.focus();
+                        }
+
+                        _this3._isTransitioning = false;
+                        $$$1(_this3._element).trigger(shownEvent);
+                    };
+
+                    if (transition) {
+                        var transitionDuration = Util.getTransitionDurationFromElement(this._element);
+                        $$$1(this._dialog).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(transitionDuration);
+                    } else {
+                        transitionComplete();
+                    }
+                };
+
+                _proto._enforceFocus = function _enforceFocus() {
+                    var _this4 = this;
+
+                    $$$1(document).off(Event.FOCUSIN) // Guard against infinite focus loop
+                        .on(Event.FOCUSIN, function (event) {
+                            if (document !== event.target && _this4._element !== event.target && $$$1(_this4._element).has(event.target).length === 0) {
+                                _this4._element.focus();
+                            }
+                        });
+                };
+
+                _proto._setEscapeEvent = function _setEscapeEvent() {
+                    var _this5 = this;
+
+                    if (this._isShown && this._config.keyboard) {
+                        $$$1(this._element).on(Event.KEYDOWN_DISMISS, function (event) {
+                            if (event.which === ESCAPE_KEYCODE) {
+                                event.preventDefault();
+
+                                _this5.hide();
+                            }
+                        });
+                    } else if (!this._isShown) {
+                        $$$1(this._element).off(Event.KEYDOWN_DISMISS);
+                    }
+                };
+
+                _proto._setResizeEvent = function _setResizeEvent() {
+                    var _this6 = this;
+
+                    if (this._isShown) {
+                        $$$1(window).on(Event.RESIZE, function (event) {
+                            return _this6.handleUpdate(event);
+                        });
+                    } else {
+                        $$$1(window).off(Event.RESIZE);
+                    }
+                };
+
+                _proto._hideModal = function _hideModal() {
+                    var _this7 = this;
+
+                    this._element.style.display = 'none';
+
+                    this._element.setAttribute('aria-hidden', true);
+
+                    this._isTransitioning = false;
+
+                    this._showBackdrop(function () {
+                        $$$1(document.body).removeClass(ClassName.OPEN);
+
+                        _this7._resetAdjustments();
+
+                        _this7._resetScrollbar();
+
+                        $$$1(_this7._element).trigger(Event.HIDDEN);
+                    });
+                };
+
+                _proto._removeBackdrop = function _removeBackdrop() {
+                    if (this._backdrop) {
+                        $$$1(this._backdrop).remove();
+                        this._backdrop = null;
+                    }
+                };
+
+                _proto._showBackdrop = function _showBackdrop(callback) {
+                    var _this8 = this;
+
+                    var animate = $$$1(this._element).hasClass(ClassName.FADE) ? ClassName.FADE : '';
+
+                    if (this._isShown && this._config.backdrop) {
+                        this._backdrop = document.createElement('div');
+                        this._backdrop.className = ClassName.BACKDROP;
+
+                        if (animate) {
+                            this._backdrop.classList.add(animate);
+                        }
+
+                        $$$1(this._backdrop).appendTo(document.body);
+                        $$$1(this._element).on(Event.CLICK_DISMISS, function (event) {
+                            if (_this8._ignoreBackdropClick) {
+                                _this8._ignoreBackdropClick = false;
+                                return;
+                            }
+
+                            if (event.target !== event.currentTarget) {
+                                return;
+                            }
+
+                            if (_this8._config.backdrop === 'static') {
+                                _this8._element.focus();
+                            } else {
+                                _this8.hide();
+                            }
+                        });
+
+                        if (animate) {
+                            Util.reflow(this._backdrop);
+                        }
+
+                        $$$1(this._backdrop).addClass(ClassName.SHOW);
+
+                        if (!callback) {
+                            return;
+                        }
+
+                        if (!animate) {
+                            callback();
+                            return;
+                        }
+
+                        var backdropTransitionDuration = Util.getTransitionDurationFromElement(this._backdrop);
+                        $$$1(this._backdrop).one(Util.TRANSITION_END, callback).emulateTransitionEnd(backdropTransitionDuration);
+                    } else if (!this._isShown && this._backdrop) {
+                        $$$1(this._backdrop).removeClass(ClassName.SHOW);
+
+                        var callbackRemove = function callbackRemove() {
+                            _this8._removeBackdrop();
+
+                            if (callback) {
+                                callback();
+                            }
+                        };
+
+                        if ($$$1(this._element).hasClass(ClassName.FADE)) {
+                            var _backdropTransitionDuration = Util.getTransitionDurationFromElement(this._backdrop);
+
+                            $$$1(this._backdrop).one(Util.TRANSITION_END, callbackRemove).emulateTransitionEnd(_backdropTransitionDuration);
+                        } else {
+                            callbackRemove();
+                        }
+                    } else if (callback) {
+                        callback();
+                    }
+                }; // ----------------------------------------------------------------------
+                // the following methods are used to handle overflowing modals
+                // todo (fat): these should probably be refactored out of modal.js
+                // ----------------------------------------------------------------------
+
+
+                _proto._adjustDialog = function _adjustDialog() {
+                    var isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
+
+                    if (!this._isBodyOverflowing && isModalOverflowing) {
+                        this._element.style.paddingLeft = this._scrollbarWidth + "px";
+                    }
+
+                    if (this._isBodyOverflowing && !isModalOverflowing) {
+                        this._element.style.paddingRight = this._scrollbarWidth + "px";
+                    }
+                };
+
+                _proto._resetAdjustments = function _resetAdjustments() {
+                    this._element.style.paddingLeft = '';
+                    this._element.style.paddingRight = '';
+                };
+
+                _proto._checkScrollbar = function _checkScrollbar() {
+                    var rect = document.body.getBoundingClientRect();
+                    this._isBodyOverflowing = rect.left + rect.right < window.innerWidth;
+                    this._scrollbarWidth = this._getScrollbarWidth();
+                };
+
+                _proto._setScrollbar = function _setScrollbar() {
+                    var _this9 = this;
+
+                    if (this._isBodyOverflowing) {
+                        // Note: DOMNode.style.paddingRight returns the actual value or '' if not set
+                        //   while $(DOMNode).css('padding-right') returns the calculated value or 0 if not set
+                        var fixedContent = [].slice.call(document.querySelectorAll(Selector.FIXED_CONTENT));
+                        var stickyContent = [].slice.call(document.querySelectorAll(Selector.STICKY_CONTENT)); // Adjust fixed content padding
+
+                        $$$1(fixedContent).each(function (index, element) {
+                            var actualPadding = element.style.paddingRight;
+                            var calculatedPadding = $$$1(element).css('padding-right');
+                            $$$1(element).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + _this9._scrollbarWidth + "px");
+                        }); // Adjust sticky content margin
+
+                        $$$1(stickyContent).each(function (index, element) {
+                            var actualMargin = element.style.marginRight;
+                            var calculatedMargin = $$$1(element).css('margin-right');
+                            $$$1(element).data('margin-right', actualMargin).css('margin-right', parseFloat(calculatedMargin) - _this9._scrollbarWidth + "px");
+                        }); // Adjust body padding
+
+                        var actualPadding = document.body.style.paddingRight;
+                        var calculatedPadding = $$$1(document.body).css('padding-right');
+                        $$$1(document.body).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + this._scrollbarWidth + "px");
+                    }
+                };
+
+                _proto._resetScrollbar = function _resetScrollbar() {
+                    // Restore fixed content padding
+                    var fixedContent = [].slice.call(document.querySelectorAll(Selector.FIXED_CONTENT));
+                    $$$1(fixedContent).each(function (index, element) {
+                        var padding = $$$1(element).data('padding-right');
+                        $$$1(element).removeData('padding-right');
+                        element.style.paddingRight = padding ? padding : '';
+                    }); // Restore sticky content
+
+                    var elements = [].slice.call(document.querySelectorAll("" + Selector.STICKY_CONTENT));
+                    $$$1(elements).each(function (index, element) {
+                        var margin = $$$1(element).data('margin-right');
+
+                        if (typeof margin !== 'undefined') {
+                            $$$1(element).css('margin-right', margin).removeData('margin-right');
+                        }
+                    }); // Restore body padding
+
+                    var padding = $$$1(document.body).data('padding-right');
+                    $$$1(document.body).removeData('padding-right');
+                    document.body.style.paddingRight = padding ? padding : '';
+                };
+
+                _proto._getScrollbarWidth = function _getScrollbarWidth() {
+                    // thx d.walsh
+                    var scrollDiv = document.createElement('div');
+                    scrollDiv.className = ClassName.SCROLLBAR_MEASURER;
+                    document.body.appendChild(scrollDiv);
+                    var scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
+                    document.body.removeChild(scrollDiv);
+                    return scrollbarWidth;
+                }; // Static
+
+
+                Modal._jQueryInterface = function _jQueryInterface(config, relatedTarget) {
+                    return this.each(function () {
+                        var data = $$$1(this).data(DATA_KEY);
+
+                        var _config = _objectSpread({}, Default, $$$1(this).data(), typeof config === 'object' && config ? config : {});
+
+                        if (!data) {
+                            data = new Modal(this, _config);
+                            $$$1(this).data(DATA_KEY, data);
+                        }
+
+                        if (typeof config === 'string') {
+                            if (typeof data[config] === 'undefined') {
+                                throw new TypeError("No method named \"" + config + "\"");
+                            }
+
+                            data[config](relatedTarget);
+                        } else if (_config.show) {
+                            data.show(relatedTarget);
+                        }
+                    });
+                };
+
+                _createClass(Modal, null, [{
+                    key: "VERSION",
+                    get: function get() {
+                        return VERSION;
+                    }
+                }, {
+                    key: "Default",
+                    get: function get() {
+                        return Default;
+                    }
+                }]);
+
+                return Modal;
+            }();
+        /**
+         * ------------------------------------------------------------------------
+         * Data Api implementation
+         * ------------------------------------------------------------------------
+         */
+
+
+        $$$1(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
+            var _this10 = this;
+
+            var target;
+            var selector = Util.getSelectorFromElement(this);
+
+            if (selector) {
+                target = document.querySelector(selector);
+            }
+
+            var config = $$$1(target).data(DATA_KEY) ? 'toggle' : _objectSpread({}, $$$1(target).data(), $$$1(this).data());
+
+            if (this.tagName === 'A' || this.tagName === 'AREA') {
+                event.preventDefault();
+            }
+
+            var $target = $$$1(target).one(Event.SHOW, function (showEvent) {
+                if (showEvent.isDefaultPrevented()) {
+                    // Only register focus restorer if modal will actually get shown
+                    return;
+                }
+
+                $target.one(Event.HIDDEN, function () {
+                    if ($$$1(_this10).is(':visible')) {
+                        _this10.focus();
+                    }
+                });
+            });
+
+            Modal._jQueryInterface.call($$$1(target), config, this);
+        });
+        /**
+         * ------------------------------------------------------------------------
+         * jQuery
+         * ------------------------------------------------------------------------
+         */
+
+        $$$1.fn[NAME] = Modal._jQueryInterface;
+        $$$1.fn[NAME].Constructor = Modal;
+
+        $$$1.fn[NAME].noConflict = function () {
+            $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
+            return Modal._jQueryInterface;
+        };
+
+        return Modal;
+    }($);
+
+    /**
+     * --------------------------------------------------------------------------
+     * Bootstrap (v4.1.3): tooltip.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -4432,7 +5003,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'tooltip';
-        var VERSION = '4.1.2';
+        var VERSION = '4.1.3';
         var DATA_KEY = 'bs.tooltip';
         var EVENT_KEY = "." + DATA_KEY;
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
@@ -5090,7 +5661,520 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.2): tab.js
+     * Bootstrap (v4.1.3): popover.js
+     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+     * --------------------------------------------------------------------------
+     */
+
+    var Popover = function ($$$1) {
+        /**
+         * ------------------------------------------------------------------------
+         * Constants
+         * ------------------------------------------------------------------------
+         */
+        var NAME = 'popover';
+        var VERSION = '4.1.3';
+        var DATA_KEY = 'bs.popover';
+        var EVENT_KEY = "." + DATA_KEY;
+        var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
+        var CLASS_PREFIX = 'bs-popover';
+        var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
+
+        var Default = _objectSpread({}, Tooltip.Default, {
+            placement: 'right',
+            trigger: 'click',
+            content: '',
+            template: '<div class="popover" role="tooltip">' + '<div class="arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'
+        });
+
+        var DefaultType = _objectSpread({}, Tooltip.DefaultType, {
+            content: '(string|element|function)'
+        });
+
+        var ClassName = {
+            FADE: 'fade',
+            SHOW: 'show'
+        };
+        var Selector = {
+            TITLE: '.popover-header',
+            CONTENT: '.popover-body'
+        };
+        var Event = {
+            HIDE: "hide" + EVENT_KEY,
+            HIDDEN: "hidden" + EVENT_KEY,
+            SHOW: "show" + EVENT_KEY,
+            SHOWN: "shown" + EVENT_KEY,
+            INSERTED: "inserted" + EVENT_KEY,
+            CLICK: "click" + EVENT_KEY,
+            FOCUSIN: "focusin" + EVENT_KEY,
+            FOCUSOUT: "focusout" + EVENT_KEY,
+            MOUSEENTER: "mouseenter" + EVENT_KEY,
+            MOUSELEAVE: "mouseleave" + EVENT_KEY
+            /**
+             * ------------------------------------------------------------------------
+             * Class Definition
+             * ------------------------------------------------------------------------
+             */
+
+        };
+
+        var Popover =
+            /*#__PURE__*/
+            function (_Tooltip) {
+                _inheritsLoose(Popover, _Tooltip);
+
+                function Popover() {
+                    return _Tooltip.apply(this, arguments) || this;
+                }
+
+                var _proto = Popover.prototype;
+
+                // Overrides
+                _proto.isWithContent = function isWithContent() {
+                    return this.getTitle() || this._getContent();
+                };
+
+                _proto.addAttachmentClass = function addAttachmentClass(attachment) {
+                    $$$1(this.getTipElement()).addClass(CLASS_PREFIX + "-" + attachment);
+                };
+
+                _proto.getTipElement = function getTipElement() {
+                    this.tip = this.tip || $$$1(this.config.template)[0];
+                    return this.tip;
+                };
+
+                _proto.setContent = function setContent() {
+                    var $tip = $$$1(this.getTipElement()); // We use append for html objects to maintain js events
+
+                    this.setElementContent($tip.find(Selector.TITLE), this.getTitle());
+
+                    var content = this._getContent();
+
+                    if (typeof content === 'function') {
+                        content = content.call(this.element);
+                    }
+
+                    this.setElementContent($tip.find(Selector.CONTENT), content);
+                    $tip.removeClass(ClassName.FADE + " " + ClassName.SHOW);
+                }; // Private
+
+
+                _proto._getContent = function _getContent() {
+                    return this.element.getAttribute('data-content') || this.config.content;
+                };
+
+                _proto._cleanTipClass = function _cleanTipClass() {
+                    var $tip = $$$1(this.getTipElement());
+                    var tabClass = $tip.attr('class').match(BSCLS_PREFIX_REGEX);
+
+                    if (tabClass !== null && tabClass.length > 0) {
+                        $tip.removeClass(tabClass.join(''));
+                    }
+                }; // Static
+
+
+                Popover._jQueryInterface = function _jQueryInterface(config) {
+                    return this.each(function () {
+                        var data = $$$1(this).data(DATA_KEY);
+
+                        var _config = typeof config === 'object' ? config : null;
+
+                        if (!data && /destroy|hide/.test(config)) {
+                            return;
+                        }
+
+                        if (!data) {
+                            data = new Popover(this, _config);
+                            $$$1(this).data(DATA_KEY, data);
+                        }
+
+                        if (typeof config === 'string') {
+                            if (typeof data[config] === 'undefined') {
+                                throw new TypeError("No method named \"" + config + "\"");
+                            }
+
+                            data[config]();
+                        }
+                    });
+                };
+
+                _createClass(Popover, null, [{
+                    key: "VERSION",
+                    // Getters
+                    get: function get() {
+                        return VERSION;
+                    }
+                }, {
+                    key: "Default",
+                    get: function get() {
+                        return Default;
+                    }
+                }, {
+                    key: "NAME",
+                    get: function get() {
+                        return NAME;
+                    }
+                }, {
+                    key: "DATA_KEY",
+                    get: function get() {
+                        return DATA_KEY;
+                    }
+                }, {
+                    key: "Event",
+                    get: function get() {
+                        return Event;
+                    }
+                }, {
+                    key: "EVENT_KEY",
+                    get: function get() {
+                        return EVENT_KEY;
+                    }
+                }, {
+                    key: "DefaultType",
+                    get: function get() {
+                        return DefaultType;
+                    }
+                }]);
+
+                return Popover;
+            }(Tooltip);
+        /**
+         * ------------------------------------------------------------------------
+         * jQuery
+         * ------------------------------------------------------------------------
+         */
+
+
+        $$$1.fn[NAME] = Popover._jQueryInterface;
+        $$$1.fn[NAME].Constructor = Popover;
+
+        $$$1.fn[NAME].noConflict = function () {
+            $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
+            return Popover._jQueryInterface;
+        };
+
+        return Popover;
+    }($);
+
+    /**
+     * --------------------------------------------------------------------------
+     * Bootstrap (v4.1.3): scrollspy.js
+     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+     * --------------------------------------------------------------------------
+     */
+
+    var ScrollSpy = function ($$$1) {
+        /**
+         * ------------------------------------------------------------------------
+         * Constants
+         * ------------------------------------------------------------------------
+         */
+        var NAME = 'scrollspy';
+        var VERSION = '4.1.3';
+        var DATA_KEY = 'bs.scrollspy';
+        var EVENT_KEY = "." + DATA_KEY;
+        var DATA_API_KEY = '.data-api';
+        var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
+        var Default = {
+            offset: 10,
+            method: 'auto',
+            target: ''
+        };
+        var DefaultType = {
+            offset: 'number',
+            method: 'string',
+            target: '(string|element)'
+        };
+        var Event = {
+            ACTIVATE: "activate" + EVENT_KEY,
+            SCROLL: "scroll" + EVENT_KEY,
+            LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY
+        };
+        var ClassName = {
+            DROPDOWN_ITEM: 'dropdown-item',
+            DROPDOWN_MENU: 'dropdown-menu',
+            ACTIVE: 'active'
+        };
+        var Selector = {
+            DATA_SPY: '[data-spy="scroll"]',
+            ACTIVE: '.active',
+            NAV_LIST_GROUP: '.nav, .list-group',
+            NAV_LINKS: '.nav-link',
+            NAV_ITEMS: '.nav-item',
+            LIST_ITEMS: '.list-group-item',
+            DROPDOWN: '.dropdown',
+            DROPDOWN_ITEMS: '.dropdown-item',
+            DROPDOWN_TOGGLE: '.dropdown-toggle'
+        };
+        var OffsetMethod = {
+            OFFSET: 'offset',
+            POSITION: 'position'
+            /**
+             * ------------------------------------------------------------------------
+             * Class Definition
+             * ------------------------------------------------------------------------
+             */
+
+        };
+
+        var ScrollSpy =
+            /*#__PURE__*/
+            function () {
+                function ScrollSpy(element, config) {
+                    var _this = this;
+
+                    this._element = element;
+                    this._scrollElement = element.tagName === 'BODY' ? window : element;
+                    this._config = this._getConfig(config);
+                    this._selector = this._config.target + " " + Selector.NAV_LINKS + "," + (this._config.target + " " + Selector.LIST_ITEMS + ",") + (this._config.target + " " + Selector.DROPDOWN_ITEMS);
+                    this._offsets = [];
+                    this._targets = [];
+                    this._activeTarget = null;
+                    this._scrollHeight = 0;
+                    $$$1(this._scrollElement).on(Event.SCROLL, function (event) {
+                        return _this._process(event);
+                    });
+                    this.refresh();
+
+                    this._process();
+                } // Getters
+
+
+                var _proto = ScrollSpy.prototype;
+
+                // Public
+                _proto.refresh = function refresh() {
+                    var _this2 = this;
+
+                    var autoMethod = this._scrollElement === this._scrollElement.window ? OffsetMethod.OFFSET : OffsetMethod.POSITION;
+                    var offsetMethod = this._config.method === 'auto' ? autoMethod : this._config.method;
+                    var offsetBase = offsetMethod === OffsetMethod.POSITION ? this._getScrollTop() : 0;
+                    this._offsets = [];
+                    this._targets = [];
+                    this._scrollHeight = this._getScrollHeight();
+                    var targets = [].slice.call(document.querySelectorAll(this._selector));
+                    targets.map(function (element) {
+                        var target;
+                        var targetSelector = Util.getSelectorFromElement(element);
+
+                        if (targetSelector) {
+                            target = document.querySelector(targetSelector);
+                        }
+
+                        if (target) {
+                            var targetBCR = target.getBoundingClientRect();
+
+                            if (targetBCR.width || targetBCR.height) {
+                                // TODO (fat): remove sketch reliance on jQuery position/offset
+                                return [$$$1(target)[offsetMethod]().top + offsetBase, targetSelector];
+                            }
+                        }
+
+                        return null;
+                    }).filter(function (item) {
+                        return item;
+                    }).sort(function (a, b) {
+                        return a[0] - b[0];
+                    }).forEach(function (item) {
+                        _this2._offsets.push(item[0]);
+
+                        _this2._targets.push(item[1]);
+                    });
+                };
+
+                _proto.dispose = function dispose() {
+                    $$$1.removeData(this._element, DATA_KEY);
+                    $$$1(this._scrollElement).off(EVENT_KEY);
+                    this._element = null;
+                    this._scrollElement = null;
+                    this._config = null;
+                    this._selector = null;
+                    this._offsets = null;
+                    this._targets = null;
+                    this._activeTarget = null;
+                    this._scrollHeight = null;
+                }; // Private
+
+
+                _proto._getConfig = function _getConfig(config) {
+                    config = _objectSpread({}, Default, typeof config === 'object' && config ? config : {});
+
+                    if (typeof config.target !== 'string') {
+                        var id = $$$1(config.target).attr('id');
+
+                        if (!id) {
+                            id = Util.getUID(NAME);
+                            $$$1(config.target).attr('id', id);
+                        }
+
+                        config.target = "#" + id;
+                    }
+
+                    Util.typeCheckConfig(NAME, config, DefaultType);
+                    return config;
+                };
+
+                _proto._getScrollTop = function _getScrollTop() {
+                    return this._scrollElement === window ? this._scrollElement.pageYOffset : this._scrollElement.scrollTop;
+                };
+
+                _proto._getScrollHeight = function _getScrollHeight() {
+                    return this._scrollElement.scrollHeight || Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+                };
+
+                _proto._getOffsetHeight = function _getOffsetHeight() {
+                    return this._scrollElement === window ? window.innerHeight : this._scrollElement.getBoundingClientRect().height;
+                };
+
+                _proto._process = function _process() {
+                    var scrollTop = this._getScrollTop() + this._config.offset;
+
+                    var scrollHeight = this._getScrollHeight();
+
+                    var maxScroll = this._config.offset + scrollHeight - this._getOffsetHeight();
+
+                    if (this._scrollHeight !== scrollHeight) {
+                        this.refresh();
+                    }
+
+                    if (scrollTop >= maxScroll) {
+                        var target = this._targets[this._targets.length - 1];
+
+                        if (this._activeTarget !== target) {
+                            this._activate(target);
+                        }
+
+                        return;
+                    }
+
+                    if (this._activeTarget && scrollTop < this._offsets[0] && this._offsets[0] > 0) {
+                        this._activeTarget = null;
+
+                        this._clear();
+
+                        return;
+                    }
+
+                    var offsetLength = this._offsets.length;
+
+                    for (var i = offsetLength; i--;) {
+                        var isActiveTarget = this._activeTarget !== this._targets[i] && scrollTop >= this._offsets[i] && (typeof this._offsets[i + 1] === 'undefined' || scrollTop < this._offsets[i + 1]);
+
+                        if (isActiveTarget) {
+                            this._activate(this._targets[i]);
+                        }
+                    }
+                };
+
+                _proto._activate = function _activate(target) {
+                    this._activeTarget = target;
+
+                    this._clear();
+
+                    var queries = this._selector.split(','); // eslint-disable-next-line arrow-body-style
+
+
+                    queries = queries.map(function (selector) {
+                        return selector + "[data-target=\"" + target + "\"]," + (selector + "[href=\"" + target + "\"]");
+                    });
+                    var $link = $$$1([].slice.call(document.querySelectorAll(queries.join(','))));
+
+                    if ($link.hasClass(ClassName.DROPDOWN_ITEM)) {
+                        $link.closest(Selector.DROPDOWN).find(Selector.DROPDOWN_TOGGLE).addClass(ClassName.ACTIVE);
+                        $link.addClass(ClassName.ACTIVE);
+                    } else {
+                        // Set triggered link as active
+                        $link.addClass(ClassName.ACTIVE); // Set triggered links parents as active
+                        // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
+
+                        $link.parents(Selector.NAV_LIST_GROUP).prev(Selector.NAV_LINKS + ", " + Selector.LIST_ITEMS).addClass(ClassName.ACTIVE); // Handle special case when .nav-link is inside .nav-item
+
+                        $link.parents(Selector.NAV_LIST_GROUP).prev(Selector.NAV_ITEMS).children(Selector.NAV_LINKS).addClass(ClassName.ACTIVE);
+                    }
+
+                    $$$1(this._scrollElement).trigger(Event.ACTIVATE, {
+                        relatedTarget: target
+                    });
+                };
+
+                _proto._clear = function _clear() {
+                    var nodes = [].slice.call(document.querySelectorAll(this._selector));
+                    $$$1(nodes).filter(Selector.ACTIVE).removeClass(ClassName.ACTIVE);
+                }; // Static
+
+
+                ScrollSpy._jQueryInterface = function _jQueryInterface(config) {
+                    return this.each(function () {
+                        var data = $$$1(this).data(DATA_KEY);
+
+                        var _config = typeof config === 'object' && config;
+
+                        if (!data) {
+                            data = new ScrollSpy(this, _config);
+                            $$$1(this).data(DATA_KEY, data);
+                        }
+
+                        if (typeof config === 'string') {
+                            if (typeof data[config] === 'undefined') {
+                                throw new TypeError("No method named \"" + config + "\"");
+                            }
+
+                            data[config]();
+                        }
+                    });
+                };
+
+                _createClass(ScrollSpy, null, [{
+                    key: "VERSION",
+                    get: function get() {
+                        return VERSION;
+                    }
+                }, {
+                    key: "Default",
+                    get: function get() {
+                        return Default;
+                    }
+                }]);
+
+                return ScrollSpy;
+            }();
+        /**
+         * ------------------------------------------------------------------------
+         * Data Api implementation
+         * ------------------------------------------------------------------------
+         */
+
+
+        $$$1(window).on(Event.LOAD_DATA_API, function () {
+            var scrollSpys = [].slice.call(document.querySelectorAll(Selector.DATA_SPY));
+            var scrollSpysLength = scrollSpys.length;
+
+            for (var i = scrollSpysLength; i--;) {
+                var $spy = $$$1(scrollSpys[i]);
+
+                ScrollSpy._jQueryInterface.call($spy, $spy.data());
+            }
+        });
+        /**
+         * ------------------------------------------------------------------------
+         * jQuery
+         * ------------------------------------------------------------------------
+         */
+
+        $$$1.fn[NAME] = ScrollSpy._jQueryInterface;
+        $$$1.fn[NAME].Constructor = ScrollSpy;
+
+        $$$1.fn[NAME].noConflict = function () {
+            $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
+            return ScrollSpy._jQueryInterface;
+        };
+
+        return ScrollSpy;
+    }($);
+
+    /**
+     * --------------------------------------------------------------------------
+     * Bootstrap (v4.1.3): tab.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -5102,7 +6186,7 @@
          * ------------------------------------------------------------------------
          */
         var NAME = 'tab';
-        var VERSION = '4.1.2';
+        var VERSION = '4.1.3';
         var DATA_KEY = 'bs.tab';
         var EVENT_KEY = "." + DATA_KEY;
         var DATA_API_KEY = '.data-api';
@@ -5339,7 +6423,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v4.1.2): index.js
+     * Bootstrap (v4.1.3): index.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -5367,6 +6451,9 @@
     exports.Carousel = Carousel;
     exports.Collapse = Collapse;
     exports.Dropdown = Dropdown;
+    exports.Modal = Modal;
+    exports.Popover = Popover;
+    exports.Scrollspy = ScrollSpy;
     exports.Tab = Tab;
     exports.Tooltip = Tooltip;
 

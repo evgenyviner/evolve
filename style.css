@@ -208,7 +208,7 @@ body {
     Header Layout
     --------------------------------------- */
 
-.header-wrapper h4#website-title {
+.header-wrapper #website-title {
     font-size: 2.5rem;
 }
 
