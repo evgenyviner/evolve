@@ -1126,9 +1126,7 @@ if ( ! function_exists( 'evolve_remove_comma' ) ) {
 
 if ( ! function_exists( 'evolve_front_page_builder' ) ) {
 	function evolve_front_page_builder() {
-
 		foreach ( evolve_theme_mod( 'evl_front_elements_content_area' ) as $elementkey => $elementval ) {
-
 			switch ( $elementval ) {
 
 				case 'content_box':

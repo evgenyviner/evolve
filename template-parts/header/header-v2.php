@@ -28,6 +28,7 @@
 
 				<?php if ( '' != evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" && ( '' == evolve_theme_mod( 'evl_blog_title', '0' ) || evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== 'disable' ) ) { ?>
                 <div class="col">
+                    <div class="row align-items-center">
 					<?php } ?>
 
 					<?php if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" ) {
@@ -43,12 +44,13 @@
 					get_template_part( 'template-parts/header/header', 'tagline-next-under' ); ?>
 
 					<?php if ( '' != evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" && ( '' == evolve_theme_mod( 'evl_blog_title', '0' ) || evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== 'disable' ) ) { ?>
+                    </div><!-- .row .align-items-center -->
                 </div><!-- .col-md-6 .col-lg-auto -->
 			<?php } ?>
 
 				<?php if ( evolve_theme_mod( 'evl_main_menu', false ) !== true ) {
 					if ( has_nav_menu( 'primary-menu' ) ) {
-						echo '<nav class="navbar navbar-expand-md main-menu mt-3 mt-md-0 order-3 col-sm-11 col-md-8 col-lg-6">
+						echo '<nav class="navbar navbar-expand-md main-menu mt-3 mt-md-0 order-3 col-sm-11 col-md-8' . ( evolve_theme_mod( 'evl_searchbox', true ) ? ' col-lg-6' : "" ) . '">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
                                     ' . evolve_get_svg( 'menu' ) . '
                                     </div>

@@ -102,7 +102,7 @@ if ( ! function_exists( 'evolve_sticky_header' ) ) {
                 <div class="row align-items-center">
 
 					<?php if ( evolve_theme_mod( 'evl_blog_title', '0' ) != '1' && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' && '' != ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) { ?>
-                    <div class="col-md-3">
+                    <div class="col-auto">
                         <div class="row align-items-center">
 							<?php } ?>
 
@@ -111,13 +111,13 @@ if ( ! function_exists( 'evolve_sticky_header' ) ) {
 							} else {
 
 								if ( evolve_theme_mod( 'evl_header_logo', '' ) ) {
-									echo "<div class='" . ( ( evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) ? 'col' : 'col-6 pr-0' ) . "'><a href=" . home_url() . "><img src=" . evolve_theme_mod( 'evl_header_logo', '' ) . "  alt=" . get_bloginfo( 'name' ) . "/></a></div>";
+									echo "<div class='" . ( ( evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) ? 'col-auto' : 'col-auto pr-0' ) . "'><a href=" . home_url() . "><img src=" . evolve_theme_mod( 'evl_header_logo', '' ) . "  alt=" . get_bloginfo( 'name' ) . "/></a></div>";
 								}
 							}
 
 							if ( evolve_theme_mod( 'evl_blog_title', '0' ) == "0" ) { ?>
 
-                                <div class="<?php echo( '' != ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" ) ? 'col-6 pr-0' : 'col' ) ?>">
+                                <div class="<?php echo( '' != ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" ) ? 'col-auto pr-0' : 'col-auto' ) ?>">
                                     <a id="sticky-title"
                                        href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
                                 </div>

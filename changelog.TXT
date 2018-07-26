@@ -1,8 +1,9 @@
 Version:         3.9.1
-Date:         25/7/18
+Date:         26/7/18
 
 - Added Option To Set Main Menu Height
 - Updated Bootstrap Framework
+- Updated German Translation
 - Improved Header and Sticky Header Responsiveness
 - Fixed No Content On Front Page
 - Fixed Mobile Menu

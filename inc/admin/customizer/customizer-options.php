@@ -476,7 +476,7 @@ if ( class_exists( 'Woocommerce' ) ) {
 			'testimonial'         => esc_attr__( 'Testimonials', 'evolve' ),
 			'counter_circle'      => esc_attr__( 'Counter Circles', 'evolve' ),
 			'woocommerce_product' => esc_attr__( 'WooCommerce Products', 'evolve' ),
-			'custom_content'      => esc_attr__( 'Custom Content', 'evolve' ),
+			'custom_content'      => esc_attr__( 'Custom Content', 'evolve' )
 		)
 	);
 } else {
@@ -5090,6 +5090,10 @@ function evolve_data_fix( $value ) {
 			$enabled_temp[] = 'blog_post';
 		}
 		$value = $enabled_temp;
+	}
+	if(isset($value['color']) && isset($value['alpha'])){
+		//binbin debug
+		return  evolve_hex_rgba( $value['color'], $value['alpha'] );
 	}
 
 	if ( $value && is_array( $value ) && count( $value ) && isset( $value["url"] ) ) {

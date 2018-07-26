@@ -164,16 +164,47 @@ if ( ! function_exists( 'evolve_suffix' ) ) {
 	}
 }
 
+if ( ! function_exists( 'evolve_hide_woocommerce_element' ) ) {
+	function evolve_hide_woocommerce_element() {
+		if ( ! class_exists( 'Woocommerce' ) ) {
+			add_filter( 'theme_mod_evl_front_elements_content_area', 'evolve_woocommerce_element' );
+		}
+	}
+}
+add_action( 'init', 'evolve_hide_woocommerce_element', 999 );
+
+if ( ! function_exists( 'evolve_woocommerce_element' ) ) {
+	function evolve_woocommerce_element( $value ) {
+		$temp_value = array();
+		if ( isset( $value ) ) {
+			foreach ( $value as $key => $item ) {
+				if ( 'woocommerce_product' != $item ) {
+					$temp_value[] = $item;
+				}
+			}
+		}
+
+		return $temp_value;
+	}
+}
+
 if ( ! function_exists( 'evolve_fix_get_theme_mod' ) ) {
 	function evolve_fix_get_theme_mod( $array_in ) {
 		if ( $array_in && is_array( $array_in ) && count( $array_in ) ) {
 			$enabled_temp = array();
 			foreach ( $array_in as $key => $items ) {
 				if ( 'placebo' != $items ) {
-					if(is_string( $key ))
+					if ( is_string( $key ) ) {
 						$enabled_temp[ $key ] = $key;
-					if(is_numeric( $key ))
+					}
+					if ( is_numeric( $key ) ) {
 						$enabled_temp[ $items ] = $items;
+					}
+				}
+			}
+			if ( ! class_exists( 'Woocommerce' ) ) {
+				if ( isset( $enabled_temp['woocommerce_product'] ) ) {
+					unset( $enabled_temp['woocommerce_product'] );
 				}
 			}
 
@@ -213,7 +244,11 @@ if ( ! function_exists( 'evolve_theme_mod' ) ) {
 			foreach ( $result["enabled"] as $enabled_key => $items ) {
 				$enabled_temp[] = $enabled_key;
 			}
+
 			return $enabled_temp;
+		}
+		if ( isset( $result['color'] ) && isset( $result['alpha'] ) ) {
+			return evolve_hex_rgba( $result['color'], $result['alpha'] );
 		}
 
 		return $result;
@@ -296,7 +331,7 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 		   ======================================= */
 
 		$local_variables = array(
-			'theme_url'     => get_template_directory_uri(),
+			'theme_url' => get_template_directory_uri(),
 		);
 
 		// Sticky Header
