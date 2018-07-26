@@ -29,7 +29,7 @@ class evolve_Customizer {
 		?>
 		<script type="text/javascript">
 		if(_wpCustomizeSettings.theme.active == false){
-			ajaxurl = 'http://localhost/wpdemo/woocommerce/wp-admin/admin-ajax.php?customize_changeset_uuid='+_wpCustomizeSettings.changeset.uuid+'&customize_theme='+_wpCustomizeSettings.theme.stylesheet;
+			ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>?customize_changeset_uuid='+_wpCustomizeSettings.changeset.uuid+'&customize_theme='+_wpCustomizeSettings.theme.stylesheet;
 		}
 		</script>
 		<?php
