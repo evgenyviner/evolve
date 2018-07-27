@@ -6468,12 +6468,18 @@
 
 jQuery(function ($) {
     $(".dropdown-toggle").removeAttr('data-toggle dropdown');
+    // $('.menu-item-has-children:not(open) > a').click(function(event){
+		// event.preventDefault();
+    // })
     $('.menu-item-has-children > a').click(function(event){
+		var li_parent = $(this).closest('li');
         if(!$(this).hasClass('clicked')) {
-            event.preventDefault();
-            $(this).closest('ul').find('a.clicked').removeClass('clicked');
+			$(this).closest('ul').find('.open').removeClass('open');
+			$(this).closest('ul').find('.clicked').removeClass('clicked');
+			$(this).closest('li').addClass('open');
+            event.preventDefault();            
         }
-        $(this).addClass('clicked');
+		$(this).addClass('clicked');
     })
 });
 
@@ -6495,17 +6501,22 @@ jQuery(function ($) {
 
         // Defining if navigation tree or single dropdown
         this.dropdowns = this.$element.hasClass('dropdown-toggle') ? this.$element.parent().find('.dropdown-menu').parent('.dropdown') : this.$element.find('.dropdown');
-
-        this.dropdowns.each(function () {
-            $(this).on('mouseenter.bs.dropdownhover', function (e) {
-                that.show($(this).children('a, button'))
-            })
-        });
-        this.dropdowns.each(function () {
-            $(this).on('mouseleave.bs.dropdownhover', function (e) {
-                that.hide($(this).children('a, button'))
-            })
-        })
+		if(false && window.outerWidth >= 768){
+			this.dropdowns.each(function () {
+				$(this).on('mouseenter.bs.dropdownhover', function (e) {
+					that.show($(this).children('a, button'))
+					e.preventDefault();
+					console.log($(this).children('a'));
+					$(this).children('a').addClass('clicked');
+				})
+			});
+			this.dropdowns.each(function () {
+				$(this).on('mouseleave.bs.dropdownhover', function (e) {
+					that.hide($(this).children('a, button'))
+					$(this).children('a').removeClass('clicked');
+				})
+			})
+		}
 
     };
 
