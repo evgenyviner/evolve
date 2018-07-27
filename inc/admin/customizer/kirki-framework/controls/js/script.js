@@ -2074,6 +2074,7 @@ wp.customize.controlConstructor['kirki-image'] = wp.customize.Control.extend( {
 			return;
 		}
 		control.setting.set( value );
+		control.container.find( 'input' ).val( value );
 		control.container.find( 'button' ).trigger( 'change' );
 	}
 } );
