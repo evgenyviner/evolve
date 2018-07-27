@@ -6468,6 +6468,13 @@
 
 jQuery(function ($) {
     $(".dropdown-toggle").removeAttr('data-toggle dropdown');
+    $('.menu-item-has-children > a').click(function(event){
+        if(!$(this).hasClass('clicked')) {
+            event.preventDefault();
+            $(this).closest('ul').find('a.clicked').removeClass('clicked');
+        }
+        $(this).addClass('clicked');
+    })
 });
 
 /*
