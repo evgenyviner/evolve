@@ -62,13 +62,13 @@ if ( ! function_exists( 'evolve_header_search' ) ) {
 	function evolve_header_search( $type ) {
 		switch ( $type ) {
 			case '1':
-				$class = ' col-sm-1 ml-sm-auto';
+				$class = ' col col-sm-auto ml-sm-auto';
 				break;
 			case '2':
 				$class = ' col-sm-1 col-md-3 ml-md-auto mt-3 mt-md-0 order-4';
 				break;
 			case 'sticky':
-				$class = ' col-1 ml-auto';
+				$class = ' col-auto ml-auto';
 				break;
 			default:
 				$class = '';
@@ -129,17 +129,8 @@ if ( ! function_exists( 'evolve_sticky_header' ) ) {
                     </div>
 				<?php }
 
-				$evolve_nav_class = '';
-				if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == 'disable' && evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) {
-					$evolve_nav_class = ' col-11 pl-0';
-				} else if ( evolve_theme_mod( 'evl_blog_title', '0' ) == '1' || '' == evolve_theme_mod( 'evl_header_logo', '' ) || evolve_theme_mod( 'evl_pos_logo', 'left' ) == 'disable' ) {
-					$evolve_nav_class = ' col-9';
-				} else {
-					$evolve_nav_class = ' col-8';
-				}
-
 				if ( has_nav_menu( 'sticky_navigation' ) ) {
-					echo '<nav class="navbar navbar-expand-md' . $evolve_nav_class . '">
+					echo '<nav class="navbar navbar-expand-md col' . ( ( ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == 'disable' && evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) || evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) ? " pl-0" : "" ) . '">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#sticky-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon-svg"></span>
                                 </div><div id="sticky-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
@@ -153,7 +144,7 @@ if ( ! function_exists( 'evolve_sticky_header' ) ) {
 					) );
 					echo '</div></nav>';
 				} elseif ( has_nav_menu( 'primary-menu' ) ) {
-					echo '<nav class="navbar navbar-expand-md' . $evolve_nav_class . '">
+					echo '<nav class="navbar navbar-expand-md col' . ( ( ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == 'disable' && evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) || evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) ? " pl-0" : "" ) . '">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#sticky-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon-svg"></span>
                                 </div><div id="sticky-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';

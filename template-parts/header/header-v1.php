@@ -10,9 +10,9 @@
 
 				<?php
 				if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" ) {
-					$evolve_social_woo_class = 'col order-1 order-md-3';
+					$evolve_social_woo_class = 'col-12 col-md order-1 order-md-3';
 				} else {
-					$evolve_social_woo_class = 'col order-1 order-md-2';
+					$evolve_social_woo_class = 'col-12 col-md order-1 order-md-2';
 				}
 
 				if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' ) {
@@ -20,7 +20,7 @@
 						$evolve_social_woo_class = 'col-12 order-1';
 					}
 					if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "left" ) {
-						$evolve_social_woo_class = 'col-lg-4 order-1 order-md-3';
+						$evolve_social_woo_class = 'col order-1 order-md-3';
 					}
 					if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "right" ) {
 						$evolve_social_woo_class = 'col-12 order-1';
@@ -67,7 +67,7 @@
 				<?php if ( evolve_theme_mod( 'evl_main_menu', false ) !== true ) {
 
 					if ( has_nav_menu( 'primary-menu' ) ) {
-						echo '<nav class="navbar navbar-expand-md main-menu mr-auto col-sm-11">
+						echo '<nav class="navbar navbar-expand-md main-menu mr-auto col-12 col-sm">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
                                     ' . evolve_get_svg( 'menu' ) . '
                                     </div>
