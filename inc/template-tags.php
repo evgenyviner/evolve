@@ -688,7 +688,7 @@ if ( ! function_exists( 'evolve_breadcrumbs' ) ) {
 		}
 		if ( is_single() && ! is_attachment() ) {
 			$cat_1_line   = '';
-			$cat_1_ids    = '';
+			$cat_1_ids    = array();
 			$categories_1 = get_the_category( $post->ID );
 			if ( $categories_1 && ! empty( $categories_1 ) && ! is_wp_error( $categories_1 ) ):
 				foreach ( $categories_1 as $cat_1 ):
