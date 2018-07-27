@@ -1939,6 +1939,15 @@ wp.customize.controlConstructor['kirki-image'] = wp.customize.Control.extend( {
 			preview.removeClass().addClass( 'thumbnail thumbnail-image' ).html( '<img src="' + previewImage + '" alt="" />' );
 		}
 
+		control.container.on( 'change', 'input', function( e ) {
+			previewImage = this.value;
+			control.saveValue( 'url', previewImage);
+			preview.removeClass().addClass( 'thumbnail thumbnail-image' ).html( '<img src="' + previewImage + '" alt="" />' );
+			removeButton.show();
+			defaultButton.hide();
+			e.preventDefault();
+		} );
+
 		control.container.on( 'click', '.image-upload-button', function( e ) {
 			var image = wp.media( { multiple: false } ).open().on( 'select', function() {
 
@@ -2065,6 +2074,7 @@ wp.customize.controlConstructor['kirki-image'] = wp.customize.Control.extend( {
 			return;
 		}
 		control.setting.set( value );
+		control.container.find( 'input' ).val( value );
 		control.container.find( 'button' ).trigger( 'change' );
 	}
 } );
