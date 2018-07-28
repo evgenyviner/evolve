@@ -6501,7 +6501,7 @@ jQuery(function ($) {
 
         // Defining if navigation tree or single dropdown
         this.dropdowns = this.$element.hasClass('dropdown-toggle') ? this.$element.parent().find('.dropdown-menu').parent('.dropdown') : this.$element.find('.dropdown');
-		if(false && window.outerWidth >= 768){
+		if(window.outerWidth >= 768){
 			this.dropdowns.each(function () {
 				$(this).on('mouseenter.bs.dropdownhover', function (e) {
 					that.show($(this).children('a, button'))
