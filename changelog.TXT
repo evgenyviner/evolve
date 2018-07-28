@@ -1,3 +1,11 @@
+Version:         3.9.3
+Date:         27/7/18
+
+- Fixed Logo Position For Header 1
+- Fixed Mobile Menu
+- Fixed Breadcrumbs Bug On Single Post
+
+
 Version:         3.9.2
 Date:         27/7/18
 

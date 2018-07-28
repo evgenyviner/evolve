@@ -1,53 +1,57 @@
 <?php
 
 /*
-   Displays Search Results Content
-   ======================================= */
+    Displays Search Results Content
+    ======================================= */
 
-get_header(); ?>
+get_header();
 
-    <div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?>">
+/*
+    Hooked: evolve_primary_container() - 5
+    ======================================= */
 
-		<?php if ( have_posts() ) : ?>
+do_action( 'evolve_before_content_area' );
 
-            <div class="alert alert-success mb-5" role="alert">
-                <h1 class="page-title"><?php printf( __( 'Search results for %s', 'evolve' ), '<b>' . get_search_query() . '</b>' ); ?></h1>
-            </div>
+if ( have_posts() ) : ?>
 
-		<?php else : ?>
+    <div class="alert alert-success mb-5" role="alert">
+        <h1 class="page-title"><?php printf( __( 'Search results for %s', 'evolve' ), '<b>' . get_search_query() . '</b>' ); ?></h1>
+    </div>
 
-            <div class="alert alert-warning mb-5" role="alert">
-                <h1 class="page-title"><?php printf( __( 'Your search for %s didn\'t match any entries', 'evolve' ), '<b>' . get_search_query() . '</b>' ); ?></h1>
-            </div>
+<?php else : ?>
 
-		<?php endif;
+    <div class="alert alert-warning mb-5" role="alert">
+        <h1 class="page-title"><?php printf( __( 'Your search for %s didn\'t match any entries', 'evolve' ), '<b>' . get_search_query() . '</b>' ); ?></h1>
+    </div>
 
-		if ( have_posts() ) :
+<?php endif;
 
-			if ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "infinite" ) :
-				get_template_part( 'template-parts/navigation/navigation', 'index' );
-			endif;
+if ( have_posts() ) :
 
-			if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) :
-				echo '<div class="posts card-columns">';
-			endif;
+	if ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "infinite" ) :
+		get_template_part( 'template-parts/navigation/navigation', 'index' );
+	endif;
 
-			while ( have_posts() ) :
-				the_post();
-				get_template_part( 'template-parts/post/content', 'post' );
-			endwhile;
+	if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) :
+		echo '<div class="posts card-columns">';
+	endif;
 
-			if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) :
-				echo '</div><!-- .posts .card-columns -->';
-			endif;
+	while ( have_posts() ) :
+		the_post();
+		get_template_part( 'template-parts/post/content', 'post' );
+	endwhile;
 
-			if ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "before" || ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" ) ) :
-				get_template_part( 'template-parts/navigation/navigation', 'index' );
-			endif;
+	if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) :
+		echo '</div><!-- .posts .card-columns -->';
+	endif;
 
-		else :
+	if ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "before" || ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" ) ) :
+		get_template_part( 'template-parts/navigation/navigation', 'index' );
+	endif;
 
-			echo '<h2 class="display-4">' . __( 'Suggestions', 'evolve' ) . '</h2>
+else :
+
+	echo '<h2 class="display-4">' . __( 'Suggestions', 'evolve' ) . '</h2>
 			        <ul class="lead">
 		                <li>' . __( 'Make sure all words are spelled correctly.', 'evolve' ) . '</li>
                         <li>' . __( 'Try different keywords.', 'evolve' ) . '</li>
@@ -56,15 +60,18 @@ get_header(); ?>
                     
                   <div class="search-full-width">';
 
-			get_search_form();
+	get_search_form();
 
-			echo '</div><!-- .search-full-width -->';
+	echo '</div><!-- .search-full-width -->';
 
-		endif; ?>
+endif;
 
-    </div><!-- #primary -->
+/*
+	Hooked: evolve_primary_container_close() - 5
+	======================================= */
 
-<?php
+do_action( 'evolve_after_content_area' );
+
 if ( evolve_lets_get_sidebar_2() == true ):
 	get_sidebar( '2' );
 endif;

@@ -40,14 +40,20 @@ if ( ! function_exists( 'evolve_header_logo' ) ) {
 	function evolve_header_logo() {
 
 		if ( evolve_theme_mod( 'evl_header_logo', '' ) ) {
-			if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "center" ) {
-				$logo_class = 'col-12 order-2 mt-md-3';
+
+			switch ( evolve_theme_mod( 'evl_pos_logo', 'left' ) ) {
+				case "center":
+					$logo_class = 'col-12 order-2 mt-md-3';
+					break;
+				case "left":
+					$logo_class = 'col-md-auto order-2 order-md-1';
+					break;
+				case "right":
+					$logo_class = 'col col-md-6 col-sm-12 order-2 order-md-3';
+					break;
 			}
-			if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "left" ) {
-				$logo_class = 'col-md-auto order-2 order-md-1';
-			}
-			if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "right" ) {
-				$logo_class = 'col col-md-6 col-sm-12 order-2 order-md-3';
+			if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "right" && evolve_theme_mod( 'evl_blog_title', '0' ) == "1" && ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "disable" ) ) {
+				$logo_class = 'col order-2 order-md-3';
 			}
 			echo "<div class='" . $logo_class . " header-logo-container pr-md-0'><a href=" . home_url() . "><img alt='" . get_bloginfo( 'name' ) . "' src=" . evolve_theme_mod( 'evl_header_logo', '' ) . " /></a></div>";
 		}

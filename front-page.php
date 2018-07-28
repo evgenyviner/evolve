@@ -1,20 +1,24 @@
 <?php
 
 /*
-   Displays Front Page Content
-   ======================================= */
+    Displays Front Page Content
+    ======================================= */
 
 get_header();
 
-if ( evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) != 'above' ) { ?>
-    <div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?>">
-<?php }
+/*
+	Hooked: evolve_primary_container() - 5
+	======================================= */
+
+do_action( 'evolve_before_content_area' );
 
 evolve_front_page_builder();
 
-if ( evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) != 'above' ) { ?>
-    </div><!-- #primary -->
-<?php }
+/*
+	Hooked: evolve_primary_container_close() - 5
+	======================================= */
+
+do_action( 'evolve_after_content_area' );
 
 if ( evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) != 'above' ) {
 	if ( evolve_lets_get_sidebar_2() == true ):

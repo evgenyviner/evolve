@@ -67,9 +67,7 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 
 
         function before_container() {
-			echo '<div id="primary" class="';
-			evolve_layout_class( $type = 1 );
-			echo '">';
+			echo '<div id="primary" class="' . evolve_layout_class( $type = 1 ) . '">';
 		}
 
 		function before_single_product() {

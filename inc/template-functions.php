@@ -1,6 +1,44 @@
 <?php
 
 /*
+    Primary Container - Open
+    ======================================= */
+
+if ( ! function_exists( 'evolve_primary_container' ) ) {
+	function evolve_primary_container() {
+		if ( ( is_home() && ! is_front_page() ) || ( is_front_page() && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) != 'above' ) ) {
+			echo '<div id="primary" class="' . evolve_layout_class( $type = 1 ) . '">';
+		} elseif ( is_404() ) {
+			echo '<div id="primary" class="col mb-5">';
+		} elseif ( ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) {
+			echo '<div id="primary" class="' . evolve_layout_class( $type = 2 ) . '">';
+		} elseif ( ( is_home() && ! is_front_page() ) || is_front_page() && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) == 'above' ) {
+		} else {
+			echo '<div id="primary" class="' . evolve_layout_class( $type = 1 ) . '">';
+		}
+	}
+}
+
+add_action( 'evolve_before_content_area', 'evolve_primary_container', 5 );
+
+/*
+    Primary Container - Close
+    ======================================= */
+
+if ( ! function_exists( 'evolve_primary_container_close' ) ) {
+	function evolve_primary_container_close() {
+		if ( ( is_home() && ! is_front_page() ) || ( is_front_page() && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) != 'above' ) || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) {
+			echo '</div><!-- #primary -->';
+		} elseif ( ( is_home() && ! is_front_page() ) || is_front_page() && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) == 'above' ) {
+		} else {
+			echo '</div><!-- #primary -->';
+		}
+	}
+}
+
+add_action( 'evolve_after_content_area', 'evolve_primary_container_close', 5 );
+
+/*
     SVG Markup For Icons
     ======================================= */
 
@@ -836,7 +874,8 @@ if ( ! function_exists( 'evolve_layout_class' ) ) {
 				}
 			endif;
 		}
-		echo $layout_css;
+
+		return $layout_css;
 	}
 }
 
@@ -1143,7 +1182,7 @@ if ( ! function_exists( 'evolve_front_page_builder' ) ) {
                             <div class="content">
                             <div class="container">
                             <div class="row">
-                            <div id="primary" class="<?php evolve_layout_class( $type = 1 ); ?>">
+                            <div id="primary" class="<?php echo evolve_layout_class( $type = 1 ); ?>">
 						<?php }
 
 						evolve_blog_page_content();

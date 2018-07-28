@@ -101,10 +101,17 @@ if ( ! function_exists( 'evolve_content_boxes' ) ) {
 		endswitch;
 		echo "<div class='home-content-boxes'><div class='container'>";
 		$content_box_section_title = evolve_theme_mod( 'evl_content_boxes_title', '' );
+
+		if ( evolve_theme_mod( 'evl_content_boxes_title', '' ) == '' && $content_box1_enable == false && $content_box2_enable == false && $content_box3_enable == false && $content_box4_enable == false && is_user_logged_in() && is_customize_preview() ) {
+			echo '<h3 class="no-content text-center d-block">' . __( 'Content boxes element will be displayed here', 'evolve' ) . ' <span class="badge badge-pill badge-secondary">' . __( 'Edit', 'evolve' ) . '</span></h3>';
+		}
+
 		if ( evolve_theme_mod( 'evl_content_boxes_title', '' ) ) {
 			$content_box_section_title = '<div class="col-12"><h3 class="content-box-section-title section-title">' . evolve_theme_mod( 'evl_content_boxes_title', '' ) . '</h3></div>';
 		}
+
 		echo "<div class='row'>" . $content_box_section_title . "<div class='card-deck mb-0 mb-lg-3'>";
+
 		$content_box1_title = evolve_theme_mod( 'evl_content_box1_title', '' );
 		if ( $content_box1_title === false ) {
 			$content_box1_title = '';
@@ -216,6 +223,11 @@ if ( ! function_exists( 'evolve_testimonials' ) ) {
 
 		echo "<div class='home-testimonials'><div class='container'>";
 		$testimonials_section_title = evolve_theme_mod( 'evl_testimonials_title', '' );
+
+		if ( evolve_theme_mod( 'evl_testimonials_title', '' ) == '' && evolve_theme_mod( "evl_fp_testimonial1", '0' ) != 1 && evolve_theme_mod( "evl_fp_testimonial2", '0' ) != 1 && is_user_logged_in() && is_customize_preview() ) {
+			echo '<h3 class="no-content text-center d-block">' . __( 'Testimonials element will be displayed here', 'evolve' ) . ' <span class="badge badge-pill badge-secondary">' . __( 'Edit', 'evolve' ) . '</span></h3>';
+		}
+
 		if ( evolve_theme_mod( 'evl_testimonials_title', '' ) ) {
 			$testimonials_section_title = '<div class="col-12"><h3 class="testimonials-section-title section-title">' . evolve_theme_mod( 'evl_testimonials_title', '' ) . '</h3></div>';
 		}
@@ -302,8 +314,12 @@ if ( ! function_exists( 'evolve_counter_circle' ) ) {
 		$html = '';
 
 		echo "<div class='home-counter-circle'><div class='container'>";
-
 		$counter_circle_section_title = evolve_theme_mod( 'evl_counter_circle_title', '' );
+
+		if ( evolve_theme_mod( 'evl_counter_circle_title', '' ) == '' && evolve_theme_mod( "evl_fp_counter_circle1", '0' ) != 1 && evolve_theme_mod( "evl_fp_counter_circle2", '0' ) != 1 && evolve_theme_mod( "evl_fp_counter_circle3", '0' ) != 1 && is_user_logged_in() && is_customize_preview() ) {
+			echo '<h3 class="no-content text-center d-block">' . __( 'Counter circles element will be displayed here', 'evolve' ) . ' <span class="badge badge-pill badge-secondary">' . __( 'Edit', 'evolve' ) . '</span></h3>';
+		}
+
 		if ( evolve_theme_mod( 'evl_counter_circle_title', '' ) ) {
 			$counter_circle_section_title = '<div class="row"><div class="col-12"><h3 class="counter-circle-section-title section-title">' . evolve_theme_mod( 'evl_counter_circle_title', '' ) . '</h3></div></div>';
 		}
@@ -387,6 +403,7 @@ if ( ! function_exists( 'evolve_custom_content' ) ) {
 		echo "<div class='home-custom-content'><div class='container'>";
 
 		$custom_content_section_title = evolve_theme_mod( 'evl_custom_content_title', '' );
+
 		if ( evolve_theme_mod( 'evl_custom_content_title', '' ) ) {
 			$custom_content_section_title = '<div class="row"><div class="col-12"><h3 class="custom-content-section-title section-title">' . evolve_theme_mod( 'evl_custom_content_title', '' ) . '</h3></div></div>';
 		}
