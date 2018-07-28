@@ -6471,15 +6471,16 @@ jQuery(function ($) {
     // $('.menu-item-has-children:not(open) > a').click(function(event){
 		// event.preventDefault();
     // })
-    $('.menu-item-has-children > a').click(function(event){
-		var li_parent = $(this).closest('li');
-        if(!$(this).hasClass('clicked')) {
-			$(this).closest('ul').find('.open').removeClass('open');
-			$(this).closest('ul').find('.clicked').removeClass('clicked');
-			$(this).closest('li').addClass('open');
-            event.preventDefault();            
-        }
-		$(this).addClass('clicked');
+    $('.dropdown.nav-item > a').click(function(event){
+		if($(this).closest('li').find('.dropdown-menu').length){
+			if(!$(this).hasClass('clicked')) {
+				$(this).closest('ul').find('.open').removeClass('open');
+				$(this).closest('ul').find('.clicked').removeClass('clicked');
+				$(this).closest('li').addClass('open');
+				event.preventDefault();            
+			}
+			$(this).addClass('clicked');
+		}
     })
 });
 
