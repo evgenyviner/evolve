@@ -4,11 +4,18 @@
     Displays Search Results Content
     ======================================= */
 
+/*
+    Header Area
+    --------------------------------------- */
+
 get_header();
 
 /*
-    Hooked: evolve_primary_container() - 5
-    ======================================= */
+	Before Content Area
+
+	---------------------------------------
+	Hooked: evolve_primary_container_open() - 10
+	--------------------------------------- */
 
 do_action( 'evolve_before_content_area' );
 
@@ -28,26 +35,30 @@ if ( have_posts() ) : ?>
 
 if ( have_posts() ) :
 
-	if ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "infinite" ) :
-		get_template_part( 'template-parts/navigation/navigation', 'index' );
-	endif;
+	/*
+		Before Search Loop
 
-	if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) :
-		echo '<div class="posts card-columns">';
-	endif;
+		---------------------------------------
+		Hooked: evolve_pagination_before() - 10
+				evolve_posts_loop_open() - 20
+		--------------------------------------- */
+
+	do_action( 'evolve_before_posts_loop' );
 
 	while ( have_posts() ) :
 		the_post();
 		get_template_part( 'template-parts/post/content', 'post' );
 	endwhile;
 
-	if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) :
-		echo '</div><!-- .posts .card-columns -->';
-	endif;
+	/*
+		After Search Loop
 
-	if ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "before" || ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" ) ) :
-		get_template_part( 'template-parts/navigation/navigation', 'index' );
-	endif;
+	    ---------------------------------------
+	    Hooked: evolve_posts_loop_close() - 10
+	            evolve_pagination_after() - 20
+	    --------------------------------------- */
+
+	do_action( 'evolve_after_posts_loop' );
 
 else :
 
@@ -67,17 +78,25 @@ else :
 endif;
 
 /*
-	Hooked: evolve_primary_container_close() - 5
-	======================================= */
+   	After Content Area
+
+	---------------------------------------
+	Hooked: evolve_primary_container_close() - 10
+	--------------------------------------- */
 
 do_action( 'evolve_after_content_area' );
 
-if ( evolve_lets_get_sidebar_2() == true ):
-	get_sidebar( '2' );
-endif;
+/*
+	Sidebars
 
-if ( evolve_lets_get_sidebar() == true ):
-	get_sidebar();
-endif;
+	---------------------------------------
+	Hooked: evolve_sidebars() - 10
+	--------------------------------------- */
+
+do_action( 'evolve_sidebars_area' );
+
+/*
+	Footer Area
+	--------------------------------------- */
 
 get_footer();

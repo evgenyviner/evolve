@@ -422,34 +422,32 @@ if ( ! function_exists( 'evolve_custom_content' ) ) {
 if ( ! function_exists( 'evolve_blog_page_content' ) ) {
 	function evolve_blog_page_content() {
 
-		/*
-			Hooked: evolve_breadcrumbs() - 10
-			======================================= */
-
-		do_action( 'evolve_before_post_title' );
-
 		if ( have_posts() ) :
 
-			if ( ! is_page() && evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "infinite" ) :
-				get_template_part( 'template-parts/navigation/navigation', 'index' );
-			endif;
+			/*
+				Before Posts Loop
 
-			if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" && is_home() ) :
-				echo '<div class="posts card-columns">';
-			endif;
+				---------------------------------------
+				Hooked: evolve_pagination_before() - 10
+						evolve_posts_loop_open() - 20
+				--------------------------------------- */
+
+			do_action( 'evolve_before_posts_loop' );
 
 			while ( have_posts() ) :
 				the_post();
 				get_template_part( 'template-parts/post/content', 'post' );
 			endwhile;
 
-			if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" && is_home() ) :
-				echo '</div><!-- .posts .card-columns -->';
-			endif;
+			/*
+				After Posts Loop
 
-			if ( ! is_page() && evolve_theme_mod( 'evl_nav_links', 'after' ) != "before" || ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" ) ) :
-				get_template_part( 'template-parts/navigation/navigation', 'index' );
-			endif;
+				---------------------------------------
+				Hooked: evolve_posts_loop_close() - 10
+						evolve_pagination_after() - 20
+				--------------------------------------- */
+
+			do_action( 'evolve_after_posts_loop' );
 
 		else :
 

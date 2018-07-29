@@ -4,11 +4,18 @@
     Main Template For BuddyPress
     ======================================= */
 
+/*
+    Header Area
+    --------------------------------------- */
+
 get_header();
 
 /*
-    Hooked: evolve_primary_container() - 5
-    ======================================= */
+	Before Content Area
+
+	---------------------------------------
+	Hooked: evolve_primary_container_open() - 10
+	--------------------------------------- */
 
 do_action( 'evolve_before_content_area' );
 
@@ -27,19 +34,27 @@ if ( have_posts() ): the_post(); ?>
 <?php endif;
 
 /*
-	Hooked: evolve_primary_container_close() - 5
-	======================================= */
+   	After Content Area
+
+	---------------------------------------
+	Hooked: evolve_primary_container_close() - 10
+	--------------------------------------- */
 
 do_action( 'evolve_after_content_area' );
 
 wp_reset_query();
 
-if ( evolve_lets_get_sidebar_2() == true ):
-	get_sidebar( '2' );
-endif;
+/*
+	Sidebars
 
-if ( evolve_lets_get_sidebar() == true ):
-	get_sidebar();
-endif;
+	---------------------------------------
+	Hooked: evolve_sidebars() - 10
+	--------------------------------------- */
+
+do_action( 'evolve_sidebars_area' );
+
+/*
+	Footer Area
+	--------------------------------------- */
 
 get_footer();

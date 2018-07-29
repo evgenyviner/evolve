@@ -7,7 +7,7 @@
 get_header();
 
 /*
-    Hooked: evolve_primary_container() - 5
+    Hooked: evolve_primary_container_open() - 10
     ======================================= */
 
 do_action( 'evolve_before_content_area' );

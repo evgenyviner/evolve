@@ -1,11 +1,15 @@
 <?php
 
 /*
-    Primary Container - Open
+    Primary Container
     ======================================= */
 
-if ( ! function_exists( 'evolve_primary_container' ) ) {
-	function evolve_primary_container() {
+/*
+    Primary Container - Open
+    --------------------------------------- */
+
+if ( ! function_exists( 'evolve_primary_container_open' ) ) {
+	function evolve_primary_container_open() {
 		if ( ( is_home() && ! is_front_page() ) || ( is_front_page() && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) != 'above' ) ) {
 			echo '<div id="primary" class="' . evolve_layout_class( $type = 1 ) . '">';
 		} elseif ( is_404() ) {
@@ -19,11 +23,11 @@ if ( ! function_exists( 'evolve_primary_container' ) ) {
 	}
 }
 
-add_action( 'evolve_before_content_area', 'evolve_primary_container', 5 );
+add_action( 'evolve_before_content_area', 'evolve_primary_container_open', 10 );
 
 /*
     Primary Container - Close
-    ======================================= */
+    --------------------------------------- */
 
 if ( ! function_exists( 'evolve_primary_container_close' ) ) {
 	function evolve_primary_container_close() {
@@ -36,7 +40,143 @@ if ( ! function_exists( 'evolve_primary_container_close' ) ) {
 	}
 }
 
-add_action( 'evolve_after_content_area', 'evolve_primary_container_close', 5 );
+add_action( 'evolve_after_content_area', 'evolve_primary_container_close', 10 );
+
+/*
+    Sidebars
+    ======================================= */
+
+if ( ! function_exists( 'evolve_sidebars' ) ) {
+	function evolve_sidebars() {
+		if ( class_exists( 'Woocommerce' ) && ( is_cart() || is_checkout() || is_account_page() || ( get_option( 'woocommerce_thanks_page_id' ) && is_page( get_option( 'woocommerce_thanks_page_id' ) ) ) ) ) {
+			return;
+		}
+		if ( ( is_home() && ! is_front_page() ) || ( is_front_page() && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) != 'above' ) ) {
+			if ( evolve_lets_get_sidebar_2() == true ):
+				get_sidebar( '2' );
+			endif;
+
+			if ( evolve_lets_get_sidebar() == true ):
+				get_sidebar();
+			endif;
+		} elseif ( ( is_home() && ! is_front_page() ) || is_front_page() && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) == 'above' ) {
+		} else {
+			if ( evolve_lets_get_sidebar_2() == true ):
+				get_sidebar( '2' );
+			endif;
+
+			if ( evolve_lets_get_sidebar() == true ):
+				get_sidebar();
+			endif;
+		}
+	}
+}
+
+add_action( 'evolve_sidebars_area', 'evolve_sidebars', 10 );
+
+/*
+    Pagination
+    ======================================= */
+
+/*
+    Pagination Before
+    --------------------------------------- */
+
+if ( ! function_exists( 'evolve_pagination_before' ) ) {
+	function evolve_pagination_before() {
+		if ( ( ( is_front_page() && ! is_page() ) || is_home() || is_archive() || is_search() ) && evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "infinite" ) {
+			get_template_part( 'template-parts/navigation/navigation', 'index' );
+		} elseif ( is_single() && evolve_theme_mod( 'evl_post_links', 'after' ) != "after" ) {
+			get_template_part( 'template-parts/navigation/navigation', 'index' );
+		}
+	}
+}
+
+add_action( 'evolve_before_posts_loop', 'evolve_pagination_before', 10 );
+add_action( 'evolve_before_post_content', 'evolve_pagination_before', 10 );
+
+/*
+    Pagination After
+    --------------------------------------- */
+
+if ( ! function_exists( 'evolve_pagination_after' ) ) {
+	function evolve_pagination_after() {
+		if ( ( ( is_front_page() && ! is_page() ) || is_home() || is_archive() || is_search() ) && evolve_theme_mod( 'evl_nav_links', 'after' ) != "before" || ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" ) ) {
+			get_template_part( 'template-parts/navigation/navigation', 'index' );
+		} elseif ( is_single() && evolve_theme_mod( 'evl_post_links', 'after' ) != "before" ) {
+			get_template_part( 'template-parts/navigation/navigation', 'index' );
+		}
+	}
+}
+
+add_action( 'evolve_after_posts_loop', 'evolve_pagination_after', 20 );
+add_action( 'evolve_after_post_content', 'evolve_pagination_after', 20 );
+
+/*
+    Posts Loop
+    ======================================= */
+
+/*
+    Posts Loop Container - Open
+    --------------------------------------- */
+
+if ( ! function_exists( 'evolve_posts_loop_open' ) ) {
+	function evolve_posts_loop_open() {
+		if ( ( is_home() || is_archive() || is_search() ) && evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) {
+			echo '<div class="posts card-columns">';
+		}
+	}
+}
+
+add_action( 'evolve_before_posts_loop', 'evolve_posts_loop_open', 20 );
+
+/*
+    Posts Loop Container - Close
+    --------------------------------------- */
+
+if ( ! function_exists( 'evolve_posts_loop_close' ) ) {
+	function evolve_posts_loop_close() {
+		if ( ( is_home() || is_archive() || is_search() ) && evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) {
+			echo '</div><!-- .posts .card-columns -->';
+		}
+	}
+}
+
+add_action( 'evolve_after_posts_loop', 'evolve_posts_loop_close', 10 );
+
+/*
+    Comments Template
+    ======================================= */
+
+if ( ! function_exists( 'evolve_comments_template' ) ) {
+	function evolve_comments_template() {
+		if ( ( is_single() || is_page() ) && ( comments_open() || get_comments_number() ) ) :
+			comments_template( '', true );
+		endif;
+	}
+}
+
+add_action( 'evolve_after_post_content', 'evolve_comments_template', 30 );
+
+/*
+    Archive Page Title
+    ======================================= */
+
+if ( ! function_exists( 'evolve_archive_page_title' ) ) {
+	function evolve_archive_page_title() {
+		if ( ! is_archive() ) {
+			return;
+		}
+		if ( evolve_theme_mod( 'evl_category_page_title', '1' ) == '1' ) {
+			echo '<div class="alert alert-success mb-5" role="alert"><p>' . __( 'You are browsing archives for', 'evolve' ) . '</p>';
+			the_archive_title( '<h1 class="page-title">', '</h1>' );
+			the_archive_description( '<div class="lead">', '</div>' );
+			echo '</div>';
+		}
+	}
+}
+
+add_action( 'evolve_before_post_title', 'evolve_archive_page_title', 20 );
 
 /*
     SVG Markup For Icons
@@ -164,18 +304,6 @@ if ( ! function_exists( 'evolve_get_first_image' ) ) {
 		}
 
 		return $first_img;
-	}
-}
-
-/*
-    Tiny URL
-    ======================================= */
-
-if ( ! function_exists( 'evolve_tinyurl' ) ) {
-	function evolve_tinyurl( $url ) {
-		$response = esc_url( wp_remote_retrieve_body( wp_remote_get( 'http://tinyurl.com/api-create.php?url=' . $url ) ) );
-
-		return $response;
 	}
 }
 
@@ -1165,6 +1293,9 @@ if ( ! function_exists( 'evolve_remove_comma' ) ) {
 
 if ( ! function_exists( 'evolve_front_page_builder' ) ) {
 	function evolve_front_page_builder() {
+		if ( ( ! is_front_page() && ! is_page() ) || ( ! is_home() && ! is_front_page() ) ) {
+			return;
+		}
 		foreach ( evolve_theme_mod( 'evl_front_elements_content_area' ) as $elementkey => $elementval ) {
 			switch ( $elementval ) {
 
@@ -1227,6 +1358,8 @@ if ( ! function_exists( 'evolve_front_page_builder' ) ) {
 		}
 	}
 }
+
+add_action( 'evolve_before_content_area', 'evolve_front_page_builder', 20 );
 
 /*
     Wrapper For Customizer Preview

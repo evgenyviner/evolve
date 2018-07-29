@@ -503,7 +503,7 @@ function evolve_woocommerce_header_add_to_cart_fragment( $fragments ) {
 
             </a>
 
-            <div class="dropdown-menu p-3 dropdownhover-bottom dropdown-menu-right" aria-labelledby="cart_dropdown">
+            <div class="dropdown-menu p-md-3 dropdown-menu-right" aria-labelledby="cart_dropdown">
                 <span class="dropdown-item">
 
 				    <?php esc_html_e( 'Your cart is currently empty', 'evolve' ); ?>
@@ -514,7 +514,7 @@ function evolve_woocommerce_header_add_to_cart_fragment( $fragments ) {
 		<?php else: ?>
 
             <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"
-               class="btn nav-link dropdown-toggle" id="cart_dropdown" role="button"
+               class="btn px-3 nav-link dropdown-toggle" id="cart_dropdown" role="button"
                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
 				<?php echo evolve_get_svg( 'shop' ); ?><?php echo sprintf( _n( '%s item', '%s items', $woocommerce->cart->cart_contents_count, 'evolve' ), $woocommerce->cart->cart_contents_count ); ?>
@@ -522,7 +522,7 @@ function evolve_woocommerce_header_add_to_cart_fragment( $fragments ) {
 
             </a>
 
-            <div class="dropdown-menu p-3 dropdown-menu-right" aria-labelledby="cart_dropdown">
+            <div class="dropdown-menu p-md-3 dropdown-menu-right" aria-labelledby="cart_dropdown">
 
 				<?php foreach ( $woocommerce->cart->cart_contents as $cart_item ):
 					$cart_item_key = $cart_item['key'];
@@ -2182,7 +2182,7 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
 
                                         </a>
 
-                                        <div class="dropdown-menu p-3 dropdownhover-bottom dropdown-menu-right" aria-labelledby="cart_dropdown">
+                                        <div class="dropdown-menu p-md-3 dropdown-menu-right" aria-labelledby="cart_dropdown">
                                             <span class="dropdown-item">
 
 											    <?php esc_html_e( 'Your cart is currently empty', 'evolve' ); ?>
@@ -2193,7 +2193,7 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
 									<?php else: ?>
 
                                         <a href="<?php echo get_permalink( get_option( 'woocommerce_cart_page_id' ) ); ?>"
-                                           class="btn nav-link dropdown-toggle" id="cart_dropdown" role="button"
+                                           class="btn px-3 nav-link dropdown-toggle" id="cart_dropdown" role="button"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
 											<?php echo evolve_get_svg( 'shop' ); ?><?php echo sprintf( _n( '%s item', '%s items', $woocommerce->cart->cart_contents_count, 'evolve' ), $woocommerce->cart->cart_contents_count ); ?>

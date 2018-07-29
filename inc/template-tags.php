@@ -440,6 +440,9 @@ if ( ! function_exists( 'evolve_edit_post' ) ) {
 
 if ( ! function_exists( 'evolve_similar_posts' ) ) {
 	function evolve_similar_posts() {
+		if ( ! is_single() ) {
+			return;
+		}
 
 		global $post;
 
@@ -495,6 +498,8 @@ if ( ! function_exists( 'evolve_similar_posts' ) ) {
 		wp_reset_query();
 	}
 }
+
+add_action( 'evolve_after_post_content', 'evolve_similar_posts', 10 );
 
 /*
     Custom Footer
@@ -1123,7 +1128,7 @@ if ( ! function_exists( 'evolve_sharethis' ) ) {
 
                     <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
                        title="<?php esc_html_e( 'Share on Twitter', 'evolve' ); ?>" target="_blank"
-                       href="http://twitter.com/intent/tweet?status=<?php echo $post->post_title; ?>+&raquo;+<?php echo esc_url( evolve_tinyurl( get_permalink() ) ); ?>">
+                       href="http://twitter.com/intent/tweet?status=<?php echo $post->post_title; ?>+&raquo;+<?php the_permalink(); ?>">
 
 						<?php echo evolve_get_svg( 'twitter' ); ?>
 
