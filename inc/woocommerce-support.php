@@ -522,7 +522,7 @@ function evolve_woocommerce_header_add_to_cart_fragment( $fragments ) {
 
             </a>
 
-            <div class="dropdown-menu p-md-3 dropdown-menu-right" aria-labelledby="cart_dropdown">
+            <div class="dropdown-menu p-3 dropdown-menu-right" aria-labelledby="cart_dropdown">
 
 				<?php foreach ( $woocommerce->cart->cart_contents as $cart_item ):
 					$cart_item_key = $cart_item['key'];
@@ -566,7 +566,7 @@ function evolve_woocommerce_header_add_to_cart_fragment( $fragments ) {
     </li><!-- .nav-item .dropdown .cart -->
 
 	<?php
-	$fragments['.header .cart'] = ob_get_clean();
+	$fragments['.header-wrapper .cart'] = ob_get_clean();
 
 	ob_start();
 
@@ -2018,7 +2018,7 @@ function evolve_single_product_class() {
 			case "3cm":
 			case "3cl":
 			case "3cr":
-				$layout_css = 'col-md-12';
+				$layout_css = 'col-md-12 mb-4';
 				break;
 	endswitch;
 
@@ -2103,7 +2103,7 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
                     </div>
 
                     <div id="woocommerce-menu" class="collapse navbar-collapse" data-hover="dropdown"
-                         data-animations="fadeIn fadeIn fadeIn fadeIn">
+                         data-animations="fadeInUp fadeIn fadeIn fadeIn">
 
                         <ul class="navbar-nav woocommerce-menu">
 

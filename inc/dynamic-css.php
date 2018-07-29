@@ -1110,6 +1110,10 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			}
 		}
 
+		if ( is_user_logged_in() && is_customize_preview() ) {
+			$css_data .= ' .header-block .carousel-caption { left: 17%; }';
+		}
+
 		/*
 			bbPress
 			--------------------------------------- */
@@ -1241,9 +1245,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 
 		$css_data .= ' @media (max-width: 767.98px) {';
 		if ( $responsive_menu_layout == 'dropdown' ) {
-			$css_data .= ' .navbar-nav .dropdown-menu { display: block; max-height: 100%; opacity: 1; -webkit-transform: translateY(0%);
-        -ms-transform: translateY(0%);
-        transform: translateY(0%); }';
+			$css_data .= ' .navbar-nav .menu-item-has-children ul li .dropdown-toggle { padding-bottom: .7rem; } .navbar-nav .menu-item-has-children .dropdown-menu { margin-top: 0; }';
 		}
 		if ( ! ( '' == evolve_theme_mod( 'evl_menu_back_color', '#273039' ) ) ) {
 			$menu_back_color = evolve_theme_mod( 'evl_menu_back_color', '#273039' );

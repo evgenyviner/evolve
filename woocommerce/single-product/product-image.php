@@ -27,7 +27,7 @@ global $post, $product; ?>
 
 <div class="<?php evolve_single_product_class(); ?>">
     <div id="carousel-slider-product" class="product-carousel carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
+        <div class="carousel-inner carousel-resize">
 
 			<?php if ( has_post_thumbnail() ) {
 

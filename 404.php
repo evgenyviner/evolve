@@ -4,17 +4,27 @@
     Displays Error 404 Page
     ======================================= */
 
+/*
+    Header Area
+    --------------------------------------- */
+
 get_header();
 
 /*
-    Hooked: evolve_primary_container_open() - 10
-    ======================================= */
+	Before Content Area
+
+	---------------------------------------
+	Hooked: evolve_primary_container_open() - 10
+	--------------------------------------- */
 
 do_action( 'evolve_before_content_area' );
 
 /*
+	Before Post Title
+
+	---------------------------------------
 	Hooked: evolve_breadcrumbs() - 10
-	======================================= */
+	--------------------------------------- */
 
 do_action( 'evolve_before_post_title' ); ?>
 
@@ -31,8 +41,11 @@ do_action( 'evolve_before_post_title' ); ?>
 <?php
 
 /*
-	Hooked: evolve_primary_container_close() - 5
-	======================================= */
+   	After Content Area
+
+	---------------------------------------
+	Hooked: evolve_primary_container_close() - 10
+	--------------------------------------- */
 
 do_action( 'evolve_after_content_area' );
 

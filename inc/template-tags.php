@@ -1,15 +1,20 @@
 <?php
 
 /*
-    Main Template Tags Definitions     
+    Template Tags Definitions
 
     Table of Contents:
     - Header
         -- Header Logo
         -- Header Search Form
         -- Sticky Header
+            -- Sticky Header Open
+            -- Sticky Header Close
         -- Header Block Above
         -- Header Block Below
+    - Footer
+        -- Footer Widgets
+        -- Custom Footer
     - Content
         -- Featured Images
         -- Post Meta
@@ -24,9 +29,9 @@
         -- Bootstrap Slider
         -- Parallax Slider
         -- Posts Slider
-
     - Social Media Links
     - Share This Buttons
+    - Back To Top Button (Scroll to Top)
 
 
     Header
@@ -100,8 +105,16 @@ if ( ! function_exists( 'evolve_header_search' ) ) {
     Sticky Header
     --------------------------------------- */
 
-if ( ! function_exists( 'evolve_sticky_header' ) ) {
-	function evolve_sticky_header() { ?>
+/*
+    -- Sticky Header Open
+    --------------------------------------- */
+
+if ( ! function_exists( 'evolve_sticky_header_open' ) ) {
+	function evolve_sticky_header_open() {
+
+	    if ( evolve_theme_mod( 'evl_sticky_header', true ) == false ) {
+	        return;
+	    } ?>
 
         <div class="sticky-header">
             <div class="container">
@@ -173,8 +186,27 @@ if ( ! function_exists( 'evolve_sticky_header' ) ) {
             </div>
         </div><!-- .sticky-header -->
 
-	<?php }
+        <div class="header-height">
+
+	<?php  }
 }
+
+add_action( 'evolve_header_area', 'evolve_sticky_header_open', 20 );
+
+/*
+    -- Sticky Header Close
+    --------------------------------------- */
+
+if ( ! function_exists( 'evolve_sticky_header_close' ) ) {
+	function evolve_sticky_header_close() {
+	    if ( evolve_theme_mod( 'evl_sticky_header', true ) == false ) {
+	        return;
+	    }
+        echo '</div><!-- header-height -->';
+    }
+}
+
+add_action( 'evolve_header_area', 'evolve_sticky_header_close', 50 );
 
 /*
     Header Block Above
@@ -254,6 +286,8 @@ if ( ! function_exists( 'evolve_header_block_above' ) ) {
 	}
 }
 
+add_action( 'evolve_header_area', 'evolve_header_block_above', 30 );
+
 /*
     Header Block Below
     ======================================= */
@@ -306,6 +340,89 @@ if ( ! function_exists( 'evolve_header_block_below' ) ) {
 		echo $headerblock_class_2; // <!-- .header-block -->
 	}
 }
+
+add_action( 'evolve_header_area', 'evolve_header_block_below', 60 );
+
+
+/*
+    Footer
+    ======================================= */
+
+/*
+    Footer Widgets
+    --------------------------------------- */
+
+if ( ! function_exists( 'evolve_footer_widgets' ) ) {
+    function evolve_footer_widgets() {
+
+if ( ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "" ) || ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "disable" ) ) {
+
+} else {
+
+	$evolve_footer_widgets_css = '';
+
+	if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "one" ) {
+		$evolve_footer_widgets_css = '<div class="col">';
+	}
+
+	if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "two" ) {
+		$evolve_footer_widgets_css = '<div class="col-sm-12 col-md-6">';
+	}
+
+	if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "three" ) {
+		$evolve_footer_widgets_css = '<div class="col-sm-12 col-md-6 col-lg-4">';
+	}
+
+	if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "four" ) {
+		$evolve_footer_widgets_css = '<div class="col-sm-12 col-md-6 col-xl-3">';
+	}
+
+	echo '<div class="footer-widgets"><div class="row">';
+
+	if ( is_active_sidebar( 'footer' ) ) {
+		echo $evolve_footer_widgets_css;
+		dynamic_sidebar( 'footer' );
+		echo '</div>';
+	}
+
+	if ( is_active_sidebar( 'footer-2' ) ) {
+		echo $evolve_footer_widgets_css;
+		dynamic_sidebar( 'footer-2' );
+		echo '</div>';
+	}
+
+	if ( is_active_sidebar( 'footer-3' ) ) {
+		echo $evolve_footer_widgets_css;
+		dynamic_sidebar( 'footer-3' );
+		echo '</div>';
+	}
+
+	if ( is_active_sidebar( 'footer-4' ) ) {
+		echo $evolve_footer_widgets_css;
+		dynamic_sidebar( 'footer-4' );
+		echo '</div>';
+	}
+
+	echo '</div></div>';
+
+}
+}
+}
+
+add_action( 'evolve_footer_area', 'evolve_footer_widgets', 30 );
+
+/*
+    Custom Footer
+    --------------------------------------- */
+
+if ( ! function_exists( 'evolve_custom_footer' ) ) {
+	function evolve_custom_footer() {
+		$evolve_home_url = esc_url( "http://theme4press.com/" );
+		echo '<div class="row"><div class="col custom-footer">' . evolve_theme_mod( 'evl_footer_content', '<div id="copyright"><a href="' . $evolve_home_url . 'evolve-multipurpose-wordpress-theme/">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a></div>' ) . '</div></div>';
+	}
+}
+
+add_action( 'evolve_footer_area', 'evolve_custom_footer', 40 );
 
 /*
     Content
@@ -500,17 +617,6 @@ if ( ! function_exists( 'evolve_similar_posts' ) ) {
 }
 
 add_action( 'evolve_after_post_content', 'evolve_similar_posts', 10 );
-
-/*
-    Custom Footer
-    ======================================= */
-
-if ( ! function_exists( 'evolve_custom_footer' ) ) {
-	function evolve_custom_footer() {
-		$evolve_home_url = esc_url( "http://theme4press.com/" );
-		echo '<div class="row"><div class="col custom-footer">' . evolve_theme_mod( 'evl_footer_content', '<div id="copyright"><a href="' . $evolve_home_url . 'evolve-multipurpose-wordpress-theme/">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a></div>' ) . '</div></div>';
-	}
-}
 
 /*
     Components
@@ -771,11 +877,11 @@ if ( ! function_exists( 'evolve_bootstrap' ) ) {
 				if ( ! $wrap ) {
 					$wrap = true;
 					echo "<div id='bootstrap-slider' class='carousel slide' data-ride='carousel' data-interval='" . evolve_theme_mod( 'evl_bootstrap_speed', '7000' ) . "'>";
-					echo "<div class='carousel-inner'>";
+					echo "<div class='carousel-inner carousel-resize'>";
 					$active = " active";
 				}
 				echo "<div class='carousel-item item-" . $i . $active . "'>";
-				echo "<img class='d-block" . ( ( evolve_theme_mod( 'evl_bootstrap_100', '' ) == '1' ) ? "" : " w-100" ) . "' src='" . evolve_theme_mod( "evl_bootstrap_slide{$i}_img" ) . "' alt='" . evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) . "' />";
+				echo "<img class='d-block" . ( ( evolve_theme_mod( 'evl_bootstrap_100', '' ) == '1' ) ? "" : " w-100" ) . "' src='" . ( evolve_theme_mod( "evl_bootstrap_slide{$i}_img" ) ? evolve_theme_mod( "evl_bootstrap_slide{$i}_img" ) : get_template_directory_uri() . '/assets/images/no-thumbnail-slider.jpg' ) . "' alt='" . evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) . "' />";
 				echo '<div class="carousel-caption' . ( ( evolve_theme_mod( 'evl_bootstrap_layout', 'bootstrap_left' ) == 'bootstrap_left' ) ? " layout-left" : "" ) . '">';
 				if ( strlen( evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) ) > 0 ) {
 					echo "<h5>" . esc_attr( evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) ) . "</h5>";
@@ -783,7 +889,9 @@ if ( ! function_exists( 'evolve_bootstrap' ) ) {
 				if ( strlen( evolve_theme_mod( "evl_bootstrap_slide{$i}_desc" ) ) > 0 ) {
 					echo "<p class='d-none d-md-block'>" . esc_attr( evolve_theme_mod( "evl_bootstrap_slide{$i}_desc" ) ) . "</p>";
 				}
-				echo do_shortcode( evolve_theme_mod( "evl_bootstrap_slide{$i}_button" ) );
+				if ( evolve_theme_mod( "evl_bootstrap_slide{$i}_button" ) ) {
+				    echo '<div class="bootstrap-button">' . do_shortcode( evolve_theme_mod( "evl_bootstrap_slide{$i}_button" ) ) . '</div>';
+				}
 				echo "</div></div>";
 				++ $slides;
 			}
@@ -820,10 +928,10 @@ if ( ! function_exists( 'evolve_parallax' ) ) {
 				if ( ! $wrap ) {
 					$wrap = true;
 					echo "<div id='parallax-slider' class='carousel slide' data-ride='carousel' data-interval='" . evolve_theme_mod( 'evl_parallax_speed', '7000' ) . "'>";
-					echo "<div class='carousel-inner'>";
+					echo "<div class='carousel-inner carousel-resize'>";
 					$active = " active";
 				}
-				echo "<div class='carousel-item" . $active . "'>";
+				echo "<div class='carousel-item item-" . $i . $active . "'>";
 				echo '<div class="carousel-caption layout-left">';
 				if ( strlen( evolve_theme_mod( "evl_slide{$i}_title" ) ) > 0 ) {
 					echo "<h5 data-animation='animated fadeInRight'>" . esc_attr( evolve_theme_mod( "evl_slide{$i}_title" ) ) . "</h5>";
@@ -831,10 +939,12 @@ if ( ! function_exists( 'evolve_parallax' ) ) {
 				if ( strlen( evolve_theme_mod( "evl_slide{$i}_desc" ) ) > 0 ) {
 					echo "<p data-animation='animated fadeInRight' class='d-none d-md-block'>" . esc_attr( evolve_theme_mod( "evl_slide{$i}_desc" ) ) . "</p>";
 				}
-				echo do_shortcode( evolve_theme_mod( "evl_slide{$i}_button" ) );
+				if ( evolve_theme_mod( "evl_slide{$i}_button" ) ) {
+				    echo '<div class="parallax-button">' . do_shortcode( evolve_theme_mod( "evl_slide{$i}_button" ) ) . '</div>';
+				}
 				echo "</div>";
 
-				echo "<div class='row justify-content-end'><div class='col-lg-6 p-0'><img data-animation='animated fadeInRight' class='d-block' src='" . evolve_theme_mod( "evl_slide{$i}_img" ) . "' alt='" . evolve_theme_mod( "evl_slide{$i}_title" ) . "' /></div></div>";
+				echo "<div class='row justify-content-end'><div class='col-lg-6 p-0'><img data-animation='animated fadeInRight' class='d-block' src='" . ( evolve_theme_mod( "evl_slide{$i}_img" )  ? evolve_theme_mod( "evl_slide{$i}_img" ) : get_template_directory_uri() . '/assets/images/no-thumbnail-slider.jpg' ) . "' alt='" . evolve_theme_mod( "evl_slide{$i}_title" ) . "' /></div></div>";
 
 				echo "</div>";
 				++ $slides;
@@ -867,7 +977,7 @@ if ( ! function_exists( 'evolve_posts_slider' ) ) {
 
         <div id="posts-slider" class="carousel slide" data-ride="carousel"
              data-interval="<?php echo evolve_theme_mod( 'evl_carousel_speed', '3500' ); ?>">
-            <div class="carousel-inner">
+            <div class="carousel-inner carousel-resize">
 
 				<?php
 				$slides                  = 0;
@@ -1176,3 +1286,18 @@ if ( ! function_exists( 'evolve_sharethis' ) ) {
 		<?php }
 	}
 }
+
+/*
+    Back To Top Button (Scroll to Top)
+    ======================================= */
+
+if ( ! function_exists( 'evolve_back_to_top' ) ) {
+	function evolve_back_to_top() {
+        if ( evolve_theme_mod( 'evl_pos_button', 'right' ) == "disable" ) {
+            return;
+        }
+    echo '<a href="#" id="backtotop" class="btn" role="button">&nbsp;</a>';
+    }
+}
+
+add_action( 'evolve_footer_area', 'evolve_back_to_top', 60 );

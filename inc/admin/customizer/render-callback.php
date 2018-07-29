@@ -57,6 +57,23 @@ function evolve_get_render_callback( $value ) {
 	}
 
 	/*
+		-- Parallax Slider
+		--------------------------------------- */
+
+	$check = preg_match( '/^evl_slide._title$/', $option_name );
+	if ( $check ) {
+		return get_theme_mod( $option_name, '' );
+	}
+	$check = preg_match( '/^evl_slide._desc$/', $option_name );
+	if ( $check ) {
+		return get_theme_mod( $option_name, '' );
+	}
+	$check = preg_match( '/^evl_slide._button$/', $option_name );
+	if ( $check ) {
+		return get_theme_mod( $option_name, '' );
+	}
+
+	/*
 		-- Search Form
 		--------------------------------------- */
 

@@ -1,9 +1,12 @@
 Version:         3.9.3
-Date:         27/7/18
+Date:         29/7/18
 
+- Implemented Hook System In Common Template Files
 - Fixed Logo Position For Header 1
 - Fixed Mobile Menu
 - Fixed Breadcrumbs Bug On Single Post
+- Fixed Refresh Issue With WooCommerce Cart in Header
+- Various Visual and Function Fixes
 
 
 Version:         3.9.2

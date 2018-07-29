@@ -6499,12 +6499,11 @@ jQuery(function ($) {
 
         // Defining if navigation tree or single dropdown
         this.dropdowns = this.$element.hasClass('dropdown-toggle') ? this.$element.parent().find('.dropdown-menu').parent('.dropdown') : this.$element.find('.dropdown');
-        if (window.outerWidth >= 768) {
+        if (window.outerWidth >= 768 || evolve_js_local_vars.main_menu === '1') {
             this.dropdowns.each(function () {
                 $(this).on('mouseenter.bs.dropdownhover', function (e) {
                     that.show($(this).children('a, button'))
                     e.preventDefault();
-                    console.log($(this).children('a'));
                     $(this).children('a').addClass('clicked');
                 })
             });
@@ -6774,8 +6773,8 @@ jQuery(function ($) {
         function resizeBootstrapSlider() {
             resizeBootstrapSliderFinish();
             finishTime = setTimeout(function () {
-                var height = $('.carousel-inner .active').height();
-                var $innerCarousel = $('.carousel-inner .active').closest('.carousel-inner');
+                var height = $('.carousel-resize .active').height();
+                var $innerCarousel = $('.carousel-resize .active').closest('.carousel-resize');
                 $innerCarousel.animate({
                     height: height
                 });

@@ -1,39 +1,25 @@
 <?php
 
 /*
-   Displays Footer
-   ======================================= */
+    Displays Footer
+    ======================================= */
 
-if ( ( ( is_front_page() ) && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) != 'above' ) || ! is_front_page() ) { ?>
+/*
+    Footer Area
 
-    </div><!-- .row -->
-    </div><!-- .container -->
-    </div><!-- .content -->
+    ---------------------------------------
+    Hooked: evolve_content_container_close() - 10
+            evolve_footer_container_open() - 20
+            evolve_footer_widgets() - 30
+            evolve_custom_footer() - 40
+            evolve_footer_container_close() - 50
+            evolve_back_to_top() - 60
+            evolve_wrapper_container_close() - 70
+    --------------------------------------- */
 
-<?php } ?>
+do_action( 'evolve_footer_area' );
 
-<footer class="footer">
-    <div class="container">
-
-		<?php
-
-		// Load The Footer Widgets If Enabled
-		get_template_part( 'template-parts/footer/footer', 'widgets' );
-
-		evolve_custom_footer(); ?>
-
-    </div><!-- .container -->
-</footer><!-- .footer -->
-
-<?php if ( evolve_theme_mod( 'evl_pos_button', 'right' ) !== "disable" ) { ?>
-
-    <a href="#" id="backtotop" class="btn" role="button">&nbsp;</a>
-
-<?php } ?>
-
-</div><!-- #wrapper -->
-
-<?php wp_footer(); ?>
+wp_footer(); ?>
 
 </body>
 </html>

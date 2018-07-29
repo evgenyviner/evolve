@@ -1,6 +1,115 @@
 <?php
 
 /*
+    Template Functions Definitions
+
+    Table of Contents:
+    - Wrapper Container
+        -- Wrapper Container - Open
+        -- Wrapper Container - Close
+    - Content Container
+        -- Content Container - Open
+        -- Content Container - Close
+    - Primary Container
+        -- Primary Container - Open
+        -- Primary Container - Close
+    - Header Type
+    - Footer Container
+        -- Footer Container - Open
+        -- Footer Container - Close
+    - Sidebars
+    - Pagination
+        -- Pagination Before
+        -- Pagination After
+    - Posts Loop
+        -- Posts Loop Container - Open
+        -- Posts Loop Container - Close
+    - Comments Template
+    - Archive Page Title
+    - SVG Markup For Icons
+    - Truncate Function
+    - Custom Excerpt Length
+    - Get First Image
+    - Function To Change The HEX Color Code
+    - Convert HEX Color Code To RGB(a) With Alpha
+    - Custom Menu Walker
+    - Get BuddyPress Page ID
+    - Function To Print Out CSS Class According To Layout Or Post Meta
+    - Function To Print Out CSS Class According To Sidebar Layout
+    - Function To Print Out CSS Class According To Sidebar-2 Layout
+    - Function To Determine Whether To get_sidebar(), Depending On Theme Options Layout And Post Meta Layout
+    - Function To Determine Whether To get_sidebar(2), Depending On Theme Options Layout And Post Meta Layout
+    - Print Typography
+    - Function To Separate Values
+    - Custom Front Page Builder
+    - Wrapper For Customizer Preview
+    - Custom Function To Return Terms
+
+
+/*
+    Wrapper Container
+    ======================================= */
+
+/*
+    Wrapper Container - Open
+    --------------------------------------- */
+
+if ( ! function_exists( 'evolve_wrapper_container_open' ) ) {
+	function evolve_wrapper_container_open() {
+		echo '<div id="wrapper"' . evolve_wrapper_class() . '>';
+	}
+}
+
+add_action( 'evolve_header_area', 'evolve_wrapper_container_open', 10 );
+
+/*
+    Wrapper Container - Close
+    --------------------------------------- */
+
+if ( ! function_exists( 'evolve_wrapper_container_close' ) ) {
+	function evolve_wrapper_container_close() {
+		echo '</div><!-- #wrapper -->';
+	}
+}
+
+add_action( 'evolve_footer_area', 'evolve_wrapper_container_close', 70 );
+
+/*
+    Content Container
+    ======================================= */
+
+/*
+    Content Container - Open
+    --------------------------------------- */
+
+if ( ! function_exists( 'evolve_content_container_open' ) ) {
+	function evolve_content_container_open() {
+		if ( ( ( is_front_page() ) && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) != 'above' ) || ! is_front_page() ) {
+			echo '<div class="content"><div class="container"><div class="row">';
+
+		}
+	}
+}
+
+add_action( 'evolve_header_area', 'evolve_content_container_open', 70 );
+
+/*
+    Content Container - Close
+    --------------------------------------- */
+
+if ( ! function_exists( 'evolve_content_container_close' ) ) {
+	function evolve_content_container_close() {
+		if ( ( ( is_front_page() ) && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) != 'above' ) || ! is_front_page() ) {
+			echo '</div><!-- .row --></div><!-- .container --></div><!-- .content -->';
+
+		}
+	}
+}
+
+add_action( 'evolve_footer_area', 'evolve_content_container_close', 10 );
+
+
+/*
     Primary Container
     ======================================= */
 
@@ -41,6 +150,53 @@ if ( ! function_exists( 'evolve_primary_container_close' ) ) {
 }
 
 add_action( 'evolve_after_content_area', 'evolve_primary_container_close', 10 );
+
+/*
+    Header Type
+    ======================================= */
+
+if ( ! function_exists( 'evolve_header_type' ) ) {
+	function evolve_header_type() {
+		switch ( evolve_theme_mod( 'evl_header_type', 'none' ) ) {
+			case "none":
+				get_template_part( 'template-parts/header/header', 'v1' );
+				break;
+			case "h1":
+				get_template_part( 'template-parts/header/header', 'v2' );
+				break;
+		}
+	}
+}
+
+add_action( 'evolve_header_area', 'evolve_header_type', 40 );
+
+/*
+    Footer Container
+    ======================================= */
+
+/*
+    Footer Container - Open
+    --------------------------------------- */
+
+if ( ! function_exists( 'evolve_footer_container_open' ) ) {
+	function evolve_footer_container_open() {
+		echo '<footer class="footer"><div class="container">';
+	}
+}
+
+add_action( 'evolve_footer_area', 'evolve_footer_container_open', 20 );
+
+/*
+    Footer Container - Close
+    --------------------------------------- */
+
+if ( ! function_exists( 'evolve_footer_container_close' ) ) {
+	function evolve_footer_container_close() {
+		echo '</div><!-- .container --></footer><!-- .footer -->';
+	}
+}
+
+add_action( 'evolve_footer_area', 'evolve_footer_container_close', 50 );
 
 /*
     Sidebars
@@ -1372,7 +1528,7 @@ if ( ! function_exists( 'evolve_wrapper_class' ) ) {
 		}
 		if ( ( ( is_front_page() && is_page() || is_home() ) && evolve_theme_mod( 'evl_frontpage_width_layout', 'fixed' ) == "fluid" ) || ( ( ! is_home() && ! is_front_page() ) && evolve_theme_mod( 'evl_width_layout', 'fixed' ) == "fluid" ) ) {
 		} else {
-			echo "class='wrapper-customizer'";
+			return "class='wrapper-customizer'";
 		}
 	}
 }

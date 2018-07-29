@@ -334,6 +334,12 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 			'theme_url' => get_template_directory_uri(),
 		);
 
+		// Responsive Menu Layout
+
+		if ( evolve_theme_mod( 'evl_responsive_menu_layout', 'dropdown' ) == 'dropdown' ) {
+			$local_variables['main_menu'] = true;
+		}
+
 		// Sticky Header
 
 		if ( evolve_theme_mod( 'evl_sticky_header', '1' ) == '1' ) {

@@ -4457,7 +4457,7 @@ if ( true || is_customize_preview() ) {
 			'type'            => "textarea",
 			"rows"            => 3,
 			'required'        => array( array( "{$evolve_shortname}_bootstrap_slide{$i}", '=', '1' ) ),
-			'selector'        => "#bootstrap-slider .item-{$i} .carousel-caption a",
+			'selector'        => "#bootstrap-slider .item-{$i} .carousel-caption .bootstrap-button",
 			'render_callback' => "{$evolve_shortname}_bootstrap_slide{$i}_button"
 		);
 	}
@@ -4646,27 +4646,33 @@ if ( true || is_customize_preview() ) {
 		);
 
 		$fields[] = array(
-			'id'       => "{$evolve_shortname}_slide{$i}_title",
-			'title'    => sprintf( esc_attr__( 'Slide %s Title', 'evolve' ), $i ),
-			'subtitle' => "",
-			'type'     => "text",
-			'required' => array( array( "{$evolve_shortname}_show_slide{$i}", '=', '1' ) )
+			'id'              => "{$evolve_shortname}_slide{$i}_title",
+			'title'           => sprintf( esc_attr__( 'Slide %s Title', 'evolve' ), $i ),
+			'subtitle'        => "",
+			'type'            => "text",
+			'selector'        => "#parallax-slider .item-{$i} h5",
+			'render_callback' => "{$evolve_shortname}_slide{$i}_title",
+			'required'        => array( array( "{$evolve_shortname}_show_slide{$i}", '=', '1' ) )
 		);
 
 		$fields[] = array(
-			'id'       => "{$evolve_shortname}_slide{$i}_desc",
-			'title'    => sprintf( esc_attr__( 'Slide %s Description', 'evolve' ), $i ),
-			'subtitle' => "",
-			'type'     => "textarea",
-			'required' => array( array( "{$evolve_shortname}_show_slide{$i}", '=', '1' ) )
+			'id'              => "{$evolve_shortname}_slide{$i}_desc",
+			'title'           => sprintf( esc_attr__( 'Slide %s Description', 'evolve' ), $i ),
+			'subtitle'        => "",
+			'type'            => "textarea",
+			'selector'        => "#parallax-slider .item-{$i} .carousel-caption p",
+			'render_callback' => "{$evolve_shortname}_slide{$i}_desc",
+			'required'        => array( array( "{$evolve_shortname}_show_slide{$i}", '=', '1' ) )
 		);
 
 		$fields[] = array(
-			'id'       => "{$evolve_shortname}_slide{$i}_button",
-			'title'    => sprintf( esc_attr__( 'Slide %s Button', 'evolve' ), $i ),
-			'subtitle' => sprintf( esc_attr__( 'Default: %1$s<a class="btn d-none d-sm-inline-block" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
-			'type'     => "textarea",
-			'required' => array( array( "{$evolve_shortname}_show_slide{$i}", '=', '1' ) )
+			'id'              => "{$evolve_shortname}_slide{$i}_button",
+			'title'           => sprintf( esc_attr__( 'Slide %s Button', 'evolve' ), $i ),
+			'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn d-none d-sm-inline-block" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
+			'type'            => "textarea",
+			'selector'        => "#parallax-slider .item-{$i} .carousel-caption .parallax-button",
+			'render_callback' => "{$evolve_shortname}_slide{$i}_button",
+			'required'        => array( array( "{$evolve_shortname}_show_slide{$i}", '=', '1' ) )
 		);
 	}
 
