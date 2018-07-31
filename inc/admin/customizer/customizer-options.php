@@ -91,7 +91,7 @@ class evolve_Kirki {
 	}
 
 	static function evl_call_kirki_from_old_field( $array_items, $section = 'kirki_frontpage-content-boxes-tab', $setting = 'kirki_evolve_options' ) {
-		global $name_of_panel, $evolve_all_customize_fields, $evolve_index_control, $evolve_list_google_fonts;
+		global $evolve_all_customize_fields, $evolve_list_google_fonts;
 		foreach ( $array_items as $value ) {
 			if (
 				isset( $value['type'] ) && (
@@ -784,7 +784,7 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.content-box.content-box-1 i',
+							'element'  => '.content-box.content-box-1 [class*=" fa-"]',
 							'function' => 'css',
 							'property' => 'color'
 						)
@@ -863,7 +863,7 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.content-box.content-box-2 i',
+							'element'  => '.content-box.content-box-2 [class*=" fa-"]',
 							'function' => 'css',
 							'property' => 'color'
 						)
@@ -942,7 +942,7 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.content-box.content-box-3 i',
+							'element'  => '.content-box.content-box-3 [class*=" fa-"]',
 							'function' => 'css',
 							'property' => 'color'
 						)
@@ -1021,7 +1021,7 @@ if ( true || is_customize_preview() ) {
 					'transport' => 'postMessage',
 					'js_vars'   => array(
 						array(
-							'element'  => '.content-box.content-box-4 i',
+							'element'  => '.content-box.content-box-4 [class*=" fa-"]',
 							'function' => 'css',
 							'property' => 'color'
 						)
@@ -5562,7 +5562,7 @@ if ( $evolve_all_customize_fields === false ) {
 }
 
 if ( ! is_customize_preview() ) {
-	add_action( 'wp_enqueue_scripts', 'evolve_enqueue_frontend_scripts' );
+	add_action( 'get_footer', 'evolve_enqueue_frontend_scripts' );
 }
 
 function evolve_enqueue_frontend_scripts() {

@@ -581,16 +581,16 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			$css_data .= ' .home-content-boxes {' . $home_content_boxes_css_data . ' }';
 
 			if ( $content_box1_icon_color ) {
-				$css_data .= ' .content-box-1 i { color: ' . $content_box1_icon_color . '; }';
+				$css_data .= ' .content-box-1 [class*=" fa-"] { color: ' . $content_box1_icon_color . '; }';
 			}
 			if ( $content_box2_icon_color ) {
-				$css_data .= ' .content-box-2 i { color: ' . $content_box2_icon_color . '; }';
+				$css_data .= ' .content-box-2 [class*=" fa-"] { color: ' . $content_box2_icon_color . '; }';
 			}
 			if ( $content_box3_icon_color ) {
-				$css_data .= ' .content-box-3 i { color: ' . $content_box3_icon_color . '; }';
+				$css_data .= ' .content-box-3 [class*=" fa-"] { color: ' . $content_box3_icon_color . '; }';
 			}
 			if ( $content_box4_icon_color ) {
-				$css_data .= ' .content-box-4 i { color: ' . $content_box4_icon_color . '; }';
+				$css_data .= ' .content-box-4 [class*=" fa-"] { color: ' . $content_box4_icon_color . '; }';
 			}
 
 			/*

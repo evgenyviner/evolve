@@ -85,8 +85,7 @@ if ( ! function_exists( 'evolve_header_search' ) ) {
 				$class = '';
 		} ?>
 
-        <form action="<?php echo home_url(); ?>" method="get"
-              class="header-search search-form<?php echo $class; ?>">
+        <form action="<?php echo home_url(); ?>" method="get" class="header-search search-form<?php echo $class; ?>">
             <label>
                 <input type="text" tabindex="1" name="s" class="form-control"
                        placeholder="<?php esc_html_e( 'Type your search', 'evolve' ); ?>"/>
@@ -94,7 +93,6 @@ if ( ! function_exists( 'evolve_header_search' ) ) {
 				<?php echo evolve_get_svg( 'search' ); ?>
 
             </label>
-
         </form>
 
 		<?php
@@ -119,35 +117,25 @@ if ( ! function_exists( 'evolve_sticky_header_open' ) ) {
         <div class="sticky-header">
             <div class="container">
                 <div class="row align-items-center">
-
 					<?php if ( evolve_theme_mod( 'evl_blog_title', '0' ) != '1' && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' && '' != ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) { ?>
                     <div class="col-auto">
                         <div class="row align-items-center">
-							<?php } ?>
-
-							<?php if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
-
+							<?php }
+							if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "disable" ) {
 							} else {
-
 								if ( evolve_theme_mod( 'evl_header_logo', '' ) ) {
-									echo "<div class='" . ( ( evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) ? 'col-auto' : 'col-auto pr-0' ) . "'><a href=" . home_url() . "><img src=" . evolve_theme_mod( 'evl_header_logo', '' ) . "  alt=" . get_bloginfo( 'name' ) . "/></a></div>";
+									echo '<div class="' . ( ( evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) ? 'col-auto' : 'col-auto pr-0' ) . '"><a href="' . home_url() . '"><img src="' . evolve_theme_mod( 'evl_header_logo', '' ) . '" alt="' . get_bloginfo( 'name' ) . '" /></a></div>';
 								}
 							}
-
 							if ( evolve_theme_mod( 'evl_blog_title', '0' ) == "0" ) { ?>
-
                                 <div class="<?php echo( '' != ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" ) ? 'col-auto pr-0' : 'col-auto' ) ?>">
-                                    <a id="sticky-title"
-                                       href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
+                                    <a id="sticky-title" href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
                                 </div>
-
-							<?php } ?>
-
-							<?php if ( evolve_theme_mod( 'evl_blog_title', '0' ) != '1' && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' && '' != ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) { ?>
+							<?php }
+							if ( evolve_theme_mod( 'evl_blog_title', '0' ) != '1' && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' && '' != ( evolve_theme_mod( 'evl_header_logo', '' ) ) ) { ?>
                         </div>
                     </div>
 				<?php }
-
 				if ( has_nav_menu( 'sticky_navigation' ) ) {
 					echo '<nav class="navbar navbar-expand-md col' . ( ( ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == 'disable' && evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) || evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) ? " pl-0" : "" ) . '">
                                 <div class="navbar-toggler" data-toggle="collapse" data-target="#sticky-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">

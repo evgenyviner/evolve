@@ -1,39 +1,41 @@
 /* global fontAwesomeJSON */
-wp.customize.controlConstructor['kirki-fontawesome'] = wp.customize.kirkiDynamicControl.extend( {
+wp.customize.controlConstructor['kirki-fontawesome'] = wp.customize.kirkiDynamicControl.extend({
 
-	initKirkiControl: function() {
+    initKirkiControl: function () {
 
-		var control  = this,
-			element  = this.container.find( 'select' ),
-			icons    = jQuery.parseJSON( fontAwesomeJSON ),
-			selectValue,
-			selectWooOptions = {
-				data: [],
-				escapeMarkup: function( markup ) {
-					return markup;
-				},
-				templateResult: function( val ) {
-					return '<i class="fa fa-lg fa-' + val.id + '" aria-hidden="true"></i>' + ' ' + val.text;
-				},
-				templateSelection: function( val ) {
-					return '<i class="fa fa-lg fa-' + val.id + '" aria-hidden="true"></i>' + ' ' + val.text;
-				}
-			},
-			select;
+        var control = this,
+            element = this.container.find('select'),
+            icons = jQuery.parseJSON(fontAwesomeJSON),
+            selectValue,
+            selectWooOptions = {
+                data: [],
+                escapeMarkup: function (markup) {
+                    return markup;
+                },
+                templateResult: function (val) {
+                    // evolve customization
+                    return '<i class="' + val.styles + ' fa-' + val.id + '" aria-hidden="true"></i>' + ' ' + val.text;
+                },
+                templateSelection: function (val) {
+                    return '<i class="' + val.styles + ' fa-' + val.id + '" aria-hidden="true"></i>' + ' ' + val.text;
+                }
+            },
+            select;
 
-		_.each( icons.icons, function( icon ) {
-			selectWooOptions.data.push( {
-				id: icon.id,
-				text: icon.name
-			} );
-		} );
+        _.each(icons.icons, function (icon) {
+            selectWooOptions.data.push({
+                id: icon.id,
+                text: icon.name,
+                styles: icon.styles
+            });
+        });
 
-		select = jQuery( element ).selectWoo( selectWooOptions );
+        select = jQuery(element).selectWoo(selectWooOptions);
 
-		select.on( 'change', function() {
-			selectValue = jQuery( this ).val();
-			control.setting.set( selectValue );
-		} );
-		select.val( control.setting._value ).trigger( 'change' );
-	}
-} );
+        select.on('change', function () {
+            selectValue = jQuery(this).val();
+            control.setting.set(selectValue);
+        });
+        select.val(control.setting._value).trigger('change');
+    }
+});

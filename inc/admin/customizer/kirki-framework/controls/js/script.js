@@ -1856,10 +1856,11 @@ wp.customize.controlConstructor['kirki-fontawesome'] = wp.customize.kirkiDynamic
                     return markup;
                 },
                 templateResult: function (val) {
-                    return '<i class="fa fa-lg fa-' + val.id + '" aria-hidden="true"></i>' + ' ' + val.text;
+                    // evolve customization
+                    return '<i class="' + val.styles + ' fa-' + val.id + '" aria-hidden="true"></i>' + ' ' + val.text;
                 },
                 templateSelection: function (val) {
-                    return '<i class="fa fa-lg fa-' + val.id + '" aria-hidden="true"></i>' + ' ' + val.text;
+                    return '<i class="' + val.styles + ' fa-' + val.id + '" aria-hidden="true"></i>' + ' ' + val.text;
                 }
             },
             select;
@@ -1867,7 +1868,8 @@ wp.customize.controlConstructor['kirki-fontawesome'] = wp.customize.kirkiDynamic
         _.each(icons.icons, function (icon) {
             selectWooOptions.data.push({
                 id: icon.id,
-                text: icon.name
+                text: icon.name,
+                styles: icon.styles
             });
         });
 
