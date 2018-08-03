@@ -1145,13 +1145,13 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			if ( $width_px && ( $frontpage_width_layout == "fixed" ) ) {
 				$css_data .= ' .container, #wrapper { width: 100%; max-width: ' . $width_px . 'px; }';
 			} else {
-				$css_data .= ' .container { width: 100%; max-width: ' . $width_px . 'px; } .header-block .container:first-child { width: 100%; padding-left: 0; padding-right: 0; }';
+				$css_data .= ' .container { width: 100%; max-width: ' . $width_px . 'px; } .header-block .container:first-child { width: 100%; }';
 			}
 		} else {
 			if ( $width_px && ( $width_layout == "fixed" ) ) {
 				$css_data .= ' .container, #wrapper { width: 100%; max-width: ' . $width_px . 'px; }';
 			} else {
-				$css_data .= ' .container { width: 100%; max-width: ' . $width_px . 'px; } .header-block .container:first-child { width: 100%; padding-left: 0; padding-right: 0; }';
+				$css_data .= ' .container { width: 100%; max-width: ' . $width_px . 'px; } .header-block .container:first-child { width: 100%; }';
 			}
 		}
 		$css_data .= '}';

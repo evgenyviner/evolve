@@ -50,9 +50,9 @@ if ( post_password_required() ) {
 
 					<?php if ( comments_open() ) :
 						// If comments are open, but there are no comments.
-						echo '<h3 class="no-comment mb-0">';
+						echo '<h5 class="no-comment mb-0">';
 						_e( 'No Comments Yet', 'evolve' );
-						echo '</h3>';
+						echo '</h5>';
 					endif; ?>
 
                 </div><!-- .col-auto -->

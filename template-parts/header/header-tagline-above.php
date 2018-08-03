@@ -22,7 +22,7 @@ if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_log
 		$evolve_helper_tagline_class_1 = '<div class="col-12 order-3">';
 	}
 	if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "left" ) {
-		$evolve_helper_tagline_class_1 = '<div class="col order-2">';
+		$evolve_helper_tagline_class_1 = '<div class="col col-lg-auto order-2">';
 	}
 	if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "right" ) {
 		$evolve_helper_tagline_class_1 = '<div class="col-md-6 col-sm-12 order-3 order-md-2">';

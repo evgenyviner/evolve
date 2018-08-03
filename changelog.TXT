@@ -1,3 +1,10 @@
+Version:         3.9.4
+
+- Updated Font Awesome To Version 5.2.0
+- Fixed Website Width Layout Issue
+- Fixed Hide Page/Post Title Per Page/Post
+
+
 Version:         3.9.3
 Date:         29/7/18
 

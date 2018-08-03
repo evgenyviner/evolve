@@ -19,9 +19,6 @@ class evolve_ThemeFrameworkMetaboxes {
         if (is_admin() && ($pagenow == 'post-new.php' || $pagenow == 'post.php')) {
             wp_register_script('evolve_upload', get_template_directory_uri() . '/assets/js/upload.min.js');
             wp_enqueue_script('evolve_upload');
-            wp_enqueue_script('media-upload');
-            wp_enqueue_script('thickbox');
-            wp_enqueue_style('thickbox');
         }
     }
 

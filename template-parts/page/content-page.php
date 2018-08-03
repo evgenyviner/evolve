@@ -8,11 +8,11 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php
-
-	if ( class_exists( 'bbPress' ) && ( bbp_is_reply_edit() || bbp_is_topic_edit() ) ) {
+	<?php if ( class_exists( 'bbPress' ) && ( bbp_is_reply_edit() || bbp_is_topic_edit() ) ) {
 	} else {
-		the_title( '<h1 class="post-title">', '</h1>' );
+		if ( is_page() && get_post_meta( $post->ID, 'evolve_page_title', true ) == "yes" ) {
+			the_title( '<h1 class="post-title">', '</h1>' );
+		}
 	}
 
 	if ( evolve_theme_mod( 'evl_edit_post', '0' ) == "1" ) {
