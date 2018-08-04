@@ -222,7 +222,7 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 add_filter( 'woocommerce_breadcrumb_defaults', 'evolve_woocommerce_breadcrumbs' );
 function evolve_woocommerce_breadcrumbs() {
 	return array(
-		'wrap_before' => '<nav aria-label="breadcrumb"><ol class="breadcrumb">',
+		'wrap_before' => '<nav aria-label="' . __( "Breadcrumb", "evolve" ) . '"><ol class="breadcrumb">',
 		'wrap_after'  => '</ol></nav>',
 		'before'      => '<li class="breadcrumb-item">',
 		'after'       => '</li>',
@@ -2092,7 +2092,7 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
 
                     <div class="navbar-toggler woocommerce-toggler" data-toggle="collapse"
                          data-target="#woocommerce-menu"
-                         aria-controls="woocommerce-menu" aria-expanded="false" aria-label="Toggle navigation">
+                         aria-controls="woocommerce-menu" aria-expanded="false" aria-label="<?php _e( "Cart", "evolve" ); ?>">
 
 						<?php if ( evolve_theme_mod( 'evl_woocommerce_cart_link_main_nav', 0 ) ):
 							echo evolve_get_svg( 'shop' );

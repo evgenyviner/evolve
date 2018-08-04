@@ -4514,6 +4514,15 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
+					'id'       => 'evl-bootstrap-slider-content',
+					'title'    => esc_attr__( 'Bootstrap Slider Title and Description Font', 'evolve' ),
+					'type'     => 'info',
+					'indent'   => true,
+					'required' => array(
+						array( 'evl_bootstrap_slider_support', '=', '1' )
+					)
+				),
+				array(
 					'id'          => 'evl_bootstrap_slide_title_font',
 					'title'       => esc_attr__( 'Slide Title Font', 'evolve' ),
 					'subtitle'    => esc_attr__( 'Select the typography you want for the slide title', 'evolve' ),
@@ -4598,8 +4607,58 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
+					'id'       => 'evl-bootstrap-slider-responsiveness',
+					'title'    => esc_attr__( 'Bootstrap Slider Content Responsiveness', 'evolve' ),
+					'type'     => 'info',
+					'indent'   => true,
+					'required' => array(
+						array( 'evl_bootstrap_slider_support', '=', '1' )
+					)
+				),
+				array(
+					'id'       => 'evl_bootstrap_slide_title_font_responsive',
+					'title'    => esc_attr__( 'Slide Title Visibility', 'evolve' ),
+					'subtitle' => esc_attr__( 'Choose the MINIMUM screen resolution where the slide title will be visible', 'evolve' ),
+					'type'     => 'select',
+					'options'  => array(
+						'always'  => esc_attr__( 'Always', 'evolve' ),
+						'desktop' => esc_attr__( 'Desktop ( >= 992px ) ', 'evolve' ),
+						'tablet'  => esc_attr__( 'Tablet ( >= 768px )', 'evolve' ),
+						'phone'   => esc_attr__( 'Phone ( >= 576px )', 'evolve' )
+					),
+					'default'  => 'always',
+					'required' => array(
+						array( 'evl_bootstrap_slider_support', '=', '1' )
+					)
+				),
+				array(
+					'id'       => 'evl_bootstrap_slide_content_font_rgba_responsive',
+					'title'    => esc_attr__( 'Slide Title and Description Font Background Color Visibility (If Set)', 'evolve' ),
+					'subtitle' => esc_attr__( 'Choose the MAXIMUM screen resolution where the slide title and description background color will be visible', 'evolve' ),
+					'type'     => 'select',
+					'options'  => array(
+						'always'  => esc_attr__( 'Always', 'evolve' ),
+						'desktop' => esc_attr__( 'Smaller Than Desktop ( <= 992px ) ', 'evolve' ),
+						'tablet'  => esc_attr__( 'Tablet And Smaller ( <= 768px )', 'evolve' ),
+						'phone'   => esc_attr__( 'Phone And Smaller ( <= 576px )', 'evolve' )
+					),
+					'default'  => 'always',
+					'required' => array(
+						array( 'evl_bootstrap_slider_support', '=', '1' )
+					)
+				),
+				array(
+					'id'       => 'evl-bootstrap-slider-layout',
+					'title'    => esc_attr__( 'Bootstrap Slider Layout', 'evolve' ),
+					'type'     => 'info',
+					'indent'   => true,
+					'required' => array(
+						array( 'evl_bootstrap_slider_support', '=', '1' )
+					)
+				),
+				array(
 					'id'       => 'evl_bootstrap_layout',
-					'title'    => esc_attr__( 'Choose Bootstrap Layout Type', 'evolve' ),
+					'title'    => esc_attr__( 'Choose Bootstrap Slider Layout Type', 'evolve' ),
 					'subtitle' => esc_attr__( 'Choose your Bootstrap Slider layout style', 'evolve' ),
 					'type'     => 'image_select',
 					'options'  => array(
@@ -4719,6 +4778,15 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
+					'id'       => 'evl-parallax-slider-content',
+					'title'    => esc_attr__( 'Parallax Slider Title and Description Font', 'evolve' ),
+					'type'     => 'info',
+					'indent'   => true,
+					'required' => array(
+						array( 'evl_parallax_slider_support', '=', '1' )
+					)
+				),
+				array(
 					'id'          => 'evl_parallax_slide_title_font',
 					'title'       => esc_attr__( 'Slide Title Font', 'evolve' ),
 					'subtitle'    => esc_attr__( 'Select the typography you want for the slide title', 'evolve' ),
@@ -4732,7 +4800,31 @@ if ( true || is_customize_preview() ) {
 						'color'       => '#ffffff',
 						'font-style'  => ''
 					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '#parallax-slider .carousel-caption h5'
+						)
+					),
 					'required'    => array(
+						array( 'evl_parallax_slider_support', '=', '1' )
+					)
+				),
+				array(
+					'id'        => 'evl_parallax_slide_title_font_rgba',
+					'title'     => esc_attr__( 'Slide Title Font Background Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select the background color for the slide title', 'evolve' ),
+					'type'      => 'color_rgba',
+					'default'   => '',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '#parallax-slider .carousel-caption h5',
+							'function' => 'css',
+							'property' => 'background'
+						)
+					),
+					'required'  => array(
 						array( 'evl_parallax_slider_support', '=', '1' )
 					)
 				),
@@ -4750,10 +4842,75 @@ if ( true || is_customize_preview() ) {
 						'color'       => '#ffffff',
 						'font-style'  => ''
 					),
+					'transport'   => 'postMessage',
+					'js_vars'     => array(
+						array(
+							'element' => '#parallax-slider .carousel-caption p'
+						)
+					),
 					'required'    => array(
 						array( 'evl_parallax_slider_support', '=', '1' )
 					)
-				)
+				),
+				array(
+					'id'        => 'evl_parallax_slide_subtitle_font_rgba',
+					'title'     => esc_attr__( 'Slide Description Font Background Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select the background color for the slide description', 'evolve' ),
+					'type'      => 'color_rgba',
+					'default'   => '',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '#parallax-slider .carousel-caption p',
+							'function' => 'css',
+							'property' => 'background'
+						)
+					),
+					'required'  => array(
+						array( 'evl_parallax_slider_support', '=', '1' )
+					)
+				),
+				array(
+					'id'       => 'evl-parallax-slider-responsiveness',
+					'title'    => esc_attr__( 'Parallax Slider Content Responsiveness', 'evolve' ),
+					'type'     => 'info',
+					'indent'   => true,
+					'required' => array(
+						array( 'evl_parallax_slider_support', '=', '1' )
+					)
+				),
+				array(
+					'id'       => 'evl_parallax_slide_title_font_responsive',
+					'title'    => esc_attr__( 'Slide Title Visibility', 'evolve' ),
+					'subtitle' => esc_attr__( 'Choose the MINIMUM screen resolution where the slide title will be visible', 'evolve' ),
+					'type'     => 'select',
+					'options'  => array(
+						'always'  => esc_attr__( 'Always', 'evolve' ),
+						'desktop' => esc_attr__( 'Desktop ( >= 992px ) ', 'evolve' ),
+						'tablet'  => esc_attr__( 'Tablet ( >= 768px )', 'evolve' ),
+						'phone'   => esc_attr__( 'Phone ( >= 576px )', 'evolve' )
+					),
+					'default'  => 'always',
+					'required' => array(
+						array( 'evl_parallax_slider_support', '=', '1' )
+					)
+				),
+				array(
+					'id'       => 'evl_parallax_slide_content_font_rgba_responsive',
+					'title'    => esc_attr__( 'Slide Title and Description Font Background Color Visibility (If Set)', 'evolve' ),
+					'subtitle' => esc_attr__( 'Choose the MAXIMUM screen resolution where the slide title and description background color will be visible', 'evolve' ),
+					'type'     => 'select',
+					'options'  => array(
+						'always'  => esc_attr__( 'Always', 'evolve' ),
+						'desktop' => esc_attr__( 'Smaller Than Desktop ( <= 992px ) ', 'evolve' ),
+						'tablet'  => esc_attr__( 'Tablet And Smaller ( <= 768px )', 'evolve' ),
+						'phone'   => esc_attr__( 'Phone And Smaller ( <= 576px )', 'evolve' )
+					),
+					'default'  => 'always',
+					'required' => array(
+						array( 'evl_parallax_slider_support', '=', '1' )
+					)
+				),
 			)
 		)
 	);
@@ -4839,7 +4996,7 @@ if ( true || is_customize_preview() ) {
 				),
 				array(
 					'id'       => 'evl_posts_slider_title_length',
-					'title'    => esc_attr__( 'Slide Title Length', 'evolve' ),
+					'title'    => esc_attr__( 'Slide Title Max Length', 'evolve' ),
 					'subtitle' => esc_attr__( 'Sets the length of Slide Title. Default is 40', 'evolve' ),
 					'type'     => 'slider',
 					'min'      => '0',
@@ -4851,12 +5008,21 @@ if ( true || is_customize_preview() ) {
 				),
 				array(
 					'id'       => 'evl_posts_slider_excerpt_length',
-					'title'    => esc_attr__( 'Slide Excerpt Length', 'evolve' ),
+					'title'    => esc_attr__( 'Slide Excerpt Max Length', 'evolve' ),
 					'subtitle' => esc_attr__( 'Sets the length of Slide Excerpt. Default is 40', 'evolve' ),
 					'type'     => 'slider',
 					'min'      => '0',
 					'max'      => '100',
 					'default'  => '40',
+					'required' => array(
+						array( 'evl_carousel_slider', '=', '1' )
+					)
+				),
+				array(
+					'id'       => 'evl-carousel-slider-content',
+					'title'    => esc_attr__( 'Posts Slider Title and Description Font', 'evolve' ),
+					'type'     => 'info',
+					'indent'   => true,
 					'required' => array(
 						array( 'evl_carousel_slider', '=', '1' )
 					)
@@ -4886,6 +5052,24 @@ if ( true || is_customize_preview() ) {
 					)
 				),
 				array(
+					'id'        => 'evl_carousel_slide_title_font_rgba',
+					'title'     => esc_attr__( 'Slide Title Font Background Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select the background color for the slide title', 'evolve' ),
+					'type'      => 'color_rgba',
+					'default'   => '',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '#posts-slider .carousel-caption h5',
+							'function' => 'css',
+							'property' => 'background'
+						)
+					),
+					'required'  => array(
+						array( 'evl_parallax_slider_support', '=', '1' )
+					)
+				),
+				array(
 					'id'          => 'evl_carousel_slide_subtitle_font',
 					'title'       => esc_attr__( 'Slide Description Font', 'evolve' ),
 					'subtitle'    => esc_attr__( 'Select the typography you want for the slide description', 'evolve' ),
@@ -4906,6 +5090,65 @@ if ( true || is_customize_preview() ) {
 						)
 					),
 					'required'    => array(
+						array( 'evl_carousel_slider', '=', '1' )
+					)
+				),
+				array(
+					'id'        => 'evl_carousel_slide_subtitle_font_rgba',
+					'title'     => esc_attr__( 'Slide Description Font Background Color', 'evolve' ),
+					'subtitle'  => esc_attr__( 'Select the background color for the slide description', 'evolve' ),
+					'type'      => 'color_rgba',
+					'default'   => '',
+					'transport' => 'postMessage',
+					'js_vars'   => array(
+						array(
+							'element'  => '#posts-slider .carousel-caption p',
+							'function' => 'css',
+							'property' => 'background'
+						)
+					),
+					'required'  => array(
+						array( 'evl_parallax_slider_support', '=', '1' )
+					)
+				),
+				array(
+					'id'       => 'evl-carousel-slider-responsiveness',
+					'title'    => esc_attr__( 'Posts Slider Content Responsiveness', 'evolve' ),
+					'type'     => 'info',
+					'indent'   => true,
+					'required' => array(
+						array( 'evl_carousel_slider', '=', '1' )
+					)
+				),
+				array(
+					'id'       => 'evl_carousel_slide_title_font_responsive',
+					'title'    => esc_attr__( 'Slide Title Visibility', 'evolve' ),
+					'subtitle' => esc_attr__( 'Choose the MINIMUM screen resolution where the slide title will be visible', 'evolve' ),
+					'type'     => 'select',
+					'options'  => array(
+						'always'  => esc_attr__( 'Always', 'evolve' ),
+						'desktop' => esc_attr__( 'Desktop ( >= 992px ) ', 'evolve' ),
+						'tablet'  => esc_attr__( 'Tablet ( >= 768px )', 'evolve' ),
+						'phone'   => esc_attr__( 'Phone ( >= 576px )', 'evolve' )
+					),
+					'default'  => 'always',
+					'required' => array(
+						array( 'evl_carousel_slider', '=', '1' )
+					)
+				),
+				array(
+					'id'       => 'evl_carousel_slide_content_font_rgba_responsive',
+					'title'    => esc_attr__( 'Slide Title and Description Font Background Color Visibility (If Set)', 'evolve' ),
+					'subtitle' => esc_attr__( 'Choose the MAXIMUM screen resolution where the slide title and description background color will be visible', 'evolve' ),
+					'type'     => 'select',
+					'options'  => array(
+						'always'  => esc_attr__( 'Always', 'evolve' ),
+						'desktop' => esc_attr__( 'Smaller Than Desktop ( <= 992px ) ', 'evolve' ),
+						'tablet'  => esc_attr__( 'Tablet And Smaller ( <= 768px )', 'evolve' ),
+						'phone'   => esc_attr__( 'Phone And Smaller ( <= 576px )', 'evolve' )
+					),
+					'default'  => 'always',
+					'required' => array(
 						array( 'evl_carousel_slider', '=', '1' )
 					)
 				)

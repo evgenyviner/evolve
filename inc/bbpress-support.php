@@ -39,7 +39,7 @@ function evolve_bbpress_breadcrumb() {
 	}
 
 	// HTML
-	$args['before'] = '<nav aria-label="breadcrumb"><ol class="breadcrumb">';
+	$args['before'] = '<nav aria-label="' . __( "Breadcrumb", "evolve" ) . '"><ol class="breadcrumb">';
 	$args['after']  = '</ol></nav>';
 
 	// Home - default = true

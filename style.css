@@ -84,20 +84,12 @@ Table of Contents:
 }
 
 .screen-reader-text:focus {
-    background-color: #f1f1f1;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-    -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-    clip: auto !important;
-    color: #21759b;
+    clip: auto;
     display: block;
     font-size: 1rem;
     font-weight: 700;
     height: auto;
     left: 5px;
-    line-height: normal;
-    padding: 15px 23px 14px;
     text-decoration: none;
     top: 5px;
     width: auto;
@@ -385,8 +377,7 @@ body {
     position: relative;
 }
 
-.footer::before,
-.footer::after {
+.footer::before {
     border-radius: 100px / 10px;
     bottom: 0;
     content: "";
@@ -395,14 +386,6 @@ body {
     right: 30px;
     top: 50%;
     z-index: -1;
-}
-
-.footer::after {
-    left: auto;
-    right: 10px;
-    transform: skew(8deg) rotate(3deg);
-    -ms-transform: skew(8deg) rotate(3deg);
-    -webkit-transform: skew(8deg) rotate(3deg);
 }
 
 #copyright {
@@ -920,8 +903,7 @@ video {
     z-index: 0;
 }
 
-.widget::before,
-.widget::after {
+.widget::before {
     border-radius: 100px / 10px;
     bottom: 0;
     content: "";
@@ -930,14 +912,6 @@ video {
     right: 10px;
     top: 50%;
     z-index: -1;
-}
-
-.widget::after {
-    left: auto;
-    right: 10px;
-    transform: skew(8deg) rotate(3deg);
-    -ms-transform: skew(8deg) rotate(3deg);
-    -webkit-transform: skew(8deg) rotate(3deg);
 }
 
 .widget a {
@@ -1432,6 +1406,12 @@ thead th {
     width: 8px;
 }
 
+#bootstrap-slider .carousel-caption h5,
+#parallax-slider .carousel-caption h5,
+#posts-slider .carousel-caption h5 {
+    display: none;
+}
+
 #parallax-slider .carousel-caption h5 {
     animation-delay: .2s;
     -webkit-animation-delay: .2s;
@@ -1717,11 +1697,12 @@ h3.no-content {
     vertical-align: middle;
 }
 
-.counter-circle .fa {
-    display: block;
-    font-size: 50px;
+.counter-circle [class*=" fa-"] {
+    filter: drop-shadow(3px 3px 0 rgba(0, 0, 0, .05));
+    -webkit-filter: drop-shadow(3px 3px 0 rgba(0, 0, 0, .05));
+    height: 50px;
     margin-bottom: 1rem;
-    text-shadow: 3px 3px 0 rgba(0, 0, 0, .05);
+    width: 50px;
 }
 
 .counter-circle-text {

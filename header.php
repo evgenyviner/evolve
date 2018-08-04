@@ -14,6 +14,8 @@
     </head>
 <body <?php body_class(); ?>>
 
+<a class="btn screen-reader-text sr-only sr-only-focusable" href="#primary"><?php _e( 'Skip to main content', 'evolve' ); ?></a>
+
 <?php
 
 /*

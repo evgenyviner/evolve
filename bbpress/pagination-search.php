@@ -13,7 +13,7 @@ if ( ! bbp_get_search_pagination_links() ) {
 
     <div class="row">
         <div class="col-md-6">
-            <nav aria-label="navigation" class="navigation">
+            <nav aria-label="<?php _e( "Navigation", "evolve" ); ?>" class="navigation">
 
 				<?php bbp_search_pagination_links(); ?>
 

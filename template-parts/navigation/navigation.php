@@ -6,7 +6,7 @@
 
 ?>
 
-<nav aria-label="navigation"
+<nav aria-label="<?php _e( "Navigation", "evolve" ); ?>"
      class="<?php if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "number_pagination" || ( is_single() && ! is_singular( array(
 			     'page',
 			     'attachment'

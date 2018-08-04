@@ -102,7 +102,7 @@ function evolve_comment_navigation( $fragment_type ) {
 		$output          .= $individual_page;
 	}
 
-	echo '<nav aria-label="navigation" class="navigation mb-5"><ul class="pagination justify-content-center">' . $output . '</ul></nav>';
+	echo '<nav aria-label="' . __( "Comments", "evolve" ) . '" class="navigation mb-5"><ul class="pagination justify-content-center">' . $output . '</ul></nav>';
 }
 
 /*

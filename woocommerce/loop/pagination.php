@@ -25,7 +25,7 @@ if ( $total <= 1 ) {
 }
 ?>
 
-<nav aria-label="navigation" class="navigation">
+<nav aria-label="<?php _e( "Pages", "evolve" ); ?>" class="navigation">
 
 	<?php evolve_number_pagination(); ?>
 

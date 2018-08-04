@@ -87,7 +87,7 @@ if ( ! function_exists( 'evolve_header_search' ) ) {
 
         <form action="<?php echo home_url(); ?>" method="get" class="header-search search-form<?php echo $class; ?>">
             <label>
-                <input type="text" tabindex="1" name="s" class="form-control"
+                <input type="text" aria-label="<?php _e( "Search", "evolve" ); ?>" name="s" class="form-control"
                        placeholder="<?php esc_html_e( 'Type your search', 'evolve' ); ?>"/>
 
 				<?php echo evolve_get_svg( 'search' ); ?>
@@ -138,7 +138,7 @@ if ( ! function_exists( 'evolve_sticky_header_open' ) ) {
 				<?php }
 				if ( has_nav_menu( 'sticky_navigation' ) ) {
 					echo '<nav class="navbar navbar-expand-md col' . ( ( ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == 'disable' && evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) || evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) ? " pl-0" : "" ) . '">
-                                <div class="navbar-toggler" data-toggle="collapse" data-target="#sticky-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
+                                <div class="navbar-toggler" data-toggle="collapse" data-target="#sticky-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="' . __( "Sticky", "evolve" ) . '">
                                     <span class="navbar-toggler-icon-svg"></span>
                                 </div><div id="sticky-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
 					wp_nav_menu( array(
@@ -152,7 +152,7 @@ if ( ! function_exists( 'evolve_sticky_header_open' ) ) {
 					echo '</div></nav>';
 				} elseif ( has_nav_menu( 'primary-menu' ) ) {
 					echo '<nav class="navbar navbar-expand-md col' . ( ( ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == 'disable' && evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) || evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) ? " pl-0" : "" ) . '">
-                                <div class="navbar-toggler" data-toggle="collapse" data-target="#sticky-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
+                                <div class="navbar-toggler" data-toggle="collapse" data-target="#sticky-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="' . __( "Sticky", "evolve" ) . '">
                                     <span class="navbar-toggler-icon-svg"></span>
                                 </div><div id="sticky-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
 					wp_nav_menu( array(
@@ -675,7 +675,7 @@ if ( ! function_exists( 'evolve_wp_link_pages' ) ) {
 	function evolve_wp_link_pages( $args = '' ) {
 		global $page, $numpages, $multipage, $more;
 		$defaults = array(
-			'before'             => '<nav aria-label="navigation" class="navigation"><ul class="pagination number-pagination"><li class="page-item disabled"><span class="page-link">' . __( 'Pages:', 'evolve' ) . '</span></li>',
+			'before'             => '<nav aria-label="' . __( "Pages", "evolve" ) . '" class="navigation"><ul class="pagination number-pagination"><li class="page-item disabled"><span class="page-link">' . __( 'Pages:', 'evolve' ) . '</span></li>',
 			'after'              => '</ul></nav>',
 			'link_before'        => '',
 			'link_after'         => '',
@@ -748,7 +748,7 @@ if ( ! function_exists( 'evolve_breadcrumbs' ) ) {
 			return;
 		}
 
-		echo '<nav aria-label="breadcrumb"><ol class="breadcrumb">';
+		echo '<nav aria-label="' . __( "Breadcrumb", "evolve" ) . '"><ol class="breadcrumb">';
 		echo '<li class="breadcrumb-item"><a class="home" href="';
 		echo home_url();
 		echo '">' . __( 'Home', 'evolve' );

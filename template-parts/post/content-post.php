@@ -9,7 +9,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php if ( is_single() || is_page() ) {
-		if ( get_post_meta( $post->ID, 'evolve_page_title', true ) == "yes" ) {
+		if ( get_post_meta( $post->ID, 'evolve_page_title', true ) == "yes" || get_post_meta( $post->ID, 'evolve_page_title', true ) == "" ) {
 			the_title( '<h1 class="post-title">', '</h1>' );
 		}
 	} else {

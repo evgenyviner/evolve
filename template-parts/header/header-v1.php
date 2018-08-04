@@ -68,7 +68,7 @@
 
 					if ( has_nav_menu( 'primary-menu' ) ) {
 						echo '<nav class="navbar navbar-expand-md main-menu mr-auto col-12 col-sm">
-                                <div class="navbar-toggler" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
+                                <div class="navbar-toggler" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="' . __( "Primary", "evolve" ) . '">
                                     ' . evolve_get_svg( 'menu' ) . '
                                     </div>
                                 <div id="primary-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
