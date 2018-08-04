@@ -44,6 +44,7 @@
     - Custom Front Page Builder
     - Wrapper For Customizer Preview
     - Custom Function To Return Terms
+    - Schema.org Function For HTML
 
 
 /*
@@ -180,7 +181,7 @@ add_action( 'evolve_header_area', 'evolve_header_type', 40 );
 
 if ( ! function_exists( 'evolve_footer_container_open' ) ) {
 	function evolve_footer_container_open() {
-		echo '<footer class="footer"><div class="container">';
+		echo '<footer class="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter" role="contentinfo"><div class="container">';
 	}
 }
 
@@ -1563,5 +1564,30 @@ if ( ! function_exists( 'evolve_get_terms' ) ) {
 		}
 
 		return trim( join( $glue, $thing ) );
+	}
+}
+
+/*
+    Schema.org Function For HTML
+    ======================================= */
+
+if ( ! function_exists( 'evolve_html_tag_schema' ) ) {
+	function evolve_html_tag_schema() {
+		$schema = 'http://schema.org/';
+
+		if ( class_exists( 'Woocommerce' ) && is_woocommerce() ) {
+			$type = 'Product';
+		} elseif ( is_single() ) {
+			$type = "Article";
+		} elseif ( is_author() ) {
+			$type = 'ProfilePage';
+		} elseif ( is_search() ) {
+			$type = 'SearchResultsPage';
+		} elseif ( class_exists( 'Woocommerce' ) && is_woocommerce() ) {
+			$type = 'Product';
+		} else {
+			$type = 'WebPage';
+		}
+		echo 'itemscope="itemscope" itemtype="' . $schema . $type . '"';
 	}
 }

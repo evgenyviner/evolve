@@ -44,8 +44,9 @@ if ( $attachment_ids ) {
 				$image_title      = esc_attr( get_the_title( get_post_thumbnail_id() ) );
 				$image_link       = wp_get_attachment_url( get_post_thumbnail_id() );
 				$image            = get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_thumbnail' ), array(
-					"alt"   => $image_title,
-					"class" => "d-block w-100"
+					"alt"      => $image_title,
+					"class"    => "d-block w-100",
+					'itemprop' => 'image'
 				) );
 				$attachment_count = count( $product->get_gallery_image_ids() );
 

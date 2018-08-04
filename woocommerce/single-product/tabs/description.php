@@ -15,7 +15,7 @@ global $woocommerce, $post;
 $heading = esc_html( apply_filters( 'woocommerce_product_description_heading', __( 'Product description', 'evolve' ) ) );
 ?>
 
-<div class="post-content">
+<div class="post-content" itemprop="mainContentOfPage">
     <h3>
 
 		<?php echo $heading; ?>

@@ -5,14 +5,14 @@
     ======================================= */ ?>
 
     <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php evolve_html_tag_schema(); language_attributes(); ?>>
     <head>
         <meta charset="<?php bloginfo( 'charset' ); ?>"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<?php wp_head(); ?>
     </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> itemscope="itemscope" itemtype="http://schema.org/WebPage">
 
 <a class="btn screen-reader-text sr-only sr-only-focusable" href="#primary"><?php _e( 'Skip to main content', 'evolve' ); ?></a>
 

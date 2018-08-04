@@ -26,7 +26,7 @@ $heading = esc_html( apply_filters( 'woocommerce_product_additional_information_
 
 ?>
 
-<div class="post-content">
+<div class="post-content" itemprop="mainContentOfPage">
 
 	<?php if ( $heading ) : ?>
 

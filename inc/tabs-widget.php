@@ -93,7 +93,7 @@ class evolve_Tabs_Widget extends WP_Widget {
 
                                         <div class="image">
                                             <a href="<?php the_permalink(); ?>">
-												<?php the_post_thumbnail( 'tabs-img' ); ?>
+												<?php the_post_thumbnail( 'tabs-img', array( 'itemprop' => 'image' ) ); ?>
                                             </a>
                                         </div>
 
@@ -136,7 +136,7 @@ class evolve_Tabs_Widget extends WP_Widget {
 
                                         <div class="image">
                                             <a href="<?php the_permalink(); ?>">
-												<?php the_post_thumbnail( 'tabs-img' ); ?>
+												<?php the_post_thumbnail( 'tabs-img', array( 'itemprop' => 'image' ) ); ?>
                                             </a>
                                         </div>
 

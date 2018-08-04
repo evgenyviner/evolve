@@ -25,7 +25,7 @@ if ( have_posts() ): the_post(); ?>
         <span class="post-title" style="display: none;"><?php the_title(); ?></span>
         <span class="vcard" style="display: none;"><span
                     class="fn"><?php the_author_posts_link(); ?></span></span>
-        <div class="post-content">
+        <div class="post-content" itemprop="mainContentOfPage">
 			<?php the_content();
 			evolve_wp_link_pages(); ?>
         </div>

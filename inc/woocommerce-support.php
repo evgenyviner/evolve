@@ -455,7 +455,7 @@ function evolve_woocommerce_thumbnail() {
 	}
 
 	$image_title      = esc_attr( get_the_title( get_post_thumbnail_id() ) );
-	$thumb_image = get_the_post_thumbnail( $id, $size, array( "class" => "card-img-top", "alt"   => $image_title ) );
+	$thumb_image = get_the_post_thumbnail( $id, $size, array( "class" => "card-img-top", "alt" => $image_title, 'itemprop' => 'image' ) );
 	if ( !has_post_thumbnail() ) {
 	    $thumb_image = woocommerce_get_product_thumbnail( $size );
 	}

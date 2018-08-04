@@ -428,15 +428,14 @@ if ( ! function_exists( 'evolve_featured_image' ) ) {
 
 		if ( $type == '1' && is_single() && evolve_theme_mod( 'evl_blog_featured_image', '0' ) == "1" && has_post_thumbnail() ) {
 			echo '<div class="thumbnail-post-single">';
-			the_post_thumbnail( 'evolve-post-thumbnail', array( 'class' => 'd-block w-100' ) );
+			the_post_thumbnail( 'evolve-post-thumbnail', array( 'class' => 'd-block w-100', 'itemprop' => 'image' ) );
 			echo '</div>';
-
 		} elseif ( $type == '2' && ! is_page() && ! is_single() ) {
 			if ( has_post_thumbnail() ) {
 				echo '<div class="thumbnail-post"><a href="';
 				the_permalink();
 				echo '">';
-				the_post_thumbnail( 'evolve-post-thumbnail', array( 'class' => 'd-block w-100' ) );
+				the_post_thumbnail( 'evolve-post-thumbnail', array( 'class' => 'd-block w-100', 'itemprop' => 'image' ) );
 				echo '<div class="mask"><div class="icon"></div></div></a></div>';
 			} else {
 				if ( evolve_get_first_image() ):
@@ -444,14 +443,14 @@ if ( ! function_exists( 'evolve_featured_image' ) ) {
 					the_permalink();
 					echo '"><img class="d-block w-100" src="' . evolve_get_first_image() . '" alt="';
 					the_title();
-					echo '" /><div class="mask"><div class="icon"></div></div>	</a></div>';
+					echo '" itemprop="image" /><div class="mask"><div class="icon"></div></div></a></div>';
 				else:
 					if ( evolve_theme_mod( 'evl_thumbnail_default_images', '0' ) == 0 ) {
 						echo '<div class="thumbnail-post"><a href="';
 						the_permalink();
 						echo '"><img class="d-block w-100" src="' . get_template_directory_uri() . '/assets/images/no-thumbnail-post.jpg" alt="';
 						the_title();
-						echo '" /><div class="mask"><div class="icon"></div></div></a></div>';
+						echo '" itemprop="image" /><div class="mask"><div class="icon"></div></div></a></div>';
 					}
 				endif;
 			}
@@ -485,7 +484,7 @@ if ( ! function_exists( 'evolve_post_meta' ) ) {
 					echo '<a href="' . get_the_permalink() . '">';
 				}
 				if ( ! is_page() ) {
-					echo '<span class="published updated">';
+					echo '<span class="published updated" itemprop="datePublished" pubdate>';
 					the_time( get_option( 'date_format' ) );
 					echo '</span>';
 				}
@@ -1020,7 +1019,7 @@ if ( ! function_exists( 'evolve_posts_slider' ) ) {
                                 <div class="col-lg-6 p-0">
 
 									<?php if ( has_post_thumbnail() ) {
-										the_post_thumbnail( 'evolve-slider-thumbnail', array( 'class' => 'd-block w-100' ) );
+										the_post_thumbnail( 'evolve-slider-thumbnail', array( 'class' => 'd-block w-100', 'itemprop'=>'image' ) );
 									} else if ( $image = evolve_get_first_image() ) {
 										if ( $image ):
 											echo '<img class="d-block w-100" src="' . $image . '" alt="';

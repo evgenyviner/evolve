@@ -1,4 +1,4 @@
-<div class="header-v1 header-wrapper">
+<header class="header-v1 header-wrapper" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
     <div class="header-pattern">
 
 		<?php if ( get_header_image() ) {
@@ -60,7 +60,7 @@
 
     </div><!-- .header-pattern -->
 
-    <header class="menu-header">
+    <div class="menu-header">
         <div class="container">
             <div class="row align-items-center">
 
@@ -90,7 +90,7 @@
 
             </div><!-- .row .align-items-center -->
         </div><!-- .container -->
-    </header><!-- .menu-header -->
-</div><!-- .header-v1 -->
+    </div><!-- .menu-header -->
+</header><!-- .header-v1 -->
 
 

@@ -1,4 +1,4 @@
-<div class="header-v2 header-wrapper">
+<header class="header-v2 header-wrapper" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
     <div class="top-bar py-2">
         <div class="container">
             <div class="row align-items-center">
@@ -79,4 +79,4 @@
 		} ?>
 
     </div><!-- .header-pattern -->
-</div><!-- .header-v2 -->
+</header><!-- .header-v2 -->

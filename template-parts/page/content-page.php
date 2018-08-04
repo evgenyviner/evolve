@@ -6,12 +6,12 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
 
 	<?php if ( class_exists( 'bbPress' ) && ( bbp_is_reply_edit() || bbp_is_topic_edit() ) ) {
 	} else {
 		if ( is_page() && ( get_post_meta( $post->ID, 'evolve_page_title', true ) == "yes" || get_post_meta( $post->ID, 'evolve_page_title', true ) == "" ) ) {
-			the_title( '<h1 class="post-title">', '</h1>' );
+			the_title( '<h1 class="post-title" itemprop="name">', '</h1>' );
 		}
 	}
 
@@ -21,7 +21,7 @@
 		endif;
 	} ?>
 
-    <div class="post-content">
+    <div class="post-content" itemprop="mainContentOfPage">
 
 		<?php the_content();
 		evolve_wp_link_pages(); ?>
