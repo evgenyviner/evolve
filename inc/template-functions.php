@@ -4,6 +4,7 @@
     Template Functions Definitions
 
     Table of Contents:
+
     - Wrapper Container
         -- Wrapper Container - Open
         -- Wrapper Container - Close
