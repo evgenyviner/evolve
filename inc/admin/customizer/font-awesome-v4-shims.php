@@ -470,20 +470,19 @@ if ( ! function_exists( 'evolve_font_awesome_4_to_5' ) ) {
 			"spotify"              => array( "fab" )
 		);
 		if ( isset( $list_icons[ $old ] ) ) {
-			if( isset( $list_icons[ $old ][ 0 ] ) ){
-				if( ( $list_icons[ $old ][ 0 ] == "fab" ) || ( $list_icons[ $old ][ 0 ] == "far" ) ){
-					if( isset( $list_icons[ $old ][ 1 ] ) ){
-						return $list_icons[ $old ][ 0 ] . ' fa-' . $list_icons[ $old ][ 1 ];
+			if ( isset( $list_icons[ $old ][0] ) ) {
+				if ( ( $list_icons[ $old ][0] == "fab" ) || ( $list_icons[ $old ][0] == "far" ) ) {
+					if ( isset( $list_icons[ $old ][1] ) ) {
+						return $list_icons[ $old ][0] . ' fa-' . $list_icons[ $old ][1];
+					} else {
+						return $list_icons[ $old ][0] . ' fa-' . $old;
 					}
-					else{
-						return $list_icons[ $old ][ 0 ] . ' fa-' . $old;
-					}
-				}
-				else{
-					return 'fas fa-' . $list_icons[ $old ][ 0 ];
+				} else {
+					return 'fas fa-' . $list_icons[ $old ][0];
 				}
 			}
 		}
+
 		return 'fas fa-' . $old;
 	}
 }

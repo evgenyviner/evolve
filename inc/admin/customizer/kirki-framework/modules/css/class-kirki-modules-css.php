@@ -113,6 +113,7 @@ class Kirki_Modules_CSS {
 		if ( ! self::$instance ) {
 			self::$instance = new self();
 		}
+
 		return self::$instance;
 	}
 
@@ -148,6 +149,7 @@ class Kirki_Modules_CSS {
 				$this->css_to_file = new Kirki_CSS_To_File();
 				add_action( 'customize_save_after', array( $this->css_to_file, 'write_file' ) );
 			}
+
 			return;
 		}
 
@@ -159,6 +161,7 @@ class Kirki_Modules_CSS {
 			// If writing CSS to file hasn't failed, just enqueue this file.
 			if ( ! $failed ) {
 				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_compiled_file' ), $priority );
+
 				return;
 			}
 		}
@@ -169,6 +172,7 @@ class Kirki_Modules_CSS {
 			add_action( 'wp_enqueue_scripts', array( $this, 'frontend_styles' ), $priority );
 			add_action( 'wp_ajax_kirki_dynamic_css', array( $this, 'ajax_dynamic_css' ) );
 			add_action( 'wp_ajax_nopriv_kirki_dynamic_css', array( $this, 'ajax_dynamic_css' ) );
+
 			return;
 		}
 
@@ -187,6 +191,7 @@ class Kirki_Modules_CSS {
 		wp_enqueue_style( 'kirki-styles', $this->css_to_file->get_url(), array(), $this->css_to_file->get_timestamp() );
 
 	}
+
 	/**
 	 * Adds inline styles.
 	 *
@@ -215,8 +220,9 @@ class Kirki_Modules_CSS {
 		}
 
 		if ( self::$enqueue_fa && apply_filters( 'kirki_load_fontawesome', true ) ) {
-			wp_enqueue_script( 'kirki-fontawesome-font', 'https://use.fontawesome.com/releases/v5.2.0/js/all.js', array(), '5.2.0' );
-			wp_enqueue_script( 'kirki-fontawesome-font-shims', 'https://use.fontawesome.com/releases/v5.2.0/js/v4-shims.js', array(), '5.2.0' );
+			// evolve customization
+			wp_enqueue_script( 'kirki-fontawesome-font', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-all.min.js', array(), '5.2.0' );
+			wp_enqueue_script( 'kirki-fontawesome-font-shims', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-shims.min.js', array(), '5.2.0' );
 		}
 	}
 
@@ -244,6 +250,7 @@ class Kirki_Modules_CSS {
 	 *
 	 * @static
 	 * @access public
+	 *
 	 * @param string $config_id The configuration ID.
 	 */
 	public static function loop_controls( $config_id ) {

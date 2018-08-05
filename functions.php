@@ -233,24 +233,23 @@ if ( ! function_exists( 'evolve_theme_mod' ) ) {
 		if ( $result && is_array( $result ) && count( $result ) && isset( $result["url"] ) ) {
 			return $result["url"];
 		}
-		if ( is_string( $name ) && evolve_suffix( $name, '_icon' ) ) {	
-			if( $result ){
+		if ( is_string( $name ) && evolve_suffix( $name, '_icon' ) ) {
+			if ( $result ) {
 				if ( ( strpos( $result, 'fa-' ) === 0 ) ) {
 					// It starts with 'fa-'
 					$result = 'fas ' . $result;
 					set_theme_mod( $name, $result );
 				}
-				if ( 
-				count($result) != 0
-				&& !( strpos( $result, 'fas ' ) === 0 )
-				&& !( strpos( $result, 'fab ' ) === 0 )
-				&& !( strpos( $result, 'far ' ) === 0 )
-					) {
-						$result = evolve_font_awesome_4_to_5( $result );
-						set_theme_mod( $name, $result );
-					}
-			}
-			else{
+				if (
+					count( $result ) != 0
+					&& ! ( strpos( $result, 'fas ' ) === 0 )
+					&& ! ( strpos( $result, 'fab ' ) === 0 )
+					&& ! ( strpos( $result, 'far ' ) === 0 )
+				) {
+					$result = evolve_font_awesome_4_to_5( $result );
+					set_theme_mod( $name, $result );
+				}
+			} else {
 				return 'fas fa-';
 			}
 		}
@@ -463,7 +462,7 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 				// FontAwesome
 
 				if ( evolve_theme_mod( 'evl_fontawesome', '0' ) != "1" && ! is_customize_preview() ) {
-					wp_enqueue_script( 'evolve-font-awesome', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-all.min.js',  array(), '5.2.0' );
+					wp_enqueue_script( 'evolve-font-awesome', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-all.min.js', array(), '5.2.0' );
 					wp_enqueue_script( 'evolve-font-awesome-shims', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-shims.min.js', array(), '5.2.0' );
 				}
 			}

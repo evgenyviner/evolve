@@ -24,6 +24,7 @@ wp.customize.controlConstructor['kirki-fontawesome'] = wp.customize.kirkiDynamic
 
         _.each(icons.icons, function (icon) {
             selectWooOptions.data.push({
+                // evolve customization
                 id: icon.styles + ' fa-'+icon.id,
                 text: icon.name,
                 styles: icon.styles
