@@ -1,6 +1,28 @@
 <?php
 
 /*
+    Customizer Setup
+
+    Table of Contents:
+
+    - Init Customizer
+    - Main Styles/Scripts To Enqueue
+    - Global Customizer Values
+    - Default WordPress Customizer Sections (Moved To Bottom)
+    - Get List of Categories
+    - Number Of WooCommerce Products
+    - Old Data Migration (Version 3.3)
+    - Fix Data When Convert
+    - Convert Framework (Redux => Kirki)
+    - Convert Old Theme Options to New Theme Options with Front Page Elements
+    - postMessage Support For Website Title and Description
+    - Partial Refresh For Website Title
+    - Partial Refresh For Website Description
+    - Build The Section Class
+    - Enqueue Google Fonts on The Front End
+    - Load The Theme Options
+
+
     Init Customizer
     ======================================= */
 
@@ -200,8 +222,8 @@ if ( ! function_exists( 'evolve_woocommerce_product_number' ) ) {
     Old Data Migration (Version 3.3)
     ======================================= */
 
-if ( ! function_exists( 'evolve_migrate_options' ) ) {
-	function evolve_migrate_options() {
+if ( ! function_exists( 'evolve_convert_33' ) ) {
+	function evolve_convert_33() {
 		$evolve_global_customizer_value = evolve_global_customizer_value();
 		$migrate_done                   = get_option( 'evl_33_migrate', false );
 		if ( $migrate_done !== 'done' ) {
@@ -281,7 +303,7 @@ if ( ! function_exists( 'evolve_migrate_options' ) ) {
 	}
 }
 
-add_action( 'after_setup_theme', 'evolve_migrate_options', 10, 2 );
+add_action( 'after_setup_theme', 'evolve_convert_33', 10, 2 );
 
 /*
     Fix Data When Convert
@@ -380,29 +402,29 @@ if ( ! function_exists( 'evolve_fix_data' ) ) {
 }
 
 /*
-    Convert Framework
+    Convert Framework (Redux => Kirki)
     ======================================= */
 
-if ( ! function_exists( 'evolve_convert_framework' ) ) {
-	function evolve_convert_framework() {
-		$convert_framework = get_option( 'evolve_convert_framework', false );
-		if ( $convert_framework == false ) {
-			$data_options = get_option( 'evl_options' );
-			if ( $data_options ) {
-				foreach ( $data_options as $key => $value ) {
-					$value = evolve_fix_data( $value );
-					set_theme_mod( $key, $value );
+if ( is_user_logged_in() ) {
+
+	if ( ! function_exists( 'evolve_convert_framework' ) ) {
+		function evolve_convert_framework() {
+			$convert_framework = get_option( 'evolve_convert_framework', false );
+			if ( $convert_framework == false ) {
+				$data_options = get_option( 'evl_options' );
+				if ( $data_options ) {
+					foreach ( $data_options as $key => $value ) {
+						$value = evolve_fix_data( $value );
+						set_theme_mod( $key, $value );
+					}
 				}
+				update_option( 'evolve_convert_framework', time() );
 			}
-			update_option( 'evolve_convert_framework', time() );
 		}
 	}
-}
 
-if ( is_user_logged_in() ) {
 	add_action( 'after_setup_theme', 'evolve_convert_framework', 10, 3 );
 }
-
 
 /*
     Convert Old Theme Options to New Theme Options with Front Page Elements
@@ -693,12 +715,11 @@ if ( is_user_logged_in() && get_option( 'old_new_upgrade_themeoptions', 'false' 
 
 
 /*
-    PostMessage Support For Website Title and Description
+    postMessage Support For Website Title and Description
     ======================================= */
 
-if ( ! function_exists( 'evolve_customize_register' ) ) {
-	function evolve_customize_register( $wp_customize ) {
-		global $evolve_index_control;
+if ( ! function_exists( 'evolve_postmessage_default' ) ) {
+	function evolve_postmessage_default( $wp_customize ) {
 		$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
@@ -710,78 +731,10 @@ if ( ! function_exists( 'evolve_customize_register' ) ) {
 			'selector'        => '#tagline',
 			'render_callback' => 'evolve_refresh_website_description',
 		) );
-
-		$array_default_customize = array(
-			array(
-				'type'  => 2,
-				'value' => 'nav_menus',
-				'title' => 'Menus',
-				'icon'  => 'dashicons-menu'
-			),
-			array(
-				'type'  => 1,
-				'value' => 'title_tagline',
-				'title' => 'Site Identity',
-				'icon'  => 'dashicons-format-quote'
-			),
-			array(
-				'type'  => 1,
-				'value' => 'colors',
-				'title' => 'Colors',
-				'icon'  => 'dashicons-art'
-			),
-			array(
-				'type'  => 1,
-				'value' => 'header_image',
-				'title' => 'Header Image',
-				'icon'  => 'dashicons-format-image'
-			),
-			array(
-				'type'  => 1,
-				'value' => 'background_image',
-				'title' => 'Background Image',
-				'icon'  => 'dashicons-format-gallery'
-			),
-			array(
-				'type'  => 1,
-				'value' => 'static_front_page',
-				'title' => 'Homepage Settings',
-				'icon'  => 'dashicons-welcome-write-blog'
-			),
-			array(
-				'type'  => 2,
-				'value' => 'widgets',
-				'title' => 'Widgets',
-				'icon'  => 'dashicons-welcome-widgets-menus'
-			),
-			array(
-				'type'  => 1,
-				'value' => 'custom_css',
-				'title' => 'Additional CSS',
-				'icon'  => 'dashicons-edit'
-			),
-		);
-		foreach ( $array_default_customize as $value ) {
-			$evolve_index_control ++;
-			if ( $value['type'] == 2 ) {
-				Kirki::add_panel( $value['value'], array(
-					'title'    => $value['title'],
-					'icon'     => $value['icon'],
-					'priority' => $evolve_index_control,
-				) );
-			} else {
-				Kirki::add_section( $value['value'], array(
-					'title'    => $value['title'],
-					'icon'     => $value['icon'],
-					'priority' => $evolve_index_control,
-				) );
-			}
-		}
-
 	}
 }
 
-add_action( 'customize_register', 'evolve_customize_register', 10, 3 );
+add_action( 'customize_register', 'evolve_postmessage_default', 10, 3 );
 
 /*
     Partial Refresh For Website Title
@@ -807,24 +760,23 @@ if ( ! function_exists( 'evolve_refresh_website_description' ) ) {
     Build The Section Class
     ======================================= */
 
-global $name_of_panel, $evolve_all_customize_fields, $evolve_index_control, $evolve_list_google_fonts;
-$name_of_panel               = '';
-$evolve_index_control        = 0;
-$evolve_all_customize_fields = array();
-$evolve_list_google_fonts    = array();
+global $evolve_customizer_fields;
+$evolve_panel             = '';
+$evolve_index_control     = 0;
+$evolve_customizer_fields = array();
 
 if ( ! class_exists( 'evolve_Kirki' ) ) {
 	class evolve_Kirki {
 		static function setSection( $param1, $param2 ) {
 			if ( true || is_user_logged_in() ) {
-				global $name_of_panel, $evolve_index_control;
+				global $evolve_panel, $evolve_index_control;
 				$evolve_index_control ++;
 				if ( isset( $param2['iconfix'] ) && ! empty( $param2['iconfix'] ) ) {
 					$param2['icon'] = $param2['iconfix'];
 				}
 				if ( isset( $param2['fields'] ) && is_array( $param2['fields'] ) && count( $param2['fields'] ) ) {
 					if ( ! isset( $param2['subsection'] ) ) {
-						$name_of_panel = $param2['id'];
+						$evolve_panel = $param2['id'];
 						if ( is_user_logged_in() && is_customize_preview() ) {
 							Kirki::add_section( $param2['id'], array(
 								'title'    => $param2['title'],
@@ -836,15 +788,15 @@ if ( ! class_exists( 'evolve_Kirki' ) ) {
 						if ( is_user_logged_in() && is_customize_preview() ) {
 							Kirki::add_section( $param2['id'], array(
 								'title'    => $param2['title'],
-								'panel'    => $name_of_panel,
+								'panel'    => $evolve_panel,
 								'priority' => $evolve_index_control,
 								'icon'     => isset( $param2['icon'] ) ? $param2['icon'] : '',
 							) );
 						}
 					}
-					evolve_Kirki::evl_call_kirki_from_old_field( $param2['fields'], $param2['id'] );
+					evolve_Kirki::call_kirki_from_old_field( $param2['fields'], $param2['id'] );
 				} else {
-					$name_of_panel = $param2['id'];
+					$evolve_panel = $param2['id'];
 					if ( is_user_logged_in() && is_customize_preview() ) {
 						Kirki::add_panel( $param2['id'], array(
 							'title'    => $param2['title'],
@@ -856,7 +808,7 @@ if ( ! class_exists( 'evolve_Kirki' ) ) {
 			}
 		}
 
-		static function kirkiMakeGoogleWebfontLink( $fonts ) {
+		static function google_webfont_url( $fonts ) {
 			$link    = "";
 			$subsets = array();
 			foreach ( $fonts as $family => $font ) {
@@ -898,8 +850,8 @@ if ( ! class_exists( 'evolve_Kirki' ) ) {
 			return '//fonts.googleapis.com/css?family=' . str_replace( '|', '|', $link );
 		}
 
-		static function evl_call_kirki_from_old_field( $array_items, $section = 'kirki_frontpage-content-boxes-tab', $setting = 'kirki_evolve_options' ) {
-			global $evolve_all_customize_fields, $evolve_list_google_fonts;
+		static function call_kirki_from_old_field( $array_items, $section = 'kirki_frontpage-content-boxes-tab', $setting = 'kirki_evolve_options' ) {
+			global $evolve_customizer_fields, $evolve_list_google_fonts;
 			foreach ( $array_items as $value ) {
 				if (
 					isset( $value['type'] ) && (
@@ -1010,7 +962,6 @@ if ( ! class_exists( 'evolve_Kirki' ) ) {
 							$value_temp['choices']['step'] = $value['step'];
 						}
 					}
-					//class' => 'iconpicker-icon
 					if ( isset( $value['class'] ) && $value['class'] == 'iconpicker-icon' ) {
 						$value_temp['type'] = 'fontawesome';
 					}
@@ -1061,7 +1012,7 @@ if ( ! class_exists( 'evolve_Kirki' ) ) {
 						);
 					}
 
-					$evolve_all_customize_fields[ $value['id'] ] = array(
+					$evolve_customizer_fields[ $value['id'] ] = array(
 						'value'      => $value,
 						'value_temp' => $value_temp,
 					);
@@ -1074,8 +1025,6 @@ if ( ! class_exists( 'evolve_Kirki' ) ) {
 							)
 						);
 					}
-					// 'transport'		=> 'postMessage',
-					// 'js_vars'		=> array(
 					if ( isset( $value['transport'] ) ) {
 						$value_temp['transport'] = $value['transport'];
 					}
@@ -1100,24 +1049,25 @@ if ( ! class_exists( 'evolve_Kirki' ) ) {
 	}
 }
 
-if ( $evolve_all_customize_fields === false ) {
-	update_option( 'evolve_all_customize_fields', $evolve_all_customize_fields );
+if ( $evolve_customizer_fields === false ) {
+	update_option( 'evolve_all_customize_fields', $evolve_customizer_fields );
 }
 
 /*
     Enqueue Google Fonts on The Front End
     ======================================= */
 
-if ( ! function_exists( 'evolve_enqueue_google_fonts' ) ) {
-	function evolve_enqueue_google_fonts() {
-		$protocol = is_ssl() ? "https:" : "http:";
-		global $evolve_list_google_fonts;
-		wp_register_style( 'evolve-google-fonts', $protocol . evolve_Kirki::kirkiMakeGoogleWebfontLink( $evolve_list_google_fonts ), '' );
-		wp_enqueue_style( 'evolve-google-fonts' );
-	}
-}
-
 if ( ! is_customize_preview() ) {
+
+	if ( ! function_exists( 'evolve_enqueue_google_fonts' ) ) {
+		function evolve_enqueue_google_fonts() {
+			$protocol = is_ssl() ? "https:" : "http:";
+			global $evolve_list_google_fonts;
+			wp_register_style( 'evolve-google-fonts', $protocol . evolve_Kirki::google_webfont_url( $evolve_list_google_fonts ), '' );
+			wp_enqueue_style( 'evolve-google-fonts' );
+		}
+	}
+
 	add_action( 'get_footer', 'evolve_enqueue_google_fonts' );
 }
 
@@ -1125,6 +1075,6 @@ if ( ! is_customize_preview() ) {
     Load The Theme Options
     ======================================= */
 
-if ( file_exists( dirname( __FILE__ ) . '/customizer-options.php' ) ) {
-	require_once dirname( __FILE__ ) . '/customizer-options.php';
-}
+require get_parent_theme_file_path( '/inc/admin/customizer/customizer-options.php' );
+
+evolve_customizer_options();
