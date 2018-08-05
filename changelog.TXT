@@ -3,6 +3,7 @@ Version:         3.9.4
 - Added New Responsiveness Options For All Sliders
 - Updated Font Awesome To Version 5.2.0
 - Accessibility Ready Improvements
+- Improved Structure Of Customizer Functions
 - Schema.org Improvements
 - Fixed Website Width Layout Issue
 - Fixed Hide Page/Post Title Per Page/Post
