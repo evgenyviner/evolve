@@ -233,10 +233,25 @@ if ( ! function_exists( 'evolve_theme_mod' ) ) {
 		if ( $result && is_array( $result ) && count( $result ) && isset( $result["url"] ) ) {
 			return $result["url"];
 		}
-		if ( $result && is_string( $name ) && evolve_suffix( $name, '_icon' ) ) {
-			if ( ( strpos( $result, 'fa-' ) === 0 ) ) {
-				// It starts with 'fa-'
-				$result = trim( $result, 'fa-' );
+		if ( is_string( $name ) && evolve_suffix( $name, '_icon' ) ) {	
+			if( $result ){
+				if ( ( strpos( $result, 'fa-' ) === 0 ) ) {
+					// It starts with 'fa-'
+					$result = 'fas ' . $result;
+					set_theme_mod( $name, $result );
+				}
+				if ( 
+				count($result) != 0
+				&& !( strpos( $result, 'fas ' ) === 0 )
+				&& !( strpos( $result, 'fab ' ) === 0 )
+				&& !( strpos( $result, 'far ' ) === 0 )
+					) {
+						$result = evolve_font_awesome_4_to_5( $result );
+						set_theme_mod( $name, $result );
+					}
+			}
+			else{
+				return 'fas fa-';
 			}
 		}
 		if ( $result && is_array( $result ) && count( $result ) && isset( $result["enabled"] ) && is_array( $result["enabled"] ) && count( $result["enabled"] ) ) {

@@ -1076,5 +1076,6 @@ if ( ! is_customize_preview() ) {
     ======================================= */
 
 require get_parent_theme_file_path( '/inc/admin/customizer/customizer-options.php' );
+require get_parent_theme_file_path( '/inc/admin/customizer/font-awesome-v4-shims.php' );
 
 evolve_customizer_options();

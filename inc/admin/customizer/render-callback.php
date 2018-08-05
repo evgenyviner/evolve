@@ -127,7 +127,7 @@ if ( ! function_exists( 'evolve_get_render_callback' ) ) {
 
 		$check = preg_match( '/^evl_content_box._icon$/', $option_name );
 		if ( $check ) {
-			return '<i class="fa fa-' . get_theme_mod( $option_name, '' ) . '" aria-hidden="true"></i>';
+			return '<i class="' . get_theme_mod( $option_name, '' ) . '" aria-hidden="true"></i>';
 		}
 		$check = preg_match( '/^evl_content_box._title$/', $option_name );
 		if ( $check ) {
@@ -175,7 +175,7 @@ if ( ! function_exists( 'evolve_get_render_callback' ) ) {
 
 		$check = preg_match( '/^evl_fp_counter_circle._icon$/', $option_name );
 		if ( $check ) {
-			return '<i class="fa fa-' . get_theme_mod( $option_name, '' ) . '" aria-hidden="true"></i>';
+			return '<i class="' . get_theme_mod( $option_name, '' ) . '" aria-hidden="true"></i>';
 		}
 
 		/*
