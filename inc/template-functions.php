@@ -322,7 +322,7 @@ add_action( 'evolve_after_post_content', 'evolve_comments_template', 30 );
 
 if ( ! function_exists( 'evolve_archive_page_title' ) ) {
 	function evolve_archive_page_title() {
-		if ( ! is_archive() ) {
+		if ( ! is_archive() || ( class_exists( 'bbPress' ) && is_bbpress() ) ) {
 			return;
 		}
 		if ( evolve_theme_mod( 'evl_category_page_title', '1' ) == '1' ) {
