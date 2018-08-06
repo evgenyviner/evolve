@@ -4773,6 +4773,16 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							'subtitle' => esc_attr__( 'Check the box to disable Font Awesome', 'evolve' ),
 							'type'     => 'checkbox',
 							'default'  => '0'
+						),
+						array(
+							'id'       => 'evl_fontawesome_shims',
+							'title'    => esc_attr__( 'Disable Font Awesome Conversion From Version 4 to 5', 'evolve' ),
+							'subtitle' => esc_attr__( 'Check the box to disable Font Awesome conversion from version 4 to 5 if you update the icons manually', 'evolve' ),
+							'type'     => 'checkbox',
+							'default'  => '0',
+							'required' => array(
+								array( 'evl_fontawesome', '=', '0' )
+							)
 						)
 					)
 				)

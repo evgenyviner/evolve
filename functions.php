@@ -463,7 +463,9 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 
 				if ( evolve_theme_mod( 'evl_fontawesome', '0' ) != "1" && ! is_customize_preview() ) {
 					wp_enqueue_script( 'evolve-font-awesome', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-all.min.js', array(), '5.2.0' );
-					wp_enqueue_script( 'evolve-font-awesome-shims', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-shims.min.js', array(), '5.2.0' );
+					if ( evolve_theme_mod( 'evl_fontawesome_shims', '0' ) != "1" ) {
+						wp_enqueue_script( 'evolve-font-awesome-shims', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-shims.min.js', array(), '5.2.0' );
+					}
 				}
 			}
 		}

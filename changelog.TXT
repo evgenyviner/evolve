@@ -1,4 +1,5 @@
 Version:         3.9.4
+Date:         6/8/18
 
 - Added New Responsiveness Options For All Sliders
 - Updated Font Awesome To Version 5.2.0
