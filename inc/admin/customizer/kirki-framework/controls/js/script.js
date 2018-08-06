@@ -1076,6 +1076,7 @@ kirki = jQuery.extend(kirki, {
                         });
                         // evolve modification
                     });
+                    self.fonts = JSON.parse(get_googlefonts_json);
                 },
 
                 /**
@@ -1215,7 +1216,6 @@ kirki = jQuery.extend(kirki, {
                     if (!_.isEmpty(self.fonts)) {
                         return;
                     }
-
                     // evolve modification
                     jQuery(document).ready(function ($) {
                         // Make an AJAX call to set the fonts object.
@@ -1226,6 +1226,7 @@ kirki = jQuery.extend(kirki, {
                             // evolve modification
                         });
                     });
+                    self.fonts = JSON.parse(get_standard_fonts);
                 },
 
                 /**
@@ -1872,7 +1873,7 @@ wp.customize.controlConstructor['kirki-fontawesome'] = wp.customize.kirkiDynamic
         _.each(icons.icons, function (icon) {
             selectWooOptions.data.push({
                 // evolve customization
-                id: icon.styles + ' fa-'+icon.id,
+                id: icon.styles + ' fa-' + icon.id,
                 text: icon.name,
                 styles: icon.styles
             });
