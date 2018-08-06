@@ -1066,14 +1066,7 @@ kirki = jQuery.extend(kirki, {
                     if (!_.isEmpty(self.fonts)) {
                         return;
                     }
-                    jQuery(document).ready(function ($) {
-                        // Make an AJAX call to set the fonts object (alpha).
-                        jQuery.post(ajaxurl, {'action': 'kirki_fonts_google_all_get'}, function (response) {
-
-                            // Get fonts from the JSON array.
-                            self.fonts = JSON.parse(response);
-                        });
-                    });
+                    self.fonts = JSON.parse(get_googlefonts_json);
                 },
 
                 /**
@@ -1214,14 +1207,7 @@ kirki = jQuery.extend(kirki, {
                         return;
                     }
 
-                    jQuery(document).ready(function ($) {
-                        // Make an AJAX call to set the fonts object.
-                        jQuery.post(ajaxurl, {'action': 'kirki_fonts_standard_all_get'}, function (response) {
-
-                            // Get fonts from the JSON array.
-                            self.fonts = JSON.parse(response);
-                        });
-                    });
+                    self.fonts = JSON.parse(get_standard_fonts);
                 },
 
                 /**
