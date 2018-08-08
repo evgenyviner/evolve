@@ -1037,7 +1037,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			Post Formats
 			--------------------------------------- */
 
-		if ( $sticky_post_format || $aside_post_format || $audio_post_format || $chat_post_format || $gallery_post_format || $image_post_format || $link_post_format || $quote_post_format || $status_post_format || $video_post_format == '0' ) {
+		if ( $sticky_post_format == '0' || $aside_post_format == '0' || $audio_post_format == '0' || $chat_post_format == '0' || $gallery_post_format == '0' || $image_post_format == '0' || $link_post_format == '0' || $quote_post_format == '0' || $status_post_format == '0' || $video_post_format == '0' ) {
 			if ( $sticky_post_format == '0' ) {
 				$format            .= "  .sticky, .sticky.formatted-post .post-content, .sticky.formatted-post .navigation a, .sticky.formatted-post .post-content .number-pagination a:link, .sticky .navigation .page-item.disabled .page-link";
 				$format_title      .= "  .sticky .post-title a";

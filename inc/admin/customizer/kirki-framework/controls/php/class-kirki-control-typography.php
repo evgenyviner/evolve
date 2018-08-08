@@ -32,7 +32,7 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 	 */
 	public function enqueue() {
 		parent::enqueue();
-		
+
 		// evolve customization
 		ob_start();
 		$json_path = wp_normalize_path( Kirki::$path . '/modules/webfonts/webfonts.json' );

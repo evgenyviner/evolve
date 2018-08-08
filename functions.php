@@ -325,7 +325,7 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 
 		// Main CSS
 
-		wp_enqueue_style( 'evolve-style', get_stylesheet_uri(), false );
+		wp_enqueue_style( 'evolve-style', get_stylesheet_uri(), 'evolve-bootstrap' );
 
 		// Dynamic CSS Definitions
 
@@ -440,6 +440,17 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 			endif;
 		}
 
+		// FontAwesome
+
+		if ( evolve_theme_mod( 'evl_fontawesome', '0' ) != "1" && ! is_customize_preview() ) {
+			wp_enqueue_script( 'evolve-font-awesome', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-all.min.js', array(), '5.2.0', true );
+			if ( evolve_theme_mod( 'evl_fontawesome_shims', '0' ) != "1" ) {
+				wp_enqueue_script( 'evolve-font-awesome-shims', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-shims.min.js', array(), '5.2.0', true );
+			}
+		}
+
+		// Add Defined Local Variables
+
 		wp_localize_script( 'main', 'evolve_js_local_vars', $local_variables );
 
 		// Footer Styles
@@ -457,15 +468,6 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 					wp_enqueue_script( 'prettyPhoto-init', '', array( 'jquery' ), '', true );
 					wp_enqueue_script( 'prettyPhoto', '', array( 'jquery' ), '', true );
 					wp_enqueue_style( 'woocommerce_prettyPhoto_css', '', '', '', true );
-				}
-
-				// FontAwesome
-
-				if ( evolve_theme_mod( 'evl_fontawesome', '0' ) != "1" && ! is_customize_preview() ) {
-					wp_enqueue_script( 'evolve-font-awesome', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-all.min.js', array(), '5.2.0' );
-					if ( evolve_theme_mod( 'evl_fontawesome_shims', '0' ) != "1" ) {
-						wp_enqueue_script( 'evolve-font-awesome-shims', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-shims.min.js', array(), '5.2.0' );
-					}
 				}
 			}
 		}

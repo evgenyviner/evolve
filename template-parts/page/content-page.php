@@ -19,7 +19,16 @@
 		if ( current_user_can( 'edit_post', $post->ID ) ):
 			edit_post_link( '', '<span class="btn btn-sm edit-post">' . evolve_get_svg( 'pencil' ) . '', '</span>' );
 		endif;
-	} ?>
+	}
+
+	/*
+		After Post Title
+
+		---------------------------------------
+		Hooked: evolve_100_width_container_close() - 10
+		--------------------------------------- */
+
+	do_action( 'evolve_after_post_title' ); ?>
 
     <div class="post-content" itemprop="mainContentOfPage">
 
