@@ -1316,7 +1316,6 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 								'type'     => 'select',
 								'multi'    => 1,
 								'options'  => $global_value['product_taxonomy'],
-								'default'  => ''
 							),
 							array(
 								'id'       => 'evl_fp_woo_product_number',

@@ -1083,10 +1083,6 @@ if ( ! class_exists( 'evolve_Kirki' ) ) {
 	}
 }
 
-if ( $evolve_customizer_fields === false ) {
-	update_option( 'evolve_all_customize_fields', $evolve_customizer_fields );
-}
-
 /*
     Enqueue Google Fonts on The Front End
     ======================================= */
@@ -1121,8 +1117,8 @@ function evolve_write_json_configs() {
 
 	global $wp_filesystem;
 	// Initialize the WP filesystem, no more using 'file-put-contents' function
-	if ( empty( $wp_filesystem ) ) {
-		require_once( ABSPATH . '/wp-admin/includes/file.php' );
+	if (empty($wp_filesystem)) {
+		require_once wp_normalize_path(ABSPATH . '/wp-admin/includes/file.php');
 		WP_Filesystem();
 	}
 	$evolve_theme_path = str_replace( ABSPATH, $wp_filesystem->abspath(), EVOLVE_THEME_DIR );
@@ -1143,18 +1139,18 @@ if ( isset( $_REQUEST['evolve_write_json_configs'] ) ) {
 	add_action( 'init', 'evolve_write_json_configs' );
 } else {
 	if ( is_user_logged_in() && is_customize_preview() ) {
-		add_action( 'customize_register', 'evolve_call_customize_register' );
+		add_action( 'init', 'evolve_call_customize_register', 11, 1 );
 	}
 }
-add_action( 'init', 'evolve_get_controls_from_json' );
+add_action( 'init', 'evolve_get_controls_from_json', 10, 1 );
 global $store_customize_controls_array;
 function evolve_get_controls_from_json() {
 	global $store_customize_controls_array;
 	global $evolve_customizer_fields, $evolve_list_google_fonts;
 	global $wp_filesystem;
 	// Initialize the WP filesystem, no more using 'file-put-contents' function
-	if ( empty( $wp_filesystem ) ) {
-		require_once( ABSPATH . '/wp-admin/includes/file.php' );
+	if (empty($wp_filesystem)) {
+		require_once wp_normalize_path(ABSPATH . '/wp-admin/includes/file.php');
 		WP_Filesystem();
 	}
 	$evolve_theme_path = str_replace( ABSPATH, $wp_filesystem->abspath(), EVOLVE_THEME_DIR );
