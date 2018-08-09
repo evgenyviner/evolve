@@ -1,4 +1,4 @@
-<div class='t4p_metabox'>
+<div class='evolve_metabox'>
     <?php
 	global $metaboxes;
     $imagepath = get_template_directory_uri() . '/inc/admin/customizer/assets/images/';

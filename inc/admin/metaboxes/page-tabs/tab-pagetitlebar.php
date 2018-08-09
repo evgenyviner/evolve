@@ -1,4 +1,4 @@
-<div class="t4p_metabox">
+<div class="evolve_metabox">
     <?php
 	global $metaboxes;
     $metaboxes->evolve_select('page_title', __('Page Title', 'evolve'), array(

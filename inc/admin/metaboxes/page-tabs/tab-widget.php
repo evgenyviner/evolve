@@ -1,4 +1,4 @@
-<div class="t4p_metabox">
+<div class="evolve_metabox">
     <?php
 	global $metaboxes;
     $metaboxes->evolve_select('widget_page', __('Enable Header Widgets', 'evolve'), array(
