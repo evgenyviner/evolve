@@ -1083,9 +1083,9 @@ if ( ! class_exists( 'evolve_Kirki' ) ) {
 	}
 }
 
-if ( $evolve_customizer_fields === false ) {
-	update_option( 'evolve_all_customize_fields', $evolve_customizer_fields );
-}
+// if ( $evolve_customizer_fields === false ) {
+	// // update_option( 'evolve_all_customize_fields', $evolve_customizer_fields );
+// }
 
 /*
     Enqueue Google Fonts on The Front End

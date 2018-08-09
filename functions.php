@@ -215,18 +215,24 @@ if ( ! function_exists( 'evolve_fix_get_theme_mod' ) ) {
 	}
 }
 
-global $evolve_customizer_fields;
-$evolve_customizer_fields = get_option( 'evolve_all_customize_fields', false );
+global $evolve_customizer_fields, $evolve_all_save_customize_values;
+// $evolve_customizer_fields = get_option( 'evolve_all_customize_fields', false );
+$evolve_all_save_customize_values = get_theme_mods();
 
 if ( ! function_exists( 'evolve_theme_mod' ) ) {
 	function evolve_theme_mod( $name, $default = false ) {
-		global $evolve_customizer_fields;
+		global $evolve_customizer_fields, $evolve_all_save_customize_values;
 		if ( $default == false ) {
 			if ( $evolve_customizer_fields != false && isset( $evolve_customizer_fields[ $name ] ) && isset( $evolve_customizer_fields[ $name ]['value_temp'] ) && isset( $evolve_customizer_fields[ $name ]['value_temp']['default'] ) ) {
 				$default = $evolve_customizer_fields[ $name ]['value_temp']['default'];
 			}
 		}
-		$result = get_theme_mod( $name, $default );
+		if(isset($evolve_all_save_customize_values[$name])){
+			$result = $evolve_all_save_customize_values[$name];
+		}
+		else{
+			$result = get_theme_mod( $name, $default );
+		}
 		if ( $result && is_array( $result ) && isset( $evolve_customizer_fields[ $name ] ) && isset( $evolve_customizer_fields[ $name ]['value']['type'] ) && $evolve_customizer_fields[ $name ]['value']['type'] == 'sorter' ) {
 			$result = evolve_fix_get_theme_mod( $result );
 		}
