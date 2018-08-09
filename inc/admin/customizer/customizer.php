@@ -1143,10 +1143,10 @@ if(isset($_REQUEST['evolve_write_json_configs'])){
 }
 else{
 	if ( is_user_logged_in() && is_customize_preview() ) {
-		add_action( 'customize_register', 'evolve_call_customize_register' );
+		add_action( 'init', 'evolve_call_customize_register', 11, 1 );
 	}
 }
-add_action( 'init', 'evolve_get_controls_from_json' );
+add_action( 'init', 'evolve_get_controls_from_json', 10, 1 );
 global $store_customize_controls_array;
 function evolve_get_controls_from_json(){
 	global $store_customize_controls_array;
