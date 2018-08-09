@@ -240,15 +240,14 @@ if ( ! function_exists( 'evolve_theme_mod' ) ) {
 			return $result["url"];
 		}
 		if ( is_string( $name ) && evolve_suffix( $name, '_icon' ) ) {
-			if ( $result ) {
+			if ( $result && !empty( $result ) && $result != '' ) {
 				if ( ( strpos( $result, 'fa-' ) === 0 ) ) {
 					// It starts with 'fa-'
 					$result = 'fas ' . $result;
 					set_theme_mod( $name, $result );
 				}
 				if (
-					count( $result ) != 0
-					&& ! ( strpos( $result, 'fas ' ) === 0 )
+					! ( strpos( $result, 'fas ' ) === 0 )
 					&& ! ( strpos( $result, 'fab ' ) === 0 )
 					&& ! ( strpos( $result, 'far ' ) === 0 )
 				) {
