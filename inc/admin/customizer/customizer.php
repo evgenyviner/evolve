@@ -1122,7 +1122,7 @@ function evolve_write_json_configs(){
 	global $wp_filesystem;
 	// Initialize the WP filesystem, no more using 'file-put-contents' function
 	if (empty($wp_filesystem)) {
-		require_once (ABSPATH . '/wp-admin/includes/file.php');
+		require_once wp_normalize_path(ABSPATH . '/wp-admin/includes/file.php');
 		WP_Filesystem();
 	}
 	$evolve_theme_path = str_replace(ABSPATH, $wp_filesystem->abspath(), EVOLVE_THEME_DIR);
@@ -1154,7 +1154,7 @@ function evolve_get_controls_from_json(){
 	global $wp_filesystem;
 	// Initialize the WP filesystem, no more using 'file-put-contents' function
 	if (empty($wp_filesystem)) {
-		require_once (ABSPATH . '/wp-admin/includes/file.php');
+		require_once wp_normalize_path(ABSPATH . '/wp-admin/includes/file.php');
 		WP_Filesystem();
 	}
 	$evolve_theme_path = str_replace(ABSPATH, $wp_filesystem->abspath(), EVOLVE_THEME_DIR);
