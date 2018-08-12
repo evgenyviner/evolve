@@ -1,39 +1,38 @@
 <?php
 
-class evolve_ThemeFrameworkMetaboxes {
+class evolve_Metaboxes {
 
 	public function __construct() {
-		global $smof_data;
-		$this->data = $smof_data;
-
-		add_action( 'add_meta_boxes', array( $this, 'evolve_add_meta_boxes' ) );
-		add_action( 'save_post', array( $this, 'evolve_save_meta_boxes' ) );
-		add_action( 'admin_print_scripts-post.php', array( $this, 'evolve_print_metabox_scripts' ) );
-		add_action( 'admin_print_scripts-post-new.php', array( $this, 'evolve_print_metabox_scripts' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'evolve_admin_script_loader' ) );
+		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
+		add_action( 'save_post', array( $this, 'save_meta_boxes' ) );
+		add_action( 'admin_print_scripts-post.php', array( $this, 'print_metabox_scripts' ) );
+		add_action( 'admin_print_scripts-post-new.php', array( $this, 'print_metabox_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_script_loader' ) );
 	}
 
-	// Load backend scripts
-	function evolve_admin_script_loader() {
+	function admin_script_loader() {
 		global $pagenow;
 		if ( is_admin() && ( $pagenow == 'post-new.php' || $pagenow == 'post.php' ) ) {
-			wp_register_script( 'evolve_upload', get_template_directory_uri() . '/assets/js/upload.min.js' );
-			wp_enqueue_script( 'evolve_upload' );
+			wp_register_script( 'evolve-metaboxes', get_template_directory_uri() . '/inc/admin/metaboxes/metaboxes.min.js' );
+			wp_enqueue_script( 'evolve-metaboxes' );
 		}
 	}
 
-	public function evolve_add_meta_boxes() {
-		$this->evolve_add_meta_box( 'evolve_post_options', __( 'Post Options', 'evolve' ), 'post' );
-		$this->evolve_add_meta_box( 'evolve_page_options', __( 'Page Options', 'evolve' ), 'page' );
+	public function add_meta_boxes() {
+		$this->evolve_add_meta_box( 'post_options', __( 'Post Options', 'evolve' ), 'post' );
+		$this->evolve_add_meta_box( 'page_options', __( 'Page Options', 'evolve' ), 'page' );
+		$this->evolve_add_meta_box( 'woocommerce_options', __( 'Product Options', 'evolve' ), 'product' );
 	}
 
 	public function evolve_add_meta_box( $id, $label, $post_type ) {
 		add_meta_box(
 			'evolve_' . $id, $label, array( $this, $id ), $post_type
 		);
+		add_filter( 'postbox_classes_post_evolve_' . $id, 'evolve_metabox_classes' );
+		add_filter( 'postbox_classes_page_evolve_' . $id, 'evolve_metabox_classes' );
 	}
 
-	public function evolve_save_meta_boxes( $post_id ) {
+	public function save_meta_boxes( $post_id ) {
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return;
 		}
@@ -45,50 +44,77 @@ class evolve_ThemeFrameworkMetaboxes {
 		}
 	}
 
-	public function evolve_post_options() {
+	public function post_options() {
 		wp_enqueue_style( 'evolve-metaboxes', get_template_directory_uri() . '/inc/admin/metaboxes/style.min.css' );
 		$this->evolve_render_option_tabs( array( 'layout', 'pagetitlebar', 'widget', 'slider' ) );
 	}
 
-	public function evolve_page_options() {
+	public function page_options() {
 		wp_enqueue_style( 'evolve-metaboxes', get_template_directory_uri() . '/inc/admin/metaboxes/style.min.css' );
 		$this->evolve_render_option_tabs( array( 'layout', 'pagetitlebar', 'widget', 'slider' ) );
 	}
 
-	public function evolve_print_metabox_scripts() {
-		wp_register_style(
-			'evolve-metaboxes-icon', get_template_directory_uri() . '/inc/admin/customizer/assets/fonts/fontastic/styles.min.css', array(), time(), 'all'
-		);
+	public function woocommerce_options() {
+		wp_enqueue_style( 'evolve-metaboxes', get_template_directory_uri() . '/inc/admin/metaboxes/style.min.css' );
+		$this->evolve_render_option_tabs( array( 'layout', 'pagetitlebar', 'widget', 'slider' ) );
+	}
+
+	public function print_metabox_scripts() {
+		wp_register_style( 'evolve-metaboxes-icon', get_template_directory_uri() . '/inc/admin/customizer/assets/fonts/fontastic/styles.min.css', array(), time(), 'all' );
 		wp_enqueue_style( 'evolve-metaboxes-icon' );
+		wp_enqueue_style( 'wp-color-picker' );
+		wp_enqueue_script( 'wp-color-picker-alpha', get_template_directory_uri() . '/inc/admin/customizer/kirki-framework/assets/vendor/wp-color-picker-alpha/wp-color-picker-alpha.js', array( 'wp-color-picker' ), '', true );
 	}
 
 	public function evolve_text( $id, $label, $desc = '' ) {
 		global $post;
 
 		$html = '';
-		$html .= '<div class="evolve_metabox_field">';
+		$html .= '<div class="evolve-metabox-field">';
 		$html .= '<label for="evolve_' . $id . '">';
 		$html .= $label;
 		$html .= '</label>';
+		if ( $desc ) {
+			$html .= '<span class="description">' . $desc . '</span>';
+		}
 		$html .= '<div class="field">';
 		$html .= '<input type="text" id="evolve_' . $id . '" name="evolve_' . $id . '" value="' . get_post_meta( $post->ID, 'evolve_' . $id, true ) . '" />';
-		if ( $desc ) {
-			$html .= '<p>' . $desc . '</p>';
-		}
 		$html .= '</div>';
 		$html .= '</div>';
 
 		echo $html;
 	}
 
-	public function evolve_select( $id, $label, $options, $desc = '' ) {
+	public function evolve_color( $type, $id, $label, $desc = '' ) {
 		global $post;
 
 		$html = '';
-		$html .= '<div class="evolve_metabox_field">';
+		$html .= '<div class="evolve-metabox-field">';
 		$html .= '<label for="evolve_' . $id . '">';
 		$html .= $label;
 		$html .= '</label>';
+		if ( $desc ) {
+			$html .= '<span class="description">' . $desc . '</span>';
+		}
+		$html .= '<div class="field">';
+		$html .= '<input' . ( ( $type == 'color_rgba' ) ? " class='evolve-color-field' data-alpha='true'" : " class='evolve-color-field'" ) . ' type="text" id="evolve_' . $id . '" name="evolve_' . $id . '" value="' . get_post_meta( $post->ID, 'evolve_' . $id, true ) . '" />';
+		$html .= '</div>';
+		$html .= '</div>';
+
+		echo $html;
+	}
+
+	public function evolve_select( $id, $label, $desc = '', $options ) {
+		global $post;
+
+		$html = '';
+		$html .= '<div class="evolve-metabox-field">';
+		$html .= '<label for="evolve_' . $id . '">';
+		$html .= $label;
+		$html .= '</label>';
+		if ( $desc ) {
+			$html .= '<span class="description">' . $desc . '</span>';
+		}
 		$html .= '<div class="field">';
 		$html .= '<select id="evolve_' . $id . '" name="evolve_' . $id . '">';
 		foreach ( $options as $key => $option ) {
@@ -101,23 +127,23 @@ class evolve_ThemeFrameworkMetaboxes {
 			$html .= '<option ' . $selected . 'value="' . $key . '">' . $option . '</option>';
 		}
 		$html .= '</select>';
-		if ( $desc ) {
-			$html .= '<p>' . $desc . '</p>';
-		}
 		$html .= '</div>';
 		$html .= '</div>';
 
 		echo $html;
 	}
 
-	public function evolve_multiple( $id, $label, $options, $desc = '' ) {
+	public function evolve_multiple( $id, $label, $desc = '', $options ) {
 		global $post;
 
 		$html = '';
-		$html .= '<div class="evolve_metabox_field">';
+		$html .= '<div class="evolve-metabox-field">';
 		$html .= '<label for="evolve_' . $id . '">';
 		$html .= $label;
 		$html .= '</label>';
+		if ( $desc ) {
+			$html .= '<span class="description">' . $desc . '</span>';
+		}
 		$html .= '<div class="field">';
 		$html .= '<select multiple="multiple" id="evolve_' . $id . '" name="evolve_' . $id . '[]">';
 		foreach ( $options as $key => $option ) {
@@ -130,9 +156,6 @@ class evolve_ThemeFrameworkMetaboxes {
 			$html .= '<option ' . $selected . 'value="' . $key . '">' . $option . '</option>';
 		}
 		$html .= '</select>';
-		if ( $desc ) {
-			$html .= '<p>' . $desc . '</p>';
-		}
 		$html .= '</div>';
 		$html .= '</div>';
 
@@ -144,31 +167,25 @@ class evolve_ThemeFrameworkMetaboxes {
 
 		$db_value = get_post_meta( $post->ID, 'evolve_' . $id, true );
 
-		if ( $db_value ) {
-			$value = $db_value;
-		} else {
-			$value = $default;
-		}
+		$value = $db_value;
 
 		$html = '';
-		$html = '';
-		$html .= '<div class="evolve_metabox_field">';
+		$html .= '<div class="evolve-metabox-field">';
 		$html .= '<label for="evolve_' . $id . '">';
 		$html .= $label;
 		$html .= '</label>';
+		if ( $desc ) {
+			$html .= '<span class="description">' . $desc . '</span>';
+		}
 		$html .= '<div class="field">';
 		$html .= '<textarea cols="120" rows="10" id="evolve_' . $id . '" name="evolve_' . $id . '">' . $value . '</textarea>';
-		if ( $desc ) {
-			$html .= '<p>' . $desc . '</p>';
-		}
 		$html .= '</div>';
 		$html .= '</div>';
 
 		echo $html;
 	}
 
-	//added by denzel, image radio button.
-	public function evolve_image_radio_button( $id, $label, $options, $desc = '', $default = '' ) {
+	public function evolve_image_radio_button( $id, $label, $desc = '', $options, $default = '' ) {
 		global $post;
 		$class          = '';
 		$checked        = '';
@@ -179,26 +196,29 @@ class evolve_ThemeFrameworkMetaboxes {
 		$javascript_ids = rtrim( $javascript_ids, "," );
 
 		$html = '';
-		$html .= '<div class="evolve_metabox_field">';
+		$html .= '<div class="evolve-metabox-field">';
 		$html .= '<label for="evolve_' . $id . '">';
 		$html .= $label;
 		$html .= '</label>';
+		if ( $desc ) {
+			$html .= '<span class="description">' . $desc . '</span>';
+		}
 		$html .= '<div class="field">';
 		foreach ( $options as $key => $option ) {
 			$html .= '<input type="radio" style="display:none;" id="' . $key . '" name="evolve_' . $id . '" value="' . $key . '" ';
 			if ( get_post_meta( $post->ID, 'evolve_' . $id, true ) == $key ) {
 				$checked = 'checked="checked"';
-				$class   = 'evolve_img_border_radio evolve_img_selected';
+				$class   = 'evolve-radio evolve-img-selected';
 			} elseif ( get_post_meta( $post->ID, 'evolve_' . $id, true ) == '' && $key == $default ) {
 				$checked = 'checked="checked"';
-				$class   = 'evolve_img_border_radio evolve_img_selected';
+				$class   = 'evolve-radio evolve-img-selected';
 			} else {
 				$checked = '';
-				$class   = 'evolve_img_border_radio';
+				$class   = 'evolve-radio';
 			}
 
 			$html .= $checked . ">";
-			$html .= "<img src='$option' alt='' id='image_$key' class='$class' onclick='document.getElementById(\"$key\").checked=true;jQuery(\"$javascript_ids\").removeClass(\"evolve_img_selected\");jQuery(this).addClass(\"evolve_img_selected\");' />";
+			$html .= "<img src='$option' alt='' id='image_$key' class='$class' onclick='document.getElementById(\"$key\").checked=true;jQuery(\"$javascript_ids\").removeClass(\"evolve-img-selected\");jQuery(this).addClass(\"evolve-img-selected\");' />";
 		}
 		$html .= '</div>';
 		$html .= '</div>';
@@ -209,41 +229,41 @@ class evolve_ThemeFrameworkMetaboxes {
 	public function evolve_upload( $id, $label, $desc = '' ) {
 		global $post;
 
-		$evolve_upload_img_id   = get_post_meta( $post->ID, 'evolve_' . $id, true );
-		$evolve_upload_src      = wp_get_attachment_image_src( $evolve_upload_img_id, 'full' );
-		$evolve_upload_have_img = is_array( $evolve_upload_src );
+		$upload_img_id = get_post_meta( $post->ID, 'evolve_' . $id, true );
+		$upload_src    = wp_get_attachment_url( $upload_img_id );
 
-		$html  = '';
-		$html  .= '<div class="evolve_metabox_field .redux-main">';
-		$html  .= '<label for="evolve_' . $id . '">';
-		$html  .= $label;
-		$html  .= '</label>';
+		$html = '';
+		$html .= '<div class="evolve-metabox-field">';
+		$html .= '<label for="evolve_' . $id . '">';
+		$html .= $label;
+		$html .= '</label>';
+		if ( $desc ) {
+			$html .= '<span class="description">' . $desc . '</span>';
+		}
 		$html  .= '<div class="field">';
 		$hide1 = '';
 		$hide2 = '';
-		if ( $evolve_upload_have_img ) {
+		if ( $upload_src ) {
 			$hide1 = 'hidden';
 		}
-		if ( ! $evolve_upload_have_img ) {
+		if ( ! $upload_src ) {
 			$hide2 = 'hidden';
 		}
 
 		$html .= '<input type="text" id="evolve-media-remove-extra-' . $id . '" class="upload_field ' . $hide1 . '" value="" /></br>';
 
 		$html .= '<div id="evolve-media-display-' . $id . '">';
-		if ( $evolve_upload_have_img ) :
-			$html .= '<input type="text" class="upload_field" value="' . $evolve_upload_src[0] . '" /></br>';
-			$html .= '<img src="' . $evolve_upload_src[0] . '" class="redux-option-image" style="width:60px; height:60px;" />';
+		if ( $upload_src ) :
+			$html .= '<input type="text" class="upload_field" value="' . $upload_src . '" /></br>';
+			if ( $id != 'webm' && $id != 'mp4' && $id != 'ogv' ) {
+				$html .= '<img src="' . $upload_src . '" style="width:60px; height:60px;" />';
+			}
 		endif;
 		$html .= '</div>';
 
-		$html .= '<input class="evolve_upload_button button ' . $hide1 . '" id="evolve-media-upload-' . $id . '" data-media-id="' . $id . '" type="button" value="Upload" />';
-		$html .= '<input class="evolve_remove_button button ' . $hide2 . '" id="evolve-media-remove-' . $id . '" data-media-id="' . $id . '" type="button" value="Remove" />';
-		if ( $desc ) {
-			$html .= '<p>' . $desc . '</p>';
-		}
-		$html .= '</div>';
-		$html .= '</div>';
+		$html .= '<input class="evolve-upload-button button ' . $hide1 . '" id="evolve-media-upload-' . $id . '" id="evolve-media-upload-' . $id . '" data-media-id="' . $id . '" type="button" value="' . __( 'Upload', 'evolve' ) . '" />';
+		$html .= '<input class="evolve-remove-button button ' . $hide2 . '" id="evolve-media-remove-' . $id . '" id="evolve-media-upload-' . $id . '" data-media-id="' . $id . '" type="button" value="' . __( 'Remove', 'evolve' ) . '" />';
+		$html .= '</div></div>';
 		$html .= '<input type="hidden" id="evolve_' . $id . '" name="evolve_' . $id . '" value="' . get_post_meta( $post->ID, 'evolve_' . $id, true ) . '" />';
 
 		echo $html;
@@ -254,8 +274,7 @@ class evolve_ThemeFrameworkMetaboxes {
 			'layout'       => __( 'Layout', 'evolve' ),
 			'pagetitlebar' => __( 'Breadcrumbs', 'evolve' ),
 			'widget'       => __( 'Widgets', 'evolve' ),
-			'slider'       => __( 'Slider', 'evolve' ),
-			'sidebars'     => __( 'Sidebar', 'evolve' ),
+			'slider'       => __( 'Slider', 'evolve' )
 		);
 
 		$tabs_icons = array(
@@ -266,7 +285,7 @@ class evolve_ThemeFrameworkMetaboxes {
 			'sidebars'     => 'evolve-icon-sidebar',
 		);
 
-		echo '<ul class="evolve_metabox_tabs">';
+		echo '<ul class="evolve-metabox-tabs">';
 
 		foreach ( $requested_tabs as $key => $tab_name ) {
 			$class_active = '';
@@ -285,16 +304,14 @@ class evolve_ThemeFrameworkMetaboxes {
 
 		echo '</ul>';
 
-		echo '<div class="evolve_metabox_main">';
+		echo '<div class="evolve-metabox-content">';
 
 		foreach ( $requested_tabs as $key => $tab_name ) {
 			$class_active = '';
 			if ( $key === 0 ) {
 				$class_active = 'active';
 			}
-			printf( '<div class="evolve_metabox_tab %s" id="evolve_tab_%s">', $class_active, $tab_name );
-			// require_once( sprintf('page-tabs/tab-%s.php', $tab_name) );
-			// include( locate_template( sprintf('inc/admin/metaboxes/page-tabs/tab-%s.php', $tab_name), false, false ) );
+			printf( '<div class="evolve-metabox-tab %s" id="evolve-tab-%s">', $class_active, $tab_name );
 			get_template_part( 'inc/admin/metaboxes/page-tabs/tab', $tab_name );
 			echo '</div>';
 		}
@@ -302,8 +319,12 @@ class evolve_ThemeFrameworkMetaboxes {
 		echo '</div>';
 		echo '<div class="clear"></div>';
 	}
-
 }
 
-global $metaboxes;
-$metaboxes = new evolve_ThemeFrameworkMetaboxes;
+function evolve_metabox_classes( $classes ) {
+	array_push( $classes, 'evolve-postbox' );
+
+	return $classes;
+}
+
+$evolve_metaboxes = new evolve_Metaboxes;

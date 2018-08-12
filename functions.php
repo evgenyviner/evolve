@@ -216,7 +216,6 @@ if ( ! function_exists( 'evolve_fix_get_theme_mod' ) ) {
 }
 
 global $evolve_customizer_fields, $evolve_all_save_customize_values;
-// $evolve_customizer_fields = get_option( 'evolve_all_customize_fields', false );
 $evolve_all_save_customize_values = get_theme_mods();
 
 if ( ! function_exists( 'evolve_theme_mod' ) ) {

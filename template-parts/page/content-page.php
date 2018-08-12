@@ -6,7 +6,8 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope="itemscope"
+         itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
 
 	<?php if ( class_exists( 'bbPress' ) && ( bbp_is_reply_edit() || bbp_is_topic_edit() ) ) {
 	} else {

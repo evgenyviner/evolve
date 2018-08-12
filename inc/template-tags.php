@@ -743,7 +743,7 @@ if ( ! function_exists( 'evolve_breadcrumbs' ) ) {
 
 		global $post;
 
-		if ( ( class_exists( 'bbPress' ) && is_bbpress() ) || evolve_theme_mod( 'evl_breadcrumbs', '1' ) != "1" || ( is_front_page() && is_page() ) || is_home() || ( is_single() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) || ( is_page() && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) ) {
+		if ( ( class_exists( 'bbPress' ) && is_bbpress() ) || evolve_theme_mod( 'evl_breadcrumbs', '1' ) != "1" || ( is_front_page() && is_page() ) || is_home() || ( ( is_single() || is_page() ) && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) ) {
 			return;
 		}
 
@@ -790,7 +790,7 @@ if ( ! function_exists( 'evolve_breadcrumbs' ) ) {
 			echo join( ' ', $parents );
 			echo '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
 		}
-		if ( is_single() && ! is_attachment() ) {
+		if ( is_single() && ! is_attachment() && ! evolve_is_post_type() ) {
 			$cat_1_line   = '';
 			$cat_1_ids    = array();
 			$categories_1 = get_the_category( $post->ID );
@@ -839,6 +839,23 @@ if ( ! function_exists( 'evolve_breadcrumbs' ) ) {
 				echo '<li class="breadcrumb-item"><a href="' . get_permalink( $post->post_parent ) . '">' . get_the_title( $post->post_parent ) . '</a></li>';
 			}
 			echo '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
+		}
+		if ( evolve_is_post_type() ) {
+			$parents   = array();
+			$parent_id = $post->post_parent;
+			while ( $parent_id ) :
+				$page_ID = get_post( $parent_id );
+				if ( $params["link_none"] ) {
+					$parents[] = get_the_title( $page_ID->ID );
+				} else {
+					$parents[] = '<li class="breadcrumb-item"><a href="' . get_permalink( $page_ID->ID ) . '" title="' . get_the_title( $page_ID->ID ) . '">' . get_the_title( $page_ID->ID ) . '</a></li>' . $separator;
+				}
+				$parent_id = $page_ID->post_parent;
+			endwhile;
+			$parents = array_reverse( $parents );
+			echo join( ' ', $parents );
+			echo '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
+
 		}
 		echo '</ul></nav>';
 	}
@@ -1217,10 +1234,9 @@ if ( ! function_exists( 'evolve_sharethis' ) ) {
 			$image_url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
 			if ( empty( $image_url ) ) {
 				$image_url = get_template_directory_uri() . '/assets/images/no-thumbnail-post.jpg';
-			}
-			?>
+			} ?>
 
-            <div class="col-md-6">
+            <div class="col-md-6 ml-auto">
                 <div class="share-this">
 
                     <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"

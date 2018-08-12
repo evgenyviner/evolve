@@ -23,7 +23,11 @@ if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
 	return;
 }
 
-global $post, $product; ?>
+global $post, $product;
+
+$loop = 0;
+
+?>
 
 <div class="<?php evolve_single_product_class(); ?>">
     <div id="carousel-slider-product" class="product-carousel carousel slide" data-ride="carousel">
@@ -50,8 +54,6 @@ global $post, $product; ?>
 
 				$attachment_ids = $product->get_gallery_image_ids();
 
-				$loop = 0;
-
 				foreach ( $attachment_ids as $attachment_id ) {
 
 					$image_link = wp_get_attachment_url( $attachment_id );
@@ -72,7 +74,6 @@ global $post, $product; ?>
 			} else {
 				echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<div class="carousel-item active"><img src="%s" alt="%s" class="wp-post-image d-block w-100" /></div>', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'evolve' ) ), $post->ID );
 			}
-
 			if ( $loop > 0 ) {
 				echo "<a class='carousel-control-prev carousel-control' href='#carousel-slider-product' role='button' data-slide='prev'>
                     <span class='carousel-control-button carousel-control-prev-icon' aria-hidden='true'></span>

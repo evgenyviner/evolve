@@ -98,58 +98,26 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 		</h5>
 		<?php }
 
-		function add_sidebar_2() {
-			$sidebar_css = '';
-
-			$get_sidebar = false;
-
-			if ( evolve_theme_mod( 'evl_layout', '2cl' ) == "3cm" || evolve_theme_mod( 'evl_layout', '2cl' ) == "3cl" || evolve_theme_mod( 'evl_layout', '2cl' ) == "3cr" ) {
-				$get_sidebar = true;
-			}
-
-			switch ( evolve_theme_mod( 'evl_layout', '2cl' ) ):
-				case "3cm":
-					$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
-					break;
-				case "3cl":
-					$sidebar_css = 'col-md-12 col-lg-3 order-2';
-					break;
-				case "3cr":
-					$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
-					break;
-			endswitch;
-
-			if ( ( ( is_front_page() && is_page() ) || is_home() ) && is_shop() ) {
-				if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cm" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cl" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cr" ) {
-					$get_sidebar = true;
-				}
-				switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
-					case "3cm":
-						$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
-						break;
-					case "3cl":
-						$sidebar_css = 'col-md-12 col-lg-3 order-2';
-						break;
-					case "3cr":
-						$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
-						break;
-				endswitch;
-			}
-
-			if ( $get_sidebar == true ) {
-				echo '<div id="secondary-2" class="aside ' . $sidebar_css . '">';
-				dynamic_sidebar( 'sidebar-2' );
-				echo '</div>';
-			}
-		}
-
 		function add_sidebar() {
-			$sidebar_css = '';
+
 			$get_sidebar = false;
 
 			if ( evolve_theme_mod( 'evl_layout', '2cl' ) != "1c" ) {
 				$get_sidebar = true;
 			}
+
+			if ( is_product() && get_post_meta( get_the_ID(), 'evolve_full_width', true ) == 'yes' ) {
+			    $get_sidebar = false;
+		    }
+
+		  	if ( is_product() ) {
+		    	$sidebar_position = get_post_meta( get_the_ID(), 'evolve_sidebar_position', true );
+			        if ( $sidebar_position != 'default' && $sidebar_position != '' ) {
+				$get_sidebar = true;
+			}
+		    }
+
+		    $sidebar_css = '';
 
 			switch ( evolve_theme_mod( 'evl_layout', '2cl' ) ):
 				case "1c":
@@ -161,9 +129,29 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 				case "2cr":
 					$sidebar_css = 'col-sm-12 col-md-4 order-2 order-md-1';
 					break;
-				case "3cm":
+					case "3cm":
 					$sidebar_css = 'col-md-12 col-lg-3 order-3';
+						break;
+					case "3cl":
+					$sidebar_css = 'col-md-12 col-lg-3 order-3';
+						break;
+					case "3cr":
+					$sidebar_css = 'col-md-12 col-lg-3 order-3 order-lg-2';
+						break;
+				endswitch;
+			$sidebar_position = get_post_meta( get_the_ID(), 'evolve_sidebar_position', true );
+		    if ( is_product() ):
+			switch ( $sidebar_position ):
+				case "default":
+					//do nothing
 					break;
+				case "2cl":
+					$sidebar_css = 'col-sm-12 col-md-4';
+					break;
+				case "2cr":
+					$sidebar_css = 'col-sm-12 col-md-4 order-2 order-md-1';
+					break;
+				case "3cm":
 				case "3cl":
 					$sidebar_css = 'col-md-12 col-lg-3 order-3';
 					break;
@@ -171,6 +159,7 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 					$sidebar_css = 'col-md-12 col-lg-3 order-3 order-lg-2';
 					break;
 			endswitch;
+		    endif;
 			if ( ( ( is_front_page() && is_page() ) || is_home() ) && is_shop() ) {
 				if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "1c" ) {
 					$get_sidebar = false;
@@ -202,7 +191,78 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 
 			if ( $get_sidebar == true ) {
 				echo '<div id="secondary" class="aside ' . $sidebar_css . '">';
-				dynamic_sidebar( 'sidebar-1' );
+				dynamic_sidebar('sidebar-1' );
+				echo '</div>';
+			}
+		}
+
+		function add_sidebar_2() {
+
+			$get_sidebar = false;
+
+			if ( evolve_theme_mod( 'evl_layout', '2cl' ) == "3cm" || evolve_theme_mod( 'evl_layout', '2cl' ) == "3cl" || evolve_theme_mod( 'evl_layout', '2cl' ) == "3cr" ) {
+				$get_sidebar = true;
+			}
+
+			if ( is_product() && get_post_meta( get_the_ID(), 'evolve_full_width', true ) == 'yes' ) {
+			    $get_sidebar = false;
+		    }
+
+		    if ( is_product() ) {
+			    $sidebar_position = get_post_meta( get_the_ID(), 'evolve_sidebar_position', true );
+			        if ( $sidebar_position == '2cl' || $sidebar_position == '2cr' ) {
+				        $get_sidebar = false;
+			        }
+			        if ( $sidebar_position == "3cm" || $sidebar_position == "3cl" || $sidebar_position == "3cr" ) {
+				        $get_sidebar = true;
+			        }
+		    }
+
+		    $sidebar_css = '';
+
+			switch ( evolve_theme_mod( 'evl_layout', '2cl' ) ):
+				case "3cm":
+					$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
+					break;
+				case "3cl":
+					$sidebar_css = 'col-md-12 col-lg-3 order-2';
+					break;
+				case "3cr":
+					$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
+					break;
+			endswitch;
+           	$sidebar_position = get_post_meta( get_the_ID(), 'evolve_sidebar_position', true );
+		    if ( is_product() ):
+			    switch ( $sidebar_position ):
+				    case "3cm":
+				    case "3cr":
+					    $sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
+					    break;
+				    case "3cl":
+					    $sidebar_css = 'col-md-12 col-lg-3 order-2';
+					    break;
+			    endswitch;
+		    endif;
+			if ( ( ( is_front_page() && is_page() ) || is_home() ) && is_shop() ) {
+				if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cm" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cl" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "3cr" ) {
+					$get_sidebar = true;
+				}
+				switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
+					case "3cm":
+						$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
+						break;
+					case "3cl":
+						$sidebar_css = 'col-md-12 col-lg-3 order-2';
+						break;
+					case "3cr":
+						$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
+						break;
+				endswitch;
+			}
+
+			if ( $get_sidebar == true ) {
+				echo '<div id="secondary-2" class="aside ' . $sidebar_css . '">';
+				dynamic_sidebar( 'sidebar-2' );
 				echo '</div>';
 			}
 		}
@@ -210,6 +270,9 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 		function shop_breadcrumb() {
 			$evolve_breadcrumbs = evolve_theme_mod( 'evl_breadcrumbs', '1' );
 			if ( $evolve_breadcrumbs == "1" ):
+			    if (is_product() && get_post_meta( get_the_ID(), 'evolve_page_breadcrumb', true ) == "no" ) {
+                    return;
+			    }
 				woocommerce_breadcrumb();
 			endif;
 		}
@@ -770,7 +833,7 @@ remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' 
 add_action( 'woocommerce_cart_collaterals', 'evolve_woocommerce_cross_sell_display', 5 );
 
 function evolve_woocommerce_cross_sell_display() {
-	global $product, $woocommerce_loop, $post, $smof_data;
+	global $product, $woocommerce_loop, $post;
 
 	$crosssells = WC()->cart->get_cross_sells();
 

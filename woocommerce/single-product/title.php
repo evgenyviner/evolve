@@ -10,7 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly
 
-?>
-
-<h1 class="post-title" itemprop="name"><?php the_title(); ?></h1>
-
+if ( ( get_post_meta( get_the_ID(), 'evolve_page_title', true ) == "yes" || get_post_meta( get_the_ID(), 'evolve_page_title', true ) == "" ) ) {
+	the_title( '<h1 class="post-title" itemprop="name">', '</h1>' );
+}

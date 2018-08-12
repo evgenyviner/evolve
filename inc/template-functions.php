@@ -45,6 +45,7 @@
     - Custom Front Page Builder
     - Wrapper For Customizer Preview
     - Custom Function To Return Terms
+    - Function To Check If Post Is Custom Type
     - Schema.org Function For HTML
 
     ======================================= */
@@ -1566,6 +1567,29 @@ if ( ! function_exists( 'evolve_get_terms' ) ) {
 		}
 
 		return trim( join( $glue, $thing ) );
+	}
+}
+
+/*
+	Function To Check If Post Is Custom Type
+    ======================================= */
+
+if ( ! function_exists( 'evolve_is_post_type' ) ) {
+	function evolve_is_post_type( $post = null ) {
+		$all_custom_post_types = get_post_types( array( '_builtin' => false ) );
+
+		if ( empty ( $all_custom_post_types ) ) {
+			return false;
+		}
+
+		$custom_types      = array_keys( $all_custom_post_types );
+		$current_post_type = get_post_type( $post );
+
+		if ( ! $current_post_type ) {
+			return false;
+		}
+
+		return in_array( $current_post_type, $custom_types );
 	}
 }
 

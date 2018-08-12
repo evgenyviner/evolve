@@ -1,7 +1,7 @@
 // Change tab on click in page/post option
 jQuery(document).ready(function ($) {
 
-    jQuery('.evolve_metabox_tabs li a').click(function (e) {
+    jQuery('.evolve-metabox-tabs li a').click(function (e) {
         e.preventDefault();
 
         var id = jQuery(this).attr('href');
@@ -9,8 +9,8 @@ jQuery(document).ready(function ($) {
         jQuery(this).parents('ul').find('li').removeClass('active');
         jQuery(this).parent().addClass('active');
 
-        jQuery(this).parents('.inside').find('.evolve_metabox_tab').removeClass('active').hide();
-        jQuery(this).parents('.inside').find('#evolve_tab_' + id).addClass('active').fadeIn();
+        jQuery(this).parents('.inside').find('.evolve-metabox-tab').removeClass('active').hide();
+        jQuery(this).parents('.inside').find('#evolve-tab-' + id).addClass('active').fadeIn();
 
     });
 
