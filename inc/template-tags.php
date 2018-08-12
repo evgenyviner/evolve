@@ -176,7 +176,7 @@ if ( ! function_exists( 'evolve_sticky_header_open' ) ) {
 
         <div class="header-height">
 
-	<?php  }
+	<?php }
 }
 
 add_action( 'evolve_header_area', 'evolve_sticky_header_open', 20 );
@@ -948,7 +948,7 @@ if ( ! function_exists( 'evolve_parallax' ) ) {
 				}
 				echo "</div>";
 
-				echo "<div class='row justify-content-end'><div class='col-lg-6 p-0'><img data-animation='animated fadeInRight' class='d-block' src='" . ( evolve_theme_mod( "evl_slide{$i}_img" )  ? evolve_theme_mod( "evl_slide{$i}_img" ) : get_template_directory_uri() . '/assets/images/no-thumbnail-slider.jpg' ) . "' alt='" . evolve_theme_mod( "evl_slide{$i}_title" ) . "' /></div></div>";
+				echo "<div class='row justify-content-end'><div class='col-lg-6 p-0'><img data-animation='animated fadeInRight' class='d-block' src='" . ( evolve_theme_mod( "evl_slide{$i}_img" ) ? evolve_theme_mod( "evl_slide{$i}_img" ) : get_template_directory_uri() . '/assets/images/no-thumbnail-slider.jpg' ) . "' alt='" . evolve_theme_mod( "evl_slide{$i}_title" ) . "' /></div></div>";
 
 				echo "</div>";
 				++ $slides;
@@ -1036,7 +1036,7 @@ if ( ! function_exists( 'evolve_posts_slider' ) ) {
                                 <div class="col-lg-6 p-0">
 
 									<?php if ( has_post_thumbnail() ) {
-										the_post_thumbnail( 'evolve-slider-thumbnail', array( 'class' => 'd-block w-100', 'itemprop'=>'image' ) );
+										the_post_thumbnail( 'evolve-slider-thumbnail', array( 'class' => 'd-block w-100', 'itemprop' => 'image' ) );
 									} else if ( $image = evolve_get_first_image() ) {
 										if ( $image ):
 											echo '<img class="d-block w-100" src="' . $image . '" alt="';

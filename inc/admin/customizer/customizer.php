@@ -1117,8 +1117,8 @@ function evolve_write_json_configs() {
 
 	global $wp_filesystem;
 	// Initialize the WP filesystem, no more using 'file-put-contents' function
-	if (empty($wp_filesystem)) {
-		require_once wp_normalize_path(ABSPATH . '/wp-admin/includes/file.php');
+	if ( empty( $wp_filesystem ) ) {
+		require_once wp_normalize_path( ABSPATH . '/wp-admin/includes/file.php' );
 		WP_Filesystem();
 	}
 	$evolve_theme_path = str_replace( ABSPATH, $wp_filesystem->abspath(), EVOLVE_THEME_DIR );
@@ -1129,7 +1129,7 @@ function evolve_write_json_configs() {
 		'evolve_customizer_fields'   => $evolve_customizer_fields,
 	);
 	$wp_filesystem->put_contents(
-		$evolve_theme_path . '/store_customize_controls.json',
+		$evolve_theme_path . '/customizer-controls.json',
 		json_encode( $store_customize_controls ),
 		FS_CHMOD_FILE // predefined mode settings for WP files
 	);
@@ -1149,13 +1149,13 @@ function evolve_get_controls_from_json() {
 	global $evolve_customizer_fields, $evolve_list_google_fonts;
 	global $wp_filesystem;
 	// Initialize the WP filesystem, no more using 'file-put-contents' function
-	if (empty($wp_filesystem)) {
-		require_once wp_normalize_path(ABSPATH . '/wp-admin/includes/file.php');
+	if ( empty( $wp_filesystem ) ) {
+		require_once wp_normalize_path( ABSPATH . '/wp-admin/includes/file.php' );
 		WP_Filesystem();
 	}
 	$evolve_theme_path = str_replace( ABSPATH, $wp_filesystem->abspath(), EVOLVE_THEME_DIR );
 	ob_start();
-	$json_path = wp_normalize_path( $evolve_theme_path . '/store_customize_controls.json' );
+	$json_path = wp_normalize_path( $evolve_theme_path . '/customizer-controls.json' );
 	include $json_path;
 	$store_customize_controls = ob_get_clean();
 	//set json_decode(string, true) to get array not object

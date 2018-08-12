@@ -4713,7 +4713,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							'type'     => 'select',
 							'options'  => array(
 								'always'  => esc_attr__( 'Always', 'evolve' ),
-								'desktop' => esc_attr__( 'Desktop ( >= 992px ) ', 'evolve' ),
+								'desktop' => esc_attr__( 'Desktop ( >= 992px )', 'evolve' ),
 								'tablet'  => esc_attr__( 'Tablet ( >= 768px )', 'evolve' ),
 								'phone'   => esc_attr__( 'Phone ( >= 576px )', 'evolve' )
 							),
@@ -4729,7 +4729,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							'type'     => 'select',
 							'options'  => array(
 								'always'  => esc_attr__( 'Always', 'evolve' ),
-								'desktop' => esc_attr__( 'Smaller Than Desktop ( <= 992px ) ', 'evolve' ),
+								'desktop' => esc_attr__( 'Smaller Than Desktop ( <= 992px )', 'evolve' ),
 								'tablet'  => esc_attr__( 'Tablet And Smaller ( <= 768px )', 'evolve' ),
 								'phone'   => esc_attr__( 'Phone And Smaller ( <= 576px )', 'evolve' )
 							),

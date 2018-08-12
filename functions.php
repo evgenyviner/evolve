@@ -226,10 +226,9 @@ if ( ! function_exists( 'evolve_theme_mod' ) ) {
 				$default = $evolve_customizer_fields[ $name ]['value_temp']['default'];
 			}
 		}
-		if(isset($evolve_all_save_customize_values[$name])){
-			$result = $evolve_all_save_customize_values[$name];
-		}
-		else{
+		if ( isset( $evolve_all_save_customize_values[ $name ] ) ) {
+			$result = $evolve_all_save_customize_values[ $name ];
+		} else {
 			$result = get_theme_mod( $name, $default );
 		}
 		if ( $result && is_array( $result ) && isset( $evolve_customizer_fields[ $name ] ) && isset( $evolve_customizer_fields[ $name ]['value']['type'] ) && $evolve_customizer_fields[ $name ]['value']['type'] == 'sorter' ) {
@@ -239,15 +238,14 @@ if ( ! function_exists( 'evolve_theme_mod' ) ) {
 			return $result["url"];
 		}
 		if ( is_string( $name ) && evolve_suffix( $name, '_icon' ) ) {
-			if ( $result ) {
+			if ( $result && ! empty( $result ) && $result != '' ) {
 				if ( ( strpos( $result, 'fa-' ) === 0 ) ) {
 					// It starts with 'fa-'
 					$result = 'fas ' . $result;
 					set_theme_mod( $name, $result );
 				}
 				if (
-					count( $result ) != 0
-					&& ! ( strpos( $result, 'fas ' ) === 0 )
+					! ( strpos( $result, 'fas ' ) === 0 )
 					&& ! ( strpos( $result, 'fab ' ) === 0 )
 					&& ! ( strpos( $result, 'far ' ) === 0 )
 				) {
