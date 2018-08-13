@@ -1104,92 +1104,105 @@ if ( ! is_customize_preview() ) {
 /*
     Load The Theme Options
     ======================================= */
-if ( isset( $_REQUEST['evolve_write_json_configs'] ) ) {
-	require get_parent_theme_file_path( '/inc/admin/customizer/customizer-options.php' );
-	evolve_customizer_options();
+
+if ( ! function_exists( 'evolve_load_the_theme_options' ) ) {
+	function evolve_load_the_theme_options() {
+		if ( isset( $_REQUEST['evolve_write_json_configs'] ) ) {
+			require get_parent_theme_file_path( '/inc/admin/customizer/customizer-options.php' );
+			evolve_customizer_options();
+		}
+	}
 }
+add_action( 'init', 'evolve_load_the_theme_options', 10 );
 
 require get_parent_theme_file_path( '/inc/admin/customizer/font-awesome-v4-shims.php' );
 
-function evolve_write_json_configs() {
-	global $evolve_list_google_fonts, $evolve_customizer_sections, $evolve_customizer_fields;
-	$global_value = evolve_global_customizer_value();
+if ( ! function_exists( 'evolve_write_json_configs' ) ) {
+	function evolve_write_json_configs() {
+		global $evolve_list_google_fonts, $evolve_customizer_sections, $evolve_customizer_fields;
+		$global_value = evolve_global_customizer_value();
 
-	global $wp_filesystem;
-	// Initialize the WP filesystem, no more using 'file-put-contents' function
-	if ( empty( $wp_filesystem ) ) {
-		require_once wp_normalize_path( ABSPATH . '/wp-admin/includes/file.php' );
-		WP_Filesystem();
+		global $wp_filesystem;
+		// Initialize the WP filesystem, no more using 'file-put-contents' function
+		if ( empty( $wp_filesystem ) ) {
+			require_once wp_normalize_path( ABSPATH . '/wp-admin/includes/file.php' );
+			WP_Filesystem();
+		}
+
+		$theme_path = str_replace( ABSPATH, $wp_filesystem->abspath(), EVOLVE_THEME_DIR );
+
+		$store_customize_controls = array(
+			'global_value'               => $global_value,
+			'evolve_customizer_sections' => $evolve_customizer_sections,
+			'evolve_customizer_fields'   => $evolve_customizer_fields,
+		);
+		$wp_filesystem->put_contents(
+			$theme_path . '/customizer-controls.json',
+			json_encode( $store_customize_controls ),
+			FS_CHMOD_FILE // predefined mode settings for WP files
+		);
 	}
-	$evolve_theme_path = str_replace( ABSPATH, $wp_filesystem->abspath(), EVOLVE_THEME_DIR );
-
-	$store_customize_controls = array(
-		'global_value'               => $global_value,
-		'evolve_customizer_sections' => $evolve_customizer_sections,
-		'evolve_customizer_fields'   => $evolve_customizer_fields,
-	);
-	$wp_filesystem->put_contents(
-		$evolve_theme_path . '/customizer-controls.json',
-		json_encode( $store_customize_controls ),
-		FS_CHMOD_FILE // predefined mode settings for WP files
-	);
 }
 
 if ( isset( $_REQUEST['evolve_write_json_configs'] ) ) {
 	add_action( 'init', 'evolve_write_json_configs' );
 } else {
 	if ( is_user_logged_in() && is_customize_preview() ) {
-		add_action( 'init', 'evolve_call_customize_register', 11, 1 );
+		add_action( 'init', 'evolve_call_customize_register', 12, 1 );
 	}
 }
-add_action( 'init', 'evolve_get_controls_from_json', 10, 1 );
-global $store_customize_controls_array;
-function evolve_get_controls_from_json() {
-	global $store_customize_controls_array;
-	global $evolve_customizer_fields, $evolve_list_google_fonts;
-	global $wp_filesystem;
-	// Initialize the WP filesystem, no more using 'file-put-contents' function
-	if ( empty( $wp_filesystem ) ) {
-		require_once wp_normalize_path( ABSPATH . '/wp-admin/includes/file.php' );
-		WP_Filesystem();
-	}
-	$evolve_theme_path = str_replace( ABSPATH, $wp_filesystem->abspath(), EVOLVE_THEME_DIR );
-	ob_start();
-	$json_path = wp_normalize_path( $evolve_theme_path . '/customizer-controls.json' );
-	include $json_path;
-	$store_customize_controls = ob_get_clean();
-	//set json_decode(string, true) to get array not object
-	$store_customize_controls_array = json_decode( $store_customize_controls, true );
-	$evolve_customizer_fields       = $store_customize_controls_array['evolve_customizer_fields'];
-	if ( $evolve_customizer_fields ) {
-		if ( ! is_admin() ) {
-			foreach ( $evolve_customizer_fields as $field ) {
-				if ( 'typography' == $field['value_temp']['type'] ) {
-					$evolve_list_google_fonts[] = evolve_theme_mod( $field['value']['id'], $field['value_temp']['default'] );
+
+global $evolve_store_customize_controls_array;
+
+if ( ! function_exists( 'evolve_get_controls_from_json' ) ) {
+	function evolve_get_controls_from_json() {
+		global $evolve_store_customize_controls_array, $evolve_customizer_fields, $evolve_list_google_fonts, $wp_filesystem;
+		// Initialize the WP filesystem, no more using 'file-put-contents' function
+		if ( empty( $wp_filesystem ) ) {
+			require_once wp_normalize_path( ABSPATH . '/wp-admin/includes/file.php' );
+			WP_Filesystem();
+		}
+		$theme_path = str_replace( ABSPATH, $wp_filesystem->abspath(), EVOLVE_THEME_DIR );
+		ob_start();
+		$json_path = wp_normalize_path( $theme_path . '/customizer-controls.json' );
+		include $json_path;
+		$store_customize_controls = ob_get_clean();
+		//set json_decode(string, true) to get array not object
+		$evolve_store_customize_controls_array = json_decode( $store_customize_controls, true );
+		$evolve_customizer_fields              = $evolve_store_customize_controls_array['evolve_customizer_fields'];
+		if ( $evolve_customizer_fields ) {
+			if ( ! is_admin() ) {
+				foreach ( $evolve_customizer_fields as $field ) {
+					if ( 'typography' == $field['value_temp']['type'] ) {
+						$evolve_list_google_fonts[] = evolve_theme_mod( $field['value']['id'], $field['value_temp']['default'] );
+					}
 				}
 			}
 		}
 	}
 }
+add_action( 'init', 'evolve_get_controls_from_json', 11, 1 );
 
-function evolve_call_customize_register() {
-	global $store_customize_controls_array;
-	$global_value               = evolve_global_customizer_value();
-	$evolve_customizer_fields   = $store_customize_controls_array['evolve_customizer_fields'];
-	$evolve_customizer_sections = $store_customize_controls_array['evolve_customizer_sections'];
-	if ( $evolve_customizer_fields ) {
-		foreach ( $evolve_customizer_sections as $section ) {
-			if ( 'add_panel' == $section['type'] ) {
-				//kirki add panel
-				Kirki::add_panel( $section['id'], $section['args'] );
-			} else {
-				//kirki add section
-				Kirki::add_section( $section['id'], $section['args'] );
+if ( ! function_exists( 'evolve_call_customize_register' ) ) {
+	function evolve_call_customize_register() {
+		global $evolve_store_customize_controls_array;
+		$global_value               = evolve_global_customizer_value();
+		$evolve_customizer_fields   = $evolve_store_customize_controls_array['evolve_customizer_fields'];
+		$evolve_customizer_sections = $evolve_store_customize_controls_array['evolve_customizer_sections'];
+		if ( $evolve_customizer_fields ) {
+			foreach ( $evolve_customizer_sections as $section ) {
+				if ( 'add_panel' == $section['type'] ) {
+					//kirki add panel
+					Kirki::add_panel( $section['id'], $section['args'] );
+				} else {
+					//kirki add section
+					Kirki::add_section( $section['id'], $section['args'] );
+				}
 			}
-		}
-		foreach ( $evolve_customizer_fields as $field ) {
-			//kirki add field
-			Kirki::add_field( 'kirki_evolve_options', $field['value_temp'] );
+			foreach ( $evolve_customizer_fields as $field ) {
+				//kirki add field
+				Kirki::add_field( 'kirki_evolve_options', $field['value_temp'] );
+			}
 		}
 	}
 }

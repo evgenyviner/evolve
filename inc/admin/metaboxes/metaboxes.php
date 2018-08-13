@@ -282,7 +282,7 @@ class evolve_Metaboxes {
 			'pagetitlebar' => 'evolve-icon-breadcrumbs',
 			'widget'       => 'evolve-icon-blog',
 			'slider'       => 'evolve-icon-parallax',
-			'sidebars'     => 'evolve-icon-sidebar',
+			'sidebars'     => 'evolve-icon-sidebar'
 		);
 
 		echo '<ul class="evolve-metabox-tabs">';
