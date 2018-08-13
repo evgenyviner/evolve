@@ -1104,9 +1104,13 @@ if ( ! is_customize_preview() ) {
 /*
     Load The Theme Options
     ======================================= */
-if ( isset( $_REQUEST['evolve_write_json_configs'] ) ) {
-	require get_parent_theme_file_path( '/inc/admin/customizer/customizer-options.php' );
-	evolve_customizer_options();
+	
+add_action('init', 'evolve_load_the_theme_options', 10);
+function evolve_load_the_theme_options(){
+	if ( isset( $_REQUEST['evolve_write_json_configs'] ) ) {
+		require get_parent_theme_file_path( '/inc/admin/customizer/customizer-options.php' );
+		evolve_customizer_options();
+	}
 }
 
 require get_parent_theme_file_path( '/inc/admin/customizer/font-awesome-v4-shims.php' );
@@ -1139,10 +1143,10 @@ if ( isset( $_REQUEST['evolve_write_json_configs'] ) ) {
 	add_action( 'init', 'evolve_write_json_configs' );
 } else {
 	if ( is_user_logged_in() && is_customize_preview() ) {
-		add_action( 'init', 'evolve_call_customize_register', 11, 1 );
+		add_action( 'init', 'evolve_call_customize_register', 12, 1 );
 	}
 }
-add_action( 'init', 'evolve_get_controls_from_json', 10, 1 );
+add_action( 'init', 'evolve_get_controls_from_json', 11, 1 );
 global $store_customize_controls_array;
 function evolve_get_controls_from_json() {
 	global $store_customize_controls_array;
