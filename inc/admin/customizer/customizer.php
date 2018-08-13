@@ -28,7 +28,6 @@
 
 define( 'EVOLVE_THEME_DIR', plugin_dir_path( __FILE__ ) );
 
-
 if ( is_user_logged_in() ) {
 	require get_parent_theme_file_path( '/inc/admin/customizer/render-callback.php' );
 	require get_parent_theme_file_path( '/inc/admin/customizer/kirki-framework/kirki.php' );
@@ -1107,6 +1106,24 @@ if ( ! is_customize_preview() ) {
 
 if ( ! function_exists( 'evolve_load_the_theme_options' ) ) {
 	function evolve_load_the_theme_options() {
+		$my_theme = wp_get_theme();
+		if ( $my_theme->exists() ){
+			if( $my_theme->get('Name') == 'evolve'){
+				update_option('old_evolve_theme_mod', get_stylesheet());
+			}
+			else{
+				if( $my_theme->get('Name') == 'evolve Plus'){
+					$is_update_from_evolve_free = get_option('is_update_from_evolve_free', false);
+					if($is_update_from_evolve_free == false){
+						$old_evolve_theme_mods	= get_option('theme_mods_'.get_option('old_evolve_theme_mod', 'evolve'), false);
+						if($old_evolve_theme_mods){
+							update_option('theme_mods_'.get_stylesheet(), $old_evolve_theme_mods);
+							update_option('is_update_from_evolve_free', time());
+						}
+					}
+				}
+			}
+		}
 		if ( isset( $_REQUEST['evolve_write_json_configs'] ) ) {
 			require get_parent_theme_file_path( '/inc/admin/customizer/customizer-options.php' );
 			evolve_customizer_options();
