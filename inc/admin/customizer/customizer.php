@@ -20,6 +20,7 @@
     - Partial Refresh For Website Description
     - Build The Section Class
     - Enqueue Google Fonts on The Front End
+    - Font Awesome 4 To 5 Conversion
     - Load The Theme Options
 
 
@@ -1101,24 +1102,29 @@ if ( ! is_customize_preview() ) {
 }
 
 /*
+    Font Awesome 4 To 5 Conversion
+    ======================================= */
+
+require get_parent_theme_file_path( '/inc/admin/customizer/font-awesome-v4-shims.php' );
+
+/*
     Load The Theme Options
     ======================================= */
 
 if ( ! function_exists( 'evolve_load_the_theme_options' ) ) {
 	function evolve_load_the_theme_options() {
 		$my_theme = wp_get_theme();
-		if ( $my_theme->exists() ){
-			if( $my_theme->get('Name') == 'evolve'){
-				update_option('old_evolve_theme_mod', get_stylesheet());
-			}
-			else{
-				if( $my_theme->get('Name') == 'evolve Plus'){
-					$is_update_from_evolve_free = get_option('is_update_from_evolve_free', false);
-					if($is_update_from_evolve_free == false){
-						$old_evolve_theme_mods	= get_option('theme_mods_'.get_option('old_evolve_theme_mod', 'evolve'), false);
-						if($old_evolve_theme_mods){
-							update_option('theme_mods_'.get_stylesheet(), $old_evolve_theme_mods);
-							update_option('is_update_from_evolve_free', time());
+		if ( $my_theme->exists() ) {
+			if ( $my_theme->get( 'Name' ) == 'evolve' ) {
+				update_option( 'old_evolve_theme_mod', get_stylesheet() );
+			} else {
+				if ( $my_theme->get( 'Name' ) == 'evolve Plus' ) {
+					$is_update_from_evolve_free = get_option( 'is_update_from_evolve_free', false );
+					if ( $is_update_from_evolve_free == false ) {
+						$old_evolve_theme_mods = get_option( 'theme_mods_' . get_option( 'old_evolve_theme_mod', 'evolve' ), false );
+						if ( $old_evolve_theme_mods ) {
+							update_option( 'theme_mods_' . get_stylesheet(), $old_evolve_theme_mods );
+							update_option( 'is_update_from_evolve_free', time() );
 						}
 					}
 				}
@@ -1131,8 +1137,6 @@ if ( ! function_exists( 'evolve_load_the_theme_options' ) ) {
 	}
 }
 add_action( 'init', 'evolve_load_the_theme_options', 10 );
-
-require get_parent_theme_file_path( '/inc/admin/customizer/font-awesome-v4-shims.php' );
 
 if ( ! function_exists( 'evolve_write_json_configs' ) ) {
 	function evolve_write_json_configs() {

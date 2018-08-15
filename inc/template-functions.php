@@ -105,7 +105,6 @@ if ( ! function_exists( 'evolve_content_container_close' ) ) {
 	function evolve_content_container_close() {
 		if ( ( ( is_front_page() ) && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) != 'above' ) || ! is_front_page() ) {
 			echo '</div><!-- .row --></div><!-- .container --></div><!-- .content -->';
-
 		}
 	}
 }
@@ -1271,9 +1270,9 @@ if ( ! function_exists( 'evolve_sidebar_class_2' ) ) {
 				$sidebar_css = 'col-md-12 col-lg-3 order-2';
 				break;
 		endswitch;
-		$sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
+		$sidebar_single = get_post_meta( $post_id, 'evolve_sidebar_position', true );
 		if ( is_page() || is_single() ):
-			switch ( $sidebar_position ):
+			switch ( $sidebar_single ):
 				case "3cm":
 				case "3cr":
 					$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
@@ -1283,7 +1282,7 @@ if ( ! function_exists( 'evolve_sidebar_class_2' ) ) {
 					break;
 			endswitch;
 		endif;
-		if ( is_front_page() && is_page() || is_home() ) {
+		if ( ( is_front_page() && is_page() ) || is_home() ) {
 			switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
 				case "3cm":
 				case "3cr":
@@ -1321,8 +1320,8 @@ if ( ! function_exists( 'evolve_lets_get_sidebar' ) ) {
 			$get_sidebar = false;
 		}
 		if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) {
-			$sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
-			if ( $sidebar_position != 'default' && $sidebar_position != '' ) {
+			$sidebar_single = get_post_meta( $post_id, 'evolve_sidebar_position', true );
+			if ( $sidebar_single != 'default' && $sidebar_single != '' ) {
 				$get_sidebar = true;
 			}
 		}
@@ -1362,15 +1361,15 @@ if ( ! function_exists( 'evolve_lets_get_sidebar_2' ) ) {
 			$get_sidebar = false;
 		}
 		if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) {
-			$sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
-			if ( $sidebar_position == '2cl' || $sidebar_position == '2cr' ) {
+			$sidebar_single = get_post_meta( $post_id, 'evolve_sidebar_position', true );
+			if ( $sidebar_single == '2cl' || $sidebar_single == '2cr' ) {
 				$get_sidebar = false;
 			}
-			if ( $sidebar_position == "3cm" || $sidebar_position == "3cl" || $sidebar_position == "3cr" ) {
+			if ( $sidebar_single == "3cm" || $sidebar_single == "3cl" || $sidebar_single == "3cr" ) {
 				$get_sidebar = true;
 			}
 		}
-		if ( ( is_front_page() && is_page() || is_home() ) ) {
+		if ( ( is_front_page() && is_page() ) || is_home() ) {
 			if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "1c" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "2cl" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "2cr" ) {
 				$get_sidebar = false;
 			} else {
