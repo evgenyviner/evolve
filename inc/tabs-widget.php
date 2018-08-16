@@ -18,6 +18,19 @@ class evolve_Tabs_Widget extends WP_Widget {
 		global $data, $post;
 
 		extract( $args );
+		
+		if(is_array($instance) && count($instance) == 0){
+			$instance = array(
+				'posts'              => '3',
+				'comments'           => '3',
+				'tags'               => '3',
+				'show_popular_posts' => 'on',
+				'show_recent_posts'  => 'on',
+				'show_comments'      => 'on',
+				'show_tags'          => 'on',
+				'orderby'            => 'Highest Comments'
+			);
+		}
 
 		if ( ! empty( $instance['posts'] ) ) {
 			$posts = $instance['posts'];
