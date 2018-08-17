@@ -20,21 +20,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
 // Note: `wc_get_gallery_image_html` was added in WC 3.3.2 and did not exist prior. This check protects against theme overrides being used on older versions of WC.
 if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
 	return;
 }
 
-
 global $post, $product;
 
 $attachment_ids = $product->get_gallery_image_ids();
 
-if ( $attachment_ids ) {
-	?>
+if ( $attachment_ids ) { ?>
 
-    <div id="carousel-slider-thumbnails" class="product-carousel carousel slide mb-4 mb-md-0" data-ride="carousel">
+    <div id="carousel-slider-thumbnails" class="product-carousel carousel-multiple-items carousel slide mb-4 mb-md-0" data-ride="carousel" data-wrap="false">
         <div class="carousel-inner row w-100 mx-auto">
 
 			<?php
@@ -56,7 +53,7 @@ if ( $attachment_ids ) {
 					$gallery = '';
 				}
 
-				echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', sprintf( '<div class="carousel-item col-6 col-md-4 active" data-target="#carousel-slider-product" data-slide-to="0">%s</div>', $image ), $post->ID );
+				echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', sprintf( '<div class="carousel-item col-6 col-md-4 p-0 px-sm-3 active" data-target="#carousel-slider-product" data-slide-to="0">%s</div>', $image ), $post->ID );
 			}
 
 			$loop    = 0;
@@ -78,7 +75,7 @@ if ( $attachment_ids ) {
 					"class" => "d-block w-100"
 				) );
 
-				echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', sprintf( '<div class="carousel-item col-6 col-md-4" data-target="#carousel-slider-product" data-slide-to="%s">%s</div>', $loop + 1, $image ), $attachment_id, $post->ID );
+				echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', sprintf( '<div class="carousel-item col-6 col-md-4 p-0 px-sm-3" data-target="#carousel-slider-product" data-slide-to="%s">%s</div>', $loop + 1, $image ), $attachment_id, $post->ID );
 				$loop ++;
 			} ?>
 

@@ -6,6 +6,7 @@
     Table of Contents:
 
     - Theme Setup
+	- Move jQuery Library To Footer
 	- Main Styles/Scripts To Enqueue
 	- Custom Filters
 		-- Add Button Class To Read More Link
@@ -312,6 +313,23 @@ if ( ! function_exists( 'evolve_theme_mod' ) ) {
 
 		return $default;
 	}
+}
+
+/*
+    Move jQuery Library To Footer
+    ======================================= */
+
+if ( ! function_exists( 'evolve_move_jquery' ) ) {
+	function evolve_move_jquery() {
+		global $wp_scripts;
+		$wp_scripts->registered['jquery']->extra['group']         = 1;
+		$wp_scripts->registered['jquery-core']->extra['group']    = 1;
+		$wp_scripts->registered['jquery-migrate']->extra['group'] = 1;
+	}
+}
+
+if ( ! is_admin() ) {
+	add_action( 'wp_head', 'evolve_move_jquery', 1, 0 );
 }
 
 /*

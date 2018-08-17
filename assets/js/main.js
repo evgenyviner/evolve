@@ -6789,6 +6789,77 @@ jQuery(function ($) {
             resizeBootstrapSlider();
         });
     }
+
+    $('.product-carousel').carousel({
+        interval: false,
+        wrap: false
+    });
+
+    $(document).ready(function () {
+        checkbootstrap('#carousel-slider-product .carousel-inner');
+        checkbootstrap('.carousel-multiple-items');
+    });
+
+    $('#carousel-slider-product').on('slid.bs.carousel', function () {
+        checkbootstrap('#carousel-slider-product .carousel-inner');
+    });
+
+    var $carouselslidermultiple = $('.carousel-multiple-items');
+
+    $carouselslidermultiple.carousel({
+        interval: false,
+    });
+
+    $carouselslidermultiple.on('slid.bs.carousel', function () {
+        checkbootstrap('#carousel-slider-thumbnails');
+    });
+
+    $carouselslidermultiple.on('slide.bs.carousel', function (e) {
+        var $e = $(e.relatedTarget);
+        var idx = $e.index();
+        var itemsPerSlide = 3;
+        if (window.outerWidth <= 768) {
+            itemsPerSlide = 2;
+        } else if (window.outerWidth <= 575) {
+            itemsPerSlide = 1;
+        }
+
+        var totalItems = $('.carousel-item').length;
+
+        if (idx >= totalItems - (itemsPerSlide - 1)) {
+            var it = itemsPerSlide - (totalItems - idx);
+            for (var i = 0; i < it; i++) {
+                // append slides to end
+                if (e.direction == "left") {
+                    $('.carousel-item').eq(i).appendTo('.carousel-inner');
+                }
+                else {
+                    $('.carousel-item').eq(0).appendTo('.carousel-inner');
+                }
+            }
+        }
+    });
+
+    function checkbootstrap(type) {
+        var id = type;
+        var $this = $(id);
+        if ($(id + ' .carousel-item:first').hasClass('active')) {
+            $this.children('.carousel-control-prev').hide().removeClass('carousel-arrow');
+            $this.children('.carousel-control-next').show().css('display', 'flex').addClass('carousel-arrow');
+        } else if ($(id + ' .carousel-item:last').hasClass('active')) {
+            $this.children('.carousel-control-next').hide().removeClass('carousel-arrow');
+            $this.children('.carousel-control-prev').show().css('display', 'flex').addClass('carousel-arrow');
+        } else {
+            $this.children('.carousel-control').show().css('display', 'flex').addClass('carousel-arrow');
+        }
+    }
+
+    $carouselslidermultiple.find('.carousel-arrow').hide();
+    $carouselslidermultiple.hover(function () {
+        $(this).find('.carousel-arrow').stop(true, true).fadeIn(200).show(10);
+    }, function () {
+        $(this).find('.carousel-arrow').stop(true, true).fadeOut(200).hide(10);
+    });
 });
 
 /*
@@ -7023,75 +7094,6 @@ if (typeof evolve_js_local_vars.woocommerce !== 'undefined') {
         $('.attachment-shop_single').on('load', function () {
             var img_src = $(".woocommerce-product-gallery__image .attachment-shop_single").attr('src');
             $(".woocommerce-product-gallery__image").attr("href", img_src);
-        });
-
-        /*
-            Bootstrap Product Slider
-            --------------------------------------- */
-
-        $('.product-carousel').carousel({
-            interval: false,
-            wrap: false
-        });
-
-        $(document).ready(function () {
-            checkbootstrap('#carousel-slider-product .carousel-inner');
-            checkbootstrap('#carousel-slider-thumbnails');
-        });
-
-        $('#carousel-slider-product').on('slid.bs.carousel', function () {
-            checkbootstrap('#carousel-slider-product .carousel-inner');
-        });
-
-        var $carouselsliderthumbnails = $('#carousel-slider-thumbnails');
-
-        $carouselsliderthumbnails.on('slid.bs.carousel', function () {
-            checkbootstrap('#carousel-slider-thumbnails');
-        });
-
-        $carouselsliderthumbnails.on('slide.bs.carousel', function (e) {
-            var $e = $(e.relatedTarget);
-            var idx = $e.index();
-            var itemsPerSlide = 3;
-            var totalItems = $('.carousel-item').length;
-
-            if (idx >= totalItems - (itemsPerSlide - 1)) {
-                var it = itemsPerSlide - (totalItems - idx);
-                for (var i = 0; i < it; i++) {
-                    // append slides to end
-                    if (e.direction == "left") {
-                        $('.carousel-item').eq(i).appendTo('.carousel-inner');
-                    }
-                    else {
-                        $('.carousel-item').eq(0).appendTo('.carousel-inner');
-                    }
-                }
-            }
-        });
-
-        function checkbootstrap(type) {
-            var id = type;
-            var $this = $(id);
-            if ($(id + ' .carousel-item:first').hasClass('active')) {
-                $this.children('.carousel-control-prev').hide().removeClass('carousel-arrow');
-                $this.children('.carousel-control-next').show().css('display', 'flex').addClass('carousel-arrow');
-            } else if ($(id + ' .carousel-item:last').hasClass('active')) {
-                $this.children('.carousel-control-next').hide().removeClass('carousel-arrow');
-                $this.children('.carousel-control-prev').show().css('display', 'flex').addClass('carousel-arrow');
-            } else {
-                $this.children('.carousel-control').show().css('display', 'flex').addClass('carousel-arrow');
-            }
-        }
-
-        /*
-            Bootstrap Product Thumbnails Slider
-            --------------------------------------- */
-
-        $carouselsliderthumbnails.find('.carousel-arrow').hide();
-        $carouselsliderthumbnails.hover(function () {
-            $(this).find('.carousel-arrow').stop(true, true).fadeIn(200).show(10);
-        }, function () {
-            $(this).find('.carousel-arrow').stop(true, true).fadeOut(200).hide(10);
         });
 
     });
@@ -7363,8 +7365,8 @@ if (evolve_js_local_vars.infinite_scroll_enabled === '1') {
     }, IASNoneLeftExtension.prototype.unbind = function (a) {
         a.off("noneLeft", this.showNoneLeft)
     }, IASNoneLeftExtension.prototype.defaults = {
-        text: "You reached the end.",
-        html: '<div class="ias-noneleft alert alert-success" style="text-align: center;">{text}</div>'
+        // text: "You reached the end.",
+        html: '<div class="ias-noneleft alert alert-success">{text}</div>'
     };
     var IASPagingExtension = function () {
         return this.ias = null, this.pagebreaks = [[0, document.location.toString()]], this.lastPageNum = 1, this.enabled = !0, this.listeners = {pageChange: new IASCallbacks(jQuery)}, this.onScroll = function (a, b) {
@@ -7482,9 +7484,9 @@ if (evolve_js_local_vars.infinite_scroll_enabled === '1') {
         this.enabled = !1, this.ias.pause(), this.$triggerPrev && (this.$triggerPrev.remove(), this.$triggerPrev = null), this.ias.prev()
     }, IASTriggerExtension.prototype.defaults = {
         text: "Load more items",
-        html: '<div id="infinite-trigger" class="ias-trigger ias-trigger-next" style="text-align: center; cursor: pointer;"><a class="btn" href="#infinite-trigger">{text}</a></div>',
+        html: '<div id="infinite-trigger" class="ias-trigger ias-trigger-next" style="cursor: pointer;"><a class="btn" href="#infinite-trigger">{text}</a></div>',
         textPrev: "Load previous items",
-        htmlPrev: '<div id="infinite-trigger" class="ias-trigger ias-trigger-prev" style="text-align: center; cursor: pointer;"><a class="btn" href="#infinite-trigger">{text}</a></div>',
+        htmlPrev: '<div id="infinite-trigger" class="ias-trigger ias-trigger-prev" style="cursor: pointer;"><a class="btn" href="#infinite-trigger">{text}</a></div>',
         offset: 0
     }, IASTriggerExtension.prototype.priority = 1e3;
 

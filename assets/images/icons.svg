@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%"
-     viewBox="0 0 24 384">
+     viewBox="0 0 24 432">
 
     <symbol id="icon-pencil" viewBox="0 0 512 512">
         <path d="m455 150l-93-93c-5-5-14-5-20 0l-253 254l1 0l-1 0l-35 130l0 0c-2 4 0 10 3 14c5 4 11 5 16 2l0 0l128-34l0 0l0 0l254-254c5-5 5-14 0-19z m-359 265l21-76l56 56z"/>
@@ -59,10 +59,6 @@
 
     <symbol id="icon-search" viewBox="0 0 512 512">
         <path d="m498 498c-19 19-49 19-68 0l-85-85c-35 22-76 36-121 36c-124 0-224-101-224-225c0-124 100-224 224-224c124 0 225 100 225 224c0 45-14 86-36 121l85 85c19 19 19 49 0 68z m-274-434c-88 0-160 72-160 160c0 89 72 161 160 161c89 0 161-72 161-161c0-88-72-160-161-160z"/>
-    </symbol>
-
-    <symbol id="icon-zoom" viewBox="0 0 512 512">
-        <path d="m480 160l-41-41l-105 105l-46-46l105-105l-41-41c0-18 14-32 32-32l96 0c18 0 32 14 32 32l0 96c0 18-14 32-32 32z m-320 320c0 18-14 32-32 32l-96 0c-18 0-32-14-32-32l0-96c0-18 14-32 32-32l41 41l105-105l46 46l-105 105z"/>
     </symbol>
 
     <symbol id="icon-menu" viewBox="0 0 512 512">
@@ -170,6 +166,7 @@
     <view id="icon-ok-view" viewBox="0 336 24 24"/>
     <view id="icon-loader-light-view" viewBox="0 360 24 24"/>
     <view id="icon-star-full-color-view" viewBox="0 384 24 24"/>
+    <view id="icon-search-dark-view" viewBox="0 408 24 24"/>
 
     <use style="fill:#fff;" xlink:href="#icon-link" width="24" height="24" x="0" y="0"></use>
     <use xlink:href="#icon-link" width="24" height="24" x="0" y="24"></use>
@@ -188,5 +185,6 @@
     <use style="fill:#fff;" xlink:href="#icon-ok" width="24" height="24" x="0" y="336"></use>
     <use style="fill:#fff;" xlink:href="#icon-loader" width="24" height="24" x="0" y="360"></use>
     <use style="fill:#ffcc4d;" xlink:href="#icon-star" width="24" height="24" x="0" y="384"></use>
+    <use xlink:href="#icon-search" width="24" height="24" x="0" y="408"></use>
 
 </svg>

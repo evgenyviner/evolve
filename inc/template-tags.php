@@ -422,33 +422,30 @@ add_action( 'evolve_footer_area', 'evolve_custom_footer', 40 );
 
 if ( ! function_exists( 'evolve_featured_image' ) ) {
 	function evolve_featured_image( $type = '' ) {
+	    global $post;
 		if ( evolve_theme_mod( 'evl_featured_images', '1' ) == "0" ) {
 			return;
 		}
 
 		if ( $type == '1' && is_single() && evolve_theme_mod( 'evl_blog_featured_image', '0' ) == "1" && has_post_thumbnail() ) {
-			echo '<div class="thumbnail-post-single">';
+			echo '<div class="thumbnail-post thumbnail-post-single">';
 			the_post_thumbnail( 'evolve-post-thumbnail', array( 'class' => 'd-block w-100', 'itemprop' => 'image' ) );
 			echo '</div>';
 		} elseif ( $type == '2' && ! is_page() && ! is_single() ) {
 			if ( has_post_thumbnail() ) {
-				echo '<div class="thumbnail-post"><a href="';
-				the_permalink();
-				echo '">';
+				echo '<div class="thumbnail-post">';
 				the_post_thumbnail( 'evolve-post-thumbnail', array( 'class' => 'd-block w-100', 'itemprop' => 'image' ) );
-				echo '<div class="mask"><div class="icon"></div></div></a></div>';
+				echo '<div class="mask"><a href="' . get_the_permalink() . '"><div class="icon icon-portfolio-link"></div></a><a class="zoom" href="' . get_the_post_thumbnail_url( $post->ID,'full' ) . '"
+                                                   data-title="' . get_the_title() . '" data-gallery="featured-gallery" data-toggle="lightbox"><div class="icon icon-portfolio-zoom"></div></a></div></div>';
 			} else {
 				if ( evolve_get_first_image() ):
-					echo '<div class="thumbnail-post"><a href="';
-					the_permalink();
-					echo '"><img class="d-block w-100" src="' . evolve_get_first_image() . '" alt="';
+					echo '<div class="thumbnail-post"><img class="d-block w-100" src="' . evolve_get_first_image() . '" alt="';
 					the_title();
-					echo '" itemprop="image" /><div class="mask"><div class="icon"></div></div></a></div>';
+					echo '" itemprop="image" /><div class="mask"><a href="' . get_the_permalink() . '"><div class="icon icon-portfolio-link"></div></a><a class="zoom" href="' . evolve_get_first_image() . '"
+                                                   data-title="' . get_the_title() . '" data-gallery="featured-gallery" data-toggle="lightbox"><div class="icon icon-portfolio-zoom"></div></a></div></div>';
 				else:
 					if ( evolve_theme_mod( 'evl_thumbnail_default_images', '0' ) == 0 ) {
-						echo '<div class="thumbnail-post"><a href="';
-						the_permalink();
-						echo '"><img class="d-block w-100" src="' . get_template_directory_uri() . '/assets/images/no-thumbnail-post.jpg" alt="';
+						echo '<div class="thumbnail-post"><a href="' . get_the_permalink() . '"><img class="d-block w-100" src="' . get_template_directory_uri() . '/assets/images/no-thumbnail-post.jpg" alt="';
 						the_title();
 						echo '" itemprop="image" /><div class="mask"><div class="icon"></div></div></a></div>';
 					}
@@ -626,17 +623,19 @@ if ( ! function_exists( 'evolve_number_pagination' ) ) {
 
 		if ( null === $wp_query ) {
 			global $wp_query;
+			$the_query = $wp_query;
 		}
 		if ( get_option( 'permalink_structure' ) ) {
 			$format = '&paged=%#%';
 		} else {
 			$format = 'page/%#%/';
 		}
+
 		$page_list = paginate_links( array(
 				'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
 				'format'       => $format,
 				'current'      => max( 1, get_query_var( 'paged' ) ),
-				'total'        => $wp_query->max_num_pages,
+				'total'        => $the_query->max_num_pages,
 				'type'         => 'array',
 				'show_all'     => false,
 				'end_size'     => 3,
