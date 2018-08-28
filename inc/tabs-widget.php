@@ -18,8 +18,8 @@ class evolve_Tabs_Widget extends WP_Widget {
 		global $data, $post;
 
 		extract( $args );
-		
-		if(is_array($instance) && count($instance) == 0){
+
+		if ( is_array( $instance ) && count( $instance ) == 0 ) {
 			$instance = array(
 				'posts'              => '3',
 				'comments'           => '3',
@@ -200,7 +200,7 @@ class evolve_Tabs_Widget extends WP_Widget {
                                        title="<?php echo strip_tags( $comment->comment_author ); ?> on <?php echo $comment->post_title; ?>"><?php echo strip_tags( $comment->comment_author ); ?><?php esc_html_e( ' says', 'evolve' ); ?></a>
                                     <div class="meta">
 
-										<?php echo evolve_truncate( 70, strip_tags( $comment->com_excerpt ) ); ?>
+										<?php echo evolve_truncate( 70, strip_tags( $comment->com_excerpt ), true, '...' ); ?>
 
                                     </div>
                                 </div>

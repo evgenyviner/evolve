@@ -1,4 +1,83 @@
+function active_header_widgets(value) {
+    if (value == 'disable') {
+        wp.customize.section('sidebar-widgets-header').deactivate();
+        wp.customize.section('sidebar-widgets-header-2').deactivate();
+        wp.customize.section('sidebar-widgets-header-3').deactivate();
+        wp.customize.section('sidebar-widgets-header-4').deactivate();
+    }
+    if (value == 'one') {
+        wp.customize.section('sidebar-widgets-header').activate();
+        wp.customize.section('sidebar-widgets-header-2').deactivate();
+        wp.customize.section('sidebar-widgets-header-3').deactivate();
+        wp.customize.section('sidebar-widgets-header-4').deactivate();
+    }
+    if (value == 'two') {
+        wp.customize.section('sidebar-widgets-header').activate();
+        wp.customize.section('sidebar-widgets-header-2').activate();
+        wp.customize.section('sidebar-widgets-header-3').deactivate();
+        wp.customize.section('sidebar-widgets-header-4').deactivate();
+    }
+    if (value == 'three') {
+        wp.customize.section('sidebar-widgets-header').activate();
+        wp.customize.section('sidebar-widgets-header-2').activate();
+        wp.customize.section('sidebar-widgets-header-3').activate();
+        wp.customize.section('sidebar-widgets-header-4').deactivate();
+    }
+    if (value == 'four') {
+        wp.customize.section('sidebar-widgets-header').activate();
+        wp.customize.section('sidebar-widgets-header-2').activate();
+        wp.customize.section('sidebar-widgets-header-3').activate();
+        wp.customize.section('sidebar-widgets-header-4').activate();
+    }
+}
+
+function active_footer_widgets(value) {
+    if (value == 'disable') {
+        wp.customize.section('sidebar-widgets-footer').deactivate();
+        wp.customize.section('sidebar-widgets-footer-2').deactivate();
+        wp.customize.section('sidebar-widgets-footer-3').deactivate();
+        wp.customize.section('sidebar-widgets-footer-4').deactivate();
+    }
+    if (value == 'one') {
+        wp.customize.section('sidebar-widgets-footer').activate();
+        wp.customize.section('sidebar-widgets-footer-2').deactivate();
+        wp.customize.section('sidebar-widgets-footer-3').deactivate();
+        wp.customize.section('sidebar-widgets-footer-4').deactivate();
+    }
+    if (value == 'two') {
+        wp.customize.section('sidebar-widgets-footer').activate();
+        wp.customize.section('sidebar-widgets-footer-2').activate();
+        wp.customize.section('sidebar-widgets-footer-3').deactivate();
+        wp.customize.section('sidebar-widgets-footer-4').deactivate();
+    }
+    if (value == 'three') {
+        wp.customize.section('sidebar-widgets-footer').activate();
+        wp.customize.section('sidebar-widgets-footer-2').activate();
+        wp.customize.section('sidebar-widgets-footer-3').activate();
+        wp.customize.section('sidebar-widgets-footer-4').deactivate();
+    }
+    if (value == 'four') {
+        wp.customize.section('sidebar-widgets-footer').activate();
+        wp.customize.section('sidebar-widgets-footer-2').activate();
+        wp.customize.section('sidebar-widgets-footer-3').activate();
+        wp.customize.section('sidebar-widgets-footer-4').activate();
+    }
+}
+
 jQuery(function ($) {
+
+    wp.customize('evl_widgets_header', function (setting) {
+        setting.bind(function (value) {
+            console.log(value);
+            active_header_widgets(value);
+        });
+    });
+    wp.customize('evl_widgets_num', function (setting) {
+        setting.bind(function (value) {
+            console.log(value);
+            active_footer_widgets(value);
+        });
+    });
     wp.customize('evl_bootstrap_slider_support', function (setting) {
         setting.bind(function (value) {
             console.log(value);
@@ -490,4 +569,6 @@ var ColorPalettes = {
 
 jQuery(document).ready(function ($) {
     ColorPalettes.bind();
+    active_header_widgets(wp.customize.value('evl_widgets_header').get());
+    active_footer_widgets(wp.customize.value('evl_widgets_num').get());
 });

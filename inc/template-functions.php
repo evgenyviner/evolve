@@ -361,10 +361,15 @@ if ( ! function_exists( 'evolve_get_svg' ) ) {
     ======================================= */
 
 if ( ! function_exists( 'evolve_truncate' ) ) {
-	function evolve_truncate( $maxLength, $html, $isUtf8 = true, $trailing = '...' ) {
-		$printedLength = 0;
-		$position      = 0;
-		$tags          = array();
+	function evolve_truncate( $maxLength, $html, $isUtf8 = true, $trailing ) {
+		$printedLength    = 0;
+		$position         = 0;
+		$tags             = array();
+		if ( $trailing ) {
+			$trailing_style = $trailing;
+		} else {
+			$trailing_style = '...';
+		}
 
 		// For UTF-8, we need to count multibyte sequences as one character.
 		$re = $isUtf8
@@ -423,7 +428,7 @@ if ( ! function_exists( 'evolve_truncate' ) ) {
 
 		// Print Trailing
 		if ( ( ( ( $maxLength - $printedLength ) == $maxLength || ( $maxLength - $printedLength ) == 0 ) && $position == 0 && strlen( $html ) > $maxLength ) ) {
-			print $trailing;
+			print $trailing_style;
 		}
 
 		// Close any open tags.

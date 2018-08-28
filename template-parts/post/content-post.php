@@ -6,7 +6,8 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope="itemscope"
+         itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
 
 	<?php if ( is_single() || is_page() ) {
 		if ( get_post_meta( $post->ID, 'evolve_page_title', true ) == "yes" || get_post_meta( $post->ID, 'evolve_page_title', true ) == "" ) {
@@ -16,7 +17,7 @@
 		if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) {
 			$evolve_title = the_title( '', '', false );
 			echo '<h2 class="post-title" itemprop="name"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
-			evolve_truncate( intval( evolve_theme_mod( 'evl_posts_excerpt_title_length', '40' ) ), $evolve_title );
+			evolve_truncate( intval( evolve_theme_mod( 'evl_posts_excerpt_title_length', '40' ) ), $evolve_title, true, '...' );
 			echo '</a></h2>';
 		} else {
 			the_title( '<h2 class="post-title" itemprop="name"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );

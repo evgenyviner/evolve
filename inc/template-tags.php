@@ -343,49 +343,54 @@ add_action( 'evolve_header_area', 'evolve_header_block_below', 60 );
 if ( ! function_exists( 'evolve_footer_widgets' ) ) {
     function evolve_footer_widgets() {
 
-if ( ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "" ) || ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "disable" ) ) {
+    if ( ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "" ) || ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "disable" ) ) {
 
-} else {
+    } else {
 
 	$evolve_footer_widgets_css = '';
+	$evolve_widgets_footer_number = 1;
 
 	if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "one" ) {
 		$evolve_footer_widgets_css = '<div class="col">';
+		$evolve_widgets_footer_number = 1;
 	}
 
 	if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "two" ) {
 		$evolve_footer_widgets_css = '<div class="col-sm-12 col-md-6">';
+		$evolve_widgets_footer_number = 2;
 	}
 
 	if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "three" ) {
 		$evolve_footer_widgets_css = '<div class="col-sm-12 col-md-6 col-lg-4">';
+		$evolve_widgets_footer_number = 3;
 	}
 
 	if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "four" ) {
 		$evolve_footer_widgets_css = '<div class="col-sm-12 col-md-6 col-xl-3">';
+		$evolve_widgets_footer_number = 4;
 	}
 
 	echo '<div class="footer-widgets"><div class="row">';
 
-	if ( is_active_sidebar( 'footer' ) ) {
+	if ( $evolve_widgets_footer_number >= 1 && is_active_sidebar( 'footer' ) ) {
 		echo $evolve_footer_widgets_css;
 		dynamic_sidebar( 'footer' );
 		echo '</div>';
 	}
 
-	if ( is_active_sidebar( 'footer-2' ) ) {
+	if ( $evolve_widgets_footer_number >= 2 && is_active_sidebar( 'footer-2' ) ) {
 		echo $evolve_footer_widgets_css;
 		dynamic_sidebar( 'footer-2' );
 		echo '</div>';
 	}
 
-	if ( is_active_sidebar( 'footer-3' ) ) {
+	if ( $evolve_widgets_footer_number >= 3 && is_active_sidebar( 'footer-3' ) ) {
 		echo $evolve_footer_widgets_css;
 		dynamic_sidebar( 'footer-3' );
 		echo '</div>';
 	}
 
-	if ( is_active_sidebar( 'footer-4' ) ) {
+	if ( $evolve_widgets_footer_number >= 4 && is_active_sidebar( 'footer-4' ) ) {
 		echo $evolve_footer_widgets_css;
 		dynamic_sidebar( 'footer-4' );
 		echo '</div>';
@@ -393,8 +398,8 @@ if ( ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "" ) || ( evolve_them
 
 	echo '</div></div>';
 
-}
-}
+        }
+    }
 }
 
 add_action( 'evolve_footer_area', 'evolve_footer_widgets', 30 );
@@ -630,11 +635,16 @@ if ( ! function_exists( 'evolve_number_pagination' ) ) {
 		} else {
 			$format = 'page/%#%/';
 		}
-
+		global $paged;
+		if ( is_front_page() ) {
+			$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
+		} else {
+			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+		}
 		$page_list = paginate_links( array(
 				'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
 				'format'       => $format,
-				'current'      => max( 1, get_query_var( 'paged' ) ),
+				'current'      => max( 1, $paged ),
 				'total'        => $the_query->max_num_pages,
 				'type'         => 'array',
 				'show_all'     => false,
@@ -1017,7 +1027,7 @@ if ( ! function_exists( 'evolve_posts_slider' ) ) {
 
 										<?php $title = the_title( '', '', false );
 										$length      = evolve_theme_mod( 'evl_posts_slider_title_length', 40 );
-										evolve_truncate( $length, $title, '...' ); ?>
+										evolve_truncate( $length, $title, true, '...' ); ?>
 
                                     </a>
                                 </h5>
