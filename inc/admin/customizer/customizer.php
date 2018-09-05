@@ -29,6 +29,10 @@
 
 define( 'EVOLVE_THEME_DIR', plugin_dir_path( __FILE__ ) );
 
+if ( is_admin() ) {
+	$_REQUEST['evolve_write_json_configs'] = true;
+}
+
 if ( is_user_logged_in() ) {
 	require get_parent_theme_file_path( '/inc/admin/customizer/render-callback.php' );
 	require get_parent_theme_file_path( '/inc/admin/customizer/kirki-framework/kirki.php' );
