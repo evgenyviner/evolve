@@ -51,9 +51,9 @@
 				<?php if ( evolve_theme_mod( 'evl_main_menu', false ) !== true ) {
 					if ( has_nav_menu( 'primary-menu' ) ) {
 						echo '<nav class="navbar navbar-expand-md main-menu mt-3 mt-md-0 order-3 col-sm-11 col-md-8' . ( evolve_theme_mod( 'evl_searchbox', true ) ? ' col-lg-6' : "" ) . '">
-                                <div class="navbar-toggler" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="' . __( "Primary", "evolve" ) . '">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="' . __( "Primary", "evolve" ) . '">
                                     ' . evolve_get_svg( 'menu' ) . '
-                                    </div>
+                                    </button>
                                 <div id="primary-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
 						wp_nav_menu( array(
 							'theme_location' => 'primary-menu',

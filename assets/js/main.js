@@ -6908,6 +6908,11 @@ if (evolve_js_local_vars.parallax_slider === '1') {
 }
 
 /*
+    jQuery Waypoints - v4.0.1
+    https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
+*/
+
+/*
     Tooltips
     ======================================= */
 
@@ -7574,13 +7579,6 @@ if (evolve_js_local_vars.buttons_effect !== 'disable') {
     Counter Circle
     ======================================= */
 
-if (evolve_js_local_vars.counter_circle === '1') {
-
-    /*
-        jQuery Waypoints - v4.0.1
-        https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
-    */
-
     jQuery((function () {
         var __indexOf = [].indexOf || function (item) {
                 for (var i = 0, l = this.length; i < l; i++) {
@@ -8100,6 +8098,7 @@ if (evolve_js_local_vars.counter_circle === '1') {
 
     }).call(this));
 
+if (evolve_js_local_vars.counter_circle === '1') {
 
     /*
         easyPieChart - v2.1.7

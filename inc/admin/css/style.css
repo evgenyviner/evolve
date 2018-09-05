@@ -33,9 +33,12 @@
     width: calc(100% - 2px);
 }
 
-.description {
+span.description {
+    color: #555d66;
     display: block;
-    margin: 1em 0;
+    font-style: normal;
+    line-height: 18px;
+    margin: 0 0 5px;
 }
 
 .evolve-metabox-tabs i {

@@ -45,17 +45,17 @@ class evolve_Metaboxes {
 	}
 
 	public function post_options() {
-		wp_enqueue_style( 'evolve-metaboxes', get_template_directory_uri() . '/inc/admin/metaboxes/style.min.css' );
+		wp_enqueue_style( 'evolve-metaboxes', get_template_directory_uri() . '/inc/admin/css/style.min.css' );
 		$this->evolve_render_option_tabs( array( 'layout', 'pagetitlebar', 'widget', 'slider' ) );
 	}
 
 	public function page_options() {
-		wp_enqueue_style( 'evolve-metaboxes', get_template_directory_uri() . '/inc/admin/metaboxes/style.min.css' );
+		wp_enqueue_style( 'evolve-metaboxes', get_template_directory_uri() . '/inc/admin/css/style.min.css' );
 		$this->evolve_render_option_tabs( array( 'layout', 'pagetitlebar', 'widget', 'slider' ) );
 	}
 
 	public function woocommerce_options() {
-		wp_enqueue_style( 'evolve-metaboxes', get_template_directory_uri() . '/inc/admin/metaboxes/style.min.css' );
+		wp_enqueue_style( 'evolve-metaboxes', get_template_directory_uri() . '/inc/admin/css/style.min.css' );
 		$this->evolve_render_option_tabs( array( 'layout', 'pagetitlebar', 'widget', 'slider' ) );
 	}
 

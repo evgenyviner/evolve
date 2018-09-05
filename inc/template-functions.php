@@ -90,7 +90,6 @@ if ( ! function_exists( 'evolve_content_container_open' ) ) {
 	function evolve_content_container_open() {
 		if ( ( ( is_front_page() ) && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) != 'above' ) || ! is_front_page() ) {
 			echo '<div class="content"><div class="container"><div class="row">';
-
 		}
 	}
 }
@@ -362,9 +361,9 @@ if ( ! function_exists( 'evolve_get_svg' ) ) {
 
 if ( ! function_exists( 'evolve_truncate' ) ) {
 	function evolve_truncate( $maxLength, $html, $isUtf8 = true, $trailing ) {
-		$printedLength    = 0;
-		$position         = 0;
-		$tags             = array();
+		$printedLength = 0;
+		$position      = 0;
+		$tags          = array();
 		if ( $trailing ) {
 			$trailing_style = $trailing;
 		} else {

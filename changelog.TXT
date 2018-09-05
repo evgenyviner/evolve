@@ -1,3 +1,16 @@
+Version:         3.9.5
+Date:         5/9/18
+
+- Added Zoom Icon In The Featured Images
+- Improved Speed Of Customizer
+- Updated Language Files
+- Fixed Accessibility For Mobile Menu
+- Fixed Issue With Header/Footer Widgets Not Refreshing When Enable/Disable
+- Fixed Tabs Widget Default Values
+- Fixed Breadcrumbs For Custom Post Types
+- Fixed Warning Message Issue on Front Page Content Boxes
+
+
 Version:         3.9.4
 Date:         6/8/18
 
