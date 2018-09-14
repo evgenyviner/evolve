@@ -227,7 +227,7 @@ if ( ! function_exists( 'evolve_theme_mod' ) ) {
 				$default = $evolve_customizer_fields[ $name ]['value_temp']['default'];
 			}
 		}
-		if ( isset( $evolve_all_save_customize_values[ $name ] ) && ! is_customize_preview() ) {
+		if ( ! is_customize_preview() && isset( $evolve_all_save_customize_values[ $name ] ) ) {
 			$result = $evolve_all_save_customize_values[ $name ];
 		} else {
 			$result = get_theme_mod( $name, $default );

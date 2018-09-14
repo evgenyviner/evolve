@@ -17,6 +17,9 @@ if ( ! empty( $post->ID ) ) {
 if ( is_home() && ! is_front_page() ) {
 	$evolve_slider_page_id = get_option( 'page_for_posts' );
 }
+if ( is_front_page() && is_page() ) {
+	$evolve_slider_page_id = get_option( 'page_on_front' );
+}
 
 /*
    Bootstrap Slider

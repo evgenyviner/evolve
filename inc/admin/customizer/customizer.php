@@ -28,10 +28,7 @@
     ======================================= */
 
 define( 'EVOLVE_THEME_DIR', plugin_dir_path( __FILE__ ) );
-
-if ( is_admin() ) {
-	$_REQUEST['evolve_write_json_configs'] = true;
-}
+global $evolve_store_customize_controls_array;
 
 if ( is_user_logged_in() ) {
 	require get_parent_theme_file_path( '/inc/admin/customizer/render-callback.php' );
@@ -775,7 +772,7 @@ $evolve_customizer_fields = array();
 if ( ! class_exists( 'evolve_Kirki' ) ) {
 	class evolve_Kirki {
 		static function setSection( $param1, $param2 ) {
-			if ( isset( $_REQUEST['evolve_write_json_configs'] ) ) {
+			if ( true || isset( $_REQUEST['evolve_write_json_configs'] ) ) {
 				if ( true || is_user_logged_in() ) {
 					global $evolve_panel, $evolve_index_control, $evolve_customizer_sections;
 					$evolve_index_control ++;
@@ -1134,9 +1131,15 @@ if ( ! function_exists( 'evolve_load_the_theme_options' ) ) {
 				}
 			}
 		}
-		if ( isset( $_REQUEST['evolve_write_json_configs'] ) ) {
+		if ( is_admin() || isset( $_REQUEST['evolve_write_json_configs'] ) ) {
 			require get_parent_theme_file_path( '/inc/admin/customizer/customizer-options.php' );
 			evolve_customizer_options();
+			if ( is_customize_preview() ) {
+				evolve_write_json_configs();
+			}
+		} else {
+			evolve_get_controls_from_json();
+			evolve_call_customize_register();
 		}
 	}
 }
@@ -1169,16 +1172,6 @@ if ( ! function_exists( 'evolve_write_json_configs' ) ) {
 	}
 }
 
-if ( isset( $_REQUEST['evolve_write_json_configs'] ) ) {
-	add_action( 'init', 'evolve_write_json_configs' );
-} else {
-	if ( is_user_logged_in() && is_customize_preview() ) {
-		add_action( 'init', 'evolve_call_customize_register', 12, 1 );
-	}
-}
-
-global $evolve_store_customize_controls_array;
-
 if ( ! function_exists( 'evolve_get_controls_from_json' ) ) {
 	function evolve_get_controls_from_json() {
 		global $evolve_store_customize_controls_array, $evolve_customizer_fields, $evolve_list_google_fonts, $wp_filesystem;
@@ -1206,7 +1199,6 @@ if ( ! function_exists( 'evolve_get_controls_from_json' ) ) {
 		}
 	}
 }
-add_action( 'init', 'evolve_get_controls_from_json', 11, 1 );
 
 if ( ! function_exists( 'evolve_call_customize_register' ) ) {
 	function evolve_call_customize_register() {
@@ -1214,14 +1206,16 @@ if ( ! function_exists( 'evolve_call_customize_register' ) ) {
 		$global_value               = evolve_global_customizer_value();
 		$evolve_customizer_fields   = $evolve_store_customize_controls_array['evolve_customizer_fields'];
 		$evolve_customizer_sections = $evolve_store_customize_controls_array['evolve_customizer_sections'];
-		if ( $evolve_customizer_fields ) {
-			foreach ( $evolve_customizer_sections as $section ) {
-				if ( 'add_panel' == $section['type'] ) {
-					//kirki add panel
-					Kirki::add_panel( $section['id'], $section['args'] );
-				} else {
-					//kirki add section
-					Kirki::add_section( $section['id'], $section['args'] );
+		if ( $evolve_customizer_fields && is_array( $evolve_customizer_fields ) && count( $evolve_customizer_fields ) ) {
+			if ( $evolve_customizer_sections && is_array( $evolve_customizer_sections ) && count( $evolve_customizer_sections ) ) {
+				foreach ( $evolve_customizer_sections as $section ) {
+					if ( 'add_panel' == $section['type'] ) {
+						//kirki add panel
+						Kirki::add_panel( $section['id'], $section['args'] );
+					} else {
+						//kirki add section
+						Kirki::add_section( $section['id'], $section['args'] );
+					}
 				}
 			}
 			foreach ( $evolve_customizer_fields as $field ) {

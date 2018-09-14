@@ -29,7 +29,9 @@
 		Hooked: evolve_100_width_container_close() - 10
 		--------------------------------------- */
 
-	do_action( 'evolve_after_post_title' ); ?>
+	do_action( 'evolve_after_post_title' );
+
+	evolve_featured_image( '1' ); ?>
 
     <div class="post-content" itemprop="mainContentOfPage">
 

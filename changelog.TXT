@@ -1,3 +1,11 @@
+Version:         3.9.7
+Date:         13/9/18
+
+- Added Featured Image For Page
+- Fixed Zoom Bug For Featured Image
+- Fixed Customizer Options Bug
+
+
 Version:         3.9.6
 Date:         5/9/18
 

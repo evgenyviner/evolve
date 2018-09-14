@@ -244,7 +244,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			Layouts
 			--------------------------------------- */
 
-		if ( ( ( ( is_front_page() && is_page() ) || is_home() ) && $frontpage_width_layout == "fluid" ) || ( ( ( ! is_front_page() && ! is_page() ) || ! is_home() ) && $width_layout == "fluid" ) ) {
+		if ( ( ( ( is_front_page() && is_page() ) || is_home() ) && $frontpage_width_layout == "fluid" ) || ( ( ! is_front_page() && ! is_page() && ! is_home() ) && $width_layout == "fluid" ) ) {
 			$css_data .= ' #wrapper { margin: 0; width: 100%; }';
 		}
 

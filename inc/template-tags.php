@@ -224,6 +224,9 @@ if ( ! function_exists( 'evolve_header_block_above' ) ) {
 		if ( is_home() && ! is_front_page() ) {
 			$slider_page_id = get_option( 'page_for_posts' );
 		}
+		if ( is_front_page() && is_page() ) {
+			$slider_page_id = get_option( 'page_on_front' );
+		}
 
 		if ( ( ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_bootstrap_slider', '0' ) == '1' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ) ) || ( ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'parallax' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ) || ( evolve_theme_mod( 'evl_parallax_slider', '0' ) == '1' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ) ) || ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'posts' && evolve_theme_mod( 'evl_carousel_slider', '0' ) == '1' || ( evolve_theme_mod( 'evl_posts_slider', false ) && evolve_theme_mod( 'evl_carousel_slider', false ) ) ) ) {
 			$slider_true = true;
@@ -265,7 +268,7 @@ add_action( 'evolve_header_area', 'evolve_header_block_above', 30 );
 if ( ! function_exists( 'evolve_header_block_below' ) ) {
 
 	function evolve_header_block_below() {
-		global $evolve_options;
+		global $post, $evolve_options;
 		$page_ID                      = get_queried_object_id();
 		$frontpage_slider             = array();
 		$current_post_slider_position = get_post_meta( $page_ID, 'evolve_slider_position', true );
@@ -416,7 +419,7 @@ if ( ! function_exists( 'evolve_featured_image' ) ) {
 
 		global $post;
 
-		if ( $type == '1' && is_single() && evolve_theme_mod( 'evl_blog_featured_image', '0' ) == "1" && has_post_thumbnail() ) {
+		if ( $type == '1' && ( is_single() || is_page() ) && evolve_theme_mod( 'evl_blog_featured_image', '0' ) == "1" && has_post_thumbnail() ) {
 			echo '<div class="thumbnail-post thumbnail-post-single">';
 			the_post_thumbnail( 'evolve-post-thumbnail', array( 'class' => 'd-block w-100', 'itemprop' => 'image' ) );
 			echo '</div>';
@@ -427,13 +430,13 @@ if ( ! function_exists( 'evolve_featured_image' ) ) {
 					'class'    => 'd-block w-100',
 					'itemprop' => 'image'
 				) );
-				echo '<div class="mask"><a href="' . get_the_permalink() . '"><div class="icon icon-portfolio-link"></div></a><a class="zoom" href="' . get_the_post_thumbnail_url( $post->ID, 'full' ) . '"
+				echo '<div class="mask"><a class="link" href="' . get_the_permalink() . '"><div class="icon icon-portfolio-link"></div></a><a class="zoom" href="' . get_the_post_thumbnail_url( $post->ID, 'full' ) . '"
                                                    data-title="' . get_the_title() . '" data-gallery="featured-gallery" data-toggle="lightbox"><div class="icon icon-portfolio-zoom"></div></a></div></div>';
 			} else {
 				if ( evolve_get_first_image() ):
 					echo '<div class="thumbnail-post"><img class="d-block w-100" src="' . evolve_get_first_image() . '" alt="';
 					the_title();
-					echo '" itemprop="image" /><div class="mask"><a href="' . get_the_permalink() . '"><div class="icon icon-portfolio-link"></div></a><a class="zoom" href="' . evolve_get_first_image() . '"
+					echo '" itemprop="image" /><div class="mask"><a class="link" href="' . get_the_permalink() . '"><div class="icon icon-portfolio-link"></div></a><a class="zoom" href="' . evolve_get_first_image() . '"
                                                    data-title="' . get_the_title() . '" data-gallery="featured-gallery" data-toggle="lightbox"><div class="icon icon-portfolio-zoom"></div></a></div></div>';
 				else:
 					if ( evolve_theme_mod( 'evl_thumbnail_default_images', '0' ) == 0 ) {
