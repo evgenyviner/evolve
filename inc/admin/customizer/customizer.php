@@ -1139,7 +1139,7 @@ if ( ! function_exists( 'evolve_load_the_theme_options' ) ) {
 			}
 		} else {
 			evolve_get_controls_from_json();
-			if(is_user_logged_in()){
+			if(is_customize_preview()){
 				evolve_call_customize_register();
 			}
 		}
