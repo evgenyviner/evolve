@@ -6,7 +6,7 @@
  * @category    Modules
  * @author      Aristeides Stathopoulos
  * @copyright   Copyright (c) 2017, Aristeides Stathopoulos
- * @license     http://opensource.org/licenses/https://opensource.org/licenses/MIT
+ * @license    https://opensource.org/licenses/MIT
  * @since       3.0.0
  */
 
@@ -250,7 +250,6 @@ class Kirki_Modules_CSS {
 	 *
 	 * @static
 	 * @access public
-	 *
 	 * @param string $config_id The configuration ID.
 	 */
 	public static function loop_controls( $config_id ) {

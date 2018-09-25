@@ -267,11 +267,7 @@ if ( bbp_current_user_can_access_create_topic_form() ) : ?>
 
     <div id="no-topic-<?php bbp_topic_id(); ?>" class="bbp-no-topic">
         <div class="bbp-template-notice">
-            <p class="alert alert-warning" role="alert">
-
 				<?php printf( __( 'The forum %s is closed to new topics and replies', 'evolve' ), bbp_get_forum_title() ); ?>
-
-            </p>
         </div>
     </div>
 
@@ -279,11 +275,7 @@ if ( bbp_current_user_can_access_create_topic_form() ) : ?>
 
     <div id="no-topic-<?php bbp_topic_id(); ?>" class="bbp-no-topic">
         <div class="bbp-template-notice">
-            <p class="alert alert-warning" role="alert">
-
 				<?php is_user_logged_in() ? esc_html_e( 'You cannot create new topics', 'evolve' ) : esc_html_e( 'You must be logged in to create new topics', 'evolve' ); ?>
-
-            </p>
         </div>
     </div>
 

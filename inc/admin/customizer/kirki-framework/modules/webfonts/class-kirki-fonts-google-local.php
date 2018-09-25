@@ -8,7 +8,7 @@
  * @category    Core
  * @author      Aristeides Stathopoulos
  * @copyright   Copyright (c) 2017, Aristeides Stathopoulos
- * @license     http://opensource.org/licenses/https://opensource.org/licenses/MIT
+ * @license    https://opensource.org/licenses/MIT
  * @since       3.0.28
  */
 
@@ -115,7 +115,7 @@ final class Kirki_Fonts_Google_Local {
 		if ( ! $this->files ) {
 			return;
 		}
-		$key = md5( json_encode( $this->files ) );
+		$key    = md5( wp_json_encode( $this->files ) );
 		$cached = get_transient( $key );
 		if ( $cached ) {
 			return $cached;
@@ -454,7 +454,7 @@ final class Kirki_Fonts_Google_Local {
 			$variants = array_keys( $this->files );
 		}
 		foreach ( $this->files as $variant => $file ) {
-			if ( in_array( $variant, $variants ) ) {
+			if ( in_array( $variant, $variants ) ) { // phpcs:ignore WordPress.PHP.StrictInArray.MissingTrueStrict
 				$this->download_font_file( $file );
 			}
 		}

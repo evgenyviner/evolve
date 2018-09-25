@@ -430,14 +430,14 @@ if ( ! function_exists( 'evolve_featured_image' ) ) {
 					'class'    => 'd-block w-100',
 					'itemprop' => 'image'
 				) );
-				echo '<div class="mask"><a class="link" href="' . get_the_permalink() . '"><div class="icon icon-portfolio-link"></div></a><a class="zoom" href="' . get_the_post_thumbnail_url( $post->ID, 'full' ) . '"
-                                                   data-title="' . get_the_title() . '" data-gallery="featured-gallery" data-toggle="lightbox"><div class="icon icon-portfolio-zoom"></div></a></div></div>';
+				echo '<div class="mask"><a class="link' . ( evolve_theme_mod( 'evl_animatecss', '1' ) == '1' ? '' : ' w-100' ) . '" href="' . get_the_permalink() . '"><div class="icon icon-portfolio-link"></div></a>' . ( evolve_theme_mod( 'evl_animatecss', '1' ) == '1' ? '<a class="zoom" href="' . get_the_post_thumbnail_url( $post->ID, 'full' ) . '"
+                                                   data-title="' . get_the_title() . '" data-gallery="featured-gallery" data-toggle="lightbox"><div class="icon icon-portfolio-zoom"></div></a>' : '' ) . '</div></div>';
 			} else {
 				if ( evolve_get_first_image() ):
 					echo '<div class="thumbnail-post"><img class="d-block w-100" src="' . evolve_get_first_image() . '" alt="';
 					the_title();
-					echo '" itemprop="image" /><div class="mask"><a class="link" href="' . get_the_permalink() . '"><div class="icon icon-portfolio-link"></div></a><a class="zoom" href="' . evolve_get_first_image() . '"
-                                                   data-title="' . get_the_title() . '" data-gallery="featured-gallery" data-toggle="lightbox"><div class="icon icon-portfolio-zoom"></div></a></div></div>';
+					echo '" itemprop="image" /><div class="mask"><a class="link' . ( evolve_theme_mod( 'evl_animatecss', '1' ) == '1' ? '' : ' w-100' ) . '" href="' . get_the_permalink() . '"><div class="icon icon-portfolio-link"></div></a>' . ( evolve_theme_mod( 'evl_animatecss', '1' ) == '1' ? '<a class="zoom" href="' . evolve_get_first_image() . '"
+                                                   data-title="' . get_the_title() . '" data-gallery="featured-gallery" data-toggle="lightbox"><div class="icon icon-portfolio-zoom"></div></a>' : '' ) . '</div></div>';
 				else:
 					if ( evolve_theme_mod( 'evl_thumbnail_default_images', '0' ) == 0 ) {
 						echo '<div class="thumbnail-post"><a href="' . get_the_permalink() . '"><img class="d-block w-100" src="' . get_template_directory_uri() . '/assets/images/no-thumbnail-post.jpg" alt="';

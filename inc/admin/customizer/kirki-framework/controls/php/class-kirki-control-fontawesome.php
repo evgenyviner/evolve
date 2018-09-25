@@ -5,7 +5,7 @@
  * @package     Kirki
  * @subpackage  Controls
  * @copyright   Copyright (c) 2017, Aristeides Stathopoulos
- * @license     http://opensource.org/licenses/https://opensource.org/licenses/MIT
+ * @license    https://opensource.org/licenses/MIT
  * @since       1.0
  */
 
@@ -36,8 +36,8 @@ class Kirki_Control_FontAwesome extends Kirki_Control_Base {
 		parent::enqueue();
 
 		// evolve customization
-		wp_enqueue_style( 'kirki-fontawesome-font', 'https://use.fontawesome.com/releases/v5.2.0/css/all.css', array(), '5.2.0' );
-		wp_enqueue_style( 'kirki-fontawesome-font-shims', 'https://use.fontawesome.com/releases/v5.2.0/css/v4-shims.css', array(), '5.2.0' );
+		wp_enqueue_style( 'kirki-fontawesome-font', 'https://use.fontawesome.com/releases/v5.3.1/css/all.css', array(), '5.3.1' );
+		wp_enqueue_style( 'kirki-fontawesome-font-shims', 'https://use.fontawesome.com/releases/v5.3.1/css/v4-shims.css', array(), '5.3.1' );
 
 		ob_start();
 		$json_path = wp_normalize_path( Kirki::$path . '/assets/vendor/fontawesome/fontawesome.json' );
@@ -61,8 +61,7 @@ class Kirki_Control_FontAwesome extends Kirki_Control_Base {
 		?>
         <label>
             <# if ( data.label ) { #><span class="customize-control-title">{{{ data.label }}}</span><# } #>
-            <# if ( data.description ) { #><span class="description customize-control-description">{{{ data.description }}}</span><#
-            } #>
+			<# if ( data.description ) { #><span class="description customize-control-description">{{{ data.description }}}</span><# } #>
             <select {{{ data.inputAttrs }}} {{{ data.link }}}></select>
         </label>
 		<?php

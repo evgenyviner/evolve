@@ -9,11 +9,9 @@
  * @category    Modules
  * @author      Aristeides Stathopoulos
  * @copyright   Copyright (c) 2017, Aristeides Stathopoulos
- * @license     http://opensource.org/licenses/https://opensource.org/licenses/MIT
+ * @license    https://opensource.org/licenses/MIT
  * @since       3.0.0
  */
-
-// @codingStandardsIgnoreFile
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -129,7 +127,7 @@ class Kirki_Modules_Customizer_Styling {
 				background: none;
 			}
 			.wp-core-ui .button-link-delete {
-				color: <?php echo ( 90 > $back_obj->lightness ) ? '#FF8A80' : '#a00'; // WPCS: XSS ok. ?>;
+				color: <?php echo ( 90 > $back_obj->lightness ) ? '#FF8A80' : '#a00'; ?>;
 			}
 			.button.wp-color-result {
 				text-shadow: none !important;

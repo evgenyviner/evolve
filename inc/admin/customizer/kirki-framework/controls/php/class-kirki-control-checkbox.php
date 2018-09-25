@@ -8,7 +8,7 @@
  * @package     Kirki
  * @subpackage  Controls
  * @copyright   Copyright (c) 2017, Aristeides Stathopoulos
- * @license     http://opensource.org/licenses/https://opensource.org/licenses/MIT
+ * @license    https://opensource.org/licenses/MIT
  * @since       3.0.26
  */
 
@@ -40,7 +40,7 @@ class Kirki_Control_Checkbox extends Kirki_Control_Base {
 		<span class="customize-inside-control-row">
 			<input
 				id="<?php echo esc_attr( $input_id ); ?>"
-				<?php echo ( ! empty( $this->description ) ) ? ' aria-describedby="' . esc_attr( $description_id ) . '" ' : ''; // WPCS: XSS ok. ?>
+				<?php echo ( ! empty( $this->description ) ) ? ' aria-describedby="' . esc_attr( $description_id ) . '" ' : ''; ?>
 				type="checkbox"
 				value="<?php echo esc_attr( $this->value() ); ?>"
 				<?php $this->link(); ?>

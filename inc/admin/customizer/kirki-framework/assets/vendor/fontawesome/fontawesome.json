@@ -19,6 +19,12 @@
       "name": "Accusoft"
     },
     {
+      "id": "ad",
+      "styles": "fas",
+      "unicode": "f641",
+      "name": "Ad"
+    },
+    {
       "id": "address-book",
       "styles": "fas",
       "unicode": "f2b9",
@@ -101,6 +107,12 @@
       "styles": "fas",
       "unicode": "f038",
       "name": "align-right"
+    },
+    {
+      "id": "alipay",
+      "styles": "fab",
+      "unicode": "f642",
+      "name": "Alipay"
     },
     {
       "id": "allergies",
@@ -227,6 +239,12 @@
       "styles": "fab",
       "unicode": "f420",
       "name": "Angular"
+    },
+    {
+      "id": "ankh",
+      "styles": "fas",
+      "unicode": "f644",
+      "name": "Ankh"
     },
     {
       "id": "app-store",
@@ -619,6 +637,12 @@
       "name": "Bezier Curve"
     },
     {
+      "id": "bible",
+      "styles": "fas",
+      "unicode": "f647",
+      "name": "Bible"
+    },
+    {
       "id": "bicycle",
       "styles": "fas",
       "unicode": "f206",
@@ -893,6 +917,12 @@
       "styles": "fas",
       "unicode": "f55e",
       "name": "Bus Alt"
+    },
+    {
+      "id": "business-time",
+      "styles": "fas",
+      "unicode": "f64a",
+      "name": "Business Time"
     },
     {
       "id": "buysellads",
@@ -1405,6 +1435,12 @@
       "name": "Circle Notched"
     },
     {
+      "id": "city",
+      "styles": "fas",
+      "unicode": "f64f",
+      "name": "City"
+    },
+    {
       "id": "clipboard",
       "styles": "fas",
       "unicode": "f328",
@@ -1585,6 +1621,12 @@
       "name": "Alternate Comment"
     },
     {
+      "id": "comment-dollar",
+      "styles": "fas",
+      "unicode": "f651",
+      "name": "Comment Dollar"
+    },
+    {
       "id": "comment-dots",
       "styles": "fas",
       "unicode": "f4ad",
@@ -1613,6 +1655,12 @@
       "styles": "far",
       "unicode": "f086",
       "name": "comments"
+    },
+    {
+      "id": "comments-dollar",
+      "styles": "fas",
+      "unicode": "f653",
+      "name": "Comments Dollar"
     },
     {
       "id": "compact-disc",
@@ -1807,6 +1855,12 @@
       "name": "Alternate Crop"
     },
     {
+      "id": "cross",
+      "styles": "fas",
+      "unicode": "f654",
+      "name": "Cross"
+    },
+    {
       "id": "crosshairs",
       "styles": "fas",
       "unicode": "f05b",
@@ -1913,6 +1967,12 @@
       "styles": "fab",
       "unicode": "f1bd",
       "name": "deviantART"
+    },
+    {
+      "id": "dharmachakra",
+      "styles": "fas",
+      "unicode": "f655",
+      "name": "Dharmachakra"
     },
     {
       "id": "diagnoses",
@@ -2255,6 +2315,12 @@
       "styles": "far",
       "unicode": "f2b6",
       "name": "Envelope Open"
+    },
+    {
+      "id": "envelope-open-text",
+      "styles": "fas",
+      "unicode": "f658",
+      "name": "Envelope Open-text"
     },
     {
       "id": "envelope-square",
@@ -2797,6 +2863,12 @@
       "name": "Folder"
     },
     {
+      "id": "folder-minus",
+      "styles": "fas",
+      "unicode": "f65d",
+      "name": "Folder Minus"
+    },
+    {
       "id": "folder-open",
       "styles": "fas",
       "unicode": "f07c",
@@ -2807,6 +2879,12 @@
       "styles": "far",
       "unicode": "f07c",
       "name": "Folder Open"
+    },
+    {
+      "id": "folder-plus",
+      "styles": "fas",
+      "unicode": "f65e",
+      "name": "Folder Plus"
     },
     {
       "id": "font",
@@ -2927,6 +3005,12 @@
       "styles": "fab",
       "unicode": "f50b",
       "name": "Fulcrum"
+    },
+    {
+      "id": "funnel-dollar",
+      "styles": "fas",
+      "unicode": "f662",
+      "name": "Funnel Dollar"
     },
     {
       "id": "futbol",
@@ -3181,6 +3265,12 @@
       "name": "Google Wallet"
     },
     {
+      "id": "gopuram",
+      "styles": "fas",
+      "unicode": "f664",
+      "name": "Gopuram"
+    },
+    {
       "id": "graduation-cap",
       "styles": "fas",
       "unicode": "f19d",
@@ -3433,6 +3523,12 @@
       "name": "Hackerrank"
     },
     {
+      "id": "hamsa",
+      "styles": "fas",
+      "unicode": "f665",
+      "name": "Hamsa"
+    },
+    {
       "id": "hand-holding",
       "styles": "fas",
       "unicode": "f4bd",
@@ -3611,6 +3707,12 @@
       "styles": "fas",
       "unicode": "f292",
       "name": "Hashtag"
+    },
+    {
+      "id": "haykal",
+      "styles": "fas",
+      "unicode": "f666",
+      "name": "Haykal"
     },
     {
       "id": "hdd",
@@ -3955,6 +4057,12 @@
       "name": "Java"
     },
     {
+      "id": "jedi",
+      "styles": "fas",
+      "unicode": "f669",
+      "name": "Jedi"
+    },
+    {
       "id": "jedi-order",
       "styles": "fab",
       "unicode": "f50e",
@@ -3985,6 +4093,12 @@
       "name": "Joomla Logo"
     },
     {
+      "id": "journal-whills",
+      "styles": "fas",
+      "unicode": "f66a",
+      "name": "Journal of the Whills"
+    },
+    {
       "id": "js",
       "styles": "fab",
       "unicode": "f3b8",
@@ -4001,6 +4115,12 @@
       "styles": "fab",
       "unicode": "f1cc",
       "name": "jsFiddle"
+    },
+    {
+      "id": "kaaba",
+      "styles": "fas",
+      "unicode": "f66b",
+      "name": "Kaaba"
     },
     {
       "id": "kaggle",
@@ -4037,6 +4157,12 @@
       "styles": "fab",
       "unicode": "f3ba",
       "name": "KeyCDN"
+    },
+    {
+      "id": "khanda",
+      "styles": "fas",
+      "unicode": "f66d",
+      "name": "Khanda"
     },
     {
       "id": "kickstarter",
@@ -4097,6 +4223,12 @@
       "styles": "fab",
       "unicode": "f42f",
       "name": "KORVUE"
+    },
+    {
+      "id": "landmark",
+      "styles": "fas",
+      "unicode": "f66f",
+      "name": "Landmark"
     },
     {
       "id": "language",
@@ -4417,6 +4549,12 @@
       "name": "magnet"
     },
     {
+      "id": "mail-bulk",
+      "styles": "fas",
+      "unicode": "f674",
+      "name": "Mail Bulk"
+    },
+    {
       "id": "mailchimp",
       "styles": "fab",
       "unicode": "f59e",
@@ -4627,6 +4765,12 @@
       "name": "Memory"
     },
     {
+      "id": "menorah",
+      "styles": "fas",
+      "unicode": "f676",
+      "name": "Menorah"
+    },
+    {
       "id": "mercury",
       "styles": "fas",
       "unicode": "f223",
@@ -4807,6 +4951,12 @@
       "name": "Mortar Pestle"
     },
     {
+      "id": "mosque",
+      "styles": "fas",
+      "unicode": "f678",
+      "name": "Mosque"
+    },
+    {
       "id": "motorcycle",
       "styles": "fas",
       "unicode": "f21c",
@@ -4957,6 +5107,12 @@
       "name": "Old Republic"
     },
     {
+      "id": "om",
+      "styles": "fas",
+      "unicode": "f679",
+      "name": "Om"
+    },
+    {
       "id": "opencart",
       "styles": "fab",
       "unicode": "f23d",
@@ -5077,6 +5233,12 @@
       "name": "Passport"
     },
     {
+      "id": "pastafarianism",
+      "styles": "fas",
+      "unicode": "f67b",
+      "name": "Pastafarianism"
+    },
+    {
       "id": "paste",
       "styles": "fas",
       "unicode": "f0ea",
@@ -5117,6 +5279,12 @@
       "styles": "fab",
       "unicode": "f1ed",
       "name": "Paypal"
+    },
+    {
+      "id": "peace",
+      "styles": "fas",
+      "unicode": "f67c",
+      "name": "Peace"
     },
     {
       "id": "pen",
@@ -5287,6 +5455,12 @@
       "name": "Pinterest Square"
     },
     {
+      "id": "place-of-worship",
+      "styles": "fas",
+      "unicode": "f67f",
+      "name": "Place Of Worship"
+    },
+    {
       "id": "plane",
       "styles": "fas",
       "unicode": "f072",
@@ -5365,6 +5539,18 @@
       "name": "Podcast"
     },
     {
+      "id": "poll",
+      "styles": "fas",
+      "unicode": "f681",
+      "name": "Poll"
+    },
+    {
+      "id": "poll-h",
+      "styles": "fas",
+      "unicode": "f682",
+      "name": "Poll H"
+    },
+    {
       "id": "poo",
       "styles": "fas",
       "unicode": "f2fe",
@@ -5393,6 +5579,18 @@
       "styles": "fas",
       "unicode": "f011",
       "name": "Power Off"
+    },
+    {
+      "id": "pray",
+      "styles": "fas",
+      "unicode": "f683",
+      "name": "Pray"
+    },
+    {
+      "id": "praying-hands",
+      "styles": "fas",
+      "unicode": "f684",
+      "name": "Praying Hands"
     },
     {
       "id": "prescription",
@@ -5513,6 +5711,12 @@
       "styles": "fas",
       "unicode": "f10e",
       "name": "quote-right"
+    },
+    {
+      "id": "quran",
+      "styles": "fas",
+      "unicode": "f687",
+      "name": "Quran"
     },
     {
       "id": "r-project",
@@ -5831,6 +6035,18 @@
       "styles": "fas",
       "unicode": "f002",
       "name": "Search"
+    },
+    {
+      "id": "search-dollar",
+      "styles": "fas",
+      "unicode": "f688",
+      "name": "Search Dollar"
+    },
+    {
+      "id": "search-location",
+      "styles": "fas",
+      "unicode": "f689",
+      "name": "Search Location"
     },
     {
       "id": "search-minus",
@@ -6169,6 +6385,12 @@
       "name": "Snowflake"
     },
     {
+      "id": "socks",
+      "styles": "fas",
+      "unicode": "f696",
+      "name": "Socks"
+    },
+    {
       "id": "solar-panel",
       "styles": "fas",
       "unicode": "f5ba",
@@ -6295,6 +6517,12 @@
       "name": "Square Full"
     },
     {
+      "id": "square-root-alt",
+      "styles": "fas",
+      "unicode": "f698",
+      "name": "Square Root Alternate"
+    },
+    {
       "id": "squarespace",
       "styles": "fab",
       "unicode": "f5be",
@@ -6331,6 +6559,12 @@
       "name": "Star"
     },
     {
+      "id": "star-and-crescent",
+      "styles": "fas",
+      "unicode": "f699",
+      "name": "Star and Crescent"
+    },
+    {
       "id": "star-half",
       "styles": "fas",
       "unicode": "f089",
@@ -6347,6 +6581,12 @@
       "styles": "fas",
       "unicode": "f5c0",
       "name": "Alternate Star Half"
+    },
+    {
+      "id": "star-of-david",
+      "styles": "fas",
+      "unicode": "f69a",
+      "name": "Star of David"
     },
     {
       "id": "star-of-life",
@@ -6595,6 +6835,12 @@
       "name": "Swimming Pool"
     },
     {
+      "id": "synagogue",
+      "styles": "fas",
+      "unicode": "f69b",
+      "name": "Synagogue"
+    },
+    {
       "id": "sync",
       "styles": "fas",
       "unicode": "f021",
@@ -6751,6 +6997,12 @@
       "name": "th-list"
     },
     {
+      "id": "the-red-yeti",
+      "styles": "fab",
+      "unicode": "f69d",
+      "name": "The Red Yeti"
+    },
+    {
       "id": "theater-masks",
       "styles": "fas",
       "unicode": "f630",
@@ -6905,6 +7157,18 @@
       "styles": "fas",
       "unicode": "f5c9",
       "name": "Tooth"
+    },
+    {
+      "id": "torah",
+      "styles": "fas",
+      "unicode": "f6a0",
+      "name": "Torah"
+    },
+    {
+      "id": "torii-gate",
+      "styles": "fas",
+      "unicode": "f6a1",
+      "name": "Torii Gate"
     },
     {
       "id": "trade-federation",
@@ -7417,6 +7681,12 @@
       "name": "Video Slash"
     },
     {
+      "id": "vihara",
+      "styles": "fas",
+      "unicode": "f6a7",
+      "name": "Vihara"
+    },
+    {
       "id": "vimeo",
       "styles": "fab",
       "unicode": "f40a",
@@ -7745,6 +8015,12 @@
       "styles": "fas",
       "unicode": "f157",
       "name": "Yen Sign"
+    },
+    {
+      "id": "yin-yang",
+      "styles": "fas",
+      "unicode": "f6ad",
+      "name": "Yin Yang"
     },
     {
       "id": "yoast",

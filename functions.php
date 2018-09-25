@@ -427,7 +427,7 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 
 		// Infinite Scroll
 
-		if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" && ! is_single() && ( is_home() || is_archive() || is_search() ) ) {
+		if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" && ! is_single() && ( ! is_page() && ( ( class_exists( 'bbPress' ) && ! is_bbpress() ) || ( function_exists( 'is_buddypress' ) && ! is_buddypress() ) ) ) && ( is_home() || is_archive() || is_search() ) ) {
 			$local_variables['infinite_scroll_enabled']       = true;
 			$local_variables['infinite_scroll_text_finished'] = __( 'You reached the end', 'evolve' );
 			$local_variables['infinite_scroll_text']          = __( 'Load more items', 'evolve' );

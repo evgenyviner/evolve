@@ -1,15 +1,17 @@
 <?php
 /**
  * This file contains all the deprecated functions.
+ *
  * We could easily delete all these but they are kept for backwards-compatibility purposes.
  *
  * @package     Kirki
  * @category    Core
  * @author      Aristeides Stathopoulos
  * @copyright   Copyright (c) 2017, Aristeides Stathopoulos
- * @license     http://opensource.org/licenses/https://opensource.org/licenses/MIT
+ * @license    https://opensource.org/licenses/MIT
  * @since       1.0
  */
+// @codingStandardsIgnoreFile
 
 require_once wp_normalize_path( dirname( __FILE__ ) . '/functions.php' );
 require_once wp_normalize_path( dirname( __FILE__ ) . '/classes.php' );

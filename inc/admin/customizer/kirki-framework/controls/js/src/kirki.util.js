@@ -259,10 +259,9 @@ kirki = jQuery.extend( kirki, {
 				var validUnits = [ 'fr', 'rem', 'em', 'ex', '%', 'px', 'cm', 'mm', 'in', 'pt', 'pc', 'ch', 'vh', 'vw', 'vmin', 'vmax' ],
 					numericValue,
 					unit;
-				// evolve modification
-				// Allow unitless.
-				if ( ! value ) {
-					return;
+				// Early exit if value is undefined.
+				if ( 'undefined' === typeof value ) {
+					return true;
 				}
 
 				// Whitelist values.
@@ -280,10 +279,30 @@ kirki = jQuery.extend( kirki, {
 
 				// Get the unit
 				unit = value.replace( numericValue, '' );
+				// Allow unitless.
+				if ( ! value ) {
+					return;
+				}
 
 				// Check the validity of the numeric value and units.
 				return ( ! isNaN( numericValue ) && -1 < jQuery.inArray( unit, validUnits ) );
 			}
+		},
+
+		/**
+		 * Parses HTML Entities.
+		 *
+		 * @since 3.0.34
+		 * @param {string} str - The string we want to parse.
+		 * @returns {string}
+		 */
+		parseHtmlEntities: function( str ) {
+			var parser = new DOMParser,
+				dom    = parser.parseFromString(
+					'<!doctype html><body>' + str, 'text/html'
+				);
+
+			return dom.body.textContent;
 		}
 	}
 } );
