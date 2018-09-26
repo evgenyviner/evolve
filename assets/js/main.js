@@ -6468,6 +6468,14 @@
 
 jQuery(function ($) {
     $(".dropdown-toggle").removeAttr('data-toggle dropdown');
+	
+	
+	if(evolve_js_local_vars.main_menu === '1'){
+		$('.dropdown-toggle').each(function(){
+			$(this).addClass('clicked');
+			$(this).closest('li').addClass('open');
+		});
+	}
     $('.dropdown.nav-item > a').click(function (event) {
         if ($(this).closest('li').find('.dropdown-menu').length) {
             if (!$(this).hasClass('clicked')) {
@@ -6499,7 +6507,7 @@ jQuery(function ($) {
 
         // Defining if navigation tree or single dropdown
         this.dropdowns = this.$element.hasClass('dropdown-toggle') ? this.$element.parent().find('.dropdown-menu').parent('.dropdown') : this.$element.find('.dropdown');
-        if (window.outerWidth >= 768 || evolve_js_local_vars.main_menu === '1') {
+        if (window.outerWidth >= 768) {
             this.dropdowns.each(function () {
                 $(this).on('mouseenter.bs.dropdownhover', function (e) {
                     that.show($(this).children('a, button'))
