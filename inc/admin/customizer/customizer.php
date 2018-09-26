@@ -93,6 +93,7 @@ if ( ! function_exists( 'evolve_global_customizer_value' ) ) {
 		$opt_name             = "evl_options";
 		$rss_url              = get_bloginfo( 'rss_url' );
 		$home_url             = esc_url( "http://theme4press.com/" );
+		$support_url          = esc_url( "http://wordpress.org/" );
 		$video_url            = esc_url( "https://youtu.be/dgvjt6dJfWM" );
 		$customizer_images    = get_template_directory_uri() . '/inc/admin/customizer/assets/images/';
 		$frontend_images      = get_template_directory_uri() . '/assets/images/';
@@ -147,6 +148,7 @@ if ( ! function_exists( 'evolve_global_customizer_value' ) ) {
 			'opt_name'             => $opt_name,
 			'rss_url'              => $rss_url,
 			'home_url'             => $home_url,
+			'support_url'          => $support_url,
 			'video_url'            => $video_url,
 			'customizer_images'    => $customizer_images,
 			'frontend_images'      => $frontend_images,
@@ -1227,3 +1229,33 @@ if ( ! function_exists( 'evolve_call_customize_register' ) ) {
 		}
 	}
 }
+
+if ( ! class_exists( 'evolve_upgrade_button' ) ) {
+	class evolve_upgrade_button {
+
+		function __construct() {
+			add_action( 'customize_controls_print_footer_scripts', array(
+				$this,
+				'add_upgrade_customizer'
+			), 9999 );
+		}
+
+		public function add_upgrade_customizer() { ?>
+            <script type="text/javascript">
+                (function ($) {
+                    "use strict";
+                    var upgrade = $('<a class="evolve-upgrade-button"></a>')
+                        .attr('href', '<?php echo esc_url( 'http://theme4press.com/evolve-multipurpose-wordpress-theme/' ); ?>')
+                        .attr('target', '_blank')
+                        .text('<?php _e( 'Upgrade to premium', 'evolve' ); ?>');
+                    setTimeout(function () {
+                        $('.preview-notice').append(upgrade);
+                        $('.customize-panel-back').css('height', '97px');
+                    }, 200);
+                })(jQuery);
+            </script>
+			<?php
+		}
+	}
+}
+$evolve_upgrade_button = new evolve_upgrade_button();

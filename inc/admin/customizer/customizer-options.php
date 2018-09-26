@@ -18,7 +18,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 					array(
 						'type' => 'info',
 						'id'   => 'evl_theme_links',
-						'desc' => '<a class="button button-primary" target="_blank" href="' . $global_value['home_url'] . 'alora-evolve-theme-comparison/"><i class="el el-tint"></i> Compare with the Pro Version</a> <a class="button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/"><i class="el el-home"></i> Theme Homepage</a> <a class="button" target="_blank" href="' . $global_value['video_url'] . '"><i class="el el-youtube"></i> Watch on YouTube</a> <a class="button" target="_blank" href="' . $global_value['home_url'] . 'docs/"><i class="el el-file"></i> Documentation</a> <a class="button" target="_blank" href="' . $global_value['home_url'] . 'support-forums/"><i class="el el-comment-alt"></i> Support</a>'
+						'desc' => '<a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/"><span class="dashicons dashicons-admin-home"></span> Theme Homepage</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'docs/"><span class="dashicons dashicons-admin-page"></span> Documentation</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['support_url'] . 'support/theme/evolve"><span class="dashicons dashicons-admin-comments"></span> Support</a>'
 					)
 				)
 			)

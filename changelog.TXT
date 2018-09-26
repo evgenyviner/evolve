@@ -1,9 +1,10 @@
 Version:         3.9.9
-Date:         25/9/18
+Date:         26/9/18
 
 - Updated Kirki Framework
 - Updated Font Awesome
 - Fixed Featured Image Link
+- Fixed Mobile Menu Issue
 
 
 Version:         3.9.8
