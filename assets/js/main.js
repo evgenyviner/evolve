@@ -6470,7 +6470,7 @@ jQuery(function ($) {
     $(".dropdown-toggle").removeAttr('data-toggle dropdown');
 	
 	
-	if(evolve_js_local_vars.main_menu === '1'){
+	if(window.outerWidth < 768 && evolve_js_local_vars.main_menu === '1'){
 		$('.dropdown-toggle').each(function(){
 			$(this).addClass('clicked');
 			$(this).closest('li').addClass('open');
