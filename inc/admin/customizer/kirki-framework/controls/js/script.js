@@ -855,7 +855,8 @@ kirki = jQuery.extend(kirki, {
                     preview = control.container.find('.placeholder, .thumbnail'),
                     previewImage = ('array' === saveAs) ? value.url : value,
                     removeButton = control.container.find('.image-upload-remove-button'),
-                    defaultButton = control.container.find('.image-default-button');
+                    defaultButton = control.container.find('.image-default-button'),
+                    inputElement = control.container.find('input');
 
                 // Make sure value is properly formatted.
                 value = ('array' === saveAs && _.isString(value)) ? {url: value} : value;
@@ -891,7 +892,7 @@ kirki = jQuery.extend(kirki, {
                 // evolve modification
                 control.container.on('change', 'input', function (e) {
                     previewImage = this.value;
-                    control.saveValue('url', previewImage);
+                    kirki.setting.set(control.id, previewImage);
                     preview.removeClass().addClass('thumbnail thumbnail-image').html('<img src="' + previewImage + '" alt="" />');
                     removeButton.show();
                     defaultButton.hide();
@@ -929,6 +930,7 @@ kirki = jQuery.extend(kirki, {
                         }
                         if (preview.length) {
                             preview.removeClass().addClass('thumbnail thumbnail-image').html('<img src="' + previewImage + '" alt="" />');
+                            inputElement.val(previewImage);
                         }
                         if (removeButton.length) {
                             removeButton.show();
@@ -956,6 +958,7 @@ kirki = jQuery.extend(kirki, {
                     if (preview.length) {
                         preview.removeClass().addClass('placeholder').html(kirkiL10n.noFileSelected);
                     }
+                    inputElement.val('');
                     if (removeButton.length) {
                         removeButton.hide();
                         if (jQuery(defaultButton).hasClass('button')) {
