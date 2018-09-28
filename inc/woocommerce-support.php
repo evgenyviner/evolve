@@ -462,7 +462,7 @@ function evolve_order_by_rating_post_clauses( $args ) {
 	$order = ! empty( $params['product_order'] ) ? $params['product_order'] : 'desc';
 	$order = strtoupper( $order );
 
-	$args['orderby'] = "sum_of_comments_approved DESC, average_rating {$order}, $wpdb->posts.post_date DESC";
+	$args['orderby'] = "average_rating {$order}, $wpdb->posts.post_date DESC";
 
 	$args['groupby'] = "$wpdb->posts.ID";
 
