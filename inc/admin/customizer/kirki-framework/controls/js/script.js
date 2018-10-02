@@ -855,8 +855,10 @@ kirki = jQuery.extend(kirki, {
                     preview = control.container.find('.placeholder, .thumbnail'),
                     previewImage = ('array' === saveAs) ? value.url : value,
                     removeButton = control.container.find('.image-upload-remove-button'),
+                    // evolve modification
                     defaultButton = control.container.find('.image-default-button'),
                     inputElement = control.container.find('input');
+                // evolve modification
 
                 // Make sure value is properly formatted.
                 value = ('array' === saveAs && _.isString(value)) ? {url: value} : value;
@@ -930,7 +932,9 @@ kirki = jQuery.extend(kirki, {
                         }
                         if (preview.length) {
                             preview.removeClass().addClass('thumbnail thumbnail-image').html('<img src="' + previewImage + '" alt="" />');
+                            // evolve modification
                             inputElement.val(previewImage);
+                            // evolve modification
                         }
                         if (removeButton.length) {
                             removeButton.show();
@@ -958,7 +962,9 @@ kirki = jQuery.extend(kirki, {
                     if (preview.length) {
                         preview.removeClass().addClass('placeholder').html(kirkiL10n.noFileSelected);
                     }
+                    // evolve modification
                     inputElement.val('');
+                    // evolve modification
                     if (removeButton.length) {
                         removeButton.hide();
                         if (jQuery(defaultButton).hasClass('button')) {
