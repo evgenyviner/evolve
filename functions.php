@@ -15,6 +15,7 @@
 		-- Filter Added For BuddyPress Docs Comment Show
 		-- Function To Print Out CSS Class According To Post/Blog Layout
 		-- Remove Title Attribute From Menu
+		-- Jetpack Slider Image Height Filter
 	- Template Functions
 	- Register Widget Areas
 	- Custom Comments
@@ -427,7 +428,7 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 
 		// Infinite Scroll
 
-		if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" && ! is_single() && ( ! is_page() && ( ( class_exists( 'bbPress' ) && ! is_bbpress() ) || ( function_exists( 'is_buddypress' ) && ! is_buddypress() ) ) ) && ( is_home() || is_archive() || is_search() ) ) {
+		if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" && ! is_single() && ( ! is_page() && ( ( class_exists( 'bbPress' ) && ! is_bbpress() || ! class_exists( 'bbPress' ) ) && ( function_exists( 'is_buddypress' ) && ! is_buddypress() || ! function_exists( 'is_buddypress' ) ) ) ) && ( is_home() || is_archive() || is_search() ) ) {
 			$local_variables['infinite_scroll_enabled']       = true;
 			$local_variables['infinite_scroll_text_finished'] = __( 'You reached the end', 'evolve' );
 			$local_variables['infinite_scroll_text']          = __( 'Load more items', 'evolve' );
@@ -461,7 +462,7 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 			endif;
 		}
 
-		// FontAwesome
+		// Font Awesome
 
 		if ( evolve_theme_mod( 'evl_fontawesome', '0' ) != "1" && ! is_customize_preview() ) {
 			wp_enqueue_script( 'evolve-font-awesome', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-all.min.js', array(), '5.2.0', true );
@@ -603,6 +604,18 @@ if ( ! function_exists( 'evolve_menu_notitle' ) ) {
 }
 
 add_filter( 'wp_nav_menu', 'evolve_menu_notitle' );
+
+/*
+	Jetpack Slider Image Height Filter
+    --------------------------------------- */
+
+function evolve_post_slider_jetpack_filter( $classes ) {
+	$classes[] = 'd-block';
+
+	return $classes;
+}
+
+add_filter( 'jetpack_lazy_images_blacklisted_classes', 'evolve_post_slider_jetpack_filter', 999, 1 );
 
 /*
     Template Functions

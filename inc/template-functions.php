@@ -243,9 +243,9 @@ add_action( 'evolve_sidebars_area', 'evolve_sidebars', 10 );
 if ( ! function_exists( 'evolve_pagination_before' ) ) {
 	function evolve_pagination_before() {
 		if ( ( ( is_front_page() && ! is_page() ) || is_home() || is_archive() || is_search() ) && evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "infinite" ) {
-			get_template_part( 'template-parts/navigation/navigation', 'index' );
+			get_template_part( 'template-parts/navigation/navigation' );
 		} elseif ( is_single() && evolve_theme_mod( 'evl_post_links', 'after' ) != "after" ) {
-			get_template_part( 'template-parts/navigation/navigation', 'index' );
+			get_template_part( 'template-parts/navigation/navigation' );
 		}
 	}
 }
@@ -549,8 +549,10 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 				$n = "\n";
 			}
 			$indent = str_repeat( $t, $depth );
+
 			// Default class to add to the file.
 			$classes = array( 'dropdown-menu' );
+
 			/**
 			 * Filters the CSS class(es) applied to a menu list element.
 			 *

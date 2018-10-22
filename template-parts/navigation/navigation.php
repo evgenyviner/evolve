@@ -4,7 +4,12 @@
    Displays Blog Pagination
    ======================================= */
 
-?>
+global $paged;
+if ( is_front_page() && ! is_home() ) {
+	$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
+} else {
+	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+} ?>
 
 <nav aria-label="<?php _e( "Navigation", "evolve" ); ?>"
      class="<?php if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "number_pagination" || ( is_single() && ! is_singular( array(

@@ -190,8 +190,8 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 		);
 
 		/*
-		Content Boxes
-		======================================= */
+			Content Boxes
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-frontpage-content-boxes-tab',
@@ -701,8 +701,8 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 		);
 
 		/*
-		Testimonials
-		======================================= */
+			Testimonials
+			======================================= */
 
 		$testimonial_fields = array();
 

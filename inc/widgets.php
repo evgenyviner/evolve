@@ -25,8 +25,8 @@ function evolve_widgets_init() {
 	) );
 
 	/*
-	   Register Header Widgets
-	   ======================================= */
+		Register Header Widgets
+	    ======================================= */
 
 	$evolve_header_widgets_args = array(
 		'name'          => __( 'Header %d', 'evolve' ),
@@ -39,8 +39,8 @@ function evolve_widgets_init() {
 	register_sidebars( 4, $evolve_header_widgets_args );
 
 	/*
-	   Register Footer Widgets
-	   ======================================= */
+	    Register Footer Widgets
+	    ======================================= */
 
 	$evolve_footer_widgets_args = array(
 		'name'          => __( 'Footer %d', 'evolve' ),
@@ -53,8 +53,8 @@ function evolve_widgets_init() {
 	register_sidebars( 4, $evolve_footer_widgets_args );
 
 	/*
-	   Tabs Widget
-	   ======================================= */
+	    Tabs Widget
+	    ======================================= */
 
 	get_template_part( 'inc/tabs-widget' );
 

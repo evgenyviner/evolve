@@ -30,7 +30,7 @@ do_action( 'woocommerce_before_cart' ); ?>
             <thead>
             <tr>
                 <th colspan="2" scope="col" class="product-name"><?php esc_html_e( 'Product', 'evolve' ); ?></th>
-                <th scope="col" class="product-price text-center"><?php esc_html_e( 'Price', 'evolve' ); ?></th>
+                <th scope="col" class="product-price text-center"><?php esc_html_e( 'Price ', 'evolve' ); ?></th>
                 <th scope="col"
                     class="product-quantity text-center"><?php esc_html_e( 'Quantity', 'evolve' ); ?></th>
                 <th scope="col" class="product-subtotal text-center"><?php esc_html_e( 'Total', 'evolve' ); ?></th>

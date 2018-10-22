@@ -27,7 +27,7 @@
             <div class="row align-items-center">
 
 				<?php if ( '' != evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" && ( '' == evolve_theme_mod( 'evl_blog_title', '0' ) || evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== 'disable' ) ) { ?>
-                <div class="col">
+                <div class="col-md-auto">
                     <div class="row align-items-center">
 						<?php } ?>
 
@@ -50,7 +50,7 @@
 
 				<?php if ( evolve_theme_mod( 'evl_main_menu', false ) !== true ) {
 					if ( has_nav_menu( 'primary-menu' ) ) {
-						echo '<nav class="navbar navbar-expand-md main-menu mt-3 mt-md-0 order-3 col-sm-11 col-md-8' . ( evolve_theme_mod( 'evl_searchbox', true ) ? ' col-lg-6' : "" ) . '">
+						echo '<nav class="navbar navbar-expand-md main-menu mt-3 mt-md-0 order-3 col-sm-11' . ( evolve_theme_mod( 'evl_searchbox', true ) ? ' col-md-8' : ' col-md-9' ) . '">
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="' . __( "Primary", "evolve" ) . '">
                                     ' . evolve_get_svg( 'menu' ) . '
                                     </button>

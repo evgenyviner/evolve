@@ -6768,6 +6768,12 @@ if (evolve_js_local_vars.sticky_header === '1') {
 
 jQuery(function ($) {
     if (true) {
+        $('#posts-slider img.d-block').each(function () {
+            if ($(this).attr('data-lazy-src')) {
+                $(this).attr('src', $(this).attr('data-lazy-src'));
+            }
+        });
+
         $('.carousel').on('slide.bs.carousel', function (event) {
             var height = $(event.relatedTarget).height();
             var $innerCarousel = $(event.target).find('.carousel-inner');

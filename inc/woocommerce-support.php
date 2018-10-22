@@ -65,9 +65,8 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 		    echo '<h5 class="card-title">'. get_the_title().'</h5>';
 		}
 
-
         function before_container() {
-			echo '<div id="primary" class="' . evolve_layout_class( $type = 1 ) . '">';
+	        echo '<div id="primary" class="' . evolve_layout_class( $type = 1 ) . '">';
 		}
 
 		function before_single_product() {
@@ -79,7 +78,7 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 		}
 
 		function after_container() {
-			echo '</div>';
+		    echo '</div>';
 		}
 
         function sale_flash() {
@@ -113,8 +112,8 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 		  	if ( is_product() ) {
 		    	$sidebar_position = get_post_meta( get_the_ID(), 'evolve_sidebar_position', true );
 			        if ( $sidebar_position != 'default' && $sidebar_position != '' ) {
-				$get_sidebar = true;
-			}
+						$get_sidebar = true;
+				}
 		    }
 
 		    $sidebar_css = '';
@@ -129,16 +128,16 @@ if ( ! class_exists( 'evolve_woocommerce' ) ) {
 				case "2cr":
 					$sidebar_css = 'col-sm-12 col-md-4 order-2 order-md-1';
 					break;
-					case "3cm":
+				case "3cm":
 					$sidebar_css = 'col-md-12 col-lg-3 order-3';
-						break;
-					case "3cl":
+					break;
+				case "3cl":
 					$sidebar_css = 'col-md-12 col-lg-3 order-3';
-						break;
-					case "3cr":
+					break;
+				case "3cr":
 					$sidebar_css = 'col-md-12 col-lg-3 order-3 order-lg-2';
-						break;
-				endswitch;
+					break;
+			endswitch;
 			$sidebar_position = get_post_meta( get_the_ID(), 'evolve_sidebar_position', true );
 		    if ( is_product() ):
 			switch ( $sidebar_position ):
@@ -600,7 +599,7 @@ function evolve_woocommerce_header_add_to_cart_fragment( $fragments ) {
 							echo $evolve_thumbnail; ?></a>
 
                         <div class="media-body ml-3">
-                            <h6><?php echo $cart_item['data']->post->post_title; ?></h6>
+                            <h6><?php echo get_the_title($cart_item['product_id']); ?></h6>
                             <p>
                                 <a class="dropdown-item"
                                    href="<?php echo get_permalink( $cart_item['product_id'] ); ?>"><?php echo $cart_item['quantity']; ?>
@@ -1057,32 +1056,32 @@ function evolve_woocommerce_checkout_after_customer_details( $args ) {
 add_action( 'woocommerce_checkout_billing', 'evolve_woocommerce_checkout_billing', 20 );
 
 function evolve_woocommerce_checkout_billing( $args ) {
-	global $woocommerce;
-	$evolve_woocommerce_option            = get_option( 'evl_options' );
-	$evolve_woocommerce_one_page_checkout = $evolve_woocommerce_option['evl_evolve_woocommerce_one_page_checkout'];
-	if ( ! $evolve_woocommerce_one_page_checkout ) {
+	// global $woocommerce;
+	// $evolve_woocommerce_option            = get_option( 'evl_options' );
+	// $evolve_woocommerce_one_page_checkout = $evolve_woocommerce_option['evl_evolve_woocommerce_one_page_checkout'];
+	// if ( ! $evolve_woocommerce_one_page_checkout ) {
 		?>
 
         <a href="#" class="btn float-md-right mt-4 continue"><?php esc_html_e( 'Continue', 'evolve' ); ?></a>
 
 		<?php
-	}
+	// }
 }
 
 add_action( 'woocommerce_checkout_shipping', 'evolve_woocommerce_checkout_shipping', 20 );
 
 function evolve_woocommerce_checkout_shipping( $args ) {
 
-	$evolve_woocommerce_option            = get_option( 'evl_options' );
-	$evolve_woocommerce_one_page_checkout = $evolve_woocommerce_option['evl_evolve_woocommerce_one_page_checkout'];
-
-	if ( ! $evolve_woocommerce_one_page_checkout ) {
+	// $evolve_woocommerce_option            = get_option( 'evl_options' );
+	// $evolve_woocommerce_one_page_checkout = $evolve_woocommerce_option['evl_evolve_woocommerce_one_page_checkout'];
+	//
+	// if ( ! $evolve_woocommerce_one_page_checkout ) {
 		?>
 
         <a href="#" class="btn float-md-right mt-4 continue"><?php esc_html_e( 'Continue', 'evolve' ); ?></a>
 
 		<?php
-	}
+	// }
 }
 
 add_filter( 'woocommerce_enable_order_notes_field', 'evolve_enable_order_notes_field' );
@@ -1102,8 +1101,8 @@ add_action( 'woocommerce_account_dashboard', 'evolve_woocommerce_account_dashboa
 function evolve_woocommerce_account_dashboard() {
 
 	global $woocommerce, $current_user;
-	$evolve_woo_acc_msg_1 = evolve_theme_mod( 'evl_woo_acc_msg_1', 'Call us - <i class="t4p-icon-phone"></i> 7438 882 764' );
-	$evolve_woo_acc_msg_2 = evolve_theme_mod( 'evl_woo_acc_msg_2', 'Email us - <i class="t4p-icon-envelope-o"></i> contact@example.com' );
+	$evolve_woo_acc_msg_1 = evolve_theme_mod( 'evl_woo_acc_msg_1', '' );
+	$evolve_woo_acc_msg_2 = evolve_theme_mod( 'evl_woo_acc_msg_2', '' );
 	?>
 
     <div class="myaccount_user_container">
@@ -1229,7 +1228,7 @@ function evolve_woocommerce_before_account_orders( $args ) {
 	$order_count       = "";
 	$my_orders_columns = apply_filters( 'woocommerce_my_account_my_orders_columns', array(
 		'order-number'  => __( 'Order', 'evolve' ),
-		'order-date'    => __( 'Date', 'evolve' ),
+		'order-date'    => __( 'Date ', 'evolve' ),
 		'order-status'  => __( 'Status', 'evolve' ),
 		'order-total'   => __( 'Total', 'evolve' ),
 		'order-actions' => '&nbsp;',
@@ -1243,11 +1242,10 @@ function evolve_woocommerce_before_account_orders( $args ) {
 		'post_status' => array_keys( wc_get_order_statuses() )
 	) ) );
 
-if ( $customer_orders ) :
-	?>
+	echo '<div class="tab-pane fade" id="account-orders" role="tabpanel" aria-labelledby="account-orders-tab">
+    <div class="border p-4">';
 
-    <div class="tab-pane fade" id="account-orders" role="tabpanel" aria-labelledby="account-orders-tab">
-    <div class="border p-4">
+if ( $customer_orders ) { ?>
 
     <h4><?php echo apply_filters( 'woocommerce_my_account_my_orders_title', __( 'Recent orders', 'evolve' ) ); ?></h4>
 
@@ -1336,20 +1334,19 @@ if ( $customer_orders ) :
             </tbody>
         </table>
     </div>
-<?php else : ?>
+<?php } else { ?>
     <div class="woocommerce-Message woocommerce-Message--info woocommerce-info my_account_orders">
-        <a class="btn"
+        <a class="btn btn-sm mr-4"
            href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
 			<?php esc_html_e( 'Go Shop', 'evolve' ) ?>
         </a>
 		<?php esc_html_e( 'No order has been made yet.', 'evolve' ); ?>
     </div>
-<?php
-endif;
+<?php } ?>
 
-	echo '</div></div>';
+	</div></div><!-- #account-orders -->
 
-}
+<?php }
 
 add_action( 'woocommerce_account_downloads', 'evolve_woocommerce_before_account_downloads' );
 
@@ -1414,8 +1411,7 @@ function evolve_woocommerce_before_my_account( $args ) {
 
     <div class="tab-pane fade" id="account-address" role="tabpanel" aria-labelledby="account-address-tab">
         <div class="border p-4" <?php echo $address_session; ?>>
-            <h4 <?php echo $address_session; ?>><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', 'My address' ); ?></h4>
-
+            <h4 <?php echo $address_session; ?>><?php _e( 'My address', 'evolve' ); ?></h4>
 
 			<?php
 			$customer_id = get_current_user_id();

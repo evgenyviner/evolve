@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Themes - evolve package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-09-26 17:39+0000\n"
+"PO-Revision-Date: 2018-10-22 09:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Language: de_DE\n"
 "Project-Id-Version: Themes - evolve\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-26 17:37+0000\n"
+"POT-Creation-Date: 2018-10-22 09:29+0000\n"
 "Last-Translator: admin <senditme@centrum.sk>\n"
 "Language-Team: German"
 
@@ -41,41 +41,41 @@ msgstr "Noch keine Kommentare"
 msgid "Comments are closed"
 msgstr "Die Kommentarfunktion ist geschlossen"
 
-#: functions.php:75
+#: functions.php:76
 #, php-format
 msgid "Page %s"
 msgstr "Seite %s"
 
-#: functions.php:117
+#: functions.php:118
 msgid "Primary Menu"
 msgstr "Hauptmenü"
 
-#: functions.php:118
+#: functions.php:119
 msgid "Sticky Header Menu"
 msgstr "Oben gehaltenes Headermenü"
 
-#: functions.php:432
+#: functions.php:433
 msgid "You reached the end"
 msgstr "Ende erreicht"
 
-#: functions.php:433
+#: functions.php:434
 msgid "Load more items"
 msgstr "Weitere Inhalte laden"
 
-#: functions.php:526 inc/template-tags.php:1031
+#: functions.php:527 inc/template-tags.php:1033
 #: template-parts/post/content-post.php:66
 msgid "Read More"
 msgstr "Weiterlesen"
 
-#: functions.php:541
+#: functions.php:542
 msgid "To view this protected content, enter the password below"
 msgstr "Bitte geben Sie das Passwort ein, um diese Seite aufzurufen"
 
-#: functions.php:542
+#: functions.php:543
 msgid "Password:"
 msgstr "Passwort:"
 
-#: functions.php:542 bbpress/form-reply-move.php:77 bbpress/form-reply.php:179
+#: functions.php:543 bbpress/form-reply-move.php:77 bbpress/form-reply.php:179
 #: bbpress/form-topic-merge.php:106 bbpress/form-topic-split.php:111
 #: bbpress/form-topic.php:251 woocommerce/single-product-reviews.php:77
 msgid "Submit"
@@ -587,15 +587,15 @@ msgid "You must be logged in to create new topics"
 msgstr "Sie müssen angemeldet sein, um neue Themen zu erstellen"
 
 #: bbpress/form-user-edit.php:17 inc/comments.php:231
-#: inc/woocommerce-support.php:355 woocommerce/single-product-reviews.php:72
+#: inc/woocommerce-support.php:354 woocommerce/single-product-reviews.php:72
 msgid "Name"
 msgstr "Name"
 
-#: bbpress/form-user-edit.php:28 inc/woocommerce-support.php:1740
+#: bbpress/form-user-edit.php:28 inc/woocommerce-support.php:1736
 msgid "First name"
 msgstr "Vorname"
 
-#: bbpress/form-user-edit.php:38 inc/woocommerce-support.php:1746
+#: bbpress/form-user-edit.php:38 inc/woocommerce-support.php:1742
 msgid "Last name"
 msgstr "Nachname"
 
@@ -628,7 +628,7 @@ msgid "Account"
 msgstr "Konto"
 
 #: bbpress/form-user-edit.php:129 bbpress/form-user-login.php:16
-#: bbpress/form-user-register.php:21 inc/woocommerce-support.php:2191
+#: bbpress/form-user-register.php:21 inc/woocommerce-support.php:2187
 #: woocommerce/myaccount/form-login.php:93
 msgid "Username"
 msgstr "Benutzername"
@@ -692,11 +692,11 @@ msgid "Update User"
 msgstr "Benutzer aktualisieren"
 
 #: bbpress/form-user-login.php:13 bbpress/form-user-login.php:40
-#: inc/woocommerce-support.php:2209
+#: inc/woocommerce-support.php:2205
 msgid "Log In"
 msgstr "Anmelden"
 
-#: bbpress/form-user-login.php:23 inc/woocommerce-support.php:2197
+#: bbpress/form-user-login.php:23 inc/woocommerce-support.php:2193
 #: woocommerce/myaccount/form-login.php:50
 #: woocommerce/myaccount/form-login.php:113
 msgid "Password"
@@ -800,7 +800,7 @@ msgid "Voices"
 msgstr "Stimmen"
 
 #: bbpress/pagination-replies.php:16 bbpress/pagination-search.php:16
-#: bbpress/pagination-topics.php:16 template-parts/navigation/navigation.php:9
+#: bbpress/pagination-topics.php:16 template-parts/navigation/navigation.php:14
 msgid "Navigation"
 msgstr "Navigation"
 
@@ -856,7 +856,7 @@ msgstr "%s's Profil bearbeiten"
 
 #: bbpress/user-details.php:67 inc/front-page-elements.php:106
 #: inc/front-page-elements.php:228 inc/front-page-elements.php:320
-#: inc/woocommerce-support.php:1453
+#: inc/woocommerce-support.php:1449
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -932,21 +932,21 @@ msgstr "Sie haben keine Themen erstellt"
 msgid "This user has not created any topics"
 msgstr "Dieser Benutzer hat noch keine Themen erstellt"
 
-#: inc/bbpress-support.php:47 inc/template-tags.php:749
-#: inc/woocommerce-support.php:288
+#: inc/bbpress-support.php:47 inc/template-tags.php:751
+#: inc/woocommerce-support.php:287
 msgid "Breadcrumb"
 msgstr "Breadcrumb"
 
-#: inc/bbpress-support.php:78 inc/comments.php:94 inc/template-tags.php:644
-#: inc/template-tags.php:685 inc/template-tags.php:907
-#: inc/template-tags.php:961 inc/template-tags.php:1071
+#: inc/bbpress-support.php:78 inc/comments.php:94 inc/template-tags.php:646
+#: inc/template-tags.php:687 inc/template-tags.php:909
+#: inc/template-tags.php:963 inc/template-tags.php:1073
 #: woocommerce/single-product/product-image.php:80
 msgid "Previous"
 msgstr "Vorheriger"
 
-#: inc/bbpress-support.php:79 inc/comments.php:95 inc/template-tags.php:645
-#: inc/template-tags.php:684 inc/template-tags.php:911
-#: inc/template-tags.php:965 inc/template-tags.php:1075
+#: inc/bbpress-support.php:79 inc/comments.php:95 inc/template-tags.php:647
+#: inc/template-tags.php:686 inc/template-tags.php:913
+#: inc/template-tags.php:967 inc/template-tags.php:1077
 #: woocommerce/single-product/product-image.php:84
 msgid "Next"
 msgstr "Nächster"
@@ -1081,11 +1081,11 @@ msgstr "Kommentare anzeigen"
 msgid "You are browsing archives for"
 msgstr "Durchsuche Archive nach"
 
-#: inc/template-functions.php:851
+#: inc/template-functions.php:853
 msgid "Add a menu"
 msgstr "Menü hinzufügen"
 
-#: inc/template-tags.php:88 inc/template-tags.php:822
+#: inc/template-tags.php:88 inc/template-tags.php:824
 msgid "Search"
 msgstr "Suche"
 
@@ -1118,27 +1118,27 @@ msgstr "Permanent Link zu"
 msgid "Untitled"
 msgstr "Unbenannt"
 
-#: inc/template-tags.php:676 woocommerce/loop/pagination.php:28
+#: inc/template-tags.php:678 woocommerce/loop/pagination.php:28
 msgid "Pages"
 msgstr "Seiten"
 
-#: inc/template-tags.php:676
+#: inc/template-tags.php:678
 msgid "Pages:"
 msgstr "Seiten:"
 
-#: inc/template-tags.php:752 inc/woocommerce-support.php:292
+#: inc/template-tags.php:754 inc/woocommerce-support.php:291
 msgid "Home"
 msgstr "Startseite"
 
-#: inc/template-tags.php:774 inc/admin/customizer/customizer-options.php:3443
+#: inc/template-tags.php:776 inc/admin/customizer/customizer-options.php:3443
 msgid "Blog"
 msgstr "Blog"
 
-#: inc/template-tags.php:819
+#: inc/template-tags.php:821
 msgid "404 - Page not Found"
 msgstr "404 - Die Seite konnte nicht gefunden werden"
 
-#: inc/template-tags.php:1061
+#: inc/template-tags.php:1063
 msgid ""
 "Oops, no posts to display! Please check your Post Slider Category Name(s) "
 "settings"
@@ -1146,75 +1146,75 @@ msgstr ""
 "Oops, es kann kein Beitrag angezeigt werden! Bitte prüfen Sie die "
 "Einstellung bei der Bezeichnung für die Kategorie des Beitrags-Sliders"
 
-#: inc/template-tags.php:1125 inc/admin/customizer/customizer-options.php:3839
+#: inc/template-tags.php:1127 inc/admin/customizer/customizer-options.php:3839
 msgid "RSS Feed"
 msgstr "RSS-Feed"
 
-#: inc/template-tags.php:1134 inc/admin/customizer/customizer-options.php:3848
+#: inc/template-tags.php:1136 inc/admin/customizer/customizer-options.php:3848
 msgid "Newsletter"
 msgstr "Newsletter"
 
-#: inc/template-tags.php:1142 inc/admin/customizer/customizer-options.php:3857
+#: inc/template-tags.php:1144 inc/admin/customizer/customizer-options.php:3857
 msgid "Facebook"
 msgstr "Facebook"
 
-#: inc/template-tags.php:1150 inc/admin/customizer/customizer-options.php:3866
+#: inc/template-tags.php:1152 inc/admin/customizer/customizer-options.php:3866
 msgid "Twitter"
 msgstr "Twitter"
 
-#: inc/template-tags.php:1158 inc/admin/customizer/customizer-options.php:3920
+#: inc/template-tags.php:1160 inc/admin/customizer/customizer-options.php:3920
 msgid "Google Plus"
 msgstr "Google Plus"
 
-#: inc/template-tags.php:1166 inc/admin/customizer/customizer-options.php:3875
+#: inc/template-tags.php:1168 inc/admin/customizer/customizer-options.php:3875
 msgid "Instagram"
 msgstr "Instagram"
 
-#: inc/template-tags.php:1173 inc/admin/customizer/customizer-options.php:3884
+#: inc/template-tags.php:1175 inc/admin/customizer/customizer-options.php:3884
 msgid "Skype"
 msgstr "Skype"
 
-#: inc/template-tags.php:1181 inc/admin/customizer/customizer-options.php:3893
+#: inc/template-tags.php:1183 inc/admin/customizer/customizer-options.php:3893
 msgid "YouTube"
 msgstr "YouTube"
 
-#: inc/template-tags.php:1189 inc/admin/customizer/customizer-options.php:3902
+#: inc/template-tags.php:1191 inc/admin/customizer/customizer-options.php:3902
 msgid "Flickr"
 msgstr "Flickr"
 
-#: inc/template-tags.php:1197
+#: inc/template-tags.php:1199
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: inc/template-tags.php:1205 inc/admin/customizer/customizer-options.php:3929
+#: inc/template-tags.php:1207 inc/admin/customizer/customizer-options.php:3929
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: inc/template-tags.php:1213 inc/admin/customizer/customizer-options.php:3938
+#: inc/template-tags.php:1215 inc/admin/customizer/customizer-options.php:3938
 msgid "Tumblr"
 msgstr "Tumblr"
 
-#: inc/template-tags.php:1245
+#: inc/template-tags.php:1247
 msgid "Share on Twitter"
 msgstr "Auf Twitter teilen"
 
-#: inc/template-tags.php:1252
+#: inc/template-tags.php:1254
 msgid "Share on Facebook"
 msgstr "Auf Facebook teilen"
 
-#: inc/template-tags.php:1259
+#: inc/template-tags.php:1261
 msgid "Share on Google Plus"
 msgstr "Auf Google+ teilen"
 
-#: inc/template-tags.php:1266
+#: inc/template-tags.php:1268
 msgid "Share on Pinterest"
 msgstr "Auf Pinterest teilen"
 
-#: inc/template-tags.php:1273
+#: inc/template-tags.php:1275
 msgid "Share by Email"
 msgstr "Per E-Mail teilen"
 
-#: inc/template-tags.php:1280
+#: inc/template-tags.php:1282
 msgid "More options"
 msgstr "Weitere Optionen"
 
@@ -1236,193 +1236,193 @@ msgstr "Header %d"
 msgid "Footer %d"
 msgstr "Footer %d"
 
-#: inc/woocommerce-support.php:86
+#: inc/woocommerce-support.php:85
 msgid "Sale!"
 msgstr "Ausverkauf!"
 
-#: inc/woocommerce-support.php:303
+#: inc/woocommerce-support.php:302
 msgid "Search..."
 msgstr "Suchen…"
 
-#: inc/woocommerce-support.php:352 inc/woocommerce-support.php:354
-#: inc/woocommerce-support.php:355 inc/woocommerce-support.php:356
-#: inc/woocommerce-support.php:357 inc/woocommerce-support.php:358
-#: inc/woocommerce-support.php:359
+#: inc/woocommerce-support.php:351 inc/woocommerce-support.php:353
+#: inc/woocommerce-support.php:354 inc/woocommerce-support.php:355
+#: inc/woocommerce-support.php:356 inc/woocommerce-support.php:357
+#: inc/woocommerce-support.php:358
 msgid "Sort by"
 msgstr "Sortierung nach"
 
-#: inc/woocommerce-support.php:352 inc/woocommerce-support.php:354
+#: inc/woocommerce-support.php:351 inc/woocommerce-support.php:353
 msgid "Default order"
 msgstr "Standard Order"
 
-#: inc/woocommerce-support.php:356 woocommerce/cart/cart.php:33
+#: inc/woocommerce-support.php:355
 msgid "Price"
 msgstr "Preis"
 
-#: inc/woocommerce-support.php:357 inc/woocommerce-support.php:1232
+#: inc/woocommerce-support.php:356
 msgid "Date"
 msgstr "Datum"
 
-#: inc/woocommerce-support.php:358
+#: inc/woocommerce-support.php:357
 msgid "Popularity"
 msgstr "Beliebtheit"
 
-#: inc/woocommerce-support.php:359
+#: inc/woocommerce-support.php:358
 msgid "Rating"
 msgstr "Bewertung"
 
-#: inc/woocommerce-support.php:364 inc/woocommerce-support.php:366
-#: inc/woocommerce-support.php:367 inc/woocommerce-support.php:368
+#: inc/woocommerce-support.php:363 inc/woocommerce-support.php:365
+#: inc/woocommerce-support.php:366 inc/woocommerce-support.php:367
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:4
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:9
 msgid "Show"
 msgstr "Anzeigen"
 
-#: inc/woocommerce-support.php:364
+#: inc/woocommerce-support.php:363
 msgid " Products"
 msgstr " Produkte"
 
-#: inc/woocommerce-support.php:366 inc/woocommerce-support.php:367
-#: inc/woocommerce-support.php:368
+#: inc/woocommerce-support.php:365 inc/woocommerce-support.php:366
+#: inc/woocommerce-support.php:367
 msgid "Products"
 msgstr "Produkte"
 
-#: inc/woocommerce-support.php:526
+#: inc/woocommerce-support.php:525
 #: woocommerce/single-product/product-image.php:75
 msgid "Awaiting product image"
 msgstr "Noch kein Bild für dieses Produkt"
 
-#: inc/woocommerce-support.php:545
+#: inc/woocommerce-support.php:544
 msgid "Show details"
 msgstr "Zeige Details"
 
-#: inc/woocommerce-support.php:564 inc/woocommerce-support.php:2243
+#: inc/woocommerce-support.php:563 inc/woocommerce-support.php:2239
 msgid "0 items"
 msgstr "0 Elemente"
 
-#: inc/woocommerce-support.php:572 inc/woocommerce-support.php:2251
+#: inc/woocommerce-support.php:571 inc/woocommerce-support.php:2247
 msgid "Your cart is currently empty"
 msgstr "Ihr Warenkorb ist momentan leer"
 
-#: inc/woocommerce-support.php:583 inc/woocommerce-support.php:2262
+#: inc/woocommerce-support.php:582 inc/woocommerce-support.php:2258
 #, php-format
 msgid "%s item"
 msgid_plural "%s items"
 msgstr[0] "%s Artikel"
 msgstr[1] "%s Artikel"
 
-#: inc/woocommerce-support.php:619 inc/woocommerce-support.php:1145
-#: inc/woocommerce-support.php:2297 woocommerce/checkout/form-checkout.php:58
+#: inc/woocommerce-support.php:618 inc/woocommerce-support.php:1144
+#: inc/woocommerce-support.php:2293 woocommerce/checkout/form-checkout.php:58
 msgid "View Cart"
 msgstr "Warenkorb anzeigen"
 
-#: inc/woocommerce-support.php:622 inc/woocommerce-support.php:2300
+#: inc/woocommerce-support.php:621 inc/woocommerce-support.php:2296
 msgid "Checkout"
 msgstr "Abmeldung"
 
-#: inc/woocommerce-support.php:659
+#: inc/woocommerce-support.php:658
 #, php-format
 msgid "You have %s item in your cart"
 msgid_plural "You have %s items in your cart"
 msgstr[0] "Sie haben %s Artikel in Ihrem Warenkorb"
 msgstr[1] "Sie haben %s Artikel in Ihrem Warenkorb"
 
-#: inc/woocommerce-support.php:700
+#: inc/woocommerce-support.php:699
 msgid "Calculate shipping"
 msgstr "Versandkosten berechnen"
 
-#: inc/woocommerce-support.php:704
+#: inc/woocommerce-support.php:703
 msgid "Select a country&hellip;"
 msgstr "Wählen Sie ein Land &hellip;"
 
-#: inc/woocommerce-support.php:724 inc/woocommerce-support.php:729
-#: inc/woocommerce-support.php:742
+#: inc/woocommerce-support.php:723 inc/woocommerce-support.php:728
+#: inc/woocommerce-support.php:741
 msgid "State / County"
 msgstr "Bundesland"
 
-#: inc/woocommerce-support.php:730
+#: inc/woocommerce-support.php:729
 msgid "Select a state&hellip;"
 msgstr "Wählen Sie einen Staat &hellip;"
 
-#: inc/woocommerce-support.php:753
+#: inc/woocommerce-support.php:752
 msgid "City"
 msgstr "Ort"
 
-#: inc/woocommerce-support.php:761
+#: inc/woocommerce-support.php:760
 msgid "Postcode / ZIP"
 msgstr "Postleitzahl / PLZ"
 
-#: inc/woocommerce-support.php:766
+#: inc/woocommerce-support.php:765
 msgid "Update Totals"
 msgstr "Gesamtsumme aktualisieren"
 
-#: inc/woocommerce-support.php:791
+#: inc/woocommerce-support.php:790
 msgid "Have a promotional code?"
 msgstr "Haben Sie einen Gutscheincode?"
 
-#: inc/woocommerce-support.php:795
+#: inc/woocommerce-support.php:794
 msgid "Coupon code"
 msgstr "Gutscheincode"
 
-#: inc/woocommerce-support.php:798
+#: inc/woocommerce-support.php:797
 msgid "Apply Coupon"
 msgstr "Gutschein anwenden"
 
-#: inc/woocommerce-support.php:953
+#: inc/woocommerce-support.php:952
 msgid "Billing Address"
 msgstr "Rechnungsadresse"
 
-#: inc/woocommerce-support.php:962
+#: inc/woocommerce-support.php:961
 msgid "Shipping Address"
 msgstr "Lieferadresse"
 
-#: inc/woocommerce-support.php:975
+#: inc/woocommerce-support.php:974
 msgid "Additional Information"
 msgstr "Zusätzliche Informationen"
 
-#: inc/woocommerce-support.php:985
+#: inc/woocommerce-support.php:984
 msgid "Review &amp; Payment"
 msgstr "Bestellübersicht und Zahlung"
 
-#: inc/woocommerce-support.php:1066 inc/woocommerce-support.php:1082
+#: inc/woocommerce-support.php:1065 inc/woocommerce-support.php:1081
 msgid "Continue"
 msgstr "Fortfahren"
 
-#: inc/woocommerce-support.php:1116 woocommerce/checkout/form-checkout.php:28
+#: inc/woocommerce-support.php:1115 woocommerce/checkout/form-checkout.php:28
 #, php-format
 msgid "Hello, %s"
 msgstr "Hallo, %s"
 
-#: inc/woocommerce-support.php:1158
+#: inc/woocommerce-support.php:1157
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: inc/woocommerce-support.php:1165
+#: inc/woocommerce-support.php:1164
 msgid "View Downloads"
 msgstr "Downloads anzeigen"
 
-#: inc/woocommerce-support.php:1171
+#: inc/woocommerce-support.php:1170
 msgid "View Orders"
 msgstr "Bestellungen anzeigen"
 
-#: inc/woocommerce-support.php:1178
+#: inc/woocommerce-support.php:1177
 msgid "Change Address"
 msgstr "Adresse ändern"
 
-#: inc/woocommerce-support.php:1184
+#: inc/woocommerce-support.php:1183
 msgid "Edit Account"
 msgstr "Konto bearbeiten"
 
-#: inc/woocommerce-support.php:1190 inc/woocommerce-support.php:2223
+#: inc/woocommerce-support.php:1189 inc/woocommerce-support.php:2219
 msgid "Logout"
 msgstr "Abmelden"
 
-#: inc/woocommerce-support.php:1211
+#: inc/woocommerce-support.php:1210
 #, php-format
 msgid "Hello %1$s%2$s%3$s (not %2$s? %4$sSign out%5$s)"
 msgstr "Hallo %1$s%2$s%3$s (nicht %2$s? %4$sAbmelden%5$s)"
 
-#: inc/woocommerce-support.php:1217
+#: inc/woocommerce-support.php:1216
 #, php-format
 msgid ""
 "From your account dashboard you can view your %1$srecent orders%2$s, manage "
@@ -1433,192 +1433,200 @@ msgstr ""
 " Ihre %3$sLiefer- und Rechnungsadressen%2$s verwalten, sowie Ihr %4$s "
 "Passwort und Ihre Konto-Details bearbeiten%2$s."
 
-#: inc/woocommerce-support.php:1231
+#: inc/woocommerce-support.php:1230
 msgid "Order"
 msgstr "Bestellung"
 
-#: inc/woocommerce-support.php:1233
+#: inc/woocommerce-support.php:1231
+msgid "Date "
+msgstr ""
+
+#: inc/woocommerce-support.php:1232
 msgid "Status"
 msgstr "Status"
 
-#: inc/woocommerce-support.php:1234 inc/woocommerce-support.php:1804
+#: inc/woocommerce-support.php:1233 inc/woocommerce-support.php:1800
 #: woocommerce/cart/cart-totals.php:93 woocommerce/cart/cart-totals.php:94
 #: woocommerce/cart/cart.php:36 woocommerce/checkout/review-order.php:18
 msgid "Total"
 msgstr "Gesamtsumme"
 
-#: inc/woocommerce-support.php:1252
+#: inc/woocommerce-support.php:1250
 msgid "Recent orders"
 msgstr "Letzte Bestellungen"
 
-#: inc/woocommerce-support.php:1285
+#: inc/woocommerce-support.php:1283
 msgctxt "hash before order number"
 msgid "#"
 msgstr "#"
 
-#: inc/woocommerce-support.php:1295
+#: inc/woocommerce-support.php:1293
 #, php-format
 msgid "%1$s for %2$s item"
 msgid_plural "%1$s for %2$s items"
 msgstr[0] "%1$s für %2$s Artikel"
 msgstr[1] "%1$s für %2$s Artikel"
 
-#: inc/woocommerce-support.php:1302 woocommerce/checkout/thankyou.php:31
+#: inc/woocommerce-support.php:1300 woocommerce/checkout/thankyou.php:31
 msgid "Pay"
 msgstr "Jetzt bezahlen"
 
-#: inc/woocommerce-support.php:1306
+#: inc/woocommerce-support.php:1304
 msgid "View"
 msgstr "Anzeigen"
 
-#: inc/woocommerce-support.php:1310
+#: inc/woocommerce-support.php:1308
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: inc/woocommerce-support.php:1343 inc/woocommerce-support.php:1395
+#: inc/woocommerce-support.php:1341 inc/woocommerce-support.php:1392
 msgid "Go Shop"
 msgstr "Zum Shop"
 
-#: inc/woocommerce-support.php:1345
+#: inc/woocommerce-support.php:1343
 msgid "No order has been made yet."
 msgstr "Es wurde noch keinen Bestellung aufgegeben."
 
-#: inc/woocommerce-support.php:1365
+#: inc/woocommerce-support.php:1362
 msgid "Available downloads"
 msgstr "Verfügbare Downloads"
 
-#: inc/woocommerce-support.php:1378
+#: inc/woocommerce-support.php:1375
 #, php-format
 msgid "%s download remaining"
 msgid_plural "%s downloads remaining"
 msgstr[0] "%s download verbleibend"
 msgstr[1] "%s downloads verbleibend"
 
-#: inc/woocommerce-support.php:1398
+#: inc/woocommerce-support.php:1395
 msgid "No downloads available yet."
 msgstr "Noch keine Downloads verfügbar."
 
-#: inc/woocommerce-support.php:1425 inc/woocommerce-support.php:1431
-#: inc/woocommerce-support.php:1520 inc/woocommerce-support.php:1958
+#: inc/woocommerce-support.php:1414
+msgid "My address"
+msgstr ""
+
+#: inc/woocommerce-support.php:1421 inc/woocommerce-support.php:1427
+#: inc/woocommerce-support.php:1516 inc/woocommerce-support.php:1954
 msgid "Billing address"
 msgstr "Rechnungsadresse"
 
-#: inc/woocommerce-support.php:1426 inc/woocommerce-support.php:1579
-#: inc/woocommerce-support.php:1975
+#: inc/woocommerce-support.php:1422 inc/woocommerce-support.php:1575
+#: inc/woocommerce-support.php:1971
 msgid "Shipping address"
 msgstr "Lieferadresse"
 
-#: inc/woocommerce-support.php:1437
+#: inc/woocommerce-support.php:1433
 msgid "The following addresses will be used on the checkout page by default."
 msgstr ""
 "Die folgenden Adressen werden auf der Checkout-Seite als Standard verwendet."
 
-#: inc/woocommerce-support.php:1472
+#: inc/woocommerce-support.php:1468
 msgid "You have not set up this type of address yet"
 msgstr "Sie haben bisher keine Adresse dieser Art erstellt"
 
-#: inc/woocommerce-support.php:1534 inc/woocommerce-support.php:1593
+#: inc/woocommerce-support.php:1530 inc/woocommerce-support.php:1589
 msgid "Save Address"
 msgstr "Adresse speichern"
 
-#: inc/woocommerce-support.php:1669
+#: inc/woocommerce-support.php:1665
 msgid "is a required field."
 msgstr "ist ein erforderliches Feld."
 
-#: inc/woocommerce-support.php:1682
+#: inc/woocommerce-support.php:1678
 msgid "Please enter a valid postcode/ZIP."
 msgstr "Bitte geben Sie eine gültige Postleitzahl ein."
 
-#: inc/woocommerce-support.php:1691
+#: inc/woocommerce-support.php:1687
 msgid "is not a valid phone number."
 msgstr "ist keine gültige Telefonnummer."
 
-#: inc/woocommerce-support.php:1698
+#: inc/woocommerce-support.php:1694
 msgid "is not a valid email address."
 msgstr "ist keine gültige Email-Adresse."
 
-#: inc/woocommerce-support.php:1713
+#: inc/woocommerce-support.php:1709
 msgid "Address changed successfully."
 msgstr "Adresse ist erfolgreich geändert worden."
 
-#: inc/woocommerce-support.php:1736
+#: inc/woocommerce-support.php:1732
 msgid "Edit account"
 msgstr "Konto bearbeiten"
 
-#: inc/woocommerce-support.php:1751 woocommerce/myaccount/form-login.php:103
+#: inc/woocommerce-support.php:1747 woocommerce/myaccount/form-login.php:103
 msgid "Email address"
 msgstr "E-Mail Adresse"
 
-#: inc/woocommerce-support.php:1756
+#: inc/woocommerce-support.php:1752
 msgid "Password Change"
 msgstr "Passwort ändern"
 
-#: inc/woocommerce-support.php:1759
+#: inc/woocommerce-support.php:1755
 msgid "Current Password (leave blank to leave unchanged)"
 msgstr "Aktuelles Passwort (leer lassen um unverändert zu übernehmen)"
 
-#: inc/woocommerce-support.php:1763
+#: inc/woocommerce-support.php:1759
 msgid "New Password (leave blank to leave unchanged)"
 msgstr "Neues Passwort (leer lassen, um unverändert übernehmen)"
 
-#: inc/woocommerce-support.php:1767
+#: inc/woocommerce-support.php:1763
 msgid "Confirm New Password"
 msgstr "Neues Passwort bestätigen"
 
-#: inc/woocommerce-support.php:1774
+#: inc/woocommerce-support.php:1770
 msgid "Save changes"
 msgstr "Änderungen übernehmen"
 
-#: inc/woocommerce-support.php:1797
+#: inc/woocommerce-support.php:1793
 msgid "Order details"
 msgstr "Bestelldetails"
 
-#: inc/woocommerce-support.php:1802 woocommerce/cart/cart.php:32
+#: inc/woocommerce-support.php:1798 woocommerce/cart/cart.php:32
 #: woocommerce/checkout/review-order.php:17
 msgid "Product"
 msgstr "Produkt"
 
-#: inc/woocommerce-support.php:1803 woocommerce/cart/cart.php:35
+#: inc/woocommerce-support.php:1799 woocommerce/cart/cart.php:35
 #: woocommerce/global/quantity-input.php:33
 #: woocommerce/global/quantity-input.php:36
 msgid "Quantity"
 msgstr "Menge"
 
-#: inc/woocommerce-support.php:1866
+#: inc/woocommerce-support.php:1862
 #, php-format
 msgid "Download file%s"
 msgstr "Datei herunterladen%s"
 
-#: inc/woocommerce-support.php:1925
+#: inc/woocommerce-support.php:1921
 msgid "Customer details"
 msgstr "Benutzerdefinerte Details"
 
-#: inc/woocommerce-support.php:1931
+#: inc/woocommerce-support.php:1927
 msgid "Note:"
 msgstr "Hinweis:"
 
-#: inc/woocommerce-support.php:1934
+#: inc/woocommerce-support.php:1930
 msgid "Email:"
 msgstr "E-Mail:"
 
-#: inc/woocommerce-support.php:1937
+#: inc/woocommerce-support.php:1933
 msgid "Telephone:"
 msgstr "Telefon:"
 
-#: inc/woocommerce-support.php:1963 inc/woocommerce-support.php:1980
+#: inc/woocommerce-support.php:1959 inc/woocommerce-support.php:1976
 #: woocommerce/single-product/meta.php:32
 msgid "N/A"
 msgstr "N/A"
 
-#: inc/woocommerce-support.php:2158
+#: inc/woocommerce-support.php:2154
 msgid "Cart"
 msgstr "Warenkorb"
 
-#: inc/woocommerce-support.php:2179 woocommerce/checkout/thankyou.php:34
+#: inc/woocommerce-support.php:2175 woocommerce/checkout/thankyou.php:34
 msgid "My Account"
 msgstr "Mein Konto"
 
-#: inc/woocommerce-support.php:2204
+#: inc/woocommerce-support.php:2200
 msgid "Remember Me"
 msgstr "Passwort merken"
 
@@ -1697,11 +1705,11 @@ msgstr ""
 msgid "Primary"
 msgstr "Primär"
 
-#: template-parts/navigation/navigation.php:31
+#: template-parts/navigation/navigation.php:36
 msgid "Newer Entries"
 msgstr "Neuere Einträge"
 
-#: template-parts/navigation/navigation.php:32
+#: template-parts/navigation/navigation.php:37
 msgid "Older Entries"
 msgstr "Ältere Beiträge"
 
@@ -1749,6 +1757,10 @@ msgstr "Versand"
 #, php-format
 msgid "(estimated for %s)"
 msgstr "(voraussichtlich %s)"
+
+#: woocommerce/cart/cart.php:33
+msgid "Price "
+msgstr ""
 
 #: woocommerce/cart/cart.php:37
 msgid "Action"
@@ -1932,7 +1944,7 @@ msgid "General"
 msgstr "Allgemein"
 
 #: inc/admin/customizer/customizer-options.php:36
-#: inc/admin/metaboxes/metaboxes.php:274
+#: inc/admin/metaboxes/metaboxes.php:278
 msgid "Layout"
 msgstr "Layout"
 
@@ -2761,6 +2773,7 @@ msgstr "Titel der benutzerdefinierten Bereichs"
 
 #: inc/admin/customizer/customizer-options.php:1674
 #: inc/admin/customizer/customizer-options.php:1681
+#: inc/admin/metaboxes/metaboxes.php:279
 msgid "Header"
 msgstr "Header"
 
@@ -3227,7 +3240,7 @@ msgstr ""
 "Website"
 
 #: inc/admin/customizer/customizer-options.php:2467
-#: inc/admin/metaboxes/metaboxes.php:275
+#: inc/admin/metaboxes/metaboxes.php:280
 msgid "Breadcrumbs"
 msgstr "Breadcrumbs"
 
@@ -3469,7 +3482,6 @@ msgid "Custom background color of content area"
 msgstr "Benutzerdefinierte Hintergrundfarbe des Inhaltsbereichs"
 
 #: inc/admin/customizer/customizer-options.php:3013
-#: inc/admin/metaboxes/metaboxes.php:276
 msgid "Widgets"
 msgstr "Widgets"
 
@@ -4751,27 +4763,27 @@ msgstr "Bootstrap-Slider (aktiv)"
 msgid "Upgrade to premium"
 msgstr ""
 
-#: inc/admin/metaboxes/metaboxes.php:22
+#: inc/admin/metaboxes/metaboxes.php:23
 msgid "Post Options"
 msgstr ""
 
-#: inc/admin/metaboxes/metaboxes.php:23
+#: inc/admin/metaboxes/metaboxes.php:24
 msgid "Page Options"
 msgstr ""
 
-#: inc/admin/metaboxes/metaboxes.php:24
+#: inc/admin/metaboxes/metaboxes.php:25
 msgid "Product Options"
 msgstr ""
 
-#: inc/admin/metaboxes/metaboxes.php:264
+#: inc/admin/metaboxes/metaboxes.php:268
 msgid "Upload"
 msgstr ""
 
-#: inc/admin/metaboxes/metaboxes.php:265
+#: inc/admin/metaboxes/metaboxes.php:269
 msgid "Remove"
 msgstr "Entfernen"
 
-#: inc/admin/metaboxes/metaboxes.php:277
+#: inc/admin/metaboxes/metaboxes.php:281
 msgid "Slider"
 msgstr "Slider"
 
@@ -4786,6 +4798,20 @@ msgstr "Entfernen"
 #: woocommerce/single-product/tabs/description.php:15
 msgid "Product description"
 msgstr "Produktbeschreibung"
+
+#: inc/admin/metaboxes/page-tabs/tab-header.php:3
+msgid "Enable Header Widgets"
+msgstr "Header-Widgets aktivieren"
+
+#: inc/admin/metaboxes/page-tabs/tab-header.php:4
+#: inc/admin/metaboxes/page-tabs/tab-layout.php:16
+msgid "No"
+msgstr "Nein"
+
+#: inc/admin/metaboxes/page-tabs/tab-header.php:5
+#: inc/admin/metaboxes/page-tabs/tab-layout.php:17
+msgid "Yes"
+msgstr "Ja"
 
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:5
 msgid "Sidebar Position"
@@ -4812,16 +4838,6 @@ msgid ""
 "If setting Full Width, please set the above Sidebar Position to %1$sNo "
 "Sidebar%2$s"
 msgstr ""
-
-#: inc/admin/metaboxes/page-tabs/tab-layout.php:16
-#: inc/admin/metaboxes/page-tabs/tab-widget.php:4
-msgid "No"
-msgstr "Nein"
-
-#: inc/admin/metaboxes/page-tabs/tab-layout.php:17
-#: inc/admin/metaboxes/page-tabs/tab-widget.php:5
-msgid "Yes"
-msgstr "Ja"
 
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:3
 msgid "Page Title"
@@ -4861,10 +4877,6 @@ msgstr "Slider-Typ"
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:11
 msgid "No Slider"
 msgstr "Kein Slider"
-
-#: inc/admin/metaboxes/page-tabs/tab-widget.php:3
-msgid "Enable Header Widgets"
-msgstr "Header-Widgets aktivieren"
 
 #. Theme Name of the plugin/theme
 msgid "evolve"

@@ -11,6 +11,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$template_url   = get_template_directory_uri();
 		$slider_page_id = '';
 
+		// Slider
 		if ( ! empty( $post->ID ) ) {
 			if ( ! is_home() && ! is_front_page() && ! is_archive() ) {
 				$slider_page_id = $post->ID;
