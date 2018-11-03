@@ -46,6 +46,10 @@
     - Wrapper For Customizer Preview
     - Custom Function To Return Terms
     - Function To Check If Post Is Custom Type
+    - Function To Check If Slider Is Enabled On The Current Post/Page
+    - Get Current Post/Page ID
+    - Get Slider Position
+    - Function To Check Logo Position
     - Schema.org Function For HTML
 
     ======================================= */
@@ -1079,15 +1083,8 @@ if ( ! function_exists( 'evolve_bp_get_id' ) ) {
 
 if ( ! function_exists( 'evolve_layout_class' ) ) {
 	function evolve_layout_class( $type = 1 ) {
-		global $post, $wp_query;
-		$post_id = '';
-		if ( $wp_query->is_posts_page ) {
-			$post_id = get_option( 'page_for_posts' );
-		} elseif ( ( function_exists( 'is_buddypress' ) && is_buddypress() ) ) {
-			$post_id = evolve_bp_get_id();
-		} else {
-			$post_id = isset( $post->ID ) ? $post->ID : '';
-		}
+		global $wp_query;
+
 		$layout_css = '';
 		switch ( evolve_theme_mod( 'evl_layout', '2cl' ) ):
 			case "1c":
@@ -1110,9 +1107,9 @@ if ( ! function_exists( 'evolve_layout_class' ) ) {
 				break;
 		endswitch;
 		if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ):
-			$sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
+			$sidebar_position = get_post_meta( evolve_get_post_id(), 'evolve_sidebar_position', true );
 			if ( ( $type == 1 && $sidebar_position == "default" ) || ( $type == 2 && $sidebar_position == "default" ) ) {
-				if ( get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
+				if ( get_post_meta( evolve_get_post_id(), 'evolve_full_width', true ) == 'yes' ) {
 					$layout_css = 'col';
 				}
 			}
@@ -1178,15 +1175,7 @@ if ( ! function_exists( 'evolve_layout_class' ) ) {
 
 if ( ! function_exists( 'evolve_sidebar_class' ) ) {
 	function evolve_sidebar_class() {
-		global $wp_query, $post;
-		$post_id = '';
-		if ( $wp_query->is_posts_page ) {
-			$post_id = get_option( 'page_for_posts' );
-		} elseif ( ( function_exists( 'is_buddypress' ) && is_buddypress() ) ) {
-			$post_id = evolve_bp_get_id();
-		} else {
-			$post_id = isset( $post->ID ) ? $post->ID : '';
-		}
+
 		$sidebar_css = '';
 		switch ( evolve_theme_mod( 'evl_layout', '2cl' ) ):
 			case "1c":
@@ -1206,7 +1195,7 @@ if ( ! function_exists( 'evolve_sidebar_class' ) ) {
 				$sidebar_css = 'col-md-12 col-lg-3 order-3 order-lg-2';
 				break;
 		endswitch;
-		$sidebar_position = get_post_meta( $post_id, 'evolve_sidebar_position', true );
+		$sidebar_position = get_post_meta( evolve_get_post_id(), 'evolve_sidebar_position', true );
 		if ( is_page() || is_single() ):
 			switch ( $sidebar_position ):
 				case "default":
@@ -1257,15 +1246,7 @@ if ( ! function_exists( 'evolve_sidebar_class' ) ) {
 
 if ( ! function_exists( 'evolve_sidebar_class_2' ) ) {
 	function evolve_sidebar_class_2() {
-		global $wp_query, $post;
-		$post_id = '';
-		if ( $wp_query->is_posts_page ) {
-			$post_id = get_option( 'page_for_posts' );
-		} elseif ( ( function_exists( 'is_buddypress' ) && is_buddypress() ) ) {
-			$post_id = evolve_bp_get_id();
-		} else {
-			$post_id = isset( $post->ID ) ? $post->ID : '';
-		}
+
 		$sidebar_css = '';
 		switch ( evolve_theme_mod( 'evl_layout', '2cl' ) ):
 			case "3cm":
@@ -1276,7 +1257,7 @@ if ( ! function_exists( 'evolve_sidebar_class_2' ) ) {
 				$sidebar_css = 'col-md-12 col-lg-3 order-2';
 				break;
 		endswitch;
-		$sidebar_single = get_post_meta( $post_id, 'evolve_sidebar_position', true );
+		$sidebar_single = get_post_meta( evolve_get_post_id(), 'evolve_sidebar_position', true );
 		if ( is_page() || is_single() ):
 			switch ( $sidebar_single ):
 				case "3cm":
@@ -1309,24 +1290,17 @@ if ( ! function_exists( 'evolve_sidebar_class_2' ) ) {
 
 if ( ! function_exists( 'evolve_lets_get_sidebar' ) ) {
 	function evolve_lets_get_sidebar() {
-		global $wp_query, $post;
-		$post_id = '';
-		if ( $wp_query->is_posts_page ) {
-			$post_id = get_option( 'page_for_posts' );
-		} elseif ( ( function_exists( 'is_buddypress' ) && is_buddypress() ) ) {
-			$post_id = evolve_bp_get_id();
-		} else {
-			$post_id = isset( $post->ID ) ? $post->ID : '';
-		}
+		global $wp_query;
+
 		$get_sidebar = false;
 		if ( evolve_theme_mod( 'evl_layout', '2cl' ) != "1c" ) {
 			$get_sidebar = true;
 		}
-		if ( ( is_page() || is_single() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) && get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
+		if ( ( is_page() || is_single() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) && get_post_meta( evolve_get_post_id(), 'evolve_full_width', true ) == 'yes' ) {
 			$get_sidebar = false;
 		}
 		if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) {
-			$sidebar_single = get_post_meta( $post_id, 'evolve_sidebar_position', true );
+			$sidebar_single = get_post_meta( evolve_get_post_id(), 'evolve_sidebar_position', true );
 			if ( $sidebar_single != 'default' && $sidebar_single != '' ) {
 				$get_sidebar = true;
 			}
@@ -1350,24 +1324,17 @@ if ( ! function_exists( 'evolve_lets_get_sidebar' ) ) {
 
 if ( ! function_exists( 'evolve_lets_get_sidebar_2' ) ) {
 	function evolve_lets_get_sidebar_2() {
-		global $wp_query, $post;
-		$post_id = '';
-		if ( $wp_query->is_posts_page ) {
-			$post_id = get_option( 'page_for_posts' );
-		} elseif ( ( function_exists( 'is_buddypress' ) && is_buddypress() ) ) {
-			$post_id = evolve_bp_get_id();
-		} else {
-			$post_id = isset( $post->ID ) ? $post->ID : '';
-		}
+		global $wp_query;
+
 		$get_sidebar = false;
 		if ( evolve_theme_mod( 'evl_layout', '2cl' ) == "3cm" || evolve_theme_mod( 'evl_layout', '2cl' ) == "3cl" || evolve_theme_mod( 'evl_layout', '2cl' ) == "3cr" ) {
 			$get_sidebar = true;
 		}
-		if ( ( is_page() || is_single() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) && get_post_meta( $post_id, 'evolve_full_width', true ) == 'yes' ) {
+		if ( ( is_page() || is_single() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) && get_post_meta( evolve_get_post_id(), 'evolve_full_width', true ) == 'yes' ) {
 			$get_sidebar = false;
 		}
 		if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) {
-			$sidebar_single = get_post_meta( $post_id, 'evolve_sidebar_position', true );
+			$sidebar_single = get_post_meta( evolve_get_post_id(), 'evolve_sidebar_position', true );
 			if ( $sidebar_single == '2cl' || $sidebar_single == '2cr' ) {
 				$get_sidebar = false;
 			}
@@ -1595,6 +1562,92 @@ if ( ! function_exists( 'evolve_is_post_type' ) ) {
 		}
 
 		return in_array( $current_post_type, $custom_types );
+	}
+}
+
+/*
+	Function To Check If Slider Is Enabled On The Current Post/Page
+    ======================================= */
+
+if ( ! function_exists( 'evolve_slider_active' ) ) {
+	function evolve_slider_active( $enabled ) {
+
+		$enabled = false;
+
+		if ( ( get_post_meta( evolve_get_post_id(), 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ) ||
+		     ( evolve_theme_mod( 'evl_bootstrap_slider', '0' ) == '1' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ) ||
+		     ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) ||
+		     ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'bootstrap_slider' ) ) ) ) ||
+		     ( get_post_meta( evolve_get_post_id(), 'evolve_slider_type', true ) == 'posts' && evolve_theme_mod( 'evl_carousel_slider', '0' ) == '1' ) ||
+		     ( evolve_theme_mod( 'evl_posts_slider', '0' ) == '1' && evolve_theme_mod( 'evl_carousel_slider', '0' ) == '1' ) ||
+		     ( evolve_theme_mod( 'evl_carousel_slider', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'posts_slider' ) ) ) ) ||
+		     ( evolve_theme_mod( 'evl_carousel_slider', '0' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'posts_slider' ) ) ) ) ||
+		     ( get_post_meta( evolve_get_post_id(), 'evolve_slider_type', true ) == 'parallax' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ) ||
+		     ( evolve_theme_mod( 'evl_parallax_slider', '0' ) == '1' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ) ||
+		     ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ||
+		     ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ) {
+			$enabled = true;
+		}
+
+		return $enabled;
+	}
+}
+
+/*
+    Get Current Post/Page ID
+    ======================================= */
+
+if ( ! function_exists( 'evolve_get_post_id' ) ) {
+	function evolve_get_post_id() {
+		global $post;
+
+		if ( ! empty( $post->ID ) ) {
+			if ( ! is_home() && ! is_front_page() && ! is_archive() ) {
+				$post_id = $post->ID;
+			}
+			if ( ! is_home() && is_front_page() ) {
+				$post_id = $post->ID;
+			}
+		}
+		if ( is_home() ) {
+			$post_id = get_option( 'page_for_posts' );
+		} elseif ( is_front_page() && is_page() ) {
+			$post_id = get_option( 'page_on_front' );
+		} elseif ( ( function_exists( 'is_buddypress' ) && is_buddypress() ) ) {
+			$post_id = evolve_bp_get_id();
+		} else {
+			$post_id = isset( $post->ID ) ? $post->ID : '';
+		}
+
+		return $post_id;
+	}
+}
+
+/*
+    Get Slider Position
+    ======================================= */
+
+if ( ! function_exists( 'evolve_get_slider_position' ) ) {
+	function evolve_get_slider_position() {
+
+		$page_ID = get_queried_object_id();
+
+		$get_slider_position = get_post_meta( $page_ID, 'evolve_slider_position', true );
+		$get_slider_position = empty( $get_slider_position ) ? 'default' : $get_slider_position;
+
+		return $get_slider_position;
+	}
+}
+
+/*
+    Function To Check Logo Position
+    ======================================= */
+
+if ( ! function_exists( 'evolve_logo_position' ) ) {
+	function evolve_logo_position() {
+		$logo_position = evolve_theme_mod( 'evl_pos_logo', 'left' );
+
+		return $logo_position;
 	}
 }
 

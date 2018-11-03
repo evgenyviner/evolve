@@ -2,13 +2,14 @@
 /**
  * Checkout Form
  *
- * @author        WooThemes
  * @package    WooCommerce/Templates
- * @version     2.3.0
+ * @version     3.5.0
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly
+
+wc_print_notices();
 
 $woocommerce_one_page_checkout = evolve_theme_mod( 'evl_woocommerce_one_page_checkout', '0' );
 
@@ -99,7 +100,7 @@ $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', wc_get_checko
 
         <div class="tab-pane fade" id="review-order" role="tabpanel" aria-labelledby="review-order-tab">
             <div class="border p-4 mb-4">
-                <h4 id="order_review_heading"><?php esc_html_e( 'Your order', 'evolve' ); ?></h4>
+                <h4 id="order_review_heading"><?php _e( 'Your order', 'evolve' ); ?></h4>
                 <div class="table-responsive-lg">
 
 					<?php do_action( 'woocommerce_checkout_order_review' ); ?>

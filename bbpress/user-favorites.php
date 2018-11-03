@@ -14,7 +14,7 @@
 <div id="bbp-user-favorites" class="bbp-user-favorites">
     <h3 class="mb-3">
 
-		<?php _e( 'Favorite torum topics', 'evolve' ); ?>
+		<?php _e( 'Favorite forum topics', 'evolve' ); ?>
 
     </h3>
     <div class="bbp-user-section">

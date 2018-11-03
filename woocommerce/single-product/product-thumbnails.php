@@ -11,9 +11,8 @@
  * the readme will list any important changes.
  *
  * @see        https://docs.woocommerce.com/document/template-structure/
- * @author        WooThemes
  * @package    WooCommerce/Templates
- * @version     3.3.2
+ * @version    3.5.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,12 +30,13 @@ $attachment_ids = $product->get_gallery_image_ids();
 
 if ( $attachment_ids ) { ?>
 
-    <div id="carousel-slider-thumbnails" class="product-carousel carousel-multiple-items carousel slide mb-4 mb-md-0" data-ride="carousel" data-wrap="false">
+    <div id="carousel-slider-thumbnails" class="product-carousel carousel-multiple-items carousel slide mb-4 mb-md-0"
+         data-ride="carousel" data-wrap="false">
         <div class="carousel-inner row w-100 mx-auto">
 
 			<?php
 			// From product-image.php
-			if ( has_post_thumbnail() ) {
+			if ( $product->get_image_id() ) {
 
 				$image_title      = esc_attr( get_the_title( get_post_thumbnail_id() ) );
 				$image_link       = wp_get_attachment_url( get_post_thumbnail_id() );

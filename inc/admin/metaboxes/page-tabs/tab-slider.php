@@ -12,6 +12,5 @@
 		'parallax'  => __( 'Parallax Slider', 'evolve' ),
 		'posts'     => __( 'Posts Slider', 'evolve' ),
 		'bootstrap' => __( 'Bootstrap Slider', 'evolve' )
-	), ''
-	); ?>
+	) ); ?>
 </div>

@@ -11,9 +11,8 @@
  * the readme will list any important changes.
  *
  * @see        https://docs.woocommerce.com/document/template-structure/
- * @author        WooThemes
  * @package    WooCommerce/Templates
- * @version     3.2.0
+ * @version    3.5.0
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -70,9 +69,9 @@ if ( ! comments_open() ) {
 		'title_reply'   => have_comments() ? '<h3 id="reply-title" class="add-review-title">' . __( 'Add a review', 'evolve' ) . '</h3>' : sprintf( __( 'Be the first to review &ldquo;%s&rdquo;', 'evolve' ), get_the_title() ),
 		'fields'        => array(
 			'author' => '<p class="comment-form-author">' . '<label for="author">' . esc_html__( 'Name', 'evolve' ) . '&nbsp;<span class="required">*</span></label> ' .
-			            '<input id="author" name="author" class="form-control" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" aria-required="true" required /></p>',
+			            '<input id="author" name="author" class="form-control" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" required /></p>',
 			'email'  => '<p class="comment-form-email"><label for="email">' . esc_html__( 'Email', 'evolve' ) . '&nbsp;<span class="required">*</span></label> ' .
-			            '<input id="email" name="email" class="form-control" type="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" aria-required="true" required /></p>',
+			            '<input id="email" name="email" class="form-control" type="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" required /></p>',
 		),
 		'label_submit'  => __( 'Submit', 'evolve' ),
 		'comment_field' => '<p class="comment-form-comment"><textarea id="comment" name="comment" class="form-control" cols="45" rows="8" aria-required="true"></textarea></p>',
@@ -84,7 +83,7 @@ if ( ! comments_open() ) {
 	}
 
 	if ( get_option( 'woocommerce_enable_review_rating' ) === 'yes' ) {
-		$comment_form['comment_field'] = '<div class="comment-form-rating"><label for="rating">' . esc_html__( 'Your rating', 'evolve' ) . '</label><div class="container"><select name="rating" id="rating" aria-required="true" required>
+		$comment_form['comment_field'] = '<div class="comment-form-rating"><label for="rating">' . esc_html__( 'Your rating', 'evolve' ) . '</label><div class="container"><select name="rating" id="rating" required>
 							<option value="">' . esc_html__( 'Rate&hellip;', 'evolve' ) . '</option>
 							<option value="5">' . esc_html__( 'Perfect', 'evolve' ) . '</option>
 							<option value="4">' . esc_html__( 'Good', 'evolve' ) . '</option>
@@ -92,7 +91,7 @@ if ( ! comments_open() ) {
 							<option value="2">' . esc_html__( 'Not that bad', 'evolve' ) . '</option>
 							<option value="1">' . esc_html__( 'Very poor', 'evolve' ) . '</option>
 						</select></div></div>';
-		$comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Your review', 'evolve' ) . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" class="form-control" cols="45" rows="8" aria-required="true"></textarea></p>';
+		$comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Your review', 'evolve' ) . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" class="form-control" cols="45" rows="8"></textarea></p>';
 	}
 
 	comment_form( apply_filters( 'woocommerce_product_review_comment_form_args', $comment_form ) ); ?>

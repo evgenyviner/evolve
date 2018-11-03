@@ -409,20 +409,7 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 
 		// Parallax Slider
 
-		$slider_page_id = '';
-		if ( ! empty( $post->ID ) ) {
-			if ( ! is_home() && ! is_front_page() && ! is_archive() ) {
-				$slider_page_id = $post->ID;
-			}
-			if ( ! is_home() && is_front_page() ) {
-				$slider_page_id = $post->ID;
-			}
-		}
-		if ( is_home() && ! is_front_page() ) {
-			$slider_page_id = get_option( 'page_for_posts' );
-		}
-
-		if ( ( get_post_meta( $slider_page_id, 'evolve_slider_type', true ) == 'parallax' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" ) || ( evolve_theme_mod( 'evl_parallax_slider', '0' ) == "1" && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ):
+		if ( ( get_post_meta( evolve_get_post_id(), 'evolve_slider_type', true ) == 'parallax' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" ) || ( evolve_theme_mod( 'evl_parallax_slider', '0' ) == "1" && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ):
 			$local_variables['parallax_slider'] = true;
 		endif;
 

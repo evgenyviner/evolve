@@ -11,9 +11,8 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 3.3.2
+ * @version 3.5.1
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -33,7 +32,7 @@ $loop = 0;
     <div id="carousel-slider-product" class="product-carousel carousel slide" data-ride="carousel">
         <div class="carousel-inner carousel-resize">
 
-			<?php if ( has_post_thumbnail() ) {
+			<?php if ( $product->get_image_id() ) {
 
 				$image_title      = esc_attr( get_the_title( get_post_thumbnail_id() ) );
 				$image_link       = wp_get_attachment_url( get_post_thumbnail_id() );
@@ -72,7 +71,7 @@ $loop = 0;
 					$loop ++;
 				}
 			} else {
-				echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<div class="carousel-item active"><img src="%s" alt="%s" class="wp-post-image d-block w-100" /></div>', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'evolve' ) ), $post->ID );
+				echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<div class="carousel-item active"><img src="%s" alt="%s" class="wp-post-image d-block w-100" /></div>', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'evolve' ) ), $post->ID );
 			}
 			if ( $loop > 0 ) {
 				echo "<a class='carousel-control-prev carousel-control' href='#carousel-slider-product' role='button' data-slide='prev'>

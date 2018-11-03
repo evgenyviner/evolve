@@ -128,7 +128,11 @@ if ( ! function_exists( 'evolve_comments_callback' ) ) {
 		} ?>
 
         <<?php echo $tag . ' ';
-		comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment -<?php comment_ID() ?>"><?php
+		if ( class_exists( 'Woocommerce' ) && is_product() ) {
+			comment_class( empty( $args['has_children'] ) ? 'comment' : 'comment parent' );
+		} else {
+			comment_class( empty( $args['has_children'] ) ? '' : 'parent' );
+		} ?> id="comment-<?php comment_ID() ?>"><?php
 		if ( 'div' != $args['style'] ) { ?>
 
             <div id="div-comment-<?php comment_ID() ?>" class="comment-body">

@@ -15,14 +15,14 @@
 					$evolve_social_woo_class = 'col-12 col-md order-1 order-md-2';
 				}
 
-				if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' ) {
-					if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "center" ) {
+				if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_logo_position() !== 'disable' ) {
+					if ( evolve_logo_position() == "center" ) {
 						$evolve_social_woo_class = 'col-12 order-1';
 					}
-					if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "left" ) {
+					if ( evolve_logo_position() == "left" ) {
 						$evolve_social_woo_class = 'col order-1 order-md-3';
 					}
-					if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "right" ) {
+					if ( evolve_logo_position() == "right" ) {
 						$evolve_social_woo_class = 'col-12 order-1';
 					}
 				}
@@ -39,7 +39,7 @@
 
 				echo '</div>';
 
-				if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" ) {
+				if ( evolve_logo_position() != "disable" ) {
 					evolve_header_logo();
 				}
 
@@ -65,7 +65,6 @@
             <div class="row align-items-center">
 
 				<?php if ( evolve_theme_mod( 'evl_main_menu', false ) !== true ) {
-
 					if ( has_nav_menu( 'primary-menu' ) ) {
 						echo '<nav class="navbar navbar-expand-md main-menu mr-auto col-12 col-sm">
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="' . __( "Primary", "evolve" ) . '">
@@ -92,5 +91,3 @@
         </div><!-- .container -->
     </div><!-- .menu-header -->
 </header><!-- .header-v1 -->
-
-

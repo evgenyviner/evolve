@@ -11,14 +11,14 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-theme-links-main-tab',
-				'title'   => esc_attr__( 'Theme Links', 'evolve' ),
+				'title'   => esc_attr__( 'Theme Links & Premium Version', 'evolve' ),
 				'iconfix' => 'evolve-icon evolve-icon-logo',
 				'class'   => 'theme_links',
 				'fields'  => array(
 					array(
-						'type' => 'info',
 						'id'   => 'evl_theme_links',
-						'desc' => '<a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/"><span class="dashicons dashicons-admin-home"></span> Theme Homepage</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'docs/"><span class="dashicons dashicons-admin-page"></span> Documentation</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['support_url'] . 'support/theme/evolve"><span class="dashicons dashicons-admin-comments"></span> Support</a>'
+						'desc' => '<a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/"><span class="dashicons dashicons-admin-home"></span> ' . esc_html__( 'Theme Homepage', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'docs/"><span class="dashicons dashicons-admin-page"></span> ' . esc_html__( 'Documentation', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['support_url'] . 'support/theme/evolve"><span class="dashicons dashicons-admin-comments"></span> ' . esc_html__( 'Support', 'evolve' ) . '</a><div class="evolve-features"><h2>' . esc_html__( 'evolve Plus key features', 'evolve' ) . '</h2><ul><li><h3>' . esc_html__( 'Theme4Press Slider', 'evolve' ) . '</h3>' . esc_html__( 'Image or Video Responsive Unlimited Slides With Nice Animations', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Built-in Mega Menu', 'evolve' ) . '</h3>' . esc_html__( 'Excellent Mega Menu When You Need To Add Widgets Or Specially Style Your Menu', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Shortcodes', 'evolve' ) . '</h3>' . esc_html__( '46 Standard Shortcodes - Create Alerts, Tabs, Toggles…', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Custom Sidebars', 'evolve' ) . '</h3>' . esc_html__( 'Create Unique Sidebars With Widgets For Any Page', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Portfolios', 'evolve' ) . '</h3>' . esc_html__( 'Up To 9 Layouts – Select The Right Type For Your Showcase', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Google Map Contact', 'evolve' ) . '</h3>' . esc_html__( 'Contact Page Template With The Google Map And reCaptcha Protection', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Sticky Navigation', 'evolve' ) . '</h3>' . esc_html__( 'Sticky Navigation Is Perfect If You Need Organized Pages - For Example For Documentation', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Lightbox', 'evolve' ) . '</h3>' . esc_html__( 'Responsive Lightbox Ready To Display Your Amazing Shots, YouTube Or Vimeo Videos, Or Instagram Photos', 'evolve' ) . '</li><li><h3>' . esc_html__( '100% Width Template', 'evolve' ) . '</h3>' . esc_html__( '100% Width Template Let You To Set Any Page To Be Full Width Of The Browser\'s Window', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Custom Headers', 'evolve' ) . '</h3>' . esc_html__( 'Custom Headers Can Be Set Per Post/Page', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Header Layouts', 'evolve' ) . '</h3>' . esc_html__( '5 Header Layouts', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Live Customizer', 'evolve' ) . '</h3>' . esc_html__( '300+ Theme Options', 'evolve' ) . '</li><li><h3>' . esc_html__( 'WooCommerce', 'evolve' ) . '</h3>' . esc_html__( 'Custom/Global Sidebar For WooCommerce Pages', 'evolve' ) . '</li></ul></div><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/#features"><span class="dashicons dashicons-update"></span> ' . esc_html__( 'Compare With Premium Version', 'evolve' ) . '</a>',
+						'type' => 'info'
 					)
 				)
 			)
@@ -64,7 +64,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 					array(
 						'id'       => 'evl_layout',
 						'title'    => esc_attr__( 'Select General Layout', 'evolve' ),
-						'subtitle' => esc_attr__( 'Select general Content and Sidebar alignment', 'evolve' ),
+						'subtitle' => esc_attr__( 'Select general Content and Sidebar alignment. This option can be overridden per post/page setting', 'evolve' ),
 						'type'     => 'image_select',
 						'options'  => array(
 							'1c'  => $global_value['customizer_images'] . '1c.png',
@@ -1732,7 +1732,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 					array(
 						'id'       => 'evl_slider_position',
 						'title'    => esc_attr__( 'General Slider Position', 'evolve' ),
-						'subtitle' => esc_attr__( 'Select if the slider shows below or above the header. This only works for the slider assigned in Post/Page Options, not in Front Page. Can be overwritten in Post/Page Options', 'evolve' ),
+						'subtitle' => esc_attr__( 'Select if the slider shows below or above the header. This only works for the slider assigned in Post/Page Options, not in Front Page. This option can be overridden per post/page setting', 'evolve' ),
 						'type'     => 'select',
 						'options'  => array(
 							'below' => esc_attr__( 'Below Header', 'evolve' ),
@@ -2819,7 +2819,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 					),
 					array(
 						'id'       => 'evl_disable_menu_back',
-						'title'    => esc_attr__( 'Disable Main Menu Background Gradient, Shadow and Borders', 'evolve' ),
+						'title'    => esc_attr__( 'Disable Main Menu Background Gradient, Shadow and Borders For Header #1', 'evolve' ),
 						'subtitle' => esc_attr__( 'Check this box if you want to disable main menu background gradient, shadow effect and borders', 'evolve' ),
 						'type'     => 'checkbox',
 						'default'  => '1'

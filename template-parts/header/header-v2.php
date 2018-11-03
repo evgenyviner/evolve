@@ -26,12 +26,12 @@
         <div class="header container">
             <div class="row align-items-center">
 
-				<?php if ( '' != evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" && ( '' == evolve_theme_mod( 'evl_blog_title', '0' ) || evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== 'disable' ) ) { ?>
-                <div class="col-md-auto">
+				<?php if ( '' != evolve_theme_mod( 'evl_header_logo', '' ) && evolve_logo_position() != "disable" && ( '' == evolve_theme_mod( 'evl_blog_title', '0' ) || evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== 'disable' ) ) { ?>
+                <div class="col">
                     <div class="row align-items-center">
 						<?php } ?>
 
-						<?php if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" ) {
+						<?php if ( evolve_logo_position() != "disable" ) {
 							evolve_header_logo();
 						}
 
@@ -43,9 +43,9 @@
 
 						get_template_part( 'template-parts/header/header', 'tagline-next-under' ); ?>
 
-						<?php if ( '' != evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) != "disable" && ( '' == evolve_theme_mod( 'evl_blog_title', '0' ) || evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== 'disable' ) ) { ?>
+						<?php if ( '' != evolve_theme_mod( 'evl_header_logo', '' ) && evolve_logo_position() != "disable" && ( '' == evolve_theme_mod( 'evl_blog_title', '0' ) || evolve_theme_mod( 'evl_tagline_pos', 'disable' ) !== 'disable' ) ) { ?>
                     </div><!-- .row .align-items-center -->
-                </div><!-- .col-md-6 .col-lg-auto -->
+                </div><!-- .col -->
 			<?php } ?>
 
 				<?php if ( evolve_theme_mod( 'evl_main_menu', false ) !== true ) {

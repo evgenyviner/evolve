@@ -1,13 +1,13 @@
 <?php
 
-if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_pos_logo', 'left' ) !== 'disable' ) {
-	if ( evolve_theme_mod( 'evl_pos_logo', 'left' ) == "right" || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "left" || evolve_theme_mod( 'evl_pos_logo', 'left' ) == "center" ) {
+if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_logo_position() !== 'disable' ) {
+	if ( evolve_logo_position() == "right" || evolve_logo_position() == "left" || evolve_logo_position() == "center" ) {
 		$evolve_tagline_class_1 = '<div class="col-12 order-2">';
 		$evolve_tagline_class_2 = '</div>';
 	}
 }
 
-if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" && evolve_theme_mod( 'evl_pos_logo', 'left' ) == 'disable' ) {
+if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" && evolve_logo_position() == 'disable' ) {
 	$evolve_tagline_class_1 = '';
 	$evolve_tagline_class_2 = '';
 }
