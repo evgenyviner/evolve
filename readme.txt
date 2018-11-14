@@ -8,7 +8,6 @@ Additional Licenses
 Kirki Customizer Framework - http://aristath.github.io/kirki/ - MIT License
 FontAwesome Icons - http://fortawesome.github.io/Font-Awesome/ - GPL License
 Bootstrap - http://getbootstrap.com/ - MIT License
-Custom DropDown plugin - http://designwithpc.com - GPL License
 Infinite Ajax Scroll - http://infiniteajaxscroll.com - MIT License
 Fontastic Fonts - http://fontastic.me/ - GPL License
 Dropdown Hover - https://kybarg.github.io/bootstrap-dropdown-hover/ - MIT License

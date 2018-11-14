@@ -43,7 +43,7 @@
     - Print Typography
     - Function To Separate Values
     - Custom Front Page Builder
-    - Wrapper For Customizer Preview
+    - Wrapper Class
     - Custom Function To Return Terms
     - Function To Check If Post Is Custom Type
     - Function To Check If Slider Is Enabled On The Current Post/Page
@@ -555,7 +555,7 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 			$indent = str_repeat( $t, $depth );
 
 			// Default class to add to the file.
-			$classes = array( 'dropdown-menu' );
+			$classes = array( 'dropdown-menu dropdown-hover' );
 
 			/**
 			 * Filters the CSS class(es) applied to a menu list element.
@@ -1494,7 +1494,7 @@ if ( ! function_exists( 'evolve_front_page_builder' ) ) {
 add_action( 'evolve_before_content_area', 'evolve_front_page_builder', 20 );
 
 /*
-    Wrapper For Customizer Preview
+    Wrapper Class
     ======================================= */
 
 if ( ! function_exists( 'evolve_wrapper_class' ) ) {

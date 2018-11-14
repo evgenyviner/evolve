@@ -9,6 +9,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 
 		$global_value = evolve_global_customizer_value();
 
+		/*
+			Theme Links
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-theme-links-main-tab',
 				'title'   => esc_attr__( 'Theme Links & Premium Version', 'evolve' ),
@@ -24,12 +28,20 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			General
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-general-main-tab',
 				'title'   => esc_attr__( 'General', 'evolve' ),
 				'iconfix' => 'evolve-icon evolve-icon-general'
 			)
 		);
+
+		/*
+			-- Layout
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-general-subsec-lay-tab',
@@ -135,12 +147,20 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			Custom Front Page Builder
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-frontpage-main-tab',
 				'title'   => esc_attr__( 'Custom Front Page Builder', 'evolve' ),
 				'iconfix' => 'evolve-icon evolve-icon-builder'
 			)
 		);
+
+		/*
+			-- Elements Display & Order
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-frontpage-general-tab',
@@ -190,7 +210,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 		);
 
 		/*
-			Content Boxes
+			-- Content Boxes
 			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
@@ -701,7 +721,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 		);
 
 		/*
-			Testimonials
+			-- Testimonials
 			======================================= */
 
 		$testimonial_fields = array();
@@ -989,6 +1009,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				)
 			)
 		);
+
+		/*
+			-- Counter Circle
+			======================================= */
 
 		$counter_circle_fields = array();
 
@@ -1300,7 +1324,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
-// Front Page WooCommerce Products Sections
+		/*
+			-- WooCommerce Products
+			======================================= */
+
 		if ( class_exists( 'Woocommerce' ) ) :
 			evolve_Kirki::setSection( $global_value['opt_name'], array(
 					'id'         => 'evl-fp-woo-product-general-tab',
@@ -1486,7 +1513,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 
 		endif;
 
-// Front Page Custom Content Section
+		/*
+			-- Custom Content
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-fp-custom-content-general-tab',
 				'title'      => esc_attr__( 'Custom Content', 'evolve' ),
@@ -1668,13 +1698,20 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
-// Header Main Sections
+		/*
+			Header
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-header-main-tab',
 				'title'   => esc_attr__( 'Header', 'evolve' ),
 				'iconfix' => 'evolve-icon evolve-icon-header'
 			)
 		);
+
+		/*
+			-- Header
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-header-subsec-header-tab',
@@ -1755,6 +1792,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Sticky Header
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-header-subsec-sticky-header-tab',
 				'title'      => esc_attr__( 'Sticky Header', 'evolve' ),
@@ -1789,6 +1830,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Logo
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-header-subsec-logo-tab',
 				'title'      => esc_attr__( 'Logo', 'evolve' ),
@@ -1820,6 +1865,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Website Title & Tagline
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-header-subsec-title-tagline-tab',
 				'title'      => esc_attr__( 'Website Title & Tagline', 'evolve' ),
@@ -1848,6 +1897,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				)
 			)
 		);
+
+		/*
+			-- Menu
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-header-subsec-menu-tab',
@@ -1938,6 +1991,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Header Widgets
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-header-subsec-header-widgets-tab',
 				'title'      => esc_attr__( 'Header Widgets', 'evolve' ),
@@ -1975,12 +2032,20 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			Footer
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-footer-main-tab',
 				'title'   => esc_attr__( 'Footer', 'evolve' ),
 				'iconfix' => 'evolve-icon evolve-icon-footer'
 			)
 		);
+
+		/*
+			-- Footer Widgets
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-footer-subsec-footer-widgets-tab',
@@ -2005,6 +2070,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Custom Footer
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-footer-subsec-custom-footer-tab',
 				'title'      => esc_attr__( 'Custom Footer', 'evolve' ),
@@ -2023,12 +2092,20 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			Typography
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-typography-main-tab',
 				'title'   => esc_attr__( 'Typography', 'evolve' ),
 				'iconfix' => 'evolve-icon evolve-icon-typography'
 			)
 		);
+
+		/*
+			-- Website Body
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-typography-subsec-body-tab',
@@ -2058,6 +2135,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				)
 			)
 		);
+
+		/*
+			-- Website Title & Tagline
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-typography-subsec-title-tagline-tab',
@@ -2128,6 +2209,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Menu
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-typography-subsec-menu-tab',
 				'title'      => esc_attr__( 'Menu', 'evolve' ),
@@ -2156,6 +2241,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				)
 			)
 		);
+
+		/*
+			-- Widget
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-typography-subsec-widget-tab',
@@ -2206,6 +2295,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Post/Page Title & Content
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-typography-subsec-post-tab',
 				'title'      => esc_attr__( 'Post/Page Title & Content', 'evolve' ),
@@ -2254,6 +2347,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				)
 			)
 		);
+
+		/*
+			-- Content Boxes Title Font
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-front-page-content-boxes',
@@ -2304,6 +2401,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Footer Copyright
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-footer-copyright',
 				'title'      => esc_attr__( 'Footer Copyright', 'evolve' ),
@@ -2332,6 +2433,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				)
 			)
 		);
+
+		/*
+			-- Headings
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-typography-subsec-headings-tab',
@@ -2462,6 +2567,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			Breadcrumbs
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-pagetitlebar-tab',
 				'title'   => esc_attr__( 'Breadcrumbs', 'evolve' ),
@@ -2480,12 +2589,20 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			Styling
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-styling-main-tab',
 				'title'   => esc_attr__( 'Styling', 'evolve' ),
 				'iconfix' => 'evolve-icon evolve-icon-styling',
 			)
 		);
+
+		/*
+			-- Main Color Scheme
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-styling-subsec-main-scheme-tab',
@@ -2565,6 +2682,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				)
 			)
 		);
+
+		/*
+			-- Header & Footer
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-styling-subsec-header-footer-tab',
@@ -2797,6 +2918,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Menu
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-styling-subsec-menu-tab',
 				'title'      => esc_attr__( 'Menu', 'evolve' ),
@@ -2872,6 +2997,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Header Block
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-styling-subsec-slideshow-widgets-tab',
 				'title'      => esc_attr__( 'Header Block', 'evolve' ),
@@ -2939,6 +3068,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				)
 			)
 		);
+
+		/*
+			-- Content
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-styling-subsec-content-tab',
@@ -3008,6 +3141,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Widgets
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-styling-subsec-widgets-tab',
 				'title'      => esc_attr__( 'Widgets', 'evolve' ),
@@ -3056,6 +3193,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Links
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-styling-subsec-links-buttons-tab',
 				'title'      => esc_attr__( 'Links', 'evolve' ),
@@ -3095,6 +3236,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Shadows
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-styling-subsec-shadows-tab',
 				'title'      => esc_attr__( 'Shadows', 'evolve' ),
@@ -3130,12 +3275,20 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			Components
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-component-main-tab',
 				'title'   => esc_attr__( 'Components', 'evolve' ),
 				'iconfix' => 'evolve-icon evolve-icon-components'
 			)
 		);
+
+		/*
+			-- Buttons
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-component-button-tab',
@@ -3357,6 +3510,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Forms
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-component-forms',
 				'title'      => esc_attr__( 'Forms', 'evolve' ),
@@ -3438,12 +3595,20 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			Blog
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-blog-main-tab',
 				'title'   => esc_attr__( 'Blog', 'evolve' ),
 				'iconfix' => 'evolve-icon evolve-icon-blog'
 			)
 		);
+
+		/*
+			-- General
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-blog-subsec-general-tab',
@@ -3513,6 +3678,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				)
 			)
 		);
+
+		/*
+			-- Posts
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-blog-subsec-post-tab',
@@ -3586,6 +3755,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Featured Image
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-blog-subsec-featured-tab',
 				'title'      => esc_attr__( 'Featured Image', 'evolve' ),
@@ -3632,6 +3805,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				)
 			)
 		);
+
+		/*
+			-- Post Format
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-post-format',
@@ -3731,6 +3908,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				)
 			)
 		);
+
+		/*
+			Social Media Links
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-social-links-main-tab',
@@ -3946,81 +4127,9 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
-// Dynamic section generation, less human error.  ;)
-
-		for ( $i = 1; $i <= 5; $i ++ ) {
-			$bootstrap_fields[] = array(
-				'id'       => "{$global_value['prefix']}_bootstrap_slide{$i}",
-				'title'    => sprintf( esc_attr__( 'Enable Slide %d', 'evolve' ), $i ),
-				'subtitle' => sprintf( esc_attr__( 'Enable or Disable Slide %d', 'evolve' ), $i ),
-				'type'     => "switch",
-				'default'  => "0"
-			);
-
-			$bootstrap_fields[] = array(
-				'id'       => "{$global_value['prefix']}_bootstrap_slide{$i}_img",
-				'title'    => sprintf( esc_attr__( 'Slide %d Image', 'evolve' ), $i ),
-				'subtitle' => sprintf( esc_attr__( 'Upload an image for the Slide %d, or specify an image URL directly', 'evolve' ), $i ),
-				'type'     => "media",
-				'url'      => true,
-				'readonly' => false,
-				'required' => array(
-					array(
-						"{$global_value['prefix']}_bootstrap_slide{$i}",
-						'=',
-						'1'
-					)
-				),
-			);
-
-			$bootstrap_fields[] = array(
-				'id'              => "{$global_value['prefix']}_bootstrap_slide{$i}_title",
-				'title'           => sprintf( esc_attr__( 'Slide %d Title', 'evolve' ), $i ),
-				'type'            => "text",
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_bootstrap_slide{$i}",
-						'=',
-						'1'
-					)
-				),
-				'selector'        => "#bootstrap-slider .item-{$i} h5",
-				'render_callback' => "{$global_value['prefix']}_bootstrap_slide{$i}_title"
-			);
-
-			$bootstrap_fields[] = array(
-				'id'              => "{$global_value['prefix']}_bootstrap_slide{$i}_desc",
-				'title'           => sprintf( esc_attr__( 'Slide %d Description', 'evolve' ), $i ),
-				'type'            => "textarea",
-				"rows"            => 5,
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_bootstrap_slide{$i}",
-						'=',
-						'1'
-					)
-				),
-				'selector'        => "#bootstrap-slider .item-{$i} .carousel-caption p",
-				'render_callback' => "{$global_value['prefix']}_bootstrap_slide{$i}_desc"
-			);
-
-			$bootstrap_fields[] = array(
-				'id'              => "{$global_value['prefix']}_bootstrap_slide{$i}_button",
-				'title'           => sprintf( esc_attr__( 'Slide %d Button', 'evolve' ), $i ),
-				'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn d-none d-sm-inline-block" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
-				'type'            => "textarea",
-				"rows"            => 3,
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_bootstrap_slide{$i}",
-						'=',
-						'1'
-					)
-				),
-				'selector'        => "#bootstrap-slider .item-{$i} .carousel-caption .bootstrap-button",
-				'render_callback' => "{$global_value['prefix']}_bootstrap_slide{$i}_button"
-			);
-		}
+		/*
+			Bootstrap Slider
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-bootstrap-slider-main-tab',
@@ -4028,6 +4137,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				'iconfix' => 'evolve-icon evolve-icon-bootstrap'
 			)
 		);
+
+		/*
+			-- General
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-bootstrap-slider-subsec-general-tab',
@@ -4042,8 +4155,18 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'default'  => '0'
 					),
 					array(
+						'id'       => 'evl_bootstrap_slider_front_page',
+						'title'    => esc_attr__( 'Enable Bootstrap Slider On Front Page', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check this box if you want to enable Bootstrap Slider On Front Page', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0',
+						'required' => array(
+							array( 'evl_bootstrap_slider_support', '=', '1' )
+						)
+					),
+					array(
 						'id'       => 'evl_bootstrap_slider',
-						'title'    => esc_attr__( 'Bootstrap Slider on All Website', 'evolve' ),
+						'title'    => esc_attr__( 'Bootstrap Slider On All Website', 'evolve' ),
 						'subtitle' => esc_attr__( 'Display Bootstrap Slider on all website?', 'evolve' ),
 						'type'     => 'checkbox',
 						'default'  => '0',
@@ -4234,6 +4357,92 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			-- Slides
+			======================================= */
+
+		$bootstrap_fields[] = array(
+			'id'       => 'evl-bootstrap-slider-subsec-slides-tab-title',
+			'title'    => esc_attr__( 'Add Slides', 'evolve' ),
+			'type'     => 'info',
+			'selector' => '.no-bootstrap-slider .badge',
+			'indent'   => true
+		);
+
+		for ( $i = 1; $i <= 5; $i ++ ) {
+			$bootstrap_fields[] = array(
+				'id'       => "{$global_value['prefix']}_bootstrap_slide{$i}",
+				'title'    => sprintf( esc_attr__( 'Enable Slide %d', 'evolve' ), $i ),
+				'subtitle' => sprintf( esc_attr__( 'Enable or Disable Slide %d', 'evolve' ), $i ),
+				'type'     => "switch",
+				'default'  => "0"
+			);
+
+			$bootstrap_fields[] = array(
+				'id'       => "{$global_value['prefix']}_bootstrap_slide{$i}_img",
+				'title'    => sprintf( esc_attr__( 'Slide %d Image', 'evolve' ), $i ),
+				'subtitle' => sprintf( esc_attr__( 'Upload an image for the Slide %d, or specify an image URL directly', 'evolve' ), $i ),
+				'type'     => "media",
+				'url'      => true,
+				'readonly' => false,
+				'required' => array(
+					array(
+						"{$global_value['prefix']}_bootstrap_slide{$i}",
+						'=',
+						'1'
+					)
+				),
+			);
+
+			$bootstrap_fields[] = array(
+				'id'              => "{$global_value['prefix']}_bootstrap_slide{$i}_title",
+				'title'           => sprintf( esc_attr__( 'Slide %d Title', 'evolve' ), $i ),
+				'type'            => "text",
+				'required'        => array(
+					array(
+						"{$global_value['prefix']}_bootstrap_slide{$i}",
+						'=',
+						'1'
+					)
+				),
+				'selector'        => "#bootstrap-slider .item-{$i} h5",
+				'render_callback' => "{$global_value['prefix']}_bootstrap_slide{$i}_title"
+			);
+
+			$bootstrap_fields[] = array(
+				'id'              => "{$global_value['prefix']}_bootstrap_slide{$i}_desc",
+				'title'           => sprintf( esc_attr__( 'Slide %d Description', 'evolve' ), $i ),
+				'type'            => "textarea",
+				"rows"            => 5,
+				'required'        => array(
+					array(
+						"{$global_value['prefix']}_bootstrap_slide{$i}",
+						'=',
+						'1'
+					)
+				),
+				'selector'        => "#bootstrap-slider .item-{$i} .carousel-caption p",
+				'render_callback' => "{$global_value['prefix']}_bootstrap_slide{$i}_desc"
+			);
+
+			$bootstrap_fields[] = array(
+				'id'              => "{$global_value['prefix']}_bootstrap_slide{$i}_button",
+				'title'           => sprintf( esc_attr__( 'Slide %d Button', 'evolve' ), $i ),
+				'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn d-none d-sm-inline-block" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
+				'type'            => "textarea",
+				"rows"            => 3,
+				'required'        => array(
+					array(
+						"{$global_value['prefix']}_bootstrap_slide{$i}",
+						'=',
+						'1'
+					)
+				),
+				'selector'        => "#bootstrap-slider .item-{$i} .carousel-caption .bootstrap-button",
+				'render_callback' => "{$global_value['prefix']}_bootstrap_slide{$i}_button"
+			);
+		}
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-bootstrap-slider-subsec-slides-tab',
 				'title'      => esc_attr__( 'Slides', 'evolve' ),
@@ -4242,82 +4451,9 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
-// Dynamic section generation, less human error.  ;)
-
-		$parallax_fields = array();
-		for ( $i = 1; $i <= 5; $i ++ ) {
-			$parallax_fields[] = array(
-				'id'       => "{$global_value['prefix']}_show_slide{$i}",
-				'title'    => sprintf( esc_attr__( 'Enable Slide %d', 'evolve' ), $i ),
-				'subtitle' => sprintf( esc_attr__( 'Enable or Disable Slide %d', 'evolve' ), $i ),
-				'type'     => "switch",
-				'default'  => "0"
-			);
-
-			$parallax_fields[] = array(
-				'id'       => "{$global_value['prefix']}_slide{$i}_img",
-				'title'    => sprintf( esc_attr__( 'Slide %s Image', 'evolve' ), $i ),
-				'subtitle' => sprintf( esc_attr__( 'Upload an image for the Slide %d, or specify an image URL directly', 'evolve' ), $i ),
-				'type'     => "media",
-				'url'      => true,
-				'readonly' => false,
-				'required' => array(
-					array(
-						"{$global_value['prefix']}_show_slide{$i}",
-						'=',
-						'1'
-					)
-				)
-			);
-
-			$parallax_fields[] = array(
-				'id'              => "{$global_value['prefix']}_slide{$i}_title",
-				'title'           => sprintf( esc_attr__( 'Slide %s Title', 'evolve' ), $i ),
-				'subtitle'        => "",
-				'type'            => "text",
-				'selector'        => "#parallax-slider .item-{$i} h5",
-				'render_callback' => "{$global_value['prefix']}_slide{$i}_title",
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_show_slide{$i}",
-						'=',
-						'1'
-					)
-				)
-			);
-
-			$parallax_fields[] = array(
-				'id'              => "{$global_value['prefix']}_slide{$i}_desc",
-				'title'           => sprintf( esc_attr__( 'Slide %s Description', 'evolve' ), $i ),
-				'subtitle'        => "",
-				'type'            => "textarea",
-				'selector'        => "#parallax-slider .item-{$i} .carousel-caption p",
-				'render_callback' => "{$global_value['prefix']}_slide{$i}_desc",
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_show_slide{$i}",
-						'=',
-						'1'
-					)
-				)
-			);
-
-			$parallax_fields[] = array(
-				'id'              => "{$global_value['prefix']}_slide{$i}_button",
-				'title'           => sprintf( esc_attr__( 'Slide %s Button', 'evolve' ), $i ),
-				'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn d-none d-sm-inline-block" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
-				'type'            => "textarea",
-				'selector'        => "#parallax-slider .item-{$i} .carousel-caption .parallax-button",
-				'render_callback' => "{$global_value['prefix']}_slide{$i}_button",
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_show_slide{$i}",
-						'=',
-						'1'
-					)
-				)
-			);
-		}
+		/*
+			Parallax Slider
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-parallax-slider-main-tab',
@@ -4325,6 +4461,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				'iconfix' => 'evolve-icon evolve-icon-parallax'
 			)
 		);
+
+		/*
+			-- General
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-parallax-slider-subsec-general-tab',
@@ -4499,13 +4639,103 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-parallax-slider-subsec-slides-tab',
-				'title'      => esc_attr__( 'Slides', 'evolve' ),
-				'subsection' => true,
-				'fields'     => $parallax_fields
-			)
+		/*
+			-- Slides
+			======================================= */
+
+		$parallax_fields[] = array(
+			'id'       => 'evl-parallax-slider-subsec-slides-tab-title',
+			'title'    => esc_attr__( 'Add Slides', 'evolve' ),
+			'type'     => 'info',
+			'selector' => '.no-parallax-slider .badge',
+			'indent'   => true
 		);
+
+		for ( $i = 1; $i <= 5; $i ++ ) {
+			$parallax_fields[] = array(
+				'id'       => "{$global_value['prefix']}_show_slide{$i}",
+				'title'    => sprintf( esc_attr__( 'Enable Slide %d', 'evolve' ), $i ),
+				'subtitle' => sprintf( esc_attr__( 'Enable or Disable Slide %d', 'evolve' ), $i ),
+				'type'     => "switch",
+				'default'  => "0"
+			);
+
+			$parallax_fields[] = array(
+				'id'       => "{$global_value['prefix']}_slide{$i}_img",
+				'title'    => sprintf( esc_attr__( 'Slide %s Image', 'evolve' ), $i ),
+				'subtitle' => sprintf( esc_attr__( 'Upload an image for the Slide %d, or specify an image URL directly', 'evolve' ), $i ),
+				'type'     => "media",
+				'url'      => true,
+				'readonly' => false,
+				'required' => array(
+					array(
+						"{$global_value['prefix']}_show_slide{$i}",
+						'=',
+						'1'
+					)
+				)
+			);
+
+			$parallax_fields[] = array(
+				'id'              => "{$global_value['prefix']}_slide{$i}_title",
+				'title'           => sprintf( esc_attr__( 'Slide %s Title', 'evolve' ), $i ),
+				'subtitle'        => "",
+				'type'            => "text",
+				'selector'        => "#parallax-slider .item-{$i} h5",
+				'render_callback' => "{$global_value['prefix']}_slide{$i}_title",
+				'required'        => array(
+					array(
+						"{$global_value['prefix']}_show_slide{$i}",
+						'=',
+						'1'
+					)
+				)
+			);
+
+			$parallax_fields[] = array(
+				'id'              => "{$global_value['prefix']}_slide{$i}_desc",
+				'title'           => sprintf( esc_attr__( 'Slide %s Description', 'evolve' ), $i ),
+				'subtitle'        => "",
+				'type'            => "textarea",
+				'selector'        => "#parallax-slider .item-{$i} .carousel-caption p",
+				'render_callback' => "{$global_value['prefix']}_slide{$i}_desc",
+				'required'        => array(
+					array(
+						"{$global_value['prefix']}_show_slide{$i}",
+						'=',
+						'1'
+					)
+				)
+			);
+
+			$parallax_fields[] = array(
+				'id'              => "{$global_value['prefix']}_slide{$i}_button",
+				'title'           => sprintf( esc_attr__( 'Slide %s Button', 'evolve' ), $i ),
+				'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn d-none d-sm-inline-block" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
+				'type'            => "textarea",
+				'selector'        => "#parallax-slider .item-{$i} .carousel-caption .parallax-button",
+				'render_callback' => "{$global_value['prefix']}_slide{$i}_button",
+				'required'        => array(
+					array(
+						"{$global_value['prefix']}_show_slide{$i}",
+						'=',
+						'1'
+					)
+				)
+			);
+
+			evolve_Kirki::setSection( $global_value['opt_name'], array(
+					'id'         => 'evl-parallax-slider-subsec-slides-tab',
+					'title'      => esc_attr__( 'Slides', 'evolve' ),
+					'subsection' => true,
+					'fields'     => $parallax_fields
+				)
+			);
+		}
+
+		/*
+			Posts Slider
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-posts-slider-main-tab',
@@ -4650,7 +4880,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							)
 						),
 						'required'  => array(
-							array( 'evl_parallax_slider_support', '=', '1' )
+							array( 'evl_carousel_slider', '=', '1' )
 						)
 					),
 					array(
@@ -4692,7 +4922,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							)
 						),
 						'required'  => array(
-							array( 'evl_parallax_slider_support', '=', '1' )
+							array( 'evl_carousel_slider', '=', '1' )
 						)
 					),
 					array(
@@ -4740,6 +4970,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			Extra
+			======================================= */
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-extra-main-tab',
 				'title'   => esc_attr__( 'Extra', 'evolve' ),
@@ -4784,6 +5018,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				)
 			)
 		);
+
+		/*
+			WooCommerce
+			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-woocommerce-main-tab',

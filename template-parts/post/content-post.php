@@ -61,11 +61,11 @@
 
 <?php } ?>
 
-    <a class="btn btn-sm" href="<?php the_permalink(); ?>">
-
-		<?php _e( 'Read More', 'evolve' ); ?>
-
-    </a>
+    <div class="card-body p-0">
+        <a class="btn btn-sm" href="<?php the_permalink(); ?>">
+			<?php _e( 'Read More', 'evolve' ); ?>
+        </a>
+    </div>
 
 <?php } else {
 

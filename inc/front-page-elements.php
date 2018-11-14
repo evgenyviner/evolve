@@ -6,10 +6,11 @@
 
 if ( ! function_exists( 'evolve_frontpage_bootstrap_slider' ) ) {
 	function evolve_frontpage_bootstrap_slider() {
-		$bootstrap_on = evolve_theme_mod( 'evl_bootstrap_slider_support', '0' );
-		if ( ( $bootstrap_on == "1" && is_front_page() ) || ( $bootstrap_on == "1" && is_home() ) ):
-			$bootstrap_slider = evolve_theme_mod( 'evl_bootstrap_slider_support', '0' );
-			if ( $bootstrap_slider == "1" ):
+		if ( ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_front_page() ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_home() ) ):
+			if ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" ):
+				if ( evolve_theme_mod( "evl_bootstrap_slide1", '0' ) == false && evolve_theme_mod( "evl_bootstrap_slide2", '0' ) == false && evolve_theme_mod( "evl_bootstrap_slide3", '0' ) == false && evolve_theme_mod( "evl_bootstrap_slide4", '0' ) == false && evolve_theme_mod( "evl_bootstrap_slide5", '0' ) == false && is_user_logged_in() && is_customize_preview() ) {
+					echo '<h3 class="no-content no-bootstrap-slider py-5 text-center d-block">' . __( 'Bootstrap Slider will be displayed here', 'evolve' ) . ' <span class="badge badge-pill badge-secondary">' . __( 'Add slides', 'evolve' ) . '</span></h3>';
+				}
 				evolve_bootstrap();
 			endif;
 		endif;
@@ -22,10 +23,11 @@ if ( ! function_exists( 'evolve_frontpage_bootstrap_slider' ) ) {
 
 if ( ! function_exists( 'evolve_frontpage_parallax_slider' ) ) {
 	function evolve_frontpage_parallax_slider() {
-		$parallax_on = evolve_theme_mod( 'evl_parallax_slider_support', '0' );
-		if ( ( $parallax_on == "1" && is_front_page() ) || ( $parallax_on == "1" && is_home() ) ):
-			$parallax_slider = evolve_theme_mod( 'evl_parallax_slider_support', '0' );
-			if ( $parallax_slider == "1" ):
+		if ( ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_front_page() ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_home() ) ):
+			if ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" ):
+				if ( evolve_theme_mod( "evl_show_slide1", '0' ) == false && evolve_theme_mod( "evl_show_slide2", '0' ) == false && evolve_theme_mod( "evl_show_slide3", '0' ) == false && evolve_theme_mod( "evl_show_slide4", '0' ) == false && evolve_theme_mod( "evl_show_slide5", '0' ) == false && is_user_logged_in() && is_customize_preview() ) {
+					echo '<h3 class="no-content no-parallax-slider py-5 text-center d-block">' . __( 'Parallax Slider will be displayed here', 'evolve' ) . ' <span class="badge badge-pill badge-secondary">' . __( 'Add slides', 'evolve' ) . '</span></h3>';
+				}
 				evolve_parallax();
 			endif;
 		endif;
