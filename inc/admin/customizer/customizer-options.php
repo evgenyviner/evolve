@@ -785,6 +785,14 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			);
 		}
 
+		$testimonial_fields[] = array(
+			'id'     => 'evl-testimonials-subsec-items-tab-more',
+			'title'  => esc_attr__( 'Need more items?', 'evolve' ),
+			'desc'   => '<a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/">' . esc_html__( 'Check out the premium version', 'evolve' ) . '</a>',
+			'type'   => 'info',
+			'indent' => true
+		);
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-front-page-testimonials-tab',
 				'title'      => esc_attr__( 'Testimonials', 'evolve' ),
@@ -802,6 +810,32 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'type'     => 'info',
 						'selector' => '.home-testimonials .badge',
 						'indent'   => true
+					),
+					array(
+						'id'       => 'evl_testimonials_front_page',
+						'title'    => esc_attr__( 'Enable Testimonials On Front Page', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check this box if you want to enable Testimonials On Front Page', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0'
+					),
+					array(
+						'id'     => 'evl-fp-testimonials-general-end',
+						'type'   => 'section',
+						'indent' => false,
+					),
+					$testimonial_fields[0],
+					$testimonial_fields[1],
+					$testimonial_fields[2],
+					$testimonial_fields[3],
+					$testimonial_fields[4],
+					$testimonial_fields[5],
+					$testimonial_fields[6],
+					$testimonial_fields[7],
+					$testimonial_fields[8],
+					array(
+						'id'     => 'evl-fp-testimonial-slides-end',
+						'type'   => 'section',
+						'indent' => false
 					),
 					array(
 						'id'        => 'evl_fp_testimonials_bg_color',
@@ -830,24 +864,6 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 								'property' => 'color'
 							)
 						)
-					),
-					array(
-						'id'     => 'evl-fp-testimonials-general-end',
-						'type'   => 'section',
-						'indent' => false,
-					),
-					$testimonial_fields[0],
-					$testimonial_fields[1],
-					$testimonial_fields[2],
-					$testimonial_fields[3],
-					$testimonial_fields[4],
-					$testimonial_fields[5],
-					$testimonial_fields[6],
-					$testimonial_fields[7],
-					array(
-						'id'     => 'evl-fp-testimonial-slides-end',
-						'type'   => 'section',
-						'indent' => false
 					),
 					// Section settings
 					array(

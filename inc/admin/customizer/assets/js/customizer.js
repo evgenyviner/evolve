@@ -66,6 +66,8 @@ function active_footer_widgets(value) {
 
 jQuery(function ($) {
 
+    // Bootstrap Slider
+    
     wp.customize('evl_bootstrap_slider_front_page', function (setting) {
         setting.bind(function (value) {
             var evl_front_elements_header_area = wp.customize.value('evl_front_elements_header_area').get();
@@ -73,22 +75,15 @@ jQuery(function ($) {
                 if (jQuery('li.kirki-sortable-item[data-value="bootstrap_slider"] .dashicons-visibility-faint').length == 0) {
                     jQuery('li.kirki-sortable-item[data-value="bootstrap_slider"] .dashicons-visibility').trigger('click');
                 }
-                if (jQuery('li.kirki-sortable-item[data-value="parallax_slider"] .dashicons-visibility-faint').length == 0) {
-                    jQuery('li.kirki-sortable-item[data-value="parallax_slider"] .dashicons-visibility').trigger('click');
-                }
             } else {
                 if (jQuery('li.kirki-sortable-item[data-value="bootstrap_slider"] .dashicons-visibility-faint').length > 0) {
                     jQuery('li.kirki-sortable-item[data-value="bootstrap_slider"] .dashicons-visibility-faint').trigger('click');
-                }
-                if (jQuery('li.kirki-sortable-item[data-value="parallax_slider"] .dashicons-visibility-faint').length > 0) {
-                    jQuery('li.kirki-sortable-item[data-value="parallax_slider"] .dashicons-visibility-faint').trigger('click');
                 }
             }
             console.log(value);
         });
     });
 
-    // Bootstrap Slider
     $(document).on('click', 'li.kirki-sortable-item[data-value="bootstrap_slider"] .dashicons-visibility:not(.dashicons-visibility-faint)', function (event) {
         event.preventDefault();
         if (wp.customize.value('evl_bootstrap_slider_front_page').get() != false) {
@@ -110,6 +105,24 @@ jQuery(function ($) {
     });
 
     // Parallax Slider
+
+    wp.customize('evl_parallax_slider_front_page', function (setting) {
+        setting.bind(function (value) {
+            var evl_front_elements_header_area = wp.customize.value('evl_front_elements_header_area').get();
+            if (value) {
+                if (jQuery('li.kirki-sortable-item[data-value="parallax_slider"] .dashicons-visibility-faint').length == 0) {
+                    jQuery('li.kirki-sortable-item[data-value="parallax_slider"] .dashicons-visibility').trigger('click');
+                }
+
+            } else {
+                if (jQuery('li.kirki-sortable-item[data-value="parallax_slider"] .dashicons-visibility-faint').length > 0) {
+                    jQuery('li.kirki-sortable-item[data-value="parallax_slider"] .dashicons-visibility-faint').trigger('click');
+                }
+            }
+            console.log(value);
+        });
+    });
+
     $(document).on('click', 'li.kirki-sortable-item[data-value="parallax_slider"] .dashicons-visibility:not(.dashicons-visibility-faint)', function (event) {
         event.preventDefault();
         if (wp.customize.value('evl_parallax_slider_front_page').get() != false) {
@@ -128,6 +141,38 @@ jQuery(function ($) {
         setting.bind(function (value) {
             wp.customize.value('evl_parallax_slider_front_page')(value);
         });
+    });
+
+    // Testimonials
+
+    wp.customize('evl_testimonials_front_page', function (setting) {
+        setting.bind(function (value) {
+            var evl_front_elements_header_area = wp.customize.value('evl_front_elements_header_area').get();
+            if (value) {
+                if (jQuery('li.kirki-sortable-item[data-value="testimonial"] .dashicons-visibility-faint').length == 0) {
+                    jQuery('li.kirki-sortable-item[data-value="testimonial"] .dashicons-visibility').trigger('click');
+                }
+            } else {
+                if (jQuery('li.kirki-sortable-item[data-value="testimonial"] .dashicons-visibility-faint').length > 0) {
+                    jQuery('li.kirki-sortable-item[data-value="testimonial"] .dashicons-visibility-faint').trigger('click');
+                }
+            }
+            console.log(value);
+        });
+    });
+
+    $(document).on('click', 'li.kirki-sortable-item[data-value="testimonial"] .dashicons-visibility:not(.dashicons-visibility-faint)', function (event) {
+        event.preventDefault();
+        if (wp.customize.value('evl_testimonials_front_page').get() != false) {
+            wp.customize.value('evl_testimonials_front_page')(false);
+        }
+    });
+
+    $(document).on('click', 'li.kirki-sortable-item[data-value="testimonial"] .dashicons-visibility-faint', function (event) {
+        event.preventDefault();
+        if (wp.customize.value('evl_testimonials_front_page').get() != true) {
+            wp.customize.value('evl_testimonials_front_page')(true);
+        }
     });
 
     wp.customize('evl_widgets_header', function (setting) {
