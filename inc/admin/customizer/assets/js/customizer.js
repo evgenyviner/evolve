@@ -73,15 +73,22 @@ jQuery(function ($) {
                 if (jQuery('li.kirki-sortable-item[data-value="bootstrap_slider"] .dashicons-visibility-faint').length == 0) {
                     jQuery('li.kirki-sortable-item[data-value="bootstrap_slider"] .dashicons-visibility').trigger('click');
                 }
+                if (jQuery('li.kirki-sortable-item[data-value="parallax_slider"] .dashicons-visibility-faint').length == 0) {
+                    jQuery('li.kirki-sortable-item[data-value="parallax_slider"] .dashicons-visibility').trigger('click');
+                }
             } else {
                 if (jQuery('li.kirki-sortable-item[data-value="bootstrap_slider"] .dashicons-visibility-faint').length > 0) {
                     jQuery('li.kirki-sortable-item[data-value="bootstrap_slider"] .dashicons-visibility-faint').trigger('click');
+                }
+                if (jQuery('li.kirki-sortable-item[data-value="parallax_slider"] .dashicons-visibility-faint').length > 0) {
+                    jQuery('li.kirki-sortable-item[data-value="parallax_slider"] .dashicons-visibility-faint').trigger('click');
                 }
             }
             console.log(value);
         });
     });
 
+    // Bootstrap Slider
     $(document).on('click', 'li.kirki-sortable-item[data-value="bootstrap_slider"] .dashicons-visibility:not(.dashicons-visibility-faint)', function (event) {
         event.preventDefault();
         if (wp.customize.value('evl_bootstrap_slider_front_page').get() != false) {
@@ -99,6 +106,27 @@ jQuery(function ($) {
     wp.customize('evl_bootstrap_slider', function (setting) {
         setting.bind(function (value) {
             wp.customize.value('evl_bootstrap_slider_front_page')(value);
+        });
+    });
+
+    // Parallax Slider
+    $(document).on('click', 'li.kirki-sortable-item[data-value="parallax_slider"] .dashicons-visibility:not(.dashicons-visibility-faint)', function (event) {
+        event.preventDefault();
+        if (wp.customize.value('evl_parallax_slider_front_page').get() != false) {
+            wp.customize.value('evl_parallax_slider_front_page')(false);
+        }
+    });
+
+    $(document).on('click', 'li.kirki-sortable-item[data-value="parallax_slider"] .dashicons-visibility-faint', function (event) {
+        event.preventDefault();
+        if (wp.customize.value('evl_parallax_slider_front_page').get() != true) {
+            wp.customize.value('evl_parallax_slider_front_page')(true);
+        }
+    });
+
+    wp.customize('evl_parallax_slider', function (setting) {
+        setting.bind(function (value) {
+            wp.customize.value('evl_parallax_slider_front_page')(value);
         });
     });
 
