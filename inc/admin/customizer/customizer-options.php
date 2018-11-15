@@ -219,31 +219,18 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				'subsection' => true,
 				'fields'     => array(
 					array(
-						'id'     => 'evl-front-page-content-boxes-start',
-						'title'  => esc_attr__( 'General', 'evolve' ),
-						'type'   => 'section',
-						'indent' => true
+						'id'       => 'evl_content_boxes_front_page',
+						'title'    => esc_attr__( 'Enable Content Boxes On Front Page', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check this box if you want to enable Content Boxes On Front Page', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0'
 					),
 					array(
 						'id'       => 'evl-front-page-subsec-content-boxes-element',
-						'title'    => esc_attr__( 'Content Boxes Element', 'evolve' ),
+						'title'    => esc_attr__( 'Items', 'evolve' ),
 						'type'     => 'info',
 						'selector' => '.home-content-boxes .badge',
 						'indent'   => true
-					),
-					array(
-						'id'        => 'evl_content_box_background_color',
-						'title'     => esc_attr__( 'Content Boxes Background Color', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#f9f9f9',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-content-boxes .card',
-								'function' => 'css',
-								'property' => 'background'
-							)
-						)
 					),
 					array(
 						'id'     => 'evl-front-page-content-boxes-end',
@@ -562,6 +549,27 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						)
 					),
 					array(
+						'id'     => 'evl-content-boxes-subsec-items-tab-more',
+						'title'  => esc_attr__( 'Need more items?', 'evolve' ),
+						'desc'   => '<a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/">' . esc_html__( 'Check out the premium version', 'evolve' ) . '</a>',
+						'type'   => 'info',
+						'indent' => true
+					),
+					array(
+						'id'        => 'evl_content_box_background_color',
+						'title'     => esc_attr__( 'Content Boxes Background Color', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#f9f9f9',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-content-boxes .card',
+								'function' => 'css',
+								'property' => 'background'
+							)
+						)
+					),
+					array(
 						'id'     => 'evl-front-page-subsec-content-boxes-section-start',
 						'title'  => esc_attr__( 'Section Settings', 'evolve' ),
 						'type'   => 'info',
@@ -805,13 +813,6 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'indent' => true
 					),
 					array(
-						'id'       => 'evl-front-page-subsec-testimonials-element',
-						'title'    => esc_attr__( 'Testimonials Element', 'evolve' ),
-						'type'     => 'info',
-						'selector' => '.home-testimonials .badge',
-						'indent'   => true
-					),
-					array(
 						'id'       => 'evl_testimonials_front_page',
 						'title'    => esc_attr__( 'Enable Testimonials On Front Page', 'evolve' ),
 						'subtitle' => esc_attr__( 'Check this box if you want to enable Testimonials On Front Page', 'evolve' ),
@@ -819,9 +820,11 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'default'  => '0'
 					),
 					array(
-						'id'     => 'evl-fp-testimonials-general-end',
-						'type'   => 'section',
-						'indent' => false,
+						'id'       => 'evl-front-page-subsec-testimonials-element-item',
+						'title'    => esc_attr__( 'Items', 'evolve' ),
+						'type'     => 'info',
+						'selector' => '.home-testimonials .badge',
+						'indent'   => true
 					),
 					$testimonial_fields[0],
 					$testimonial_fields[1],
@@ -832,11 +835,6 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 					$testimonial_fields[6],
 					$testimonial_fields[7],
 					$testimonial_fields[8],
-					array(
-						'id'     => 'evl-fp-testimonial-slides-end',
-						'type'   => 'section',
-						'indent' => false
-					),
 					array(
 						'id'        => 'evl_fp_testimonials_bg_color',
 						'title'     => esc_attr__( 'Background Color', 'evolve' ),
@@ -1031,7 +1029,6 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			======================================= */
 
 		$counter_circle_fields = array();
-
 		for ( $i = 1; $i <= 3; $i ++ ) {
 
 			$counter_circle_fields[] = array(
@@ -1124,18 +1121,52 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			);
 		}
 
+		$counter_circle_fields[] = array(
+			'id'     => 'evl-counter-circles-subsec-items-tab-more',
+			'title'  => esc_attr__( 'Need more items?', 'evolve' ),
+			'desc'   => '<a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/">' . esc_html__( 'Check out the premium version', 'evolve' ) . '</a>',
+			'type'   => 'info',
+			'indent' => true
+		);
+
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'         => 'evl-front-page-counter-circle-tab',
 				'title'      => esc_attr__( 'Counter Circle', 'evolve' ),
 				'subsection' => true,
 				'fields'     => array(
 					array(
-						'id'       => 'evl-front-page-subsec-counter-circle-element',
-						'title'    => esc_attr__( 'Counter Circles Element', 'evolve' ),
+						'id'       => 'evl_counter_circle_front_page',
+						'title'    => esc_attr__( 'Enable Counter Circles On Front Page', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check this box if you want to enable Counter Circles On Front Page', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0'
+					),
+					array(
+						'id'       => 'evl-front-page-subsec-counter-circle-element-item',
+						'title'    => esc_attr__( 'Items', 'evolve' ),
 						'type'     => 'info',
 						'selector' => '.home-counter-circle .badge',
 						'indent'   => true
 					),
+					$counter_circle_fields[0],
+					$counter_circle_fields[1],
+					$counter_circle_fields[2],
+					$counter_circle_fields[3],
+					$counter_circle_fields[4],
+					$counter_circle_fields[5],
+					$counter_circle_fields[6],
+					$counter_circle_fields[7],
+					$counter_circle_fields[8],
+					$counter_circle_fields[9],
+					$counter_circle_fields[10],
+					$counter_circle_fields[11],
+					$counter_circle_fields[12],
+					$counter_circle_fields[13],
+					$counter_circle_fields[14],
+					$counter_circle_fields[15],
+					$counter_circle_fields[16],
+					$counter_circle_fields[17],
+					$counter_circle_fields[18],
 					array(
 						'id'          => 'evl_counter_circle_title_text',
 						'title'       => esc_attr__( 'Counter Circle Text Font', 'evolve' ),
@@ -1156,24 +1187,6 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							)
 						)
 					),
-					$counter_circle_fields[0],
-					$counter_circle_fields[1],
-					$counter_circle_fields[2],
-					$counter_circle_fields[3],
-					$counter_circle_fields[4],
-					$counter_circle_fields[5],
-					$counter_circle_fields[6],
-					$counter_circle_fields[7],
-					$counter_circle_fields[8],
-					$counter_circle_fields[9],
-					$counter_circle_fields[10],
-					$counter_circle_fields[11],
-					$counter_circle_fields[12],
-					$counter_circle_fields[13],
-					$counter_circle_fields[14],
-					$counter_circle_fields[15],
-					$counter_circle_fields[16],
-					$counter_circle_fields[17],
 					array(
 						'id'     => 'evl-fp-counter-circle-slides-end',
 						'type'   => 'section',
@@ -1538,6 +1551,13 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				'title'      => esc_attr__( 'Custom Content', 'evolve' ),
 				'subsection' => true,
 				'fields'     => array(
+					array(
+						'id'       => 'evl_custom_content_front_page',
+						'title'    => esc_attr__( 'Enable Custom Content On Front Page', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check this box if you want to enable Custom Content On Front Page', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0'
+					),
 					array(
 						'id'       => 'evl-front-page-subsec-custom-content-element',
 						'title'    => esc_attr__( 'Custom Content Element', 'evolve' ),
@@ -4790,6 +4810,16 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'subtitle' => esc_attr__( 'Check this box if you want to enable Posts Slider', 'evolve' ),
 						'type'     => 'checkbox',
 						'default'  => '0'
+					),
+					array(
+						'id'       => 'evl_carousel_slider_front_page',
+						'title'    => esc_attr__( 'Enable Posts Slider On Front Page', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check this box if you want to enable Posts Slider On Front Page', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0',
+						'required' => array(
+							array( 'evl_carousel_slider', '=', '1' )
+						)
 					),
 					array(
 						'id'       => 'evl_posts_slider',
