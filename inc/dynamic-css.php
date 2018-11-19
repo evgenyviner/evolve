@@ -1257,7 +1257,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			--------------------------------------- */
 
 		$css_data .= ' @media (min-width: 768px) {';
-		$css_data .= ' .sticky-header { width: 100%; left: 0; right: 0; margin: 0 auto; }';
+		$css_data .= ' .sticky-header { width: 100%; left: 0; right: 0; margin: 0 auto; z-index: 99999; }';
 
 		$css_data .= ' .header-wrapper .main-menu { padding-top: ' . $menu_height . 'px; padding-bottom: ' . $menu_height . 'px; }';
 

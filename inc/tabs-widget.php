@@ -1,7 +1,5 @@
 <?php
 
-register_widget( 'evolve_Tabs_Widget' );
-
 class evolve_Tabs_Widget extends WP_Widget {
 
 	function __construct() {
@@ -304,3 +302,5 @@ class evolve_Tabs_Widget extends WP_Widget {
 		<?php
 	}
 }
+
+register_widget( 'evolve_Tabs_Widget' );
