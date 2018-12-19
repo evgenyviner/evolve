@@ -12,7 +12,7 @@
 
     <p class="lead"><?php _e( 'Get started with your website', 'evolve' ); ?></p>
 
-	<?php printf( __( '<a href="%1$s" class="btn btn-lg mb-5">Publish your first post</a>.', 'evolve' ), esc_url( admin_url( 'post-new.php' ) ) ); ?>
+	<?php printf( __( '<a href="%1$s" class="btn btn-lg mb-5">Publish your first post</a>', 'evolve' ), esc_url( admin_url( 'post-new.php' ) ) ); ?>
 
 <?php else : ?>
 

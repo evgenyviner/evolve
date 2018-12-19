@@ -92,7 +92,7 @@ if ( ! function_exists( 'evolve_global_customizer_value' ) ) {
 		$prefix               = "evl";
 		$opt_name             = "evl_options";
 		$rss_url              = get_bloginfo( 'rss_url' );
-		$home_url             = esc_url( "http://theme4press.com/" );
+		$home_url             = esc_url( "https://theme4press.com/" );
 		$support_url          = esc_url( "http://wordpress.org/" );
 		$video_url            = esc_url( "https://youtu.be/dgvjt6dJfWM" );
 		$customizer_images    = get_template_directory_uri() . '/inc/admin/customizer/assets/images/';
@@ -1245,7 +1245,7 @@ if ( ! class_exists( 'evolve_upgrade_button' ) ) {
                 (function ($) {
                     "use strict";
                     var upgrade = $('<a class="evolve-upgrade-button"></a>')
-                        .attr('href', '<?php echo esc_url( 'http://theme4press.com/evolve-multipurpose-wordpress-theme/' ); ?>')
+                        .attr('href', '<?php echo esc_url( 'https://theme4press.com/evolve-multipurpose-wordpress-theme/?utm_source=evolve-customizer&utm_medium=customizer-top-link&utm_campaign=theme-customizer' ); ?>')
                         .attr('target', '_blank')
                         .text('<?php _e( 'Upgrade to premium', 'evolve' ); ?>');
                     setTimeout(function () {

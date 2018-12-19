@@ -1,4 +1,4 @@
-# Translation of Themes - evolve in Chinese (China)
+# Translation of Themes - evolve in Japanese
 # This file is distributed under the same license as the Themes - evolve package.
 msgid ""
 msgstr ""
@@ -8,12 +8,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Loco https://localise.biz/\n"
-"Language: zh_CN\n"
+"Language: ja\n"
 "Project-Id-Version: Themes - evolve\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-19 22:14+0000\n"
 "Last-Translator: admin <senditme@centrum.sk>\n"
-"Language-Team: Chinese (China)\n"
+"Language-Team: Japanese\n"
 "X-Loco-Version: 2.2.0; wp-5.0.1"
 
 #: 404.php:31
@@ -28,11 +28,11 @@ msgstr ""
 
 #: comments.php:8
 msgid "This post is password protected. Enter the password to view comments."
-msgstr "本文章受密码保护。要查看评论，请输入密码。"
+msgstr "この投稿はパスワードで保護されています。コメントを閲覧するにはパスワードを入力してください。"
 
 #: comments.php:54 inc/comments.php:38
 msgid "No Comments Yet"
-msgstr "尚无评论"
+msgstr "コメントはまだありません"
 
 #: comments.php:70
 msgid "Comments are closed"
@@ -41,11 +41,11 @@ msgstr ""
 #: functions.php:89
 #, php-format
 msgid "Page %s"
-msgstr "第%s页"
+msgstr "ページ %s"
 
 #: functions.php:131
 msgid "Primary Menu"
-msgstr "主菜单"
+msgstr "メインメニュー"
 
 #: functions.php:132
 msgid "Sticky Header Menu"
@@ -62,7 +62,7 @@ msgstr ""
 #: functions.php:527 inc/template-tags.php:1014
 #: template-parts/post/content-post.php:66
 msgid "Read More"
-msgstr "详细内容"
+msgstr "続きを読む"
 
 #: functions.php:542
 msgid "To view this protected content, enter the password below"
@@ -76,7 +76,7 @@ msgstr ""
 #: bbpress/form-topic-merge.php:106 bbpress/form-topic-split.php:111
 #: bbpress/form-topic.php:251 woocommerce/single-product-reviews.php:76
 msgid "Submit"
-msgstr "提交"
+msgstr "送信"
 
 #: header.php:19
 msgid "Skip to main content"
@@ -102,11 +102,11 @@ msgstr ""
 
 #: search.php:68 woocommerce/loop/no-products-found.php:32
 msgid "Try different keywords."
-msgstr ""
+msgstr "別のキーワードをお試しください。"
 
 #: search.php:69 woocommerce/loop/no-products-found.php:33
 msgid "Try more general keywords."
-msgstr ""
+msgstr "より一般的なキーワードをお試しください。"
 
 #: searchform.php:12 inc/template-tags.php:88
 msgid "Type your search"
@@ -152,12 +152,12 @@ msgstr ""
 
 #: bbpress/content-statistics.php:27 bbpress/loop-forums.php:16
 msgid "Topics"
-msgstr "主题"
+msgstr "トピック"
 
 #: bbpress/content-statistics.php:32 bbpress/loop-forums.php:17
 #: bbpress/loop-topics.php:18
 msgid "Replies"
-msgstr "回复"
+msgstr "返信"
 
 #: bbpress/content-statistics.php:37
 msgid "Topic Tags"
@@ -195,7 +195,7 @@ msgstr ""
 #: bbpress/form-reply-move.php:18
 #, php-format
 msgid "Move reply \"%s\""
-msgstr ""
+msgstr "返信「%s」を移動"
 
 #: bbpress/form-reply-move.php:21
 msgid ""
@@ -216,20 +216,20 @@ msgstr ""
 #: bbpress/form-reply-move.php:35 bbpress/form-topic-split.php:33
 #, php-format
 msgid "New topic in <strong>%s</strong> titled:"
-msgstr ""
+msgstr "<strong>%s</strong> の新規トピック名:"
 
 #: bbpress/form-reply-move.php:39
 #, php-format
 msgid "Moved: %s"
-msgstr ""
+msgstr "移動済み: %s"
 
 #: bbpress/form-reply-move.php:55 bbpress/form-topic-split.php:53
 msgid "Use an existing topic in this forum:"
-msgstr "使用一个已经存在此论坛中的话题："
+msgstr "このフォーラムの既存のトピックを使用:"
 
 #: bbpress/form-reply-move.php:65 bbpress/form-topic-split.php:64
 msgid "No other topics found!"
-msgstr ""
+msgstr "その他のトピックが見つかりません。"
 
 #: bbpress/form-reply-move.php:71 bbpress/form-topic-merge.php:100
 #: bbpress/form-topic-split.php:105
@@ -238,7 +238,7 @@ msgstr ""
 
 #: bbpress/form-reply-move.php:88
 msgid "You do not have the permissions to edit this reply!"
-msgstr ""
+msgstr "この返信を編集する権限がありません。"
 
 #: bbpress/form-reply-move.php:88
 msgid "You cannot edit this reply"
@@ -264,7 +264,7 @@ msgstr ""
 msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
 "and attributes:"
-msgstr "您可以使用这些 <abbr title=\"超文本标记语言\">HTML</abbr> 标签与属性："
+msgstr "次の<abbr title=\"HyperText Markup Language\">HTML</abbr> タグと属性が使えます:"
 
 #: bbpress/form-reply.php:80 bbpress/form-topic.php:95
 msgid "Your account has the ability to post unrestricted HTML content"
@@ -284,11 +284,11 @@ msgstr ""
 
 #: bbpress/form-reply.php:148 bbpress/form-topic.php:223
 msgid "Notify the author of follow-up replies via email"
-msgstr "通过邮件提醒我来自楼主的回复"
+msgstr "返信をメールで投稿者に知らせる"
 
 #: bbpress/form-reply.php:156 bbpress/form-topic.php:231
 msgid "Notify me of follow-up replies via email"
-msgstr "有新回帖时通过邮件通知我"
+msgstr "今後の返信をメールで通知"
 
 #: bbpress/form-reply.php:198
 #, php-format
@@ -315,19 +315,19 @@ msgstr ""
 #: bbpress/form-topic-merge.php:17
 #, php-format
 msgid "Merge topic \"%s\""
-msgstr "合并主题 \"%s\""
+msgstr "「%s」トピックを統合"
 
 #: bbpress/form-topic-merge.php:21
 msgid ""
 "Select the topic to merge this one into. The destination topic will remain "
 "the lead topic, and this one will change into a reply."
-msgstr "选择一个话题使得此话题合并到其中。话题描述将仍然是主话题的描述，此话题将变成其一条回复。"
+msgstr "このトピックと統合するトピックを選択してください。統合先のトピックが先頭のトピックとして残り、このトピックは返信に変わります。"
 
 #: bbpress/form-topic-merge.php:22
 msgid ""
 "To keep this topic as the lead, go to the other topic and use the merge tool "
 "from there instead."
-msgstr "要使此主题成合并后的主题，请去要合并的主题页面并使用那个页面中的合并工具。"
+msgstr "このトピックを先頭のトピックにするには、代わりに他のトピックから結合を行ってください。"
 
 #: bbpress/form-topic-merge.php:26
 msgid ""
@@ -336,19 +336,19 @@ msgid ""
 "destination topic was created after this one, it's post date will be updated "
 "to second earlier than this one."
 msgstr ""
-"两个主题的回复都会被按年代合并。合并的回复按照它们发表的时间排列。如果合并到的主题到在要合并的主题之后创建，其发表时间将会由前一个较早的时间替代。"
+"両方のトピック内のすべての返信は時系列に基づいて統合されます。統合された返信は投稿日時順に並べ替えられます。統合先のトピックがこのトピックより後に作成された場合、こちらの日付より一秒前に投稿日時が変更されます。s"
 
 #: bbpress/form-topic-merge.php:29
 msgid "Destination"
-msgstr "目标"
+msgstr "移動先"
 
 #: bbpress/form-topic-merge.php:40
 msgid "Merge with this topic:"
-msgstr "将此主题合并："
+msgstr "このトピックと統合:"
 
 #: bbpress/form-topic-merge.php:50
 msgid "No topics were found to which the topic could be merged to!"
-msgstr ""
+msgstr "統合できる他のトピックが見つかりませんでした。"
 
 #: bbpress/form-topic-merge.php:58
 msgid "There are no other topics in this forum to merge with"
@@ -360,19 +360,19 @@ msgstr ""
 
 #: bbpress/form-topic-merge.php:74
 msgid "Merge topic subscribers"
-msgstr "合并话题订阅者"
+msgstr "トピック購読者を統合"
 
 #: bbpress/form-topic-merge.php:84
 msgid "Merge topic favoriters"
-msgstr "合并话题收藏者"
+msgstr "お気に入りトピックを統合"
 
 #: bbpress/form-topic-merge.php:94
 msgid "Merge topic tags"
-msgstr "合并话题标签"
+msgstr "トピックタグを統合"
 
 #: bbpress/form-topic-merge.php:117 bbpress/form-topic-split.php:122
 msgid "You do not have the permissions to edit this topic!"
-msgstr "您没有权限编辑此话题！"
+msgstr "このトピックを編集する権限がありません。"
 
 #: bbpress/form-topic-merge.php:117 bbpress/form-topic-split.php:122
 msgid "You cannot edit this topic"
@@ -381,21 +381,22 @@ msgstr ""
 #: bbpress/form-topic-split.php:18
 #, php-format
 msgid "Split topic \"%s\""
-msgstr "分割主题 \"%s\""
+msgstr "「%s」トピックを分割"
 
 #: bbpress/form-topic-split.php:21
 msgid ""
 "When you split a topic, you are slicing it in half starting with the reply "
 "you just selected. Choose to use that reply as a new topic with a new title, "
 "or merge those replies into an existing topic."
-msgstr "当您分割一个主题时，此主题将从您选择的回复开始被分割成两部分。您可以给此回复添加标题使之成为新的主题，或者将这些回复合并到一个已有的主题中。"
+msgstr ""
+"トピックを分割すると、ちょうど今選択した返信から2つに分けることになります。この返信を新しいタイトルを持つ新しいトピックにするためにはこれを使うか、または既存のトピックにこれらの返信を統合してください。"
 
 #: bbpress/form-topic-split.php:24
 msgid ""
 "If you use the existing topic option, replies within both topics will be "
 "merged chronologically. The order of the merged replies is based on the time "
 "and date they were posted."
-msgstr "如果使用已有的主题选项，两个主题的回复都会按照年代顺序来合并。合并的数序取决于回复发表的时间。"
+msgstr "既存のトピック設定を使用した場合、両方のトピック内の返信は時系列順に統合されます。統合された返信の順序は返信が投稿された日時に基づきます。"
 
 #: bbpress/form-topic-split.php:26
 msgid "Split method"
@@ -404,46 +405,46 @@ msgstr ""
 #: bbpress/form-topic-split.php:37
 #, php-format
 msgid "Split: %s"
-msgstr "分割：%s"
+msgstr "分割: %s"
 
 #: bbpress/form-topic-split.php:79
 msgid "Copy subscribers to the new topic"
-msgstr "把订阅者复制到新主题"
+msgstr "新トピックに購読者をコピー"
 
 #: bbpress/form-topic-split.php:89
 msgid "Copy favoriters to the new topic"
-msgstr "把收藏复制到新主题"
+msgstr "新しいトピックにお気に入りをコピー"
 
 #: bbpress/form-topic-split.php:99
 msgid "Copy topic tags to the new topic"
-msgstr "把帖子的标签复制到新主题"
+msgstr "新しいトピックにトピックタグをコピーする"
 
 #: bbpress/form-topic-tag.php:15
 #, php-format
 msgid "Manage Tag: \"%s\""
-msgstr "管理标签：\"%s\""
+msgstr "タグの管理: %s"
 
 #: bbpress/form-topic-tag.php:19
 msgid "Rename"
-msgstr "重命名"
+msgstr "変更する"
 
 #: bbpress/form-topic-tag.php:22
 msgid "Leave the slug empty to have one automatically generated."
-msgstr "要想自动生成别名，请讲别名栏留空"
+msgstr "スラッグを自動生成するには空のままにしておいてください。"
 
 #: bbpress/form-topic-tag.php:26
 msgid ""
 "Changing the slug affects its permalink. Any links to the old slug will stop "
 "working."
-msgstr "改变别名将会影响到固定链接。任何链接到旧的别名的链接都将失效。"
+msgstr "スラッグを変更するとパーマリンクに影響します。旧スラッグへのリンクは動作しなくなります。"
 
 #: bbpress/form-topic-tag.php:32
 msgid "Name:"
-msgstr "名称："
+msgstr "名前:"
 
 #: bbpress/form-topic-tag.php:37
 msgid "Slug:"
-msgstr "别名："
+msgstr "スラッグ:"
 
 #: bbpress/form-topic-tag.php:42
 msgid "Update"
@@ -451,7 +452,7 @@ msgstr "更新"
 
 #: bbpress/form-topic-tag.php:56 bbpress/form-topic-tag.php:70
 msgid "Merge"
-msgstr "合并"
+msgstr "統合する"
 
 #: bbpress/form-topic-tag.php:59
 msgid "Merging tags together cannot be undone"
@@ -459,36 +460,36 @@ msgstr ""
 
 #: bbpress/form-topic-tag.php:65
 msgid "Existing tag:"
-msgstr "现有的标签"
+msgstr "既存のタグ:"
 
 #: bbpress/form-topic-tag.php:70
 #, php-format
 msgid ""
 "Are you sure you want to merge the \"%s\" tag into the tag you specified?"
-msgstr "您确定要将标签\"%s\"合并到您指定的标签吗？"
+msgstr "「%s」タグをご指定のタグに統合してもよいですか ?"
 
 #: bbpress/form-topic-tag.php:85 bbpress/form-topic-tag.php:98
 msgid "Delete"
-msgstr "删除"
+msgstr "削除"
 
 #: bbpress/form-topic-tag.php:88
 msgid "This does not delete your topics. Only the tag itself is deleted."
-msgstr "这不会删除您的话题。只有此话题的标签会被删除。"
+msgstr "この操作を行ってもトピックは削除されず、タグのみが削除されます。"
 
 #: bbpress/form-topic-tag.php:91
 msgid "Deleting a tag cannot be undone."
-msgstr "删除一个标签是不可撤销的。"
+msgstr "タグを削除すると元に戻すことはできません。"
 
 #: bbpress/form-topic-tag.php:92
 msgid "Any links to this tag will no longer function."
-msgstr "任何链接到此标签的链接都将失效。"
+msgstr "このタグへのリンクは使えなくなります。"
 
 #: bbpress/form-topic-tag.php:98
 #, php-format
 msgid ""
 "Are you sure you want to delete the \"%s\" tag? This is permanent and cannot "
 "be undone."
-msgstr "您确定要删除标签\"%s\"？这将是永久地且不可恢复。"
+msgstr "本当に「%s」というタグを削除しますか ? この操作を元に戻すことはできません。"
 
 #: bbpress/form-topic.php:23
 #, php-format
@@ -518,7 +519,7 @@ msgstr ""
 #: bbpress/form-topic.php:129 bbpress/loop-forums.php:15
 #: bbpress/loop-search.php:12
 msgid "Forum"
-msgstr "论坛"
+msgstr "フォーラム"
 
 #: bbpress/form-topic.php:134
 msgid "No forum"
@@ -548,15 +549,15 @@ msgstr ""
 #: bbpress/form-user-edit.php:17 inc/comments.php:235
 #: inc/woocommerce-support.php:354 woocommerce/single-product-reviews.php:71
 msgid "Name"
-msgstr "姓名"
+msgstr "名前"
 
 #: bbpress/form-user-edit.php:28 inc/woocommerce-support.php:1734
 msgid "First name"
-msgstr ""
+msgstr "名"
 
 #: bbpress/form-user-edit.php:38 inc/woocommerce-support.php:1740
 msgid "Last name"
-msgstr ""
+msgstr "姓"
 
 #: bbpress/form-user-edit.php:48
 msgid "Nickname"
@@ -590,7 +591,7 @@ msgstr ""
 #: bbpress/form-user-register.php:21 inc/woocommerce-support.php:2185
 #: woocommerce/myaccount/form-login.php:90
 msgid "Username"
-msgstr "用户名"
+msgstr "ユーザー名"
 
 #: bbpress/form-user-edit.php:137 bbpress/form-user-register.php:28
 #: inc/comments.php:240 woocommerce/single-product-reviews.php:73
@@ -647,13 +648,13 @@ msgstr ""
 #: bbpress/form-user-login.php:13 bbpress/form-user-login.php:40
 #: inc/woocommerce-support.php:2203
 msgid "Log In"
-msgstr ""
+msgstr "ログイン"
 
 #: bbpress/form-user-login.php:23 inc/woocommerce-support.php:2191
 #: woocommerce/myaccount/form-login.php:46
 #: woocommerce/myaccount/form-login.php:110
 msgid "Password"
-msgstr "密码"
+msgstr "パスワード"
 
 #: bbpress/form-user-login.php:33
 msgid "Keep me signed in"
@@ -694,28 +695,28 @@ msgstr ""
 #: bbpress/loop-forums.php:17 bbpress/loop-topics.php:18
 #: inc/admin/customizer/customizer-options.php:3683
 msgid "Posts"
-msgstr "文章"
+msgstr "投稿"
 
 #: bbpress/loop-forums.php:18 bbpress/loop-topics.php:19
 msgid "Freshness"
-msgstr "最近更新"
+msgstr "経過時間"
 
 #: bbpress/loop-search-forum.php:15
 msgid "Forum: "
-msgstr "论坛："
+msgstr "フォーラム:"
 
 #: bbpress/loop-search-forum.php:27
 #, php-format
 msgid "Last updated %s"
-msgstr ""
+msgstr "最終更新日: %s"
 
 #: bbpress/loop-search-reply.php:14
 msgid "In reply to: "
-msgstr "回复于："
+msgstr "返信先:"
 
 #: bbpress/loop-search-topic.php:22
 msgid "Topic: "
-msgstr "标题："
+msgstr "トピック:"
 
 #: bbpress/loop-search-topic.php:50 bbpress/loop-single-topic.php:76
 #, php-format
@@ -733,7 +734,7 @@ msgstr ""
 
 #: bbpress/loop-search.php:11 bbpress/loop-topics.php:16
 msgid "Topic"
-msgstr "帖子"
+msgstr "トピック"
 
 #: bbpress/loop-single-reply.php:16
 msgid "In reply to "
@@ -746,7 +747,7 @@ msgstr ""
 
 #: bbpress/loop-topics.php:17
 msgid "Voices"
-msgstr ""
+msgstr "返信"
 
 #: bbpress/pagination-replies.php:16 bbpress/pagination-search.php:16
 #: bbpress/pagination-topics.php:16 template-parts/navigation/navigation.php:14
@@ -756,58 +757,58 @@ msgstr ""
 #: bbpress/user-details.php:28
 #, php-format
 msgid "%s's Profile"
-msgstr "%s 的档案"
+msgstr "%s のプロフィール"
 
 #: bbpress/user-details.php:29 bbpress/user-profile.php:14
 msgid "Profile"
-msgstr "个人资料"
+msgstr "プロフィール"
 
 #: bbpress/user-details.php:34
 #, php-format
 msgid "%s's Topics Started"
-msgstr ""
+msgstr "%s の開始したトピック:"
 
 #: bbpress/user-details.php:34
 msgid "Topics Started"
-msgstr "已发起的主题"
+msgstr "トピックの開始:"
 
 #: bbpress/user-details.php:39
 #, php-format
 msgid "%s's Replies Created"
-msgstr ""
+msgstr "%sの返信を作成しました。"
 
 #: bbpress/user-details.php:39
 msgid "Replies Created"
-msgstr ""
+msgstr "返信を作成しました"
 
 #: bbpress/user-details.php:47
 #, php-format
 msgid "%s's Favorites"
-msgstr ""
+msgstr "%s のお気に入り"
 
 #: bbpress/user-details.php:47
 msgid "Favorites"
-msgstr "收藏夹"
+msgstr "お気に入り"
 
 #: bbpress/user-details.php:59
 #, php-format
 msgid "%s's Subscriptions"
-msgstr ""
+msgstr "%s 購読"
 
 #: bbpress/user-details.php:59
 msgid "Subscriptions"
-msgstr "订阅"
+msgstr "購読"
 
 #: bbpress/user-details.php:67
 #, php-format
 msgid "Edit %s's Profile"
-msgstr "编辑 %s 的档案"
+msgstr "%s のプロフィールを編集"
 
 #: bbpress/user-details.php:67 inc/front-page-elements.php:108
 #: inc/front-page-elements.php:230 inc/front-page-elements.php:322
 #: inc/woocommerce-support.php:1447
 msgid "Edit"
-msgstr "编辑"
+msgstr "編集"
 
 #: bbpress/user-favorites.php:17
 msgid "Favorite forum topics"
@@ -903,12 +904,12 @@ msgstr ""
 #: inc/comments.php:37 inc/template-tags.php:479
 #: template-parts/post/content-post.php:52
 msgid "% Comments"
-msgstr "%条评论"
+msgstr "%件のコメント"
 
 #: inc/comments.php:39 inc/template-tags.php:479
 #: template-parts/post/content-post.php:52
 msgid "1 Comment"
-msgstr "一条评论"
+msgstr "1件のコメント"
 
 #: inc/comments.php:43
 msgid "% Pings/Trackbacks"
@@ -924,7 +925,7 @@ msgstr ""
 
 #: inc/comments.php:110 inc/tabs-widget.php:76
 msgid "Comments"
-msgstr "评论"
+msgstr "コメント"
 
 #: inc/comments.php:159
 msgid "Author"
@@ -945,7 +946,7 @@ msgstr ""
 
 #: inc/comments.php:187
 msgid "Your comment is awaiting moderation"
-msgstr ""
+msgstr "あなたのコメントは管理者の承認待ちです"
 
 #: inc/comments.php:250
 msgid ""
@@ -982,7 +983,7 @@ msgstr ""
 
 #: inc/tabs-widget.php:7
 msgid "evolve: Tabs"
-msgstr ""
+msgstr "evolve: タブ"
 
 #: inc/tabs-widget.php:10
 msgid "Popular posts, recent posts and comments."
@@ -990,15 +991,15 @@ msgstr ""
 
 #: inc/tabs-widget.php:59
 msgid "Popular"
-msgstr "热门"
+msgstr "人気"
 
 #: inc/tabs-widget.php:67
 msgid "Recent"
-msgstr ""
+msgstr "新着"
 
 #: inc/tabs-widget.php:198
 msgid " says"
-msgstr ""
+msgstr "言っています"
 
 #: inc/tabs-widget.php:249
 msgid "Popular Posts Order By"
@@ -1034,7 +1035,7 @@ msgstr ""
 
 #: inc/tabs-widget.php:299
 msgid "Show comments"
-msgstr "显示评论"
+msgstr "コメントを表示"
 
 #: inc/template-functions.php:333
 msgid "You are browsing archives for"
@@ -1046,7 +1047,7 @@ msgstr ""
 
 #: inc/template-tags.php:88 inc/template-tags.php:805
 msgid "Search"
-msgstr "搜索"
+msgstr "検索"
 
 #: inc/template-tags.php:128 inc/template-tags.php:142
 msgid "Sticky"
@@ -1054,7 +1055,7 @@ msgstr ""
 
 #: inc/template-tags.php:468
 msgid "Written by"
-msgstr "作者"
+msgstr ""
 
 #: inc/template-tags.php:469
 #, php-format
@@ -1063,19 +1064,19 @@ msgstr ""
 
 #: inc/template-tags.php:479 template-parts/post/content-post.php:52
 msgid "Leave a Comment"
-msgstr "留下评论"
+msgstr "コメントする"
 
 #: inc/template-tags.php:548
 msgid "Similar posts"
-msgstr ""
+msgstr "同様の投稿"
 
 #: inc/template-tags.php:553
 msgid "Permanent Link to"
-msgstr "永久链接："
+msgstr "パーマリンク"
 
 #: inc/template-tags.php:560
 msgid "Untitled"
-msgstr "未命名"
+msgstr "名称未設定"
 
 #: inc/template-tags.php:659 woocommerce/loop/pagination.php:28
 msgid "Pages"
@@ -1087,15 +1088,15 @@ msgstr ""
 
 #: inc/template-tags.php:735 inc/woocommerce-support.php:291
 msgid "Home"
-msgstr "首页"
+msgstr "ホーム"
 
 #: inc/template-tags.php:757 inc/admin/customizer/customizer-options.php:3599
 msgid "Blog"
-msgstr "日志"
+msgstr "ブログ"
 
 #: inc/template-tags.php:802
 msgid "404 - Page not Found"
-msgstr ""
+msgstr "404 - ページが見つかりませんでした"
 
 #: inc/template-tags.php:1044
 msgid ""
@@ -1105,11 +1106,11 @@ msgstr ""
 
 #: inc/template-tags.php:1108 inc/admin/customizer/customizer-options.php:4015
 msgid "RSS Feed"
-msgstr "RSS 订阅"
+msgstr "RSS"
 
 #: inc/template-tags.php:1117 inc/admin/customizer/customizer-options.php:4024
 msgid "Newsletter"
-msgstr ""
+msgstr "ニュースレター"
 
 #: inc/template-tags.php:1125 inc/admin/customizer/customizer-options.php:4033
 msgid "Facebook"
@@ -1121,7 +1122,7 @@ msgstr "Twitter"
 
 #: inc/template-tags.php:1141 inc/admin/customizer/customizer-options.php:4096
 msgid "Google Plus"
-msgstr "Google Plus"
+msgstr "Google+"
 
 #: inc/template-tags.php:1149 inc/admin/customizer/customizer-options.php:4051
 msgid "Instagram"
@@ -1133,7 +1134,7 @@ msgstr "Skype"
 
 #: inc/template-tags.php:1164 inc/admin/customizer/customizer-options.php:4069
 msgid "YouTube"
-msgstr "YouTube"
+msgstr "Youtube"
 
 #: inc/template-tags.php:1172 inc/admin/customizer/customizer-options.php:4078
 msgid "Flickr"
@@ -1153,35 +1154,35 @@ msgstr "Tumblr"
 
 #: inc/template-tags.php:1228
 msgid "Share on Twitter"
-msgstr "在 Twitter 分享"
+msgstr "Twitter で共有"
 
 #: inc/template-tags.php:1235
 msgid "Share on Facebook"
-msgstr "在 Facebook 分享"
+msgstr "Facebook で共有"
 
 #: inc/template-tags.php:1242
 msgid "Share on Google Plus"
-msgstr ""
+msgstr "Google + でシェア"
 
 #: inc/template-tags.php:1249
 msgid "Share on Pinterest"
-msgstr ""
+msgstr "Pinterest で共有"
 
 #: inc/template-tags.php:1256
 msgid "Share by Email"
-msgstr ""
+msgstr "メールでシェア"
 
 #: inc/template-tags.php:1263
 msgid "More options"
-msgstr "更多选项"
+msgstr "詳細設定"
 
 #: inc/widgets.php:10
 msgid "Sidebar 1"
-msgstr ""
+msgstr "サイドバー 1"
 
 #: inc/widgets.php:19
 msgid "Sidebar 2"
-msgstr ""
+msgstr "サイドバー 2"
 
 #: inc/widgets.php:32
 #, php-format
@@ -1199,14 +1200,14 @@ msgstr ""
 
 #: inc/woocommerce-support.php:302
 msgid "Search..."
-msgstr ""
+msgstr "検索..."
 
 #: inc/woocommerce-support.php:351 inc/woocommerce-support.php:353
 #: inc/woocommerce-support.php:354 inc/woocommerce-support.php:355
 #: inc/woocommerce-support.php:356 inc/woocommerce-support.php:357
 #: inc/woocommerce-support.php:358
 msgid "Sort by"
-msgstr ""
+msgstr "並び替え"
 
 #: inc/woocommerce-support.php:351 inc/woocommerce-support.php:353
 msgid "Default order"
@@ -1214,35 +1215,35 @@ msgstr ""
 
 #: inc/woocommerce-support.php:355
 msgid "Price"
-msgstr ""
+msgstr "金額"
 
 #: inc/woocommerce-support.php:356
 msgid "Date"
-msgstr ""
+msgstr "日付"
 
 #: inc/woocommerce-support.php:357
 msgid "Popularity"
-msgstr ""
+msgstr "人気"
 
 #: inc/woocommerce-support.php:358
 msgid "Rating"
-msgstr ""
+msgstr "評価"
 
 #: inc/woocommerce-support.php:363 inc/woocommerce-support.php:365
 #: inc/woocommerce-support.php:366 inc/woocommerce-support.php:367
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:4
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:9
 msgid "Show"
-msgstr "显示"
+msgstr "表示"
 
 #: inc/woocommerce-support.php:363
 msgid " Products"
-msgstr ""
+msgstr "商品"
 
 #: inc/woocommerce-support.php:365 inc/woocommerce-support.php:366
 #: inc/woocommerce-support.php:367
 msgid "Products"
-msgstr ""
+msgstr "商品"
 
 #: inc/woocommerce-support.php:525
 #: woocommerce/single-product/product-image.php:74
@@ -1251,7 +1252,7 @@ msgstr ""
 
 #: inc/woocommerce-support.php:544
 msgid "Show details"
-msgstr ""
+msgstr "詳細を表示"
 
 #: inc/woocommerce-support.php:563 inc/woocommerce-support.php:2237
 msgid "0 items"
@@ -1271,11 +1272,11 @@ msgstr[1] ""
 #: inc/woocommerce-support.php:618 inc/woocommerce-support.php:1142
 #: inc/woocommerce-support.php:2291 woocommerce/checkout/form-checkout.php:59
 msgid "View Cart"
-msgstr ""
+msgstr "カートを表示"
 
 #: inc/woocommerce-support.php:621 inc/woocommerce-support.php:2294
 msgid "Checkout"
-msgstr ""
+msgstr "購入手続き"
 
 #: inc/woocommerce-support.php:658
 #, php-format
@@ -1290,7 +1291,7 @@ msgstr ""
 
 #: inc/woocommerce-support.php:700
 msgid "Select a country&hellip;"
-msgstr ""
+msgstr "国を選択&hellip;"
 
 #: inc/woocommerce-support.php:721 inc/woocommerce-support.php:726
 #: inc/woocommerce-support.php:739
@@ -1303,7 +1304,7 @@ msgstr ""
 
 #: inc/woocommerce-support.php:750
 msgid "City"
-msgstr ""
+msgstr "市区町村"
 
 #: inc/woocommerce-support.php:758
 msgid "Postcode / ZIP"
@@ -1311,7 +1312,7 @@ msgstr ""
 
 #: inc/woocommerce-support.php:763
 msgid "Update Totals"
-msgstr ""
+msgstr "合計の更新"
 
 #: inc/woocommerce-support.php:788
 msgid "Have a promotional code?"
@@ -1319,23 +1320,23 @@ msgstr ""
 
 #: inc/woocommerce-support.php:792
 msgid "Coupon code"
-msgstr ""
+msgstr "クーポンコード"
 
 #: inc/woocommerce-support.php:795
 msgid "Apply Coupon"
-msgstr ""
+msgstr "クーポンを適用"
 
 #: inc/woocommerce-support.php:950
 msgid "Billing Address"
-msgstr ""
+msgstr "請求先住所"
 
 #: inc/woocommerce-support.php:959
 msgid "Shipping Address"
-msgstr ""
+msgstr "配送先住所"
 
 #: inc/woocommerce-support.php:972
 msgid "Additional Information"
-msgstr ""
+msgstr "追加情報"
 
 #: inc/woocommerce-support.php:982
 msgid "Review &amp; Payment"
@@ -1343,7 +1344,7 @@ msgstr ""
 
 #: inc/woocommerce-support.php:1063 inc/woocommerce-support.php:1079
 msgid "Continue"
-msgstr ""
+msgstr "続ける"
 
 #: inc/woocommerce-support.php:1113 woocommerce/checkout/form-checkout.php:29
 #, php-format
@@ -1352,7 +1353,7 @@ msgstr ""
 
 #: inc/woocommerce-support.php:1155
 msgid "Dashboard"
-msgstr ""
+msgstr "ダッシュボード"
 
 #: inc/woocommerce-support.php:1162
 msgid "View Downloads"
@@ -1364,15 +1365,15 @@ msgstr ""
 
 #: inc/woocommerce-support.php:1175
 msgid "Change Address"
-msgstr ""
+msgstr "住所を変更"
 
 #: inc/woocommerce-support.php:1181
 msgid "Edit Account"
-msgstr ""
+msgstr "アカウントを編集"
 
 #: inc/woocommerce-support.php:1187 inc/woocommerce-support.php:2217
 msgid "Logout"
-msgstr ""
+msgstr "ログアウト"
 
 #: inc/woocommerce-support.php:1208
 #, php-format
@@ -1389,7 +1390,7 @@ msgstr ""
 
 #: inc/woocommerce-support.php:1228
 msgid "Order"
-msgstr ""
+msgstr "順序"
 
 #: inc/woocommerce-support.php:1229
 msgid "Date "
@@ -1397,13 +1398,13 @@ msgstr ""
 
 #: inc/woocommerce-support.php:1230
 msgid "Status"
-msgstr "状态"
+msgstr "状態"
 
 #: inc/woocommerce-support.php:1231 inc/woocommerce-support.php:1798
 #: woocommerce/cart/cart-totals.php:93 woocommerce/cart/cart-totals.php:94
 #: woocommerce/cart/cart.php:34 woocommerce/checkout/review-order.php:18
 msgid "Total"
-msgstr ""
+msgstr "合計"
 
 #: inc/woocommerce-support.php:1248
 msgid "Recent orders"
@@ -1412,7 +1413,7 @@ msgstr ""
 #: inc/woocommerce-support.php:1281
 msgctxt "hash before order number"
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: inc/woocommerce-support.php:1291
 #, php-format
@@ -1423,19 +1424,19 @@ msgstr[1] ""
 
 #: inc/woocommerce-support.php:1298 woocommerce/checkout/thankyou.php:31
 msgid "Pay"
-msgstr ""
+msgstr "お支払い"
 
 #: inc/woocommerce-support.php:1302
 msgid "View"
-msgstr ""
+msgstr "表示"
 
 #: inc/woocommerce-support.php:1306
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: inc/woocommerce-support.php:1339 inc/woocommerce-support.php:1390
 msgid "Go Shop"
-msgstr ""
+msgstr "ショップに進む"
 
 #: inc/woocommerce-support.php:1341
 msgid "No order has been made yet."
@@ -1480,11 +1481,11 @@ msgstr ""
 
 #: inc/woocommerce-support.php:1528 inc/woocommerce-support.php:1587
 msgid "Save Address"
-msgstr ""
+msgstr "住所を保存"
 
 #: inc/woocommerce-support.php:1663
 msgid "is a required field."
-msgstr ""
+msgstr "必須フィールドです。"
 
 #: inc/woocommerce-support.php:1676
 msgid "Please enter a valid postcode/ZIP."
@@ -1508,11 +1509,11 @@ msgstr ""
 
 #: inc/woocommerce-support.php:1745 woocommerce/myaccount/form-login.php:100
 msgid "Email address"
-msgstr ""
+msgstr "メールアドレス"
 
 #: inc/woocommerce-support.php:1750
 msgid "Password Change"
-msgstr ""
+msgstr "パスワード変更"
 
 #: inc/woocommerce-support.php:1753
 msgid "Current Password (leave blank to leave unchanged)"
@@ -1528,7 +1529,7 @@ msgstr ""
 
 #: inc/woocommerce-support.php:1768
 msgid "Save changes"
-msgstr ""
+msgstr "変更を保存"
 
 #: inc/woocommerce-support.php:1791
 msgid "Order details"
@@ -1537,18 +1538,18 @@ msgstr ""
 #: inc/woocommerce-support.php:1796 woocommerce/cart/cart.php:30
 #: woocommerce/checkout/review-order.php:17
 msgid "Product"
-msgstr ""
+msgstr "商品"
 
 #: inc/woocommerce-support.php:1797 woocommerce/cart/cart.php:33
 #: woocommerce/global/quantity-input.php:33
 #: woocommerce/global/quantity-input.php:36
 msgid "Quantity"
-msgstr ""
+msgstr "数"
 
 #: inc/woocommerce-support.php:1860
 #, php-format
 msgid "Download file%s"
-msgstr ""
+msgstr "ダウンロードファイル %s"
 
 #: inc/woocommerce-support.php:1919
 msgid "Customer details"
@@ -1556,20 +1557,20 @@ msgstr ""
 
 #: inc/woocommerce-support.php:1925
 msgid "Note:"
-msgstr ""
+msgstr "注意:"
 
 #: inc/woocommerce-support.php:1928
 msgid "Email:"
-msgstr "邮件:"
+msgstr "メール:"
 
 #: inc/woocommerce-support.php:1931
 msgid "Telephone:"
-msgstr ""
+msgstr "電話: "
 
 #: inc/woocommerce-support.php:1957 inc/woocommerce-support.php:1974
 #: woocommerce/single-product/meta.php:32
 msgid "N/A"
-msgstr ""
+msgstr "該当なし"
 
 #: inc/woocommerce-support.php:2152
 msgid "Cart"
@@ -1577,11 +1578,11 @@ msgstr ""
 
 #: inc/woocommerce-support.php:2173 woocommerce/checkout/thankyou.php:34
 msgid "My Account"
-msgstr ""
+msgstr "マイアカウント"
 
 #: inc/woocommerce-support.php:2198
 msgid "Remember Me"
-msgstr ""
+msgstr "ログイン状態を保存する"
 
 #. translators: 1: reviews count 2: product name
 #: woocommerce/single-product-reviews.php:35
@@ -1680,7 +1681,7 @@ msgstr ""
 #: inc/admin/class-evolve-admin.php:96
 #: inc/admin/customizer/customizer-options.php:24
 msgid "Theme Homepage"
-msgstr ""
+msgstr "テーマホームページ"
 
 #: inc/admin/class-evolve-admin.php:102
 #: inc/admin/customizer/customizer-options.php:24
@@ -1735,7 +1736,7 @@ msgstr ""
 #: inc/admin/class-evolve-admin.php:220
 #: inc/admin/customizer/customizer-options.php:24
 msgid "Documentation"
-msgstr "文档"
+msgstr "ドキュメンテーション"
 
 #: inc/admin/class-evolve-admin.php:225
 msgid "Knowledge Base"
@@ -1753,7 +1754,7 @@ msgstr ""
 #: inc/admin/class-evolve-admin.php:239
 #: inc/admin/customizer/customizer-options.php:24
 msgid "Support"
-msgstr "支持"
+msgstr "サポート"
 
 #: inc/admin/class-evolve-admin.php:249
 msgid "Help Translate"
@@ -1816,7 +1817,7 @@ msgstr ""
 #. Theme Name of the plugin/theme
 #: inc/admin/class-evolve-admin.php:392
 msgid "evolve"
-msgstr ""
+msgstr "evolve"
 
 #: inc/admin/class-evolve-admin.php:399
 #: inc/admin/customizer/customizer-options.php:24
@@ -1851,7 +1852,7 @@ msgstr ""
 #: inc/admin/class-evolve-admin.php:441
 #: inc/admin/customizer/customizer-options.php:24
 msgid "Lightbox"
-msgstr ""
+msgstr "Lightbox"
 
 #: inc/admin/class-evolve-admin.php:448
 #: inc/admin/customizer/customizer-options.php:24
@@ -1871,7 +1872,7 @@ msgstr ""
 #: inc/admin/class-evolve-admin.php:469
 #: inc/admin/customizer/customizer-options.php:24
 msgid "Shortcodes"
-msgstr ""
+msgstr "ショートコード"
 
 #: inc/admin/class-evolve-admin.php:476
 msgid "Child Theme"
@@ -1951,7 +1952,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:4131
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:14
 msgid "Bootstrap Slider"
-msgstr ""
+msgstr "Bootstrap スライダー"
 
 #: inc/admin/class-evolve-admin.php:550 inc/admin/class-evolve-admin.php:563
 msgid "Unlimited Number Of Slides, Slides Reorder"
@@ -1982,7 +1983,7 @@ msgstr ""
 #: inc/admin/customizer/customizer.php:707
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:12
 msgid "Parallax Slider"
-msgstr ""
+msgstr "パララックス・スライダー"
 
 #: inc/admin/class-evolve-admin.php:571
 #: inc/admin/customizer/customizer-options.php:24
@@ -2004,7 +2005,7 @@ msgstr ""
 #: inc/admin/customizer/customizer.php:708
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:13
 msgid "Posts Slider"
-msgstr ""
+msgstr "投稿スライダー"
 
 #: inc/admin/class-evolve-admin.php:576
 msgid "Up To 30 Slides"
@@ -2041,11 +2042,11 @@ msgstr ""
 
 #: template-parts/navigation/navigation.php:36
 msgid "Newer Entries"
-msgstr "新文章"
+msgstr "新しい記事"
 
 #: template-parts/navigation/navigation.php:37
 msgid "Older Entries"
-msgstr "旧文章"
+msgstr "過去の記事"
 
 #: template-parts/post/content-none.php:9
 msgid "Nothing To Show Yet"
@@ -2117,7 +2118,7 @@ msgstr ""
 
 #: woocommerce/cart/cart.php:35
 msgid "Action"
-msgstr ""
+msgstr "アクション"
 
 #: woocommerce/cart/cart.php:80
 msgid "Available on backorder"
@@ -2125,11 +2126,11 @@ msgstr ""
 
 #: woocommerce/cart/cart.php:123
 msgid "Remove this item"
-msgstr ""
+msgstr "このアイテムを削除"
 
 #: woocommerce/cart/cart.php:163
 msgid "Update Cart"
-msgstr ""
+msgstr "カートを更新"
 
 #: woocommerce/cart/cart.php:165
 msgid "Proceed to Checkout"
@@ -2166,11 +2167,11 @@ msgstr ""
 
 #: woocommerce/checkout/review-order.php:66
 msgid "Cart Subtotal"
-msgstr ""
+msgstr "カート小計"
 
 #: woocommerce/checkout/review-order.php:121
 msgid "Order Total"
-msgstr ""
+msgstr "注文合計"
 
 #: woocommerce/checkout/thankyou.php:19
 msgid ""
@@ -2188,23 +2189,23 @@ msgstr ""
 
 #: woocommerce/checkout/thankyou.php:41 woocommerce/checkout/thankyou.php:73
 msgid "Thank you. Your order has been received."
-msgstr ""
+msgstr "ご注文を頂きまして、誠にありがとうございます。"
 
 #: woocommerce/checkout/thankyou.php:45
 msgid "Order:"
-msgstr ""
+msgstr "注文:"
 
 #: woocommerce/checkout/thankyou.php:49
 msgid "Date:"
-msgstr ""
+msgstr "日付: "
 
 #: woocommerce/checkout/thankyou.php:53
 msgid "Total:"
-msgstr ""
+msgstr "合計: "
 
 #: woocommerce/checkout/thankyou.php:58
 msgid "Payment method:"
-msgstr ""
+msgstr "お支払方法: "
 
 #. translators: %s: Quantity.
 #: woocommerce/global/quantity-input.php:29
@@ -2215,12 +2216,12 @@ msgstr ""
 #: woocommerce/global/quantity-input.php:47
 msgctxt "Product quantity input tooltip"
 msgid "Qty"
-msgstr ""
+msgstr "数量"
 
 #: woocommerce/loop/add-to-cart.php:28 woocommerce/loop/add-to-cart.php:52
 #: woocommerce/loop/add-to-cart.php:63
 msgid "Read more"
-msgstr "阅读更多"
+msgstr "続きを読む"
 
 #: woocommerce/loop/add-to-cart.php:42
 msgid "Select options"
@@ -2349,7 +2350,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:4142
 #: inc/admin/customizer/customizer-options.php:4466
 msgid "General"
-msgstr "常规"
+msgstr "一般"
 
 #: inc/admin/customizer/customizer-options.php:42
 msgid "Select Front Page Layout"
@@ -2366,12 +2367,12 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:60
 #: inc/admin/customizer/customizer-options.php:85
 msgid "Boxed"
-msgstr "固定宽度"
+msgstr "固定幅"
 
 #: inc/admin/customizer/customizer-options.php:61
 #: inc/admin/customizer/customizer-options.php:86
 msgid "Wide"
-msgstr "最大宽度"
+msgstr "幅の上限"
 
 #: inc/admin/customizer/customizer-options.php:67
 msgid "Select General Layout"
@@ -2527,7 +2528,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:3921
 #: inc/admin/customizer/customizer.php:1048
 msgid "Enabled"
-msgstr "启用"
+msgstr "有効"
 
 #: inc/admin/customizer/customizer-options.php:236
 #: inc/admin/customizer/customizer-options.php:315
@@ -2567,7 +2568,7 @@ msgstr "启用"
 #: inc/admin/customizer/customizer-options.php:5002
 #: inc/admin/customizer/customizer.php:1049
 msgid "Disabled"
-msgstr ""
+msgstr "無効"
 
 #: inc/admin/customizer/customizer-options.php:241
 msgid "Content Box 1 Title"
@@ -2627,7 +2628,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:385
 msgid "Content Box 3"
-msgstr ""
+msgstr "コンテンツボックス 3"
 
 #: inc/admin/customizer/customizer-options.php:391
 msgid "Enable Content Box 3"
@@ -2655,7 +2656,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:464
 msgid "Content Box 4"
-msgstr ""
+msgstr "コンテンツボックス 4"
 
 #: inc/admin/customizer/customizer-options.php:470
 msgid "Enable Content Box 4"
@@ -2683,7 +2684,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:537
 msgid "Content Boxes Background Color"
-msgstr ""
+msgstr "内容を含むボックスの背景色"
 
 #: inc/admin/customizer/customizer-options.php:551
 #: inc/admin/customizer/customizer-options.php:837
@@ -2773,7 +2774,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2808
 #: inc/admin/customizer/customizer-options.php:3097
 msgid "Cover"
-msgstr "cover"
+msgstr "背景全体を覆う"
 
 #: inc/admin/customizer/customizer-options.php:627
 #: inc/admin/customizer/customizer-options.php:913
@@ -2784,7 +2785,7 @@ msgstr "cover"
 #: inc/admin/customizer/customizer-options.php:2809
 #: inc/admin/customizer/customizer-options.php:3098
 msgid "Contain"
-msgstr ""
+msgstr "画像全体を表示"
 
 #: inc/admin/customizer/customizer-options.php:628
 #: inc/admin/customizer/customizer-options.php:914
@@ -2794,7 +2795,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2703
 #: inc/admin/customizer/customizer-options.php:2810
 msgid "None"
-msgstr "無"
+msgstr "なし"
 
 #: inc/admin/customizer/customizer-options.php:642
 #: inc/admin/customizer/customizer-options.php:928
@@ -2805,7 +2806,7 @@ msgstr "無"
 #: inc/admin/customizer/customizer-options.php:2824
 #: inc/admin/customizer/customizer-options.php:3045
 msgid "Background Repeat"
-msgstr "重复背景"
+msgstr "背景の繰り返し"
 
 #: inc/admin/customizer/customizer-options.php:645
 #: inc/admin/customizer/customizer-options.php:931
@@ -2816,7 +2817,7 @@ msgstr "重复背景"
 #: inc/admin/customizer/customizer-options.php:2827
 #: inc/admin/customizer/customizer-options.php:3051
 msgid "no-repeat"
-msgstr ""
+msgstr "no-repeat"
 
 #: inc/admin/customizer/customizer-options.php:646
 #: inc/admin/customizer/customizer-options.php:932
@@ -2827,7 +2828,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2828
 #: inc/admin/customizer/customizer-options.php:3048
 msgid "repeat"
-msgstr "重复"
+msgstr "繰り返し"
 
 #: inc/admin/customizer/customizer-options.php:647
 #: inc/admin/customizer/customizer-options.php:933
@@ -2838,7 +2839,7 @@ msgstr "重复"
 #: inc/admin/customizer/customizer-options.php:2829
 #: inc/admin/customizer/customizer-options.php:3049
 msgid "repeat-x"
-msgstr ""
+msgstr "横方向に繰り返し"
 
 #: inc/admin/customizer/customizer-options.php:648
 #: inc/admin/customizer/customizer-options.php:934
@@ -2849,7 +2850,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2830
 #: inc/admin/customizer/customizer-options.php:3050
 msgid "repeat-y"
-msgstr ""
+msgstr "縦方向に繰り返し"
 
 #: inc/admin/customizer/customizer-options.php:662
 #: inc/admin/customizer/customizer-options.php:948
@@ -2859,7 +2860,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2737
 #: inc/admin/customizer/customizer-options.php:2844
 msgid "Background Position"
-msgstr "背景位置"
+msgstr "背景の位置"
 
 #: inc/admin/customizer/customizer-options.php:665
 #: inc/admin/customizer/customizer-options.php:951
@@ -2889,7 +2890,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2742
 #: inc/admin/customizer/customizer-options.php:2849
 msgid "center bottom"
-msgstr ""
+msgstr "中央下"
 
 #: inc/admin/customizer/customizer-options.php:668
 #: inc/admin/customizer/customizer-options.php:954
@@ -2899,7 +2900,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2743
 #: inc/admin/customizer/customizer-options.php:2850
 msgid "left top"
-msgstr ""
+msgstr "左上"
 
 #: inc/admin/customizer/customizer-options.php:669
 #: inc/admin/customizer/customizer-options.php:955
@@ -2909,7 +2910,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2744
 #: inc/admin/customizer/customizer-options.php:2851
 msgid "left center"
-msgstr ""
+msgstr "左中央"
 
 #: inc/admin/customizer/customizer-options.php:670
 #: inc/admin/customizer/customizer-options.php:956
@@ -2919,7 +2920,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2745
 #: inc/admin/customizer/customizer-options.php:2852
 msgid "left bottom"
-msgstr ""
+msgstr "左下"
 
 #: inc/admin/customizer/customizer-options.php:671
 #: inc/admin/customizer/customizer-options.php:957
@@ -2929,7 +2930,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2746
 #: inc/admin/customizer/customizer-options.php:2853
 msgid "right top"
-msgstr ""
+msgstr "右上"
 
 #: inc/admin/customizer/customizer-options.php:672
 #: inc/admin/customizer/customizer-options.php:958
@@ -2939,7 +2940,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2747
 #: inc/admin/customizer/customizer-options.php:2854
 msgid "right center"
-msgstr ""
+msgstr "右中央"
 
 #: inc/admin/customizer/customizer-options.php:673
 #: inc/admin/customizer/customizer-options.php:959
@@ -2949,7 +2950,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2748
 #: inc/admin/customizer/customizer-options.php:2855
 msgid "right bottom"
-msgstr ""
+msgstr "右下"
 
 #: inc/admin/customizer/customizer-options.php:687
 #: inc/admin/customizer/customizer-options.php:973
@@ -2997,7 +2998,7 @@ msgstr ""
 #: inc/admin/customizer/customizer.php:126
 #: inc/admin/customizer/customizer.php:139
 msgid "Testimonials"
-msgstr ""
+msgstr "推薦文"
 
 #: inc/admin/customizer/customizer-options.php:786
 msgid "Enable Testimonials On Front Page"
@@ -3149,11 +3150,11 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:1713
 #: inc/admin/metaboxes/metaboxes.php:279
 msgid "Header"
-msgstr "顶部"
+msgstr "ヘッダー"
 
 #: inc/admin/customizer/customizer-options.php:1718
 msgid "Header Padding"
-msgstr ""
+msgstr "ヘッダーの余白"
 
 #: inc/admin/customizer/customizer-options.php:1719
 msgid "Enter the header padding"
@@ -3162,7 +3163,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:1755
 #: inc/admin/customizer/customizer-options.php:1812
 msgid "Enable Searchbox"
-msgstr ""
+msgstr "検索ボックスを有効にする"
 
 #: inc/admin/customizer/customizer-options.php:1756
 msgid "Check this box if you want to display searchbox in the Header"
@@ -3189,15 +3190,15 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:1777
 msgid "Choose Header Type"
-msgstr ""
+msgstr "ヘッダーの型を選択"
 
 #: inc/admin/customizer/customizer-options.php:1778
 msgid "Choose your Header Type"
-msgstr ""
+msgstr "ヘッダーの型を選択"
 
 #: inc/admin/customizer/customizer-options.php:1796
 msgid "Sticky Header"
-msgstr ""
+msgstr "上部固定のヘッダー"
 
 #: inc/admin/customizer/customizer-options.php:1801
 msgid "Enable Sticky Header"
@@ -3213,7 +3214,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:1834
 msgid "Logo"
-msgstr ""
+msgstr "ロゴ"
 
 #: inc/admin/customizer/customizer-options.php:1839
 msgid "Custom Logo"
@@ -3238,7 +3239,7 @@ msgstr "左"
 
 #: inc/admin/customizer/customizer-options.php:1853
 msgid "Center"
-msgstr "中"
+msgstr "中央"
 
 #: inc/admin/customizer/customizer-options.php:1854
 #: inc/admin/customizer/customizer-options.php:5004
@@ -3282,7 +3283,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2213
 #: inc/admin/customizer/customizer-options.php:2922
 msgid "Menu"
-msgstr ""
+msgstr "メニュー"
 
 #: inc/admin/customizer/customizer-options.php:1907
 msgid "Disable Main Menu"
@@ -3302,7 +3303,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:1917
 msgid "Rollover"
-msgstr ""
+msgstr "ロールオーバー"
 
 #: inc/admin/customizer/customizer-options.php:1927
 msgid "Padding Between Menu Items"
@@ -3338,7 +3339,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:1995
 msgid "Header Widgets"
-msgstr ""
+msgstr "ヘッダーウィジェット"
 
 #: inc/admin/customizer/customizer-options.php:2000
 msgid "Number of Widget Cols in The Header Block"
@@ -3354,15 +3355,15 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2015
 msgid "Choose where to display header widgets"
-msgstr ""
+msgstr "ヘッダーウィジェットを表示する場所を選択"
 
 #: inc/admin/customizer/customizer-options.php:2018
 msgid "Front Page"
-msgstr "首页"
+msgstr "フロントページ"
 
 #: inc/admin/customizer/customizer-options.php:2019
 msgid "Single Post"
-msgstr "文章页面"
+msgstr "個別投稿"
 
 #: inc/admin/customizer/customizer-options.php:2020
 msgid "Only Pages"
@@ -3378,11 +3379,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2036
 msgid "Footer"
-msgstr "底部"
+msgstr "フッター"
 
 #: inc/admin/customizer/customizer-options.php:2047
 msgid "Footer Widgets"
-msgstr ""
+msgstr "フッターウィジェット"
 
 #: inc/admin/customizer/customizer-options.php:2052
 msgid "Number of Widget Cols in Footer"
@@ -3395,7 +3396,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2074
 #: inc/admin/customizer/customizer-options.php:2079
 msgid "Custom Footer"
-msgstr ""
+msgstr "カスタムフッター"
 
 #: inc/admin/customizer/customizer-options.php:2080
 #, php-format
@@ -3407,7 +3408,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2096
 msgid "Typography"
-msgstr "排版"
+msgstr "文字装飾"
 
 #: inc/admin/customizer/customizer-options.php:2107
 msgid "Website Body"
@@ -3455,7 +3456,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2246
 msgid "Widget"
-msgstr ""
+msgstr "ウィジェット"
 
 #: inc/admin/customizer/customizer-options.php:2251
 msgid "Widget Title Font"
@@ -3523,7 +3524,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2438
 msgid "Headings"
-msgstr ""
+msgstr "見出し"
 
 #: inc/admin/customizer/customizer-options.php:2443
 msgid "H1 Font"
@@ -3586,7 +3587,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2576
 msgid "Enable Breadcrumbs Navigation"
-msgstr ""
+msgstr "パンくずナビゲーションを有効にする"
 
 #: inc/admin/customizer/customizer-options.php:2577
 msgid "Check this box if you want to enable Breadcrumbs Navigation"
@@ -3594,7 +3595,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2593
 msgid "Styling"
-msgstr ""
+msgstr "スタイル"
 
 #: inc/admin/customizer/customizer-options.php:2604
 #: inc/admin/customizer/customizer-options.php:2609
@@ -3607,7 +3608,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2687
 msgid "Header & Footer"
-msgstr ""
+msgstr "ヘッダーとフッター"
 
 #: inc/admin/customizer/customizer-options.php:2692
 msgid "Header Styling"
@@ -3645,7 +3646,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2789
 msgid "Footer Image"
-msgstr ""
+msgstr "フッター画像"
 
 #: inc/admin/customizer/customizer-options.php:2790
 msgid ""
@@ -3713,12 +3714,12 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2953
 #: inc/admin/customizer/customizer-options.php:3116
 msgid "Light"
-msgstr "浅色"
+msgstr "明るい"
 
 #: inc/admin/customizer/customizer-options.php:2954
 #: inc/admin/customizer/customizer-options.php:3117
 msgid "Dark"
-msgstr "深色"
+msgstr "ダーク"
 
 #: inc/admin/customizer/customizer-options.php:2963
 msgid "Top Bar Color"
@@ -3734,7 +3735,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2979
 msgid "Menu hover font color"
-msgstr ""
+msgstr "メニューのホバー時のフォント色"
 
 #: inc/admin/customizer/customizer-options.php:3001
 msgid "Header Block"
@@ -3768,11 +3769,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3073
 msgid "Content"
-msgstr ""
+msgstr "コンテンツ"
 
 #: inc/admin/customizer/customizer-options.php:3078
 msgid "Content Image"
-msgstr ""
+msgstr "コンテンツ画像"
 
 #: inc/admin/customizer/customizer-options.php:3079
 msgid ""
@@ -3796,7 +3797,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3113
 msgid "Background color of content"
-msgstr ""
+msgstr "コンテンツの背景色"
 
 #: inc/admin/customizer/customizer-options.php:3123
 msgid "Or Custom Content Color"
@@ -3808,7 +3809,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3145
 msgid "Widgets"
-msgstr ""
+msgstr "ウィジェット"
 
 #: inc/admin/customizer/customizer-options.php:3150
 msgid "Enable Widget Title Custom Background"
@@ -3837,7 +3838,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3197
 msgid "Links"
-msgstr ""
+msgstr "リンク"
 
 #: inc/admin/customizer/customizer-options.php:3202
 msgid "Primary Link Color"
@@ -3845,7 +3846,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3203
 msgid "Custom color for content links"
-msgstr ""
+msgstr "コンテンツリンクのカスタム色"
 
 #: inc/admin/customizer/customizer-options.php:3217
 msgid "Secondary Link Color"
@@ -3857,11 +3858,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3240
 msgid "Shadows"
-msgstr ""
+msgstr "シャドウ"
 
 #: inc/admin/customizer/customizer-options.php:3245
 msgid "Shadow Effect"
-msgstr ""
+msgstr "シャドウ効果"
 
 #: inc/admin/customizer/customizer-options.php:3246
 msgid "Enables the shadow effect on the elements"
@@ -3881,7 +3882,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3295
 msgid "Button Shape"
-msgstr ""
+msgstr "ボタンの形状"
 
 #: inc/admin/customizer/customizer-options.php:3296
 msgid "Select the default shape for buttons"
@@ -3889,11 +3890,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3299
 msgid "Square"
-msgstr "方"
+msgstr "正方形"
 
 #: inc/admin/customizer/customizer-options.php:3300
 msgid "Round"
-msgstr "圆"
+msgstr "ラウンド"
 
 #: inc/admin/customizer/customizer-options.php:3301
 msgid "Pill"
@@ -3901,7 +3902,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3307
 msgid "Button Type"
-msgstr "按键类型"
+msgstr "ボタンタイプ"
 
 #: inc/admin/customizer/customizer-options.php:3308
 msgid "Select the default button type"
@@ -3909,11 +3910,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3311
 msgid "Flat"
-msgstr "方块"
+msgstr "フラット"
 
 #: inc/admin/customizer/customizer-options.php:3312
 msgid "3d"
-msgstr ""
+msgstr "3D"
 
 #: inc/admin/customizer/customizer-options.php:3318
 msgid "Button Gradient Top Color"
@@ -4051,7 +4052,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3525
 msgid "Form Background Color"
-msgstr ""
+msgstr "フォームの背景色"
 
 #: inc/admin/customizer/customizer-options.php:3526
 msgid "Controls the background color of form text, textarea field"
@@ -4059,7 +4060,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3540
 msgid "Form Text Color"
-msgstr ""
+msgstr "フォームのテキスト色"
 
 #: inc/admin/customizer/customizer-options.php:3541
 msgid "Controls the text, textarea color for forms"
@@ -4067,7 +4068,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3555
 msgid "Form Border Color"
-msgstr ""
+msgstr "フォームのボーダー色"
 
 #: inc/admin/customizer/customizer-options.php:3556
 msgid "Controls the border color of form text, textarea fields"
@@ -4115,19 +4116,19 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3642
 msgid "Single posts"
-msgstr "单独文章"
+msgstr "個別投稿"
 
 #: inc/admin/customizer/customizer-options.php:3643
 msgid "Single posts + Archive pages"
-msgstr "单独文章 + 存档页面"
+msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3644
 msgid "All pages"
-msgstr "所有页面"
+msgstr "固定ページ一覧"
 
 #: inc/admin/customizer/customizer-options.php:3651
 msgid "Pagination Type"
-msgstr ""
+msgstr "ページ送りのタイプ"
 
 #: inc/admin/customizer/customizer-options.php:3652
 msgid ""
@@ -4144,7 +4145,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3657
 msgid "Infinite Scroll"
-msgstr "无限滚动"
+msgstr "無限スクロール"
 
 #: inc/admin/customizer/customizer-options.php:3663
 msgid "Position of Navigation Links"
@@ -4168,11 +4169,11 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:3669
 #: inc/admin/customizer/customizer-options.php:3733
 msgid "Both"
-msgstr ""
+msgstr "両方"
 
 #: inc/admin/customizer/customizer-options.php:3688
 msgid "Post Title Excerpt Length"
-msgstr ""
+msgstr "投稿タイトルの抜粋の長さ"
 
 #: inc/admin/customizer/customizer-options.php:3689
 msgid ""
@@ -4241,7 +4242,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3759
 msgid "Featured Image"
-msgstr ""
+msgstr "アイキャッチ画像"
 
 #: inc/admin/customizer/customizer-options.php:3764
 msgid "Enable Featured Images"
@@ -4278,11 +4279,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3810
 msgid "Post Format"
-msgstr ""
+msgstr "投稿フォーマット"
 
 #: inc/admin/customizer/customizer-options.php:3815
 msgid "Sticky Post Format Background"
-msgstr ""
+msgstr "上部に固定する投稿フォーマットの背景"
 
 #: inc/admin/customizer/customizer-options.php:3816
 msgid ""
@@ -4291,61 +4292,61 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3824
 msgid "Aside Post Format Background"
-msgstr ""
+msgstr "サイド投稿フォーマットの背景"
 
 #: inc/admin/customizer/customizer-options.php:3825
 msgid ""
 "Check this box if you want to enable background color for aside post format"
-msgstr ""
+msgstr "サイド投稿フォーマットの背景色を有効にするには、このチェックボックスをオンにします"
 
 #: inc/admin/customizer/customizer-options.php:3833
 msgid "Audio Post Format Background"
-msgstr ""
+msgstr "音声投稿フォーマットの背景"
 
 #: inc/admin/customizer/customizer-options.php:3834
 msgid ""
 "Check this box if you want to enable background color for audio post format"
-msgstr ""
+msgstr "音声投稿フォーマットの背景色を有効にするには、このチェックボックスをオンにします"
 
 #: inc/admin/customizer/customizer-options.php:3842
 msgid "Chat Post Format Background"
-msgstr ""
+msgstr "チャット投稿フォーマットの背景"
 
 #: inc/admin/customizer/customizer-options.php:3843
 msgid ""
 "Check this box if you want to enable background color for chat post format"
-msgstr ""
+msgstr "チャット投稿フォーマットの背景色を有効にするには、このチェックボックスをオンにします"
 
 #: inc/admin/customizer/customizer-options.php:3851
 msgid "Gallery Post Format Background"
-msgstr ""
+msgstr "ギャラリー投稿フォーマットの背景"
 
 #: inc/admin/customizer/customizer-options.php:3852
 msgid ""
 "Check this box if you want to enable background color for gallery post format"
-msgstr ""
+msgstr "ギャラリー投稿フォーマットの背景色を有効にするには、このチェックボックスをオンにします"
 
 #: inc/admin/customizer/customizer-options.php:3860
 msgid "Image Post Format Background"
-msgstr ""
+msgstr "イメージ投稿フォーマットの背景"
 
 #: inc/admin/customizer/customizer-options.php:3861
 msgid ""
 "Check this box if you want to enable background color for image post format"
-msgstr ""
+msgstr "イメージ投稿フォーマットの背景色を有効にするには、このチェックボックスをオンにします"
 
 #: inc/admin/customizer/customizer-options.php:3869
 msgid "Link Post Format Background"
-msgstr ""
+msgstr "リンク投稿フォーマットの背景"
 
 #: inc/admin/customizer/customizer-options.php:3870
 msgid ""
 "Check this box if you want to enable background color for link post format"
-msgstr ""
+msgstr "リンク投稿フォーマットの背景色を有効にするには、このチェックボックスをオンにします"
 
 #: inc/admin/customizer/customizer-options.php:3878
 msgid "Quote Post Format Background"
-msgstr ""
+msgstr "引用投稿フォーマットの背景"
 
 #: inc/admin/customizer/customizer-options.php:3879
 msgid ""
@@ -4354,25 +4355,25 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3887
 msgid "Status Post Format Background"
-msgstr ""
+msgstr "ステータス投稿フォーマットの背景"
 
 #: inc/admin/customizer/customizer-options.php:3888
 msgid ""
 "Check this box if you want to enable background color for status post format"
-msgstr ""
+msgstr "ステータス投稿フォーマットの背景色を有効にするには、このチェックボックスをオンにします"
 
 #: inc/admin/customizer/customizer-options.php:3896
 msgid "Video Post Format Background"
-msgstr ""
+msgstr "動画投稿フォーマットの背景"
 
 #: inc/admin/customizer/customizer-options.php:3897
 msgid ""
 "Check this box if you want to enable background color for video post format"
-msgstr ""
+msgstr "動画投稿フォーマットの背景色を有効にするには、このチェックボックスをオンにします"
 
 #: inc/admin/customizer/customizer-options.php:3913
 msgid "Social Media Links"
-msgstr ""
+msgstr "ソーシャルメディアリンク"
 
 #: inc/admin/customizer/customizer-options.php:3918
 msgid "Enable Subscribe/Social Links in Header"
@@ -4400,19 +4401,19 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3951
 msgid "Normal"
-msgstr "正常"
+msgstr "通常"
 
 #: inc/admin/customizer/customizer-options.php:3952
 msgid "Small"
-msgstr ""
+msgstr "小"
 
 #: inc/admin/customizer/customizer-options.php:3953
 msgid "Large"
-msgstr "大"
+msgstr "大サイズ"
 
 #: inc/admin/customizer/customizer-options.php:3954
 msgid "X-Large"
-msgstr ""
+msgstr "特大"
 
 #: inc/admin/customizer/customizer-options.php:3976
 msgid "Enable Social Media Links Border/Radius"
@@ -4438,19 +4439,19 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4034
 msgid "Insert your Facebook URL"
-msgstr ""
+msgstr "Facebook URL を挿入"
 
 #: inc/admin/customizer/customizer-options.php:4043
 msgid "Insert your Twitter URL"
-msgstr ""
+msgstr "Twitter URL を挿入"
 
 #: inc/admin/customizer/customizer-options.php:4052
 msgid "Insert your Instagram URL"
-msgstr ""
+msgstr "Instagram URL を挿入"
 
 #: inc/admin/customizer/customizer-options.php:4061
 msgid "Insert your Skype URL"
-msgstr ""
+msgstr "Skype URL を挿入"
 
 #: inc/admin/customizer/customizer-options.php:4070
 msgid "Insert your YouTube URL"
@@ -4458,7 +4459,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4079
 msgid "Insert your Flickr URL"
-msgstr ""
+msgstr "Flickr URL を挿入"
 
 #: inc/admin/customizer/customizer-options.php:4087
 msgid "Linkedin"
@@ -4466,19 +4467,19 @@ msgstr "LinkedIn"
 
 #: inc/admin/customizer/customizer-options.php:4088
 msgid "Insert your Linkedin profile URL"
-msgstr ""
+msgstr "Linkedin プロフィール URL を挿入"
 
 #: inc/admin/customizer/customizer-options.php:4097
 msgid "Insert your Google Plus profile URL"
-msgstr ""
+msgstr "Google Plus プロフィール URL を挿入"
 
 #: inc/admin/customizer/customizer-options.php:4106
 msgid "Insert your Pinterest profile URL"
-msgstr ""
+msgstr "Pinterest プロフィール URL を挿入"
 
 #: inc/admin/customizer/customizer-options.php:4115
 msgid "Insert your Tumblr profile URL"
-msgstr ""
+msgstr "Tumblr プロフィール URL を挿入"
 
 #: inc/admin/customizer/customizer-options.php:4147
 msgid "Enable Bootstrap Slider"
@@ -4514,7 +4515,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4183
 msgid "Speed"
-msgstr ""
+msgstr "速度"
 
 #: inc/admin/customizer/customizer-options.php:4184
 msgid "Input the time between transitions (Default: 7000)"
@@ -4656,7 +4657,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4340
 msgid "Choose your Bootstrap Slider layout style"
-msgstr ""
+msgstr "Bootstrap スライダーのレイアウトスタイルを選択"
 
 #: inc/admin/customizer/customizer-options.php:4361
 #: inc/admin/customizer/customizer-options.php:4653
@@ -4712,11 +4713,11 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:4443
 #: inc/admin/customizer/customizer-options.php:4735
 msgid "Slides"
-msgstr ""
+msgstr "スライド"
 
 #: inc/admin/customizer/customizer-options.php:4471
 msgid "Enable Parallax Slider"
-msgstr ""
+msgstr "パララックススライダーを有効にする"
 
 #: inc/admin/customizer/customizer-options.php:4472
 msgid "Check this box if you want to enable Parallax Slider"
@@ -4740,7 +4741,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4498
 msgid "Parallax Speed"
-msgstr ""
+msgstr "パララックス速度"
 
 #: inc/admin/customizer/customizer-options.php:4499
 msgid "Input the time between transitions (Default: 4000)"
@@ -4776,7 +4777,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4752
 msgid "Enable Posts Slider"
-msgstr ""
+msgstr "投稿スライダーを有効にする"
 
 #: inc/admin/customizer/customizer-options.php:4753
 msgid "Check this box if you want to enable Posts Slider"
@@ -4828,7 +4829,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4815
 msgid "Slider Speed"
-msgstr "滑块速度"
+msgstr "スライダーのスピード"
 
 #: inc/admin/customizer/customizer-options.php:4816
 msgid "Input the time between transitions (Default: 3500)"
@@ -4868,7 +4869,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4994
 msgid "Extra"
-msgstr ""
+msgstr "備考"
 
 #: inc/admin/customizer/customizer-options.php:4999
 msgid "Position of 'Back to Top' Button"
@@ -4876,7 +4877,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:5005
 msgid "Middle"
-msgstr "中部"
+msgstr "Middle"
 
 #: inc/admin/customizer/customizer-options.php:5011
 msgid "Enable Edit Post/Page Link on The Front End"
@@ -4983,11 +4984,11 @@ msgstr ""
 #: inc/admin/customizer/customizer.php:216
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:4
 msgid "Default"
-msgstr "默认"
+msgstr "デフォルト"
 
 #: inc/admin/customizer/customizer.php:212
 msgid "All"
-msgstr "全部"
+msgstr "すべて"
 
 #: inc/admin/customizer/customizer.php:522
 #: inc/admin/customizer/customizer.php:540
@@ -5024,27 +5025,27 @@ msgstr ""
 
 #: inc/admin/metaboxes/metaboxes.php:268
 msgid "Upload"
-msgstr "上传"
+msgstr "アップロード"
 
 #: inc/admin/metaboxes/metaboxes.php:269
 msgid "Remove"
-msgstr "移除"
+msgstr "削除"
 
 #: inc/admin/metaboxes/metaboxes.php:278
 msgid "Layout"
-msgstr ""
+msgstr "レイアウト"
 
 #: inc/admin/metaboxes/metaboxes.php:281
 msgid "Slider"
-msgstr ""
+msgstr "スライダー"
 
 #: woocommerce/single-product/add-to-cart/variable.php:34
 msgid "This product is currently out of stock and unavailable."
-msgstr ""
+msgstr "現在この商品は在庫切れでご利用出来ません。"
 
 #: woocommerce/single-product/add-to-cart/variable.php:52
 msgid "Clear"
-msgstr ""
+msgstr "解除"
 
 #: woocommerce/single-product/tabs/description.php:15
 msgid "Product description"
@@ -5052,21 +5053,21 @@ msgstr ""
 
 #: inc/admin/metaboxes/page-tabs/tab-header.php:3
 msgid "Enable Header Widgets"
-msgstr ""
+msgstr "ヘッダーウィジェットを有効にする"
 
 #: inc/admin/metaboxes/page-tabs/tab-header.php:4
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:16
 msgid "No"
-msgstr "否"
+msgstr "いいえ"
 
 #: inc/admin/metaboxes/page-tabs/tab-header.php:5
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:17
 msgid "Yes"
-msgstr "是"
+msgstr "はい"
 
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:5
 msgid "Sidebar Position"
-msgstr "边栏位置"
+msgstr "サイドバー配置"
 
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:5
 msgid "Use this setting to select and set position of sidebar"
@@ -5081,7 +5082,7 @@ msgstr ""
 
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:15
 msgid "Full Width"
-msgstr "全宽"
+msgstr "全幅"
 
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:15
 #, php-format
@@ -5092,20 +5093,20 @@ msgstr ""
 
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:3
 msgid "Page Title"
-msgstr "页面标题"
+msgstr "ページタイトル"
 
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:5
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:10
 msgid "Hide"
-msgstr "隐藏"
+msgstr "非表示"
 
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:8
 msgid "Page Breadcrumb"
-msgstr ""
+msgstr "ページのパンくずリスト"
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:3
 msgid "Slider Position"
-msgstr ""
+msgstr "スライダーの位置"
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:3
 msgid ""
@@ -5115,19 +5116,19 @@ msgstr ""
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:5
 msgid "Below"
-msgstr ""
+msgstr "下"
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:6
 msgid "Above"
-msgstr ""
+msgstr "上"
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:10
 msgid "Slider Type"
-msgstr "滑块类型"
+msgstr "スライダーの種類"
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:11
 msgid "No Slider"
-msgstr ""
+msgstr "スライダーなし"
 
 #. Description of the theme
 msgid ""
@@ -5145,12 +5146,12 @@ msgstr ""
 
 #. Theme URI of the plugin/theme
 msgid "https://theme4press.com/evolve-multipurpose-wordpress-theme/"
-msgstr ""
+msgstr "https://theme4press.com/evolve-multipurpose-wordpress-theme/"
 
 #. Author of the plugin/theme
 msgid "Theme4Press"
-msgstr ""
+msgstr "Theme4Press"
 
 #. Author URI of the plugin/theme
 msgid "http://theme4press.com"
-msgstr ""
+msgstr "http://theme4press.com"

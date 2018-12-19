@@ -376,7 +376,7 @@ add_action( 'evolve_footer_area', 'evolve_footer_widgets', 30 );
 
 if ( ! function_exists( 'evolve_custom_footer' ) ) {
 	function evolve_custom_footer() {
-		$evolve_home_url = esc_url( "http://theme4press.com/" );
+		$evolve_home_url = esc_url( "https://theme4press.com/" );
 		echo '<div class="row"><div class="col custom-footer">' . evolve_theme_mod( 'evl_footer_content', '<div id="copyright"><a href="' . $evolve_home_url . 'evolve-multipurpose-wordpress-theme/">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a></div>' ) . '</div></div>';
 	}
 }

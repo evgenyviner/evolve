@@ -1,19 +1,19 @@
-# Translation of Themes - evolve in Chinese (China)
+# Translation of Themes - evolve in English (UK)
 # This file is distributed under the same license as the Themes - evolve package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-12-19 22:17+0000\n"
+"PO-Revision-Date: 2018-12-19 22:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Loco https://localise.biz/\n"
-"Language: zh_CN\n"
+"Language: en_GB\n"
 "Project-Id-Version: Themes - evolve\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-19 22:14+0000\n"
 "Last-Translator: admin <senditme@centrum.sk>\n"
-"Language-Team: Chinese (China)\n"
+"Language-Team: English (UK)\n"
 "X-Loco-Version: 2.2.0; wp-5.0.1"
 
 #: 404.php:31
@@ -28,11 +28,11 @@ msgstr ""
 
 #: comments.php:8
 msgid "This post is password protected. Enter the password to view comments."
-msgstr "本文章受密码保护。要查看评论，请输入密码。"
+msgstr "This post is password protected. Enter the password to view comments."
 
 #: comments.php:54 inc/comments.php:38
 msgid "No Comments Yet"
-msgstr "尚无评论"
+msgstr ""
 
 #: comments.php:70
 msgid "Comments are closed"
@@ -41,11 +41,11 @@ msgstr ""
 #: functions.php:89
 #, php-format
 msgid "Page %s"
-msgstr "第%s页"
+msgstr "Page %s"
 
 #: functions.php:131
 msgid "Primary Menu"
-msgstr "主菜单"
+msgstr "Primary Menu"
 
 #: functions.php:132
 msgid "Sticky Header Menu"
@@ -62,7 +62,7 @@ msgstr ""
 #: functions.php:527 inc/template-tags.php:1014
 #: template-parts/post/content-post.php:66
 msgid "Read More"
-msgstr "详细内容"
+msgstr "Read More"
 
 #: functions.php:542
 msgid "To view this protected content, enter the password below"
@@ -76,7 +76,7 @@ msgstr ""
 #: bbpress/form-topic-merge.php:106 bbpress/form-topic-split.php:111
 #: bbpress/form-topic.php:251 woocommerce/single-product-reviews.php:76
 msgid "Submit"
-msgstr "提交"
+msgstr "Submit"
 
 #: header.php:19
 msgid "Skip to main content"
@@ -94,7 +94,7 @@ msgstr ""
 
 #: search.php:65 woocommerce/loop/no-products-found.php:29
 msgid "Suggestions"
-msgstr ""
+msgstr "Suggestions"
 
 #: search.php:67 woocommerce/loop/no-products-found.php:31
 msgid "Make sure all words are spelled correctly."
@@ -148,16 +148,16 @@ msgstr ""
 
 #: bbpress/content-statistics.php:22
 msgid "Forums"
-msgstr ""
+msgstr "Forums"
 
 #: bbpress/content-statistics.php:27 bbpress/loop-forums.php:16
 msgid "Topics"
-msgstr "主题"
+msgstr "Topics"
 
 #: bbpress/content-statistics.php:32 bbpress/loop-forums.php:17
 #: bbpress/loop-topics.php:18
 msgid "Replies"
-msgstr "回复"
+msgstr "Replies"
 
 #: bbpress/content-statistics.php:37
 msgid "Topic Tags"
@@ -185,7 +185,7 @@ msgstr ""
 
 #: bbpress/form-anonymous.php:29
 msgid "Email*"
-msgstr ""
+msgstr "Email*"
 
 #: bbpress/form-anonymous.php:35 bbpress/form-user-edit.php:79
 #: inc/comments.php:245
@@ -195,37 +195,41 @@ msgstr ""
 #: bbpress/form-reply-move.php:18
 #, php-format
 msgid "Move reply \"%s\""
-msgstr ""
+msgstr "Move reply \"%s\""
 
 #: bbpress/form-reply-move.php:21
 msgid ""
 "You can either make this reply a new topic with a new title, or merge it "
 "into an existing topic"
 msgstr ""
+"You can either make this reply a new topic with a new title, or merge it "
+"into an existing topic"
 
 #: bbpress/form-reply-move.php:25
 msgid ""
 "If you choose an existing topic, replies will be ordered by the time and "
 "date they were created"
 msgstr ""
+"If you choose an existing topic, replies will be ordered by the time and "
+"date they were created"
 
 #: bbpress/form-reply-move.php:28
 msgid "Move method"
-msgstr ""
+msgstr "Move method"
 
 #: bbpress/form-reply-move.php:35 bbpress/form-topic-split.php:33
 #, php-format
 msgid "New topic in <strong>%s</strong> titled:"
-msgstr ""
+msgstr "New topic in <strong>%s</strong> titled:"
 
 #: bbpress/form-reply-move.php:39
 #, php-format
 msgid "Moved: %s"
-msgstr ""
+msgstr "Moved: %s"
 
 #: bbpress/form-reply-move.php:55 bbpress/form-topic-split.php:53
 msgid "Use an existing topic in this forum:"
-msgstr "使用一个已经存在此论坛中的话题："
+msgstr "Use an existing topic in this forum:"
 
 #: bbpress/form-reply-move.php:65 bbpress/form-topic-split.php:64
 msgid "No other topics found!"
@@ -234,15 +238,15 @@ msgstr ""
 #: bbpress/form-reply-move.php:71 bbpress/form-topic-merge.php:100
 #: bbpress/form-topic-split.php:105
 msgid "<strong>WARNING:</strong> This process cannot be undone"
-msgstr ""
+msgstr "<strong>WARNING:</strong> This process cannot be undone"
 
 #: bbpress/form-reply-move.php:88
 msgid "You do not have the permissions to edit this reply!"
-msgstr ""
+msgstr "You do not have the permissions to edit this reply!"
 
 #: bbpress/form-reply-move.php:88
 msgid "You cannot edit this reply"
-msgstr ""
+msgstr "You cannot edit this reply"
 
 #: bbpress/form-reply.php:23
 #, php-format
@@ -264,7 +268,7 @@ msgstr ""
 msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
 "and attributes:"
-msgstr "您可以使用这些 <abbr title=\"超文本标记语言\">HTML</abbr> 标签与属性："
+msgstr ""
 
 #: bbpress/form-reply.php:80 bbpress/form-topic.php:95
 msgid "Your account has the ability to post unrestricted HTML content"
@@ -276,19 +280,19 @@ msgstr ""
 
 #: bbpress/form-reply.php:115 bbpress/form-topic.php:190
 msgid "Keep a log of this edit"
-msgstr ""
+msgstr "Keep a log of this edit"
 
 #: bbpress/form-reply.php:122 bbpress/form-topic.php:197
 msgid "Optional reason for editing"
-msgstr ""
+msgstr "Optional reason for editing"
 
 #: bbpress/form-reply.php:148 bbpress/form-topic.php:223
 msgid "Notify the author of follow-up replies via email"
-msgstr "通过邮件提醒我来自楼主的回复"
+msgstr "Notify the author of follow-up replies via email"
 
 #: bbpress/form-reply.php:156 bbpress/form-topic.php:231
 msgid "Notify me of follow-up replies via email"
-msgstr "有新回帖时通过邮件通知我"
+msgstr "Notify me of follow-up replies via email"
 
 #: bbpress/form-reply.php:198
 #, php-format
@@ -310,24 +314,28 @@ msgstr ""
 
 #: bbpress/form-search.php:15
 msgid "Search forum"
-msgstr ""
+msgstr "Search forum"
 
 #: bbpress/form-topic-merge.php:17
 #, php-format
 msgid "Merge topic \"%s\""
-msgstr "合并主题 \"%s\""
+msgstr "Merge topic \"%s\""
 
 #: bbpress/form-topic-merge.php:21
 msgid ""
 "Select the topic to merge this one into. The destination topic will remain "
 "the lead topic, and this one will change into a reply."
-msgstr "选择一个话题使得此话题合并到其中。话题描述将仍然是主话题的描述，此话题将变成其一条回复。"
+msgstr ""
+"Select the topic to merge this one into. The destination topic will remain "
+"the lead topic, and this one will change into a reply."
 
 #: bbpress/form-topic-merge.php:22
 msgid ""
 "To keep this topic as the lead, go to the other topic and use the merge tool "
 "from there instead."
-msgstr "要使此主题成合并后的主题，请去要合并的主题页面并使用那个页面中的合并工具。"
+msgstr ""
+"To keep this topic as the lead, go to the other topic and use the merge tool "
+"from there instead."
 
 #: bbpress/form-topic-merge.php:26
 msgid ""
@@ -336,15 +344,14 @@ msgid ""
 "destination topic was created after this one, it's post date will be updated "
 "to second earlier than this one."
 msgstr ""
-"两个主题的回复都会被按年代合并。合并的回复按照它们发表的时间排列。如果合并到的主题到在要合并的主题之后创建，其发表时间将会由前一个较早的时间替代。"
 
 #: bbpress/form-topic-merge.php:29
 msgid "Destination"
-msgstr "目标"
+msgstr "Destination"
 
 #: bbpress/form-topic-merge.php:40
 msgid "Merge with this topic:"
-msgstr "将此主题合并："
+msgstr "Merge with this topic:"
 
 #: bbpress/form-topic-merge.php:50
 msgid "No topics were found to which the topic could be merged to!"
@@ -352,106 +359,112 @@ msgstr ""
 
 #: bbpress/form-topic-merge.php:58
 msgid "There are no other topics in this forum to merge with"
-msgstr ""
+msgstr "There are no other topics in this forum to merge with"
 
 #: bbpress/form-topic-merge.php:64 bbpress/form-topic-split.php:70
 msgid "Topic extras"
-msgstr ""
+msgstr "Topic extras"
 
 #: bbpress/form-topic-merge.php:74
 msgid "Merge topic subscribers"
-msgstr "合并话题订阅者"
+msgstr "Merge topic subscribers"
 
 #: bbpress/form-topic-merge.php:84
 msgid "Merge topic favoriters"
-msgstr "合并话题收藏者"
+msgstr "Merge topic favouriters"
 
 #: bbpress/form-topic-merge.php:94
 msgid "Merge topic tags"
-msgstr "合并话题标签"
+msgstr "Merge topic tags"
 
 #: bbpress/form-topic-merge.php:117 bbpress/form-topic-split.php:122
 msgid "You do not have the permissions to edit this topic!"
-msgstr "您没有权限编辑此话题！"
+msgstr "You do not have the permissions to edit this topic!"
 
 #: bbpress/form-topic-merge.php:117 bbpress/form-topic-split.php:122
 msgid "You cannot edit this topic"
-msgstr ""
+msgstr "You cannot edit this topic"
 
 #: bbpress/form-topic-split.php:18
 #, php-format
 msgid "Split topic \"%s\""
-msgstr "分割主题 \"%s\""
+msgstr "Split topic \"%s\""
 
 #: bbpress/form-topic-split.php:21
 msgid ""
 "When you split a topic, you are slicing it in half starting with the reply "
 "you just selected. Choose to use that reply as a new topic with a new title, "
 "or merge those replies into an existing topic."
-msgstr "当您分割一个主题时，此主题将从您选择的回复开始被分割成两部分。您可以给此回复添加标题使之成为新的主题，或者将这些回复合并到一个已有的主题中。"
+msgstr ""
+"When you split a topic, you are slicing it in half starting with the reply "
+"you just selected. Choose to use that reply as a new topic with a new title, "
+"or merge those replies into an existing topic."
 
 #: bbpress/form-topic-split.php:24
 msgid ""
 "If you use the existing topic option, replies within both topics will be "
 "merged chronologically. The order of the merged replies is based on the time "
 "and date they were posted."
-msgstr "如果使用已有的主题选项，两个主题的回复都会按照年代顺序来合并。合并的数序取决于回复发表的时间。"
+msgstr ""
+"If you use the existing topic option, replies within both topics will be "
+"merged chronologically. The order of the merged replies is based on the time "
+"and date they were posted."
 
 #: bbpress/form-topic-split.php:26
 msgid "Split method"
-msgstr ""
+msgstr "Split method"
 
 #: bbpress/form-topic-split.php:37
 #, php-format
 msgid "Split: %s"
-msgstr "分割：%s"
+msgstr "Split: %s"
 
 #: bbpress/form-topic-split.php:79
 msgid "Copy subscribers to the new topic"
-msgstr "把订阅者复制到新主题"
+msgstr "Copy subscribers to the new topic"
 
 #: bbpress/form-topic-split.php:89
 msgid "Copy favoriters to the new topic"
-msgstr "把收藏复制到新主题"
+msgstr "Copy favouriters to the new topic"
 
 #: bbpress/form-topic-split.php:99
 msgid "Copy topic tags to the new topic"
-msgstr "把帖子的标签复制到新主题"
+msgstr "Copy topic tags to the new topic"
 
 #: bbpress/form-topic-tag.php:15
 #, php-format
 msgid "Manage Tag: \"%s\""
-msgstr "管理标签：\"%s\""
+msgstr ""
 
 #: bbpress/form-topic-tag.php:19
 msgid "Rename"
-msgstr "重命名"
+msgstr ""
 
 #: bbpress/form-topic-tag.php:22
 msgid "Leave the slug empty to have one automatically generated."
-msgstr "要想自动生成别名，请讲别名栏留空"
+msgstr ""
 
 #: bbpress/form-topic-tag.php:26
 msgid ""
 "Changing the slug affects its permalink. Any links to the old slug will stop "
 "working."
-msgstr "改变别名将会影响到固定链接。任何链接到旧的别名的链接都将失效。"
+msgstr ""
 
 #: bbpress/form-topic-tag.php:32
 msgid "Name:"
-msgstr "名称："
+msgstr "Name:"
 
 #: bbpress/form-topic-tag.php:37
 msgid "Slug:"
-msgstr "别名："
+msgstr ""
 
 #: bbpress/form-topic-tag.php:42
 msgid "Update"
-msgstr "更新"
+msgstr "Update"
 
 #: bbpress/form-topic-tag.php:56 bbpress/form-topic-tag.php:70
 msgid "Merge"
-msgstr "合并"
+msgstr ""
 
 #: bbpress/form-topic-tag.php:59
 msgid "Merging tags together cannot be undone"
@@ -459,36 +472,36 @@ msgstr ""
 
 #: bbpress/form-topic-tag.php:65
 msgid "Existing tag:"
-msgstr "现有的标签"
+msgstr ""
 
 #: bbpress/form-topic-tag.php:70
 #, php-format
 msgid ""
 "Are you sure you want to merge the \"%s\" tag into the tag you specified?"
-msgstr "您确定要将标签\"%s\"合并到您指定的标签吗？"
+msgstr ""
 
 #: bbpress/form-topic-tag.php:85 bbpress/form-topic-tag.php:98
 msgid "Delete"
-msgstr "删除"
+msgstr "Delete"
 
 #: bbpress/form-topic-tag.php:88
 msgid "This does not delete your topics. Only the tag itself is deleted."
-msgstr "这不会删除您的话题。只有此话题的标签会被删除。"
+msgstr ""
 
 #: bbpress/form-topic-tag.php:91
 msgid "Deleting a tag cannot be undone."
-msgstr "删除一个标签是不可撤销的。"
+msgstr ""
 
 #: bbpress/form-topic-tag.php:92
 msgid "Any links to this tag will no longer function."
-msgstr "任何链接到此标签的链接都将失效。"
+msgstr ""
 
 #: bbpress/form-topic-tag.php:98
 #, php-format
 msgid ""
 "Are you sure you want to delete the \"%s\" tag? This is permanent and cannot "
 "be undone."
-msgstr "您确定要删除标签\"%s\"？这将是永久地且不可恢复。"
+msgstr ""
 
 #: bbpress/form-topic.php:23
 #, php-format
@@ -502,7 +515,7 @@ msgstr ""
 
 #: bbpress/form-topic.php:25
 msgid "Create new topic"
-msgstr ""
+msgstr "Create new topic"
 
 #: bbpress/form-topic.php:38
 msgid ""
@@ -513,12 +526,12 @@ msgstr ""
 #: bbpress/form-topic.php:53
 #, php-format
 msgid "Topic title (maximum length: %d)"
-msgstr ""
+msgstr "Topic title (maximum length: %d)"
 
 #: bbpress/form-topic.php:129 bbpress/loop-forums.php:15
 #: bbpress/loop-search.php:12
 msgid "Forum"
-msgstr "论坛"
+msgstr "Forum"
 
 #: bbpress/form-topic.php:134
 msgid "No forum"
@@ -526,11 +539,11 @@ msgstr ""
 
 #: bbpress/form-topic.php:151
 msgid "Topic type"
-msgstr ""
+msgstr "Topic type"
 
 #: bbpress/form-topic.php:166
 msgid "Topic status"
-msgstr ""
+msgstr "Topic status"
 
 #: bbpress/form-topic.php:270
 #, php-format
@@ -539,16 +552,16 @@ msgstr ""
 
 #: bbpress/form-topic.php:278
 msgid "You cannot create new topics"
-msgstr ""
+msgstr "You cannot create new topics"
 
 #: bbpress/form-topic.php:278
 msgid "You must be logged in to create new topics"
-msgstr ""
+msgstr "You must be logged in to create new topics"
 
 #: bbpress/form-user-edit.php:17 inc/comments.php:235
 #: inc/woocommerce-support.php:354 woocommerce/single-product-reviews.php:71
 msgid "Name"
-msgstr "姓名"
+msgstr "Name"
 
 #: bbpress/form-user-edit.php:28 inc/woocommerce-support.php:1734
 msgid "First name"
@@ -590,7 +603,7 @@ msgstr ""
 #: bbpress/form-user-register.php:21 inc/woocommerce-support.php:2185
 #: woocommerce/myaccount/form-login.php:90
 msgid "Username"
-msgstr "用户名"
+msgstr "Username"
 
 #: bbpress/form-user-edit.php:137 bbpress/form-user-register.php:28
 #: inc/comments.php:240 woocommerce/single-product-reviews.php:73
@@ -653,7 +666,7 @@ msgstr ""
 #: woocommerce/myaccount/form-login.php:46
 #: woocommerce/myaccount/form-login.php:110
 msgid "Password"
-msgstr "密码"
+msgstr "Password"
 
 #: bbpress/form-user-login.php:33
 msgid "Keep me signed in"
@@ -694,33 +707,33 @@ msgstr ""
 #: bbpress/loop-forums.php:17 bbpress/loop-topics.php:18
 #: inc/admin/customizer/customizer-options.php:3683
 msgid "Posts"
-msgstr "文章"
+msgstr "Posts"
 
 #: bbpress/loop-forums.php:18 bbpress/loop-topics.php:19
 msgid "Freshness"
-msgstr "最近更新"
+msgstr "Freshness"
 
 #: bbpress/loop-search-forum.php:15
 msgid "Forum: "
-msgstr "论坛："
+msgstr "Forum: "
 
 #: bbpress/loop-search-forum.php:27
 #, php-format
 msgid "Last updated %s"
-msgstr ""
+msgstr "Last updated %s"
 
 #: bbpress/loop-search-reply.php:14
 msgid "In reply to: "
-msgstr "回复于："
+msgstr "in reply to: "
 
 #: bbpress/loop-search-topic.php:22
 msgid "Topic: "
-msgstr "标题："
+msgstr "Topic: "
 
 #: bbpress/loop-search-topic.php:50 bbpress/loop-single-topic.php:76
 #, php-format
 msgid "Started by %1$s"
-msgstr ""
+msgstr "Started by %1$s"
 
 #: bbpress/loop-search-topic.php:65 bbpress/loop-single-topic.php:91
 #, php-format
@@ -733,11 +746,11 @@ msgstr ""
 
 #: bbpress/loop-search.php:11 bbpress/loop-topics.php:16
 msgid "Topic"
-msgstr "帖子"
+msgstr "Topic"
 
 #: bbpress/loop-single-reply.php:16
 msgid "In reply to "
-msgstr ""
+msgstr "In reply to "
 
 #: bbpress/loop-single-reply.php:45
 #, php-format
@@ -756,58 +769,58 @@ msgstr ""
 #: bbpress/user-details.php:28
 #, php-format
 msgid "%s's Profile"
-msgstr "%s 的档案"
+msgstr "%s's Profile"
 
 #: bbpress/user-details.php:29 bbpress/user-profile.php:14
 msgid "Profile"
-msgstr "个人资料"
+msgstr "Profile"
 
 #: bbpress/user-details.php:34
 #, php-format
 msgid "%s's Topics Started"
-msgstr ""
+msgstr "%s's Topics Started"
 
 #: bbpress/user-details.php:34
 msgid "Topics Started"
-msgstr "已发起的主题"
+msgstr "Topics Started"
 
 #: bbpress/user-details.php:39
 #, php-format
 msgid "%s's Replies Created"
-msgstr ""
+msgstr "%s's Replies Created"
 
 #: bbpress/user-details.php:39
 msgid "Replies Created"
-msgstr ""
+msgstr "Replies Created"
 
 #: bbpress/user-details.php:47
 #, php-format
 msgid "%s's Favorites"
-msgstr ""
+msgstr "%s's Favourites"
 
 #: bbpress/user-details.php:47
 msgid "Favorites"
-msgstr "收藏夹"
+msgstr "Favourites"
 
 #: bbpress/user-details.php:59
 #, php-format
 msgid "%s's Subscriptions"
-msgstr ""
+msgstr "%s's Subscriptions"
 
 #: bbpress/user-details.php:59
 msgid "Subscriptions"
-msgstr "订阅"
+msgstr "Subscriptions"
 
 #: bbpress/user-details.php:67
 #, php-format
 msgid "Edit %s's Profile"
-msgstr "编辑 %s 的档案"
+msgstr "Edit %s's Profile"
 
 #: bbpress/user-details.php:67 inc/front-page-elements.php:108
 #: inc/front-page-elements.php:230 inc/front-page-elements.php:322
 #: inc/woocommerce-support.php:1447
 msgid "Edit"
-msgstr "编辑"
+msgstr "Edit"
 
 #: bbpress/user-favorites.php:17
 msgid "Favorite forum topics"
@@ -903,12 +916,12 @@ msgstr ""
 #: inc/comments.php:37 inc/template-tags.php:479
 #: template-parts/post/content-post.php:52
 msgid "% Comments"
-msgstr "%条评论"
+msgstr "% Comments"
 
 #: inc/comments.php:39 inc/template-tags.php:479
 #: template-parts/post/content-post.php:52
 msgid "1 Comment"
-msgstr "一条评论"
+msgstr "1 Comment"
 
 #: inc/comments.php:43
 msgid "% Pings/Trackbacks"
@@ -924,7 +937,7 @@ msgstr ""
 
 #: inc/comments.php:110 inc/tabs-widget.php:76
 msgid "Comments"
-msgstr "评论"
+msgstr "Comments"
 
 #: inc/comments.php:159
 msgid "Author"
@@ -945,7 +958,7 @@ msgstr ""
 
 #: inc/comments.php:187
 msgid "Your comment is awaiting moderation"
-msgstr ""
+msgstr "Your comment is awaiting moderation"
 
 #: inc/comments.php:250
 msgid ""
@@ -990,7 +1003,7 @@ msgstr ""
 
 #: inc/tabs-widget.php:59
 msgid "Popular"
-msgstr "热门"
+msgstr "Popular"
 
 #: inc/tabs-widget.php:67
 msgid "Recent"
@@ -1014,7 +1027,7 @@ msgstr ""
 
 #: inc/tabs-widget.php:266
 msgid "Number of popular posts"
-msgstr ""
+msgstr "Number of popular posts"
 
 #: inc/tabs-widget.php:272
 msgid "Number of recent posts"
@@ -1034,7 +1047,7 @@ msgstr ""
 
 #: inc/tabs-widget.php:299
 msgid "Show comments"
-msgstr "显示评论"
+msgstr "Show comments"
 
 #: inc/template-functions.php:333
 msgid "You are browsing archives for"
@@ -1046,7 +1059,7 @@ msgstr ""
 
 #: inc/template-tags.php:88 inc/template-tags.php:805
 msgid "Search"
-msgstr "搜索"
+msgstr "Search"
 
 #: inc/template-tags.php:128 inc/template-tags.php:142
 msgid "Sticky"
@@ -1054,7 +1067,7 @@ msgstr ""
 
 #: inc/template-tags.php:468
 msgid "Written by"
-msgstr "作者"
+msgstr ""
 
 #: inc/template-tags.php:469
 #, php-format
@@ -1063,7 +1076,7 @@ msgstr ""
 
 #: inc/template-tags.php:479 template-parts/post/content-post.php:52
 msgid "Leave a Comment"
-msgstr "留下评论"
+msgstr "Leave a comment"
 
 #: inc/template-tags.php:548
 msgid "Similar posts"
@@ -1071,11 +1084,11 @@ msgstr ""
 
 #: inc/template-tags.php:553
 msgid "Permanent Link to"
-msgstr "永久链接："
+msgstr ""
 
 #: inc/template-tags.php:560
 msgid "Untitled"
-msgstr "未命名"
+msgstr "Untitled"
 
 #: inc/template-tags.php:659 woocommerce/loop/pagination.php:28
 msgid "Pages"
@@ -1083,15 +1096,15 @@ msgstr ""
 
 #: inc/template-tags.php:659
 msgid "Pages:"
-msgstr ""
+msgstr "Pages:"
 
 #: inc/template-tags.php:735 inc/woocommerce-support.php:291
 msgid "Home"
-msgstr "首页"
+msgstr "Home"
 
 #: inc/template-tags.php:757 inc/admin/customizer/customizer-options.php:3599
 msgid "Blog"
-msgstr "日志"
+msgstr "Blog"
 
 #: inc/template-tags.php:802
 msgid "404 - Page not Found"
@@ -1105,11 +1118,11 @@ msgstr ""
 
 #: inc/template-tags.php:1108 inc/admin/customizer/customizer-options.php:4015
 msgid "RSS Feed"
-msgstr "RSS 订阅"
+msgstr "RSS Feed"
 
 #: inc/template-tags.php:1117 inc/admin/customizer/customizer-options.php:4024
 msgid "Newsletter"
-msgstr ""
+msgstr "Newsletter"
 
 #: inc/template-tags.php:1125 inc/admin/customizer/customizer-options.php:4033
 msgid "Facebook"
@@ -1129,7 +1142,7 @@ msgstr "Instagram"
 
 #: inc/template-tags.php:1156 inc/admin/customizer/customizer-options.php:4060
 msgid "Skype"
-msgstr "Skype"
+msgstr ""
 
 #: inc/template-tags.php:1164 inc/admin/customizer/customizer-options.php:4069
 msgid "YouTube"
@@ -1153,11 +1166,11 @@ msgstr "Tumblr"
 
 #: inc/template-tags.php:1228
 msgid "Share on Twitter"
-msgstr "在 Twitter 分享"
+msgstr "Share on Twitter"
 
 #: inc/template-tags.php:1235
 msgid "Share on Facebook"
-msgstr "在 Facebook 分享"
+msgstr "Share on Facebook"
 
 #: inc/template-tags.php:1242
 msgid "Share on Google Plus"
@@ -1173,15 +1186,15 @@ msgstr ""
 
 #: inc/template-tags.php:1263
 msgid "More options"
-msgstr "更多选项"
+msgstr ""
 
 #: inc/widgets.php:10
 msgid "Sidebar 1"
-msgstr ""
+msgstr "Sidebar 1"
 
 #: inc/widgets.php:19
 msgid "Sidebar 2"
-msgstr ""
+msgstr "Sidebar 2"
 
 #: inc/widgets.php:32
 #, php-format
@@ -1233,7 +1246,7 @@ msgstr ""
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:4
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:9
 msgid "Show"
-msgstr "显示"
+msgstr "Show"
 
 #: inc/woocommerce-support.php:363
 msgid " Products"
@@ -1397,7 +1410,7 @@ msgstr ""
 
 #: inc/woocommerce-support.php:1230
 msgid "Status"
-msgstr "状态"
+msgstr "Status"
 
 #: inc/woocommerce-support.php:1231 inc/woocommerce-support.php:1798
 #: woocommerce/cart/cart-totals.php:93 woocommerce/cart/cart-totals.php:94
@@ -1560,7 +1573,7 @@ msgstr ""
 
 #: inc/woocommerce-support.php:1928
 msgid "Email:"
-msgstr "邮件:"
+msgstr "Email:"
 
 #: inc/woocommerce-support.php:1931
 msgid "Telephone:"
@@ -1680,7 +1693,7 @@ msgstr ""
 #: inc/admin/class-evolve-admin.php:96
 #: inc/admin/customizer/customizer-options.php:24
 msgid "Theme Homepage"
-msgstr ""
+msgstr "Theme Homepage"
 
 #: inc/admin/class-evolve-admin.php:102
 #: inc/admin/customizer/customizer-options.php:24
@@ -1735,7 +1748,7 @@ msgstr ""
 #: inc/admin/class-evolve-admin.php:220
 #: inc/admin/customizer/customizer-options.php:24
 msgid "Documentation"
-msgstr "文档"
+msgstr "Documentation"
 
 #: inc/admin/class-evolve-admin.php:225
 msgid "Knowledge Base"
@@ -1753,7 +1766,7 @@ msgstr ""
 #: inc/admin/class-evolve-admin.php:239
 #: inc/admin/customizer/customizer-options.php:24
 msgid "Support"
-msgstr "支持"
+msgstr "Support"
 
 #: inc/admin/class-evolve-admin.php:249
 msgid "Help Translate"
@@ -1803,7 +1816,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:24
 #: inc/admin/customizer/customizer-options.php:5043
 msgid "WooCommerce"
-msgstr "WooCommerce"
+msgstr ""
 
 #: inc/admin/class-evolve-admin.php:323
 msgid "WPML"
@@ -1816,7 +1829,7 @@ msgstr ""
 #. Theme Name of the plugin/theme
 #: inc/admin/class-evolve-admin.php:392
 msgid "evolve"
-msgstr ""
+msgstr "evolve"
 
 #: inc/admin/class-evolve-admin.php:399
 #: inc/admin/customizer/customizer-options.php:24
@@ -1836,7 +1849,7 @@ msgstr ""
 #: inc/admin/class-evolve-admin.php:420
 #: inc/admin/customizer/customizer-options.php:24
 msgid "Portfolios"
-msgstr ""
+msgstr "Portfolios"
 
 #: inc/admin/class-evolve-admin.php:427
 #: inc/admin/customizer/customizer-options.php:24
@@ -1871,7 +1884,7 @@ msgstr ""
 #: inc/admin/class-evolve-admin.php:469
 #: inc/admin/customizer/customizer-options.php:24
 msgid "Shortcodes"
-msgstr ""
+msgstr "Shortcodes"
 
 #: inc/admin/class-evolve-admin.php:476
 msgid "Child Theme"
@@ -2041,11 +2054,11 @@ msgstr ""
 
 #: template-parts/navigation/navigation.php:36
 msgid "Newer Entries"
-msgstr "新文章"
+msgstr "Newer Entries"
 
 #: template-parts/navigation/navigation.php:37
 msgid "Older Entries"
-msgstr "旧文章"
+msgstr "Older Entries"
 
 #: template-parts/post/content-none.php:9
 msgid "Nothing To Show Yet"
@@ -2220,7 +2233,7 @@ msgstr ""
 #: woocommerce/loop/add-to-cart.php:28 woocommerce/loop/add-to-cart.php:52
 #: woocommerce/loop/add-to-cart.php:63
 msgid "Read more"
-msgstr "阅读更多"
+msgstr "Read more"
 
 #: woocommerce/loop/add-to-cart.php:42
 msgid "Select options"
@@ -2349,7 +2362,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:4142
 #: inc/admin/customizer/customizer-options.php:4466
 msgid "General"
-msgstr "常规"
+msgstr "General"
 
 #: inc/admin/customizer/customizer-options.php:42
 msgid "Select Front Page Layout"
@@ -2366,12 +2379,12 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:60
 #: inc/admin/customizer/customizer-options.php:85
 msgid "Boxed"
-msgstr "固定宽度"
+msgstr "Boxed"
 
 #: inc/admin/customizer/customizer-options.php:61
 #: inc/admin/customizer/customizer-options.php:86
 msgid "Wide"
-msgstr "最大宽度"
+msgstr "Wide"
 
 #: inc/admin/customizer/customizer-options.php:67
 msgid "Select General Layout"
@@ -2474,7 +2487,7 @@ msgstr ""
 #: inc/admin/customizer/customizer.php:125
 #: inc/admin/customizer/customizer.php:138
 msgid "Content Boxes"
-msgstr ""
+msgstr "Content Boxes"
 
 #: inc/admin/customizer/customizer-options.php:212
 msgid "Enable Content Boxes On Front Page"
@@ -2492,7 +2505,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:227
 msgid "Content Box 1"
-msgstr ""
+msgstr "Content Box 1"
 
 #: inc/admin/customizer/customizer-options.php:233
 msgid "Enable Content Box 1"
@@ -2527,7 +2540,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:3921
 #: inc/admin/customizer/customizer.php:1048
 msgid "Enabled"
-msgstr "启用"
+msgstr "Enabled"
 
 #: inc/admin/customizer/customizer-options.php:236
 #: inc/admin/customizer/customizer-options.php:315
@@ -2567,7 +2580,7 @@ msgstr "启用"
 #: inc/admin/customizer/customizer-options.php:5002
 #: inc/admin/customizer/customizer.php:1049
 msgid "Disabled"
-msgstr ""
+msgstr "Disabled"
 
 #: inc/admin/customizer/customizer-options.php:241
 msgid "Content Box 1 Title"
@@ -2599,7 +2612,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:306
 msgid "Content Box 2"
-msgstr ""
+msgstr "Content Box 2"
 
 #: inc/admin/customizer/customizer-options.php:312
 msgid "Enable Content Box 2"
@@ -2627,7 +2640,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:385
 msgid "Content Box 3"
-msgstr ""
+msgstr "Content box 3"
 
 #: inc/admin/customizer/customizer-options.php:391
 msgid "Enable Content Box 3"
@@ -2655,7 +2668,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:464
 msgid "Content Box 4"
-msgstr ""
+msgstr "Content box 4"
 
 #: inc/admin/customizer/customizer-options.php:470
 msgid "Enable Content Box 4"
@@ -2675,7 +2688,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:516
 msgid "Content Box 4 description"
-msgstr ""
+msgstr "Content Box 4 description"
 
 #: inc/admin/customizer/customizer-options.php:526
 msgid "Content Box 4 Button"
@@ -2683,7 +2696,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:537
 msgid "Content Boxes Background Color"
-msgstr ""
+msgstr "Content boxes' background colour"
 
 #: inc/admin/customizer/customizer-options.php:551
 #: inc/admin/customizer/customizer-options.php:837
@@ -2773,7 +2786,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2808
 #: inc/admin/customizer/customizer-options.php:3097
 msgid "Cover"
-msgstr "cover"
+msgstr "Cover"
 
 #: inc/admin/customizer/customizer-options.php:627
 #: inc/admin/customizer/customizer-options.php:913
@@ -2784,7 +2797,7 @@ msgstr "cover"
 #: inc/admin/customizer/customizer-options.php:2809
 #: inc/admin/customizer/customizer-options.php:3098
 msgid "Contain"
-msgstr ""
+msgstr "Contain"
 
 #: inc/admin/customizer/customizer-options.php:628
 #: inc/admin/customizer/customizer-options.php:914
@@ -2794,7 +2807,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2703
 #: inc/admin/customizer/customizer-options.php:2810
 msgid "None"
-msgstr "無"
+msgstr "None"
 
 #: inc/admin/customizer/customizer-options.php:642
 #: inc/admin/customizer/customizer-options.php:928
@@ -2805,7 +2818,7 @@ msgstr "無"
 #: inc/admin/customizer/customizer-options.php:2824
 #: inc/admin/customizer/customizer-options.php:3045
 msgid "Background Repeat"
-msgstr "重复背景"
+msgstr "Background Repeat"
 
 #: inc/admin/customizer/customizer-options.php:645
 #: inc/admin/customizer/customizer-options.php:931
@@ -2827,7 +2840,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2828
 #: inc/admin/customizer/customizer-options.php:3048
 msgid "repeat"
-msgstr "重复"
+msgstr "Repeat"
 
 #: inc/admin/customizer/customizer-options.php:647
 #: inc/admin/customizer/customizer-options.php:933
@@ -2859,7 +2872,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2737
 #: inc/admin/customizer/customizer-options.php:2844
 msgid "Background Position"
-msgstr "背景位置"
+msgstr "Background Position"
 
 #: inc/admin/customizer/customizer-options.php:665
 #: inc/admin/customizer/customizer-options.php:951
@@ -2997,7 +3010,7 @@ msgstr ""
 #: inc/admin/customizer/customizer.php:126
 #: inc/admin/customizer/customizer.php:139
 msgid "Testimonials"
-msgstr ""
+msgstr "Testimonials"
 
 #: inc/admin/customizer/customizer-options.php:786
 msgid "Enable Testimonials On Front Page"
@@ -3149,24 +3162,24 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:1713
 #: inc/admin/metaboxes/metaboxes.php:279
 msgid "Header"
-msgstr "顶部"
+msgstr "Header"
 
 #: inc/admin/customizer/customizer-options.php:1718
 msgid "Header Padding"
-msgstr ""
+msgstr "Header padding"
 
 #: inc/admin/customizer/customizer-options.php:1719
 msgid "Enter the header padding"
-msgstr ""
+msgstr "Enter the header padding"
 
 #: inc/admin/customizer/customizer-options.php:1755
 #: inc/admin/customizer/customizer-options.php:1812
 msgid "Enable Searchbox"
-msgstr ""
+msgstr "Enable search box"
 
 #: inc/admin/customizer/customizer-options.php:1756
 msgid "Check this box if you want to display searchbox in the Header"
-msgstr ""
+msgstr "Check this box if you want to display searchbox in the Header"
 
 #: inc/admin/customizer/customizer-options.php:1766
 msgid "General Slider Position"
@@ -3189,15 +3202,15 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:1777
 msgid "Choose Header Type"
-msgstr ""
+msgstr "Choose header type"
 
 #: inc/admin/customizer/customizer-options.php:1778
 msgid "Choose your Header Type"
-msgstr ""
+msgstr "Choose your header type"
 
 #: inc/admin/customizer/customizer-options.php:1796
 msgid "Sticky Header"
-msgstr ""
+msgstr "Sticky header"
 
 #: inc/admin/customizer/customizer-options.php:1801
 msgid "Enable Sticky Header"
@@ -3209,11 +3222,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:1813
 msgid "Check this box if you want to display searchbox in the Sticky Header"
-msgstr ""
+msgstr "Check this box if you want to display searchbox in the Sticky Header"
 
 #: inc/admin/customizer/customizer-options.php:1834
 msgid "Logo"
-msgstr ""
+msgstr "Logo"
 
 #: inc/admin/customizer/customizer-options.php:1839
 msgid "Custom Logo"
@@ -3229,21 +3242,21 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:1849
 msgid "Choose the position of your Custom Logo for Header #1"
-msgstr ""
+msgstr "Choose the position of your Custom Logo for Header #1"
 
 #: inc/admin/customizer/customizer-options.php:1852
 #: inc/admin/customizer/customizer-options.php:5003
 msgid "Left"
-msgstr "左"
+msgstr "Left"
 
 #: inc/admin/customizer/customizer-options.php:1853
 msgid "Center"
-msgstr "中"
+msgstr "Centre"
 
 #: inc/admin/customizer/customizer-options.php:1854
 #: inc/admin/customizer/customizer-options.php:5004
 msgid "Right"
-msgstr "右"
+msgstr "Right"
 
 #: inc/admin/customizer/customizer-options.php:1869
 #: inc/admin/customizer/customizer-options.php:2140
@@ -3282,7 +3295,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2213
 #: inc/admin/customizer/customizer-options.php:2922
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: inc/admin/customizer/customizer-options.php:1907
 msgid "Disable Main Menu"
@@ -3338,7 +3351,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:1995
 msgid "Header Widgets"
-msgstr ""
+msgstr "Header widgets"
 
 #: inc/admin/customizer/customizer-options.php:2000
 msgid "Number of Widget Cols in The Header Block"
@@ -3358,11 +3371,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2018
 msgid "Front Page"
-msgstr "首页"
+msgstr "Front Page"
 
 #: inc/admin/customizer/customizer-options.php:2019
 msgid "Single Post"
-msgstr "文章页面"
+msgstr "Single Post"
 
 #: inc/admin/customizer/customizer-options.php:2020
 msgid "Only Pages"
@@ -3378,11 +3391,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2036
 msgid "Footer"
-msgstr "底部"
+msgstr "Footer"
 
 #: inc/admin/customizer/customizer-options.php:2047
 msgid "Footer Widgets"
-msgstr ""
+msgstr "Footer widgets"
 
 #: inc/admin/customizer/customizer-options.php:2052
 msgid "Number of Widget Cols in Footer"
@@ -3395,7 +3408,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2074
 #: inc/admin/customizer/customizer-options.php:2079
 msgid "Custom Footer"
-msgstr ""
+msgstr "Custom footer"
 
 #: inc/admin/customizer/customizer-options.php:2080
 #, php-format
@@ -3407,7 +3420,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2096
 msgid "Typography"
-msgstr "排版"
+msgstr "Typography"
 
 #: inc/admin/customizer/customizer-options.php:2107
 msgid "Website Body"
@@ -3495,7 +3508,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2357
 msgid "Content Boxes Title Font"
-msgstr ""
+msgstr "Content Boxes Title Font"
 
 #: inc/admin/customizer/customizer-options.php:2358
 msgid "Select the typography you want for your Content Boxes Title"
@@ -3503,7 +3516,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2377
 msgid "Content Boxes Description Font"
-msgstr ""
+msgstr "Content Boxes Description Font"
 
 #: inc/admin/customizer/customizer-options.php:2378
 msgid "Select the typography you want for your Content Boxes Description"
@@ -3713,12 +3726,12 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2953
 #: inc/admin/customizer/customizer-options.php:3116
 msgid "Light"
-msgstr "浅色"
+msgstr "Light"
 
 #: inc/admin/customizer/customizer-options.php:2954
 #: inc/admin/customizer/customizer-options.php:3117
 msgid "Dark"
-msgstr "深色"
+msgstr "Dark"
 
 #: inc/admin/customizer/customizer-options.php:2963
 msgid "Top Bar Color"
@@ -3734,7 +3747,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2979
 msgid "Menu hover font color"
-msgstr ""
+msgstr "Menu hover font colour"
 
 #: inc/admin/customizer/customizer-options.php:3001
 msgid "Header Block"
@@ -3768,7 +3781,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3073
 msgid "Content"
-msgstr ""
+msgstr "Content"
 
 #: inc/admin/customizer/customizer-options.php:3078
 msgid "Content Image"
@@ -3808,7 +3821,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3145
 msgid "Widgets"
-msgstr ""
+msgstr "Widgets"
 
 #: inc/admin/customizer/customizer-options.php:3150
 msgid "Enable Widget Title Custom Background"
@@ -3821,23 +3834,24 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3159
 msgid "Widget Title Custom Background"
-msgstr ""
+msgstr "Widget title custom background"
 
 #: inc/admin/customizer/customizer-options.php:3160
 msgid "Choose the color scheme for widgets background"
-msgstr ""
+msgstr "Choose the colour scheme for widgets' background"
 
 #: inc/admin/customizer/customizer-options.php:3182
 msgid "Disable Widget Content Boxed Background"
-msgstr ""
+msgstr "Disable widget content boxed background"
 
 #: inc/admin/customizer/customizer-options.php:3183
 msgid "Check this box if you want to disable widget content boxed background"
 msgstr ""
+"Check this box if you want to disable the widget content's boxed background"
 
 #: inc/admin/customizer/customizer-options.php:3197
 msgid "Links"
-msgstr ""
+msgstr "Links"
 
 #: inc/admin/customizer/customizer-options.php:3202
 msgid "Primary Link Color"
@@ -3857,7 +3871,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3240
 msgid "Shadows"
-msgstr ""
+msgstr "Shadows"
 
 #: inc/admin/customizer/customizer-options.php:3245
 msgid "Shadow Effect"
@@ -3877,7 +3891,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3290
 msgid "Buttons"
-msgstr ""
+msgstr "Buttons"
 
 #: inc/admin/customizer/customizer-options.php:3295
 msgid "Button Shape"
@@ -3889,11 +3903,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3299
 msgid "Square"
-msgstr "方"
+msgstr "Square"
 
 #: inc/admin/customizer/customizer-options.php:3300
 msgid "Round"
-msgstr "圆"
+msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3301
 msgid "Pill"
@@ -3901,7 +3915,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3307
 msgid "Button Type"
-msgstr "按键类型"
+msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3308
 msgid "Select the default button type"
@@ -3909,7 +3923,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3311
 msgid "Flat"
-msgstr "方块"
+msgstr "Flat"
 
 #: inc/admin/customizer/customizer-options.php:3312
 msgid "3d"
@@ -3937,7 +3951,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3355
 msgid "Controls the top hover color of the button gradients"
-msgstr ""
+msgstr "Controls the top hover colour of the button gradients"
 
 #: inc/admin/customizer/customizer-options.php:3372
 msgid "Button Gradient Bottom Hover Color"
@@ -3985,7 +3999,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3451
 msgid "Controls the border hover color of the buttons"
-msgstr ""
+msgstr "Controls the border hover colour of the buttons"
 
 #: inc/admin/customizer/customizer-options.php:3465
 msgid "Button Border Width"
@@ -4051,7 +4065,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3525
 msgid "Form Background Color"
-msgstr ""
+msgstr "Form Background Colour"
 
 #: inc/admin/customizer/customizer-options.php:3526
 msgid "Controls the background color of form text, textarea field"
@@ -4059,7 +4073,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3540
 msgid "Form Text Color"
-msgstr ""
+msgstr "Form Text Colour"
 
 #: inc/admin/customizer/customizer-options.php:3541
 msgid "Controls the text, textarea color for forms"
@@ -4067,7 +4081,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3555
 msgid "Form Border Color"
-msgstr ""
+msgstr "Form Border Colour"
 
 #: inc/admin/customizer/customizer-options.php:3556
 msgid "Controls the border color of form text, textarea fields"
@@ -4115,15 +4129,15 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3642
 msgid "Single posts"
-msgstr "单独文章"
+msgstr "Single posts"
 
 #: inc/admin/customizer/customizer-options.php:3643
 msgid "Single posts + Archive pages"
-msgstr "单独文章 + 存档页面"
+msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3644
 msgid "All pages"
-msgstr "所有页面"
+msgstr "All Pages"
 
 #: inc/admin/customizer/customizer-options.php:3651
 msgid "Pagination Type"
@@ -4144,7 +4158,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3657
 msgid "Infinite Scroll"
-msgstr "无限滚动"
+msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3663
 msgid "Position of Navigation Links"
@@ -4241,7 +4255,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3759
 msgid "Featured Image"
-msgstr ""
+msgstr "Featured image"
 
 #: inc/admin/customizer/customizer-options.php:3764
 msgid "Enable Featured Images"
@@ -4278,97 +4292,109 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3810
 msgid "Post Format"
-msgstr ""
+msgstr "Post Format"
 
 #: inc/admin/customizer/customizer-options.php:3815
 msgid "Sticky Post Format Background"
-msgstr ""
+msgstr "Sticky Post Format Background"
 
 #: inc/admin/customizer/customizer-options.php:3816
 msgid ""
 "Check this box if you want to enable background color for sticky post format"
 msgstr ""
+"Check this box if you want to enable background colour for sticky post format"
 
 #: inc/admin/customizer/customizer-options.php:3824
 msgid "Aside Post Format Background"
-msgstr ""
+msgstr "Aside Post Format Background"
 
 #: inc/admin/customizer/customizer-options.php:3825
 msgid ""
 "Check this box if you want to enable background color for aside post format"
 msgstr ""
+"Check this box if you want to enable background colour for aside post format"
 
 #: inc/admin/customizer/customizer-options.php:3833
 msgid "Audio Post Format Background"
-msgstr ""
+msgstr "Audio Post Format Background"
 
 #: inc/admin/customizer/customizer-options.php:3834
 msgid ""
 "Check this box if you want to enable background color for audio post format"
 msgstr ""
+"Check this box if you want to enable background colour for audio post format"
 
 #: inc/admin/customizer/customizer-options.php:3842
 msgid "Chat Post Format Background"
-msgstr ""
+msgstr "Chat Post Format Background"
 
 #: inc/admin/customizer/customizer-options.php:3843
 msgid ""
 "Check this box if you want to enable background color for chat post format"
 msgstr ""
+"Check this box if you want to enable background colour for chat post format"
 
 #: inc/admin/customizer/customizer-options.php:3851
 msgid "Gallery Post Format Background"
-msgstr ""
+msgstr "Gallery Post Format Background"
 
 #: inc/admin/customizer/customizer-options.php:3852
 msgid ""
 "Check this box if you want to enable background color for gallery post format"
 msgstr ""
+"Check this box if you want to enable background colour for gallery post "
+"format"
 
 #: inc/admin/customizer/customizer-options.php:3860
 msgid "Image Post Format Background"
-msgstr ""
+msgstr "Image Post Format Background"
 
 #: inc/admin/customizer/customizer-options.php:3861
 msgid ""
 "Check this box if you want to enable background color for image post format"
 msgstr ""
+"Check this box if you want to enable background colour for image post format"
 
 #: inc/admin/customizer/customizer-options.php:3869
 msgid "Link Post Format Background"
-msgstr ""
+msgstr "Link Post Format Background"
 
 #: inc/admin/customizer/customizer-options.php:3870
 msgid ""
 "Check this box if you want to enable background color for link post format"
 msgstr ""
+"Check this box if you want to enable a background colour for the link post "
+"format"
 
 #: inc/admin/customizer/customizer-options.php:3878
 msgid "Quote Post Format Background"
-msgstr ""
+msgstr "Quote Post Format Background"
 
 #: inc/admin/customizer/customizer-options.php:3879
 msgid ""
 "Check this box if you want to enable background color for quote post format"
 msgstr ""
+"Check this box if you want to enable background colour for quote post format"
 
 #: inc/admin/customizer/customizer-options.php:3887
 msgid "Status Post Format Background"
-msgstr ""
+msgstr "Status Post Format Background"
 
 #: inc/admin/customizer/customizer-options.php:3888
 msgid ""
 "Check this box if you want to enable background color for status post format"
 msgstr ""
+"Check this box if you want to enable background colour for status post format"
 
 #: inc/admin/customizer/customizer-options.php:3896
 msgid "Video Post Format Background"
-msgstr ""
+msgstr "Video Post Format Background"
 
 #: inc/admin/customizer/customizer-options.php:3897
 msgid ""
 "Check this box if you want to enable background color for video post format"
 msgstr ""
+"Check this box if you want to enable background colour for video post format"
 
 #: inc/admin/customizer/customizer-options.php:3913
 msgid "Social Media Links"
@@ -4400,15 +4426,15 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3951
 msgid "Normal"
-msgstr "正常"
+msgstr "Normal"
 
 #: inc/admin/customizer/customizer-options.php:3952
 msgid "Small"
-msgstr ""
+msgstr "Small"
 
 #: inc/admin/customizer/customizer-options.php:3953
 msgid "Large"
-msgstr "大"
+msgstr "Large"
 
 #: inc/admin/customizer/customizer-options.php:3954
 msgid "X-Large"
@@ -4416,13 +4442,15 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3976
 msgid "Enable Social Media Links Border/Radius"
-msgstr ""
+msgstr "Enable Social Media Links Border/Radius"
 
 #: inc/admin/customizer/customizer-options.php:3977
 msgid ""
 "Select if you want to display social links with a border, border radius or "
 "disable it"
 msgstr ""
+"Select if you want to display social links with a border, border radius or "
+"disable it"
 
 #: inc/admin/customizer/customizer-options.php:4016
 #, php-format
@@ -4446,7 +4474,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4052
 msgid "Insert your Instagram URL"
-msgstr ""
+msgstr "Insert your Instagram URL"
 
 #: inc/admin/customizer/customizer-options.php:4061
 msgid "Insert your Skype URL"
@@ -4462,7 +4490,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4087
 msgid "Linkedin"
-msgstr "LinkedIn"
+msgstr "Linkedin"
 
 #: inc/admin/customizer/customizer-options.php:4088
 msgid "Insert your Linkedin profile URL"
@@ -4656,7 +4684,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4340
 msgid "Choose your Bootstrap Slider layout style"
-msgstr ""
+msgstr "Choose your Bootstrap Slider layout style"
 
 #: inc/admin/customizer/customizer-options.php:4361
 #: inc/admin/customizer/customizer-options.php:4653
@@ -4712,11 +4740,11 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:4443
 #: inc/admin/customizer/customizer-options.php:4735
 msgid "Slides"
-msgstr ""
+msgstr "Slides"
 
 #: inc/admin/customizer/customizer-options.php:4471
 msgid "Enable Parallax Slider"
-msgstr ""
+msgstr "Enable Parallax Slider"
 
 #: inc/admin/customizer/customizer-options.php:4472
 msgid "Check this box if you want to enable Parallax Slider"
@@ -4776,11 +4804,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4752
 msgid "Enable Posts Slider"
-msgstr ""
+msgstr "Enable Posts Slider"
 
 #: inc/admin/customizer/customizer-options.php:4753
 msgid "Check this box if you want to enable Posts Slider"
-msgstr ""
+msgstr "Check this box if you want to enable Posts Slider"
 
 #: inc/admin/customizer/customizer-options.php:4759
 msgid "Enable Posts Slider On Front Page"
@@ -4804,7 +4832,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4790
 msgid "Slideshow Content"
-msgstr ""
+msgstr "Slideshow Content"
 
 #: inc/admin/customizer/customizer-options.php:4791
 msgid "Choose to display latest posts or posts of a category"
@@ -4812,7 +4840,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4794
 msgid "Recent Posts"
-msgstr ""
+msgstr "Recent Posts"
 
 #: inc/admin/customizer/customizer-options.php:4795
 msgid "Posts in Category"
@@ -4828,7 +4856,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4815
 msgid "Slider Speed"
-msgstr "滑块速度"
+msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4816
 msgid "Input the time between transitions (Default: 3500)"
@@ -4844,11 +4872,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4840
 msgid "Slide Excerpt Max Length"
-msgstr ""
+msgstr "Slide Excerpt Max Length"
 
 #: inc/admin/customizer/customizer-options.php:4841
 msgid "Sets the length of Slide Excerpt. Default is 40"
-msgstr ""
+msgstr "Sets the length of Slide Excerpt. Default is 40"
 
 #: inc/admin/customizer/customizer-options.php:4852
 msgid "Posts Slider Title and Description Font"
@@ -4868,7 +4896,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4994
 msgid "Extra"
-msgstr ""
+msgstr "Extra"
 
 #: inc/admin/customizer/customizer-options.php:4999
 msgid "Position of 'Back to Top' Button"
@@ -4876,7 +4904,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:5005
 msgid "Middle"
-msgstr "中部"
+msgstr "Middle"
 
 #: inc/admin/customizer/customizer-options.php:5011
 msgid "Enable Edit Post/Page Link on The Front End"
@@ -4983,11 +5011,11 @@ msgstr ""
 #: inc/admin/customizer/customizer.php:216
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:4
 msgid "Default"
-msgstr "默认"
+msgstr "Default"
 
 #: inc/admin/customizer/customizer.php:212
 msgid "All"
-msgstr "全部"
+msgstr "All"
 
 #: inc/admin/customizer/customizer.php:522
 #: inc/admin/customizer/customizer.php:540
@@ -5024,19 +5052,19 @@ msgstr ""
 
 #: inc/admin/metaboxes/metaboxes.php:268
 msgid "Upload"
-msgstr "上传"
+msgstr "Upload"
 
 #: inc/admin/metaboxes/metaboxes.php:269
 msgid "Remove"
-msgstr "移除"
+msgstr "Remove"
 
 #: inc/admin/metaboxes/metaboxes.php:278
 msgid "Layout"
-msgstr ""
+msgstr "Layout"
 
 #: inc/admin/metaboxes/metaboxes.php:281
 msgid "Slider"
-msgstr ""
+msgstr "Slider"
 
 #: woocommerce/single-product/add-to-cart/variable.php:34
 msgid "This product is currently out of stock and unavailable."
@@ -5057,16 +5085,16 @@ msgstr ""
 #: inc/admin/metaboxes/page-tabs/tab-header.php:4
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:16
 msgid "No"
-msgstr "否"
+msgstr "No"
 
 #: inc/admin/metaboxes/page-tabs/tab-header.php:5
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:17
 msgid "Yes"
-msgstr "是"
+msgstr "Yes"
 
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:5
 msgid "Sidebar Position"
-msgstr "边栏位置"
+msgstr ""
 
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:5
 msgid "Use this setting to select and set position of sidebar"
@@ -5081,7 +5109,7 @@ msgstr ""
 
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:15
 msgid "Full Width"
-msgstr "全宽"
+msgstr "Full Width"
 
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:15
 #, php-format
@@ -5092,12 +5120,12 @@ msgstr ""
 
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:3
 msgid "Page Title"
-msgstr "页面标题"
+msgstr "Page title"
 
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:5
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:10
 msgid "Hide"
-msgstr "隐藏"
+msgstr "Hide"
 
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:8
 msgid "Page Breadcrumb"
@@ -5105,25 +5133,27 @@ msgstr ""
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:3
 msgid "Slider Position"
-msgstr ""
+msgstr "Slider Position"
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:3
 msgid ""
 "Select if the slider shows below or above the header. This only works for "
 "the slider assigned in page options, not with shortcodes"
 msgstr ""
+"Select if the slider shows below or above the header. This only works for "
+"the slider assigned in page options, not with shortcodes"
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:5
 msgid "Below"
-msgstr ""
+msgstr "Below"
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:6
 msgid "Above"
-msgstr ""
+msgstr "Above"
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:10
 msgid "Slider Type"
-msgstr "滑块类型"
+msgstr ""
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:11
 msgid "No Slider"

@@ -5,6 +5,7 @@
 
     Table of Contents:
 
+	- Set Theme Variables
     - Theme Setup
 	- Move jQuery Library To Footer
 	- Main Styles/Scripts To Enqueue
@@ -16,6 +17,7 @@
 		-- Function To Print Out CSS Class According To Post/Blog Layout
 		-- Remove Title Attribute From Menu
 		-- Jetpack Slider Image Height Filter
+	- About Page
 	- Template Functions
 	- Register Widget Areas
 	- Custom Comments
@@ -26,6 +28,17 @@
 	- Plugins Support
 		-- bbPress Support
 		-- WooCommerce Support
+
+*/
+
+/*
+    Set Theme Version Variable
+    ======================================= */
+
+$evolve_theme             = wp_get_theme();
+$evolve_theme_version     = $evolve_theme['Version'];
+$evolve_theme_name        = $evolve_theme['Name'];
+$evolve_theme_description = $evolve_theme['Description'];
 
 /*
     Theme Setup
@@ -603,6 +616,14 @@ function evolve_post_slider_jetpack_filter( $classes ) {
 }
 
 add_filter( 'jetpack_lazy_images_blacklisted_classes', 'evolve_post_slider_jetpack_filter', 999, 1 );
+
+/*
+    About Page
+    ======================================= */
+
+if ( is_admin() ) {
+	require get_parent_theme_file_path( '/inc/admin/class-evolve-admin.php' );
+}
 
 /*
     Template Functions

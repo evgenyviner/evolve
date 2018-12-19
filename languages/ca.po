@@ -1,19 +1,19 @@
-# Translation of Themes - evolve in Chinese (China)
+# Translation of Themes - evolve in Catalan
 # This file is distributed under the same license as the Themes - evolve package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-12-19 22:17+0000\n"
+"PO-Revision-Date: 2018-12-19 22:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Loco https://localise.biz/\n"
-"Language: zh_CN\n"
+"Language: ca\n"
 "Project-Id-Version: Themes - evolve\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-19 22:14+0000\n"
 "Last-Translator: admin <senditme@centrum.sk>\n"
-"Language-Team: Chinese (China)\n"
+"Language-Team: Catalan\n"
 "X-Loco-Version: 2.2.0; wp-5.0.1"
 
 #: 404.php:31
@@ -28,11 +28,13 @@ msgstr ""
 
 #: comments.php:8
 msgid "This post is password protected. Enter the password to view comments."
-msgstr "本文章受密码保护。要查看评论，请输入密码。"
+msgstr ""
+"Aquesta entrada està protegida amb contrasenya. Introduïu-la per veure'n els "
+"comentaris."
 
 #: comments.php:54 inc/comments.php:38
 msgid "No Comments Yet"
-msgstr "尚无评论"
+msgstr "Encara no hi ha comentaris"
 
 #: comments.php:70
 msgid "Comments are closed"
@@ -41,11 +43,11 @@ msgstr ""
 #: functions.php:89
 #, php-format
 msgid "Page %s"
-msgstr "第%s页"
+msgstr "Pàgina %s"
 
 #: functions.php:131
 msgid "Primary Menu"
-msgstr "主菜单"
+msgstr "Menú principal"
 
 #: functions.php:132
 msgid "Sticky Header Menu"
@@ -62,7 +64,7 @@ msgstr ""
 #: functions.php:527 inc/template-tags.php:1014
 #: template-parts/post/content-post.php:66
 msgid "Read More"
-msgstr "详细内容"
+msgstr "Llegir més"
 
 #: functions.php:542
 msgid "To view this protected content, enter the password below"
@@ -76,7 +78,7 @@ msgstr ""
 #: bbpress/form-topic-merge.php:106 bbpress/form-topic-split.php:111
 #: bbpress/form-topic.php:251 woocommerce/single-product-reviews.php:76
 msgid "Submit"
-msgstr "提交"
+msgstr "Envia"
 
 #: header.php:19
 msgid "Skip to main content"
@@ -152,12 +154,12 @@ msgstr ""
 
 #: bbpress/content-statistics.php:27 bbpress/loop-forums.php:16
 msgid "Topics"
-msgstr "主题"
+msgstr "Temes"
 
 #: bbpress/content-statistics.php:32 bbpress/loop-forums.php:17
 #: bbpress/loop-topics.php:18
 msgid "Replies"
-msgstr "回复"
+msgstr "Respostes"
 
 #: bbpress/content-statistics.php:37
 msgid "Topic Tags"
@@ -195,7 +197,7 @@ msgstr ""
 #: bbpress/form-reply-move.php:18
 #, php-format
 msgid "Move reply \"%s\""
-msgstr ""
+msgstr "Mou la resposta \"%s\""
 
 #: bbpress/form-reply-move.php:21
 msgid ""
@@ -216,20 +218,20 @@ msgstr ""
 #: bbpress/form-reply-move.php:35 bbpress/form-topic-split.php:33
 #, php-format
 msgid "New topic in <strong>%s</strong> titled:"
-msgstr ""
+msgstr "Tema nou a <strong>%s</strong> amb el títol:"
 
 #: bbpress/form-reply-move.php:39
 #, php-format
 msgid "Moved: %s"
-msgstr ""
+msgstr "S'han mogut: %s"
 
 #: bbpress/form-reply-move.php:55 bbpress/form-topic-split.php:53
 msgid "Use an existing topic in this forum:"
-msgstr "使用一个已经存在此论坛中的话题："
+msgstr "Useu un tema existent en aquest fòrum:"
 
 #: bbpress/form-reply-move.php:65 bbpress/form-topic-split.php:64
 msgid "No other topics found!"
-msgstr ""
+msgstr "No s'ha trobat cap altre tema!"
 
 #: bbpress/form-reply-move.php:71 bbpress/form-topic-merge.php:100
 #: bbpress/form-topic-split.php:105
@@ -238,7 +240,7 @@ msgstr ""
 
 #: bbpress/form-reply-move.php:88
 msgid "You do not have the permissions to edit this reply!"
-msgstr ""
+msgstr "No teniu permisos per editar aquesta resposta!"
 
 #: bbpress/form-reply-move.php:88
 msgid "You cannot edit this reply"
@@ -264,7 +266,9 @@ msgstr ""
 msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
 "and attributes:"
-msgstr "您可以使用这些 <abbr title=\"超文本标记语言\">HTML</abbr> 标签与属性："
+msgstr ""
+"Podeu fer servir aquestes etiquetes i atributs <abbr title=\"HyperText "
+"Markup Language\">HTML</abbr>:"
 
 #: bbpress/form-reply.php:80 bbpress/form-topic.php:95
 msgid "Your account has the ability to post unrestricted HTML content"
@@ -284,11 +288,11 @@ msgstr ""
 
 #: bbpress/form-reply.php:148 bbpress/form-topic.php:223
 msgid "Notify the author of follow-up replies via email"
-msgstr "通过邮件提醒我来自楼主的回复"
+msgstr "Notifiqueu l'autor de les respostes posteriors via correu electrònic."
 
 #: bbpress/form-reply.php:156 bbpress/form-topic.php:231
 msgid "Notify me of follow-up replies via email"
-msgstr "有新回帖时通过邮件通知我"
+msgstr "Notifiqueu-me de les respostes posteriors via correu electrònic."
 
 #: bbpress/form-reply.php:198
 #, php-format
@@ -315,19 +319,23 @@ msgstr ""
 #: bbpress/form-topic-merge.php:17
 #, php-format
 msgid "Merge topic \"%s\""
-msgstr "合并主题 \"%s\""
+msgstr "Combina el tema \"%s\""
 
 #: bbpress/form-topic-merge.php:21
 msgid ""
 "Select the topic to merge this one into. The destination topic will remain "
 "the lead topic, and this one will change into a reply."
-msgstr "选择一个话题使得此话题合并到其中。话题描述将仍然是主话题的描述，此话题将变成其一条回复。"
+msgstr ""
+"Seleccioneu el tema amb què combinar aquest altre. El tema de destinació "
+"romandrà com a tema davanter, i aquest altre es convertirà en una resposta."
 
 #: bbpress/form-topic-merge.php:22
 msgid ""
 "To keep this topic as the lead, go to the other topic and use the merge tool "
 "from there instead."
-msgstr "要使此主题成合并后的主题，请去要合并的主题页面并使用那个页面中的合并工具。"
+msgstr ""
+"Per mantenir aquest tema com a davanter, aneu a l'altre tema i utilitzeu "
+"l'eina de combinació des d'allà per contra."
 
 #: bbpress/form-topic-merge.php:26
 msgid ""
@@ -336,19 +344,22 @@ msgid ""
 "destination topic was created after this one, it's post date will be updated "
 "to second earlier than this one."
 msgstr ""
-"两个主题的回复都会被按年代合并。合并的回复按照它们发表的时间排列。如果合并到的主题到在要合并的主题之后创建，其发表时间将会由前一个较早的时间替代。"
+"Totes les respostes dels temes es fusionaran cronològicament. L'ordre de "
+"fusionat de les respostes es basa en l'hora i data en què es  publicaren. Si "
+"el tema final es va crear després d'aquest, la data de l'entrada "
+"s'actualitzarà a la segona mes propera a aquesta."
 
 #: bbpress/form-topic-merge.php:29
 msgid "Destination"
-msgstr "目标"
+msgstr "Destinació "
 
 #: bbpress/form-topic-merge.php:40
 msgid "Merge with this topic:"
-msgstr "将此主题合并："
+msgstr "Combina amb aquest tema:"
 
 #: bbpress/form-topic-merge.php:50
 msgid "No topics were found to which the topic could be merged to!"
-msgstr ""
+msgstr "No s'han trobat temes amb els quals el tema es podria fusionar!"
 
 #: bbpress/form-topic-merge.php:58
 msgid "There are no other topics in this forum to merge with"
@@ -360,19 +371,19 @@ msgstr ""
 
 #: bbpress/form-topic-merge.php:74
 msgid "Merge topic subscribers"
-msgstr "合并话题订阅者"
+msgstr "Combina els subscriptors del tema"
 
 #: bbpress/form-topic-merge.php:84
 msgid "Merge topic favoriters"
-msgstr "合并话题收藏者"
+msgstr "Combina els que han marcat com a preferit el tema"
 
 #: bbpress/form-topic-merge.php:94
 msgid "Merge topic tags"
-msgstr "合并话题标签"
+msgstr "Combina les etiquetes del tema"
 
 #: bbpress/form-topic-merge.php:117 bbpress/form-topic-split.php:122
 msgid "You do not have the permissions to edit this topic!"
-msgstr "您没有权限编辑此话题！"
+msgstr "No teniu permisos per editar aquest tema!"
 
 #: bbpress/form-topic-merge.php:117 bbpress/form-topic-split.php:122
 msgid "You cannot edit this topic"
@@ -381,21 +392,27 @@ msgstr ""
 #: bbpress/form-topic-split.php:18
 #, php-format
 msgid "Split topic \"%s\""
-msgstr "分割主题 \"%s\""
+msgstr "Divideix el tema \"%s\""
 
 #: bbpress/form-topic-split.php:21
 msgid ""
 "When you split a topic, you are slicing it in half starting with the reply "
 "you just selected. Choose to use that reply as a new topic with a new title, "
 "or merge those replies into an existing topic."
-msgstr "当您分割一个主题时，此主题将从您选择的回复开始被分割成两部分。您可以给此回复添加标题使之成为新的主题，或者将这些回复合并到一个已有的主题中。"
+msgstr ""
+"Quan dividiu un tema, esteu partint-lo per la meitat començant per la "
+"resposta que heu seleccionat. Trieu utilitzar aquesta resposta com a tema "
+"nou amb un títol, o combinar aquestes respostes en un tema existent."
 
 #: bbpress/form-topic-split.php:24
 msgid ""
 "If you use the existing topic option, replies within both topics will be "
 "merged chronologically. The order of the merged replies is based on the time "
 "and date they were posted."
-msgstr "如果使用已有的主题选项，两个主题的回复都会按照年代顺序来合并。合并的数序取决于回复发表的时间。"
+msgstr ""
+"SI utilitzeu l'opció del tema existent, les respostes de ambdós temes es "
+"combinaran cronològicament. L'ordre de combinació de les respostes es basa "
+"en l'hora i data en què es publicaren."
 
 #: bbpress/form-topic-split.php:26
 msgid "Split method"
@@ -404,54 +421,56 @@ msgstr ""
 #: bbpress/form-topic-split.php:37
 #, php-format
 msgid "Split: %s"
-msgstr "分割：%s"
+msgstr "Divideix: %s"
 
 #: bbpress/form-topic-split.php:79
 msgid "Copy subscribers to the new topic"
-msgstr "把订阅者复制到新主题"
+msgstr "Copia els subscriptors al tema nou"
 
 #: bbpress/form-topic-split.php:89
 msgid "Copy favoriters to the new topic"
-msgstr "把收藏复制到新主题"
+msgstr "Copia els que ho han marcat com a preferit al tema nou"
 
 #: bbpress/form-topic-split.php:99
 msgid "Copy topic tags to the new topic"
-msgstr "把帖子的标签复制到新主题"
+msgstr "Copia les etiquetes al tema nou"
 
 #: bbpress/form-topic-tag.php:15
 #, php-format
 msgid "Manage Tag: \"%s\""
-msgstr "管理标签：\"%s\""
+msgstr "Gestiona l'etiqueta: \"%s\""
 
 #: bbpress/form-topic-tag.php:19
 msgid "Rename"
-msgstr "重命名"
+msgstr "Canvia el nom"
 
 #: bbpress/form-topic-tag.php:22
 msgid "Leave the slug empty to have one automatically generated."
-msgstr "要想自动生成别名，请讲别名栏留空"
+msgstr "Deixeu la URL buida per tenir-ne una generada automàticament."
 
 #: bbpress/form-topic-tag.php:26
 msgid ""
 "Changing the slug affects its permalink. Any links to the old slug will stop "
 "working."
-msgstr "改变别名将会影响到固定链接。任何链接到旧的别名的链接都将失效。"
+msgstr ""
+"El canvi de la URL afecta al seu enllaç permanent. Qualsevol enllaç a "
+"l'antiga URL no funcionarà."
 
 #: bbpress/form-topic-tag.php:32
 msgid "Name:"
-msgstr "名称："
+msgstr "Nom:"
 
 #: bbpress/form-topic-tag.php:37
 msgid "Slug:"
-msgstr "别名："
+msgstr "URL"
 
 #: bbpress/form-topic-tag.php:42
 msgid "Update"
-msgstr "更新"
+msgstr "Actualitza"
 
 #: bbpress/form-topic-tag.php:56 bbpress/form-topic-tag.php:70
 msgid "Merge"
-msgstr "合并"
+msgstr "Combina"
 
 #: bbpress/form-topic-tag.php:59
 msgid "Merging tags together cannot be undone"
@@ -459,36 +478,40 @@ msgstr ""
 
 #: bbpress/form-topic-tag.php:65
 msgid "Existing tag:"
-msgstr "现有的标签"
+msgstr "Etiqueta existent:"
 
 #: bbpress/form-topic-tag.php:70
 #, php-format
 msgid ""
 "Are you sure you want to merge the \"%s\" tag into the tag you specified?"
-msgstr "您确定要将标签\"%s\"合并到您指定的标签吗？"
+msgstr ""
+"Segur que voleu combinar l'etiqueta \"%s\" amb l'etiqueta que heu "
+"especificat?"
 
 #: bbpress/form-topic-tag.php:85 bbpress/form-topic-tag.php:98
 msgid "Delete"
-msgstr "删除"
+msgstr "Suprimeix"
 
 #: bbpress/form-topic-tag.php:88
 msgid "This does not delete your topics. Only the tag itself is deleted."
-msgstr "这不会删除您的话题。只有此话题的标签会被删除。"
+msgstr "Això no suprimeix els temes. Solament l'etiqueta se suprimeix."
 
 #: bbpress/form-topic-tag.php:91
 msgid "Deleting a tag cannot be undone."
-msgstr "删除一个标签是不可撤销的。"
+msgstr "La eliminació d'una etiqueta no es pot desfer."
 
 #: bbpress/form-topic-tag.php:92
 msgid "Any links to this tag will no longer function."
-msgstr "任何链接到此标签的链接都将失效。"
+msgstr "Cap dels enllaços a aquesta etiqueta funcionarà."
 
 #: bbpress/form-topic-tag.php:98
 #, php-format
 msgid ""
 "Are you sure you want to delete the \"%s\" tag? This is permanent and cannot "
 "be undone."
-msgstr "您确定要删除标签\"%s\"？这将是永久地且不可恢复。"
+msgstr ""
+"Segur que voleu suprimir l'etiqueta \"%s\"? Això és permanent i no es pot "
+"desfer."
 
 #: bbpress/form-topic.php:23
 #, php-format
@@ -518,7 +541,7 @@ msgstr ""
 #: bbpress/form-topic.php:129 bbpress/loop-forums.php:15
 #: bbpress/loop-search.php:12
 msgid "Forum"
-msgstr "论坛"
+msgstr "Fòrum"
 
 #: bbpress/form-topic.php:134
 msgid "No forum"
@@ -548,7 +571,7 @@ msgstr ""
 #: bbpress/form-user-edit.php:17 inc/comments.php:235
 #: inc/woocommerce-support.php:354 woocommerce/single-product-reviews.php:71
 msgid "Name"
-msgstr "姓名"
+msgstr "Nom"
 
 #: bbpress/form-user-edit.php:28 inc/woocommerce-support.php:1734
 msgid "First name"
@@ -590,7 +613,7 @@ msgstr ""
 #: bbpress/form-user-register.php:21 inc/woocommerce-support.php:2185
 #: woocommerce/myaccount/form-login.php:90
 msgid "Username"
-msgstr "用户名"
+msgstr "Nom d'usuari"
 
 #: bbpress/form-user-edit.php:137 bbpress/form-user-register.php:28
 #: inc/comments.php:240 woocommerce/single-product-reviews.php:73
@@ -653,7 +676,7 @@ msgstr ""
 #: woocommerce/myaccount/form-login.php:46
 #: woocommerce/myaccount/form-login.php:110
 msgid "Password"
-msgstr "密码"
+msgstr "Contrasenya"
 
 #: bbpress/form-user-login.php:33
 msgid "Keep me signed in"
@@ -694,28 +717,28 @@ msgstr ""
 #: bbpress/loop-forums.php:17 bbpress/loop-topics.php:18
 #: inc/admin/customizer/customizer-options.php:3683
 msgid "Posts"
-msgstr "文章"
+msgstr "Entrades"
 
 #: bbpress/loop-forums.php:18 bbpress/loop-topics.php:19
 msgid "Freshness"
-msgstr "最近更新"
+msgstr "Més recents"
 
 #: bbpress/loop-search-forum.php:15
 msgid "Forum: "
-msgstr "论坛："
+msgstr "Fòrum:"
 
 #: bbpress/loop-search-forum.php:27
 #, php-format
 msgid "Last updated %s"
-msgstr ""
+msgstr "Darrera actualització %s"
 
 #: bbpress/loop-search-reply.php:14
 msgid "In reply to: "
-msgstr "回复于："
+msgstr "En resposta a:"
 
 #: bbpress/loop-search-topic.php:22
 msgid "Topic: "
-msgstr "标题："
+msgstr "Tema:"
 
 #: bbpress/loop-search-topic.php:50 bbpress/loop-single-topic.php:76
 #, php-format
@@ -733,7 +756,7 @@ msgstr ""
 
 #: bbpress/loop-search.php:11 bbpress/loop-topics.php:16
 msgid "Topic"
-msgstr "帖子"
+msgstr "Tema"
 
 #: bbpress/loop-single-reply.php:16
 msgid "In reply to "
@@ -746,7 +769,7 @@ msgstr ""
 
 #: bbpress/loop-topics.php:17
 msgid "Voices"
-msgstr ""
+msgstr "Opinions"
 
 #: bbpress/pagination-replies.php:16 bbpress/pagination-search.php:16
 #: bbpress/pagination-topics.php:16 template-parts/navigation/navigation.php:14
@@ -756,58 +779,58 @@ msgstr ""
 #: bbpress/user-details.php:28
 #, php-format
 msgid "%s's Profile"
-msgstr "%s 的档案"
+msgstr "El perfil de %s"
 
 #: bbpress/user-details.php:29 bbpress/user-profile.php:14
 msgid "Profile"
-msgstr "个人资料"
+msgstr "Perfil"
 
 #: bbpress/user-details.php:34
 #, php-format
 msgid "%s's Topics Started"
-msgstr ""
+msgstr "S'han començat %s temes"
 
 #: bbpress/user-details.php:34
 msgid "Topics Started"
-msgstr "已发起的主题"
+msgstr "Temes creats"
 
 #: bbpress/user-details.php:39
 #, php-format
 msgid "%s's Replies Created"
-msgstr ""
+msgstr "S'han creat %s respostes"
 
 #: bbpress/user-details.php:39
 msgid "Replies Created"
-msgstr ""
+msgstr "S'han creat les respostes"
 
 #: bbpress/user-details.php:47
 #, php-format
 msgid "%s's Favorites"
-msgstr ""
+msgstr "%s preferits"
 
 #: bbpress/user-details.php:47
 msgid "Favorites"
-msgstr "收藏夹"
+msgstr "Preferits"
 
 #: bbpress/user-details.php:59
 #, php-format
 msgid "%s's Subscriptions"
-msgstr ""
+msgstr "%s subscripcions"
 
 #: bbpress/user-details.php:59
 msgid "Subscriptions"
-msgstr "订阅"
+msgstr "Subscripcions"
 
 #: bbpress/user-details.php:67
 #, php-format
 msgid "Edit %s's Profile"
-msgstr "编辑 %s 的档案"
+msgstr "Edita el perfil de %s"
 
 #: bbpress/user-details.php:67 inc/front-page-elements.php:108
 #: inc/front-page-elements.php:230 inc/front-page-elements.php:322
 #: inc/woocommerce-support.php:1447
 msgid "Edit"
-msgstr "编辑"
+msgstr "Edita"
 
 #: bbpress/user-favorites.php:17
 msgid "Favorite forum topics"
@@ -903,12 +926,12 @@ msgstr ""
 #: inc/comments.php:37 inc/template-tags.php:479
 #: template-parts/post/content-post.php:52
 msgid "% Comments"
-msgstr "%条评论"
+msgstr "% comentaris"
 
 #: inc/comments.php:39 inc/template-tags.php:479
 #: template-parts/post/content-post.php:52
 msgid "1 Comment"
-msgstr "一条评论"
+msgstr "1 comentari"
 
 #: inc/comments.php:43
 msgid "% Pings/Trackbacks"
@@ -924,7 +947,7 @@ msgstr ""
 
 #: inc/comments.php:110 inc/tabs-widget.php:76
 msgid "Comments"
-msgstr "评论"
+msgstr "Comentaris"
 
 #: inc/comments.php:159
 msgid "Author"
@@ -982,7 +1005,7 @@ msgstr ""
 
 #: inc/tabs-widget.php:7
 msgid "evolve: Tabs"
-msgstr ""
+msgstr "evolve: Pestanyes"
 
 #: inc/tabs-widget.php:10
 msgid "Popular posts, recent posts and comments."
@@ -990,15 +1013,15 @@ msgstr ""
 
 #: inc/tabs-widget.php:59
 msgid "Popular"
-msgstr "热门"
+msgstr "Popular"
 
 #: inc/tabs-widget.php:67
 msgid "Recent"
-msgstr ""
+msgstr "Recent"
 
 #: inc/tabs-widget.php:198
 msgid " says"
-msgstr ""
+msgstr "diu"
 
 #: inc/tabs-widget.php:249
 msgid "Popular Posts Order By"
@@ -1010,7 +1033,7 @@ msgstr ""
 
 #: inc/tabs-widget.php:262
 msgid "Highest Views"
-msgstr ""
+msgstr "Més visualitzades"
 
 #: inc/tabs-widget.php:266
 msgid "Number of popular posts"
@@ -1018,11 +1041,11 @@ msgstr ""
 
 #: inc/tabs-widget.php:272
 msgid "Number of recent posts"
-msgstr ""
+msgstr "Número d'entrades recents"
 
 #: inc/tabs-widget.php:278
 msgid "Number of comments"
-msgstr ""
+msgstr "Número de comentaris"
 
 #: inc/tabs-widget.php:289
 msgid "Show popular posts"
@@ -1034,7 +1057,7 @@ msgstr ""
 
 #: inc/tabs-widget.php:299
 msgid "Show comments"
-msgstr "显示评论"
+msgstr "Mostra els comentaris"
 
 #: inc/template-functions.php:333
 msgid "You are browsing archives for"
@@ -1046,7 +1069,7 @@ msgstr ""
 
 #: inc/template-tags.php:88 inc/template-tags.php:805
 msgid "Search"
-msgstr "搜索"
+msgstr "Cerca"
 
 #: inc/template-tags.php:128 inc/template-tags.php:142
 msgid "Sticky"
@@ -1054,7 +1077,7 @@ msgstr ""
 
 #: inc/template-tags.php:468
 msgid "Written by"
-msgstr "作者"
+msgstr "Escrit per"
 
 #: inc/template-tags.php:469
 #, php-format
@@ -1063,19 +1086,19 @@ msgstr ""
 
 #: inc/template-tags.php:479 template-parts/post/content-post.php:52
 msgid "Leave a Comment"
-msgstr "留下评论"
+msgstr "Deixa un comentari"
 
 #: inc/template-tags.php:548
 msgid "Similar posts"
-msgstr ""
+msgstr "Entrades similars"
 
 #: inc/template-tags.php:553
 msgid "Permanent Link to"
-msgstr "永久链接："
+msgstr "Enllaç permanent a "
 
 #: inc/template-tags.php:560
 msgid "Untitled"
-msgstr "未命名"
+msgstr "Sense títol"
 
 #: inc/template-tags.php:659 woocommerce/loop/pagination.php:28
 msgid "Pages"
@@ -1087,11 +1110,11 @@ msgstr ""
 
 #: inc/template-tags.php:735 inc/woocommerce-support.php:291
 msgid "Home"
-msgstr "首页"
+msgstr "Pàgina d'inici"
 
 #: inc/template-tags.php:757 inc/admin/customizer/customizer-options.php:3599
 msgid "Blog"
-msgstr "日志"
+msgstr "Bloc"
 
 #: inc/template-tags.php:802
 msgid "404 - Page not Found"
@@ -1105,11 +1128,11 @@ msgstr ""
 
 #: inc/template-tags.php:1108 inc/admin/customizer/customizer-options.php:4015
 msgid "RSS Feed"
-msgstr "RSS 订阅"
+msgstr "Canal RSS"
 
 #: inc/template-tags.php:1117 inc/admin/customizer/customizer-options.php:4024
 msgid "Newsletter"
-msgstr ""
+msgstr "Butlletí"
 
 #: inc/template-tags.php:1125 inc/admin/customizer/customizer-options.php:4033
 msgid "Facebook"
@@ -1133,7 +1156,7 @@ msgstr "Skype"
 
 #: inc/template-tags.php:1164 inc/admin/customizer/customizer-options.php:4069
 msgid "YouTube"
-msgstr "YouTube"
+msgstr "Youtube"
 
 #: inc/template-tags.php:1172 inc/admin/customizer/customizer-options.php:4078
 msgid "Flickr"
@@ -1153,11 +1176,11 @@ msgstr "Tumblr"
 
 #: inc/template-tags.php:1228
 msgid "Share on Twitter"
-msgstr "在 Twitter 分享"
+msgstr "Comparteix al Twitter"
 
 #: inc/template-tags.php:1235
 msgid "Share on Facebook"
-msgstr "在 Facebook 分享"
+msgstr "Comparteix al Facebook"
 
 #: inc/template-tags.php:1242
 msgid "Share on Google Plus"
@@ -1169,19 +1192,19 @@ msgstr ""
 
 #: inc/template-tags.php:1256
 msgid "Share by Email"
-msgstr ""
+msgstr "Comparteix per correu electrònic"
 
 #: inc/template-tags.php:1263
 msgid "More options"
-msgstr "更多选项"
+msgstr "Més opcions"
 
 #: inc/widgets.php:10
 msgid "Sidebar 1"
-msgstr ""
+msgstr "Barra lateral 1"
 
 #: inc/widgets.php:19
 msgid "Sidebar 2"
-msgstr ""
+msgstr "Barra lateral 2"
 
 #: inc/widgets.php:32
 #, php-format
@@ -1233,7 +1256,7 @@ msgstr ""
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:4
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:9
 msgid "Show"
-msgstr "显示"
+msgstr "Mostra"
 
 #: inc/woocommerce-support.php:363
 msgid " Products"
@@ -1397,7 +1420,7 @@ msgstr ""
 
 #: inc/woocommerce-support.php:1230
 msgid "Status"
-msgstr "状态"
+msgstr "Estat"
 
 #: inc/woocommerce-support.php:1231 inc/woocommerce-support.php:1798
 #: woocommerce/cart/cart-totals.php:93 woocommerce/cart/cart-totals.php:94
@@ -1560,7 +1583,7 @@ msgstr ""
 
 #: inc/woocommerce-support.php:1928
 msgid "Email:"
-msgstr "邮件:"
+msgstr "Correu electrònic:"
 
 #: inc/woocommerce-support.php:1931
 msgid "Telephone:"
@@ -1680,7 +1703,7 @@ msgstr ""
 #: inc/admin/class-evolve-admin.php:96
 #: inc/admin/customizer/customizer-options.php:24
 msgid "Theme Homepage"
-msgstr ""
+msgstr "Pàgina d'inici del tema"
 
 #: inc/admin/class-evolve-admin.php:102
 #: inc/admin/customizer/customizer-options.php:24
@@ -1735,7 +1758,7 @@ msgstr ""
 #: inc/admin/class-evolve-admin.php:220
 #: inc/admin/customizer/customizer-options.php:24
 msgid "Documentation"
-msgstr "文档"
+msgstr "Documentació (en anglès)"
 
 #: inc/admin/class-evolve-admin.php:225
 msgid "Knowledge Base"
@@ -1753,7 +1776,7 @@ msgstr ""
 #: inc/admin/class-evolve-admin.php:239
 #: inc/admin/customizer/customizer-options.php:24
 msgid "Support"
-msgstr "支持"
+msgstr "Suport"
 
 #: inc/admin/class-evolve-admin.php:249
 msgid "Help Translate"
@@ -1803,7 +1826,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:24
 #: inc/admin/customizer/customizer-options.php:5043
 msgid "WooCommerce"
-msgstr "WooCommerce"
+msgstr ""
 
 #: inc/admin/class-evolve-admin.php:323
 msgid "WPML"
@@ -1816,7 +1839,7 @@ msgstr ""
 #. Theme Name of the plugin/theme
 #: inc/admin/class-evolve-admin.php:392
 msgid "evolve"
-msgstr ""
+msgstr "evolve"
 
 #: inc/admin/class-evolve-admin.php:399
 #: inc/admin/customizer/customizer-options.php:24
@@ -1851,7 +1874,7 @@ msgstr ""
 #: inc/admin/class-evolve-admin.php:441
 #: inc/admin/customizer/customizer-options.php:24
 msgid "Lightbox"
-msgstr ""
+msgstr "Lightbox"
 
 #: inc/admin/class-evolve-admin.php:448
 #: inc/admin/customizer/customizer-options.php:24
@@ -1871,7 +1894,7 @@ msgstr ""
 #: inc/admin/class-evolve-admin.php:469
 #: inc/admin/customizer/customizer-options.php:24
 msgid "Shortcodes"
-msgstr ""
+msgstr "Trossos de codi"
 
 #: inc/admin/class-evolve-admin.php:476
 msgid "Child Theme"
@@ -2041,11 +2064,11 @@ msgstr ""
 
 #: template-parts/navigation/navigation.php:36
 msgid "Newer Entries"
-msgstr "新文章"
+msgstr "Entrades més noves"
 
 #: template-parts/navigation/navigation.php:37
 msgid "Older Entries"
-msgstr "旧文章"
+msgstr "Entrades més velles"
 
 #: template-parts/post/content-none.php:9
 msgid "Nothing To Show Yet"
@@ -2220,7 +2243,7 @@ msgstr ""
 #: woocommerce/loop/add-to-cart.php:28 woocommerce/loop/add-to-cart.php:52
 #: woocommerce/loop/add-to-cart.php:63
 msgid "Read more"
-msgstr "阅读更多"
+msgstr "Llegiu més"
 
 #: woocommerce/loop/add-to-cart.php:42
 msgid "Select options"
@@ -2349,7 +2372,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:4142
 #: inc/admin/customizer/customizer-options.php:4466
 msgid "General"
-msgstr "常规"
+msgstr "General"
 
 #: inc/admin/customizer/customizer-options.php:42
 msgid "Select Front Page Layout"
@@ -2366,12 +2389,12 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:60
 #: inc/admin/customizer/customizer-options.php:85
 msgid "Boxed"
-msgstr "固定宽度"
+msgstr "Amplada fixa"
 
 #: inc/admin/customizer/customizer-options.php:61
 #: inc/admin/customizer/customizer-options.php:86
 msgid "Wide"
-msgstr "最大宽度"
+msgstr "Amplada màxima"
 
 #: inc/admin/customizer/customizer-options.php:67
 msgid "Select General Layout"
@@ -2527,7 +2550,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:3921
 #: inc/admin/customizer/customizer.php:1048
 msgid "Enabled"
-msgstr "启用"
+msgstr "Activat"
 
 #: inc/admin/customizer/customizer-options.php:236
 #: inc/admin/customizer/customizer-options.php:315
@@ -2567,7 +2590,7 @@ msgstr "启用"
 #: inc/admin/customizer/customizer-options.php:5002
 #: inc/admin/customizer/customizer.php:1049
 msgid "Disabled"
-msgstr ""
+msgstr "Deshabilitat"
 
 #: inc/admin/customizer/customizer-options.php:241
 msgid "Content Box 1 Title"
@@ -2627,7 +2650,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:385
 msgid "Content Box 3"
-msgstr ""
+msgstr "Caixa 3 de contingut"
 
 #: inc/admin/customizer/customizer-options.php:391
 msgid "Enable Content Box 3"
@@ -2655,7 +2678,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:464
 msgid "Content Box 4"
-msgstr ""
+msgstr "Caixa 4 de contingut"
 
 #: inc/admin/customizer/customizer-options.php:470
 msgid "Enable Content Box 4"
@@ -2773,7 +2796,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2808
 #: inc/admin/customizer/customizer-options.php:3097
 msgid "Cover"
-msgstr "cover"
+msgstr "incloure"
 
 #: inc/admin/customizer/customizer-options.php:627
 #: inc/admin/customizer/customizer-options.php:913
@@ -2794,7 +2817,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2703
 #: inc/admin/customizer/customizer-options.php:2810
 msgid "None"
-msgstr "無"
+msgstr "No"
 
 #: inc/admin/customizer/customizer-options.php:642
 #: inc/admin/customizer/customizer-options.php:928
@@ -2805,7 +2828,7 @@ msgstr "無"
 #: inc/admin/customizer/customizer-options.php:2824
 #: inc/admin/customizer/customizer-options.php:3045
 msgid "Background Repeat"
-msgstr "重复背景"
+msgstr "Repeteix el fons"
 
 #: inc/admin/customizer/customizer-options.php:645
 #: inc/admin/customizer/customizer-options.php:931
@@ -2827,7 +2850,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2828
 #: inc/admin/customizer/customizer-options.php:3048
 msgid "repeat"
-msgstr "重复"
+msgstr "Repeteix"
 
 #: inc/admin/customizer/customizer-options.php:647
 #: inc/admin/customizer/customizer-options.php:933
@@ -2859,7 +2882,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2737
 #: inc/admin/customizer/customizer-options.php:2844
 msgid "Background Position"
-msgstr "背景位置"
+msgstr "Posició del fons"
 
 #: inc/admin/customizer/customizer-options.php:665
 #: inc/admin/customizer/customizer-options.php:951
@@ -2997,7 +3020,7 @@ msgstr ""
 #: inc/admin/customizer/customizer.php:126
 #: inc/admin/customizer/customizer.php:139
 msgid "Testimonials"
-msgstr ""
+msgstr "Testimonis"
 
 #: inc/admin/customizer/customizer-options.php:786
 msgid "Enable Testimonials On Front Page"
@@ -3071,7 +3094,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:1094
 msgid "Counter Circle"
-msgstr ""
+msgstr "Comptador de cercle"
 
 #: inc/admin/customizer/customizer-options.php:1099
 msgid "Enable Counter Circles On Front Page"
@@ -3149,7 +3172,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:1713
 #: inc/admin/metaboxes/metaboxes.php:279
 msgid "Header"
-msgstr "顶部"
+msgstr "Capçalera"
 
 #: inc/admin/customizer/customizer-options.php:1718
 msgid "Header Padding"
@@ -3189,7 +3212,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:1777
 msgid "Choose Header Type"
-msgstr ""
+msgstr "Tria el tipus de capçalera"
 
 #: inc/admin/customizer/customizer-options.php:1778
 msgid "Choose your Header Type"
@@ -3197,7 +3220,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:1796
 msgid "Sticky Header"
-msgstr ""
+msgstr "Capçalera fixa"
 
 #: inc/admin/customizer/customizer-options.php:1801
 msgid "Enable Sticky Header"
@@ -3213,7 +3236,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:1834
 msgid "Logo"
-msgstr ""
+msgstr "Logotip"
 
 #: inc/admin/customizer/customizer-options.php:1839
 msgid "Custom Logo"
@@ -3234,16 +3257,16 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:1852
 #: inc/admin/customizer/customizer-options.php:5003
 msgid "Left"
-msgstr "左"
+msgstr "Esquerra"
 
 #: inc/admin/customizer/customizer-options.php:1853
 msgid "Center"
-msgstr "中"
+msgstr "Centrat"
 
 #: inc/admin/customizer/customizer-options.php:1854
 #: inc/admin/customizer/customizer-options.php:5004
 msgid "Right"
-msgstr "右"
+msgstr "Dreta"
 
 #: inc/admin/customizer/customizer-options.php:1869
 #: inc/admin/customizer/customizer-options.php:2140
@@ -3282,7 +3305,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2213
 #: inc/admin/customizer/customizer-options.php:2922
 msgid "Menu"
-msgstr ""
+msgstr "Menú"
 
 #: inc/admin/customizer/customizer-options.php:1907
 msgid "Disable Main Menu"
@@ -3338,7 +3361,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:1995
 msgid "Header Widgets"
-msgstr ""
+msgstr "Ginys de la capçalera"
 
 #: inc/admin/customizer/customizer-options.php:2000
 msgid "Number of Widget Cols in The Header Block"
@@ -3358,11 +3381,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2018
 msgid "Front Page"
-msgstr "首页"
+msgstr "Portada"
 
 #: inc/admin/customizer/customizer-options.php:2019
 msgid "Single Post"
-msgstr "文章页面"
+msgstr "Entrada"
 
 #: inc/admin/customizer/customizer-options.php:2020
 msgid "Only Pages"
@@ -3378,11 +3401,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2036
 msgid "Footer"
-msgstr "底部"
+msgstr "Peu de pàgina"
 
 #: inc/admin/customizer/customizer-options.php:2047
 msgid "Footer Widgets"
-msgstr ""
+msgstr "Ginys del peu de pàgina"
 
 #: inc/admin/customizer/customizer-options.php:2052
 msgid "Number of Widget Cols in Footer"
@@ -3395,7 +3418,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2074
 #: inc/admin/customizer/customizer-options.php:2079
 msgid "Custom Footer"
-msgstr ""
+msgstr "Peu de pàgina personalitzat"
 
 #: inc/admin/customizer/customizer-options.php:2080
 #, php-format
@@ -3407,7 +3430,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2096
 msgid "Typography"
-msgstr "排版"
+msgstr "Tipografia"
 
 #: inc/admin/customizer/customizer-options.php:2107
 msgid "Website Body"
@@ -3455,7 +3478,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2246
 msgid "Widget"
-msgstr ""
+msgstr "Giny"
 
 #: inc/admin/customizer/customizer-options.php:2251
 msgid "Widget Title Font"
@@ -3607,7 +3630,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2687
 msgid "Header & Footer"
-msgstr ""
+msgstr "Capçalera i peu de pàgina"
 
 #: inc/admin/customizer/customizer-options.php:2692
 msgid "Header Styling"
@@ -3645,7 +3668,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:2789
 msgid "Footer Image"
-msgstr ""
+msgstr "Imatge del peu de pàgina"
 
 #: inc/admin/customizer/customizer-options.php:2790
 msgid ""
@@ -3713,12 +3736,12 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:2953
 #: inc/admin/customizer/customizer-options.php:3116
 msgid "Light"
-msgstr "浅色"
+msgstr "Clar"
 
 #: inc/admin/customizer/customizer-options.php:2954
 #: inc/admin/customizer/customizer-options.php:3117
 msgid "Dark"
-msgstr "深色"
+msgstr "Fosc"
 
 #: inc/admin/customizer/customizer-options.php:2963
 msgid "Top Bar Color"
@@ -3768,11 +3791,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3073
 msgid "Content"
-msgstr ""
+msgstr "Contingut"
 
 #: inc/admin/customizer/customizer-options.php:3078
 msgid "Content Image"
-msgstr ""
+msgstr "Imatge del contingut"
 
 #: inc/admin/customizer/customizer-options.php:3079
 msgid ""
@@ -3796,7 +3819,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3113
 msgid "Background color of content"
-msgstr ""
+msgstr "Color de fons del contingut"
 
 #: inc/admin/customizer/customizer-options.php:3123
 msgid "Or Custom Content Color"
@@ -3808,7 +3831,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3145
 msgid "Widgets"
-msgstr ""
+msgstr "Ginys"
 
 #: inc/admin/customizer/customizer-options.php:3150
 msgid "Enable Widget Title Custom Background"
@@ -3837,7 +3860,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3197
 msgid "Links"
-msgstr ""
+msgstr "Enllaços"
 
 #: inc/admin/customizer/customizer-options.php:3202
 msgid "Primary Link Color"
@@ -3857,11 +3880,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3240
 msgid "Shadows"
-msgstr ""
+msgstr "Ombres"
 
 #: inc/admin/customizer/customizer-options.php:3245
 msgid "Shadow Effect"
-msgstr ""
+msgstr "Efecte de sombra"
 
 #: inc/admin/customizer/customizer-options.php:3246
 msgid "Enables the shadow effect on the elements"
@@ -3889,11 +3912,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3299
 msgid "Square"
-msgstr "方"
+msgstr "Quadrat"
 
 #: inc/admin/customizer/customizer-options.php:3300
 msgid "Round"
-msgstr "圆"
+msgstr "Arrodonit"
 
 #: inc/admin/customizer/customizer-options.php:3301
 msgid "Pill"
@@ -3901,7 +3924,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3307
 msgid "Button Type"
-msgstr "按键类型"
+msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3308
 msgid "Select the default button type"
@@ -3909,11 +3932,11 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3311
 msgid "Flat"
-msgstr "方块"
+msgstr "Pla"
 
 #: inc/admin/customizer/customizer-options.php:3312
 msgid "3d"
-msgstr ""
+msgstr "3d"
 
 #: inc/admin/customizer/customizer-options.php:3318
 msgid "Button Gradient Top Color"
@@ -3941,7 +3964,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3372
 msgid "Button Gradient Bottom Hover Color"
-msgstr ""
+msgstr "Color del degradat inferior del botó en pasar per sobre"
 
 #: inc/admin/customizer/customizer-options.php:3373
 msgid "Controls the bottom hover color of the button gradients"
@@ -4051,7 +4074,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3525
 msgid "Form Background Color"
-msgstr ""
+msgstr "Color del fons del formulari"
 
 #: inc/admin/customizer/customizer-options.php:3526
 msgid "Controls the background color of form text, textarea field"
@@ -4059,7 +4082,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3540
 msgid "Form Text Color"
-msgstr ""
+msgstr "Color del text del formulari"
 
 #: inc/admin/customizer/customizer-options.php:3541
 msgid "Controls the text, textarea color for forms"
@@ -4067,7 +4090,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3555
 msgid "Form Border Color"
-msgstr ""
+msgstr "Color de la vora del formulari"
 
 #: inc/admin/customizer/customizer-options.php:3556
 msgid "Controls the border color of form text, textarea fields"
@@ -4115,15 +4138,15 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3642
 msgid "Single posts"
-msgstr "单独文章"
+msgstr "Entrades individuals"
 
 #: inc/admin/customizer/customizer-options.php:3643
 msgid "Single posts + Archive pages"
-msgstr "单独文章 + 存档页面"
+msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3644
 msgid "All pages"
-msgstr "所有页面"
+msgstr "Totes les pàgines"
 
 #: inc/admin/customizer/customizer-options.php:3651
 msgid "Pagination Type"
@@ -4144,7 +4167,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3657
 msgid "Infinite Scroll"
-msgstr "无限滚动"
+msgstr "Desplaçament infinit"
 
 #: inc/admin/customizer/customizer-options.php:3663
 msgid "Position of Navigation Links"
@@ -4168,7 +4191,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:3669
 #: inc/admin/customizer/customizer-options.php:3733
 msgid "Both"
-msgstr ""
+msgstr "Ambdós"
 
 #: inc/admin/customizer/customizer-options.php:3688
 msgid "Post Title Excerpt Length"
@@ -4241,7 +4264,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3759
 msgid "Featured Image"
-msgstr ""
+msgstr "Imatge destacada"
 
 #: inc/admin/customizer/customizer-options.php:3764
 msgid "Enable Featured Images"
@@ -4278,7 +4301,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3810
 msgid "Post Format"
-msgstr ""
+msgstr "Format de l'entrada"
 
 #: inc/admin/customizer/customizer-options.php:3815
 msgid "Sticky Post Format Background"
@@ -4400,15 +4423,15 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:3951
 msgid "Normal"
-msgstr "正常"
+msgstr "Normal"
 
 #: inc/admin/customizer/customizer-options.php:3952
 msgid "Small"
-msgstr ""
+msgstr "Petit"
 
 #: inc/admin/customizer/customizer-options.php:3953
 msgid "Large"
-msgstr "大"
+msgstr "Gran"
 
 #: inc/admin/customizer/customizer-options.php:3954
 msgid "X-Large"
@@ -4514,7 +4537,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4183
 msgid "Speed"
-msgstr ""
+msgstr "Velocitat"
 
 #: inc/admin/customizer/customizer-options.php:4184
 msgid "Input the time between transitions (Default: 7000)"
@@ -4712,7 +4735,7 @@ msgstr ""
 #: inc/admin/customizer/customizer-options.php:4443
 #: inc/admin/customizer/customizer-options.php:4735
 msgid "Slides"
-msgstr ""
+msgstr "Diapositives"
 
 #: inc/admin/customizer/customizer-options.php:4471
 msgid "Enable Parallax Slider"
@@ -4828,7 +4851,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4815
 msgid "Slider Speed"
-msgstr "滑块速度"
+msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4816
 msgid "Input the time between transitions (Default: 3500)"
@@ -4868,7 +4891,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:4994
 msgid "Extra"
-msgstr ""
+msgstr "Addicional"
 
 #: inc/admin/customizer/customizer-options.php:4999
 msgid "Position of 'Back to Top' Button"
@@ -4876,7 +4899,7 @@ msgstr ""
 
 #: inc/admin/customizer/customizer-options.php:5005
 msgid "Middle"
-msgstr "中部"
+msgstr "Al mig"
 
 #: inc/admin/customizer/customizer-options.php:5011
 msgid "Enable Edit Post/Page Link on The Front End"
@@ -4983,11 +5006,11 @@ msgstr ""
 #: inc/admin/customizer/customizer.php:216
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:4
 msgid "Default"
-msgstr "默认"
+msgstr "Predeterminat"
 
 #: inc/admin/customizer/customizer.php:212
 msgid "All"
-msgstr "全部"
+msgstr "Tot"
 
 #: inc/admin/customizer/customizer.php:522
 #: inc/admin/customizer/customizer.php:540
@@ -5024,19 +5047,19 @@ msgstr ""
 
 #: inc/admin/metaboxes/metaboxes.php:268
 msgid "Upload"
-msgstr "上传"
+msgstr "Penja"
 
 #: inc/admin/metaboxes/metaboxes.php:269
 msgid "Remove"
-msgstr "移除"
+msgstr "Suprimeix"
 
 #: inc/admin/metaboxes/metaboxes.php:278
 msgid "Layout"
-msgstr ""
+msgstr "Disposició"
 
 #: inc/admin/metaboxes/metaboxes.php:281
 msgid "Slider"
-msgstr ""
+msgstr "Presentació amb diapositives"
 
 #: woocommerce/single-product/add-to-cart/variable.php:34
 msgid "This product is currently out of stock and unavailable."
@@ -5057,16 +5080,16 @@ msgstr ""
 #: inc/admin/metaboxes/page-tabs/tab-header.php:4
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:16
 msgid "No"
-msgstr "否"
+msgstr "No"
 
 #: inc/admin/metaboxes/page-tabs/tab-header.php:5
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:17
 msgid "Yes"
-msgstr "是"
+msgstr "Sí"
 
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:5
 msgid "Sidebar Position"
-msgstr "边栏位置"
+msgstr ""
 
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:5
 msgid "Use this setting to select and set position of sidebar"
@@ -5081,7 +5104,7 @@ msgstr ""
 
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:15
 msgid "Full Width"
-msgstr "全宽"
+msgstr "Amplada completa"
 
 #: inc/admin/metaboxes/page-tabs/tab-layout.php:15
 #, php-format
@@ -5092,12 +5115,12 @@ msgstr ""
 
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:3
 msgid "Page Title"
-msgstr "页面标题"
+msgstr "Títol de la pàgina"
 
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:5
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:10
 msgid "Hide"
-msgstr "隐藏"
+msgstr "Amaga"
 
 #: inc/admin/metaboxes/page-tabs/tab-pagetitlebar.php:8
 msgid "Page Breadcrumb"
@@ -5105,7 +5128,7 @@ msgstr ""
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:3
 msgid "Slider Position"
-msgstr ""
+msgstr "Posició de la presentació amb diapositives"
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:3
 msgid ""
@@ -5123,7 +5146,7 @@ msgstr ""
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:10
 msgid "Slider Type"
-msgstr "滑块类型"
+msgstr ""
 
 #: inc/admin/metaboxes/page-tabs/tab-slider.php:11
 msgid "No Slider"
@@ -5145,12 +5168,12 @@ msgstr ""
 
 #. Theme URI of the plugin/theme
 msgid "https://theme4press.com/evolve-multipurpose-wordpress-theme/"
-msgstr ""
+msgstr "https://theme4press.com/evolve-multipurpose-wordpress-theme/"
 
 #. Author of the plugin/theme
 msgid "Theme4Press"
-msgstr ""
+msgstr "Theme4Press"
 
 #. Author URI of the plugin/theme
 msgid "http://theme4press.com"
-msgstr ""
+msgstr "http://theme4press.com"
