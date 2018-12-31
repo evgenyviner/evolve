@@ -15,6 +15,7 @@ Animate.css - http://daneden.me/animate - MIT License
 Footer Reveal - https://github.com/IainAndrew - MIT License
 jQuery Waypoints - http://imakewebthings.com/waypoints/guides/getting-started - MIT License
 easyPieChart - http://rendro.github.io/easy-pie-chart/ - MIT License
+TGM Plugin Activation - http://tgmpluginactivation.com/download/ - GPL License
 
 Other images (icons, theme images, background images, etc.) are licensed under GPL v2.0.
 

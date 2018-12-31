@@ -1133,9 +1133,9 @@ if ( ! function_exists( 'evolve_load_the_theme_options' ) ) {
 				}
 			}
 		}
+		require get_parent_theme_file_path( '/inc/admin/customizer/customizer-options.php' );
+		evolve_customizer_options();
 		if ( is_admin() || isset( $_REQUEST['evolve_write_json_configs'] ) ) {
-			require get_parent_theme_file_path( '/inc/admin/customizer/customizer-options.php' );
-			evolve_customizer_options();
 			if ( is_customize_preview() ) {
 				evolve_write_json_configs();
 			}
@@ -1240,12 +1240,15 @@ if ( ! class_exists( 'evolve_upgrade_button' ) ) {
 			), 9999 );
 		}
 
-		public function add_upgrade_customizer() { ?>
+		public function add_upgrade_customizer() {
+
+			$theme_url = esc_url( 'https://theme4press.com/evolve-multipurpose-wordpress-theme/' );
+			?>
             <script type="text/javascript">
                 (function ($) {
                     "use strict";
                     var upgrade = $('<a class="evolve-upgrade-button"></a>')
-                        .attr('href', '<?php echo esc_url( 'https://theme4press.com/evolve-multipurpose-wordpress-theme/?utm_source=evolve-customizer&utm_medium=customizer-top-link&utm_campaign=theme-customizer' ); ?>')
+                        .attr('href', '<?php echo $theme_url . '?utm_source=evolve-customizer&utm_medium=customizer-top-link&utm_campaign=theme-customizer'; ?>')
                         .attr('target', '_blank')
                         .text('<?php _e( 'Upgrade to premium', 'evolve' ); ?>');
                     setTimeout(function () {

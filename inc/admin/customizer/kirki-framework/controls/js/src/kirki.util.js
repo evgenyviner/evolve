@@ -259,8 +259,8 @@ kirki = jQuery.extend( kirki, {
 				var validUnits = [ 'fr', 'rem', 'em', 'ex', '%', 'px', 'cm', 'mm', 'in', 'pt', 'pc', 'ch', 'vh', 'vw', 'vmin', 'vmax' ],
 					numericValue,
 					unit;
-				// Early exit if value is undefined.
-				if ( 'undefined' === typeof value ) {
+				// Early exit if value is not a string or a number.
+				if ( 'string' !== typeof value || 'number' !== typeof value ) {
 					return true;
 				}
 

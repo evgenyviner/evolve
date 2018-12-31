@@ -59,7 +59,8 @@
 }
 
 .about-wrap .nav-tab-active {
-    border-color: #ccc #ccc #fff;
+    background: #f1f1f1;
+    border-color: #ccc #ccc #f1f1f1;
     color: #23282d;
 }
 

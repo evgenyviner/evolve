@@ -1,5 +1,14 @@
 === Changelog ===
 
+Version  4.0.4
+Date:         31/12/18
+
+- Added Demo Awesome - The Data Importer Support
+- Added Option To Display The First Image Of Post Content If No Featured Image is Set
+- Updated Kirki Framework
+- Fixed Theme Options Per Page For Blog Page
+
+
 Version  4.0.3
 Date:         19/12/18
 

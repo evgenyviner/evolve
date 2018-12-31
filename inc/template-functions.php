@@ -1106,7 +1106,7 @@ if ( ! function_exists( 'evolve_layout_class' ) ) {
 				$layout_css = 'col-md-12 col-lg-6 order-1';
 				break;
 		endswitch;
-		if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ):
+		if ( ! is_front_page() && is_home() || is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ):
 			$sidebar_position = get_post_meta( evolve_get_post_id(), 'evolve_sidebar_position', true );
 			if ( ( $type == 1 && $sidebar_position == "default" ) || ( $type == 2 && $sidebar_position == "default" ) ) {
 				if ( get_post_meta( evolve_get_post_id(), 'evolve_full_width', true ) == 'yes' ) {
@@ -1134,7 +1134,7 @@ if ( ! function_exists( 'evolve_layout_class' ) ) {
 					break;
 			endswitch;
 		endif;
-		if ( is_front_page() && is_page() || is_home() ) {
+		if ( is_front_page() && is_page() || is_front_page() && is_home() ) {
 			switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
 				case "1c":
 					$layout_css = 'col-12';
@@ -1196,7 +1196,7 @@ if ( ! function_exists( 'evolve_sidebar_class' ) ) {
 				break;
 		endswitch;
 		$sidebar_position = get_post_meta( evolve_get_post_id(), 'evolve_sidebar_position', true );
-		if ( is_page() || is_single() ):
+		if ( ! is_front_page() && is_home() || is_page() || is_single() ):
 			switch ( $sidebar_position ):
 				case "default":
 					//do nothing
@@ -1216,7 +1216,7 @@ if ( ! function_exists( 'evolve_sidebar_class' ) ) {
 					break;
 			endswitch;
 		endif;
-		if ( is_front_page() && is_page() || is_home() ) {
+		if ( is_front_page() && is_page() || is_front_page() && is_home() ) {
 			switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
 				case "1c":
 					$sidebar_css = '';
@@ -1258,7 +1258,7 @@ if ( ! function_exists( 'evolve_sidebar_class_2' ) ) {
 				break;
 		endswitch;
 		$sidebar_single = get_post_meta( evolve_get_post_id(), 'evolve_sidebar_position', true );
-		if ( is_page() || is_single() ):
+		if ( ! is_front_page() && is_home() || is_page() || is_single() ):
 			switch ( $sidebar_single ):
 				case "3cm":
 				case "3cr":
@@ -1269,7 +1269,7 @@ if ( ! function_exists( 'evolve_sidebar_class_2' ) ) {
 					break;
 			endswitch;
 		endif;
-		if ( ( is_front_page() && is_page() ) || is_home() ) {
+		if ( ( is_front_page() && is_page() ) || is_front_page() && is_home() ) {
 			switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
 				case "3cm":
 				case "3cr":
@@ -1296,17 +1296,17 @@ if ( ! function_exists( 'evolve_lets_get_sidebar' ) ) {
 		if ( evolve_theme_mod( 'evl_layout', '2cl' ) != "1c" ) {
 			$get_sidebar = true;
 		}
-		if ( ( is_page() || is_single() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) && get_post_meta( evolve_get_post_id(), 'evolve_full_width', true ) == 'yes' ) {
+		if ( ( is_home() && is_page() || is_page() || is_single() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) && get_post_meta( evolve_get_post_id(), 'evolve_full_width', true ) == 'yes' ) {
 			$get_sidebar = false;
 		}
-		if ( is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) {
+		if ( is_home() && is_page() || is_single() || is_page() || $wp_query->is_posts_page || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) {
 			$sidebar_single = get_post_meta( evolve_get_post_id(), 'evolve_sidebar_position', true );
 			if ( $sidebar_single != 'default' && $sidebar_single != '' ) {
 				$get_sidebar = true;
 			}
 		}
 
-		if ( ( is_front_page() && is_page() ) || is_home() ) {
+		if ( ( is_front_page() && is_page() || is_front_page() && is_home()  ) ) {
 			if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "1c" ) {
 				$get_sidebar = false;
 			} else {
@@ -1342,7 +1342,7 @@ if ( ! function_exists( 'evolve_lets_get_sidebar_2' ) ) {
 				$get_sidebar = true;
 			}
 		}
-		if ( ( is_front_page() && is_page() ) || is_home() ) {
+		if ( ( is_front_page() && is_page() ) || is_front_page() && is_home() ) {
 			if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "1c" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "2cl" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "2cr" ) {
 				$get_sidebar = false;
 			} else {
@@ -1502,7 +1502,7 @@ if ( ! function_exists( 'evolve_wrapper_class' ) ) {
 		if ( ! is_customize_preview() ) {
 			return;
 		}
-		if ( ( ( is_front_page() && is_page() || is_home() ) && evolve_theme_mod( 'evl_frontpage_width_layout', 'fixed' ) == "fluid" ) || ( ( ! is_home() && ! is_front_page() ) && evolve_theme_mod( 'evl_width_layout', 'fixed' ) == "fluid" ) ) {
+		if ( ( ( is_front_page() && is_page() || is_front_page() && is_home() ) && evolve_theme_mod( 'evl_frontpage_width_layout', 'fixed' ) == "fluid" ) || ( ( ! is_home() && ! is_front_page() ) && evolve_theme_mod( 'evl_width_layout', 'fixed' ) == "fluid" ) ) {
 		} else {
 			return "class='wrapper-customizer'";
 		}

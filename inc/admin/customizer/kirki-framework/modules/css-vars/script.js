@@ -59,3 +59,23 @@ jQuery( document ).ready( function() {
 		} );
 	} );
 } );
+wp.customize.bind( 'preview-ready', function() {
+	wp.customize.preview.bind( 'active', function() {
+		_.each( kirkiCssVarFields, function( field ) {
+			wp.customize( field.settings, function( value ) {
+				var styles = kirkiCssVars.getStyles(),
+					newVal = window.parent.wp.customize( value.id ).get();
+				_.each( field.css_vars, function( cssVar ) {
+					if ( 'object' === typeof newVal ) {
+						if ( cssVar[2] && newVal[ cssVar[2] ] ) {
+							styles[ cssVar[0] ] = cssVar[1].replace( '$', newVal[ cssVar[2] ] );
+						}
+					} else {
+						styles[ cssVar[0] ] = cssVar[1].replace( '$', newVal );
+					}
+				} );
+				jQuery( '#kirki-css-vars' ).html( kirkiCssVars.buildStyle( styles ) );
+			} );
+		} );
+	} );
+} );

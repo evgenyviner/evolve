@@ -1,8 +1,8 @@
 <?php
 
 /*
-   evolve About Page
-   ======================================= */
+    evolve About Page
+    ======================================= */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -38,7 +38,6 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
 			if ( 'themes.php' == $pagenow && isset( $_GET['activated'] ) ) {
 				add_action( 'admin_notices', array( $this, 'activation_notice' ) );
 				update_option( 'evolve_admin_notice', 1 );
-
 			} elseif ( ! get_option( 'evolve_admin_notice' ) ) {
 				add_action( 'admin_notices', array( $this, 'activation_notice' ) );
 			}
@@ -184,30 +183,33 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
                             </div>
                         </div>
 
-<!--                        <div class="theme-info-col theme-info-col-6">-->
-<!--                            <div class="content-box">-->
-<!--                                <h3>--><?php //esc_html_e( 'Pre-built Demos', 'evolve' ); ?><!--</h3>-->
-<!---->
-<!--								--><?php //if ( class_exists( 'Demo_Awesome' ) ) { ?>
-<!--                                    <p>--><?php //printf( esc_html__( 'Import the pre-built demos with %1$sDemo Awesome%2$s - the data importer', 'evolve' ), '<strong>', '</strong>' ); ?><!--</p>-->
-<!--                                    <p>-->
-<!--                                        <a href="--><?php //echo esc_url( network_admin_url( 'themes.php?page=demo-awesome-importer' ) ); ?><!--"-->
-<!--                                           class="button button-primary"><span-->
-<!--                                                    class="dashicons dashicons-download"></span>--><?php //esc_html_e( 'Import a demo', 'evolve' ); ?>
-<!--                                        </a>-->
-<!--                                    </p>-->
-<!--								--><?php //} else { ?>
-<!--                                    <p>--><?php //printf( esc_html__( 'Install the %1$sDemo Awesome%2$s plugin in order to import the pre-built demos', 'evolve' ), '<strong>', '</strong>' ); ?><!--</p>-->
-<!--                                    <p>-->
-<!--                                        <a target="_blank"-->
-<!--                                           href="--><?php //echo esc_url( network_admin_url( 'plugin-install.php?tab=search&type=term&s=demo+awesome' ) ); ?><!--"-->
-<!--                                           class="button button-primary"><span-->
-<!--                                                    class="dashicons dashicons-admin-plugins"></span>--><?php //esc_html_e( 'Install', 'evolve' ); ?>
-<!--                                        </a>-->
-<!--                                    </p>-->
-<!--								--><?php //} ?>
-<!--                            </div>-->
-<!--                        </div>-->
+                        <div class="theme-info-col theme-info-col-6">
+                            <div class="content-box">
+                                <h3>
+									<?php esc_html_e( 'Pre-built Demos', 'evolve' ); ?></h3>
+
+								<?php if ( class_exists( 'Demo_Awesome' ) ) { ?>
+                                    <p>
+										<?php printf( esc_html__( 'Import the pre-built demos with %1$sDemo Awesome%2$s - the data importer', 'evolve' ), '<strong>', '</strong>' ); ?></p>
+                                    <p>
+                                        <a href="<?php echo esc_url( network_admin_url( 'themes.php?page=demo-awesome-importer' ) ); ?>"
+                                           class="button button-primary"><span
+                                                    class="dashicons dashicons-download"></span><?php esc_html_e( 'Import a demo', 'evolve' ); ?>
+                                        </a>
+                                    </p>
+								<?php } else { ?>
+                                    <p>
+										<?php printf( esc_html__( 'Install the %1$sDemo Awesome%2$s plugin in order to import the pre-built demos', 'evolve' ), '<strong>', '</strong>' ); ?></p>
+                                    <p>
+                                        <a target="_blank"
+                                           href="<?php echo esc_url( network_admin_url( 'plugin-install.php?tab=plugin-information&plugin=Demo+Awesome' ) ); ?>"
+                                           class="button button-primary"><span
+                                                    class="dashicons dashicons-admin-plugins"></span><?php esc_html_e( 'Install', 'evolve' ); ?>
+                                        </a>
+                                    </p>
+								<?php } ?>
+                            </div>
+                        </div>
 
                         <div class="theme-info-col theme-info-col-6">
                             <div class="content-box">
@@ -295,6 +297,21 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
 
                         <div class="theme-info-col theme-info-col-6">
                             <div class="content-box">
+                                <h3><?php esc_html_e( 'Recommended Plugins', 'evolve' ); ?></h3>
+                                <p>
+                                <ol>
+                                    <li>
+                                        <a href="<?php echo esc_url( 'https://wordpress.org/plugins/demo-awesome/' ); ?>"
+                                           target="_blank"><?php esc_html_e( 'Demo Awesome', 'evolve' ); ?></a>
+                                    </li>
+                                </ol>
+                                </p>
+
+                            </div>
+                        </div>
+
+                        <div class="theme-info-col theme-info-col-6">
+                            <div class="content-box">
                                 <h3><?php esc_html_e( 'Compatible Plugins', 'evolve' ); ?></h3>
                                 <p>
                                 <ol>
@@ -327,6 +344,7 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
 
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -477,6 +495,19 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
                         </td>
                         <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
                         <td class="feature-item"><span class="dashicons dashicons-no"></span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4><?php esc_html_e( 'Pre-built Demos', 'evolve' ); ?></h4>
+                        </td>
+                        <td class="feature-item"><span class="dashicons dashicons-yes"></span>
+                            <div class="w-100"></div>
+                            <div class="extra"><?php esc_html_e( 'EXTRA IN PREMIUM', 'evolve' ); ?></div>
+							<?php esc_html_e( '12 Demos', 'evolve' ); ?>
+                        </td>
+                        <td class="feature-item pr-4"><span class="dashicons dashicons-yes"></span>
+                            <div class="w-100"></div><?php esc_html_e( '3 Demos', 'evolve' ); ?>
+                        </td>
                     </tr>
                     <tr>
                         <td>

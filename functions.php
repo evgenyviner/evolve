@@ -18,6 +18,7 @@
 		-- Remove Title Attribute From Menu
 		-- Jetpack Slider Image Height Filter
 	- About Page
+	- Plugin Activation Notice
 	- Template Functions
 	- Register Widget Areas
 	- Custom Comments
@@ -609,10 +610,12 @@ add_filter( 'wp_nav_menu', 'evolve_menu_notitle' );
 	Jetpack Slider Image Height Filter
     --------------------------------------- */
 
-function evolve_post_slider_jetpack_filter( $classes ) {
-	$classes[] = 'd-block';
+if ( ! function_exists( 'evolve_post_slider_jetpack_filter' ) ) {
+	function evolve_post_slider_jetpack_filter( $classes ) {
+		$classes[] = 'd-block';
 
-	return $classes;
+		return $classes;
+	}
 }
 
 add_filter( 'jetpack_lazy_images_blacklisted_classes', 'evolve_post_slider_jetpack_filter', 999, 1 );
@@ -623,6 +626,42 @@ add_filter( 'jetpack_lazy_images_blacklisted_classes', 'evolve_post_slider_jetpa
 
 if ( is_admin() ) {
 	require get_parent_theme_file_path( '/inc/admin/class-evolve-admin.php' );
+}
+
+/*
+    Plugin Activation Notice
+    ======================================= */
+
+if ( is_admin() ) {
+	require get_parent_theme_file_path( '/inc/admin/class-evolve-plugin-activation.php' );
+
+	add_action( 'evolve_register_plugins', 'evolve_register_required_plugins' );
+
+	if ( ! function_exists( 'evolve_register_required_plugins' ) ) {
+		function evolve_register_required_plugins() {
+
+			$plugins = array(
+				array(
+					'name'     => 'Demo Awesome',
+					'slug'     => 'demo-awesome',
+					'required' => false,
+				),
+			);
+
+			$config = array(
+				'id'           => 'evolve',
+				'default_path' => '',
+				'menu'         => 'evolve-install-plugins',
+				'has_notices'  => true,
+				'dismissable'  => true,
+				'dismiss_msg'  => '',
+				'is_automatic' => false,
+				'message'      => '',
+			);
+
+			tgmpa( $plugins, $config );
+		}
+	}
 }
 
 /*
