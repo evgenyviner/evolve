@@ -21,7 +21,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				'fields'  => array(
 					array(
 						'id'   => 'evl_theme_links',
-						'desc' => '<a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/?utm_source=evolve-customizer&utm_medium=homepage-link&utm_campaign=theme-customizer"><span class="dashicons dashicons-admin-home"></span> ' . esc_html__( 'Theme Homepage', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'docs/?utm_source=evolve-customizer&utm_medium=documentation-link&utm_campaign=theme-customizer"><span class="dashicons dashicons-admin-page"></span> ' . esc_html__( 'Documentation', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['support_url'] . 'support/theme/evolve"><span class="dashicons dashicons-admin-comments"></span> ' . esc_html__( 'Support', 'evolve' ) . '</a><div class="evolve-features"><h2>' . esc_html__( 'evolve Plus key features', 'evolve' ) . '</h2><ul><li><h3>' . esc_html__( '12 Pre-built Demos', 'evolve' ) . '</h3>' . esc_html__( 'Build a Website Within a Minute With The Modern Minimalist Demos', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Theme4Press Slider', 'evolve' ) . '</h3>' . esc_html__( 'Image or Video Responsive Unlimited Slides With Nice Animations', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Built-in Mega Menu', 'evolve' ) . '</h3>' . esc_html__( 'Excellent Mega Menu When You Need To Add Widgets Or Specially Style Your Menu', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Shortcodes', 'evolve' ) . '</h3>' . esc_html__( 'Create Alerts, Tabs, Pricing Tables etc.', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Custom Sidebars', 'evolve' ) . '</h3>' . esc_html__( 'Create Unique Sidebars With Widgets For Any Page', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Portfolios', 'evolve' ) . '</h3>' . esc_html__( 'Up To 9 Layouts &ndash; Select The Right Type For Your Showcase', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Google Map Contact', 'evolve' ) . '</h3>' . esc_html__( 'Contact Page Template With The Google Map And reCaptcha Protection', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Sticky Navigation', 'evolve' ) . '</h3>' . esc_html__( 'Sticky Navigation Is Perfect If You Need Organized Pages - For Example For Documentation', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Lightbox', 'evolve' ) . '</h3>' . esc_html__( 'Responsive Lightbox Ready To Display Your Amazing Shots, YouTube Or Vimeo Videos, Or Instagram Photos', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Slider Revolution (Bundled)', 'evolve' ) . '</h3>' . esc_html__( 'Responsive Premium WordPress Slider With Breathtaking Effects', 'evolve' ) . '</li><li><h3>' . esc_html__( 'LayerSlider (Bundled)', 'evolve' ) . '</h3>' . esc_html__( 'Create Fantastic Slides With The Bundled Premium Slider Plugin', 'evolve' ) . '</li><li><h3>' . esc_html__( '100% Width Template', 'evolve' ) . '</h3>' . esc_html__( '100% Width Template Let You To Set Any Page To Be Full Width Of The Browser\'s Window', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Custom Headers', 'evolve' ) . '</h3>' . esc_html__( 'Custom Headers Can Be Set Per Post/Page', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Header Layouts', 'evolve' ) . '</h3>' . esc_html__( '5 Header Layouts', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Live Customizer', 'evolve' ) . '</h3>' . esc_html__( '300+ Theme Options', 'evolve' ) . '</li><li><h3>' . esc_html__( 'WooCommerce', 'evolve' ) . '</h3>' . esc_html__( 'Custom/Global Sidebar For WooCommerce Pages', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Bootstrap Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Unlimited Number Of Slides, Slides Reorder', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Parallax Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Unlimited Number Of Slides, Slides Reorder', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Posts Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Up To 30 Slides', 'evolve' ) . '</li></ul></div><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/evolve-multipurpose-wordpress-theme/?utm_source=evolve-customizer&utm_medium=compare-themes-link&utm_campaign=theme-customizer#features"><span class="dashicons dashicons-update"></span> ' . esc_html__( 'Compare With Premium Version', 'evolve' ) . '</a>',
+						'desc' => '<a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/?utm_source=evolve-customizer&utm_medium=homepage-link&utm_campaign=theme-customizer"><span class="dashicons dashicons-admin-home"></span> ' . esc_html__( 'Theme Homepage', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'docs/?utm_source=evolve-customizer&utm_medium=documentation-link&utm_campaign=theme-customizer"><span class="dashicons dashicons-admin-page"></span> ' . esc_html__( 'Documentation', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['support_url'] . 'support/theme/evolve"><span class="dashicons dashicons-admin-comments"></span> ' . esc_html__( 'Support', 'evolve' ) . '</a><div class="evolve-features"><h2>' . esc_html__( 'evolve Plus key features', 'evolve' ) . '</h2><ul><li><h3>' . esc_html__( '18 Pre-built Demos', 'evolve' ) . '</h3>' . esc_html__( 'Build a Website Within a Minute With The Modern Minimalist Demos', 'evolve' ) . '</li><li><h3>' . esc_html__( 'One Page Parallax Layout', 'evolve' ) . '</h3>' . esc_html__( 'Simple But Very Effective One Page Parallax Feature', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Theme4Press Slider', 'evolve' ) . '</h3>' . esc_html__( 'Image or Video Responsive Unlimited Slides With Nice Animations', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Built-in Mega Menu', 'evolve' ) . '</h3>' . esc_html__( 'Excellent Mega Menu When You Need To Add Widgets Or Specially Style Your Menu', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Shortcodes', 'evolve' ) . '</h3>' . esc_html__( 'Create Alerts, Tabs, Pricing Tables etc.', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Custom Sidebars', 'evolve' ) . '</h3>' . esc_html__( 'Create Unique Sidebars With Widgets For Any Page', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Portfolios', 'evolve' ) . '</h3>' . esc_html__( 'Up To 9 Layouts &ndash; Select The Right Type For Your Showcase', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Google Map Contact', 'evolve' ) . '</h3>' . esc_html__( 'Contact Page Template With The Google Map And reCaptcha Protection', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Sticky Navigation', 'evolve' ) . '</h3>' . esc_html__( 'Sticky Navigation Is Perfect If You Need Organized Pages - For Example For Documentation', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Lightbox', 'evolve' ) . '</h3>' . esc_html__( 'Responsive Lightbox Ready To Display Your Amazing Shots, YouTube Or Vimeo Videos, Or Instagram Photos', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Slider Revolution (Bundled)', 'evolve' ) . '</h3>' . esc_html__( 'Responsive Premium WordPress Slider With Breathtaking Effects', 'evolve' ) . '</li><li><h3>' . esc_html__( 'LayerSlider (Bundled)', 'evolve' ) . '</h3>' . esc_html__( 'Create Fantastic Slides With The Bundled Premium Slider Plugin', 'evolve' ) . '</li><li><h3>' . esc_html__( '100% Width Template', 'evolve' ) . '</h3>' . esc_html__( '100% Width Template Let You To Set Any Page To Be Full Width Of The Browser\'s Window', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Custom Headers', 'evolve' ) . '</h3>' . esc_html__( 'Custom Headers Can Be Set Per Post/Page', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Header Layouts', 'evolve' ) . '</h3>' . esc_html__( '5 Header Layouts', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Live Customizer', 'evolve' ) . '</h3>' . esc_html__( '300+ Theme Options', 'evolve' ) . '</li><li><h3>' . esc_html__( 'WooCommerce', 'evolve' ) . '</h3>' . esc_html__( 'Custom/Global Sidebar For WooCommerce Pages', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Bootstrap Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Unlimited Number Of Slides, Slides Reorder', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Parallax Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Unlimited Number Of Slides, Slides Reorder', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Posts Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Up To 30 Slides', 'evolve' ) . '</li></ul></div><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/evolve-multipurpose-wordpress-theme/?utm_source=evolve-customizer&utm_medium=compare-themes-link&utm_campaign=theme-customizer#features"><span class="dashicons dashicons-update"></span> ' . esc_html__( 'Compare With Premium Version', 'evolve' ) . '</a>',
 						'type' => 'info'
 					)
 				)
@@ -97,7 +97,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							'max'  => '2000',
 							'step' => '10',
 						),
-						'default'   => 1200,
+						'default'   => 1500,
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -1887,7 +1887,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							'under'   => esc_attr__( 'Under Website Title', 'evolve' ),
 							'disable' => esc_attr__( 'Disabled', 'evolve' )
 						),
-						'default'  => 'disable'
+						'default'  => 'next'
 					)
 				)
 			)
@@ -1917,7 +1917,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							'rollover' => esc_attr__( 'Rollover', 'evolve' ),
 							'disable'  => esc_attr__( 'Disabled', 'evolve' )
 						),
-						'default'  => 'rollover',
+						'default'  => 'disable',
 						'required' => array(
 							array( 'evl_main_menu', '=', '0' )
 						)
@@ -1929,7 +1929,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'type'      => 'slider',
 						'min'       => '0',
 						'max'       => '20',
-						'default'   => '8',
+						'default'   => '15',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -2147,10 +2147,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'text-align'  => false,
 						'line-height' => false,
 						'default'     => array(
-							'font-size'   => '2.4rem',
-							'color'       => '#ffffff',
+							'font-size'   => '3rem',
+							'color'       => '#492fb1',
 							'font-family' => 'Roboto',
-							'font-weight' => '500'
+							'font-weight' => '700'
 						),
 						'transport'   => 'postMessage',
 						'js_vars'     => array(
@@ -2167,7 +2167,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'text-align'  => false,
 						'line-height' => false,
 						'default'     => array(
-							'font-size'   => '.8rem',
+							'font-size'   => '1.5rem',
 							'color'       => '#aaaaaa',
 							'font-family' => 'Roboto',
 							'font-weight' => '300'
@@ -2188,9 +2188,9 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'line-height' => false,
 						'default'     => array(
 							'font-size'   => '1.6rem',
-							'color'       => '#ffffff',
+							'color'       => '#492fb1',
 							'font-family' => 'Roboto',
-							'font-weight' => '500'
+							'font-weight' => '700'
 						),
 						'transport'   => 'postMessage',
 						'js_vars'     => array(
@@ -2221,9 +2221,9 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'line-height' => false,
 						'default'     => array(
 							'font-size'   => '.9rem',
-							'color'       => '#999999',
+							'color'       => '#000000',
 							'font-family' => 'Roboto',
-							'font-weight' => '300'
+							'font-weight' => '700'
 						),
 						'transport'   => 'postMessage',
 						'js_vars'     => array(
@@ -2254,7 +2254,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'line-height' => false,
 						'default'     => array(
 							'font-size'   => '1.2rem',
-							'color'       => '#51545c',
+							'color'       => '#000000',
 							'font-family' => 'Roboto',
 							'font-weight' => '700'
 						),
@@ -2307,7 +2307,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'line-height' => false,
 						'default'     => array(
 							'font-size'   => '2rem',
-							'color'       => '#51545C',
+							'color'       => '#000000',
 							'font-family' => 'Roboto',
 							'font-weight' => '700'
 						),
@@ -2446,7 +2446,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'line-height' => false,
 						'default'     => array(
 							'font-size'   => '2.9rem',
-							'color'       => '#51545c',
+							'color'       => '#000000',
 							'font-family' => 'Roboto',
 							'font-weight' => '500'
 						),
@@ -2467,7 +2467,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'default'     => array(
 							'font-size'   => '2.5rem',
 							'font-family' => 'Roboto',
-							'color'       => '#51545c',
+							'color'       => '#000000',
 							'font-weight' => '500'
 						),
 						'transport'   => 'postMessage',
@@ -2487,7 +2487,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'default'     => array(
 							'font-size'   => '1.75rem',
 							'font-family' => 'Roboto',
-							'color'       => '#51545c',
+							'color'       => '#000000',
 							'font-weight' => '500'
 						),
 						'transport'   => 'postMessage',
@@ -2507,7 +2507,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'default'     => array(
 							'font-size'   => '1.7rem',
 							'font-family' => 'Roboto',
-							'color'       => '#51545c',
+							'color'       => '#000000',
 							'font-weight' => '500'
 						),
 						'transport'   => 'postMessage',
@@ -2527,7 +2527,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'default'     => array(
 							'font-size'   => '1.25rem',
 							'font-family' => 'Roboto',
-							'color'       => '#51545c',
+							'color'       => '#000000',
 							'font-weight' => '500'
 						),
 						'transport'   => 'postMessage',
@@ -2547,7 +2547,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'default'     => array(
 							'font-size'   => '.9rem',
 							'font-family' => 'Roboto',
-							'color'       => '#51545c',
+							'color'       => '#000000',
 							'font-weight' => '500'
 						),
 						'transport'   => 'postMessage',
@@ -2613,7 +2613,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 								'#999999',
 								'#313a43',
 								'#273039',
-								'#0d9078'
+								'#492fb1'
 							),
 							'color_palette_2'  => array(
 								'#ffffff',
@@ -2761,7 +2761,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'title'     => esc_attr__( 'Header Color', 'evolve' ),
 						'subtitle'  => esc_attr__( 'Custom background color of Header', 'evolve' ),
 						'type'      => 'color',
-						'default'   => '#313a43',
+						'default'   => '#ffffff',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -2926,7 +2926,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'title'     => esc_attr__( 'Main Menu Color', 'evolve' ),
 						'subtitle'  => esc_attr__( 'Custom background color of Main Menu', 'evolve' ),
 						'type'      => 'color',
-						'default'   => '#273039',
+						'default'   => '#f9f9f9',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -2977,7 +2977,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'title'     => esc_attr__( 'Menu Hover Font Color', 'evolve' ),
 						'subtitle'  => esc_attr__( 'Menu hover font color', 'evolve' ),
 						'type'      => 'color',
-						'default'   => '#ffffff',
+						'default'   => '#492fb1',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -3122,6 +3122,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'title'     => esc_attr__( 'Or Custom Content Color', 'evolve' ),
 						'subtitle'  => esc_attr__( 'Custom background color of content area', 'evolve' ),
 						'type'      => 'color',
+						'default'   => '#ffffff',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -3201,7 +3202,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'title'     => esc_attr__( 'Primary Link Color', 'evolve' ),
 						'subtitle'  => esc_attr__( 'Custom color for content links', 'evolve' ),
 						'type'      => 'color',
-						'default'   => '#0d9078',
+						'default'   => '#492fb1',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -3317,7 +3318,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'title'     => esc_attr__( 'Button Gradient Top Color', 'evolve' ),
 						'subtitle'  => esc_attr__( 'Controls the top color of the button gradients', 'evolve' ),
 						'type'      => 'color',
-						'default'   => '#0d9078',
+						'default'   => '#492fb1',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -3335,7 +3336,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'title'     => esc_attr__( 'Button Gradient Bottom Color', 'evolve' ),
 						'subtitle'  => esc_attr__( 'Controls the bottom color of the button gradients', 'evolve' ),
 						'type'      => 'color',
-						'default'   => '#0d9078',
+						'default'   => '#492fb1',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -3389,7 +3390,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'title'     => esc_attr__( 'Button Accent Color', 'evolve' ),
 						'subtitle'  => esc_attr__( 'This option controls the color of the button text and icon', 'evolve' ),
 						'type'      => 'color',
-						'default'   => '#f4f4f4',
+						'default'   => '#ffffff',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -3419,7 +3420,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'title'     => esc_attr__( 'Button Bevel Color (3D Mode Only)', 'evolve' ),
 						'subtitle'  => esc_attr__( 'Controls the default bevel color of the buttons', 'evolve' ),
 						'type'      => 'color',
-						'default'   => '#1d6e72',
+						'default'   => '#492fb1',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -3434,7 +3435,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'title'     => esc_attr__( 'Button Border Color', 'evolve' ),
 						'subtitle'  => esc_attr__( 'Controls the border color of the buttons', 'evolve' ),
 						'type'      => 'color',
-						'default'   => '#0d9078',
+						'default'   => '#492fb1',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -3554,7 +3555,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'title'     => esc_attr__( 'Form Border Color', 'evolve' ),
 						'subtitle'  => esc_attr__( 'Controls the border color of form text, textarea fields', 'evolve' ),
 						'type'      => 'color',
-						'default'   => '#E0E0E0',
+						'default'   => '#fcfcfc',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -3575,7 +3576,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'title'     => esc_attr__( 'Form Radio, CheckBox, Active/Focus Items Color', 'evolve' ),
 						'subtitle'  => esc_attr__( 'Controls the color of form components - radio, checkbox, active/focus items etc.', 'evolve' ),
 						'type'      => 'color',
-						'default'   => '#0d9078',
+						'default'   => '#492fb1',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -3622,6 +3623,20 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'default'  => 'two'
 					),
 					array(
+						'id'       => 'evl_grid_layout',
+						'title'    => esc_attr__( 'Blog Posts Order', 'evolve' ),
+						'subtitle' => esc_attr__( 'Select the grid layout order of posts', 'evolve' ),
+						'type'     => 'image_select',
+						'options'  => array(
+							'masonry' => $global_value['customizer_images'] . 'masonry-layout.png',
+							'card'    => $global_value['customizer_images'] . 'card-layout.png'
+						),
+						'default'  => 'card',
+						'required' => array(
+							array( 'evl_post_layout', '!=', 'one' )
+						)
+					),
+					array(
 						'id'       => 'evl_category_page_title',
 						'title'    => esc_attr__( 'Archive Page Title', 'evolve' ),
 						'subtitle' => esc_attr__( 'Enable page title in archive pages', 'evolve' ),
@@ -3630,7 +3645,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							1 => esc_attr__( 'Enabled', 'evolve' ),
 							0 => esc_attr__( 'Disabled', 'evolve' )
 						),
-						'default'  => '1'
+						'default'  => '0'
 					),
 					array(
 						'id'       => 'evl_share_this',
@@ -3655,7 +3670,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							'number_pagination' => esc_attr__( 'Number Pagination', 'evolve' ),
 							'infinite'          => esc_attr__( 'Infinite Scroll', 'evolve' )
 						),
-						'default'  => 'pagination'
+						'default'  => 'infinite'
 					),
 					array(
 						'id'       => 'evl_nav_links',
@@ -3719,7 +3734,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							'single'         => esc_attr__( 'Single Posts', 'evolve' ),
 							'disable'        => esc_attr__( 'Disabled', 'evolve' )
 						),
-						'default'  => 'single_archive'
+						'default'  => 'single'
 					),
 					array(
 						'id'       => 'evl_post_links',
@@ -3782,7 +3797,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'type'     => 'switch',
 						'on'       => esc_attr__( 'Enabled', 'evolve' ),
 						'off'      => esc_attr__( 'Disabled', 'evolve' ),
-						'default'  => 0,
+						'default'  => 1,
 						'required' => array(
 							array( 'evl_featured_images', '=', '1' )
 						)
@@ -4217,7 +4232,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'line-height' => false,
 						'text-align'  => false,
 						'default'     => array(
-							'font-size'   => '2.25rem',
+							'font-size'   => '3rem',
 							'font-family' => 'Roboto',
 							'font-weight' => '700',
 							'color'       => '#ffffff',
@@ -4238,7 +4253,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'title'     => esc_attr__( 'Slide Title Font Background Color', 'evolve' ),
 						'subtitle'  => esc_attr__( 'Select the background color for the slide title', 'evolve' ),
 						'type'      => 'color_rgba',
-						'default'   => '',
+						'default'   => 'rgba(0,0,0,0.62)',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -4259,9 +4274,9 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'line-height' => false,
 						'text-align'  => false,
 						'default'     => array(
-							'font-size'   => '1.25rem',
+							'font-size'   => '1.2rem',
 							'font-family' => 'Roboto',
-							'font-weight' => '100',
+							'font-weight' => '300',
 							'color'       => '#ffffff',
 							'font-style'  => ''
 						),
@@ -4280,7 +4295,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'title'     => esc_attr__( 'Slide Description Font Background Color', 'evolve' ),
 						'subtitle'  => esc_attr__( 'Select the background color for the slide description', 'evolve' ),
 						'type'      => 'color_rgba',
-						'default'   => '',
+						'default'   => 'rgba(0,0,0,0.62)',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -4352,7 +4367,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							'bootstrap_left'   => $global_value['customizer_images'] . 'b1.jpg',
 							'bootstrap_center' => $global_value['customizer_images'] . 'b2.jpg'
 						),
-						'default'  => 'bootstrap_left',
+						'default'  => 'bootstrap_center',
 						'required' => array(
 							array( 'evl_bootstrap_slider_support', '=', '1' )
 						)

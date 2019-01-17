@@ -7509,7 +7509,7 @@ if (evolve_js_local_vars.infinite_scroll_enabled === '1') {
     // Define Infinite Scroll For Theme
 
     var ias = jQuery.ias({
-        container: "#primary",
+        container: ".posts",
         item: "article",
         pagination: ".infinite",
         next: ".nav-previous a",

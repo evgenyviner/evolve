@@ -104,7 +104,10 @@ class evolve_Tabs_Widget extends WP_Widget {
 
                                         <div class="image">
                                             <a href="<?php the_permalink(); ?>">
-												<?php the_post_thumbnail( 'tabs-img', array( 'itemprop' => 'image' ) ); ?>
+												<?php the_post_thumbnail( 'evolve-tabs-img', array(
+													'itemprop' => 'image',
+													'class'    => 'rounded-circle'
+												) ); ?>
                                             </a>
                                         </div>
 
@@ -147,7 +150,10 @@ class evolve_Tabs_Widget extends WP_Widget {
 
                                         <div class="image">
                                             <a href="<?php the_permalink(); ?>">
-												<?php the_post_thumbnail( 'tabs-img', array( 'itemprop' => 'image' ) ); ?>
+												<?php the_post_thumbnail( 'evolve-tabs-img', array(
+													'itemprop' => 'image',
+													'class'    => 'rounded-circle'
+												) ); ?>
                                             </a>
                                         </div>
 

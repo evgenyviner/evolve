@@ -18,14 +18,14 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$post_layout            = evolve_theme_mod( 'evl_post_layout', 'two' );
 		$pos_button             = evolve_theme_mod( 'evl_pos_button', 'right' );
 		$animatecss             = evolve_theme_mod( 'evl_animatecss', '1' );
-		$width_px               = (int) evolve_theme_mod( 'evl_width_px', '1200' );
+		$width_px               = (int) evolve_theme_mod( 'evl_width_px', '1500' );
 		$min_width_px           = $width_px + 60;
 		$header_padding         = evolve_theme_mod( 'evl_header_padding' );
 		$padding_top            = $header_padding['top'];
 		$padding_bottom         = $header_padding['bottom'];
 		$padding_left           = $header_padding['left'];
 		$padding_right          = $header_padding['right'];
-		$menu_padding           = evolve_theme_mod( 'evl_main_menu_padding', '8' );
+		$menu_padding           = evolve_theme_mod( 'evl_main_menu_padding', '15' );
 		$menu_height            = evolve_theme_mod( 'evl_main_menu_height', '8' );
 		$menu_font              = evolve_theme_mod( 'evl_menu_font' );
 		$responsive_menu_layout = evolve_theme_mod( 'evl_responsive_menu_layout', 'dropdown' );
@@ -36,10 +36,10 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 
 		$content_back                       = evolve_theme_mod( 'evl_content_back', 'light' );
 		$menu_back                          = evolve_theme_mod( 'evl_menu_back', 'dark' );
-		$menu_back_color                    = evolve_theme_mod( 'evl_menu_back_color', '#273039' );
+		$menu_back_color                    = evolve_theme_mod( 'evl_menu_back_color', '#f9f9f9' );
 		$top_bar_back_color                 = evolve_theme_mod( 'evl_top_menu_back', '#273039' );
 		$custom_main_color                  = evolve_theme_mod( 'evl_header_footer_back_color', '' );
-		$custom_header_color                = evolve_theme_mod( 'evl_header_background_color', '#313a43' );
+		$custom_header_color                = evolve_theme_mod( 'evl_header_background_color', '#ffffff' );
 		$main_pattern                       = evolve_theme_mod( 'evl_pattern', 'none' );
 		$scheme_widgets                     = evolve_theme_mod( 'evl_scheme_widgets', '#273039' );
 		$widget_background                  = evolve_theme_mod( 'evl_widget_background', '0' );
@@ -50,7 +50,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$scheme_background                  = evolve_theme_mod( 'evl_scheme_background', '' );
 		$scheme_background_100              = evolve_theme_mod( 'evl_scheme_background_100', '0' );
 		$scheme_background_repeat           = evolve_theme_mod( 'evl_scheme_background_repeat', 'no-repeat' );
-		$primary_link                       = evolve_theme_mod( 'evl_general_link', '#0d9078' );
+		$primary_link                       = evolve_theme_mod( 'evl_general_link', '#492fb1' );
 		$secondary_link                     = evolve_theme_mod( 'evl_secondary_link', '#999999' );
 		$content_box1_icon_color            = evolve_theme_mod( 'evl_content_box1_icon_color', '#8bb9c1' );
 		$content_box2_icon_color            = evolve_theme_mod( 'evl_content_box2_icon_color', '#8ba3c1' );
@@ -58,15 +58,15 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$content_box4_icon_color            = evolve_theme_mod( 'evl_content_box4_icon_color', '#92bf89' );
 		$header_image                       = evolve_theme_mod( 'evl_header_image', 'cover' );
 		$content_background_image           = evolve_theme_mod( 'evl_content_background_image', '' );
-		$content_background_color           = evolve_theme_mod( 'evl_content_background_color', '' );
+		$content_background_color           = evolve_theme_mod( 'evl_content_background_color', '#ffffff' );
 		$content_image_responsiveness       = evolve_theme_mod( 'evl_content_image_responsiveness', 'cover' );
 		$shadow_effect                      = evolve_theme_mod( 'evl_shadow_effect', 'disable' );
 		$content_box_background_color       = evolve_theme_mod( 'evl_content_box_background_color', '#f9f9f9' );
 		$form_bg_color                      = evolve_theme_mod( 'evl_form_bg_color', '#fcfcfc' );
 		$form_text_color                    = evolve_theme_mod( 'evl_form_text_color', '#888888' );
-		$form_border_color                  = evolve_theme_mod( 'evl_form_border_color', '#E0E0E0' );
+		$form_border_color                  = evolve_theme_mod( 'evl_form_border_color', '#fcfcfc' );
 		$header_logo                        = evolve_theme_mod( 'evl_header_logo', '' );
-		$top_menu_hover_font_color          = evolve_theme_mod( 'evl_top_menu_hover_font_color', '#ffffff' );
+		$top_menu_hover_font_color          = evolve_theme_mod( 'evl_top_menu_hover_font_color', '#492fb1' );
 		$social_box_radius                  = evolve_theme_mod( 'evl_social_box_radius', 'disabled' );
 		$background_repeat                  = evolve_theme_mod( 'evl_header_image_background_repeat', 'no-repeat' );
 		$background_position                = evolve_theme_mod( 'evl_header_image_background_position', 'center top' );
@@ -74,7 +74,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$footer_image                       = evolve_theme_mod( 'evl_footer_image', 'cover' );
 		$footer_background_repeat           = evolve_theme_mod( 'evl_footer_image_background_repeat', 'no-repeat' );
 		$footer_background_position         = evolve_theme_mod( 'evl_footer_image_background_position', 'center top' );
-		$component_color                    = evolve_theme_mod( 'evl_form_item_color', '#0d9078' );
+		$component_color                    = evolve_theme_mod( 'evl_form_item_color', '#492fb1' );
 		$bootstrap_slide_title_font_rgba    = evolve_theme_mod( 'evl_bootstrap_slide_title_font_rgba', '' );
 		$bootstrap_slide_subtitle_font_rgba = evolve_theme_mod( 'evl_bootstrap_slide_subtitle_font_rgba', '' );
 		$parallax_slide_title_font_rgba     = evolve_theme_mod( 'evl_parallax_slide_title_font_rgba', '' );
@@ -88,18 +88,18 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 
 		$button_shape                       = evolve_theme_mod( 'evl_shortcode_button_shape', 'Pill' );
 		$button_type                        = evolve_theme_mod( 'evl_shortcode_button_type', 'Flat' );
-		$button_gradient_top_color          = evolve_theme_mod( 'evl_shortcode_button_gradient_top_color', '#0d9078' );
-		$button_gradient_bottom_color       = evolve_theme_mod( 'evl_shortcode_button_gradient_bottom_color', '#0d9078' );
+		$button_gradient_top_color          = evolve_theme_mod( 'evl_shortcode_button_gradient_top_color', '#492fb1' );
+		$button_gradient_bottom_color       = evolve_theme_mod( 'evl_shortcode_button_gradient_bottom_color', '#492fb1' );
 		$button_gradient_top_hover_color    = evolve_theme_mod( 'evl_shortcode_button_gradient_top_hover_color', '#313a43' );
 		$button_gradient_bottom_hover_color = evolve_theme_mod( 'evl_shortcode_button_gradient_bottom_hover_color', '#313a43' );
-		$button_accent_color                = evolve_theme_mod( 'evl_shortcode_button_accent_color', '#f4f4f4' );
+		$button_accent_color                = evolve_theme_mod( 'evl_shortcode_button_accent_color', '#ffffff' );
 		$button_accent_hover_color          = evolve_theme_mod( 'evl_shortcode_button_accent_hover_color', '#ffffff' );
-		$button_bevel_color                 = evolve_theme_mod( 'evl_shortcode_button_bevel_color', '#1d6e72' );
-		$button_border_color                = evolve_theme_mod( 'evl_shortcode_button_border_color', '#0d9078' );
+		$button_bevel_color                 = evolve_theme_mod( 'evl_shortcode_button_bevel_color', '#492fb1' );
+		$button_border_color                = evolve_theme_mod( 'evl_shortcode_button_border_color', '#492fb1' );
 		$button_border_hover_color          = evolve_theme_mod( 'evl_shortcode_button_border_hover_color', '#313a43' );
 		$button_border_width                = evolve_theme_mod( 'evl_shortcode_button_border_width', '3' );
 		$button_shadow                      = evolve_theme_mod( 'evl_shortcode_button_shadow', '1' );
-		$button_classes                     = " .btn, a.btn, button, .button, .widget .button, input#submit, input[type=submit], .post-content a.btn, .carousel-control-button, .woocommerce .button";
+		$button_classes                     = " .btn, a.btn, button, .button, .widget .button, input#submit, input[type=submit], .post-content a.btn, .woocommerce .button";
 		$button_hover_classes               = " .btn:hover, a.btn:hover, button:hover, .button:hover, .widget .button:hover, input#submit:hover, input[type=submit]:hover, .carousel-control-button:hover, .header-wrapper .woocommerce-menu .btn:hover";
 
 		/*
@@ -127,7 +127,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			Homepage / Frontpage 100% Template Style
 			======================================= */
 
-		$frontpage_layout           = evolve_theme_mod( 'evl_frontpage_layout', '1c' );
+		$frontpage_layout           = evolve_theme_mod( 'evl_frontpage_layout', '2cl' );
 		$content_top_bottom_padding = evolve_theme_mod( 'evl_content_top_bottom_padding' );
 		$content_top_padding        = $content_top_bottom_padding['top'];
 		$content_bottom_padding     = $content_top_bottom_padding['bottom'];
@@ -265,7 +265,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			Main Menu Background Color Scheme
 			--------------------------------------- */
 
-		if ( ! ( '' == evolve_theme_mod( 'evl_menu_back_color', '#273039' ) ) ) {
+		if ( ! ( '' == evolve_theme_mod( 'evl_menu_back_color', '#f9f9f9' ) ) ) {
 			$css_data .= ' .navbar-nav .dropdown-menu { background-color: ' . $menu_back_color . '; } .navbar-nav .dropdown-item:focus, .navbar-nav .dropdown-item:hover { background: none; } .menu-header, .sticky-header { background-color: ' . $menu_back_color . ';';
 
 			/*
@@ -369,7 +369,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			Post/Page Title Font
 			--------------------------------------- */
 
-		$css_data .= evolve_print_fonts( 'evl_post_font', ' .post-title, .post-title a' );
+		$css_data .= evolve_print_fonts( 'evl_post_font', ' .post-title, .post-title a, .blog-title' );
 
 		/*
 			Post Title Font For Grid Layout / Archive Title
@@ -377,6 +377,10 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 
 		if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" && ( is_home() || is_archive() || is_search() ) ) {
 			$css_data .= ' .posts.card-columns .post-title a, .posts.card-columns .post-title { font-size: 1.5rem; line-height: 2rem; }';
+		}
+
+		if ( ( evolve_theme_mod( 'evl_header_meta', 'single' ) == 'single' || evolve_theme_mod( 'evl_header_meta', 'single' ) == 'disable' ) && ! is_single() ) {
+			$css_data .= ' .post-title { margin: 0; }';
 		}
 
 		/*
@@ -1011,7 +1015,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		endif;
 
 		if ( $component_color ) {
-			$css_data .= ' .custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale, .stars a:hover, .stars a.active { background: ' . $component_color . '; } .form-control:focus, .input-text:focus, input[type=text]:focus, input[type=email]:focus, input[type=url]:focus, input[type=password]:focus, input[type=file]:focus, input[type=tel]:focus, textarea:focus, .page-link:focus, select:focus { border-color: ' . $component_color . '; box-shadow: 0 0 0 0.2rem ' . evolve_hex_rgba( $component_color, .25 ) . '; } .custom-control-input:focus~.custom-control-label::before { box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem  ' . evolve_hex_rgba( $component_color, .25 ) . '; } .btn.focus, .btn:focus { box-shadow: 0 0 0 0.2rem ' . evolve_hex_rgba( $component_color, .25 ) . '; } :focus { outline-color: ' . evolve_hex_rgba( $component_color, .25 ) . '; } code { border-left-color: ' . $component_color . '; }';
+			$css_data .= ' .custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale, .stars a:hover, .stars a.active { background: ' . $component_color . '; } .form-control:focus, .input-text:focus, input[type=text]:focus, input[type=email]:focus, input[type=url]:focus, input[type=password]:focus, input[type=file]:focus, input[type=tel]:focus, textarea:focus, .page-link:focus, select:focus { border-color: transparent; box-shadow: 0 0 .7rem ' . evolve_hex_rgba( $component_color, .9 ) . '; } .custom-control-input:focus~.custom-control-label::before { box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem  ' . evolve_hex_rgba( $component_color, .25 ) . '; } .btn.focus, .btn:focus { box-shadow: 0 0 0 0.2rem ' . evolve_hex_rgba( $component_color, .25 ) . '; } :focus { outline-color: ' . evolve_hex_rgba( $component_color, .25 ) . '; } code { border-left-color: ' . $component_color . '; }';
 		}
 
 		if ( class_exists( 'Woocommerce' ) && is_user_logged_in() && current_user_can( 'manage_options' ) ) :
@@ -1178,6 +1182,22 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		}
 
 		/*
+			Blog Card Layout
+			--------------------------------------- */
+
+		if ( evolve_theme_mod( 'evl_grid_layout', 'card' ) == "card" ) {
+			switch ( evolve_theme_mod( 'evl_post_layout', 'two' ) ) {
+				case "three":
+					$post_width = '33.333333';
+					break;
+				default:
+					$post_width = '50';
+					break;
+			}
+			$css_data .= ' .posts.card-deck > .card { min-width: calc(' . $post_width . '% - 30px); max-width: calc(' . $post_width . '% - 30px); } .posts.card-deck > .card.p-4 { min-width: calc(' . $post_width . '% - 2rem); max-width: calc(' . $post_width . '% - 2rem); }';
+		}
+
+		/*
 			-- Bootstrap / Parallax / Posts Slider
 			--------------------------------------- */
 
@@ -1206,6 +1226,14 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			--------------------------------------- */
 
 		$css_data .= ' @media (max-width: 991.98px) {';
+
+		/*
+			Blog Card Layout
+			--------------------------------------- */
+
+		if ( evolve_theme_mod( 'evl_grid_layout', 'card' ) == "card" ) {
+			$css_data .= ' .posts.card-deck > .card { min-width: calc(50% - 30px); max-width: calc(50% - 30px); } .posts.card-deck > .card.p-4 { min-width: calc(50% - 2rem); max-width: calc(50% - 2rem); }';
+		}
 
 		/*
 			-- Bootstrap / Parallax / Posts Slider
@@ -1261,11 +1289,11 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 
 		$css_data .= ' .header-wrapper .main-menu { padding-top: ' . $menu_height . 'px; padding-bottom: ' . $menu_height . 'px; }';
 
-		if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == 'next' || evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == 'above' ) {
+		if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == 'next' || evolve_theme_mod( 'evl_tagline_pos', 'next' ) == 'above' ) {
 			$css_data .= ' #website-title { margin: 0; }';
 		}
 
-		if ( evolve_theme_mod( 'evl_main_menu_hover_effect', 'rollover' ) != 'disabled' ) {
+		if ( evolve_theme_mod( 'evl_main_menu_hover_effect', 'disable' ) != 'disable' ) {
 			$css_data .= ' a:hover span.link-effect, a:focus span.link-effect { -webkit-transform: translateY(-100%); -ms-transform: translateY(-100%); transform: translateY(-100%); }';
 		}
 		if ( $post_layout == "two" ) {
@@ -1348,11 +1376,19 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		if ( $responsive_menu_layout == 'dropdown' ) {
 			$css_data .= ' .navbar-nav .menu-item-has-children ul li .dropdown-toggle { padding-bottom: .7rem; } .navbar-nav .menu-item-has-children .dropdown-menu { margin-top: 0; }';
 		}
-		if ( ! ( '' == evolve_theme_mod( 'evl_menu_back_color', '#273039' ) ) ) {
+		if ( ! ( '' == evolve_theme_mod( 'evl_menu_back_color', '#f9f9f9' ) ) ) {
 			$css_data .= ' .navbar-nav li, .navbar-nav, .navbar-nav .dropdown-menu, .navbar-toggler { border-color: ' . evolve_hex_change( $menu_back_color ) . '; } .navbar-toggler, .navbar-nav li, .navbar-nav, .navbar-nav .dropdown-menu { background: ' . evolve_hex_change( $menu_back_color, - 8 ) . '; }';
 		}
 		if ( $post_layout == "two" ) {
 			$css_data .= ' .posts.card-columns { -webkit-column-count: 1; column-count: 1; }';
+		}
+
+		/*
+			Blog Card Layout
+			--------------------------------------- */
+
+		if ( evolve_theme_mod( 'evl_grid_layout', 'card' ) == "card" ) {
+			$css_data .= ' .posts.card-deck > .card { min-width: calc(100% - 30px); max-width: 100%; } .posts.card-deck > .card.p-4 { min-width: calc(100% - 2rem); max-width: 100%; }';
 		}
 
 		/*
@@ -1459,8 +1495,8 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			--------------------------------------- */
 
 		if ( evolve_theme_mod( 'evl_header_type', 'none' ) == 'none' ) {
-			if ( ! ( '' == evolve_theme_mod( 'evl_menu_back_color', '#273039' ) ) ) {
-				$menu_back_color = evolve_theme_mod( 'evl_menu_back_color', '#273039' );
+			if ( ! ( '' == evolve_theme_mod( 'evl_menu_back_color', '#f9f9f9' ) ) ) {
+				$menu_back_color = evolve_theme_mod( 'evl_menu_back_color', '#f9f9f9' );
 				$css_data        .= ' .header-v1 .search-form .form-control { background: ' . evolve_hex_change( $menu_back_color, - 8 ) . '; }';
 			}
 		}

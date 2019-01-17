@@ -11,6 +11,7 @@
     - Content Container
         -- Content Container - Open
         -- Content Container - Close
+	- Blog Page Title
     - Primary Container
         -- Primary Container - Open
         -- Primary Container - Close
@@ -114,6 +115,22 @@ if ( ! function_exists( 'evolve_content_container_close' ) ) {
 
 add_action( 'evolve_footer_area', 'evolve_content_container_close', 10 );
 
+/*
+    Blog Page Title
+    ======================================= */
+
+if ( ! function_exists( 'evolve_blog_title' ) ) {
+	function evolve_blog_title() {
+		if ( ( is_home() && ! is_front_page() ) || ( is_front_page() && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) != 'above' ) ) {
+			if ( get_post_meta( evolve_get_post_id(), 'evolve_page_title', true ) == "yes" || get_post_meta( evolve_get_post_id(), 'evolve_page_title', true ) == "" ) {
+				$title = esc_html( get_the_title( get_option( 'page_for_posts', true ) ) );
+				echo '<h1 class="blog-title" itemprop="name">' . $title . '</h1>';
+			}
+		}
+	}
+}
+
+add_action( 'evolve_before_post_title', 'evolve_blog_title', 15 );
 
 /*
     Primary Container
@@ -246,7 +263,7 @@ add_action( 'evolve_sidebars_area', 'evolve_sidebars', 10 );
 
 if ( ! function_exists( 'evolve_pagination_before' ) ) {
 	function evolve_pagination_before() {
-		if ( ( ( is_front_page() && ! is_page() ) || is_home() || is_archive() || is_search() ) && evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "infinite" ) {
+		if ( ( ( is_front_page() && ! is_page() ) || is_home() || is_archive() || is_search() ) && evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'infinite' ) != "infinite" ) {
 			get_template_part( 'template-parts/navigation/navigation' );
 		} elseif ( is_single() && evolve_theme_mod( 'evl_post_links', 'after' ) != "after" ) {
 			get_template_part( 'template-parts/navigation/navigation' );
@@ -263,7 +280,7 @@ add_action( 'evolve_before_post_content', 'evolve_pagination_before', 10 );
 
 if ( ! function_exists( 'evolve_pagination_after' ) ) {
 	function evolve_pagination_after() {
-		if ( ( ( is_front_page() && ! is_page() ) || is_home() || is_archive() || is_search() ) && evolve_theme_mod( 'evl_nav_links', 'after' ) != "before" || ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" ) ) {
+		if ( ( ( is_front_page() && ! is_page() ) || is_home() || is_archive() || is_search() ) && evolve_theme_mod( 'evl_nav_links', 'after' ) != "before" || ( evolve_theme_mod( 'evl_nav_links', 'after' ) != "after" && evolve_theme_mod( 'evl_pagination_type', 'infinite' ) == "infinite" ) ) {
 			get_template_part( 'template-parts/navigation/navigation', 'index' );
 		} elseif ( is_single() && evolve_theme_mod( 'evl_post_links', 'after' ) != "before" ) {
 			get_template_part( 'template-parts/navigation/navigation', 'index' );
@@ -285,7 +302,11 @@ add_action( 'evolve_after_post_content', 'evolve_pagination_after', 20 );
 if ( ! function_exists( 'evolve_posts_loop_open' ) ) {
 	function evolve_posts_loop_open() {
 		if ( ( is_home() || is_archive() || is_search() ) && evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) {
-			echo '<div class="posts card-columns">';
+			if ( evolve_theme_mod( 'evl_grid_layout', 'card' ) != "card" ) {
+				echo '<div class="posts card-columns">';
+			} else {
+				echo '<div class="posts card-deck">';
+			}
 		}
 	}
 }
@@ -299,7 +320,7 @@ add_action( 'evolve_before_posts_loop', 'evolve_posts_loop_open', 20 );
 if ( ! function_exists( 'evolve_posts_loop_close' ) ) {
 	function evolve_posts_loop_close() {
 		if ( ( is_home() || is_archive() || is_search() ) && evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) {
-			echo '</div><!-- .posts .card-columns -->';
+			echo '</div><!-- .posts .card-columns/.card-deck -->';
 		}
 	}
 }
@@ -329,7 +350,7 @@ if ( ! function_exists( 'evolve_archive_page_title' ) ) {
 		if ( ! is_archive() || ( class_exists( 'bbPress' ) && is_bbpress() ) ) {
 			return;
 		}
-		if ( evolve_theme_mod( 'evl_category_page_title', '1' ) == '1' ) {
+		if ( evolve_theme_mod( 'evl_category_page_title', '0' ) == '1' ) {
 			echo '<div class="alert alert-success mb-5" role="alert"><p>' . __( 'You are browsing archives for', 'evolve' ) . '</p>';
 			the_archive_title( '<h1 class="page-title">', '</h1>' );
 			the_archive_description( '<div class="lead">', '</div>' );
@@ -720,7 +741,7 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 				$item_output .= self::linkmod_element_open( $linkmod_type, $attributes );
 			} else {
 				// With no link mod type set this must be a standard <a> tag.
-				if ( evolve_theme_mod( 'evl_main_menu_hover_effect', 'rollover' ) == "disable" || strpos( $class_names, 'menu-item-language' ) == true ) {
+				if ( evolve_theme_mod( 'evl_main_menu_hover_effect', 'disable' ) == "disable" || strpos( $class_names, 'menu-item-language' ) == true ) {
 					$item_output .= '<a' . $attributes . '>';
 				} else {
 					$item_output .= '<a' . $attributes . '><span class="link-effect" data-hover="' . $item->title . '">';
@@ -770,7 +791,7 @@ if ( ! class_exists( 'evolve_custom_menu_walker' ) ) {
 				$item_output .= self::linkmod_element_close( $linkmod_type, $attributes );
 			} else {
 				// With no link mod type set this must be a standard <a> tag.
-				if ( evolve_theme_mod( 'evl_main_menu_hover_effect', 'rollover' ) == "disable" ) {
+				if ( evolve_theme_mod( 'evl_main_menu_hover_effect', 'disable' ) == "disable" ) {
 					$item_output .= '</a>';
 				} else {
 					$item_output .= '</span></a>';
@@ -1135,7 +1156,7 @@ if ( ! function_exists( 'evolve_layout_class' ) ) {
 			endswitch;
 		endif;
 		if ( is_front_page() && is_page() || is_front_page() && is_home() ) {
-			switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
+			switch ( evolve_theme_mod( 'evl_frontpage_layout', '2cl' ) ):
 				case "1c":
 					$layout_css = 'col-12';
 					break;
@@ -1217,7 +1238,7 @@ if ( ! function_exists( 'evolve_sidebar_class' ) ) {
 			endswitch;
 		endif;
 		if ( is_front_page() && is_page() || is_front_page() && is_home() ) {
-			switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
+			switch ( evolve_theme_mod( 'evl_frontpage_layout', '2cl' ) ):
 				case "1c":
 					$sidebar_css = '';
 					break;
@@ -1270,7 +1291,7 @@ if ( ! function_exists( 'evolve_sidebar_class_2' ) ) {
 			endswitch;
 		endif;
 		if ( ( is_front_page() && is_page() ) || is_front_page() && is_home() ) {
-			switch ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) ):
+			switch ( evolve_theme_mod( 'evl_frontpage_layout', '2cl' ) ):
 				case "3cm":
 				case "3cr":
 					$sidebar_css = 'col-md-12 col-lg-3 order-2 order-lg-1';
@@ -1307,7 +1328,7 @@ if ( ! function_exists( 'evolve_lets_get_sidebar' ) ) {
 		}
 
 		if ( ( is_front_page() && is_page() || is_front_page() && is_home()  ) ) {
-			if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "1c" ) {
+			if ( evolve_theme_mod( 'evl_frontpage_layout', '2cl' ) == "1c" ) {
 				$get_sidebar = false;
 			} else {
 				$get_sidebar = true;
@@ -1343,7 +1364,7 @@ if ( ! function_exists( 'evolve_lets_get_sidebar_2' ) ) {
 			}
 		}
 		if ( ( is_front_page() && is_page() ) || is_front_page() && is_home() ) {
-			if ( evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "1c" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "2cl" || evolve_theme_mod( 'evl_frontpage_layout', '1c' ) == "2cr" ) {
+			if ( evolve_theme_mod( 'evl_frontpage_layout', '2cl' ) == "1c" || evolve_theme_mod( 'evl_frontpage_layout', '2cl' ) == "2cl" || evolve_theme_mod( 'evl_frontpage_layout', '2cl' ) == "2cr" ) {
 				$get_sidebar = false;
 			} else {
 				$get_sidebar = true;

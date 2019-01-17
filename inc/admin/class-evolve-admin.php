@@ -414,6 +414,13 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
                     <tbody>
                     <tr>
                         <td>
+                            <h4><?php esc_html_e( 'One Page Parallax Layout', 'evolve' ); ?></h4>
+                        </td>
+                        <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
+                        <td class="feature-item"><span class="dashicons dashicons-no"></span></td>
+                    </tr>
+                    <tr>
+                        <td>
                             <h4><?php esc_html_e( 'Theme4Press Slider', 'evolve' ); ?></h4>
                         </td>
                         <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>

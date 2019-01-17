@@ -57,7 +57,7 @@ if ( ! function_exists( 'evolve_header_logo' ) ) {
 					$logo_class = 'col col-md-6 col-sm-12 order-2 order-md-3';
 					break;
 			}
-			if ( evolve_logo_position() == "right" && evolve_theme_mod( 'evl_blog_title', '0' ) == "1" && ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "disable" ) ) {
+			if ( evolve_logo_position() == "right" && evolve_theme_mod( 'evl_blog_title', '0' ) == "1" && ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "disable" ) ) {
 				$logo_class = 'col order-2 order-md-3';
 			}
 			echo "<div class='" . $logo_class . " header-logo-container" . ( evolve_logo_position() == 'left' ? " pr-md-0" : "" ) . "'><a href=" . home_url() . "><img alt='" . get_bloginfo( 'name' ) . "' src=" . evolve_theme_mod( 'evl_header_logo', '' ) . " /></a></div>";
@@ -400,7 +400,7 @@ if ( ! function_exists( 'evolve_featured_image' ) ) {
 
 		global $post;
 
-		if ( $type == '1' && ( is_single() || is_page() ) && evolve_theme_mod( 'evl_blog_featured_image', '0' ) == "1" && has_post_thumbnail() ) {
+		if ( $type == '1' && ( is_single() || is_page() ) && evolve_theme_mod( 'evl_blog_featured_image', '1' ) == "1" && has_post_thumbnail() ) {
 			echo '<div class="thumbnail-post thumbnail-post-single">';
 			the_post_thumbnail( 'evolve-post-thumbnail', array( 'class' => 'd-block w-100', 'itemprop' => 'image' ) );
 			echo '</div>';
@@ -438,12 +438,12 @@ if ( ! function_exists( 'evolve_featured_image' ) ) {
 if ( ! function_exists( 'evolve_post_meta' ) ) {
 	function evolve_post_meta( $type = '' ) {
 		if ( $type == "header" ) {
-			if ( evolve_theme_mod( 'evl_header_meta', 'single_archive' ) == 'disable' && evolve_theme_mod( 'evl_edit_post', '0' ) == "0" ) {
+			if ( evolve_theme_mod( 'evl_header_meta', 'single' ) == 'disable' && evolve_theme_mod( 'evl_edit_post', '0' ) == "0" ) {
 				return;
 			}
 			global $authordata;
 
-			if ( ! is_page() && ( evolve_theme_mod( 'evl_header_meta', 'single_archive' ) == "single_archive" || ( evolve_theme_mod( 'evl_header_meta', 'single_archive' ) == "single" && is_single() ) ) ) {
+			if ( ! is_page() && ( evolve_theme_mod( 'evl_header_meta', 'single' ) == "single_archive" || ( evolve_theme_mod( 'evl_header_meta', 'single' ) == "single" && is_single() ) ) ) {
 
 				echo '<div class="row post-meta align-items-center">';
 
@@ -593,7 +593,7 @@ add_action( 'evolve_after_post_content', 'evolve_similar_posts', 10 );
 if ( ! function_exists( 'evolve_number_pagination' ) ) {
 	function evolve_number_pagination( WP_Query $wp_query = null, $echo = true ) {
 
-		if ( ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "number_pagination" && ! class_exists( 'Woocommerce' ) ) || ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "number_pagination" && class_exists( 'Woocommerce' ) && ! is_shop() ) ) {
+		if ( ( evolve_theme_mod( 'evl_pagination_type', 'infinite' ) != "number_pagination" && ! class_exists( 'Woocommerce' ) ) || ( evolve_theme_mod( 'evl_pagination_type', 'infinite' ) != "number_pagination" && class_exists( 'Woocommerce' ) && ! is_shop() ) ) {
 			return;
 		}
 
@@ -725,7 +725,7 @@ if ( ! function_exists( 'evolve_breadcrumbs' ) ) {
 
 		global $post;
 
-		if ( ( class_exists( 'bbPress' ) && is_bbpress() ) || evolve_theme_mod( 'evl_breadcrumbs', '1' ) != "1" || ( is_front_page() && is_page() ) || is_home() || ( ( is_single() || is_page() ) && get_post_meta( $post->ID, 'evolve_page_breadcrumb', true ) == "no" ) ) {
+		if ( ( class_exists( 'bbPress' ) && is_bbpress() ) || evolve_theme_mod( 'evl_breadcrumbs', '1' ) != "1" || ( is_front_page() && is_page() ) || ( ( is_single() || is_page() || is_home() ) && get_post_meta( evolve_get_post_id(), 'evolve_page_breadcrumb', true ) == "no" ) ) {
 			return;
 		}
 
@@ -754,7 +754,8 @@ if ( ! function_exists( 'evolve_breadcrumbs' ) ) {
 			echo '<li class="breadcrumb-item active">' . $term->name . '</li>';
 		}
 		if ( is_home() ) {
-			echo '<li class="breadcrumb-item active">' . __( 'Blog', 'evolve' ) . '</li>';
+			$title = esc_html( get_the_title( get_option( 'page_for_posts', true ) ) );
+			echo '<li class="breadcrumb-item active">' . $title . '</li>';
 		}
 		if ( is_page() && ! is_front_page() ) {
 			$parents   = array();
@@ -868,7 +869,7 @@ if ( ! function_exists( 'evolve_bootstrap' ) ) {
 				}
 				echo "<div class='carousel-item item-" . $i . $active . "'>";
 				echo "<img class='d-block" . ( ( evolve_theme_mod( 'evl_bootstrap_100', '' ) == '1' ) ? "" : " w-100" ) . "' src='" . ( evolve_theme_mod( "evl_bootstrap_slide{$i}_img" ) ? evolve_theme_mod( "evl_bootstrap_slide{$i}_img" ) : get_template_directory_uri() . '/assets/images/no-thumbnail-slider.jpg' ) . "' alt='" . evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) . "' />";
-				echo '<div class="carousel-caption' . ( ( evolve_theme_mod( 'evl_bootstrap_layout', 'bootstrap_left' ) == 'bootstrap_left' ) ? " layout-left" : "" ) . '">';
+				echo '<div class="carousel-caption' . ( ( evolve_theme_mod( 'evl_bootstrap_layout', 'bootstrap_center' ) == 'bootstrap_left' ) ? " layout-left" : "" ) . '">';
 				if ( strlen( evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) ) > 0 ) {
 					echo "<h5>" . esc_attr( evolve_theme_mod( "evl_bootstrap_slide{$i}_title" ) ) . "</h5>";
 				}

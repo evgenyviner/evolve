@@ -32,11 +32,6 @@ if ( ! function_exists( 'evolve_get_render_callback' ) ) {
 			Header
 			======================================= */
 
-		if ( $option_name == 'evl_sticky_header' ) {
-			if ( get_theme_mod( $option_name, 0 ) ) {
-				evolve_sticky_header();
-			}
-		}
 		if ( $option_name == 'evl_header_logo' ) {
 			if ( get_theme_mod( $option_name, 0 ) ) {
 				evolve_header_logo();

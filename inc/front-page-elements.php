@@ -277,7 +277,6 @@ if ( ! function_exists( 'evolve_testimonials' ) ) {
 				$html .= "<blockquote class='carousel-item blockquote item-{$i} text-center" . $active . "'><p class='mb-0'>" . do_shortcode( $content ) . "</p>$inner_content</blockquote>";
 				++ $testimonials_counter;
 			}
-
 		}
 		$html .= "</div></div></div></div></div></div>";
 		echo $html;

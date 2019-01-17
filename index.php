@@ -19,38 +19,54 @@ get_header();
 
 do_action( 'evolve_before_content_area' );
 
-if ( have_posts() ) :
+/*
+	Before Post Title
 
-	/*
-		Before Posts Loop
+	---------------------------------------
+	Hooked: evolve_breadcrumbs() - 10
+			evolve_blog_title() - 15
+	--------------------------------------- */
 
-		---------------------------------------
-		Hooked: evolve_pagination_before() - 10
-				evolve_posts_loop_open() - 20
-		--------------------------------------- */
+do_action( 'evolve_before_post_title' );
 
-	do_action( 'evolve_before_posts_loop' );
+if ( ! post_password_required( evolve_get_post_id() ) ) {
 
-	while ( have_posts() ) :
-		the_post();
-		get_template_part( 'template-parts/post/content', 'post' );
-	endwhile;
+	if ( have_posts() ) :
 
-	/*
-		After Posts Loop
+		/*
+			Before Posts Loop
 
-		---------------------------------------
-		Hooked: evolve_posts_loop_close() - 10
-				evolve_pagination_after() - 20
-		--------------------------------------- */
+			---------------------------------------
+			Hooked: evolve_pagination_before() - 10
+					evolve_posts_loop_open() - 20
+			--------------------------------------- */
 
-	do_action( 'evolve_after_posts_loop' );
+		do_action( 'evolve_before_posts_loop' );
 
-else :
+		while ( have_posts() ) :
+			the_post();
+			get_template_part( 'template-parts/post/content', 'post' );
+		endwhile;
 
-	get_template_part( 'template-parts/post/content', 'none' );
+		/*
+			After Posts Loop
 
-endif;
+			---------------------------------------
+			Hooked: evolve_posts_loop_close() - 10
+					evolve_pagination_after() - 20
+			--------------------------------------- */
+
+		do_action( 'evolve_after_posts_loop' );
+
+	else :
+
+		get_template_part( 'template-parts/post/content', 'none' );
+
+	endif;
+
+} else {
+	echo get_the_password_form( evolve_get_post_id() );
+}
 
 /*
    	After Content Area

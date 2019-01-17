@@ -7,12 +7,12 @@ if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_logo_position() !== 'di
 	}
 }
 
-if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" && evolve_logo_position() == 'disable' ) {
+if ( evolve_theme_mod( 'evl_header_logo', '' ) && evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" && evolve_logo_position() == 'disable' ) {
 	$evolve_tagline_class_1 = '';
 	$evolve_tagline_class_2 = '';
 }
 
-if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" ) {
+if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" ) {
 	$evolve_tagline_class_1 = '<div class="col order-2 order-md-2">';
 	$evolve_tagline_class_2 = '</div>';
 } else {

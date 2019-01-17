@@ -12,7 +12,7 @@ if ( is_front_page() && ! is_home() ) {
 } ?>
 
 <nav aria-label="<?php _e( "Navigation", "evolve" ); ?>"
-     class="<?php if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) != "number_pagination" || ( is_single() && ! is_singular( array(
+     class="<?php if ( evolve_theme_mod( 'evl_pagination_type', 'infinite' ) != "number_pagination" || ( is_single() && ! is_singular( array(
 			     'page',
 			     'attachment'
 		     ) ) ) ) {
@@ -29,7 +29,7 @@ if ( is_front_page() && ! is_home() ) {
         <div class="col-sm-6 nav-previous"><?php previous_post_link( '%link', '%title' ); ?></div>
 
 	<?php } else {
-		if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "number_pagination" ) {
+		if ( evolve_theme_mod( 'evl_pagination_type', 'infinite' ) == "number_pagination" ) {
 			evolve_number_pagination();
 		} else { ?>
 

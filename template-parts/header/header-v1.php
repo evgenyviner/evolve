@@ -9,7 +9,7 @@
             <div class="row align-items-center justify-content-between">
 
 				<?php
-				if ( evolve_theme_mod( 'evl_tagline_pos', 'disable' ) == "next" ) {
+				if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" ) {
 					$evolve_social_woo_class = 'col-12 col-md order-1 order-md-3';
 				} else {
 					$evolve_social_woo_class = 'col-12 col-md order-1 order-md-2';

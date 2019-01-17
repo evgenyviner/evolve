@@ -97,7 +97,7 @@ if ( ! function_exists( 'evolve_global_customizer_value' ) ) {
 		$video_url            = esc_url( "https://youtu.be/dgvjt6dJfWM" );
 		$customizer_images    = get_template_directory_uri() . '/inc/admin/customizer/assets/images/';
 		$frontend_images      = get_template_directory_uri() . '/assets/images/';
-		$button_classes       = ".btn, a.btn, button, .button, .widget .button, input#submit, input[type=submit], .post-content a.btn, .carousel-control-button, .woocommerce .button";
+		$button_classes       = ".btn, a.btn, button, .button, .widget .button, input#submit, input[type=submit], .post-content a.btn, .woocommerce .button";
 		$button_hover_classes = ".btn:hover, a.btn:hover, button:hover, .button:hover, .widget .button:hover, input#submit:hover, input[type=submit]:hover, .carousel-control-button:hover, .header-wrapper .woocommerce-menu .btn:hover";
 		$product_taxonomy     = array();
 

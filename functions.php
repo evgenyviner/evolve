@@ -47,7 +47,7 @@ $evolve_theme_description = $evolve_theme['Description'];
 
 if ( ! function_exists( 'evolve_setup' ) ) {
 	function evolve_setup() {
-		$width_px_default = evolve_theme_mod( 'evl_width_px', '1200' );
+		$width_px_default = evolve_theme_mod( 'evl_width_px', '1500' );
 		$width_px         = apply_filters( 'evolve_header_image_width', $width_px_default );
 
 		// Load Textdomain
@@ -63,6 +63,7 @@ if ( ! function_exists( 'evolve_setup' ) ) {
 		add_theme_support( 'title-tag' );
 
 		// Supported Image Sizes
+		set_post_thumbnail_size( 680, 330, true );
 		add_image_size( 'evolve-post-thumbnail', 680, 330, true );
 		add_image_size( 'evolve-slider-thumbnail', 400, 300, true );
 		add_image_size( 'evolve-tabs-img', 50, 50, true );
@@ -429,7 +430,7 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 
 		// Infinite Scroll
 
-		if ( evolve_theme_mod( 'evl_pagination_type', 'pagination' ) == "infinite" && ! is_single() && ( ! is_page() && ( ( class_exists( 'bbPress' ) && ! is_bbpress() || ! class_exists( 'bbPress' ) ) && ( function_exists( 'is_buddypress' ) && ! is_buddypress() || ! function_exists( 'is_buddypress' ) ) ) ) && ( is_home() || is_archive() || is_search() ) ) {
+		if ( evolve_theme_mod( 'evl_pagination_type', 'infinite' ) == "infinite" && ! is_single() && ( ! is_page() && ( ( class_exists( 'bbPress' ) && ! is_bbpress() || ! class_exists( 'bbPress' ) ) && ( function_exists( 'is_buddypress' ) && ! is_buddypress() || ! function_exists( 'is_buddypress' ) ) ) ) && ( is_home() || is_archive() || is_search() ) ) {
 			$local_variables['infinite_scroll_enabled']       = true;
 			$local_variables['infinite_scroll_text_finished'] = __( 'You reached the end', 'evolve' );
 			$local_variables['infinite_scroll_text']          = __( 'Load more items', 'evolve' );
@@ -458,7 +459,7 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 
 		if ( function_exists( 'icl_object_id' ) ) {
 			$local_variables['wpml_menu'] = true;
-			if ( evolve_theme_mod( 'evl_main_menu_hover_effect', 'rollover' ) !== "disable" ) :
+			if ( evolve_theme_mod( 'evl_main_menu_hover_effect', 'disable' ) !== "disable" ) :
 				$local_variables['wpml_menu_effect'] = true;
 			endif;
 		}

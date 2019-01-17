@@ -1,5 +1,15 @@
 === Changelog ===
 
+Version  4.0.5
+Date:         16/1/19
+
+- Added Option To Select Order Of Blog Posts
+- Added New Default Demo Options
+- Updated Language Files
+- Fixed Correct Image Size In The Tabs Widget
+- Fixed Page Title/Breadcrumbs For Main Blog Page
+
+
 Version  4.0.4
 Date:         31/12/18
 
