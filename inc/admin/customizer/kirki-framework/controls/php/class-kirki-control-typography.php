@@ -37,7 +37,9 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 		ob_start();
 		$json_path = wp_normalize_path( Kirki::$path . '/modules/webfonts/webfonts.json' );
 		include $json_path;
-		$get_googlefonts_json = ob_get_clean();
+		$get_googlefonts_json = ob_get_contents();
+		ob_clean();
+		ob_end_flush();
 		wp_localize_script( 'kirki-script', 'get_googlefonts_json', $get_googlefonts_json );
 		wp_localize_script( 'kirki-script', 'get_standard_fonts', wp_json_encode( Kirki_Fonts::get_standard_fonts() ) );
 	}
