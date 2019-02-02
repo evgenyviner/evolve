@@ -151,6 +151,18 @@ if ( ! function_exists( 'evolve_sticky_header_open' ) ) {
 				'walker'         => new evolve_custom_menu_walker()
 			) );
 			echo '</div></nav>';
+		} else {
+			echo '<nav class="navbar navbar-expand-md col' . ( ( ( evolve_logo_position() == 'disable' && evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) || evolve_theme_mod( 'evl_blog_title', '0' ) == '1' ) ? " pl-0" : "" ) . '">
+                                <div class="navbar-toggler" data-toggle="collapse" data-target="#sticky-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="' . __( "Sticky", "evolve" ) . '">
+                                    <span class="navbar-toggler-icon-svg"></span>
+                                </div><div id="sticky-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
+
+			wp_page_menu( array(
+				'menu_class' => 'page-nav',
+				'echo'       => '1',
+			) );
+
+			echo '</div></nav>';
 		}
 
 		if ( evolve_theme_mod( 'evl_searchbox_sticky_header', '1' ) == "1" ) {

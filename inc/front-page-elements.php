@@ -6,7 +6,7 @@
 
 if ( ! function_exists( 'evolve_frontpage_bootstrap_slider' ) ) {
 	function evolve_frontpage_bootstrap_slider() {
-		if ( ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_front_page() ) || ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_home() ) ):
+		if ( ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_front_page() ) || ( get_post_meta( evolve_get_post_id(), 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' && is_home() ) ):
 			if ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" ):
 				if ( evolve_theme_mod( "evl_bootstrap_slide1", '0' ) == false && evolve_theme_mod( "evl_bootstrap_slide2", '0' ) == false && evolve_theme_mod( "evl_bootstrap_slide3", '0' ) == false && evolve_theme_mod( "evl_bootstrap_slide4", '0' ) == false && evolve_theme_mod( "evl_bootstrap_slide5", '0' ) == false && is_user_logged_in() && is_customize_preview() ) {
 					echo '<h3 class="no-content no-bootstrap-slider py-5 text-center d-block">' . __( 'Bootstrap Slider will be displayed here', 'evolve' ) . ' <span class="badge badge-pill badge-secondary">' . __( 'Add slides', 'evolve' ) . '</span></h3>';
@@ -23,7 +23,7 @@ if ( ! function_exists( 'evolve_frontpage_bootstrap_slider' ) ) {
 
 if ( ! function_exists( 'evolve_frontpage_parallax_slider' ) ) {
 	function evolve_frontpage_parallax_slider() {
-		if ( ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_front_page() ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_home() ) ):
+		if ( ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_front_page() ) || ( get_post_meta( evolve_get_post_id(), 'evolve_slider_type', true ) == 'parallax' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_home() ) ):
 			if ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" ):
 				if ( evolve_theme_mod( "evl_show_slide1", '0' ) == false && evolve_theme_mod( "evl_show_slide2", '0' ) == false && evolve_theme_mod( "evl_show_slide3", '0' ) == false && evolve_theme_mod( "evl_show_slide4", '0' ) == false && evolve_theme_mod( "evl_show_slide5", '0' ) == false && is_user_logged_in() && is_customize_preview() ) {
 					echo '<h3 class="no-content no-parallax-slider py-5 text-center d-block">' . __( 'Parallax Slider will be displayed here', 'evolve' ) . ' <span class="badge badge-pill badge-secondary">' . __( 'Add slides', 'evolve' ) . '</span></h3>';
@@ -40,8 +40,7 @@ if ( ! function_exists( 'evolve_frontpage_parallax_slider' ) ) {
 
 if ( ! function_exists( 'evolve_frontpage_post_slider' ) ) {
 	function evolve_frontpage_post_slider() {
-		$post_on = evolve_theme_mod( 'evl_carousel_slider', '1' );
-		if ( ( $post_on == "1" && is_front_page() ) || ( $post_on == "1" && is_home() ) ):
+		if ( ( evolve_theme_mod( 'evl_carousel_slider', '1' ) == "1" && is_front_page() ) || ( get_post_meta( evolve_get_post_id(), 'evolve_slider_type', true ) == 'posts' && evolve_theme_mod( 'evl_carousel_slider', '1' ) == "1" && is_home() ) ):
 			$carousel_slider = evolve_theme_mod( 'evl_carousel_slider', '1' );
 			if ( $carousel_slider == "1" ):
 				evolve_posts_slider();
@@ -255,9 +254,9 @@ if ( ! function_exists( 'evolve_testimonials' ) ) {
 						$attr['alt'] = $alt;
 						$image_id    = evolve_get_attachment_id_from_url( $image );
 						if ( $image_id ) {
-							$image_url   = wp_get_attachment_image_src( $image_id, 'evolve-testimonial-avatar' );
-							$image       = $image_url[0];
-							$alt = get_post_field( 'post_excerpt', $image_id );
+							$image_url = wp_get_attachment_image_src( $image_id, 'evolve-testimonial-avatar' );
+							$image     = $image_url[0];
+							$alt       = get_post_field( 'post_excerpt', $image_id );
 						}
 						$pic = "<img class='testimonial-image rounded-circle mx-auto d-block' src='$image' alt='$alt' />";
 					}

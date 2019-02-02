@@ -5,6 +5,7 @@
 
     Table of Contents:
 
+    - Main Menu
     - Wrapper Container
         -- Wrapper Container - Open
         -- Wrapper Container - Close
@@ -54,6 +55,59 @@
     - Schema.org Function For HTML
 
     ======================================= */
+
+/*
+    Main Menu
+    ======================================= */
+
+if ( ! function_exists( 'evolve_menu' ) ) {
+	function evolve_menu( $location = false, $class = false ) {
+
+		if ( ! $location ) {
+			return;
+		}
+
+		$args = array(
+			'theme_location' => $location,
+			'depth'          => 10,
+			'container'      => false,
+			'echo'           => '0',
+			'menu_class'     => $class,
+			'fallback_cb'    => 'evolve_custom_menu_walker::fallback',
+			'walker'         => new evolve_custom_menu_walker()
+		);
+
+		$menu = '';
+
+		if ( evolve_theme_mod( 'evl_header_type', 'none' ) == "h1" ) {
+			$menu .= '<nav class="navbar navbar-expand-md main-menu mt-3 mt-md-0 order-3 col-sm-11' . ( evolve_theme_mod( 'evl_searchbox', true ) ? ' col-md-8' : ' col-md-9' ) . '">';
+		} else {
+			$menu .= '<nav class="navbar navbar-expand-md main-menu mr-auto col-12 col-sm">';
+		}
+
+		$menu .= '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="' . __( "Primary", "evolve" ) . '">
+                                    ' . evolve_get_svg( 'menu' ) . '
+                                    </button>
+                                <div id="primary-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
+
+		if ( has_nav_menu( 'primary-menu' ) ) {
+
+			$menu .= wp_nav_menu( $args );
+
+		} else {
+
+			$menu .= wp_page_menu( array(
+				'menu_class' => 'page-nav',
+				'echo'       => '0',
+			) );
+		}
+
+		$menu .= '</div></nav>';
+
+		return $menu;
+	}
+}
+
 
 /*
     Wrapper Container
@@ -1327,7 +1381,7 @@ if ( ! function_exists( 'evolve_lets_get_sidebar' ) ) {
 			}
 		}
 
-		if ( ( is_front_page() && is_page() || is_front_page() && is_home()  ) ) {
+		if ( ( is_front_page() && is_page() || is_front_page() && is_home() ) ) {
 			if ( evolve_theme_mod( 'evl_frontpage_layout', '2cl' ) == "1c" ) {
 				$get_sidebar = false;
 			} else {

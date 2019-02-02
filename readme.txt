@@ -1,4 +1,4 @@
-evolve WordPress Theme By Theme4Press - http://theme4press.com
+evolve WordPress Theme By Theme4Press - https://theme4press.com
 Licensed under GNU General Public License v2.0 - http://www.gnu.org/licenses/gpl-2.0.html
 -------------------------------------------------------------------------------------------------
 

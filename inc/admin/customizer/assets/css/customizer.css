@@ -70,6 +70,15 @@
     color: #fff;
 }
 
+#customize-theme-controls #accordion-section-evl-demo-import-main-tab .accordion-section-title {
+    background: #eee;
+    color: #333;
+}
+
+#customize-theme-controls #accordion-section-evl-demo-import-main-tab .accordion-section-title::after {
+    color: #333;
+}
+
 #customize-controls .control-section:hover > .accordion-section-title,
 #customize-controls .control-section .accordion-section-title:hover,
 #customize-controls .control-section.open .accordion-section-title,
@@ -124,16 +133,19 @@
     background: #fff;
 }
 
-li#customize-control-evl_theme_links {
+li#customize-control-evl_theme_links,
+li#customize-control-evl_demo_import {
     background: transparent;
     border-color: transparent;
 }
 
-li#customize-control-evl_theme_links {
+li#customize-control-evl_theme_links,
+li#customize-control-evl_demo_import {
     text-align: center;
 }
 
-li#customize-control-evl_theme_links a {
+li#customize-control-evl_theme_links a,
+li#customize-control-evl_demo_import a {
     left: unset;
     transform: none;
     -ms-transform: none;

@@ -252,7 +252,7 @@ class evolve_Tabs_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 
         <p>
-            <label for="<?php echo $this->get_field_id( 'orderby' ); ?>"><?php esc_html_e( 'Popular Posts Order By', 'evolve' ); ?>
+            <label for="<?php echo $this->get_field_id( 'orderby' ); ?>"><?php esc_html_e( 'Popular posts order by', 'evolve' ); ?>
                 :</label>
             <select id="<?php echo $this->get_field_id( 'orderby' ); ?>"
                     name="<?php echo $this->get_field_name( 'orderby' ); ?>" class="widefat" style="width:100%;">
@@ -269,22 +269,18 @@ class evolve_Tabs_Widget extends WP_Widget {
             </select>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'posts' ); ?>"><?php esc_html_e( 'Number of popular posts', 'evolve' ); ?>
-                :</label>
-            <input class="widefat" type="text" style="width: 30px;" id="<?php echo $this->get_field_id( 'posts' ); ?>"
+            <label for="<?php echo $this->get_field_id( 'posts' ); ?>"><?php esc_html_e( 'Number of popular posts', 'evolve' ); ?></label>
+            <input class="widefat" type="text" id="<?php echo $this->get_field_id( 'posts' ); ?>"
                    name="<?php echo $this->get_field_name( 'posts' ); ?>" value="<?php echo $instance['posts']; ?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'tags' ); ?>"><?php esc_html_e( 'Number of recent posts', 'evolve' ); ?>
-                :</label>
-            <input class="widefat" type="text" style="width: 30px;" id="<?php echo $this->get_field_id( 'tags' ); ?>"
+            <label for="<?php echo $this->get_field_id( 'tags' ); ?>"><?php esc_html_e( 'Number of recent posts', 'evolve' ); ?></label>
+            <input class="widefat" type="text" id="<?php echo $this->get_field_id( 'tags' ); ?>"
                    name="<?php echo $this->get_field_name( 'tags' ); ?>" value="<?php echo $instance['tags']; ?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'comments' ); ?>"><?php esc_html_e( 'Number of comments', 'evolve' ); ?>
-                :</label>
-            <input class="widefat" type="text" style="width: 30px;"
-                   id="<?php echo $this->get_field_id( 'comments' ); ?>"
+            <label for="<?php echo $this->get_field_id( 'comments' ); ?>"><?php esc_html_e( 'Number of comments', 'evolve' ); ?></label>
+            <input class="widefat" type="text" id="<?php echo $this->get_field_id( 'comments' ); ?>"
                    name="<?php echo $this->get_field_name( 'comments' ); ?>"
                    value="<?php echo $instance['comments']; ?>"/>
         </p>

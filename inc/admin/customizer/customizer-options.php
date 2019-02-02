@@ -21,7 +21,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				'fields'  => array(
 					array(
 						'id'   => 'evl_theme_links',
-						'desc' => '<a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/?utm_source=evolve-customizer&utm_medium=homepage-link&utm_campaign=theme-customizer"><span class="dashicons dashicons-admin-home"></span> ' . esc_html__( 'Theme Homepage', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'docs/?utm_source=evolve-customizer&utm_medium=documentation-link&utm_campaign=theme-customizer"><span class="dashicons dashicons-admin-page"></span> ' . esc_html__( 'Documentation', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['support_url'] . 'support/theme/evolve"><span class="dashicons dashicons-admin-comments"></span> ' . esc_html__( 'Support', 'evolve' ) . '</a><div class="evolve-features"><h2>' . esc_html__( 'evolve Plus key features', 'evolve' ) . '</h2><ul><li><h3>' . esc_html__( '18 Pre-built Demos', 'evolve' ) . '</h3>' . esc_html__( 'Build a Website Within a Minute With The Modern Minimalist Demos', 'evolve' ) . '</li><li><h3>' . esc_html__( 'One Page Parallax Layout', 'evolve' ) . '</h3>' . esc_html__( 'Simple But Very Effective One Page Parallax Feature', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Theme4Press Slider', 'evolve' ) . '</h3>' . esc_html__( 'Image or Video Responsive Unlimited Slides With Nice Animations', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Built-in Mega Menu', 'evolve' ) . '</h3>' . esc_html__( 'Excellent Mega Menu When You Need To Add Widgets Or Specially Style Your Menu', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Shortcodes', 'evolve' ) . '</h3>' . esc_html__( 'Create Alerts, Tabs, Pricing Tables etc.', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Custom Sidebars', 'evolve' ) . '</h3>' . esc_html__( 'Create Unique Sidebars With Widgets For Any Page', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Portfolios', 'evolve' ) . '</h3>' . esc_html__( 'Up To 9 Layouts &ndash; Select The Right Type For Your Showcase', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Google Map Contact', 'evolve' ) . '</h3>' . esc_html__( 'Contact Page Template With The Google Map And reCaptcha Protection', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Sticky Navigation', 'evolve' ) . '</h3>' . esc_html__( 'Sticky Navigation Is Perfect If You Need Organized Pages - For Example For Documentation', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Lightbox', 'evolve' ) . '</h3>' . esc_html__( 'Responsive Lightbox Ready To Display Your Amazing Shots, YouTube Or Vimeo Videos, Or Instagram Photos', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Slider Revolution (Bundled)', 'evolve' ) . '</h3>' . esc_html__( 'Responsive Premium WordPress Slider With Breathtaking Effects', 'evolve' ) . '</li><li><h3>' . esc_html__( 'LayerSlider (Bundled)', 'evolve' ) . '</h3>' . esc_html__( 'Create Fantastic Slides With The Bundled Premium Slider Plugin', 'evolve' ) . '</li><li><h3>' . esc_html__( '100% Width Template', 'evolve' ) . '</h3>' . esc_html__( '100% Width Template Let You To Set Any Page To Be Full Width Of The Browser\'s Window', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Custom Headers', 'evolve' ) . '</h3>' . esc_html__( 'Custom Headers Can Be Set Per Post/Page', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Header Layouts', 'evolve' ) . '</h3>' . esc_html__( '5 Header Layouts', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Live Customizer', 'evolve' ) . '</h3>' . esc_html__( '300+ Theme Options', 'evolve' ) . '</li><li><h3>' . esc_html__( 'WooCommerce', 'evolve' ) . '</h3>' . esc_html__( 'Custom/Global Sidebar For WooCommerce Pages', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Bootstrap Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Unlimited Number Of Slides, Slides Reorder', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Parallax Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Unlimited Number Of Slides, Slides Reorder', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Posts Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Up To 30 Slides', 'evolve' ) . '</li></ul></div><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/evolve-multipurpose-wordpress-theme/?utm_source=evolve-customizer&utm_medium=compare-themes-link&utm_campaign=theme-customizer#features"><span class="dashicons dashicons-update"></span> ' . esc_html__( 'Compare With Premium Version', 'evolve' ) . '</a>',
+						'desc' => '<a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/?utm_source=evolve-customizer&utm_medium=homepage-link&utm_campaign=theme-customizer"><span class="dashicons dashicons-admin-home"></span> ' . esc_html__( 'Theme Homepage', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'docs/?utm_source=evolve-customizer&utm_medium=documentation-link&utm_campaign=theme-customizer"><span class="dashicons dashicons-admin-page"></span> ' . esc_html__( 'Documentation', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['support_url'] . 'support/theme/evolve"><span class="dashicons dashicons-admin-comments"></span> ' . esc_html__( 'Support', 'evolve' ) . '</a><div class="evolve-features"><h2>' . esc_html__( 'evolve Plus key features', 'evolve' ) . '</h2><ul><li><h3>' . esc_html__( '18 Pre-built Demos', 'evolve' ) . '</h3>' . esc_html__( 'Build a Website Within a Minute With The Modern Minimalist Demos', 'evolve' ) . '</li><li><h3>' . esc_html__( 'One Page Parallax Layout', 'evolve' ) . '</h3>' . esc_html__( 'Simple But Very Effective One Page Parallax Feature', 'evolve' ) . '</li><li><h3>' . esc_html__( '10 Premium Widgets', 'evolve' ) . '</h3>' . esc_html__( 'Add Many Effective Custom Widgets To Display Your Facebook Page, Twitter And Much More', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Theme4Press Slider', 'evolve' ) . '</h3>' . esc_html__( 'Image or Video Responsive Unlimited Slides With Nice Animations', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Built-in Mega Menu', 'evolve' ) . '</h3>' . esc_html__( 'Excellent Mega Menu When You Need To Add Widgets Or Specially Style Your Menu', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Shortcodes', 'evolve' ) . '</h3>' . esc_html__( 'Create Alerts, Tabs, Pricing Tables etc.', 'evolve' ) . '</li><li><h3>' . esc_html__( '900+ Google Fonts', 'evolve' ) . '</h3>' . esc_html__( 'A Great Collection Of Unique Google Font Families', 'evolve' ) . '</li><li><h3>' . esc_html__( '10 Predefined Color Schemes', 'evolve' ) . '</h3>' . esc_html__( 'Pick a New Color Scheme For Your Website With Just a Click', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Custom Sidebars', 'evolve' ) . '</h3>' . esc_html__( 'Create Unique Sidebars With Widgets For Any Page', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Portfolios', 'evolve' ) . '</h3>' . esc_html__( 'Up To 9 Layouts &ndash; Select The Right Type For Your Showcase', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Google Map Contact', 'evolve' ) . '</h3>' . esc_html__( 'Contact Page Template With The Google Map And reCaptcha Protection', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Sticky Navigation', 'evolve' ) . '</h3>' . esc_html__( 'Sticky Navigation Is Perfect If You Need Organized Pages - For Example For Documentation', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Lightbox', 'evolve' ) . '</h3>' . esc_html__( 'Responsive Lightbox Ready To Display Your Amazing Shots, YouTube Or Vimeo Videos, Or Instagram Photos', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Slider Revolution (Bundled)', 'evolve' ) . '</h3>' . esc_html__( 'Responsive Premium WordPress Slider With Breathtaking Effects', 'evolve' ) . '</li><li><h3>' . esc_html__( 'LayerSlider (Bundled)', 'evolve' ) . '</h3>' . esc_html__( 'Create Fantastic Slides With The Bundled Premium Slider Plugin', 'evolve' ) . '</li><li><h3>' . esc_html__( '100% Width Template', 'evolve' ) . '</h3>' . esc_html__( '100% Width Template Let You To Set Any Page To Be Full Width Of The Browser\'s Window', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Post/Page Custom Layouts', 'evolve' ) . '</h3>' . esc_html__( 'Select Unique Post/Page Layout Like Sidebar Position, Breadcrumbs, Post/Page Titles etc.', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Custom Headers', 'evolve' ) . '</h3>' . esc_html__( 'Custom Headers Can Be Set Per Post/Page', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Header Layouts', 'evolve' ) . '</h3>' . esc_html__( '5 Header Layouts', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Live Customizer', 'evolve' ) . '</h3>' . esc_html__( '300+ Theme Options', 'evolve' ) . '</li><li><h3>' . esc_html__( 'WooCommerce', 'evolve' ) . '</h3>' . esc_html__( 'Custom/Global Sidebar For WooCommerce Pages', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Bootstrap Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Unlimited Number Of Slides, Slides Reorder', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Parallax Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Unlimited Number Of Slides, Slides Reorder', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Posts Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Up To 30 Slides', 'evolve' ) . '</li></ul></div><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/evolve-multipurpose-wordpress-theme/?utm_source=evolve-customizer&utm_medium=compare-themes-link&utm_campaign=theme-customizer#features"><span class="dashicons dashicons-update"></span> ' . esc_html__( 'Compare With Premium Version', 'evolve' ) . '</a>',
 						'type' => 'info'
 					)
 				)
@@ -50,7 +50,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							'3cr' => $global_value['customizer_images'] . '3cr.png',
 							'3cl' => $global_value['customizer_images'] . '3cl.png',
 						),
-						'default'  => '1c'
+						'default'  => '2cl'
 					),
 					array(
 						'id'      => 'evl_frontpage_width_layout',
@@ -1933,12 +1933,12 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
-								'element'       => '.navbar-nav > li',
+								'element'       => '.page-nav ul > li, .navbar-nav > li',
 								'property'      => 'padding-left',
 								'value_pattern' => '$' . 'px',
 							),
 							array(
-								'element'       => '.navbar-nav > li',
+								'element'       => '.page-nav ul > li, .navbar-nav > li',
 								'property'      => 'padding',
 								'value_pattern' => '0 ' . '$' . 'px',
 							)
@@ -1959,7 +1959,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
-								'element'       => '.header-wrapper .main-menu',
+								'element'       => '.page-nav, .header-wrapper .main-menu',
 								'property'      => 'padding',
 								'value_pattern' => '$' . 'px' . ' 0',
 							)
@@ -2591,89 +2591,6 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				'id'      => 'evl-styling-main-tab',
 				'title'   => esc_attr__( 'Styling', 'evolve' ),
 				'iconfix' => 'evolve-icon evolve-icon-styling',
-			)
-		);
-
-		/*
-			-- Main Color Scheme
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-styling-subsec-main-scheme-tab',
-				'title'      => esc_attr__( 'Main Color Scheme', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
-					array(
-						'id'       => 'evl_color_palettes',
-						'title'    => esc_attr__( 'Main Color Scheme', 'evolve' ),
-						'subtitle' => esc_attr__( 'Please select the predefined color scheme for your website', 'evolve' ),
-						'type'     => 'palette',
-						'palettes' => array(
-							'color_palette_1'  => array(
-								'#999999',
-								'#313a43',
-								'#273039',
-								'#492fb1'
-							),
-							'color_palette_2'  => array(
-								'#ffffff',
-								'#f9f9f9',
-								'#727272',
-								'#000000'
-							),
-							'color_palette_3'  => array(
-								'#ffffff',
-								'#d6d6d6',
-								'#3d3d3d',
-								'#a2c43c'
-
-							),
-							'color_palette_4'  => array(
-								'#ffffff',
-								'#fab0ad',
-								'#f7505a',
-								'#282c59'
-							),
-							'color_palette_5'  => array(
-								'#ffffff',
-								'#E0E0E0',
-								'#000000',
-								'#d4c081'
-							),
-							'color_palette_6'  => array(
-								'#ffffff',
-								'#bcbcbc',
-								'#666666',
-								'#000000'
-							),
-							'color_palette_7'  => array(
-								'#ffffff',
-								'#f0f0f0',
-								'#3c4d56',
-								'#ff8d52'
-							),
-							'color_palette_8'  => array(
-								'#ffffff',
-								'#E0E0E0',
-								'#c1c1c1',
-								'#09589e'
-							),
-							'color_palette_9'  => array(
-								'#ffffff',
-								'#f0f0f0',
-								'#444444',
-								'#22b5ce'
-							),
-							'color_palette_10' => array(
-								'#ffe484',
-								'#313a43',
-								'#273039',
-								'#563d7c'
-							),
-						),
-						'default'  => 'color_palette_1'
-					)
-				)
 			)
 		);
 
@@ -3972,12 +3889,12 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'subtitle'  => esc_attr__( 'Choose the size of Subscribe/Social Icons', 'evolve' ),
 						'type'      => 'select',
 						'options'   => array(
-							'1rem'   => esc_attr__( 'Normal', 'evolve' ),
-							'.8rem'  => esc_attr__( 'Small', 'evolve' ),
-							'1.2rem' => esc_attr__( 'Large', 'evolve' ),
-							'1.4rem' => esc_attr__( 'X-Large', 'evolve' )
+							'1.2rem' => esc_attr__( 'Normal', 'evolve' ),
+							'1rem'   => esc_attr__( 'Small', 'evolve' ),
+							'1.5rem' => esc_attr__( 'Large', 'evolve' ),
+							'1.8rem' => esc_attr__( 'X-Large', 'evolve' )
 						),
-						'default'   => '1rem',
+						'default'   => '1.2rem',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
 							array(
@@ -4397,69 +4314,84 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				'default'  => "0"
 			);
 
-			$bootstrap_fields[] = array(
-				'id'       => "{$global_value['prefix']}_bootstrap_slide{$i}_img",
-				'title'    => sprintf( esc_attr__( 'Slide %d Image', 'evolve' ), $i ),
-				'subtitle' => sprintf( esc_attr__( 'Upload an image for the Slide %d, or specify an image URL directly', 'evolve' ), $i ),
-				'type'     => "media",
-				'url'      => true,
-				'readonly' => false,
-				'required' => array(
-					array(
-						"{$global_value['prefix']}_bootstrap_slide{$i}",
-						'=',
-						'1'
-					)
-				),
-			);
+			if ( $i <= 2 ) {
+				$bootstrap_fields[] = array(
+					'id'       => "{$global_value['prefix']}_bootstrap_slide{$i}_img",
+					'title'    => sprintf( esc_attr__( 'Slide %d Image', 'evolve' ), $i ),
+					'subtitle' => sprintf( esc_attr__( 'Upload an image for the Slide %d, or specify an image URL directly', 'evolve' ), $i ),
+					'type'     => "media",
+					'url'      => true,
+					'readonly' => false,
+					'required' => array(
+						array(
+							"{$global_value['prefix']}_bootstrap_slide{$i}",
+							'=',
+							'1'
+						)
+					),
+				);
 
-			$bootstrap_fields[] = array(
-				'id'              => "{$global_value['prefix']}_bootstrap_slide{$i}_title",
-				'title'           => sprintf( esc_attr__( 'Slide %d Title', 'evolve' ), $i ),
-				'type'            => "text",
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_bootstrap_slide{$i}",
-						'=',
-						'1'
-					)
-				),
-				'selector'        => "#bootstrap-slider .item-{$i} h5",
-				'render_callback' => "{$global_value['prefix']}_bootstrap_slide{$i}_title"
-			);
+				$bootstrap_fields[] = array(
+					'id'              => "{$global_value['prefix']}_bootstrap_slide{$i}_title",
+					'title'           => sprintf( esc_attr__( 'Slide %d Title', 'evolve' ), $i ),
+					'type'            => "text",
+					'required'        => array(
+						array(
+							"{$global_value['prefix']}_bootstrap_slide{$i}",
+							'=',
+							'1'
+						)
+					),
+					'selector'        => "#bootstrap-slider .item-{$i} h5",
+					'render_callback' => "{$global_value['prefix']}_bootstrap_slide{$i}_title"
+				);
 
-			$bootstrap_fields[] = array(
-				'id'              => "{$global_value['prefix']}_bootstrap_slide{$i}_desc",
-				'title'           => sprintf( esc_attr__( 'Slide %d Description', 'evolve' ), $i ),
-				'type'            => "textarea",
-				"rows"            => 5,
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_bootstrap_slide{$i}",
-						'=',
-						'1'
-					)
-				),
-				'selector'        => "#bootstrap-slider .item-{$i} .carousel-caption p",
-				'render_callback' => "{$global_value['prefix']}_bootstrap_slide{$i}_desc"
-			);
+				$bootstrap_fields[] = array(
+					'id'              => "{$global_value['prefix']}_bootstrap_slide{$i}_desc",
+					'title'           => sprintf( esc_attr__( 'Slide %d Description', 'evolve' ), $i ),
+					'type'            => "textarea",
+					"rows"            => 5,
+					'required'        => array(
+						array(
+							"{$global_value['prefix']}_bootstrap_slide{$i}",
+							'=',
+							'1'
+						)
+					),
+					'selector'        => "#bootstrap-slider .item-{$i} .carousel-caption p",
+					'render_callback' => "{$global_value['prefix']}_bootstrap_slide{$i}_desc"
+				);
 
-			$bootstrap_fields[] = array(
-				'id'              => "{$global_value['prefix']}_bootstrap_slide{$i}_button",
-				'title'           => sprintf( esc_attr__( 'Slide %d Button', 'evolve' ), $i ),
-				'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn d-none d-sm-inline-block" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
-				'type'            => "textarea",
-				"rows"            => 3,
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_bootstrap_slide{$i}",
-						'=',
-						'1'
+				$bootstrap_fields[] = array(
+					'id'              => "{$global_value['prefix']}_bootstrap_slide{$i}_button",
+					'title'           => sprintf( esc_attr__( 'Slide %d Button', 'evolve' ), $i ),
+					'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn d-none d-sm-inline-block" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
+					'type'            => "textarea",
+					"rows"            => 3,
+					'required'        => array(
+						array(
+							"{$global_value['prefix']}_bootstrap_slide{$i}",
+							'=',
+							'1'
+						)
+					),
+					'selector'        => "#bootstrap-slider .item-{$i} .carousel-caption .bootstrap-button",
+					'render_callback' => "{$global_value['prefix']}_bootstrap_slide{$i}_button"
+				);
+			} else {
+				$bootstrap_fields[] = array(
+					'id'       => "{$global_value['prefix']}_bootstrap_info{$i}",
+					'title'    => esc_attr__( 'This slide is available in premium version only', 'evolve' ),
+					'type'     => "info",
+					'required' => array(
+						array(
+							"{$global_value['prefix']}_bootstrap_slide{$i}",
+							'=',
+							'1'
+						)
 					)
-				),
-				'selector'        => "#bootstrap-slider .item-{$i} .carousel-caption .bootstrap-button",
-				'render_callback' => "{$global_value['prefix']}_bootstrap_slide{$i}_button"
-			);
+				);
+			}
 		}
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
@@ -4689,69 +4621,84 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				'default'  => "0"
 			);
 
-			$parallax_fields[] = array(
-				'id'       => "{$global_value['prefix']}_slide{$i}_img",
-				'title'    => sprintf( esc_attr__( 'Slide %s Image', 'evolve' ), $i ),
-				'subtitle' => sprintf( esc_attr__( 'Upload an image for the Slide %d, or specify an image URL directly', 'evolve' ), $i ),
-				'type'     => "media",
-				'url'      => true,
-				'readonly' => false,
-				'required' => array(
-					array(
-						"{$global_value['prefix']}_show_slide{$i}",
-						'=',
-						'1'
+			if ( $i <= 2 ) {
+				$parallax_fields[] = array(
+					'id'       => "{$global_value['prefix']}_slide{$i}_img",
+					'title'    => sprintf( esc_attr__( 'Slide %s Image', 'evolve' ), $i ),
+					'subtitle' => sprintf( esc_attr__( 'Upload an image for the Slide %d, or specify an image URL directly', 'evolve' ), $i ),
+					'type'     => "media",
+					'url'      => true,
+					'readonly' => false,
+					'required' => array(
+						array(
+							"{$global_value['prefix']}_show_slide{$i}",
+							'=',
+							'1'
+						)
 					)
-				)
-			);
+				);
 
-			$parallax_fields[] = array(
-				'id'              => "{$global_value['prefix']}_slide{$i}_title",
-				'title'           => sprintf( esc_attr__( 'Slide %s Title', 'evolve' ), $i ),
-				'subtitle'        => "",
-				'type'            => "text",
-				'selector'        => "#parallax-slider .item-{$i} h5",
-				'render_callback' => "{$global_value['prefix']}_slide{$i}_title",
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_show_slide{$i}",
-						'=',
-						'1'
+				$parallax_fields[] = array(
+					'id'              => "{$global_value['prefix']}_slide{$i}_title",
+					'title'           => sprintf( esc_attr__( 'Slide %s Title', 'evolve' ), $i ),
+					'subtitle'        => "",
+					'type'            => "text",
+					'selector'        => "#parallax-slider .item-{$i} h5",
+					'render_callback' => "{$global_value['prefix']}_slide{$i}_title",
+					'required'        => array(
+						array(
+							"{$global_value['prefix']}_show_slide{$i}",
+							'=',
+							'1'
+						)
 					)
-				)
-			);
+				);
 
-			$parallax_fields[] = array(
-				'id'              => "{$global_value['prefix']}_slide{$i}_desc",
-				'title'           => sprintf( esc_attr__( 'Slide %s Description', 'evolve' ), $i ),
-				'subtitle'        => "",
-				'type'            => "textarea",
-				'selector'        => "#parallax-slider .item-{$i} .carousel-caption p",
-				'render_callback' => "{$global_value['prefix']}_slide{$i}_desc",
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_show_slide{$i}",
-						'=',
-						'1'
+				$parallax_fields[] = array(
+					'id'              => "{$global_value['prefix']}_slide{$i}_desc",
+					'title'           => sprintf( esc_attr__( 'Slide %s Description', 'evolve' ), $i ),
+					'subtitle'        => "",
+					'type'            => "textarea",
+					'selector'        => "#parallax-slider .item-{$i} .carousel-caption p",
+					'render_callback' => "{$global_value['prefix']}_slide{$i}_desc",
+					'required'        => array(
+						array(
+							"{$global_value['prefix']}_show_slide{$i}",
+							'=',
+							'1'
+						)
 					)
-				)
-			);
+				);
 
-			$parallax_fields[] = array(
-				'id'              => "{$global_value['prefix']}_slide{$i}_button",
-				'title'           => sprintf( esc_attr__( 'Slide %s Button', 'evolve' ), $i ),
-				'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn d-none d-sm-inline-block" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
-				'type'            => "textarea",
-				'selector'        => "#parallax-slider .item-{$i} .carousel-caption .parallax-button",
-				'render_callback' => "{$global_value['prefix']}_slide{$i}_button",
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_show_slide{$i}",
-						'=',
-						'1'
+				$parallax_fields[] = array(
+					'id'              => "{$global_value['prefix']}_slide{$i}_button",
+					'title'           => sprintf( esc_attr__( 'Slide %s Button', 'evolve' ), $i ),
+					'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn d-none d-sm-inline-block" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
+					'type'            => "textarea",
+					'selector'        => "#parallax-slider .item-{$i} .carousel-caption .parallax-button",
+					'render_callback' => "{$global_value['prefix']}_slide{$i}_button",
+					'required'        => array(
+						array(
+							"{$global_value['prefix']}_show_slide{$i}",
+							'=',
+							'1'
+						)
 					)
-				)
-			);
+				);
+			} else {
+				$parallax_fields[] = array(
+					'id'       => "{$global_value['prefix']}_parallax_info{$i}",
+					'title'    => esc_attr__( 'This slide is available in premium version only', 'evolve' ),
+					'type'     => "info",
+					'required' => array(
+						array(
+							"{$global_value['prefix']}_show_slide{$i}",
+							'=',
+							'1'
+						)
+					)
+				);
+			}
 		}
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
@@ -5123,5 +5070,44 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			)
 		);
 
+		/*
+			Demo Import
+			======================================= */
+
+		if ( class_exists( 'Demo_Awesome' ) ) {
+
+			evolve_Kirki::setSection( $global_value['opt_name'], array(
+					'id'      => 'evl-demo-import-main-tab',
+					'title'   => esc_attr__( 'Import Pre-built Demos', 'evolve' ),
+					'iconfix' => 'evolve-icon evolve-icon-demo-import',
+					'class'   => 'demo_import',
+					'fields'  => array(
+						array(
+							'id'   => 'evl_demo_import',
+							'desc' => '<a class="evolve-upgrade-button" target="_blank" href="' . esc_url( network_admin_url( 'themes.php?page=demo-awesome-importer' ) ) . '"><span class="dashicons dashicons-download"></span> ' . esc_html__( 'Browse and Import Demos', 'evolve' ) . '</a>',
+							'type' => 'info'
+						)
+					)
+				)
+			);
+
+		} else {
+
+			evolve_Kirki::setSection( $global_value['opt_name'], array(
+					'id'      => 'evl-demo-import-main-tab',
+					'title'   => esc_attr__( 'Import Pre-built Demos', 'evolve' ),
+					'iconfix' => 'evolve-icon evolve-icon-demo-import',
+					'class'   => 'demo_import',
+					'fields'  => array(
+						array(
+							'id'   => 'evl_demo_import',
+							'desc' => '<a class="evolve-upgrade-button" target="_blank" href="' . esc_url( network_admin_url( 'plugin-install.php?tab=plugin-information&plugin=Demo+Awesome' ) ) . '"><span class="dashicons dashicons-admin-plugins"></span> ' . esc_html__( 'Install Demo Awesome Plugin', 'evolve' ) . '</a>',
+							'type' => 'info'
+						)
+					)
+				)
+			);
+
+		}
 	}
 }

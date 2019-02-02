@@ -6463,30 +6463,54 @@
 //# sourceMappingURL=bootstrap.bundle.js.map
 
 /*
+    Close All Submenus On Resize
+    ======================================= */
+
+jQuery(function ($) {
+    $(document).ready(function () {
+        checkSize();
+        $(window).resize(checkSize);
+    });
+
+    function checkSize() {
+        if ($(".navbar-toggler").css("display") == "none") {
+            $('.navbar-nav').find('.open').removeClass('open');
+        }
+    }
+});
+
+/*
     Make Menu Clickable
     ======================================= */
 
 jQuery(function ($) {
     $(".dropdown-toggle").removeAttr('data-toggle dropdown');
 
-    if (window.outerWidth < 768 && evolve_js_local_vars.main_menu === '1') {
-        $('.dropdown-toggle').each(function () {
-            $(this).addClass('clicked');
-            $(this).closest('li').addClass('open');
-        });
-    }
+    $(document).ready(function () {
+        checkSize();
+        $(window).resize(checkSize);
+    });
 
-    $('.dropdown.nav-item > a').click(function (event) {
-        if ($(this).closest('li').find('.dropdown-menu').length) {
-            if (!$(this).hasClass('clicked')) {
-                $(this).closest('ul').find('.open').removeClass('open');
-                $(this).closest('ul').find('.clicked').removeClass('clicked');
-                $(this).closest('li').addClass('open');
-                event.preventDefault();
-            }
-            $(this).addClass('clicked');
+    function checkSize() {
+        if ($(".navbar-toggler").css("display") == "none" && evolve_js_local_vars.main_menu === '1') {
+            $('.dropdown-toggle').each(function () {
+                // $(this).addClass('clicked');
+                // $(this).closest('li').addClass('open');
+            });
         }
-    })
+
+        $('.dropdown.nav-item > a').click(function (event) {
+            if ($(this).closest('li').find('.dropdown-menu').length) {
+                if (!$(this).hasClass('clicked')) {
+                    $(this).closest('ul').find('.open').removeClass('open');
+                    $(this).closest('ul').find('.clicked').removeClass('clicked');
+                    $(this).closest('li').addClass('open');
+                    event.preventDefault();
+                }
+                $(this).addClass('clicked');
+            }
+        })
+    }
 });
 
 /*
@@ -6715,7 +6739,15 @@ jQuery(function ($) {
     // ===================================
 
     var resizeTimer;
+    $('body').on("click touchstart", function () {
+        //navbar
+        // var id = event.target.id;
+        if ($(event.target).closest('.navbar').length == 0) {
+            $('.navbar-nav .open').removeClass('open');
+        }
+    })
     $(document).ready(function () {
+        $('.navbar-nav .open').removeClass('open');
         $('[data-hover="dropdown"]').each(function () {
             var $target = $(this);
             Plugin.call($target, $target.data())

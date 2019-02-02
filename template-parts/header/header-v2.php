@@ -46,30 +46,15 @@
 						<?php if ( '' != evolve_theme_mod( 'evl_header_logo', '' ) && evolve_logo_position() != "disable" && ( '' == evolve_theme_mod( 'evl_blog_title', '0' ) || evolve_theme_mod( 'evl_tagline_pos', 'next' ) !== 'disable' ) ) { ?>
                     </div><!-- .row .align-items-center -->
                 </div><!-- .col -->
-			<?php } ?>
+			<?php }
 
-				<?php if ( evolve_theme_mod( 'evl_main_menu', false ) !== true ) {
-					if ( has_nav_menu( 'primary-menu' ) ) {
-						echo '<nav class="navbar navbar-expand-md main-menu mt-3 mt-md-0 order-3 col-sm-11' . ( evolve_theme_mod( 'evl_searchbox', true ) ? ' col-md-8' : ' col-md-9' ) . '">
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="' . __( "Primary", "evolve" ) . '">
-                                    ' . evolve_get_svg( 'menu' ) . '
-                                    </button>
-                                <div id="primary-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
-						wp_nav_menu( array(
-							'theme_location' => 'primary-menu',
-							'depth'          => 10,
-							'container'      => false,
-							'menu_class'     => 'navbar-nav mr-auto',
-							'fallback_cb'    => 'evolve_custom_menu_walker::fallback',
-							'walker'         => new evolve_custom_menu_walker()
-						) );
-						echo '</div></nav>';
-					}
-				} ?>
+			if ( evolve_theme_mod( 'evl_main_menu', false ) !== true ) {
+				echo evolve_menu( 'primary-menu', 'navbar-nav mr-auto' );
+			}
 
-				<?php if ( evolve_theme_mod( 'evl_searchbox', true ) ) {
-					evolve_header_search( '2' );
-				} ?>
+			if ( evolve_theme_mod( 'evl_searchbox', true ) ) {
+				evolve_header_search( '2' );
+			} ?>
 
             </div><!-- .row .align-items-center -->
         </div><!-- .header .container -->

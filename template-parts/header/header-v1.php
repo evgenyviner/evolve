@@ -65,22 +65,7 @@
             <div class="row align-items-center">
 
 				<?php if ( evolve_theme_mod( 'evl_main_menu', false ) !== true ) {
-					if ( has_nav_menu( 'primary-menu' ) ) {
-						echo '<nav class="navbar navbar-expand-md main-menu mr-auto col-12 col-sm">
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="' . __( "Primary", "evolve" ) . '">
-                                    ' . evolve_get_svg( 'menu' ) . '
-                                    </button>
-                                <div id="primary-menu" class="collapse navbar-collapse" data-hover="dropdown" data-animations="fadeInUp fadeInDown fadeInDown fadeInDown">';
-						wp_nav_menu( array(
-							'theme_location' => 'primary-menu',
-							'depth'          => 10,
-							'container'      => false,
-							'menu_class'     => 'navbar-nav mr-auto',
-							'fallback_cb'    => 'evolve_custom_menu_walker::fallback',
-							'walker'         => new evolve_custom_menu_walker()
-						) );
-						echo '</div></nav>';
-					}
+					echo evolve_menu( 'primary-menu', 'navbar-nav mr-auto' );
 				}
 
 				if ( evolve_theme_mod( 'evl_searchbox', true ) ) {

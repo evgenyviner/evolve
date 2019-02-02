@@ -702,12 +702,6 @@ require get_parent_theme_file_path( '/inc/front-page-elements.php' );
 require get_parent_theme_file_path( '/inc/admin/customizer/customizer.php' );
 
 /*
-    Metaboxes
-    ======================================= */
-
-require get_parent_theme_file_path( '/inc/admin/metaboxes/metaboxes.php' );
-
-/*
     Plugins Support
     ======================================= */
 

@@ -421,6 +421,13 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
                     </tr>
                     <tr>
                         <td>
+                            <h4><?php esc_html_e( '10 Premium Widgets', 'evolve' ); ?></h4>
+                        </td>
+                        <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
+                        <td class="feature-item"><span class="dashicons dashicons-no"></span></td>
+                    </tr>
+                    <tr>
+                        <td>
                             <h4><?php esc_html_e( 'Theme4Press Slider', 'evolve' ); ?></h4>
                         </td>
                         <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
@@ -491,7 +498,21 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
                     </tr>
                     <tr>
                         <td>
+                            <h4><?php esc_html_e( 'Post/Page Custom Layouts', 'evolve' ); ?></h4>
+                        </td>
+                        <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
+                        <td class="feature-item"><span class="dashicons dashicons-no"></span></td>
+                    </tr>
+                    <tr>
+                        <td>
                             <h4><?php esc_html_e( 'Shortcodes', 'evolve' ); ?></h4>
+                        </td>
+                        <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
+                        <td class="feature-item"><span class="dashicons dashicons-no"></span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4><?php esc_html_e( '10 Predefined Color Schemes', 'evolve' ); ?></h4>
                         </td>
                         <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
                         <td class="feature-item"><span class="dashicons dashicons-no"></span></td>
@@ -505,15 +526,28 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
                     </tr>
                     <tr>
                         <td>
+                            <h4><?php esc_html_e( 'Google Fonts', 'evolve' ); ?></h4>
+                        </td>
+                        <td class="feature-item"><span class="dashicons dashicons-yes"></span>
+                            <div class="w-100"></div>
+                            <div class="extra"><?php esc_html_e( 'EXTRA IN PREMIUM', 'evolve' ); ?></div>
+							<?php esc_html_e( '900+ Fonts', 'evolve' ); ?>
+                        </td>
+                        <td class="feature-item"><span class="dashicons dashicons-yes"></span>
+                            <div class="w-100"></div><?php esc_html_e( '3 Fonts', 'evolve' ); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <h4><?php esc_html_e( 'Pre-built Demos', 'evolve' ); ?></h4>
                         </td>
                         <td class="feature-item"><span class="dashicons dashicons-yes"></span>
                             <div class="w-100"></div>
                             <div class="extra"><?php esc_html_e( 'EXTRA IN PREMIUM', 'evolve' ); ?></div>
-							<?php esc_html_e( '12 Demos', 'evolve' ); ?>
+							<?php esc_html_e( '18 Demos', 'evolve' ); ?>
                         </td>
                         <td class="feature-item pr-4"><span class="dashicons dashicons-yes"></span>
-                            <div class="w-100"></div><?php esc_html_e( '3 Demos', 'evolve' ); ?>
+                            <div class="w-100"></div><?php esc_html_e( '4 Demos', 'evolve' ); ?>
                         </td>
                     </tr>
                     <tr>
@@ -588,7 +622,7 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
 							<?php esc_html_e( 'Unlimited Number Of Slides, Slides Reorder', 'evolve' ); ?>
                         </td>
                         <td class="feature-item"><span class="dashicons dashicons-yes"></span>
-                            <div class="w-100"></div><?php esc_html_e( 'Limited To 5 Slides', 'evolve' ); ?>
+                            <div class="w-100"></div><?php esc_html_e( 'Limited To 2 Slides', 'evolve' ); ?>
                         </td>
                     </tr>
                     <tr>
@@ -601,7 +635,7 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
 							<?php esc_html_e( 'Unlimited Number Of Slides, Slides Reorder', 'evolve' ); ?>
                         </td>
                         <td class="feature-item"><span class="dashicons dashicons-yes"></span>
-                            <div class="w-100"></div><?php esc_html_e( 'Limited To 5 Slides', 'evolve' ); ?>
+                            <div class="w-100"></div><?php esc_html_e( 'Limited To 2 Slides', 'evolve' ); ?>
                         </td>
                     </tr>
                     <tr>
@@ -619,6 +653,17 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
                     </tr>
                     <tr>
                         <td>
+                            <h4><?php esc_html_e( 'bbPress &amp; BuddyPress', 'evolve' ); ?></h4>
+                        </td>
+                        <td class="feature-item"><span class="dashicons dashicons-yes"></span>
+                            <div class="w-100"></div>
+                            <div class="extra"><?php esc_html_e( 'EXTRA IN PREMIUM', 'evolve' ); ?></div>
+							<?php esc_html_e( 'Custom/Global Sidebar For bbPress/BuddyPress Pages', 'evolve' ); ?>
+                        </td>
+                        <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
+                    </tr>
+                    <tr>
+                        <td>
                             <h4><?php esc_html_e( 'WordPress Coding Standards', 'evolve' ); ?></h4>
                         </td>
                         <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
@@ -627,13 +672,6 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
                     <tr>
                         <td>
                             <h4><?php esc_html_e( 'Schema.org SEO Optimization', 'evolve' ); ?></h4>
-                        </td>
-                        <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
-                        <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h4><?php esc_html_e( 'bbPress &amp; BuddyPress', 'evolve' ); ?></h4>
                         </td>
                         <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
                         <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
