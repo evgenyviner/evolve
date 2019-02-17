@@ -196,6 +196,11 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
                                            class="button button-primary"><span
                                                     class="dashicons dashicons-download"></span><?php esc_html_e( 'Import a demo', 'evolve' ); ?>
                                         </a>
+                                        <a target="_blank"
+                                           href="<?php echo esc_url( 'https://www.youtube.com/watch?v=QmwjHH9NVuM' ); ?>"
+                                           class="button button-primary"><span
+                                                    class="dashicons dashicons-video-alt3"></span><?php esc_html_e( 'Video preview', 'evolve' ); ?>
+                                        </a>
                                     </p>
 								<?php } else { ?>
                                     <p>
@@ -205,6 +210,11 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
                                            href="<?php echo esc_url( network_admin_url( 'plugin-install.php?tab=plugin-information&plugin=Demo+Awesome' ) ); ?>"
                                            class="button button-primary"><span
                                                     class="dashicons dashicons-admin-plugins"></span><?php esc_html_e( 'Install', 'evolve' ); ?>
+                                        </a>
+                                        <a target="_blank"
+                                           href="<?php echo esc_url( 'https://www.youtube.com/watch?v=QmwjHH9NVuM' ); ?>"
+                                           class="button button-primary"><span
+                                                    class="dashicons dashicons-video-alt3"></span><?php esc_html_e( 'Video preview', 'evolve' ); ?>
                                         </a>
                                     </p>
 								<?php } ?>

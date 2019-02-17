@@ -355,11 +355,15 @@ add_action( 'evolve_after_post_content', 'evolve_pagination_after', 20 );
 
 if ( ! function_exists( 'evolve_posts_loop_open' ) ) {
 	function evolve_posts_loop_open() {
-		if ( ( is_home() || is_archive() || is_search() ) && evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) {
-			if ( evolve_theme_mod( 'evl_grid_layout', 'card' ) != "card" ) {
-				echo '<div class="posts card-columns">';
+		if ( ( is_home() || is_archive() || is_search() ) ) {
+			if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) {
+				if ( evolve_theme_mod( 'evl_grid_layout', 'card' ) != "card" ) {
+					echo '<div class="posts card-columns">';
+				} else {
+					echo '<div class="posts card-deck">';
+				}
 			} else {
-				echo '<div class="posts card-deck">';
+				echo '<div class="posts">';
 			}
 		}
 	}
@@ -373,8 +377,12 @@ add_action( 'evolve_before_posts_loop', 'evolve_posts_loop_open', 20 );
 
 if ( ! function_exists( 'evolve_posts_loop_close' ) ) {
 	function evolve_posts_loop_close() {
-		if ( ( is_home() || is_archive() || is_search() ) && evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) {
-			echo '</div><!-- .posts .card-columns/.card-deck -->';
+		if ( ( is_home() || is_archive() || is_search() ) ) {
+			if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) {
+				echo '</div><!-- .posts .card-columns/.card-deck -->';
+			} else {
+				echo '</div><!-- .posts -->';
+			}
 		}
 	}
 }

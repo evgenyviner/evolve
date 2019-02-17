@@ -495,6 +495,10 @@ remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_
 function evolve_woocommerce_thumbnail() {
 	global $woocommerce, $product;
 
+	if (is_admin()) {
+	     return;
+	}
+
 	$items_in_cart = array();
 
 	if ( $woocommerce->cart->get_cart() && is_array( $woocommerce->cart->get_cart() ) ) {
