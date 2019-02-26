@@ -314,6 +314,10 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
                                         <a href="<?php echo esc_url( 'https://wordpress.org/plugins/demo-awesome/' ); ?>"
                                            target="_blank"><?php esc_html_e( 'Demo Awesome', 'evolve' ); ?></a>
                                     </li>
+                                    <li>
+                                        <a href="<?php echo esc_url( 'https://wordpress.org/plugins/widget-box-lite/' ); ?>"
+                                           target="_blank"><?php esc_html_e( 'Widget Box Lite', 'evolve' ); ?></a>
+                                    </li>
                                 </ol>
                                 </p>
 
@@ -431,7 +435,7 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
                     </tr>
                     <tr>
                         <td>
-                            <h4><?php esc_html_e( '10 Premium Widgets', 'evolve' ); ?></h4>
+                            <h4><?php esc_html_e( '12 Premium Widgets', 'evolve' ); ?></h4>
                         </td>
                         <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
                         <td class="feature-item"><span class="dashicons dashicons-no"></span></td>
@@ -554,10 +558,10 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
                         <td class="feature-item"><span class="dashicons dashicons-yes"></span>
                             <div class="w-100"></div>
                             <div class="extra"><?php esc_html_e( 'EXTRA IN PREMIUM', 'evolve' ); ?></div>
-							<?php esc_html_e( '18 Demos', 'evolve' ); ?>
+							<?php esc_html_e( '20 Demos', 'evolve' ); ?>
                         </td>
                         <td class="feature-item pr-4"><span class="dashicons dashicons-yes"></span>
-                            <div class="w-100"></div><?php esc_html_e( '4 Demos', 'evolve' ); ?>
+                            <div class="w-100"></div><?php esc_html_e( '5 Demos', 'evolve' ); ?>
                         </td>
                     </tr>
                     <tr>

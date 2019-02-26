@@ -692,6 +692,10 @@ function evolve_woocommerce_cross_sell_display_2( $posts_per_page = 3, $columns 
 function evolve_cart_shipping_calc() {
 	global $woocommerce;
 
+	if ( 'no' === get_option( 'woocommerce_enable_shipping_calc' ) || ! WC()->cart->needs_shipping() ) {
+			return;
+	}
+
 	do_action( 'woocommerce_before_shipping_calculator' ); ?>
 
     <div class="shipping_calculator border p-4 mb-4">

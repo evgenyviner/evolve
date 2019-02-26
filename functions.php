@@ -647,6 +647,11 @@ if ( is_admin() ) {
 					'slug'     => 'demo-awesome',
 					'required' => false,
 				),
+				array(
+					'name'     => 'Widget Box Lite',
+					'slug'     => 'widget-box-lite',
+					'required' => false,
+				),
 			);
 
 			$config = array(

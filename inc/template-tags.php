@@ -325,27 +325,51 @@ if ( ! function_exists( 'evolve_footer_widgets' ) ) {
 
 		} else {
 
-			$evolve_footer_widgets_css    = '';
+			$evolve_footer_widgets_css    = $evolve_footer_widgets_css_2 = '';
 			$evolve_widgets_footer_number = 1;
 
-			if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "one" ) {
+			switch ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) ) {
+				case "one":
 				$evolve_footer_widgets_css    = '<div class="col">';
 				$evolve_widgets_footer_number = 1;
-			}
-
-			if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "two" ) {
+					break;
+				case "two":
 				$evolve_footer_widgets_css    = '<div class="col-sm-12 col-md-6">';
 				$evolve_widgets_footer_number = 2;
-			}
-
-			if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "three" ) {
+					break;
+				case "three":
 				$evolve_footer_widgets_css    = '<div class="col-sm-12 col-md-6 col-lg-4">';
 				$evolve_widgets_footer_number = 3;
-			}
-
-			if ( evolve_theme_mod( 'evl_widgets_num', 'disable' ) == "four" ) {
+					break;
+				case "four":
 				$evolve_footer_widgets_css    = '<div class="col-sm-12 col-md-6 col-xl-3">';
 				$evolve_widgets_footer_number = 4;
+					break;
+				case "five":
+					$evolve_footer_widgets_css    = '<div class="col-sm-12 col-md-6 col-xl-8">';
+					$evolve_footer_widgets_css_2  = '<div class="col-sm-12 col-md-6 col-xl-4">';
+					$evolve_widgets_footer_number = 2;
+					break;
+				case "six":
+					$evolve_footer_widgets_css    = '<div class="col-sm-12 col-md-6 col-xl-4">';
+					$evolve_footer_widgets_css_2  = '<div class="col-sm-12 col-md-6 col-xl-8">';
+					$evolve_widgets_footer_number = 2;
+					break;
+				case "seven":
+					$evolve_footer_widgets_css    = '<div class="col-sm-12 col-md-6 col-xl-6">';
+					$evolve_footer_widgets_css_2  = '<div class="col-sm-12 col-md-6 col-xl-3">';
+					$evolve_widgets_footer_number = 3;
+					break;
+				case "eight":
+					$evolve_footer_widgets_css    = '<div class="col-sm-12 col-md-6 col-xl-3">';
+					$evolve_footer_widgets_css_2  = '<div class="col-sm-12 col-md-6 col-xl-6">';
+					$evolve_widgets_footer_number = 3;
+					break;
+				default:
+					$evolve_footer_widgets_css    = '';
+					$evolve_footer_widgets_css_2  = '';
+					$evolve_widgets_footer_number = 1;
+					break;
 			}
 
 			echo '<div class="footer-widgets"><div class="row">';

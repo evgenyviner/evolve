@@ -1744,8 +1744,6 @@ if ( ! function_exists( 'evolve_html_tag_schema' ) ) {
 
 		if ( class_exists( 'Woocommerce' ) && is_woocommerce() ) {
 			$type = 'Product';
-		} elseif ( is_single() ) {
-			$type = "Article";
 		} elseif ( is_author() ) {
 			$type = 'ProfilePage';
 		} elseif ( is_search() ) {

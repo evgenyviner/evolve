@@ -1,8 +1,8 @@
 /*
 Theme Name: evolve
 Theme URI: https://theme4press.com/evolve-multipurpose-wordpress-theme/
-Version: 4.0.7
-Description: evolve by Theme4Press is an eye-catching and minimal WordPress theme built for web enthusiasts who like effective yet sweet website. It's based on two solid frameworks - Twitter Bootstrap and Kirki framework with focus on details and usability which move this theme to the next level, we are not afraid to say to PREMIUM one. Standard of this theme is not only settings of many theme options but its flexibility which let you build any website of your needs - if it's just a blog, e-shop, magazine or any business page. The theme key features are 2 header layouts, 10 widget areas, 3 unique sliders, up to 12 social media links, wide or boxed customizable layout, custom front page builder with up to 4 elements, up to 3 blog layouts with many options, full WooCommerce support and many other useful styling options. In addition with the Demo Awesome plugin, it adds the extra 1-click starter demo data option. See all demos here https://demo.theme4press.com/.
+Version: 4.1.0
+Description: evolve by Theme4Press is an eye-catching and minimal WordPress theme built for web enthusiasts who like effective yet sweet website. It's based on two solid frameworks - Twitter Bootstrap and Kirki framework with focus on details and usability which move this theme to the next level, we are not afraid to say to PREMIUM one. Standard of this theme is not only settings of many theme options but its flexibility which let you build any website of your needs - if it's just a blog, e-shop, magazine or any business page. The theme key features are 2 header layouts, 13 widget areas, 3 unique sliders, up to 12 social media links, wide or boxed customizable layout, custom front page builder with up to 4 elements, up to 3 blog layouts with many options, full WooCommerce support and many other useful styling options. In addition with the Demo Awesome plugin, it adds the extra 1-click starter demo data option. See all demos here https://demo.theme4press.com/.
 Author: Theme4Press
 Author URI: https://theme4press.com
 Tags: e-commerce, grid-layout, footer-widgets, blog, photography, buddypress, two-columns, left-sidebar, right-sidebar, full-width-template, sticky-post, threaded-comments, microformats, post-formats, flexible-header, featured-images, custom-background, custom-colors, custom-header, custom-menu, theme-options, translation-ready
@@ -62,6 +62,9 @@ Table of Contents:
     -- WooCommerce Widgets
 - WPML Definitions
 - Custom FadeIn Effect
+- Custom Widgets - Widget Box
+    -- Recent Posts
+    -- Posts Slider
 - Responsive Dynamic Definitions
     -- Min-Width 992px - Desktop
     -- Max-Width 991.98px - Tablet
@@ -622,11 +625,20 @@ video {
     margin-bottom: .5rem;
 }
 
+.widget-box .post-meta,
+.widget-box .post-meta a {
+    font-size: .7rem;
+}
+
 .post-meta .published {
     border-right: 1px solid rgba(0, 0, 0, .1);
     font-weight: bold;
     margin-right: .5rem;
     padding-right: .5rem;
+}
+
+.post-meta .published:last-child {
+    border: none;
 }
 
 .post-meta .fn {
@@ -1805,17 +1817,20 @@ h3.no-content {
     Social Media/Share This Links
     ======================================= */
 
-.social-media-links {
+.social-media-links,
+.social-media-links-widget {
     margin: 0;
     padding: 0;
 }
 
-.social-media-links li {
+.social-media-links li,
+.social-media-links-widget li {
     display: inline-block;
     float: left;
 }
 
-.social-media-links a {
+.social-media-links a,
+.social-media-links-widget a {
     color: #999;
     display: inline-block;
     line-height: 0;
@@ -2798,6 +2813,115 @@ h3.no-content {
 }
 
 /*
+	Custom Widgets - Widget Box
+	======================================= */
+
+.widget-box-banner-ads a {
+    display: block;
+    padding: 0;
+}
+
+.widget-box .item-container img {
+    display: block;
+    margin: 0 auto;
+}
+
+.widget-box .item-container .thumbnail-post {
+    margin: 0;
+    overflow: visible;
+}
+
+/*
+	Recent Posts
+	--------------------------------------- */
+
+.widget-box .gradient {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), to(rgba(0, 0, 0, .8)));
+    background: -o-linear-gradient(top, transparent 50%, rgba(0, 0, 0, .8) 100%);
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, .8) 100%);
+    bottom: 0;
+    color: #fff;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.widget-box-recent-posts-widget .item-container {
+    padding: 0 18px;
+}
+
+.widget-box-recent-posts-widget .flex-wrap {
+    margin: 0 -18px;
+}
+
+.widget-box-recent-posts-widget .item-container .position-relative a,
+.widget-box-posts-slider-widget .item-container .position-relative a {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.widget-box-recent-posts-widget .flex-wrap .thumbnail-left {
+    margin-right: 18px;
+}
+
+.widget-box-recent-posts-widget .flex-wrap .thumbnail-left img {
+    max-width: 90px;
+}
+
+.widget-columns-1 .item-container {
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-height: 1px;
+    position: relative;
+    width: 100%;
+    -ms-flex: 0 0 100%;
+}
+
+/*
+	-- Posts Slider
+	--------------------------------------- */
+
+.widget-box-carousel {
+    margin-bottom: 30px;
+}
+
+.widget-box-carousel .carousel-caption {
+    bottom: 0;
+    color: #fff;
+    left: 0;
+    margin: 0;
+    padding: 18px 10px;
+    position: absolute;
+    right: 0;
+}
+
+.widget-box-carousel .carousel-control-next,
+.widget-box-carousel .carousel-control-prev {
+    color: #fff;
+}
+
+.widget-box-carousel .carousel-caption .background-caption {
+    background: rgba(0, 0, 0, .74);
+    padding: 1rem;
+}
+
+.widget-box-carousel .carousel-caption a,
+.widget-box-carousel .carousel-caption h5,
+.widget-box-carousel .carousel-caption .post-meta {
+    color: #fff;
+}
+
+.widget-box-carousel .post-meta .comment-count {
+    text-align: center;
+}
+
+/*
     Responsive Dynamic Definitions
     ======================================= */
 
@@ -3046,7 +3170,8 @@ h3.no-content {
         padding: 1rem 0;
     }
 
-    .social-media-links li {
+    .social-media-links li,
+    .social-media-links-widget li {
         float: none;
     }
 

@@ -7,7 +7,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope="itemscope"
-         itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+         itemtype="http://schema.org/Article">
 
 	<?php if ( class_exists( 'bbPress' ) && ( bbp_is_reply_edit() || bbp_is_topic_edit() ) ) {
 	} else {
@@ -33,7 +33,7 @@
 
 	evolve_featured_image( '1' ); ?>
 
-    <div class="post-content" itemprop="mainContentOfPage">
+    <div class="post-content" itemprop="description">
 
 		<?php the_content();
 		evolve_wp_link_pages(); ?>

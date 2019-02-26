@@ -5,14 +5,20 @@
                 <div class="col-md-6 col-sm-12">
 					<?php if ( evolve_theme_mod( 'evl_social_links', 0 ) ) {
 						evolve_social_media_links();
+					}
+
+					if ( is_active_sidebar( 'top-left' ) ) {
+						dynamic_sidebar( 'top-left' );
 					} ?>
                 </div>
                 <div class="col-md-6 col-sm-12">
+					<?php if ( is_active_sidebar( 'top-right' ) ) {
+						dynamic_sidebar( 'top-right' );
+					}
 
-					<?php if ( class_exists( 'Woocommerce' ) ) {
+					if ( class_exists( 'Woocommerce' ) ) {
 						evolve_woocommerce_menu();
 					} ?>
-
                 </div>
             </div>
         </div>

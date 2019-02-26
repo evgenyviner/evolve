@@ -7,7 +7,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope="itemscope"
-         itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+         itemtype="http://schema.org/Article">
 
 	<?php if ( is_single() || is_page() ) {
 		if ( get_post_meta( $post->ID, 'evolve_page_title', true ) == "yes" || get_post_meta( $post->ID, 'evolve_page_title', true ) == "" ) {
@@ -28,7 +28,7 @@
 
 	evolve_featured_image( '1' ); ?>
 
-    <div class="post-content" itemprop="mainContentOfPage">
+    <div class="post-content" itemprop="description">
 
 		<?php evolve_featured_image( '2' );
 

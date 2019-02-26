@@ -1,5 +1,16 @@
 === Changelog ===
 
+Version  4.1.0
+Date:         26/2/19
+
+- Added New Widget Area Layouts
+- Added 3 New Widget Areas - Top Header, Top Bar Left and Top Bar Right
+- Added Support For Widget Box Lite Plugin
+- Fixed WooCommerce Shipping Calculator Issue
+- Updated WooCommerce Template
+- Minor Schema.org Update
+
+
 Version  4.0.7
 Date:         17/2/19
 
