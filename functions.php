@@ -344,7 +344,7 @@ if ( ! function_exists( 'evolve_move_jquery' ) ) {
 	}
 }
 
-if ( ! is_admin() ) {
+if ( ! is_admin() && evolve_theme_mod( 'evl_jquery', '0' ) != '1' ) {
 	add_action( 'wp_head', 'evolve_move_jquery', 1, 0 );
 }
 
@@ -467,9 +467,9 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 		// Font Awesome
 
 		if ( evolve_theme_mod( 'evl_fontawesome', '0' ) != "1" && ! is_customize_preview() ) {
-			wp_enqueue_script( 'evolve-font-awesome', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-all.min.js', array(), '5.2.0', true );
+			wp_enqueue_script( 'evolve-font-awesome', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-all.min.js', array(), '5.8.1', true );
 			if ( evolve_theme_mod( 'evl_fontawesome_shims', '0' ) != "1" ) {
-				wp_enqueue_script( 'evolve-font-awesome-shims', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-shims.min.js', array(), '5.2.0', true );
+				wp_enqueue_script( 'evolve-font-awesome-shims', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-shims.min.js', array(), '5.8.1', true );
 			}
 		}
 

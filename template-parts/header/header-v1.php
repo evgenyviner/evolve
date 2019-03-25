@@ -78,7 +78,7 @@
 
     <div class="menu-header">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-md-center">
 
 				<?php if ( evolve_theme_mod( 'evl_main_menu', false ) !== true ) {
 					echo evolve_menu( 'primary-menu', 'navbar-nav mr-auto' );

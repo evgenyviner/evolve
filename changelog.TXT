@@ -1,5 +1,21 @@
 === Changelog ===
 
+Version  4.1.2
+Date:         25/3/19
+
+- Updated Bootstrap Framework
+- Updated Kirki Framework
+- Updated Font Awesome
+
+
+Version  4.1.1
+Date:         6/3/19
+
+- Added Option To Disable The Google Fonts Library
+- Added Option To Move jQuery Library To Header Area
+- Improved Theme Options Structure
+
+
 Version  4.1.0
 Date:         26/2/19
 

@@ -4,7 +4,7 @@
  *
  * @package     Kirki
  * @subpackage  Controls
- * @copyright   Copyright (c) 2017, Aristeides Stathopoulos
+ * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
  * @license    https://opensource.org/licenses/MIT
  * @since       2.2.7
  */
@@ -210,7 +210,8 @@ class Kirki_Field_Typography extends Kirki_Field {
 			$this->choices = array();
 		}
 		$this->choices = wp_parse_args(
-			$this->choices, array(
+			$this->choices,
+			array(
 				'variant' => array(),
 				'fonts'   => array(
 					'standard' => array(),

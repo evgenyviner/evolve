@@ -535,6 +535,7 @@ kirki = jQuery.extend(kirki, {
                 );
             }
         },
+
         'kirki-select': {
 
             /**
@@ -829,7 +830,13 @@ kirki = jQuery.extend(kirki, {
                 });
 
                 element.on('change keyup paste click', function () {
-                    kirki.setting.set(control.id, jQuery(this).val());
+                    var val = jQuery(this).val();
+                    if (isNaN(val)) {
+                        val = parseFloat(val, 10);
+                        val = (isNaN(val)) ? 0 : val;
+                        jQuery(this).attr('value', val);
+                    }
+                    kirki.setting.set(control.id, val);
                 });
             }
 
@@ -877,6 +884,7 @@ kirki = jQuery.extend(kirki, {
                 if (('url' === saveAs && '' !== value) || ('array' === saveAs && !_.isUndefined(value.url) && '' !== value.url)) {
                     control.container.find('image-default-button').hide();
                 }
+
                 // If value is empty, hide the "remove" button.
                 if (('url' === saveAs && '' === value) || ('array' === saveAs && (_.isUndefined(value.url) || '' === value.url))) {
                     removeButton.hide();
@@ -886,6 +894,7 @@ kirki = jQuery.extend(kirki, {
                 if (value === control.params.default) {
                     control.container.find('image-default-button').hide();
                 }
+
                 if ('' !== previewImage) {
                     preview.removeClass().addClass('thumbnail thumbnail-image').html('<img src="' + previewImage + '" alt="" />');
                 }
@@ -908,7 +917,7 @@ kirki = jQuery.extend(kirki, {
                             previewImage = jsonImg.url;
 
                         if (!_.isUndefined(jsonImg.sizes)) {
-                            previewImg = jsonImg.sizes.full.url;
+                            previewImage = jsonImg.sizes.full.url;
                             if (!_.isUndefined(jsonImg.sizes.medium)) {
                                 previewImage = jsonImg.sizes.medium.url;
                             } else if (!_.isUndefined(jsonImg.sizes.thumbnail)) {
@@ -928,6 +937,7 @@ kirki = jQuery.extend(kirki, {
                         } else {
                             kirki.setting.set(control.id, ((!_.isUndefined(jsonImg.sizes)) ? jsonImg.sizes.full.url : jsonImg.url));
                         }
+
                         if (preview.length) {
                             preview.removeClass().addClass('thumbnail thumbnail-image').html('<img src="' + previewImage + '" alt="" />');
                             // evolve modification
@@ -1420,8 +1430,8 @@ kirki = jQuery.extend(kirki, {
                     numericValue,
                     unit;
 
-				// Early exit if value is not a string or a number.
-				if ( 'string' !== typeof value || 'number' !== typeof value ) {
+                // Early exit if value is not a string or a number.
+                if ('string' !== typeof value || 'number' !== typeof value) {
                     return true;
                 }
 
@@ -2268,7 +2278,7 @@ wp.customize.controlConstructor.repeater = wp.customize.Control.extend({
         // The current value set in Control Class (set in Kirki_Customize_Repeater_Control::to_json() function)
         var settingValue = this.params.value;
 
-       // The hidden field that keeps the data saved (though we never update it)
+        // The hidden field that keeps the data saved (though we never update it)
         this.settingField = this.container.find('[data-customize-setting-link]').first();
 
         // Set the field value for the first time, we'll fill it up later
@@ -2295,6 +2305,9 @@ wp.customize.controlConstructor.repeater = wp.customize.Control.extend({
                 theNewRow = control.addRow();
                 theNewRow.toggleMinimize();
                 control.initColorPicker();
+                // evolve modification
+                control.initFontAwesome();
+                // evolve modification
                 control.initSelect(theNewRow);
             } else {
                 jQuery(control.selector + ' .limit').addClass('highlight');
@@ -2325,6 +2338,19 @@ wp.customize.controlConstructor.repeater = wp.customize.Control.extend({
             control.$thisButton = jQuery(this);
             control.removeFile(e);
         });
+        <!-- evolve modification -->
+        this.container.on('keyup change', '.repeater-field-image .show_url', function (e) {
+            e.preventDefault();
+            var url = jQuery(this).val();
+            var $targetDiv = jQuery(this).closest('.repeater-field-image');
+            $targetDiv.find('.kirki-image-attachment').html('<img src="' + url + '">').slideDown('slow');
+            $targetDiv.find('.hidden-field').val(url);
+            $targetDiv.find('.remove-button').show();
+
+            //This will activate the save button
+            $targetDiv.find('.hidden-field').trigger('change');
+        });
+        <!-- evolve modification -->
 
         /**
          * Function that loads the Mustache template
@@ -2333,11 +2359,11 @@ wp.customize.controlConstructor.repeater = wp.customize.Control.extend({
             var compiled,
 
                 /*
-				 * Underscore's default ERB-style templates are incompatible with PHP
-				 * when asp_tags is enabled, so WordPress uses Mustache-inspired templating syntax.
-				 *
-				 * @see trac ticket #22344.
-				 */
+                 * Underscore's default ERB-style templates are incompatible with PHP
+                 * when asp_tags is enabled, so WordPress uses Mustache-inspired templating syntax.
+                 *
+                 * @see trac ticket #22344.
+                 */
                 options = {
                     evaluate: /<#([\s\S]+?)#>/g,
                     interpolate: /\{\{\{([\s\S]+?)\}\}\}/g,
@@ -2629,6 +2655,12 @@ wp.customize.controlConstructor.repeater = wp.customize.Control.extend({
         $targetDiv.find('.kirki-image-attachment').html('<img src="' + attachment.url + '">').hide().slideDown('slow');
 
         $targetDiv.find('.hidden-field').val(attachment.id);
+        <!-- evolve modification -->
+        if ($targetDiv.find('.show_url')) {
+            $targetDiv.find('.hidden-field').val(attachment.url);
+            $targetDiv.find('.show_url').val(attachment.url);
+        }
+        <!-- evolve modification -->
         this.$thisButton.text(this.$thisButton.data('alt-label'));
         $targetDiv.find('.remove-button').show();
 
@@ -2705,6 +2737,9 @@ wp.customize.controlConstructor.repeater = wp.customize.Control.extend({
             jQuery(this).show().html(jQuery(this).data('placeholder'));
         });
         $targetDiv.find('.hidden-field').val('');
+        <!-- evolve modification -->
+        $targetDiv.find('.show_url').val('');
+        <!-- evolve modification -->
         $uploadButton.text($uploadButton.data('label'));
         this.$thisButton.hide();
 
@@ -2975,6 +3010,50 @@ wp.customize.controlConstructor.repeater = wp.customize.Control.extend({
         this.setValue(currentSettings, true);
     },
 
+    // evolve modification
+    /**
+     * Init the Font Awesome on fields
+     * Called after AddRow
+     *
+     */
+    initFontAwesome: function () {
+
+        'use strict';
+
+        var control = this,
+            iconPicker = control.container.find('.evolve_icon_picker'),
+            options = {},
+            fieldId = iconPicker.data('field');
+
+        // We check if the color palette parameter is defined.
+        if (!_.isUndefined(fieldId) && !_.isUndefined(control.params.fields[fieldId]) && !_.isUndefined(control.params.fields[fieldId].palettes) && _.isObject(control.params.fields[fieldId].palettes)) {
+            options.palettes = control.params.fields[fieldId].palettes;
+        }
+
+        // When the color picker value is changed we update the value of the field
+        options.change = function (event, ui) {
+
+            var currentPicker = jQuery(event.target),
+                row = currentPicker.closest('.repeater-row'),
+                rowIndex = row.data('row'),
+                currentSettings = control.getValue();
+
+            currentSettings[rowIndex][currentPicker.data('field')] = ui.color.toString();
+            control.setValue(currentSettings, true);
+
+        };
+
+        // Init the Font Awesome picker
+        if (0 !== iconPicker.length) {
+            $('.evolve_icon_picker').iconpicker({placement: 'bottom'});
+
+            $('.iconpicker-item').click(function (e) {
+                e.preventDefault();
+            });
+        }
+    },
+    // evolve modification
+
     /**
      * Init the color picker on color fields
      * Called after AddRow
@@ -3117,11 +3196,11 @@ wp.customize.controlConstructor['kirki-sortable'] = wp.customize.Control.extend(
         var control = this;
 
         // Init sortable.
-		jQuery( control.container.find( 'ul.sortable' ).first() ).sortable( {
+        jQuery(control.container.find('ul.sortable').first()).sortable({
 
             // Update value when we stop sorting.
-			update: function() {
-				control.setting.set( control.getNewVal() );
+            update: function () {
+                control.setting.set(control.getNewVal());
             }
         }).disableSelection().find('li').each(function () {
 
@@ -3132,25 +3211,25 @@ wp.customize.controlConstructor['kirki-sortable'] = wp.customize.Control.extend(
         }).click(function () {
 
             // Update value on click.
-			control.setting.set( control.getNewVal() );
+            control.setting.set(control.getNewVal());
         });
     },
 
     /**
-	 * Gets the new value.
-	 *
-	 * @since 3.0.35
-	 * @returns {Array}
+     * Gets the new value.
+     *
+     * @since 3.0.35
+     * @returns {Array}
      */
-	getNewVal: function() {
-		var items  = jQuery( this.container.find( 'li' ) ),
-			newVal = [];
-		_.each ( items, function( item ) {
-			if ( ! jQuery( item ).hasClass( 'invisible' ) ) {
-				newVal.push( jQuery( item ).data( 'value' ) );
+    getNewVal: function () {
+        var items = jQuery(this.container.find('li')),
+            newVal = [];
+        _.each(items, function (item) {
+            if (!jQuery(item).hasClass('invisible')) {
+                newVal.push(jQuery(item).data('value'));
             }
         });
-		return newVal;
+        return newVal;
     }
 });
 wp.customize.controlConstructor['kirki-switch'] = wp.customize.kirkiDynamicControl.extend({
@@ -3197,7 +3276,6 @@ wp.customize.controlConstructor['kirki-typography'] = wp.customize.kirkiDynamicC
         control.renderFontSelector();
         control.renderBackupFontSelector();
         control.renderVariantSelector();
-        control.localFontsCheckbox();
 
         // Font-size.
         if ('undefined' !== typeof control.params.default['font-size']) {
@@ -3478,7 +3556,7 @@ wp.customize.controlConstructor['kirki-typography'] = wp.customize.kirkiDynamicC
             } else {
                 fontWeight = (!_.isString(value.variant)) ? '400' : value.variant.match(/\d/g);
                 fontWeight = (!_.isObject(fontWeight)) ? '400' : fontWeight.join('');
-				fontStyle  = ( value.variant && -1 !== value.variant.indexOf( 'italic' ) ) ? 'italic' : 'normal';
+                fontStyle = (value.variant && -1 !== value.variant.indexOf('italic')) ? 'italic' : 'normal';
             }
 
             control.saveValue('font-weight', fontWeight);
@@ -3593,22 +3671,6 @@ wp.customize.controlConstructor['kirki-typography'] = wp.customize.kirkiDynamicC
             google: googleFonts,
             standard: standardFonts
         };
-    },
-
-    localFontsCheckbox: function () {
-        var control = this,
-            checkboxContainer = control.container.find('.kirki-host-font-locally'),
-            checkbox = control.container.find('.kirki-host-font-locally input'),
-            checked = jQuery(checkbox).is(':checked');
-
-        if (control.setting._value && control.setting._value.downloadFont) {
-            jQuery(checkbox).attr('checked', 'checked');
-        }
-
-        jQuery(checkbox).on('change', function () {
-            checked = jQuery(checkbox).is(':checked');
-            control.saveValue('downloadFont', checked);
-        });
     },
 
     /**

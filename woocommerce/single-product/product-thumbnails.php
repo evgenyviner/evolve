@@ -30,7 +30,7 @@ $attachment_ids = $product->get_gallery_image_ids();
 
 if ( $attachment_ids ) { ?>
 
-    <div id="carousel-slider-thumbnails" class="product-carousel carousel-multiple-items carousel slide mb-4 mb-md-0"
+    <div id="carousel-slider-thumbnails" class="product-carousel carousel-multiple-items multiple-items carousel slide mb-4 mb-md-0"
          data-ride="carousel" data-wrap="false">
         <div class="carousel-inner row w-100 mx-auto">
 

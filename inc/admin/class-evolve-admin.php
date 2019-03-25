@@ -533,7 +533,35 @@ if ( ! class_exists( 'Evolve_Admin' ) ) {
                     </tr>
                     <tr>
                         <td>
+                            <h4><?php esc_html_e( '12 Main Menu Hover Effects', 'evolve' ); ?></h4>
+                        </td>
+                        <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
+                        <td class="feature-item"><span class="dashicons dashicons-no"></span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4><?php esc_html_e( '23 Sub Menu Hover Effects', 'evolve' ); ?></h4>
+                        </td>
+                        <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
+                        <td class="feature-item"><span class="dashicons dashicons-no"></span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4><?php esc_html_e( '4 Search Field Styles', 'evolve' ); ?></h4>
+                        </td>
+                        <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
+                        <td class="feature-item"><span class="dashicons dashicons-no"></span></td>
+                    </tr>
+                    <tr>
+                        <td>
                             <h4><?php esc_html_e( 'Child Theme', 'evolve' ); ?></h4>
+                        </td>
+                        <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
+                        <td class="feature-item"><span class="dashicons dashicons-no"></span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4><?php esc_html_e( 'Custom Fonts', 'evolve' ); ?></h4>
                         </td>
                         <td class="feature-item"><span class="dashicons dashicons-yes"></span></td>
                         <td class="feature-item"><span class="dashicons dashicons-no"></span></td>

@@ -1094,6 +1094,11 @@ if ( ! is_customize_preview() ) {
 
 	if ( ! function_exists( 'evolve_enqueue_google_fonts' ) ) {
 		function evolve_enqueue_google_fonts() {
+
+			if ( evolve_theme_mod( 'evl_google_fonts', '0' ) == "1" ) {
+				return;
+			}
+
 			$protocol = is_ssl() ? "https:" : "http:";
 			global $evolve_list_google_fonts;
 			wp_register_style( 'evolve-google-fonts', $protocol . evolve_Kirki::google_webfont_url( $evolve_list_google_fonts ), '' );

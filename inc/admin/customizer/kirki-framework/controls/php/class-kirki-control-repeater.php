@@ -4,7 +4,7 @@
  *
  * @package     Kirki
  * @subpackage  Controls
- * @copyright   Copyright (c) 2017, Aristeides Stathopoulos
+ * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
  * @license    https://opensource.org/licenses/MIT
  * @since       2.0
  */
@@ -125,7 +125,7 @@ class Kirki_Control_Repeater extends Kirki_Control_Base {
 							)
 						);
 						// Hackily add in the data link parameter.
-						$dropdown                           = str_replace( '<select', '<select data-field="' . esc_attr( $args['fields'][ $key ]['id'] ) . '"' . $this->get_link(), $dropdown ); // phpcs:ignore Generic.Formatting.MultipleStatementAlignment.NotSameWarning
+						$dropdown = str_replace( '<select', '<select data-field="' . esc_attr( $args['fields'][ $key ]['id'] ) . '"' . $this->get_link(), $dropdown ); // phpcs:ignore Generic.Formatting.MultipleStatementAlignment
 						$args['fields'][ $key ]['dropdown'] = $dropdown;
 						break;
 				}
@@ -280,8 +280,10 @@ class Kirki_Control_Repeater extends Kirki_Control_Base {
                             } #>
                             <# if ( field.description ) { #><span class="description customize-control-description">{{{ field.description }}}</span><#
                             } #>
-                            <input type="{{field.type}}" name="" value="{{{ field.default }}}"
+                            <!-- evolve modification -->
+                            <input type="{{field.type}}" class="{{field.class}}" name="" value="{{{ field.default }}}"
                                    data-field="{{{ field.id }}}" {{ fieldExtras }}>
+                            <!-- evolve modification -->
                         </label>
 
                         <# } else if ( 'number' === field.type ) { #>
@@ -417,6 +419,12 @@ class Kirki_Control_Repeater extends Kirki_Control_Base {
                         </figure>
 
                         <div class="actions">
+                            <!-- evolve modification -->
+                            <# if ( field.url ) { #>
+                            <br/>
+                            <input class="show_url" type="url" value="{{ defaultImageURL }}"/>
+                            <# } #>
+                            <!-- evolve modification -->
                             <button type="button"
                                     class="button remove-button<# if ( ! field.default ) { #> hidden<# } #>"><?php esc_html_e( 'Remove', 'kirki' ); ?></button>
                             <button type="button" class="button upload-button"
@@ -503,7 +511,6 @@ class Kirki_Control_Repeater extends Kirki_Control_Base {
 	 *
 	 * @access protected
 	 * @since 3.0.0
-	 *
 	 * @param array $args {@see WP_Customize_Control::__construct}.
 	 */
 	protected function row_label( $args ) {

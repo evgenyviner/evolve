@@ -4,7 +4,7 @@
  *
  * @package     Kirki
  * @subpackage  Controls
- * @copyright   Copyright (c) 2017, Aristeides Stathopoulos
+ * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
  * @license    https://opensource.org/licenses/MIT
  * @since       3.0.34
  */
@@ -58,8 +58,10 @@ data.choices.labels = _.defaults( data.choices.labels, {
 		<div class="placeholder">{{ data.choices.labels.placeholder }}</div>
 	<# } #>
 	<div class="actions">
+		<!-- evolve customization -->
         <br />
         <input type="url" value="{{ url }}" />
+		<!-- evolve customization -->
 		<button class="button image-upload-remove-button<# if ( '' === url ) { #> hidden <# } #>">{{ data.choices.labels.remove }}</button>
 		<# if ( data.default && '' !== data.default ) { #>
 			<button type="button" class="button image-default-button"<# if ( data.default === data.value || ( ! _.isUndefined( data.value.url ) && data.default === data.value.url ) ) { #> style="display:none;"<# } #>>{{ data.choices.labels['default'] }}</button>

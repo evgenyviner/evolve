@@ -19,6 +19,12 @@
       "name": "Accusoft"
     },
     {
+      "id": "acquisitions-incorporated",
+      "styles": "fab",
+      "unicode": "f6af",
+      "name": "Acquisitions Incorporated"
+    },
+    {
       "id": "ad",
       "styles": "fas",
       "unicode": "f641",
@@ -61,6 +67,12 @@
       "name": "App.net"
     },
     {
+      "id": "adobe",
+      "styles": "fab",
+      "unicode": "f778",
+      "name": "Adobe"
+    },
+    {
       "id": "adversal",
       "styles": "fab",
       "unicode": "f36a",
@@ -77,6 +89,18 @@
       "styles": "fas",
       "unicode": "f5d0",
       "name": "Air Freshener"
+    },
+    {
+      "id": "airbnb",
+      "styles": "fab",
+      "unicode": "f834",
+      "name": "Airbnb"
+    },
+    {
+      "id": "airbnb",
+      "styles": "fab",
+      "unicode": "f834",
+      "name": "Airbnb"
     },
     {
       "id": "algolia",
@@ -409,6 +433,12 @@
       "name": "Alternate Arrows Vertical"
     },
     {
+      "id": "artstation",
+      "styles": "fab",
+      "unicode": "f77a",
+      "name": "Artstation"
+    },
+    {
       "id": "assistive-listening-systems",
       "styles": "fas",
       "unicode": "f2a2",
@@ -437,6 +467,12 @@
       "styles": "fas",
       "unicode": "f558",
       "name": "Atlas"
+    },
+    {
+      "id": "atlassian",
+      "styles": "fab",
+      "unicode": "f77b",
+      "name": "Atlassian"
     },
     {
       "id": "atom",
@@ -583,6 +619,12 @@
       "name": "Battery 3/4 Full"
     },
     {
+      "id": "battle-net",
+      "styles": "fab",
+      "unicode": "f835",
+      "name": "Battle.net"
+    },
+    {
       "id": "bed",
       "styles": "fas",
       "unicode": "f236",
@@ -703,6 +745,12 @@
       "name": "Blender"
     },
     {
+      "id": "blender-phone",
+      "styles": "fas",
+      "unicode": "f6b6",
+      "name": "Blender Phone"
+    },
+    {
       "id": "blind",
       "styles": "fas",
       "unicode": "f29d",
@@ -793,6 +841,12 @@
       "name": "bookmark"
     },
     {
+      "id": "bootstrap",
+      "styles": "fab",
+      "unicode": "f836",
+      "name": "Bootstrap"
+    },
+    {
       "id": "bowling-ball",
       "styles": "fas",
       "unicode": "f436",
@@ -863,6 +917,12 @@
       "styles": "fab",
       "unicode": "f15a",
       "name": "BTC"
+    },
+    {
+      "id": "buffer",
+      "styles": "fab",
+      "unicode": "f837",
+      "name": "Buffer"
     },
     {
       "id": "bug",
@@ -1019,6 +1079,18 @@
       "styles": "fas",
       "unicode": "f083",
       "name": "Retro Camera"
+    },
+    {
+      "id": "campground",
+      "styles": "fas",
+      "unicode": "f6bb",
+      "name": "Campground"
+    },
+    {
+      "id": "canadian-maple-leaf",
+      "styles": "fab",
+      "unicode": "f785",
+      "name": "Canadian Maple Leaf"
     },
     {
       "id": "cannabis",
@@ -1213,10 +1285,22 @@
       "name": "Centercode"
     },
     {
+      "id": "centos",
+      "styles": "fab",
+      "unicode": "f789",
+      "name": "Centos"
+    },
+    {
       "id": "certificate",
       "styles": "fas",
       "unicode": "f0a3",
       "name": "certificate"
+    },
+    {
+      "id": "chair",
+      "styles": "fas",
+      "unicode": "f6c0",
+      "name": "Chair"
     },
     {
       "id": "chalkboard",
@@ -1301,6 +1385,12 @@
       "styles": "far",
       "unicode": "f14a",
       "name": "Check Square"
+    },
+    {
+      "id": "cheese",
+      "styles": "fas",
+      "unicode": "f7ef",
+      "name": "Cheese"
     },
     {
       "id": "chess",
@@ -1409,6 +1499,12 @@
       "styles": "fab",
       "unicode": "f268",
       "name": "Chrome"
+    },
+    {
+      "id": "chromecast",
+      "styles": "fab",
+      "unicode": "f838",
+      "name": "Chromecast"
     },
     {
       "id": "church",
@@ -1693,6 +1789,12 @@
       "name": "Concierge Bell"
     },
     {
+      "id": "confluence",
+      "styles": "fab",
+      "unicode": "f78d",
+      "name": "Confluence"
+    },
+    {
       "id": "connectdevelop",
       "styles": "fab",
       "unicode": "f20e",
@@ -1831,6 +1933,12 @@
       "name": "Creative Commons Share"
     },
     {
+      "id": "creative-commons-zero",
+      "styles": "fab",
+      "unicode": "f4f3",
+      "name": "Creative Commons CC0"
+    },
+    {
       "id": "credit-card",
       "styles": "fas",
       "unicode": "f09d",
@@ -1841,6 +1949,12 @@
       "styles": "far",
       "unicode": "f09d",
       "name": "Credit Card"
+    },
+    {
+      "id": "critical-role",
+      "styles": "fab",
+      "unicode": "f6c9",
+      "name": "Critical Role"
     },
     {
       "id": "crop",
@@ -1918,7 +2032,13 @@
       "id": "d-and-d",
       "styles": "fab",
       "unicode": "f38d",
-      "name": "Dungeons& Dragons"
+      "name": "Dungeons & Dragons"
+    },
+    {
+      "id": "d-and-d-beyond",
+      "styles": "fab",
+      "unicode": "f6ca",
+      "name": "D&D Beyond"
     },
     {
       "id": "dashcube",
@@ -1963,6 +2083,12 @@
       "name": "Desktop"
     },
     {
+      "id": "dev",
+      "styles": "fab",
+      "unicode": "f6cc",
+      "name": "DEV"
+    },
+    {
       "id": "deviantart",
       "styles": "fab",
       "unicode": "f1bd",
@@ -1975,10 +2101,22 @@
       "name": "Dharmachakra"
     },
     {
+      "id": "dhl",
+      "styles": "fab",
+      "unicode": "f790",
+      "name": "DHL"
+    },
+    {
       "id": "diagnoses",
       "styles": "fas",
       "unicode": "f470",
       "name": "Diagnoses"
+    },
+    {
+      "id": "diaspora",
+      "styles": "fab",
+      "unicode": "f791",
+      "name": "Diaspora"
     },
     {
       "id": "dice",
@@ -2371,6 +2509,12 @@
       "name": "Euro Sign"
     },
     {
+      "id": "evernote",
+      "styles": "fab",
+      "unicode": "f839",
+      "name": "Evernote"
+    },
+    {
       "id": "exchange-alt",
       "styles": "fas",
       "unicode": "f362",
@@ -2479,6 +2623,12 @@
       "name": "Facebook Square"
     },
     {
+      "id": "fantasy-flight-games",
+      "styles": "fab",
+      "unicode": "f6dc",
+      "name": "Fantasy Flight-games"
+    },
+    {
       "id": "fast-backward",
       "styles": "fas",
       "unicode": "f049",
@@ -2509,6 +2659,18 @@
       "name": "Feather Alt"
     },
     {
+      "id": "fedex",
+      "styles": "fab",
+      "unicode": "f797",
+      "name": "FedEx"
+    },
+    {
+      "id": "fedora",
+      "styles": "fab",
+      "unicode": "f798",
+      "name": "Fedora"
+    },
+    {
       "id": "female",
       "styles": "fas",
       "unicode": "f182",
@@ -2519,6 +2681,12 @@
       "styles": "fas",
       "unicode": "f0fb",
       "name": "fighter-jet"
+    },
+    {
+      "id": "figma",
+      "styles": "fab",
+      "unicode": "f799",
+      "name": "Figma"
     },
     {
       "id": "file",
@@ -2585,6 +2753,12 @@
       "styles": "fas",
       "unicode": "f56c",
       "name": "File Contract"
+    },
+    {
+      "id": "file-csv",
+      "styles": "fas",
+      "unicode": "f6dd",
+      "name": "File CSV"
     },
     {
       "id": "file-download",
@@ -2753,6 +2927,12 @@
       "styles": "fas",
       "unicode": "f06d",
       "name": "fire"
+    },
+    {
+      "id": "fire-alt",
+      "styles": "fas",
+      "unicode": "f7e4",
+      "name": "Alternate Fire"
     },
     {
       "id": "fire-extinguisher",
@@ -3523,6 +3703,18 @@
       "name": "Hackerrank"
     },
     {
+      "id": "hamburger",
+      "styles": "fas",
+      "unicode": "f805",
+      "name": "Hamburger"
+    },
+    {
+      "id": "hammer",
+      "styles": "fas",
+      "unicode": "f6e3",
+      "name": "Hammer"
+    },
+    {
       "id": "hamsa",
       "styles": "fas",
       "unicode": "f665",
@@ -3703,6 +3895,12 @@
       "name": "Handshake"
     },
     {
+      "id": "hanukiah",
+      "styles": "fas",
+      "unicode": "f6e6",
+      "name": "Hanukiah"
+    },
+    {
       "id": "hashtag",
       "styles": "fas",
       "unicode": "f292",
@@ -3805,6 +4003,12 @@
       "name": "Hockey Puck"
     },
     {
+      "id": "holly-berry",
+      "styles": "fas",
+      "unicode": "f7aa",
+      "name": "Holly Berry"
+    },
+    {
       "id": "home",
       "styles": "fas",
       "unicode": "f015",
@@ -3821,6 +4025,18 @@
       "styles": "fab",
       "unicode": "f592",
       "name": "Hornbill"
+    },
+    {
+      "id": "horse",
+      "styles": "fas",
+      "unicode": "f6f0",
+      "name": "Horse"
+    },
+    {
+      "id": "horse-head",
+      "styles": "fas",
+      "unicode": "f7ab",
+      "name": "Horse Head"
     },
     {
       "id": "hospital",
@@ -3895,10 +4111,22 @@
       "name": "Hourglass Start"
     },
     {
+      "id": "house-damage",
+      "styles": "fas",
+      "unicode": "f6f1",
+      "name": "Damaged House"
+    },
+    {
       "id": "houzz",
       "styles": "fab",
       "unicode": "f27c",
       "name": "Houzz"
+    },
+    {
+      "id": "hryvnia",
+      "styles": "fas",
+      "unicode": "f6f2",
+      "name": "Hryvnia"
     },
     {
       "id": "html5",
@@ -4021,10 +4249,22 @@
       "name": "Instagram"
     },
     {
+      "id": "intercom",
+      "styles": "fab",
+      "unicode": "f7af",
+      "name": "Intercom"
+    },
+    {
       "id": "internet-explorer",
       "styles": "fab",
       "unicode": "f26b",
       "name": "Internet-explorer"
+    },
+    {
+      "id": "invision",
+      "styles": "fab",
+      "unicode": "f7b0",
+      "name": "InVision"
     },
     {
       "id": "ioxhost",
@@ -4037,6 +4277,12 @@
       "styles": "fas",
       "unicode": "f033",
       "name": "italic"
+    },
+    {
+      "id": "itch-io",
+      "styles": "fab",
+      "unicode": "f83a",
+      "name": "itch.io"
     },
     {
       "id": "itunes",
@@ -4073,6 +4319,12 @@
       "styles": "fab",
       "unicode": "f3b6",
       "name": "Jenkis"
+    },
+    {
+      "id": "jira",
+      "styles": "fab",
+      "unicode": "f7b1",
+      "name": "Jira"
     },
     {
       "id": "joget",
@@ -4765,6 +5017,12 @@
       "name": "Memory"
     },
     {
+      "id": "mendeley",
+      "styles": "fab",
+      "unicode": "f7b3",
+      "name": "Mendeley"
+    },
+    {
       "id": "menorah",
       "styles": "fas",
       "unicode": "f676",
@@ -4985,6 +5243,12 @@
       "styles": "fab",
       "unicode": "f612",
       "name": "Neos"
+    },
+    {
+      "id": "network-wired",
+      "styles": "fas",
+      "unicode": "f6ff",
+      "name": "Wired Network"
     },
     {
       "id": "neuter",
@@ -5327,6 +5591,12 @@
       "styles": "fas",
       "unicode": "f5ae",
       "name": "Pencil Ruler"
+    },
+    {
+      "id": "penny-arcade",
+      "styles": "fab",
+      "unicode": "f704",
+      "name": "Penny Arcade"
     },
     {
       "id": "people-carry",
@@ -5731,6 +6001,12 @@
       "name": "random"
     },
     {
+      "id": "raspberry-pi",
+      "styles": "fab",
+      "unicode": "f7bb",
+      "name": "Raspberry Pi"
+    },
+    {
       "id": "ravelry",
       "styles": "fab",
       "unicode": "f2d9",
@@ -5741,6 +6017,12 @@
       "styles": "fab",
       "unicode": "f41b",
       "name": "React"
+    },
+    {
+      "id": "reacteurope",
+      "styles": "fab",
+      "unicode": "f75d",
+      "name": "ReactEurope"
     },
     {
       "id": "readme",
@@ -5791,6 +6073,12 @@
       "name": "reddit Square"
     },
     {
+      "id": "redhat",
+      "styles": "fab",
+      "unicode": "f7bc",
+      "name": "Redhat"
+    },
+    {
       "id": "redo",
       "styles": "fas",
       "unicode": "f01e",
@@ -5813,12 +6101,6 @@
       "styles": "far",
       "unicode": "f25d",
       "name": "Registered Trademark"
-    },
-    {
-      "id": "rendact",
-      "styles": "fab",
-      "unicode": "f3e4",
-      "name": "Rendact"
     },
     {
       "id": "renren",
@@ -5953,6 +6235,12 @@
       "name": "Ruler Vertical"
     },
     {
+      "id": "running",
+      "styles": "fas",
+      "unicode": "f70c",
+      "name": "Running"
+    },
+    {
       "id": "rupee-sign",
       "styles": "fas",
       "unicode": "f156",
@@ -5987,6 +6275,12 @@
       "styles": "fab",
       "unicode": "f267",
       "name": "Safari"
+    },
+    {
+      "id": "salesforce",
+      "styles": "fab",
+      "unicode": "f83b",
+      "name": "Salesforce"
     },
     {
       "id": "sass",
@@ -6265,6 +6559,18 @@
       "name": "Sith"
     },
     {
+      "id": "skating",
+      "styles": "fas",
+      "unicode": "f7c5",
+      "name": "Skating"
+    },
+    {
+      "id": "sketch",
+      "styles": "fab",
+      "unicode": "f7c6",
+      "name": "Sketch"
+    },
+    {
       "id": "skull",
       "styles": "fas",
       "unicode": "f54c",
@@ -6293,6 +6599,12 @@
       "styles": "fab",
       "unicode": "f3ef",
       "name": "Slack Hashtag"
+    },
+    {
+      "id": "slash",
+      "styles": "fas",
+      "unicode": "f715",
+      "name": "Slash"
     },
     {
       "id": "sliders-h",
@@ -6457,6 +6769,12 @@
       "name": "SoundCloud"
     },
     {
+      "id": "sourcetree",
+      "styles": "fab",
+      "unicode": "f7d3",
+      "name": "Sourcetree"
+    },
+    {
       "id": "spa",
       "styles": "fas",
       "unicode": "f5bb",
@@ -6473,6 +6791,12 @@
       "styles": "fab",
       "unicode": "f3f3",
       "name": "Speakap"
+    },
+    {
+      "id": "speaker-deck",
+      "styles": "fab",
+      "unicode": "f83c",
+      "name": "Speaker Deck"
     },
     {
       "id": "spinner",
@@ -6817,6 +7141,12 @@
       "name": "Hushed Face"
     },
     {
+      "id": "suse",
+      "styles": "fab",
+      "unicode": "f7d6",
+      "name": "Suse"
+    },
+    {
       "id": "swatchbook",
       "styles": "fas",
       "unicode": "f5c3",
@@ -6833,6 +7163,12 @@
       "styles": "fas",
       "unicode": "f5c5",
       "name": "Swimming Pool"
+    },
+    {
+      "id": "symfony",
+      "styles": "fab",
+      "unicode": "f83d",
+      "name": "Symfony"
     },
     {
       "id": "synagogue",
@@ -7055,6 +7391,12 @@
       "styles": "fas",
       "unicode": "f2c8",
       "name": "Thermometer 3/4 Full"
+    },
+    {
+      "id": "think-peaks",
+      "styles": "fab",
+      "unicode": "f731",
+      "name": "Think Peaks"
     },
     {
       "id": "thumbs-down",
@@ -7339,6 +7681,12 @@
       "name": "Uber"
     },
     {
+      "id": "ubuntu",
+      "styles": "fab",
+      "unicode": "f7df",
+      "name": "Ubuntu"
+    },
+    {
       "id": "uikit",
       "styles": "fab",
       "unicode": "f403",
@@ -7421,6 +7769,12 @@
       "styles": "fas",
       "unicode": "f093",
       "name": "Upload"
+    },
+    {
+      "id": "ups",
+      "styles": "fab",
+      "unicode": "f7e0",
+      "name": "UPS"
     },
     {
       "id": "usb",
@@ -7507,6 +7861,12 @@
       "name": "User Graduate"
     },
     {
+      "id": "user-injured",
+      "styles": "fas",
+      "unicode": "f728",
+      "name": "User Injured"
+    },
+    {
       "id": "user-lock",
       "styles": "fas",
       "unicode": "f502",
@@ -7583,6 +7943,12 @@
       "styles": "fas",
       "unicode": "f509",
       "name": "Users Cog"
+    },
+    {
+      "id": "usps",
+      "styles": "fab",
+      "unicode": "f7e1",
+      "name": "United States Postal Service"
     },
     {
       "id": "ussunnah",
@@ -7735,6 +8101,12 @@
       "name": "volume-down"
     },
     {
+      "id": "volume-mute",
+      "styles": "fas",
+      "unicode": "f6a9",
+      "name": "Volume Mute"
+    },
+    {
       "id": "volume-off",
       "styles": "fas",
       "unicode": "f026",
@@ -7745,6 +8117,18 @@
       "styles": "fas",
       "unicode": "f028",
       "name": "volume-up"
+    },
+    {
+      "id": "vote-yea",
+      "styles": "fas",
+      "unicode": "f772",
+      "name": "Vote Yea"
+    },
+    {
+      "id": "vr-cardboard",
+      "styles": "fas",
+      "unicode": "f729",
+      "name": "Cardboard VR"
     },
     {
       "id": "vuejs",
@@ -7769,6 +8153,24 @@
       "styles": "fas",
       "unicode": "f494",
       "name": "Warehouse"
+    },
+    {
+      "id": "water",
+      "styles": "fas",
+      "unicode": "f773",
+      "name": "Water"
+    },
+    {
+      "id": "wave-square",
+      "styles": "fas",
+      "unicode": "f83e",
+      "name": "Square Wave"
+    },
+    {
+      "id": "waze",
+      "styles": "fab",
+      "unicode": "f83f",
+      "name": "Waze"
     },
     {
       "id": "weebly",
@@ -7909,6 +8311,12 @@
       "name": "Wix"
     },
     {
+      "id": "wizards-of-the-coast",
+      "styles": "fab",
+      "unicode": "f730",
+      "name": "Wizards of the Coast"
+    },
+    {
       "id": "wolf-pack-battalion",
       "styles": "fab",
       "unicode": "f514",
@@ -7949,6 +8357,12 @@
       "styles": "fab",
       "unicode": "f298",
       "name": "WPForms"
+    },
+    {
+      "id": "wpressr",
+      "styles": "fab",
+      "unicode": "f3e4",
+      "name": "wpressr"
     },
     {
       "id": "wrench",
@@ -7993,6 +8407,12 @@
       "name": "Yahoo Logo"
     },
     {
+      "id": "yammer",
+      "styles": "fab",
+      "unicode": "f840",
+      "name": "Yammer"
+    },
+    {
       "id": "yandex",
       "styles": "fab",
       "unicode": "f413",
@@ -8003,6 +8423,12 @@
       "styles": "fab",
       "unicode": "f414",
       "name": "Yandex International"
+    },
+    {
+      "id": "yarn",
+      "styles": "fab",
+      "unicode": "f7e3",
+      "name": "Yarn"
     },
     {
       "id": "yelp",

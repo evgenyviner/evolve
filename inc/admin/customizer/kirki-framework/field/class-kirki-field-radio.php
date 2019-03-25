@@ -4,7 +4,7 @@
  *
  * @package     Kirki
  * @subpackage  Controls
- * @copyright   Copyright (c) 2017, Aristeides Stathopoulos
+ * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
  * @license    https://opensource.org/licenses/MIT
  * @since       2.2.7
  */
@@ -28,8 +28,8 @@ class Kirki_Field_Radio extends Kirki_Field {
 	 * @access protected
 	 */
 	protected function set_type() {
-
 		$this->type = 'kirki-radio';
+	
 		// Tweaks for backwards-compatibility:
 		// Prior to version 0.8 radio-buttonset & radio-image were part of the radio control.
 		if ( in_array( $this->mode, array( 'buttonset', 'image' ), true ) ) {

@@ -1294,7 +1294,7 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		}
 
 		if ( evolve_theme_mod( 'evl_main_menu_hover_effect', 'disable' ) != 'disable' ) {
-			$css_data .= ' a:hover span.link-effect, a:focus span.link-effect { -webkit-transform: translateY(-100%); -ms-transform: translateY(-100%); transform: translateY(-100%); }';
+			$css_data .= ' a:hover .link-effect, a:focus .link-effect { -webkit-transform: translateY(-100%); -ms-transform: translateY(-100%); transform: translateY(-100%); }';
 		}
 		if ( $post_layout == "two" ) {
 			$css_data .= ' .posts.card-columns { -webkit-column-count: 2; column-count: 2; }';

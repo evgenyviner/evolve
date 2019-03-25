@@ -220,7 +220,10 @@ class evolve_Tabs_Widget extends WP_Widget {
         </div>
 
 		<?php
+
 		echo $after_widget;
+
+		wp_reset_postdata();
 	}
 
 	function update( $new_instance, $old_instance ) {

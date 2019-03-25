@@ -21,7 +21,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				'fields'  => array(
 					array(
 						'id'   => 'evl_theme_links',
-						'desc' => '<a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/?utm_source=evolve-customizer&utm_medium=homepage-link&utm_campaign=theme-customizer"><span class="dashicons dashicons-admin-home"></span> ' . esc_html__( 'Theme Homepage', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'docs/?utm_source=evolve-customizer&utm_medium=documentation-link&utm_campaign=theme-customizer"><span class="dashicons dashicons-admin-page"></span> ' . esc_html__( 'Documentation', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['support_url'] . 'support/theme/evolve"><span class="dashicons dashicons-admin-comments"></span> ' . esc_html__( 'Support', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" href="' . esc_url( 'https://www.youtube.com/watch?v=QmwjHH9NVuM' ) . '" target="_blank"><span class="dashicons dashicons-video-alt3"></span>' . esc_html__( 'Demo Import Video Preview', 'evolve' ) . '</a><div class="evolve-features"><h2>' . esc_html__( 'evolve Plus key features', 'evolve' ) . '</h2><ul><li><h3>' . esc_html__( '20 Pre-built Demos', 'evolve' ) . '</h3>' . esc_html__( 'Build a Website Within a Minute With The Modern Minimalist Demos', 'evolve' ) . '</li><li><h3>' . esc_html__( 'One Page Parallax Layout', 'evolve' ) . '</h3>' . esc_html__( 'Simple But Very Effective One Page Parallax Feature', 'evolve' ) . '</li><li><h3>' . esc_html__( '12 Premium Widgets', 'evolve' ) . '</h3>' . esc_html__( 'Add Many Effective Custom Widgets To Display Your Facebook Page, Twitter And Much More', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Theme4Press Slider', 'evolve' ) . '</h3>' . esc_html__( 'Image or Video Responsive Unlimited Slides With Nice Animations', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Built-in Mega Menu', 'evolve' ) . '</h3>' . esc_html__( 'Excellent Mega Menu When You Need To Add Widgets Or Specially Style Your Menu', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Shortcodes', 'evolve' ) . '</h3>' . esc_html__( 'Create Alerts, Tabs, Pricing Tables etc.', 'evolve' ) . '</li><li><h3>' . esc_html__( '900+ Google Fonts', 'evolve' ) . '</h3>' . esc_html__( 'A Great Collection Of Unique Google Font Families', 'evolve' ) . '</li><li><h3>' . esc_html__( '10 Predefined Color Schemes', 'evolve' ) . '</h3>' . esc_html__( 'Pick a New Color Scheme For Your Website With Just a Click', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Custom Sidebars', 'evolve' ) . '</h3>' . esc_html__( 'Create Unique Sidebars With Widgets For Any Page', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Portfolios', 'evolve' ) . '</h3>' . esc_html__( 'Up To 9 Layouts &ndash; Select The Right Type For Your Showcase', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Google Map Contact', 'evolve' ) . '</h3>' . esc_html__( 'Contact Page Template With The Google Map And reCaptcha Protection', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Sticky Navigation', 'evolve' ) . '</h3>' . esc_html__( 'Sticky Navigation Is Perfect If You Need Organized Pages - For Example For Documentation', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Lightbox', 'evolve' ) . '</h3>' . esc_html__( 'Responsive Lightbox Ready To Display Your Amazing Shots, YouTube Or Vimeo Videos, Or Instagram Photos', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Slider Revolution (Bundled)', 'evolve' ) . '</h3>' . esc_html__( 'Responsive Premium WordPress Slider With Breathtaking Effects', 'evolve' ) . '</li><li><h3>' . esc_html__( 'LayerSlider (Bundled)', 'evolve' ) . '</h3>' . esc_html__( 'Create Fantastic Slides With The Bundled Premium Slider Plugin', 'evolve' ) . '</li><li><h3>' . esc_html__( '100% Width Template', 'evolve' ) . '</h3>' . esc_html__( '100% Width Template Let You To Set Any Page To Be Full Width Of The Browser\'s Window', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Post/Page Custom Layouts', 'evolve' ) . '</h3>' . esc_html__( 'Select Unique Post/Page Layout Like Sidebar Position, Breadcrumbs, Post/Page Titles etc.', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Custom Headers', 'evolve' ) . '</h3>' . esc_html__( 'Custom Headers Can Be Set Per Post/Page', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Header Layouts', 'evolve' ) . '</h3>' . esc_html__( '5 Header Layouts', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Live Customizer', 'evolve' ) . '</h3>' . esc_html__( '300+ Theme Options', 'evolve' ) . '</li><li><h3>' . esc_html__( 'WooCommerce', 'evolve' ) . '</h3>' . esc_html__( 'Custom/Global Sidebar For WooCommerce Pages', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Bootstrap Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Unlimited Number Of Slides, Slides Reorder', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Parallax Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Unlimited Number Of Slides, Slides Reorder', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Posts Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Up To 30 Slides', 'evolve' ) . '</li></ul></div><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/evolve-multipurpose-wordpress-theme/?utm_source=evolve-customizer&utm_medium=compare-themes-link&utm_campaign=theme-customizer#features"><span class="dashicons dashicons-update"></span> ' . esc_html__( 'Compare With Premium Version', 'evolve' ) . '</a>',
+						'desc' => '<a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/?utm_source=evolve-customizer&utm_medium=homepage-link&utm_campaign=theme-customizer"><span class="dashicons dashicons-admin-home"></span> ' . esc_html__( 'Theme Homepage', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'docs/?utm_source=evolve-customizer&utm_medium=documentation-link&utm_campaign=theme-customizer"><span class="dashicons dashicons-admin-page"></span> ' . esc_html__( 'Documentation', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['support_url'] . 'support/theme/evolve"><span class="dashicons dashicons-admin-comments"></span> ' . esc_html__( 'Support', 'evolve' ) . '</a><br /><a class="evolve-upgrade-button" href="' . esc_url( 'https://www.youtube.com/watch?v=QmwjHH9NVuM' ) . '" target="_blank"><span class="dashicons dashicons-video-alt3"></span>' . esc_html__( 'Demo Import Video Preview', 'evolve' ) . '</a><div class="evolve-features"><h2>' . esc_html__( 'evolve Plus key features', 'evolve' ) . '</h2><ul><li><h3>' . esc_html__( '20 Pre-built Demos', 'evolve' ) . '</h3>' . esc_html__( 'Build a Website Within a Minute With The Modern Minimalist Demos', 'evolve' ) . '</li><li><h3>' . esc_html__( 'One Page Parallax Layout', 'evolve' ) . '</h3>' . esc_html__( 'Simple But Very Effective One Page Parallax Feature', 'evolve' ) . '</li><li><h3>' . esc_html__( '12 Premium Widgets', 'evolve' ) . '</h3>' . esc_html__( 'Add Many Effective Custom Widgets To Display Your Facebook Page, Twitter And Much More', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Theme4Press Slider', 'evolve' ) . '</h3>' . esc_html__( 'Image or Video Responsive Unlimited Slides With Nice Animations', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Built-in Mega Menu', 'evolve' ) . '</h3>' . esc_html__( 'Excellent Mega Menu When You Need To Add Widgets Or Specially Style Your Menu', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Shortcodes', 'evolve' ) . '</h3>' . esc_html__( 'Create Alerts, Tabs, Pricing Tables etc.', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Custom Fonts', 'evolve' ) . '</h3>' . esc_html__( 'Upload Your Own Custom Font With An Easiness', 'evolve' ) . '</li><li><h3>' . esc_html__( '900+ Google Fonts', 'evolve' ) . '</h3>' . esc_html__( 'A Great Collection Of Unique Google Font Families', 'evolve' ) . '</li><li><h3>' . esc_html__( '10 Predefined Color Schemes', 'evolve' ) . '</h3>' . esc_html__( 'Pick a New Color Scheme For Your Website With Just a Click', 'evolve' ) . '</li><li><h3>' . esc_html__( '12 Main Menu Hover Effects', 'evolve' ) . '</h3>' . esc_html__( 'Select From Many Main Menu Effects And Styles', 'evolve' ) . '</li><li><h3>' . esc_html__( '23 Sub Menu Hover Effects', 'evolve' ) . '</h3>' . esc_html__( 'Unique Animations Of The Submenu Items', 'evolve' ) . '</li><li><h3>' . esc_html__( '4 Search Field Styles', 'evolve' ) . '</h3>' . esc_html__( 'Choose the right search field style and effect for your website', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Custom Sidebars', 'evolve' ) . '</h3>' . esc_html__( 'Create Unique Sidebars With Widgets For Any Page', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Portfolios', 'evolve' ) . '</h3>' . esc_html__( 'Up To 9 Layouts &ndash; Select The Right Type For Your Showcase', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Google Map Contact', 'evolve' ) . '</h3>' . esc_html__( 'Contact Page Template With The Google Map And reCaptcha Protection', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Sticky Navigation', 'evolve' ) . '</h3>' . esc_html__( 'Sticky Navigation Is Perfect If You Need Organized Pages - For Example For Documentation', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Lightbox', 'evolve' ) . '</h3>' . esc_html__( 'Responsive Lightbox Ready To Display Your Amazing Shots, YouTube Or Vimeo Videos, Or Instagram Photos', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Slider Revolution (Bundled)', 'evolve' ) . '</h3>' . esc_html__( 'Responsive Premium WordPress Slider With Breathtaking Effects', 'evolve' ) . '</li><li><h3>' . esc_html__( 'LayerSlider (Bundled)', 'evolve' ) . '</h3>' . esc_html__( 'Create Fantastic Slides With The Bundled Premium Slider Plugin', 'evolve' ) . '</li><li><h3>' . esc_html__( '100% Width Template', 'evolve' ) . '</h3>' . esc_html__( '100% Width Template Let You To Set Any Page To Be Full Width Of The Browser\'s Window', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Post/Page Custom Layouts', 'evolve' ) . '</h3>' . esc_html__( 'Select Unique Post/Page Layout Like Sidebar Position, Breadcrumbs, Post/Page Titles etc.', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Custom Headers', 'evolve' ) . '</h3>' . esc_html__( 'Custom Headers Can Be Set Per Post/Page', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Header Layouts', 'evolve' ) . '</h3>' . esc_html__( '5 Header Layouts', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Live Customizer', 'evolve' ) . '</h3>' . esc_html__( '300+ Theme Options', 'evolve' ) . '</li><li><h3>' . esc_html__( 'WooCommerce', 'evolve' ) . '</h3>' . esc_html__( 'Custom/Global Sidebar For WooCommerce Pages', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Bootstrap Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Unlimited Number Of Slides, Slides Reorder', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Parallax Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Unlimited Number Of Slides, Slides Reorder', 'evolve' ) . '</li><li><h3>' . esc_html__( 'Posts Slider', 'evolve' ) . '</h3>' . esc_html__( 'EXTRA IN PREMIUM: Up To 30 Slides', 'evolve' ) . '</li></ul></div><a class="evolve-upgrade-button" target="_blank" href="' . $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/evolve-multipurpose-wordpress-theme/?utm_source=evolve-customizer&utm_medium=compare-themes-link&utm_campaign=theme-customizer#features"><span class="dashicons dashicons-update"></span> ' . esc_html__( 'Compare With Premium Version', 'evolve' ) . '</a>',
 						'type' => 'info'
 					)
 				)
@@ -34,7 +34,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-general-main-tab',
-				'title'   => esc_attr__( 'General', 'evolve' ),
+				'title'   => esc_attr__( 'Main Layout', 'evolve' ),
 				'iconfix' => 'evolve-icon evolve-icon-general',
 				'fields'  => array(
 					array(
@@ -137,1582 +137,14 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 		);
 
 		/*
-			Custom Front Page Builder
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'      => 'evl-frontpage-main-tab',
-				'title'   => esc_attr__( 'Custom Front Page Builder', 'evolve' ),
-				'iconfix' => 'evolve-icon evolve-icon-builder'
-			)
-		);
-
-		/*
-			-- Elements Display & Order
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-frontpage-general-tab',
-				'title'      => esc_attr__( 'Elements Display & Order', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
-					array(
-						'id'     => 'evl-front-page-elements',
-						'title'  => esc_attr__( 'Front Page Elements Display and Order', 'evolve' ),
-						'type'   => 'section',
-						'indent' => true
-					),
-					array(
-						'id'      => 'evl_front_elements_header_area',
-						'title'   => esc_attr__( 'Header Area', 'evolve' ),
-						'type'    => 'sorter',
-						'options' => array(
-							'enabled'  => array(
-								'header' => esc_attr__( 'Header (REORDER ONLY)', 'evolve' ),
-							),
-							'disabled' => array(
-								'bootstrap_slider' => esc_attr__( 'Bootstrap Slider', 'evolve' ) . ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ? esc_attr__( ' (ACTIVE)', 'evolve' ) : esc_attr__( ' (INACTIVE)', 'evolve' ) ),
-								'parallax_slider'  => esc_attr__( 'Parallax Slider', 'evolve' ) . ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ? esc_attr__( ' (ACTIVE)', 'evolve' ) : esc_attr__( ' (INACTIVE)', 'evolve' ) ),
-								'posts_slider'     => esc_attr__( 'Posts Slider', 'evolve' ) . ( evolve_theme_mod( 'evl_carousel_slider', '0' ) == '1' ? esc_attr__( ' (ACTIVE)', 'evolve' ) : esc_attr__( ' (INACTIVE)', 'evolve' ) )
-							)
-						)
-					),
-					array(
-						'id'       => 'evl_front_elements_content_display',
-						'title'    => esc_attr__( 'Content Elements Position', 'evolve' ),
-						'subtitle' => esc_attr__( 'Select the position of front page elements', 'evolve' ),
-						'type'     => 'select',
-						'options'  => array(
-							'above' => esc_attr__( 'Above/Below Content and Sidebar', 'evolve' ),
-							'next'  => esc_attr__( 'In Content And Next To Sidebar', 'evolve' ),
-						),
-						'default'  => 'above'
-					),
-					array(
-						'id'      => 'evl_front_elements_content_area',
-						'title'   => esc_attr__( 'Content Area', 'evolve' ),
-						'type'    => 'sorter',
-						'options' => $global_value['content_area']
-					)
-				)
-			)
-		);
-
-		/*
-			-- Content Boxes
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-frontpage-content-boxes-tab',
-				'title'      => esc_attr__( 'Content Boxes', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
-					array(
-						'id'       => 'evl_content_boxes_front_page',
-						'title'    => esc_attr__( 'Enable Content Boxes On Front Page', 'evolve' ),
-						'subtitle' => esc_attr__( 'Check this box if you want to enable Content Boxes On Front Page', 'evolve' ),
-						'type'     => 'checkbox',
-						'default'  => '0'
-					),
-					array(
-						'id'       => 'evl-front-page-subsec-content-boxes-element',
-						'title'    => esc_attr__( 'Items', 'evolve' ),
-						'type'     => 'info',
-						'selector' => '.home-content-boxes .badge',
-						'indent'   => true
-					),
-					// Content Box 1
-					array(
-						'id'     => 'evl-front-page-subsec-box1-start',
-						'title'  => esc_attr__( 'Content Box 1', 'evolve' ),
-						'type'   => 'section',
-						'indent' => true
-					),
-					array(
-						'id'      => 'evl_content_box1_enable',
-						'title'   => esc_attr__( 'Enable Content Box 1', 'evolve' ),
-						'type'    => 'switch',
-						'on'      => esc_attr__( 'Enabled', 'evolve' ),
-						'off'     => esc_attr__( 'Disabled', 'evolve' ),
-						'default' => 0
-					),
-					array(
-						'id'              => 'evl_content_box1_title',
-						'title'           => esc_attr__( 'Content Box 1 Title', 'evolve' ),
-						'type'            => 'text',
-						'selector'        => '.content-box.content-box-1 h5',
-						'render_callback' => 'evl_content_box1_title',
-						'required'        => array(
-							array( 'evl_content_box1_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'              => 'evl_content_box1_icon',
-						'title'           => esc_attr__( 'Content Box 1 Icon (Font Awesome)', 'evolve' ),
-						'type'            => 'text',
-						'selector'        => '.content-box.content-box-1 .card-img-top',
-						'render_callback' => 'evl_content_box1_icon',
-						'class'           => 'iconpicker-icon',
-						'required'        => array(
-							array( 'evl_content_box1_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'        => 'evl_content_box1_icon_color',
-						'title'     => esc_attr__( 'Content Box 1 Icon Color', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#8bb9c1',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.content-box.content-box-1 [class*=" fa-"]',
-								'function' => 'css',
-								'property' => 'color'
-							)
-						),
-						'required'  => array(
-							array( 'evl_content_box1_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'              => 'evl_content_box1_desc',
-						'title'           => esc_attr__( 'Content Box 1 description', 'evolve' ),
-						'type'            => 'textarea',
-						'selector'        => '.content-box.content-box-1 p',
-						'render_callback' => 'evl_content_box1_desc',
-						'required'        => array(
-							array( 'evl_content_box1_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'              => 'evl_content_box1_button',
-						'title'           => esc_attr__( 'Content Box 1 Button', 'evolve' ),
-						'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn btn-sm" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
-						'type'            => 'textarea',
-						'selector'        => '.content-box.content-box-1 .card-footer',
-						'render_callback' => 'evl_content_box1_button',
-						'required'        => array(
-							array( 'evl_content_box1_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'     => 'evl-front-page-subsec-box1-end',
-						'type'   => 'section',
-						'indent' => false
-					),
-					// Content Box 2
-					array(
-						'id'     => 'evl-front-page-subsec-box2-start',
-						'title'  => esc_attr__( 'Content Box 2', 'evolve' ),
-						'type'   => 'section',
-						'indent' => true
-					),
-					array(
-						'id'      => 'evl_content_box2_enable',
-						'title'   => esc_attr__( 'Enable Content Box 2', 'evolve' ),
-						'type'    => 'switch',
-						'on'      => esc_attr__( 'Enabled', 'evolve' ),
-						'off'     => esc_attr__( 'Disabled', 'evolve' ),
-						'default' => 0
-					),
-					array(
-						'id'              => 'evl_content_box2_title',
-						'title'           => esc_attr__( 'Content Box 2 Title', 'evolve' ),
-						'type'            => 'text',
-						'selector'        => '.content-box.content-box-2 h5',
-						'render_callback' => 'evl_content_box2_title',
-						'required'        => array(
-							array( 'evl_content_box2_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'              => 'evl_content_box2_icon',
-						'title'           => esc_attr__( 'Content Box 2 Icon (Font Awesome)', 'evolve' ),
-						'type'            => 'text',
-						'selector'        => '.content-box.content-box-2 .card-img-top',
-						'render_callback' => 'evl_content_box2_icon',
-						'class'           => 'iconpicker-icon',
-						'required'        => array(
-							array( 'evl_content_box2_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'        => 'evl_content_box2_icon_color',
-						'title'     => esc_attr__( 'Content Box 2 Icon Color', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#8ba3c1',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.content-box.content-box-2 [class*=" fa-"]',
-								'function' => 'css',
-								'property' => 'color'
-							)
-						),
-						'required'  => array(
-							array( 'evl_content_box2_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'              => 'evl_content_box2_desc',
-						'title'           => esc_attr__( 'Content Box 2 description', 'evolve' ),
-						'type'            => 'textarea',
-						'selector'        => '.content-box.content-box-2 p',
-						'render_callback' => 'evl_content_box2_desc',
-						'required'        => array(
-							array( 'evl_content_box2_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'              => 'evl_content_box2_button',
-						'title'           => esc_attr__( 'Content Box 2 Button', 'evolve' ),
-						'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn btn-sm" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
-						'type'            => 'textarea',
-						'selector'        => '.content-box.content-box-2 .card-footer',
-						'render_callback' => 'evl_content_box2_button',
-						'required'        => array(
-							array( 'evl_content_box2_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'     => 'evl-front-page-subsec-box2-end',
-						'type'   => 'section',
-						'indent' => false
-					),
-					// Content Box 3
-					array(
-						'id'     => 'evl-front-page-subsec-box3-start',
-						'title'  => esc_attr__( 'Content Box 3', 'evolve' ),
-						'type'   => 'section',
-						'indent' => true
-					),
-					array(
-						'id'      => 'evl_content_box3_enable',
-						'title'   => esc_attr__( 'Enable Content Box 3', 'evolve' ),
-						'type'    => 'switch',
-						'on'      => esc_attr__( 'Enabled', 'evolve' ),
-						'off'     => esc_attr__( 'Disabled', 'evolve' ),
-						'default' => 0
-					),
-					array(
-						'id'              => 'evl_content_box3_title',
-						'title'           => esc_attr__( 'Content Box 3 Title', 'evolve' ),
-						'type'            => 'text',
-						'selector'        => '.content-box.content-box-3 h5',
-						'render_callback' => 'evl_content_box3_title',
-						'required'        => array(
-							array( 'evl_content_box3_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'              => 'evl_content_box3_icon',
-						'title'           => esc_attr__( 'Content Box 3 Icon (Font Awesome)', 'evolve' ),
-						'type'            => 'text',
-						'selector'        => '.content-box.content-box-3 .card-img-top',
-						'render_callback' => 'evl_content_box3_icon',
-						'class'           => 'iconpicker-icon',
-						'required'        => array(
-							array( 'evl_content_box3_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'        => 'evl_content_box3_icon_color',
-						'title'     => esc_attr__( 'Content Box 3 Icon Color', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#8dc4b8',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.content-box.content-box-3 [class*=" fa-"]',
-								'function' => 'css',
-								'property' => 'color'
-							)
-						),
-						'required'  => array(
-							array( 'evl_content_box3_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'              => 'evl_content_box3_desc',
-						'title'           => esc_attr__( 'Content Box 3 description', 'evolve' ),
-						'type'            => 'textarea',
-						'selector'        => '.content-box.content-box-3 p',
-						'render_callback' => 'evl_content_box3_desc',
-						'required'        => array(
-							array( 'evl_content_box3_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'              => 'evl_content_box3_button',
-						'title'           => esc_attr__( 'Content Box 3 Button', 'evolve' ),
-						'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn btn-sm" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
-						'type'            => 'textarea',
-						'selector'        => '.content-box.content-box-3 .card-footer',
-						'render_callback' => 'evl_content_box3_button',
-						'required'        => array(
-							array( 'evl_content_box3_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'     => 'evl-front-page-subsec-box3-end',
-						'type'   => 'section',
-						'indent' => false
-					),
-					// Content Box 4
-					array(
-						'id'     => 'evl-front-page-subsec-box4-start',
-						'title'  => esc_attr__( 'Content Box 4', 'evolve' ),
-						'type'   => 'section',
-						'indent' => true
-					),
-					array(
-						'id'      => 'evl_content_box4_enable',
-						'title'   => esc_attr__( 'Enable Content Box 4', 'evolve' ),
-						'type'    => 'switch',
-						'on'      => esc_attr__( 'Enabled', 'evolve' ),
-						'off'     => esc_attr__( 'Disabled', 'evolve' ),
-						'default' => 0
-					),
-					array(
-						'id'              => 'evl_content_box4_title',
-						'title'           => esc_attr__( 'Content Box 4 Title', 'evolve' ),
-						'type'            => 'text',
-						'selector'        => '.content-box.content-box-4 h5',
-						'render_callback' => 'evl_content_box4_title',
-						'required'        => array(
-							array( 'evl_content_box4_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'              => 'evl_content_box4_icon',
-						'title'           => esc_attr__( 'Content Box 4 Icon (Font Awesome)', 'evolve' ),
-						'type'            => 'text',
-						'selector'        => '.content-box.content-box-4 .card-img-top',
-						'render_callback' => 'evl_content_box4_icon',
-						'class'           => 'iconpicker-icon',
-						'required'        => array(
-							array( 'evl_content_box4_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'        => 'evl_content_box4_icon_color',
-						'title'     => esc_attr__( 'Content Box 4 Icon Color', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#92bf89',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.content-box.content-box-4 [class*=" fa-"]',
-								'function' => 'css',
-								'property' => 'color'
-							)
-						),
-						'required'  => array(
-							array( 'evl_content_box4_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'              => 'evl_content_box4_desc',
-						'title'           => esc_attr__( 'Content Box 4 description', 'evolve' ),
-						'type'            => 'textarea',
-						'selector'        => '.content-box.content-box-4 p',
-						'render_callback' => 'evl_content_box4_desc',
-						'required'        => array(
-							array( 'evl_content_box4_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'              => 'evl_content_box4_button',
-						'title'           => esc_attr__( 'Content Box 4 Button', 'evolve' ),
-						'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn btn-sm" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
-						'type'            => 'textarea',
-						'selector'        => '.content-box.content-box-4 .card-footer',
-						'render_callback' => 'evl_content_box4_button',
-						'required'        => array(
-							array( 'evl_content_box4_enable', '=', '1' )
-						)
-					),
-					array(
-						'id'        => 'evl_content_box_background_color',
-						'title'     => esc_attr__( 'Content Boxes Background Color', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#f9f9f9',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-content-boxes .card',
-								'function' => 'css',
-								'property' => 'background'
-							)
-						)
-					),
-					array(
-						'id'     => 'evl-front-page-subsec-content-boxes-section-start',
-						'title'  => esc_attr__( 'Section Settings', 'evolve' ),
-						'type'   => 'info',
-						'indent' => true
-					),
-					array(
-						'id'              => 'evl_content_boxes_title',
-						'title'           => esc_attr__( 'Title of Content Boxes Section', 'evolve' ),
-						'type'            => 'text',
-						'selector'        => 'h3.content-box-section-title',
-						'render_callback' => 'evl_content_boxes_title'
-					),
-					array(
-						'id'          => 'evl_content_boxes_title_alignment',
-						'title'       => esc_attr__( 'Title Font, Alignment and Color', 'evolve' ),
-						'subtitle'    => esc_attr__( 'Select the font, alignment and color of the section title', 'evolve' ),
-						'type'        => 'typography',
-						'text-align'  => true,
-						'line-height' => false,
-						'default'     => array(
-							'font-size'   => '1.9rem',
-							'color'       => '#333333',
-							'font-family' => 'Roboto',
-							'font-weight' => '300',
-							'text-align'  => 'center'
-						),
-						'transport'   => 'postMessage',
-						'js_vars'     => array(
-							array(
-								'element' => 'h3.content-box-section-title'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_content_boxes_section_padding',
-						'title'     => esc_attr__( 'Section Padding', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Enter the section padding', 'evolve' ),
-						'type'      => 'spacing',
-						'units'     => array( 'px', 'em' ),
-						'default'   => array(
-							'padding-top'    => '25px',
-							'padding-right'  => '0',
-							'padding-bottom' => '25px',
-							'padding-left'   => '0',
-							'units'          => 'px'
-						),
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-content-boxes',
-								'function' => 'css',
-								'property' => 'padding'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_content_boxes_section_background_image',
-						'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
-						'type'      => 'media',
-						'url'       => true,
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-content-boxes',
-								'function' => 'css',
-								'property' => 'background-image'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_content_boxes_section_image',
-						'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'cover'   => esc_attr__( 'Cover', 'evolve' ),
-							'contain' => esc_attr__( 'Contain', 'evolve' ),
-							'none'    => esc_attr__( 'None', 'evolve' )
-						),
-						'default'   => 'cover',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-content-boxes',
-								'function' => 'css',
-								'property' => 'background-size'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_content_boxes_section_image_background_repeat',
-						'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
-							'repeat'    => esc_attr__( 'repeat', 'evolve' ),
-							'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
-							'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
-						),
-						'default'   => 'no-repeat',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-content-boxes',
-								'function' => 'css',
-								'property' => 'background-repeat'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_content_boxes_section_image_background_position',
-						'title'     => esc_attr__( 'Background Position', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'center top'    => esc_attr__( 'center top', 'evolve' ),
-							'center center' => esc_attr__( 'center center', 'evolve' ),
-							'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
-							'left top'      => esc_attr__( 'left top', 'evolve' ),
-							'left center'   => esc_attr__( 'left center', 'evolve' ),
-							'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
-							'right top'     => esc_attr__( 'right top', 'evolve' ),
-							'right center'  => esc_attr__( 'right center', 'evolve' ),
-							'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
-						),
-						'default'   => 'center top',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-content-boxes',
-								'function' => 'css',
-								'property' => 'background-position'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_content_boxes_section_back_color',
-						'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
-						'type'      => 'color',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-content-boxes',
-								'function' => 'css',
-								'property' => 'background-color'
-							)
-						)
-					),
-					array(
-						'id'     => 'evl-front-page-subsec-content-boxes-section-end',
-						'type'   => 'section',
-						'indent' => false
-					)
-				)
-			)
-		);
-
-		/*
-			-- Testimonials
-			======================================= */
-
-		$testimonial_fields = array();
-
-		for ( $i = 1; $i <= 2; $i ++ ) {
-
-			$testimonial_fields[] = array(
-				'id'      => "{$global_value['prefix']}_fp_testimonial{$i}",
-				'title'   => sprintf( esc_attr__( 'Enable Testimonial %d', 'evolve' ), $i ),
-				'type'    => 'switch',
-				'on'      => esc_attr__( 'Enabled', 'evolve' ),
-				'off'     => esc_attr__( 'Disabled', 'evolve' ),
-				'default' => 0
-			);
-
-			$testimonial_fields[] = array(
-				'id'       => "{$global_value['prefix']}_fp_testimonial{$i}_avatar",
-				'title'    => sprintf( esc_attr__( 'Testimonial %d Avatar', 'evolve' ), $i ),
-				'subtitle' => sprintf( esc_attr__( 'Upload an image for the Testimonial %d, or specify an image URL directly', 'evolve' ), $i ),
-				'type'     => "media",
-				'url'      => true,
-				'readonly' => false,
-				'required' => array(
-					array(
-						"{$global_value['prefix']}_fp_testimonial{$i}",
-						'=',
-						'1'
-					)
-				)
-			);
-
-			$testimonial_fields[] = array(
-				'id'              => "{$global_value['prefix']}_fp_testimonial{$i}_name",
-				'title'           => sprintf( esc_attr__( 'Testimonial %d Name', 'evolve' ), $i ),
-				'type'            => "text",
-				'selector'        => ".home-testimonials .item-{$i} .blockquote-footer strong",
-				'render_callback' => "{$global_value['prefix']}_fp_testimonial{$i}_name",
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_fp_testimonial{$i}",
-						'=',
-						'1'
-					)
-				)
-			);
-
-			$testimonial_fields[] = array(
-				'id'              => "{$global_value['prefix']}_fp_testimonial{$i}_content",
-				'title'           => sprintf( esc_attr__( 'Testimonial %d Content', 'evolve' ), $i ),
-				'type'            => "textarea",
-				"rows"            => 5,
-				'selector'        => ".home-testimonials .item-{$i} p",
-				'render_callback' => "{$global_value['prefix']}_fp_testimonial{$i}_content",
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_fp_testimonial{$i}",
-						'=',
-						'1'
-					)
-				)
-			);
-		}
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-front-page-testimonials-tab',
-				'title'      => esc_attr__( 'Testimonials', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
-					array(
-						'id'     => 'evl-fp-testimonials-general-start',
-						'title'  => esc_attr__( 'General', 'evolve' ),
-						'type'   => 'section',
-						'indent' => true
-					),
-					array(
-						'id'       => 'evl_testimonials_front_page',
-						'title'    => esc_attr__( 'Enable Testimonials On Front Page', 'evolve' ),
-						'subtitle' => esc_attr__( 'Check this box if you want to enable Testimonials On Front Page', 'evolve' ),
-						'type'     => 'checkbox',
-						'default'  => '0'
-					),
-					array(
-						'id'       => 'evl-front-page-subsec-testimonials-element-item',
-						'title'    => esc_attr__( 'Items', 'evolve' ),
-						'type'     => 'info',
-						'selector' => '.home-testimonials .badge',
-						'indent'   => true
-					),
-					$testimonial_fields[0],
-					$testimonial_fields[1],
-					$testimonial_fields[2],
-					$testimonial_fields[3],
-					$testimonial_fields[4],
-					$testimonial_fields[5],
-					$testimonial_fields[6],
-					$testimonial_fields[7],
-					array(
-						'id'        => 'evl_fp_testimonials_bg_color',
-						'title'     => esc_attr__( 'Background Color', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-testimonials .carousel',
-								'function' => 'css',
-								'property' => 'background-color'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_fp_testimonials_text_color',
-						'title'     => esc_attr__( 'Text Color', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#333333',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-testimonials blockquote, .home-testimonials blockquote footer',
-								'function' => 'css',
-								'property' => 'color'
-							)
-						)
-					),
-					// Section settings
-					array(
-						'id'     => 'evl-front-page-subsec-testimonials-section-start',
-						'title'  => esc_attr__( 'Section Settings', 'evolve' ),
-						'type'   => 'info',
-						'indent' => true
-					),
-					array(
-						'id'              => 'evl_testimonials_title',
-						'title'           => esc_attr__( 'Title of Testimonials Section', 'evolve' ),
-						'type'            => 'text',
-						'selector'        => 'h3.testimonials-section-title',
-						'render_callback' => 'evl_testimonials_title'
-					),
-					array(
-						'id'          => 'evl_testimonials_title_alignment',
-						'title'       => esc_attr__( 'Title Font, Alignment and Color', 'evolve' ),
-						'subtitle'    => esc_attr__( 'Select the font, alignment and color of the section title', 'evolve' ),
-						'type'        => 'typography',
-						'text-align'  => true,
-						'line-height' => false,
-						'default'     => array(
-							'font-size'   => '2.5rem',
-							'color'       => '#333333',
-							'font-family' => 'Roboto',
-							'font-weight' => '300',
-							'text-align'  => 'center'
-						),
-						'transport'   => 'postMessage',
-						'js_vars'     => array(
-							array(
-								'element' => 'h3.testimonials-section-title'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_testimonials_section_padding',
-						'title'     => esc_attr__( 'Section Padding', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Enter the section padding', 'evolve' ),
-						'type'      => 'spacing',
-						'units'     => array( 'px', 'em' ),
-						'default'   => array(
-							'padding-top'    => '40px',
-							'padding-right'  => '0',
-							'padding-bottom' => '40px',
-							'padding-left'   => '0',
-							'units'          => 'px'
-						),
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-testimonials',
-								'function' => 'css',
-								'property' => 'padding'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_testimonials_section_background_image',
-						'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
-						'type'      => 'media',
-						'url'       => true,
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-testimonials',
-								'function' => 'css',
-								'property' => 'background-image'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_testimonials_section_image',
-						'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'cover'   => esc_attr__( 'Cover', 'evolve' ),
-							'contain' => esc_attr__( 'Contain', 'evolve' ),
-							'none'    => esc_attr__( 'None', 'evolve' )
-						),
-						'default'   => 'cover',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-testimonials',
-								'function' => 'css',
-								'property' => 'background-size'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_testimonials_section_image_background_repeat',
-						'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
-							'repeat'    => esc_attr__( 'repeat', 'evolve' ),
-							'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
-							'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
-						),
-						'default'   => 'no-repeat',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-testimonials',
-								'function' => 'css',
-								'property' => 'background-repeat'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_testimonials_section_image_background_position',
-						'title'     => esc_attr__( 'Background Position', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'center top'    => esc_attr__( 'center top', 'evolve' ),
-							'center center' => esc_attr__( 'center center', 'evolve' ),
-							'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
-							'left top'      => esc_attr__( 'left top', 'evolve' ),
-							'left center'   => esc_attr__( 'left center', 'evolve' ),
-							'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
-							'right top'     => esc_attr__( 'right top', 'evolve' ),
-							'right center'  => esc_attr__( 'right center', 'evolve' ),
-							'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
-						),
-						'default'   => 'center top',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-testimonials',
-								'function' => 'css',
-								'property' => 'background-position'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_testimonials_section_back_color',
-						'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#efefef',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-testimonials',
-								'function' => 'css',
-								'property' => 'background-color'
-							)
-						)
-					),
-					array(
-						'id'     => 'evl-front-page-subsec-testimonials-section-end',
-						'type'   => 'section',
-						'indent' => false
-					)
-				)
-			)
-		);
-
-		/*
-			-- Counter Circle
-			======================================= */
-
-		$counter_circle_fields = array();
-		for ( $i = 1; $i <= 3; $i ++ ) {
-
-			$counter_circle_fields[] = array(
-				'id'      => "{$global_value['prefix']}_fp_counter_circle{$i}",
-				'title'   => sprintf( esc_attr__( 'Enable Counter Circle %d', 'evolve' ), $i ),
-				'type'    => 'switch',
-				'on'      => esc_attr__( 'Enabled', 'evolve' ),
-				'off'     => esc_attr__( 'Disabled', 'evolve' ),
-				'default' => 0
-			);
-
-			$counter_circle_fields[] = array(
-				'id'              => "{$global_value['prefix']}_fp_counter_circle{$i}_icon",
-				'title'           => sprintf( esc_attr__( 'Counter Circle %d Icon', 'evolve' ), $i ),
-				'subtitle'        => esc_attr__( 'Click an icon to select', 'evolve' ),
-				'type'            => 'text',
-				'class'           => 'iconpicker-icon',
-				'selector'        => ".home-counter-circle .item-{$i} .counter-icon",
-				'render_callback' => "{$global_value['prefix']}_fp_counter_circle{$i}_icon",
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_fp_counter_circle{$i}",
-						'=',
-						'1'
-					)
-				)
-			);
-
-			$counter_circle_fields[] = array(
-				'id'       => "{$global_value['prefix']}_fp_counter_circle{$i}_percentage",
-				'title'    => sprintf( esc_attr__( 'Counter Circle %d Percentage', 'evolve' ), $i ),
-				'subtitle' => esc_attr__( 'From 1% to 100%', 'evolve' ),
-				'type'     => 'slider',
-				'min'      => '0',
-				'max'      => '100',
-				'default'  => '33',
-				'required' => array(
-					array(
-						"{$global_value['prefix']}_fp_counter_circle{$i}",
-						'=',
-						'1'
-					)
-				)
-			);
-
-			$counter_circle_fields[] = array(
-				'id'              => "{$global_value['prefix']}_fp_counter_circle{$i}_text",
-				'title'           => sprintf( esc_attr__( 'Counter Circle %d Text', 'evolve' ), $i ),
-				'subtitle'        => esc_attr__( 'Insert text for counter circle box, keep it short', 'evolve' ),
-				'type'            => 'text',
-				'selector'        => ".home-counter-circle .item-{$i} .counter-text-title",
-				'render_callback' => "{$global_value['prefix']}_fp_counter_circle{$i}_text",
-				'required'        => array(
-					array(
-						"{$global_value['prefix']}_fp_counter_circle{$i}",
-						'=',
-						'1'
-					)
-				)
-			);
-
-			$counter_circle_fields[] = array(
-				'id'       => "{$global_value['prefix']}_fp_counter_circle{$i}_filledcolor",
-				'title'    => sprintf( esc_attr__( 'Counter Circle %d Filled Color', 'evolve' ), $i ),
-				'subtitle' => esc_attr__( 'Controls the color of the filled in area', 'evolve' ),
-				'type'     => 'color',
-				'default'  => '#3e9c91',
-				'required' => array(
-					array(
-						"{$global_value['prefix']}_fp_counter_circle{$i}",
-						'=',
-						'1'
-					)
-				)
-			);
-
-			$counter_circle_fields[] = array(
-				'id'       => "{$global_value['prefix']}_fp_counter_circle{$i}_unfilledcolor",
-				'title'    => sprintf( esc_attr__( 'Counter Circle %d Unfilled Color', 'evolve' ), $i ),
-				'subtitle' => esc_attr__( 'Controls the color of the unfilled in area', 'evolve' ),
-				'type'     => 'color',
-				'default'  => '#53cabc',
-				'required' => array(
-					array(
-						"{$global_value['prefix']}_fp_counter_circle{$i}",
-						'=',
-						'1'
-					)
-				)
-			);
-		}
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-front-page-counter-circle-tab',
-				'title'      => esc_attr__( 'Counter Circle', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
-					array(
-						'id'       => 'evl_counter_circle_front_page',
-						'title'    => esc_attr__( 'Enable Counter Circles On Front Page', 'evolve' ),
-						'subtitle' => esc_attr__( 'Check this box if you want to enable Counter Circles On Front Page', 'evolve' ),
-						'type'     => 'checkbox',
-						'default'  => '0'
-					),
-					array(
-						'id'       => 'evl-front-page-subsec-counter-circle-element-item',
-						'title'    => esc_attr__( 'Items', 'evolve' ),
-						'type'     => 'info',
-						'selector' => '.home-counter-circle .badge',
-						'indent'   => true
-					),
-					$counter_circle_fields[0],
-					$counter_circle_fields[1],
-					$counter_circle_fields[2],
-					$counter_circle_fields[3],
-					$counter_circle_fields[4],
-					$counter_circle_fields[5],
-					$counter_circle_fields[6],
-					$counter_circle_fields[7],
-					$counter_circle_fields[8],
-					$counter_circle_fields[9],
-					$counter_circle_fields[10],
-					$counter_circle_fields[11],
-					$counter_circle_fields[12],
-					$counter_circle_fields[13],
-					$counter_circle_fields[14],
-					$counter_circle_fields[15],
-					$counter_circle_fields[16],
-					$counter_circle_fields[17],
-					array(
-						'id'          => 'evl_counter_circle_title_text',
-						'title'       => esc_attr__( 'Counter Circle Text Font', 'evolve' ),
-						'subtitle'    => esc_attr__( 'Select the font and color of the counter circle text and icon', 'evolve' ),
-						'type'        => 'typography',
-						'text-align'  => true,
-						'line-height' => false,
-						'default'     => array(
-							'font-size'   => '1.5rem',
-							'color'       => '#ffffff',
-							'font-family' => 'Roboto',
-							'font-weight' => '300',
-						),
-						'transport'   => 'postMessage',
-						'js_vars'     => array(
-							array(
-								'element' => '.counter-circle-text, .counter-circle-text h5'
-							)
-						)
-					),
-					array(
-						'id'     => 'evl-fp-counter-circle-slides-end',
-						'type'   => 'section',
-						'indent' => false
-					),
-					// Section settings
-					array(
-						'id'     => 'evl-front-page-subsec-counter-circle-section-start',
-						'title'  => esc_attr__( 'Section Settings', 'evolve' ),
-						'type'   => 'info',
-						'indent' => true
-					),
-					array(
-						'id'              => 'evl_counter_circle_title',
-						'title'           => esc_attr__( 'Title of Counter Circle Section', 'evolve' ),
-						'type'            => 'text',
-						'selector'        => 'h3.counter-circle-section-title',
-						'render_callback' => 'evl_counter_circle_title'
-					),
-					array(
-						'id'          => 'evl_counter_circle_title_alignment',
-						'title'       => esc_attr__( 'Title Font, Alignment and Color', 'evolve' ),
-						'subtitle'    => esc_attr__( 'Select the font, alignment and color of the section title', 'evolve' ),
-						'type'        => 'typography',
-						'text-align'  => true,
-						'line-height' => false,
-						'default'     => array(
-							'font-size'   => '2rem',
-							'color'       => '#ffffff',
-							'font-family' => 'Roboto',
-							'font-weight' => '500',
-							'text-align'  => 'center'
-						),
-						'transport'   => 'postMessage',
-						'js_vars'     => array(
-							array(
-								'element' => 'h3.counter-circle-section-title'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_counter_circle_section_padding',
-						'title'     => esc_attr__( 'Section Padding', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Enter the section padding', 'evolve' ),
-						'type'      => 'spacing',
-						'units'     => array( 'px', 'em' ),
-						'default'   => array(
-							'padding-top'    => '40px',
-							'padding-right'  => '0',
-							'padding-bottom' => '40px',
-							'padding-left'   => '0',
-							'units'          => 'px'
-						),
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-counter-circle',
-								'function' => 'css',
-								'property' => 'padding'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_counter_circle_section_background_image',
-						'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
-						'type'      => 'media',
-						'url'       => true,
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-counter-circle',
-								'function' => 'css',
-								'property' => 'background-image'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_counter_circle_section_image',
-						'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'cover'   => esc_attr__( 'Cover', 'evolve' ),
-							'contain' => esc_attr__( 'Contain', 'evolve' ),
-							'none'    => esc_attr__( 'None', 'evolve' )
-						),
-						'default'   => 'cover',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-counter-circle',
-								'function' => 'css',
-								'property' => 'background-size'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_counter_circle_section_image_background_repeat',
-						'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
-							'repeat'    => esc_attr__( 'repeat', 'evolve' ),
-							'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
-							'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
-						),
-						'default'   => 'no-repeat',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-counter-circle',
-								'function' => 'css',
-								'property' => 'background-repeat'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_counter_circle_section_image_background_position',
-						'title'     => esc_attr__( 'Background Position', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'center top'    => esc_attr__( 'center top', 'evolve' ),
-							'center center' => esc_attr__( 'center center', 'evolve' ),
-							'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
-							'left top'      => esc_attr__( 'left top', 'evolve' ),
-							'left center'   => esc_attr__( 'left center', 'evolve' ),
-							'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
-							'right top'     => esc_attr__( 'right top', 'evolve' ),
-							'right center'  => esc_attr__( 'right center', 'evolve' ),
-							'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
-						),
-						'default'   => 'center top',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-counter-circle',
-								'function' => 'css',
-								'property' => 'background-position'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_counter_circle_section_back_color',
-						'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#41d6c2',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-counter-circle',
-								'function' => 'css',
-								'property' => 'background-color'
-							)
-						)
-					),
-					array(
-						'id'     => 'evl-front-page-subsec-counter-circle-section-end',
-						'type'   => 'section',
-						'indent' => false
-					)
-				)
-			)
-		);
-
-		/*
-			-- WooCommerce Products
-			======================================= */
-
-		if ( class_exists( 'Woocommerce' ) ) :
-			evolve_Kirki::setSection( $global_value['opt_name'], array(
-					'id'         => 'evl-fp-woo-product-general-tab',
-					'title'      => esc_attr__( 'WooCommerce Products', 'evolve' ),
-					'subsection' => true,
-					'fields'     => array(
-						array(
-							'id'       => 'evl_fp_woo_product',
-							'title'    => esc_attr__( 'Product Categories', 'evolve' ),
-							'subtitle' => esc_attr__( 'Please select a category which contains some products', 'evolve' ),
-							'type'     => 'select',
-							'multi'    => 1,
-							'options'  => $global_value['product_taxonomy'],
-						),
-						array(
-							'id'       => 'evl_fp_woo_product_number',
-							'title'    => esc_attr__( 'Number Of Products To Display', 'evolve' ),
-							'subtitle' => esc_attr__( 'Select the number of Products To Display', 'evolve' ),
-							'type'     => 'select',
-							'options'  => evolve_woocommerce_product_number( 36, true, true ),
-							'default'  => '4'
-						),
-						// Section settings
-						array(
-							'id'     => 'evl-front-page-subsec-woo-product-section-start',
-							'title'  => esc_attr__( 'Section Settings', 'evolve' ),
-							'type'   => 'info',
-							'indent' => true
-						),
-						array(
-							'id'              => 'evl_woo_product_title',
-							'title'           => esc_attr__( 'Title of WooCommerce Product Section', 'evolve' ),
-							'type'            => 'text',
-							'selector'        => 'h3.woo-product-section-title',
-							'render_callback' => 'evl_woo_product_title'
-						),
-						array(
-							'id'          => 'evl_woo_product_title_alignment',
-							'title'       => esc_attr__( 'Title Font, Alignment and Color', 'evolve' ),
-							'subtitle'    => esc_attr__( 'Select the font, alignment and color of the section title', 'evolve' ),
-							'type'        => 'typography',
-							'text-align'  => true,
-							'line-height' => false,
-							'default'     => array(
-								'font-size'   => '1.9rem',
-								'color'       => '#333333',
-								'font-family' => 'Roboto',
-								'font-weight' => '700',
-								'text-align'  => 'center'
-							),
-							'transport'   => 'postMessage',
-							'js_vars'     => array(
-								array(
-									'element' => 'h3.woo-product-section-title'
-								)
-							)
-						),
-						array(
-							'id'        => 'evl_woo_product_section_padding',
-							'title'     => esc_attr__( 'Section Padding', 'evolve' ),
-							'subtitle'  => esc_attr__( 'Enter the section padding', 'evolve' ),
-							'type'      => 'spacing',
-							'units'     => array( 'px', 'em' ),
-							'default'   => array(
-								'padding-top'    => '40px',
-								'padding-right'  => '0',
-								'padding-bottom' => '40px',
-								'padding-left'   => '0',
-								'units'          => 'px'
-							),
-							'transport' => 'postMessage',
-							'js_vars'   => array(
-								array(
-									'element'  => '.home-woo-product',
-									'function' => 'css',
-									'property' => 'padding'
-								)
-							)
-						),
-						array(
-							'id'        => 'evl_woo_product_section_background_image',
-							'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
-							'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
-							'type'      => 'media',
-							'url'       => true,
-							'transport' => 'postMessage',
-							'js_vars'   => array(
-								array(
-									'element'  => '.home-woo-product',
-									'function' => 'css',
-									'property' => 'background-image'
-								)
-							)
-						),
-						array(
-							'id'        => 'evl_woo_product_section_image',
-							'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
-							'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
-							'type'      => 'select',
-							'options'   => array(
-								'cover'   => esc_attr__( 'Cover', 'evolve' ),
-								'contain' => esc_attr__( 'Contain', 'evolve' ),
-								'none'    => esc_attr__( 'None', 'evolve' )
-							),
-							'default'   => 'cover',
-							'transport' => 'postMessage',
-							'js_vars'   => array(
-								array(
-									'element'  => '.home-woo-product',
-									'function' => 'css',
-									'property' => 'background-size'
-								)
-							)
-						),
-						array(
-							'id'        => 'evl_woo_product_section_image_background_repeat',
-							'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
-							'type'      => 'select',
-							'options'   => array(
-								'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
-								'repeat'    => esc_attr__( 'repeat', 'evolve' ),
-								'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
-								'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
-							),
-							'default'   => 'no-repeat',
-							'transport' => 'postMessage',
-							'js_vars'   => array(
-								array(
-									'element'  => '.home-woo-product',
-									'function' => 'css',
-									'property' => 'background-repeat'
-								)
-							)
-						),
-						array(
-							'id'        => 'evl_woo_product_section_image_background_position',
-							'title'     => esc_attr__( 'Background Position', 'evolve' ),
-							'type'      => 'select',
-							'options'   => array(
-								'center top'    => esc_attr__( 'center top', 'evolve' ),
-								'center center' => esc_attr__( 'center center', 'evolve' ),
-								'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
-								'left top'      => esc_attr__( 'left top', 'evolve' ),
-								'left center'   => esc_attr__( 'left center', 'evolve' ),
-								'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
-								'right top'     => esc_attr__( 'right top', 'evolve' ),
-								'right center'  => esc_attr__( 'right center', 'evolve' ),
-								'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
-							),
-							'default'   => 'center top',
-							'transport' => 'postMessage',
-							'js_vars'   => array(
-								array(
-									'element'  => '.home-woo-product',
-									'function' => 'css',
-									'property' => 'background-position'
-								)
-							)
-						),
-						array(
-							'id'        => 'evl_woo_product_section_back_color',
-							'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
-							'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
-							'type'      => 'color',
-							'default'   => '#fafafa',
-							'transport' => 'postMessage',
-							'js_vars'   => array(
-								array(
-									'element'  => '.home-woo-product',
-									'function' => 'css',
-									'property' => 'background-color'
-								)
-							)
-						),
-						array(
-							'id'     => 'evl-front-page-subsec-woo-product-section-end',
-							'type'   => 'section',
-							'indent' => false
-						)
-					)
-				)
-			);
-
-		endif;
-
-		/*
-			-- Custom Content
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-fp-custom-content-general-tab',
-				'title'      => esc_attr__( 'Custom Content', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
-					array(
-						'id'       => 'evl_custom_content_front_page',
-						'title'    => esc_attr__( 'Enable Custom Content On Front Page', 'evolve' ),
-						'subtitle' => esc_attr__( 'Check this box if you want to enable Custom Content On Front Page', 'evolve' ),
-						'type'     => 'checkbox',
-						'default'  => '0'
-					),
-					array(
-						'id'       => 'evl-front-page-subsec-custom-content-element',
-						'title'    => esc_attr__( 'Custom Content Element', 'evolve' ),
-						'type'     => 'info',
-						'selector' => '.home-custom-content .badge',
-						'indent'   => true
-					),
-					array(
-						'id'              => 'evl_fp_custom_content_editor',
-						'title'           => esc_attr__( 'Custom Content', 'evolve' ),
-						'subtitle'        => esc_attr__( 'Add Custom Content to Front Page', 'evolve' ),
-						'type'            => 'editor',
-						'selector'        => '.home-custom-content .custom-content-wrapper',
-						'render_callback' => 'evl_fp_custom_content_editor'
-					),
-					// Section settings
-					array(
-						'id'     => 'evl-front-page-subsec-custom-content-section-start',
-						'title'  => esc_attr__( 'Section Settings', 'evolve' ),
-						'type'   => 'info',
-						'indent' => true
-					),
-					array(
-						'id'              => 'evl_custom_content_title',
-						'title'           => esc_attr__( 'Title of Custom Content Section', 'evolve' ),
-						'type'            => 'text',
-						'selector'        => 'h3.custom-content-section-title',
-						'render_callback' => 'evl_custom_content_title'
-					),
-					array(
-						'id'          => 'evl_custom_content_title_alignment',
-						'title'       => esc_attr__( 'Title Font, Alignment and Color', 'evolve' ),
-						'subtitle'    => esc_attr__( 'Select the font, alignment and color of the section title', 'evolve' ),
-						'type'        => 'typography',
-						'text-align'  => true,
-						'line-height' => false,
-						'default'     => array(
-							'font-size'   => '1.9rem',
-							'color'       => '#333333',
-							'font-family' => 'Roboto',
-							'font-weight' => '500',
-							'text-align'  => 'center'
-						),
-						'transport'   => 'postMessage',
-						'js_vars'     => array(
-							array(
-								'element' => 'h3.custom-content-section-title'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_custom_content_section_padding',
-						'title'     => esc_attr__( 'Section Padding', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Enter the section padding', 'evolve' ),
-						'type'      => 'spacing',
-						'units'     => array( 'px', 'em' ),
-						'default'   => array(
-							'padding-top'    => '40px',
-							'padding-right'  => '0',
-							'padding-bottom' => '40px',
-							'padding-left'   => '0',
-							'units'          => 'px'
-						),
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-custom-content',
-								'function' => 'css',
-								'property' => 'padding'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_custom_content_section_background_image',
-						'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
-						'type'      => 'media',
-						'url'       => true,
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-custom-content',
-								'function' => 'css',
-								'property' => 'background-image'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_custom_content_section_image',
-						'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'cover'   => esc_attr__( 'Cover', 'evolve' ),
-							'contain' => esc_attr__( 'Contain', 'evolve' ),
-							'none'    => esc_attr__( 'None', 'evolve' )
-						),
-						'default'   => 'cover',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-custom-content',
-								'function' => 'css',
-								'property' => 'background-size'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_custom_content_section_image_background_repeat',
-						'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
-							'repeat'    => esc_attr__( 'repeat', 'evolve' ),
-							'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
-							'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
-						),
-						'default'   => 'no-repeat',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-custom-content',
-								'function' => 'css',
-								'property' => 'background-repeat'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_custom_content_section_image_background_position',
-						'title'     => esc_attr__( 'Background Position', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'center top'    => esc_attr__( 'center top', 'evolve' ),
-							'center center' => esc_attr__( 'center center', 'evolve' ),
-							'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
-							'left top'      => esc_attr__( 'left top', 'evolve' ),
-							'left center'   => esc_attr__( 'left center', 'evolve' ),
-							'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
-							'right top'     => esc_attr__( 'right top', 'evolve' ),
-							'right center'  => esc_attr__( 'right center', 'evolve' ),
-							'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
-						),
-						'default'   => 'center top',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-custom-content',
-								'function' => 'css',
-								'property' => 'background-position'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_custom_content_section_back_color',
-						'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#93f2d7',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.home-custom-content',
-								'function' => 'css',
-								'property' => 'background-color'
-							)
-						)
-					),
-					array(
-						'id'     => 'evl-front-page-subsec-custom-content-section-end',
-						'type'   => 'section',
-						'indent' => false
-					)
-				)
-			)
-		);
-
-		/*
 			Header
 			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-header-main-tab',
 				'title'   => esc_attr__( 'Header', 'evolve' ),
-				'iconfix' => 'evolve-icon evolve-icon-header'
-			)
-		);
-
-		/*
-			-- Header
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-header-subsec-header-tab',
-				'title'      => esc_attr__( 'Header', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
+				'iconfix' => 'evolve-icon evolve-icon-header',
+				'fields'  => array(
 					array(
 						'id'        => 'evl_header_padding',
 						'title'     => esc_attr__( 'Header Padding', 'evolve' ),
@@ -1782,43 +214,245 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							'h1'   => $global_value['customizer_images'] . 'h1.jpg'
 						),
 						'default'  => 'none'
+					),
+					array(
+						'id'    => 'evl_header_styling',
+						'title' => esc_attr__( 'Colors and Background', 'evolve' ),
+						'type'  => 'info'
+					),
+					array(
+						'id'        => 'evl_header_background_color',
+						'title'     => esc_attr__( 'Header Color', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Custom background color of Header', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#ffffff',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.header-pattern',
+								'function' => 'css',
+								'property' => 'background-color'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_header_image',
+						'title'     => esc_attr__( 'Header Background Image Responsiveness Style', 'evolve' ),
+						'subtitle'  => sprintf( '%s<a href="%s">Header Background</a>', esc_attr__( 'Select if the header background image should be displayed in cover or contain size. Change ', 'evolve' ), '' . esc_url( admin_url( 'customize.php?return=&autofocus%5Bcontrol%5D=header_image' ) ) . '' ),
+						'type'      => 'select',
+						'options'   => array(
+							'cover'   => esc_attr__( 'Cover', 'evolve' ),
+							'contain' => esc_attr__( 'Contain', 'evolve' ),
+							'none'    => esc_attr__( 'None', 'evolve' )
+						),
+						'default'   => 'cover',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.custom-header',
+								'function' => 'css',
+								'property' => 'background-size'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_header_image_background_repeat',
+						'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
+							'repeat'    => esc_attr__( 'repeat', 'evolve' ),
+							'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
+							'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
+						),
+						'default'   => 'no-repeat',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.custom-header',
+								'function' => 'css',
+								'property' => 'background-repeat'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_header_image_background_position',
+						'title'     => esc_attr__( 'Background Position', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'center top'    => esc_attr__( 'center top', 'evolve' ),
+							'center center' => esc_attr__( 'center center', 'evolve' ),
+							'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
+							'left top'      => esc_attr__( 'left top', 'evolve' ),
+							'left center'   => esc_attr__( 'left center', 'evolve' ),
+							'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
+							'right top'     => esc_attr__( 'right top', 'evolve' ),
+							'right center'  => esc_attr__( 'right center', 'evolve' ),
+							'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
+						),
+						'default'   => 'center top',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.custom-header',
+								'function' => 'css',
+								'property' => 'background-position'
+							)
+						)
 					)
 				)
 			)
 		);
 
 		/*
-			-- Sticky Header
+			Footer
 			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-header-subsec-sticky-header-tab',
-				'title'      => esc_attr__( 'Sticky Header', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
+				'id'      => 'evl-footer-main-tab',
+				'title'   => esc_attr__( 'Footer', 'evolve' ),
+				'iconfix' => 'evolve-icon evolve-icon-footer',
+				'fields'  => array(
 					array(
-						'id'              => 'evl_sticky_header',
-						'title'           => esc_attr__( 'Enable Sticky Header', 'evolve' ),
-						'subtitle'        => esc_attr__( 'Check this box if you want to display Sticky Header', 'evolve' ),
-						'type'            => 'switch',
-						'on'              => esc_attr__( 'Enabled', 'evolve' ),
-						'off'             => esc_attr__( 'Disabled', 'evolve' ),
-						'default'         => 1,
-						'selector'        => '.sticky-header .container',
-						'render_callback' => 'evl_sticky_header'
+						'id'              => 'evl_footer_content',
+						'title'           => esc_attr__( 'Custom Footer', 'evolve' ),
+						'subtitle'        => sprintf( esc_attr__( 'Available %1$sHTML%2$s tags and attributes: %3$s Default: %4$s<div id="copyright"><a href="%5$s">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a></div>%6$s', 'evolve' ), '<strong>', '</strong>', '<br /><br /> <code> &lt;b&gt; &lt;i&gt; &lt;a href="" title=""&gt; &lt;blockquote&gt; &lt;del datetime=""&gt; <br /> &lt;ins datetime=""&gt; &lt;img src="" alt="" /&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; <br /> &lt;code&gt; &lt;em&gt; &lt;strong&gt; &lt;div&gt; &lt;span&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt; <br /> &lt;table&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt; &lt;br /&gt; &lt;hr /&gt;</code><br /><br />', '<code>', $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/', '</code>' ),
+						'type'            => 'textarea',
+						'default'         => sprintf( '<div id="copyright"><a href="%s">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a></div>', $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/' ),
+						'selector'        => '.custom-footer',
+						'render_callback' => 'evl_footer_content'
 					),
 					array(
-						'id'              => 'evl_searchbox_sticky_header',
-						'title'           => esc_attr__( 'Enable Searchbox', 'evolve' ),
-						'subtitle'        => esc_attr__( 'Check this box if you want to display searchbox in the Sticky Header', 'evolve' ),
-						'type'            => 'switch',
-						'on'              => esc_attr__( 'Enabled', 'evolve' ),
-						'off'             => esc_attr__( 'Disabled', 'evolve' ),
-						'default'         => 1,
-						'selector'        => '.sticky-header .header-search',
-						'render_callback' => 'evl_searchbox_sticky_header',
-						'required'        => array(
-							array( 'evl_sticky_header', '=', '1' )
+						'id'       => 'evl_footer_reveal',
+						'title'    => esc_attr__( 'Footer Reveal Effect', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check this box if you want to enable Footer Reveal Effect', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0'
+					),
+					array(
+						'id'     => 'evl-footer-colors-subsec-section',
+						'title'  => esc_attr__( 'Colors and Background', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
+					array(
+						'id'        => 'evl_header_footer_back_color',
+						'title'     => esc_attr__( 'Footer Color', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Custom background color of Footer', 'evolve' ),
+						'type'      => 'color',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.footer',
+								'function' => 'css',
+								'property' => 'background-color'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_footer_background_image',
+						'title'     => esc_attr__( 'Footer Image', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Upload a footer background image for your website, or specify an image URL directly', 'evolve' ),
+						'type'      => 'media',
+						'url'       => true,
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.footer',
+								'function' => 'css',
+								'property' => 'background-image'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_footer_image',
+						'title'     => esc_attr__( 'Footer Background Image Responsiveness Style', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Select if the footer background image should be displayed in cover or contain size', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'cover'   => esc_attr__( 'Cover', 'evolve' ),
+							'contain' => esc_attr__( 'Contain', 'evolve' ),
+							'none'    => esc_attr__( 'None', 'evolve' )
+						),
+						'default'   => 'cover',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.footer',
+								'function' => 'css',
+								'property' => 'background-size'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_footer_image_background_repeat',
+						'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
+							'repeat'    => esc_attr__( 'repeat', 'evolve' ),
+							'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
+							'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
+						),
+						'default'   => 'no-repeat',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.footer',
+								'function' => 'css',
+								'property' => 'background-repeat'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_footer_image_background_position',
+						'title'     => esc_attr__( 'Background Position', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'center top'    => esc_attr__( 'center top', 'evolve' ),
+							'center center' => esc_attr__( 'center center', 'evolve' ),
+							'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
+							'left top'      => esc_attr__( 'left top', 'evolve' ),
+							'left center'   => esc_attr__( 'left center', 'evolve' ),
+							'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
+							'right top'     => esc_attr__( 'right top', 'evolve' ),
+							'right center'  => esc_attr__( 'right center', 'evolve' ),
+							'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
+						),
+						'default'   => 'center top',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.footer',
+								'function' => 'css',
+								'property' => 'background-position'
+							)
+						)
+					),
+					array(
+						'id'     => 'evl-footer-typography-subsec-section',
+						'title'  => esc_attr__( 'Typography', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
+					array(
+						'id'          => 'evl_footer_copyright',
+						'title'       => esc_attr__( 'Footer Copyright Font', 'evolve' ),
+						'subtitle'    => esc_attr__( 'Select the typography you want for your Footer Copyright', 'evolve' ),
+						'type'        => 'typography',
+						'text-align'  => false,
+						'line-height' => false,
+						'default'     => array(
+							'font-size'   => '.7rem',
+							'color'       => '#999999',
+							'font-family' => 'Roboto',
+							'font-weight' => '300'
+						),
+						'transport'   => 'postMessage',
+						'js_vars'     => array(
+							array(
+								'element' => '#copyright, #copyright a'
+							)
 						)
 					)
 				)
@@ -1830,10 +464,10 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-header-subsec-logo-tab',
-				'title'      => esc_attr__( 'Logo', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
+				'id'      => 'evl-header-subsec-logo-tab',
+				'title'   => esc_attr__( 'Logo, Title & Tagline', 'evolve' ),
+				'iconfix' => 'evolve-icon evolve-icon-title',
+				'fields'  => array(
 					array(
 						'id'              => 'evl_header_logo',
 						'title'           => esc_attr__( 'Custom Logo', 'evolve' ),
@@ -1855,20 +489,13 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							'disable' => esc_attr__( 'Disabled', 'evolve' )
 						),
 						'default'  => 'left'
-					)
-				)
-			)
-		);
-
-		/*
-			-- Website Title & Tagline
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-header-subsec-title-tagline-tab',
-				'title'      => esc_attr__( 'Website Title & Tagline', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
+					),
+					array(
+						'id'     => 'evl-title-tagline-subsec-section',
+						'title'  => esc_attr__( 'Website Title & Tagline', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
 					array(
 						'id'       => 'evl_blog_title',
 						'title'    => esc_attr__( 'Disable Website Title', 'evolve' ),
@@ -1888,20 +515,66 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							'disable' => esc_attr__( 'Disabled', 'evolve' )
 						),
 						'default'  => 'next'
+					),
+					array(
+						'id'     => 'evl-title-typography-subsec-section',
+						'title'  => esc_attr__( 'Typography', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
+					array(
+						'id'          => 'evl_title_font',
+						'title'       => esc_attr__( 'Website Title Font', 'evolve' ),
+						'subtitle'    => esc_attr__( 'Select the typography you want for your Website Title', 'evolve' ),
+						'type'        => 'typography',
+						'text-align'  => false,
+						'line-height' => false,
+						'default'     => array(
+							'font-size'   => '3rem',
+							'color'       => '#492fb1',
+							'font-family' => 'Roboto',
+							'font-weight' => '700'
+						),
+						'transport'   => 'postMessage',
+						'js_vars'     => array(
+							array(
+								'element' => '#website-title a'
+							)
+						)
+					),
+					array(
+						'id'          => 'evl_tagline_font',
+						'title'       => esc_attr__( 'Website Tagline Font', 'evolve' ),
+						'subtitle'    => esc_attr__( 'Select the typography you want for your Website Tagline', 'evolve' ),
+						'type'        => 'typography',
+						'text-align'  => false,
+						'line-height' => false,
+						'default'     => array(
+							'font-size'   => '1.5rem',
+							'color'       => '#aaaaaa',
+							'font-family' => 'Roboto',
+							'font-weight' => '300'
+						),
+						'transport'   => 'postMessage',
+						'js_vars'     => array(
+							array(
+								'element' => '#tagline'
+							)
+						)
 					)
 				)
 			)
 		);
 
 		/*
-			-- Menu
+			Menu
 			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-header-subsec-menu-tab',
-				'title'      => esc_attr__( 'Menu', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
+				'id'      => 'evl-styling-subsec-menu-tab',
+				'title'   => esc_attr__( 'Menu', 'evolve' ),
+				'iconfix' => 'evolve-icon evolve-icon-menu',
+				'fields'  => array(
 					array(
 						'id'       => 'evl_main_menu',
 						'title'    => esc_attr__( 'Disable Main Menu', 'evolve' ),
@@ -1910,12 +583,12 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 					),
 					array(
 						'id'       => 'evl_main_menu_hover_effect',
-						'title'    => esc_attr__( 'Menu Item Hover Effect', 'evolve' ),
-						'subtitle' => esc_attr__( 'Select the main menu hover effect', 'evolve' ),
+						'title'    => esc_attr__( 'Menu Item Style', 'evolve' ),
+						'subtitle' => esc_attr__( 'Select the main menu items style', 'evolve' ),
 						'type'     => 'select',
 						'options'  => array(
 							'rollover' => esc_attr__( 'Rollover', 'evolve' ),
-							'disable'  => esc_attr__( 'Disabled', 'evolve' )
+							'disable'  => esc_attr__( 'None', 'evolve' )
 						),
 						'default'  => 'disable',
 						'required' => array(
@@ -1928,7 +601,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'subtitle'  => esc_attr__( 'Padding between menu items in px', 'evolve' ),
 						'type'      => 'slider',
 						'min'       => '0',
-						'max'       => '20',
+						'max'       => '30',
 						'default'   => '15',
 						'transport' => 'postMessage',
 						'js_vars'   => array(
@@ -1981,39 +654,168 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'required' => array(
 							array( 'evl_main_menu', '=', '0' )
 						)
+					),
+					array(
+						'id'     => 'evl-menu-subsec-section',
+						'title'  => esc_attr__( 'Colors', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
+					array(
+						'id'        => 'evl_menu_back_color',
+						'title'     => esc_attr__( 'Main Menu Color', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Custom background color of Main Menu', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#f9f9f9',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.menu-header, .sticky-header',
+								'function' => 'css',
+								'property' => 'background-color'
+							)
+						)
+					),
+					array(
+						'id'       => 'evl_disable_menu_back',
+						'title'    => esc_attr__( 'Disable Main Menu Background Gradient, Shadow and Borders For Header #1', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check this box if you want to disable main menu background gradient, shadow effect and borders', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '1'
+					),
+					array(
+						'id'       => 'evl_menu_back',
+						'title'    => esc_attr__( 'Text Shadow Effect Color', 'evolve' ),
+						'subtitle' => esc_attr__( 'Enables the text shadow effect on the menu items', 'evolve' ),
+						'type'     => 'select',
+						'options'  => array(
+							'light' => esc_attr__( 'Light', 'evolve' ),
+							'dark'  => esc_attr__( 'Dark', 'evolve' )
+						),
+						'default'  => 'dark',
+						'required' => array(
+							array( 'evl_disable_menu_back', '=', '0' )
+						)
+					),
+					array(
+						'id'        => 'evl_top_menu_back',
+						'title'     => esc_attr__( 'Top Bar Color', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Background color of Top Bar for Header #2', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#273039',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.top-bar',
+								'function' => 'css',
+								'property' => 'background-color'
+							)
+						)
+					),
+					array(
+						'id'     => 'evl-menu-typography-subsec-section',
+						'title'  => esc_attr__( 'Typography', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
+					array(
+						'id'          => 'evl_menu_font',
+						'title'       => esc_attr__( 'Main Menu Font', 'evolve' ),
+						'subtitle'    => esc_attr__( 'Select the typography you want for your Main Menu', 'evolve' ),
+						'type'        => 'typography',
+						'text-align'  => false,
+						'line-height' => false,
+						'default'     => array(
+							'font-size'   => '.9rem',
+							'color'       => '#000000',
+							'font-family' => 'Roboto',
+							'font-weight' => '700'
+						),
+						'transport'   => 'postMessage',
+						'js_vars'     => array(
+							array(
+								'element' => '.navbar-nav .nav-link, .navbar-nav .dropdown-item, .menu-header, .sticky-header, .navbar-toggler'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_top_menu_hover_font_color',
+						'title'     => esc_attr__( 'Menu Hover Font Color', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Menu hover font color', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#492fb1',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.navbar-nav .nav-link:focus, .navbar-nav .nav-link:hover, .navbar-nav .active > .nav-link, .navbar-nav .nav-link.active, .navbar-nav .nav-link.show, .navbar-nav .show > .nav-link, .navbar-nav li.menu-item.current-menu-item > a, .navbar-nav li.menu-item.current-menu-parent > a, .navbar-nav li.menu-item.current-menu-ancestor > a, .navbar-nav li a:hover, .navbar-nav li:hover > a, .navbar-nav li:hover',
+								'function' => 'css',
+								'property' => 'color'
+							)
+						)
 					)
 				)
 			)
 		);
 
 		/*
-			Footer
+			Sticky Header
 			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'      => 'evl-footer-main-tab',
-				'title'   => esc_attr__( 'Footer', 'evolve' ),
-				'iconfix' => 'evolve-icon evolve-icon-footer'
-			)
-		);
-
-		/*
-			-- Custom Footer
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-footer-subsec-custom-footer-tab',
-				'title'      => esc_attr__( 'Custom Footer', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
+				'id'      => 'evl-header-subsec-sticky-header-tab',
+				'title'   => esc_attr__( 'Sticky Header', 'evolve' ),
+				'iconfix' => 'evolve-icon evolve-icon-sticky-header',
+				'fields'  => array(
 					array(
-						'id'              => 'evl_footer_content',
-						'title'           => esc_attr__( 'Custom Footer', 'evolve' ),
-						'subtitle'        => sprintf( esc_attr__( 'Available %1$sHTML%2$s tags and attributes: %3$s Default: %4$s<div id="copyright"><a href="%5$s">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a></div>%6$s', 'evolve' ), '<strong>', '</strong>', '<br /><br /> <code> &lt;b&gt; &lt;i&gt; &lt;a href="" title=""&gt; &lt;blockquote&gt; &lt;del datetime=""&gt; <br /> &lt;ins datetime=""&gt; &lt;img src="" alt="" /&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; <br /> &lt;code&gt; &lt;em&gt; &lt;strong&gt; &lt;div&gt; &lt;span&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt; <br /> &lt;table&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt; &lt;br /&gt; &lt;hr /&gt;</code><br /><br />', '<code>', $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/', '</code>' ),
-						'type'            => 'textarea',
-						'default'         => sprintf( '<div id="copyright"><a href="%s">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a></div>', $global_value['home_url'] . 'evolve-multipurpose-wordpress-theme/' ),
-						'selector'        => '.custom-footer',
-						'render_callback' => 'evl_footer_content'
+						'id'              => 'evl_sticky_header',
+						'title'           => esc_attr__( 'Enable Sticky Header', 'evolve' ),
+						'subtitle'        => esc_attr__( 'Check this box if you want to display Sticky Header', 'evolve' ),
+						'type'            => 'switch',
+						'on'              => esc_attr__( 'Enabled', 'evolve' ),
+						'off'             => esc_attr__( 'Disabled', 'evolve' ),
+						'default'         => 1,
+						'selector'        => '.sticky-header .container',
+						'render_callback' => 'evl_sticky_header'
+					),
+					array(
+						'id'              => 'evl_searchbox_sticky_header',
+						'title'           => esc_attr__( 'Enable Searchbox', 'evolve' ),
+						'subtitle'        => esc_attr__( 'Check this box if you want to display searchbox in the Sticky Header', 'evolve' ),
+						'type'            => 'switch',
+						'on'              => esc_attr__( 'Enabled', 'evolve' ),
+						'off'             => esc_attr__( 'Disabled', 'evolve' ),
+						'default'         => 1,
+						'selector'        => '.sticky-header .header-search',
+						'render_callback' => 'evl_searchbox_sticky_header',
+						'required'        => array(
+							array( 'evl_sticky_header', '=', '1' )
+						)
+					),
+					array(
+						'id'     => 'evl-sticky-header-typography-subsec-section',
+						'title'  => esc_attr__( 'Typography', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
+					array(
+						'id'          => 'evl_menu_blog_title_font',
+						'title'       => esc_attr__( 'Sticky Header Website Title Font', 'evolve' ),
+						'subtitle'    => esc_attr__( 'Select the typography you want for your Sticky Header Website Title', 'evolve' ),
+						'type'        => 'typography',
+						'text-align'  => false,
+						'line-height' => false,
+						'default'     => array(
+							'font-size'   => '1.6rem',
+							'color'       => '#492fb1',
+							'font-family' => 'Roboto',
+							'font-weight' => '700'
+						),
+						'transport'   => 'postMessage',
+						'js_vars'     => array(
+							array(
+								'element' => '#sticky-title'
+							)
+						)
 					)
 				)
 			)
@@ -2027,7 +829,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 				'id'      => 'evl-widgets-main-tab',
 				'title'   => esc_attr__( 'Widget Areas', 'evolve' ),
 				'iconfix' => 'evolve-icon evolve-icon-widgets',
-				'fields'     => array(
+				'fields'  => array(
 					array(
 						'id'       => 'evl_widgets_header',
 						'title'    => esc_attr__( 'Header Widgets Layout', 'evolve' ),
@@ -2076,170 +878,58 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 							'eight'   => $global_value['customizer_images'] . 'footer-8.png'
 						),
 						'default'  => 'disable'
-					)
-				)
-			)
-		);
-
-		/*
-			Typography
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'      => 'evl-typography-main-tab',
-				'title'   => esc_attr__( 'Typography', 'evolve' ),
-				'iconfix' => 'evolve-icon evolve-icon-typography'
-			)
-		);
-
-		/*
-			-- Website Body
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-typography-subsec-body-tab',
-				'title'      => esc_attr__( 'Website Body', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
+					),
 					array(
-						'id'          => 'evl_body_font',
-						'title'       => esc_attr__( 'Website Body Font', 'evolve' ),
-						'subtitle'    => esc_attr__( 'Select the typography you want for your Website Body', 'evolve' ),
-						'type'        => 'typography',
-						'text-align'  => false,
-						'line-height' => false,
-						'default'     => array(
-							'font-size'   => '1rem',
-							'color'       => '#212529',
-							'font-family' => 'Roboto',
-							'font-weight' => '300'
-						),
-						'transport'   => 'postMessage',
-						'js_vars'     => array(
-							array(
-								'element' => 'body'
-							)
-						)
-					)
-				)
-			)
-		);
-
-		/*
-			-- Website Title & Tagline
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-typography-subsec-title-tagline-tab',
-				'title'      => esc_attr__( 'Website Title & Tagline', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
+						'id'     => 'evl-widget-area-styling-subsec-section',
+						'title'  => esc_attr__( 'Styling', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
 					array(
-						'id'          => 'evl_title_font',
-						'title'       => esc_attr__( 'Website Title Font', 'evolve' ),
-						'subtitle'    => esc_attr__( 'Select the typography you want for your Website Title', 'evolve' ),
-						'type'        => 'typography',
-						'text-align'  => false,
-						'line-height' => false,
-						'default'     => array(
-							'font-size'   => '3rem',
-							'color'       => '#492fb1',
-							'font-family' => 'Roboto',
-							'font-weight' => '700'
+						'id'       => 'evl_widget_background',
+						'title'    => esc_attr__( 'Enable Widget Title Custom Background', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check this box if you want to enable custom background for widget titles', 'evolve' ),
+						'type'     => 'switch',
+						'on'       => esc_attr__( 'Enabled', 'evolve' ),
+						'off'      => esc_attr__( 'Disabled', 'evolve' ),
+						'default'  => 0
+					),
+					array(
+						'id'        => 'evl_widget_bgcolor',
+						'title'     => esc_attr__( 'Widget Title Custom Background', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Choose the color scheme for widgets background', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#273039',
+						'required'  => array(
+							array( 'evl_widget_background', '=', '1' )
 						),
-						'transport'   => 'postMessage',
-						'js_vars'     => array(
+						'transport' => 'postMessage',
+						'js_vars'   => array(
 							array(
-								'element' => '#website-title a'
+								'element'  => '.widget-title-background',
+								'function' => 'css',
+								'property' => 'background-color'
+							),
+							array(
+								'element'  => '.widget-title-background',
+								'function' => 'css',
+								'property' => 'border-color'
 							)
 						)
 					),
 					array(
-						'id'          => 'evl_tagline_font',
-						'title'       => esc_attr__( 'Website Tagline Font', 'evolve' ),
-						'subtitle'    => esc_attr__( 'Select the typography you want for your Website Tagline', 'evolve' ),
-						'type'        => 'typography',
-						'text-align'  => false,
-						'line-height' => false,
-						'default'     => array(
-							'font-size'   => '1.5rem',
-							'color'       => '#aaaaaa',
-							'font-family' => 'Roboto',
-							'font-weight' => '300'
-						),
-						'transport'   => 'postMessage',
-						'js_vars'     => array(
-							array(
-								'element' => '#tagline'
-							)
-						)
+						'id'       => 'evl_widget_background_image',
+						'title'    => esc_attr__( 'Disable Widget Content Boxed Background', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check this box if you want to disable widget content boxed background', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => 1
 					),
 					array(
-						'id'          => 'evl_menu_blog_title_font',
-						'title'       => esc_attr__( 'Sticky Header Website Title Font', 'evolve' ),
-						'subtitle'    => esc_attr__( 'Select the typography you want for your Sticky Header Website Title', 'evolve' ),
-						'type'        => 'typography',
-						'text-align'  => false,
-						'line-height' => false,
-						'default'     => array(
-							'font-size'   => '1.6rem',
-							'color'       => '#492fb1',
-							'font-family' => 'Roboto',
-							'font-weight' => '700'
-						),
-						'transport'   => 'postMessage',
-						'js_vars'     => array(
-							array(
-								'element' => '#sticky-title'
-							)
-						)
-					)
-				)
-			)
-		);
-
-		/*
-			-- Menu
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-typography-subsec-menu-tab',
-				'title'      => esc_attr__( 'Menu', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
-					array(
-						'id'          => 'evl_menu_font',
-						'title'       => esc_attr__( 'Main Menu Font', 'evolve' ),
-						'subtitle'    => esc_attr__( 'Select the typography you want for your Main Menu', 'evolve' ),
-						'type'        => 'typography',
-						'text-align'  => false,
-						'line-height' => false,
-						'default'     => array(
-							'font-size'   => '.9rem',
-							'color'       => '#000000',
-							'font-family' => 'Roboto',
-							'font-weight' => '700'
-						),
-						'transport'   => 'postMessage',
-						'js_vars'     => array(
-							array(
-								'element' => '.navbar-nav .nav-link, .navbar-nav .dropdown-item, .menu-header, .sticky-header, .navbar-toggler'
-							)
-						)
-					)
-				)
-			)
-		);
-
-		/*
-			-- Widget
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-typography-subsec-widget-tab',
-				'title'      => esc_attr__( 'Widget', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
+						'id'     => 'evl-widget-area-typography-subsec-section',
+						'title'  => esc_attr__( 'Typography', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
 					array(
 						'id'          => 'evl_widget_title_font',
 						'title'       => esc_attr__( 'Widget Title Font', 'evolve' ),
@@ -2285,14 +975,34 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 		);
 
 		/*
-			-- Post/Page Title & Content
+			Typography
 			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-typography-subsec-post-tab',
-				'title'      => esc_attr__( 'Post/Page Title & Content', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
+				'id'      => 'evl-typography-main-tab',
+				'title'   => esc_attr__( 'Typography', 'evolve' ),
+				'iconfix' => 'evolve-icon evolve-icon-typography',
+				'fields'  => array(
+					array(
+						'id'          => 'evl_body_font',
+						'title'       => esc_attr__( 'Website Body Font', 'evolve' ),
+						'subtitle'    => esc_attr__( 'Select the typography you want for your Website Body', 'evolve' ),
+						'type'        => 'typography',
+						'text-align'  => false,
+						'line-height' => false,
+						'default'     => array(
+							'font-size'   => '1rem',
+							'color'       => '#212529',
+							'font-family' => 'Roboto',
+							'font-weight' => '300'
+						),
+						'transport'   => 'postMessage',
+						'js_vars'     => array(
+							array(
+								'element' => 'body'
+							)
+						)
+					),
 					array(
 						'id'          => 'evl_post_font',
 						'title'       => esc_attr__( 'Post/Page Title Font', 'evolve' ),
@@ -2332,106 +1042,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 								'element' => '.post-content'
 							)
 						)
-					)
-				)
-			)
-		);
-
-		/*
-			-- Content Boxes Title Font
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-front-page-content-boxes',
-				'title'      => esc_attr__( 'Content Boxes', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
-					array(
-						'id'          => 'evl_content_boxes_title_font',
-						'title'       => esc_attr__( 'Content Boxes Title Font', 'evolve' ),
-						'subtitle'    => esc_attr__( 'Select the typography you want for your Content Boxes Title', 'evolve' ),
-						'type'        => 'typography',
-						'text-align'  => false,
-						'line-height' => false,
-						'default'     => array(
-							'font-size'   => '1.4rem',
-							'color'       => '#6b6b6b',
-							'font-family' => 'Roboto',
-							'font-weight' => '700'
-						),
-						'transport'   => 'postMessage',
-						'js_vars'     => array(
-							array(
-								'element' => '.content-box h5.card-title'
-							)
-						)
 					),
-					array(
-						'id'          => 'evl_content_boxes_description_font',
-						'title'       => esc_attr__( 'Content Boxes Description Font', 'evolve' ),
-						'subtitle'    => esc_attr__( 'Select the typography you want for your Content Boxes Description', 'evolve' ),
-						'type'        => 'typography',
-						'text-align'  => false,
-						'line-height' => false,
-						'default'     => array(
-							'font-size'   => '1.2rem',
-							'color'       => '#888888',
-							'font-family' => 'Roboto',
-							'font-weight' => '300'
-						),
-						'transport'   => 'postMessage',
-						'js_vars'     => array(
-							array(
-								'element' => '.content-box p'
-							)
-						)
-					)
-				)
-			)
-		);
-
-		/*
-			-- Footer Copyright
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-footer-copyright',
-				'title'      => esc_attr__( 'Footer Copyright', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
-					array(
-						'id'          => 'evl_footer_copyright',
-						'title'       => esc_attr__( 'Footer Copyright Font', 'evolve' ),
-						'subtitle'    => esc_attr__( 'Select the typography you want for your Footer Copyright', 'evolve' ),
-						'type'        => 'typography',
-						'text-align'  => false,
-						'line-height' => false,
-						'default'     => array(
-							'font-size'   => '.7rem',
-							'color'       => '#999999',
-							'font-family' => 'Roboto',
-							'font-weight' => '300'
-						),
-						'transport'   => 'postMessage',
-						'js_vars'     => array(
-							array(
-								'element' => '#copyright, #copyright a'
-							)
-						)
-					)
-				)
-			)
-		);
-
-		/*
-			-- Headings
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-typography-subsec-headings-tab',
-				'title'      => esc_attr__( 'Headings', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
 					array(
 						'id'          => 'evl_content_h1_font',
 						'title'       => esc_attr__( 'H1 Font', 'evolve' ),
@@ -2579,220 +1190,19 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 		);
 
 		/*
-			Styling
+			Colors & Background
 			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
 				'id'      => 'evl-styling-main-tab',
-				'title'   => esc_attr__( 'Styling', 'evolve' ),
-				'iconfix' => 'evolve-icon evolve-icon-styling',
-			)
-		);
-
-		/*
-			-- Header & Footer
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-styling-subsec-header-footer-tab',
-				'title'      => esc_attr__( 'Header & Footer', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
+				'title'   => esc_attr__( 'Colors & Background', 'evolve' ),
+				'iconfix' => 'evolve-icon evolve-icon-colors',
+				'fields'  => array(
 					array(
-						'id'    => 'evl_header_styling',
-						'title' => esc_attr__( 'Header Styling', 'evolve' ),
-						'type'  => 'info'
-					),
-					array(
-						'id'        => 'evl_header_image',
-						'title'     => esc_attr__( 'Header Background Image Responsiveness Style', 'evolve' ),
-						'subtitle'  => sprintf( '%s<a href="%s">Header Background</a>', esc_attr__( 'Select if the header background image should be displayed in cover or contain size. Change ', 'evolve' ), '' . esc_url( admin_url( 'customize.php?return=&autofocus%5Bcontrol%5D=header_image' ) ) . '' ),
-						'type'      => 'select',
-						'options'   => array(
-							'cover'   => esc_attr__( 'Cover', 'evolve' ),
-							'contain' => esc_attr__( 'Contain', 'evolve' ),
-							'none'    => esc_attr__( 'None', 'evolve' )
-						),
-						'default'   => 'cover',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.custom-header',
-								'function' => 'css',
-								'property' => 'background-size'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_header_image_background_repeat',
-						'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
-							'repeat'    => esc_attr__( 'repeat', 'evolve' ),
-							'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
-							'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
-						),
-						'default'   => 'no-repeat',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.custom-header',
-								'function' => 'css',
-								'property' => 'background-repeat'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_header_image_background_position',
-						'title'     => esc_attr__( 'Background Position', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'center top'    => esc_attr__( 'center top', 'evolve' ),
-							'center center' => esc_attr__( 'center center', 'evolve' ),
-							'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
-							'left top'      => esc_attr__( 'left top', 'evolve' ),
-							'left center'   => esc_attr__( 'left center', 'evolve' ),
-							'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
-							'right top'     => esc_attr__( 'right top', 'evolve' ),
-							'right center'  => esc_attr__( 'right center', 'evolve' ),
-							'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
-						),
-						'default'   => 'center top',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.custom-header',
-								'function' => 'css',
-								'property' => 'background-position'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_header_background_color',
-						'title'     => esc_attr__( 'Header Color', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Custom background color of Header', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#ffffff',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.header-pattern',
-								'function' => 'css',
-								'property' => 'background-color'
-							)
-						)
-					),
-					array(
-						'id'    => 'evl_footer_styling',
-						'title' => esc_attr__( 'Footer Styling', 'evolve' ),
-						'type'  => 'info'
-					),
-					array(
-						'id'       => 'evl_footer_reveal',
-						'title'    => esc_attr__( 'Footer Reveal Effect', 'evolve' ),
-						'subtitle' => esc_attr__( 'Check this box if you want to enable Footer Reveal Effect', 'evolve' ),
-						'type'     => 'checkbox',
-						'default'  => '0'
-					),
-					array(
-						'id'        => 'evl_footer_background_image',
-						'title'     => esc_attr__( 'Footer Image', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Upload a footer background image for your website, or specify an image URL directly', 'evolve' ),
-						'type'      => 'media',
-						'url'       => true,
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.footer',
-								'function' => 'css',
-								'property' => 'background-image'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_footer_image',
-						'title'     => esc_attr__( 'Footer Background Image Responsiveness Style', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Select if the footer background image should be displayed in cover or contain size', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'cover'   => esc_attr__( 'Cover', 'evolve' ),
-							'contain' => esc_attr__( 'Contain', 'evolve' ),
-							'none'    => esc_attr__( 'None', 'evolve' )
-						),
-						'default'   => 'cover',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.footer',
-								'function' => 'css',
-								'property' => 'background-size'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_footer_image_background_repeat',
-						'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
-							'repeat'    => esc_attr__( 'repeat', 'evolve' ),
-							'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
-							'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
-						),
-						'default'   => 'no-repeat',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.footer',
-								'function' => 'css',
-								'property' => 'background-repeat'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_footer_image_background_position',
-						'title'     => esc_attr__( 'Background Position', 'evolve' ),
-						'type'      => 'select',
-						'options'   => array(
-							'center top'    => esc_attr__( 'center top', 'evolve' ),
-							'center center' => esc_attr__( 'center center', 'evolve' ),
-							'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
-							'left top'      => esc_attr__( 'left top', 'evolve' ),
-							'left center'   => esc_attr__( 'left center', 'evolve' ),
-							'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
-							'right top'     => esc_attr__( 'right top', 'evolve' ),
-							'right center'  => esc_attr__( 'right center', 'evolve' ),
-							'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
-						),
-						'default'   => 'center top',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.footer',
-								'function' => 'css',
-								'property' => 'background-position'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_header_footer_back_color',
-						'title'     => esc_attr__( 'Footer Color', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Custom background color of Footer', 'evolve' ),
-						'type'      => 'color',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.footer',
-								'function' => 'css',
-								'property' => 'background-color'
-							)
-						)
-					),
-					array(
-						'id'    => 'evl_header_footer',
-						'title' => esc_attr__( 'Header & Footer Default Pattern', 'evolve' ),
-						'type'  => 'info'
+						'id'     => 'evl-header-footer-styling-subsec-section',
+						'title'  => esc_attr__( 'Header and Footer', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
 					),
 					array(
 						'id'        => 'evl_pattern',
@@ -2819,99 +1229,13 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 								'value_pattern' => $global_value['frontend_images'] . 'pattern/' . '$' . '.png'
 							)
 						)
-					)
-				)
-			)
-		);
-
-		/*
-			-- Menu
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-styling-subsec-menu-tab',
-				'title'      => esc_attr__( 'Menu', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
-					array(
-						'id'        => 'evl_menu_back_color',
-						'title'     => esc_attr__( 'Main Menu Color', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Custom background color of Main Menu', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#f9f9f9',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.menu-header, .sticky-header',
-								'function' => 'css',
-								'property' => 'background-color'
-							)
-						)
 					),
 					array(
-						'id'       => 'evl_disable_menu_back',
-						'title'    => esc_attr__( 'Disable Main Menu Background Gradient, Shadow and Borders For Header #1', 'evolve' ),
-						'subtitle' => esc_attr__( 'Check this box if you want to disable main menu background gradient, shadow effect and borders', 'evolve' ),
-						'type'     => 'checkbox',
-						'default'  => '1'
+						'id'     => 'evl-header-widgets-styling-subsec-section',
+						'title'  => esc_attr__( 'Header Slider/Widgets Area Background', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
 					),
-					array(
-						'id'       => 'evl_menu_back',
-						'title'    => esc_attr__( 'Text Shadow Effect Color', 'evolve' ),
-						'subtitle' => esc_attr__( 'Enables the text shadow effect on the menu items', 'evolve' ),
-						'type'     => 'select',
-						'options'  => array(
-							'light' => esc_attr__( 'Light', 'evolve' ),
-							'dark'  => esc_attr__( 'Dark', 'evolve' )
-						),
-						'default'  => 'dark',
-						'required' => array(
-							array( 'evl_disable_menu_back', '=', '0' )
-						)
-					),
-					array(
-						'id'        => 'evl_top_menu_back',
-						'title'     => esc_attr__( 'Top Bar Color', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Background color of Top Bar for Header #2', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#273039',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.top-bar',
-								'function' => 'css',
-								'property' => 'background-color'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_top_menu_hover_font_color',
-						'title'     => esc_attr__( 'Menu Hover Font Color', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Menu hover font color', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#492fb1',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.navbar-nav .nav-link:focus, .navbar-nav .nav-link:hover, .navbar-nav .active > .nav-link, .navbar-nav .nav-link.active, .navbar-nav .nav-link.show, .navbar-nav .show > .nav-link, .navbar-nav li.menu-item.current-menu-item > a, .navbar-nav li.menu-item.current-menu-parent > a, .navbar-nav li.menu-item.current-menu-ancestor > a, .navbar-nav li a:hover, .navbar-nav li:hover > a, .navbar-nav li:hover',
-								'function' => 'css',
-								'property' => 'color'
-							)
-						)
-					)
-				)
-			)
-		);
-
-		/*
-			-- Header Block
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-styling-subsec-slideshow-widgets-tab',
-				'title'      => esc_attr__( 'Header Block', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
 					array(
 						'id'        => 'evl_scheme_widgets',
 						'title'     => esc_attr__( 'Color Scheme of The Header Block Area', 'evolve' ),
@@ -2970,20 +1294,39 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 								'property' => 'background-repeat'
 							)
 						)
-					)
-				)
-			)
-		);
-
-		/*
-			-- Content
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-styling-subsec-content-tab',
-				'title'      => esc_attr__( 'Content', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
+					),
+					array(
+						'id'     => 'evl-content-background-styling-subsec-section',
+						'title'  => esc_attr__( 'Content', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
+					array(
+						'id'       => 'evl_content_back',
+						'title'    => esc_attr__( 'Content Color', 'evolve' ),
+						'subtitle' => esc_attr__( 'Background color of content', 'evolve' ),
+						'type'     => 'select',
+						'options'  => array(
+							'light' => esc_attr__( 'Light', 'evolve' ),
+							'dark'  => esc_attr__( 'Dark', 'evolve' )
+						),
+						'default'  => 'light'
+					),
+					array(
+						'id'        => 'evl_content_background_color',
+						'title'     => esc_attr__( 'Or Custom Content Color', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Custom background color of content area', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#ffffff',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.content',
+								'function' => 'css',
+								'property' => 'background-color'
+							)
+						)
+					),
 					array(
 						'id'        => 'evl_content_background_image',
 						'title'     => esc_attr__( 'Content Image', 'evolve' ),
@@ -3019,96 +1362,11 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						)
 					),
 					array(
-						'id'       => 'evl_content_back',
-						'title'    => esc_attr__( 'Content Color', 'evolve' ),
-						'subtitle' => esc_attr__( 'Background color of content', 'evolve' ),
-						'type'     => 'select',
-						'options'  => array(
-							'light' => esc_attr__( 'Light', 'evolve' ),
-							'dark'  => esc_attr__( 'Dark', 'evolve' )
-						),
-						'default'  => 'light'
+						'id'     => 'evl-links-styling-subsec-section',
+						'title'  => esc_attr__( 'Links', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
 					),
-					array(
-						'id'        => 'evl_content_background_color',
-						'title'     => esc_attr__( 'Or Custom Content Color', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Custom background color of content area', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#ffffff',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.content',
-								'function' => 'css',
-								'property' => 'background-color'
-							)
-						)
-					)
-				)
-			)
-		);
-
-		/*
-			-- Widgets
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-styling-subsec-widgets-tab',
-				'title'      => esc_attr__( 'Widgets', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
-					array(
-						'id'       => 'evl_widget_background',
-						'title'    => esc_attr__( 'Enable Widget Title Custom Background', 'evolve' ),
-						'subtitle' => esc_attr__( 'Check this box if you want to enable custom background for widget titles', 'evolve' ),
-						'type'     => 'switch',
-						'on'       => esc_attr__( 'Enabled', 'evolve' ),
-						'off'      => esc_attr__( 'Disabled', 'evolve' ),
-						'default'  => 0
-					),
-					array(
-						'id'        => 'evl_widget_bgcolor',
-						'title'     => esc_attr__( 'Widget Title Custom Background', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Choose the color scheme for widgets background', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#273039',
-						'required'  => array(
-							array( 'evl_widget_background', '=', '1' )
-						),
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.widget-title-background',
-								'function' => 'css',
-								'property' => 'background-color'
-							),
-							array(
-								'element'  => '.widget-title-background',
-								'function' => 'css',
-								'property' => 'border-color'
-							)
-						)
-					),
-					array(
-						'id'       => 'evl_widget_background_image',
-						'title'    => esc_attr__( 'Disable Widget Content Boxed Background', 'evolve' ),
-						'subtitle' => esc_attr__( 'Check this box if you want to disable widget content boxed background', 'evolve' ),
-						'type'     => 'checkbox',
-						'default'  => 1
-					)
-				)
-			)
-		);
-
-		/*
-			-- Links
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-styling-subsec-links-buttons-tab',
-				'title'      => esc_attr__( 'Links', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
 					array(
 						'id'        => 'evl_general_link',
 						'title'     => esc_attr__( 'Primary Link Color', 'evolve' ),
@@ -3138,20 +1396,85 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 								'property' => 'color'
 							)
 						)
-					)
-				)
-			)
-		);
-
-		/*
-			-- Shadows
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-styling-subsec-shadows-tab',
-				'title'      => esc_attr__( 'Shadows', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
+					),
+					array(
+						'id'     => 'evl-fields-styling-subsec-section',
+						'title'  => esc_attr__( 'Form Fields', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
+					array(
+						'id'        => 'evl_form_bg_color',
+						'title'     => esc_attr__( 'Form Background Color', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Controls the background color of form text, textarea field', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#fcfcfc',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => 'input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus',
+								'function' => 'css',
+								'property' => 'background-color'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_form_text_color',
+						'title'     => esc_attr__( 'Form Text Color', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Controls the text, textarea color for forms', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#888888',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => 'input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus',
+								'function' => 'css',
+								'property' => 'color'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_form_border_color',
+						'title'     => esc_attr__( 'Form Border Color', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Controls the border color of form text, textarea fields', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#fcfcfc',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => 'input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus',
+								'function' => 'css',
+								'property' => 'border-color'
+							)
+						)
+					),
+					array(
+						'id'     => 'evl_radio_checkbox',
+						'title'  => esc_attr__( 'Radio, CheckBox, Active/Focus Items', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
+					array(
+						'id'        => 'evl_form_item_color',
+						'title'     => esc_attr__( 'Form Radio, CheckBox, Active/Focus Items Color', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Controls the color of form components - radio, checkbox, active/focus items etc.', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#492fb1',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale, .stars a:hover, .stars a.active',
+								'function' => 'css',
+								'property' => 'border-color'
+							)
+						)
+					),
+					array(
+						'id'     => 'evl-shadows-styling-subsec-section',
+						'title'  => esc_attr__( 'Shadows', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
 					array(
 						'id'       => 'evl_shadow_effect',
 						'title'    => esc_attr__( 'Shadow Effect', 'evolve' ),
@@ -3183,25 +1506,14 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 		);
 
 		/*
-			Components
+			Buttons
 			======================================= */
 
 		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'      => 'evl-component-main-tab',
-				'title'   => esc_attr__( 'Components', 'evolve' ),
-				'iconfix' => 'evolve-icon evolve-icon-components'
-			)
-		);
-
-		/*
-			-- Buttons
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-component-button-tab',
-				'title'      => esc_attr__( 'Buttons', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
+				'id'      => 'evl-buttons-main-tab',
+				'title'   => esc_attr__( 'Buttons', 'evolve' ),
+				'iconfix' => 'evolve-icon evolve-icon-buttons',
+				'fields'  => array(
 					array(
 						'id'       => 'evl_shortcode_button_shape',
 						'title'    => esc_attr__( 'Button Shape', 'evolve' ),
@@ -3413,91 +1725,6 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						),
 						'default'  => 'pulse'
 					),
-				)
-			)
-		);
-
-		/*
-			-- Forms
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'         => 'evl-component-forms',
-				'title'      => esc_attr__( 'Forms', 'evolve' ),
-				'subsection' => true,
-				'fields'     => array(
-					array(
-						'id'     => 'evl_text_textarea',
-						'title'  => esc_attr__( 'Text, TextArea', 'evolve' ),
-						'type'   => 'info',
-						'indent' => true
-					),
-					array(
-						'id'        => 'evl_form_bg_color',
-						'title'     => esc_attr__( 'Form Background Color', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Controls the background color of form text, textarea field', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#fcfcfc',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => 'input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus',
-								'function' => 'css',
-								'property' => 'background-color'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_form_text_color',
-						'title'     => esc_attr__( 'Form Text Color', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Controls the text, textarea color for forms', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#888888',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => 'input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus',
-								'function' => 'css',
-								'property' => 'color'
-							)
-						)
-					),
-					array(
-						'id'        => 'evl_form_border_color',
-						'title'     => esc_attr__( 'Form Border Color', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Controls the border color of form text, textarea fields', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#fcfcfc',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => 'input[type=text], input[type=email], input[type=password], input[type=file], input[type=tel], textarea, select, .form-control, .form-control:focus',
-								'function' => 'css',
-								'property' => 'border-color'
-							)
-						)
-					),
-					array(
-						'id'     => 'evl_radio_checkbox',
-						'title'  => esc_attr__( 'Radio, CheckBox, Active/Focus Items', 'evolve' ),
-						'type'   => 'info',
-						'indent' => true
-					),
-					array(
-						'id'        => 'evl_form_item_color',
-						'title'     => esc_attr__( 'Form Radio, CheckBox, Active/Focus Items Color', 'evolve' ),
-						'subtitle'  => esc_attr__( 'Controls the color of form components - radio, checkbox, active/focus items etc.', 'evolve' ),
-						'type'      => 'color',
-						'default'   => '#492fb1',
-						'transport' => 'postMessage',
-						'js_vars'   => array(
-							array(
-								'element'  => '.custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-radio .custom-control-input:checked~.custom-control-label::before, .nav-pills .nav-link.active, .dropdown-item.active, .dropdown-item:active, .woocommerce-store-notice, .comment-author .fn .badge-primary, .widget.woocommerce .count, .woocommerce-review-link, .woocommerce .onsale, .stars a:hover, .stars a.active',
-								'function' => 'css',
-								'property' => 'border-color'
-							)
-						)
-					)
 				)
 			)
 		);
@@ -4952,55 +3179,6 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 		);
 
 		/*
-			Extra
-			======================================= */
-
-		evolve_Kirki::setSection( $global_value['opt_name'], array(
-				'id'      => 'evl-extra-main-tab',
-				'title'   => esc_attr__( 'Extra', 'evolve' ),
-				'iconfix' => 'evolve-icon evolve-icon-extra',
-				'fields'  => array(
-					array(
-						'id'      => 'evl_pos_button',
-						'title'   => esc_attr__( 'Position of \'Back to Top\' Button', 'evolve' ),
-						'type'    => 'select',
-						'options' => array(
-							'disable' => esc_attr__( 'Disabled', 'evolve' ),
-							'left'    => esc_attr__( 'Left', 'evolve' ),
-							'right'   => esc_attr__( 'Right', 'evolve' ),
-							'middle'  => esc_attr__( 'Middle', 'evolve' )
-						),
-						'default' => 'right'
-					),
-					array(
-						'id'       => 'evl_edit_post',
-						'title'    => esc_attr__( 'Enable Edit Post/Page Link on The Front End', 'evolve' ),
-						'subtitle' => esc_attr__( 'Check this box if you want to display edit post/page link', 'evolve' ),
-						'type'     => 'checkbox',
-						'default'  => '0'
-					),
-					array(
-						'id'       => 'evl_fontawesome',
-						'title'    => esc_attr__( 'Disable Font Awesome', 'evolve' ),
-						'subtitle' => esc_attr__( 'Check the box to disable Font Awesome', 'evolve' ),
-						'type'     => 'checkbox',
-						'default'  => '0'
-					),
-					array(
-						'id'       => 'evl_fontawesome_shims',
-						'title'    => esc_attr__( 'Disable Font Awesome Conversion From Version 4 to 5', 'evolve' ),
-						'subtitle' => esc_attr__( 'Check the box to disable Font Awesome conversion from version 4 to 5 if you update the icons manually', 'evolve' ),
-						'type'     => 'checkbox',
-						'default'  => '0',
-						'required' => array(
-							array( 'evl_fontawesome', '=', '0' )
-						)
-					)
-				)
-			)
-		);
-
-		/*
 			WooCommerce
 			======================================= */
 
@@ -5060,6 +3238,1666 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'type'            => 'textarea',
 						'selector'        => '.myaccount_user_container .message-2',
 						'render_callback' => 'evl_woo_acc_msg_2'
+					)
+				)
+			)
+		);
+
+		/*
+			Custom Front Page Builder
+			======================================= */
+
+		evolve_Kirki::setSection( $global_value['opt_name'], array(
+				'id'      => 'evl-frontpage-main-tab',
+				'title'   => esc_attr__( 'Custom Front Page Builder', 'evolve' ),
+				'iconfix' => 'evolve-icon evolve-icon-builder'
+			)
+		);
+
+		/*
+			-- Elements Display & Order
+			======================================= */
+
+		evolve_Kirki::setSection( $global_value['opt_name'], array(
+				'id'         => 'evl-frontpage-general-tab',
+				'title'      => esc_attr__( 'Elements Display & Order', 'evolve' ),
+				'subsection' => true,
+				'fields'     => array(
+					array(
+						'id'     => 'evl-front-page-elements',
+						'title'  => esc_attr__( 'Front Page Elements Display and Order', 'evolve' ),
+						'type'   => 'section',
+						'indent' => true
+					),
+					array(
+						'id'      => 'evl_front_elements_header_area',
+						'title'   => esc_attr__( 'Header Area', 'evolve' ),
+						'type'    => 'sorter',
+						'options' => array(
+							'enabled'  => array(
+								'header' => esc_attr__( 'Header (REORDER ONLY)', 'evolve' ),
+							),
+							'disabled' => array(
+								'bootstrap_slider' => esc_attr__( 'Bootstrap Slider', 'evolve' ) . ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' ? esc_attr__( ' (ACTIVE)', 'evolve' ) : esc_attr__( ' (INACTIVE)', 'evolve' ) ),
+								'parallax_slider'  => esc_attr__( 'Parallax Slider', 'evolve' ) . ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == '1' ? esc_attr__( ' (ACTIVE)', 'evolve' ) : esc_attr__( ' (INACTIVE)', 'evolve' ) ),
+								'posts_slider'     => esc_attr__( 'Posts Slider', 'evolve' ) . ( evolve_theme_mod( 'evl_carousel_slider', '0' ) == '1' ? esc_attr__( ' (ACTIVE)', 'evolve' ) : esc_attr__( ' (INACTIVE)', 'evolve' ) )
+							)
+						)
+					),
+					array(
+						'id'       => 'evl_front_elements_content_display',
+						'title'    => esc_attr__( 'Content Elements Position', 'evolve' ),
+						'subtitle' => esc_attr__( 'Select the position of front page elements', 'evolve' ),
+						'type'     => 'select',
+						'options'  => array(
+							'above' => esc_attr__( 'Above/Below Content and Sidebar', 'evolve' ),
+							'next'  => esc_attr__( 'In Content And Next To Sidebar', 'evolve' ),
+						),
+						'default'  => 'above'
+					),
+					array(
+						'id'      => 'evl_front_elements_content_area',
+						'title'   => esc_attr__( 'Content Area', 'evolve' ),
+						'type'    => 'sorter',
+						'options' => $global_value['content_area']
+					)
+				)
+			)
+		);
+
+		/*
+			-- Content Boxes
+			======================================= */
+
+		evolve_Kirki::setSection( $global_value['opt_name'], array(
+				'id'         => 'evl-frontpage-content-boxes-tab',
+				'title'      => esc_attr__( 'Content Boxes', 'evolve' ),
+				'subsection' => true,
+				'fields'     => array(
+					array(
+						'id'       => 'evl_content_boxes_front_page',
+						'title'    => esc_attr__( 'Enable Content Boxes On Front Page', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check this box if you want to enable Content Boxes On Front Page', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0'
+					),
+					array(
+						'id'       => 'evl-front-page-subsec-content-boxes-element',
+						'title'    => esc_attr__( 'Items', 'evolve' ),
+						'type'     => 'info',
+						'selector' => '.home-content-boxes .badge',
+						'indent'   => true
+					),
+					// Content Box 1
+					array(
+						'id'     => 'evl-front-page-subsec-box1-start',
+						'title'  => esc_attr__( 'Content Box 1', 'evolve' ),
+						'type'   => 'section',
+						'indent' => true
+					),
+					array(
+						'id'      => 'evl_content_box1_enable',
+						'title'   => esc_attr__( 'Enable Content Box 1', 'evolve' ),
+						'type'    => 'switch',
+						'on'      => esc_attr__( 'Enabled', 'evolve' ),
+						'off'     => esc_attr__( 'Disabled', 'evolve' ),
+						'default' => 0
+					),
+					array(
+						'id'              => 'evl_content_box1_title',
+						'title'           => esc_attr__( 'Content Box 1 Title', 'evolve' ),
+						'type'            => 'text',
+						'selector'        => '.content-box.content-box-1 h5',
+						'render_callback' => 'evl_content_box1_title',
+						'required'        => array(
+							array( 'evl_content_box1_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'              => 'evl_content_box1_icon',
+						'title'           => esc_attr__( 'Content Box 1 Icon (Font Awesome)', 'evolve' ),
+						'type'            => 'text',
+						'selector'        => '.content-box.content-box-1 .card-img-top',
+						'render_callback' => 'evl_content_box1_icon',
+						'class'           => 'iconpicker-icon',
+						'required'        => array(
+							array( 'evl_content_box1_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'        => 'evl_content_box1_icon_color',
+						'title'     => esc_attr__( 'Content Box 1 Icon Color', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#8bb9c1',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.content-box.content-box-1 [class*=" fa-"]',
+								'function' => 'css',
+								'property' => 'color'
+							)
+						),
+						'required'  => array(
+							array( 'evl_content_box1_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'              => 'evl_content_box1_desc',
+						'title'           => esc_attr__( 'Content Box 1 description', 'evolve' ),
+						'type'            => 'textarea',
+						'selector'        => '.content-box.content-box-1 p',
+						'render_callback' => 'evl_content_box1_desc',
+						'required'        => array(
+							array( 'evl_content_box1_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'              => 'evl_content_box1_button',
+						'title'           => esc_attr__( 'Content Box 1 Button', 'evolve' ),
+						'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn btn-sm" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
+						'type'            => 'textarea',
+						'selector'        => '.content-box.content-box-1 .card-footer',
+						'render_callback' => 'evl_content_box1_button',
+						'required'        => array(
+							array( 'evl_content_box1_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'     => 'evl-front-page-subsec-box1-end',
+						'type'   => 'section',
+						'indent' => false
+					),
+					// Content Box 2
+					array(
+						'id'     => 'evl-front-page-subsec-box2-start',
+						'title'  => esc_attr__( 'Content Box 2', 'evolve' ),
+						'type'   => 'section',
+						'indent' => true
+					),
+					array(
+						'id'      => 'evl_content_box2_enable',
+						'title'   => esc_attr__( 'Enable Content Box 2', 'evolve' ),
+						'type'    => 'switch',
+						'on'      => esc_attr__( 'Enabled', 'evolve' ),
+						'off'     => esc_attr__( 'Disabled', 'evolve' ),
+						'default' => 0
+					),
+					array(
+						'id'              => 'evl_content_box2_title',
+						'title'           => esc_attr__( 'Content Box 2 Title', 'evolve' ),
+						'type'            => 'text',
+						'selector'        => '.content-box.content-box-2 h5',
+						'render_callback' => 'evl_content_box2_title',
+						'required'        => array(
+							array( 'evl_content_box2_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'              => 'evl_content_box2_icon',
+						'title'           => esc_attr__( 'Content Box 2 Icon (Font Awesome)', 'evolve' ),
+						'type'            => 'text',
+						'selector'        => '.content-box.content-box-2 .card-img-top',
+						'render_callback' => 'evl_content_box2_icon',
+						'class'           => 'iconpicker-icon',
+						'required'        => array(
+							array( 'evl_content_box2_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'        => 'evl_content_box2_icon_color',
+						'title'     => esc_attr__( 'Content Box 2 Icon Color', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#8ba3c1',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.content-box.content-box-2 [class*=" fa-"]',
+								'function' => 'css',
+								'property' => 'color'
+							)
+						),
+						'required'  => array(
+							array( 'evl_content_box2_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'              => 'evl_content_box2_desc',
+						'title'           => esc_attr__( 'Content Box 2 description', 'evolve' ),
+						'type'            => 'textarea',
+						'selector'        => '.content-box.content-box-2 p',
+						'render_callback' => 'evl_content_box2_desc',
+						'required'        => array(
+							array( 'evl_content_box2_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'              => 'evl_content_box2_button',
+						'title'           => esc_attr__( 'Content Box 2 Button', 'evolve' ),
+						'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn btn-sm" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
+						'type'            => 'textarea',
+						'selector'        => '.content-box.content-box-2 .card-footer',
+						'render_callback' => 'evl_content_box2_button',
+						'required'        => array(
+							array( 'evl_content_box2_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'     => 'evl-front-page-subsec-box2-end',
+						'type'   => 'section',
+						'indent' => false
+					),
+					// Content Box 3
+					array(
+						'id'     => 'evl-front-page-subsec-box3-start',
+						'title'  => esc_attr__( 'Content Box 3', 'evolve' ),
+						'type'   => 'section',
+						'indent' => true
+					),
+					array(
+						'id'      => 'evl_content_box3_enable',
+						'title'   => esc_attr__( 'Enable Content Box 3', 'evolve' ),
+						'type'    => 'switch',
+						'on'      => esc_attr__( 'Enabled', 'evolve' ),
+						'off'     => esc_attr__( 'Disabled', 'evolve' ),
+						'default' => 0
+					),
+					array(
+						'id'              => 'evl_content_box3_title',
+						'title'           => esc_attr__( 'Content Box 3 Title', 'evolve' ),
+						'type'            => 'text',
+						'selector'        => '.content-box.content-box-3 h5',
+						'render_callback' => 'evl_content_box3_title',
+						'required'        => array(
+							array( 'evl_content_box3_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'              => 'evl_content_box3_icon',
+						'title'           => esc_attr__( 'Content Box 3 Icon (Font Awesome)', 'evolve' ),
+						'type'            => 'text',
+						'selector'        => '.content-box.content-box-3 .card-img-top',
+						'render_callback' => 'evl_content_box3_icon',
+						'class'           => 'iconpicker-icon',
+						'required'        => array(
+							array( 'evl_content_box3_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'        => 'evl_content_box3_icon_color',
+						'title'     => esc_attr__( 'Content Box 3 Icon Color', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#8dc4b8',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.content-box.content-box-3 [class*=" fa-"]',
+								'function' => 'css',
+								'property' => 'color'
+							)
+						),
+						'required'  => array(
+							array( 'evl_content_box3_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'              => 'evl_content_box3_desc',
+						'title'           => esc_attr__( 'Content Box 3 description', 'evolve' ),
+						'type'            => 'textarea',
+						'selector'        => '.content-box.content-box-3 p',
+						'render_callback' => 'evl_content_box3_desc',
+						'required'        => array(
+							array( 'evl_content_box3_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'              => 'evl_content_box3_button',
+						'title'           => esc_attr__( 'Content Box 3 Button', 'evolve' ),
+						'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn btn-sm" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
+						'type'            => 'textarea',
+						'selector'        => '.content-box.content-box-3 .card-footer',
+						'render_callback' => 'evl_content_box3_button',
+						'required'        => array(
+							array( 'evl_content_box3_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'     => 'evl-front-page-subsec-box3-end',
+						'type'   => 'section',
+						'indent' => false
+					),
+					// Content Box 4
+					array(
+						'id'     => 'evl-front-page-subsec-box4-start',
+						'title'  => esc_attr__( 'Content Box 4', 'evolve' ),
+						'type'   => 'section',
+						'indent' => true
+					),
+					array(
+						'id'      => 'evl_content_box4_enable',
+						'title'   => esc_attr__( 'Enable Content Box 4', 'evolve' ),
+						'type'    => 'switch',
+						'on'      => esc_attr__( 'Enabled', 'evolve' ),
+						'off'     => esc_attr__( 'Disabled', 'evolve' ),
+						'default' => 0
+					),
+					array(
+						'id'              => 'evl_content_box4_title',
+						'title'           => esc_attr__( 'Content Box 4 Title', 'evolve' ),
+						'type'            => 'text',
+						'selector'        => '.content-box.content-box-4 h5',
+						'render_callback' => 'evl_content_box4_title',
+						'required'        => array(
+							array( 'evl_content_box4_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'              => 'evl_content_box4_icon',
+						'title'           => esc_attr__( 'Content Box 4 Icon (Font Awesome)', 'evolve' ),
+						'type'            => 'text',
+						'selector'        => '.content-box.content-box-4 .card-img-top',
+						'render_callback' => 'evl_content_box4_icon',
+						'class'           => 'iconpicker-icon',
+						'required'        => array(
+							array( 'evl_content_box4_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'        => 'evl_content_box4_icon_color',
+						'title'     => esc_attr__( 'Content Box 4 Icon Color', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#92bf89',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.content-box.content-box-4 [class*=" fa-"]',
+								'function' => 'css',
+								'property' => 'color'
+							)
+						),
+						'required'  => array(
+							array( 'evl_content_box4_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'              => 'evl_content_box4_desc',
+						'title'           => esc_attr__( 'Content Box 4 description', 'evolve' ),
+						'type'            => 'textarea',
+						'selector'        => '.content-box.content-box-4 p',
+						'render_callback' => 'evl_content_box4_desc',
+						'required'        => array(
+							array( 'evl_content_box4_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'              => 'evl_content_box4_button',
+						'title'           => esc_attr__( 'Content Box 4 Button', 'evolve' ),
+						'subtitle'        => sprintf( esc_attr__( 'Default: %1$s<a class="btn btn-sm" href="#">Learn more</a>%2$s', 'evolve' ), '<code>', '</code>' ),
+						'type'            => 'textarea',
+						'selector'        => '.content-box.content-box-4 .card-footer',
+						'render_callback' => 'evl_content_box4_button',
+						'required'        => array(
+							array( 'evl_content_box4_enable', '=', '1' )
+						)
+					),
+					array(
+						'id'        => 'evl_content_box_background_color',
+						'title'     => esc_attr__( 'Content Boxes Background Color', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#f9f9f9',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-content-boxes .card',
+								'function' => 'css',
+								'property' => 'background'
+							)
+						)
+					),
+					array(
+						'id'          => 'evl_content_boxes_title_font',
+						'title'       => esc_attr__( 'Content Boxes Title Font', 'evolve' ),
+						'subtitle'    => esc_attr__( 'Select the typography you want for your Content Boxes Title', 'evolve' ),
+						'type'        => 'typography',
+						'text-align'  => false,
+						'line-height' => false,
+						'default'     => array(
+							'font-size'   => '1.4rem',
+							'color'       => '#6b6b6b',
+							'font-family' => 'Roboto',
+							'font-weight' => '700'
+						),
+						'transport'   => 'postMessage',
+						'js_vars'     => array(
+							array(
+								'element' => '.content-box h5.card-title'
+							)
+						)
+					),
+					array(
+						'id'          => 'evl_content_boxes_description_font',
+						'title'       => esc_attr__( 'Content Boxes Description Font', 'evolve' ),
+						'subtitle'    => esc_attr__( 'Select the typography you want for your Content Boxes Description', 'evolve' ),
+						'type'        => 'typography',
+						'text-align'  => false,
+						'line-height' => false,
+						'default'     => array(
+							'font-size'   => '1.2rem',
+							'color'       => '#888888',
+							'font-family' => 'Roboto',
+							'font-weight' => '300'
+						),
+						'transport'   => 'postMessage',
+						'js_vars'     => array(
+							array(
+								'element' => '.content-box p'
+							)
+						)
+					),
+					array(
+						'id'     => 'evl-front-page-subsec-content-boxes-section-start',
+						'title'  => esc_attr__( 'Section Settings', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
+					array(
+						'id'              => 'evl_content_boxes_title',
+						'title'           => esc_attr__( 'Title of Content Boxes Section', 'evolve' ),
+						'type'            => 'text',
+						'selector'        => 'h3.content-box-section-title',
+						'render_callback' => 'evl_content_boxes_title'
+					),
+					array(
+						'id'          => 'evl_content_boxes_title_alignment',
+						'title'       => esc_attr__( 'Title Font, Alignment and Color', 'evolve' ),
+						'subtitle'    => esc_attr__( 'Select the font, alignment and color of the section title', 'evolve' ),
+						'type'        => 'typography',
+						'text-align'  => true,
+						'line-height' => false,
+						'default'     => array(
+							'font-size'   => '1.9rem',
+							'color'       => '#333333',
+							'font-family' => 'Roboto',
+							'font-weight' => '300',
+							'text-align'  => 'center'
+						),
+						'transport'   => 'postMessage',
+						'js_vars'     => array(
+							array(
+								'element' => 'h3.content-box-section-title'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_content_boxes_section_padding',
+						'title'     => esc_attr__( 'Section Padding', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Enter the section padding', 'evolve' ),
+						'type'      => 'spacing',
+						'units'     => array( 'px', 'em' ),
+						'default'   => array(
+							'padding-top'    => '25px',
+							'padding-right'  => '0',
+							'padding-bottom' => '25px',
+							'padding-left'   => '0',
+							'units'          => 'px'
+						),
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-content-boxes',
+								'function' => 'css',
+								'property' => 'padding'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_content_boxes_section_background_image',
+						'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
+						'type'      => 'media',
+						'url'       => true,
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-content-boxes',
+								'function' => 'css',
+								'property' => 'background-image'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_content_boxes_section_image',
+						'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'cover'   => esc_attr__( 'Cover', 'evolve' ),
+							'contain' => esc_attr__( 'Contain', 'evolve' ),
+							'none'    => esc_attr__( 'None', 'evolve' )
+						),
+						'default'   => 'cover',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-content-boxes',
+								'function' => 'css',
+								'property' => 'background-size'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_content_boxes_section_image_background_repeat',
+						'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
+							'repeat'    => esc_attr__( 'repeat', 'evolve' ),
+							'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
+							'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
+						),
+						'default'   => 'no-repeat',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-content-boxes',
+								'function' => 'css',
+								'property' => 'background-repeat'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_content_boxes_section_image_background_position',
+						'title'     => esc_attr__( 'Background Position', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'center top'    => esc_attr__( 'center top', 'evolve' ),
+							'center center' => esc_attr__( 'center center', 'evolve' ),
+							'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
+							'left top'      => esc_attr__( 'left top', 'evolve' ),
+							'left center'   => esc_attr__( 'left center', 'evolve' ),
+							'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
+							'right top'     => esc_attr__( 'right top', 'evolve' ),
+							'right center'  => esc_attr__( 'right center', 'evolve' ),
+							'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
+						),
+						'default'   => 'center top',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-content-boxes',
+								'function' => 'css',
+								'property' => 'background-position'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_content_boxes_section_back_color',
+						'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
+						'type'      => 'color',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-content-boxes',
+								'function' => 'css',
+								'property' => 'background-color'
+							)
+						)
+					),
+					array(
+						'id'     => 'evl-front-page-subsec-content-boxes-section-end',
+						'type'   => 'section',
+						'indent' => false
+					)
+				)
+			)
+		);
+
+		/*
+			-- Testimonials
+			======================================= */
+
+		$testimonial_fields = array();
+
+		for ( $i = 1; $i <= 2; $i ++ ) {
+
+			$testimonial_fields[] = array(
+				'id'      => "{$global_value['prefix']}_fp_testimonial{$i}",
+				'title'   => sprintf( esc_attr__( 'Enable Testimonial %d', 'evolve' ), $i ),
+				'type'    => 'switch',
+				'on'      => esc_attr__( 'Enabled', 'evolve' ),
+				'off'     => esc_attr__( 'Disabled', 'evolve' ),
+				'default' => 0
+			);
+
+			$testimonial_fields[] = array(
+				'id'       => "{$global_value['prefix']}_fp_testimonial{$i}_avatar",
+				'title'    => sprintf( esc_attr__( 'Testimonial %d Avatar', 'evolve' ), $i ),
+				'subtitle' => sprintf( esc_attr__( 'Upload an image for the Testimonial %d, or specify an image URL directly', 'evolve' ), $i ),
+				'type'     => "media",
+				'url'      => true,
+				'readonly' => false,
+				'required' => array(
+					array(
+						"{$global_value['prefix']}_fp_testimonial{$i}",
+						'=',
+						'1'
+					)
+				)
+			);
+
+			$testimonial_fields[] = array(
+				'id'              => "{$global_value['prefix']}_fp_testimonial{$i}_name",
+				'title'           => sprintf( esc_attr__( 'Testimonial %d Name', 'evolve' ), $i ),
+				'type'            => "text",
+				'selector'        => ".home-testimonials .item-{$i} .blockquote-footer strong",
+				'render_callback' => "{$global_value['prefix']}_fp_testimonial{$i}_name",
+				'required'        => array(
+					array(
+						"{$global_value['prefix']}_fp_testimonial{$i}",
+						'=',
+						'1'
+					)
+				)
+			);
+
+			$testimonial_fields[] = array(
+				'id'              => "{$global_value['prefix']}_fp_testimonial{$i}_content",
+				'title'           => sprintf( esc_attr__( 'Testimonial %d Content', 'evolve' ), $i ),
+				'type'            => "textarea",
+				"rows"            => 5,
+				'selector'        => ".home-testimonials .item-{$i} p",
+				'render_callback' => "{$global_value['prefix']}_fp_testimonial{$i}_content",
+				'required'        => array(
+					array(
+						"{$global_value['prefix']}_fp_testimonial{$i}",
+						'=',
+						'1'
+					)
+				)
+			);
+		}
+
+		evolve_Kirki::setSection( $global_value['opt_name'], array(
+				'id'         => 'evl-front-page-testimonials-tab',
+				'title'      => esc_attr__( 'Testimonials', 'evolve' ),
+				'subsection' => true,
+				'fields'     => array(
+					array(
+						'id'     => 'evl-fp-testimonials-general-start',
+						'title'  => esc_attr__( 'General', 'evolve' ),
+						'type'   => 'section',
+						'indent' => true
+					),
+					array(
+						'id'       => 'evl_testimonials_front_page',
+						'title'    => esc_attr__( 'Enable Testimonials On Front Page', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check this box if you want to enable Testimonials On Front Page', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0'
+					),
+					array(
+						'id'       => 'evl-front-page-subsec-testimonials-element-item',
+						'title'    => esc_attr__( 'Items', 'evolve' ),
+						'type'     => 'info',
+						'selector' => '.home-testimonials .badge',
+						'indent'   => true
+					),
+					$testimonial_fields[0],
+					$testimonial_fields[1],
+					$testimonial_fields[2],
+					$testimonial_fields[3],
+					$testimonial_fields[4],
+					$testimonial_fields[5],
+					$testimonial_fields[6],
+					$testimonial_fields[7],
+					array(
+						'id'        => 'evl_fp_testimonials_bg_color',
+						'title'     => esc_attr__( 'Background Color', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-testimonials .carousel',
+								'function' => 'css',
+								'property' => 'background-color'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_fp_testimonials_text_color',
+						'title'     => esc_attr__( 'Text Color', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#333333',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-testimonials blockquote, .home-testimonials blockquote footer',
+								'function' => 'css',
+								'property' => 'color'
+							)
+						)
+					),
+					// Section settings
+					array(
+						'id'     => 'evl-front-page-subsec-testimonials-section-start',
+						'title'  => esc_attr__( 'Section Settings', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
+					array(
+						'id'              => 'evl_testimonials_title',
+						'title'           => esc_attr__( 'Title of Testimonials Section', 'evolve' ),
+						'type'            => 'text',
+						'selector'        => 'h3.testimonials-section-title',
+						'render_callback' => 'evl_testimonials_title'
+					),
+					array(
+						'id'          => 'evl_testimonials_title_alignment',
+						'title'       => esc_attr__( 'Title Font, Alignment and Color', 'evolve' ),
+						'subtitle'    => esc_attr__( 'Select the font, alignment and color of the section title', 'evolve' ),
+						'type'        => 'typography',
+						'text-align'  => true,
+						'line-height' => false,
+						'default'     => array(
+							'font-size'   => '2.5rem',
+							'color'       => '#333333',
+							'font-family' => 'Roboto',
+							'font-weight' => '300',
+							'text-align'  => 'center'
+						),
+						'transport'   => 'postMessage',
+						'js_vars'     => array(
+							array(
+								'element' => 'h3.testimonials-section-title'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_testimonials_section_padding',
+						'title'     => esc_attr__( 'Section Padding', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Enter the section padding', 'evolve' ),
+						'type'      => 'spacing',
+						'units'     => array( 'px', 'em' ),
+						'default'   => array(
+							'padding-top'    => '40px',
+							'padding-right'  => '0',
+							'padding-bottom' => '40px',
+							'padding-left'   => '0',
+							'units'          => 'px'
+						),
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-testimonials',
+								'function' => 'css',
+								'property' => 'padding'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_testimonials_section_background_image',
+						'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
+						'type'      => 'media',
+						'url'       => true,
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-testimonials',
+								'function' => 'css',
+								'property' => 'background-image'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_testimonials_section_image',
+						'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'cover'   => esc_attr__( 'Cover', 'evolve' ),
+							'contain' => esc_attr__( 'Contain', 'evolve' ),
+							'none'    => esc_attr__( 'None', 'evolve' )
+						),
+						'default'   => 'cover',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-testimonials',
+								'function' => 'css',
+								'property' => 'background-size'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_testimonials_section_image_background_repeat',
+						'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
+							'repeat'    => esc_attr__( 'repeat', 'evolve' ),
+							'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
+							'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
+						),
+						'default'   => 'no-repeat',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-testimonials',
+								'function' => 'css',
+								'property' => 'background-repeat'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_testimonials_section_image_background_position',
+						'title'     => esc_attr__( 'Background Position', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'center top'    => esc_attr__( 'center top', 'evolve' ),
+							'center center' => esc_attr__( 'center center', 'evolve' ),
+							'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
+							'left top'      => esc_attr__( 'left top', 'evolve' ),
+							'left center'   => esc_attr__( 'left center', 'evolve' ),
+							'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
+							'right top'     => esc_attr__( 'right top', 'evolve' ),
+							'right center'  => esc_attr__( 'right center', 'evolve' ),
+							'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
+						),
+						'default'   => 'center top',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-testimonials',
+								'function' => 'css',
+								'property' => 'background-position'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_testimonials_section_back_color',
+						'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#efefef',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-testimonials',
+								'function' => 'css',
+								'property' => 'background-color'
+							)
+						)
+					),
+					array(
+						'id'     => 'evl-front-page-subsec-testimonials-section-end',
+						'type'   => 'section',
+						'indent' => false
+					)
+				)
+			)
+		);
+
+		/*
+			-- Counter Circle
+			======================================= */
+
+		$counter_circle_fields = array();
+		for ( $i = 1; $i <= 3; $i ++ ) {
+
+			$counter_circle_fields[] = array(
+				'id'      => "{$global_value['prefix']}_fp_counter_circle{$i}",
+				'title'   => sprintf( esc_attr__( 'Enable Counter Circle %d', 'evolve' ), $i ),
+				'type'    => 'switch',
+				'on'      => esc_attr__( 'Enabled', 'evolve' ),
+				'off'     => esc_attr__( 'Disabled', 'evolve' ),
+				'default' => 0
+			);
+
+			$counter_circle_fields[] = array(
+				'id'              => "{$global_value['prefix']}_fp_counter_circle{$i}_icon",
+				'title'           => sprintf( esc_attr__( 'Counter Circle %d Icon', 'evolve' ), $i ),
+				'subtitle'        => esc_attr__( 'Click an icon to select', 'evolve' ),
+				'type'            => 'text',
+				'class'           => 'iconpicker-icon',
+				'selector'        => ".home-counter-circle .item-{$i} .counter-icon",
+				'render_callback' => "{$global_value['prefix']}_fp_counter_circle{$i}_icon",
+				'required'        => array(
+					array(
+						"{$global_value['prefix']}_fp_counter_circle{$i}",
+						'=',
+						'1'
+					)
+				)
+			);
+
+			$counter_circle_fields[] = array(
+				'id'       => "{$global_value['prefix']}_fp_counter_circle{$i}_percentage",
+				'title'    => sprintf( esc_attr__( 'Counter Circle %d Percentage', 'evolve' ), $i ),
+				'subtitle' => esc_attr__( 'From 1% to 100%', 'evolve' ),
+				'type'     => 'slider',
+				'min'      => '0',
+				'max'      => '100',
+				'default'  => '33',
+				'required' => array(
+					array(
+						"{$global_value['prefix']}_fp_counter_circle{$i}",
+						'=',
+						'1'
+					)
+				)
+			);
+
+			$counter_circle_fields[] = array(
+				'id'              => "{$global_value['prefix']}_fp_counter_circle{$i}_text",
+				'title'           => sprintf( esc_attr__( 'Counter Circle %d Text', 'evolve' ), $i ),
+				'subtitle'        => esc_attr__( 'Insert text for counter circle box, keep it short', 'evolve' ),
+				'type'            => 'text',
+				'selector'        => ".home-counter-circle .item-{$i} .counter-text-title",
+				'render_callback' => "{$global_value['prefix']}_fp_counter_circle{$i}_text",
+				'required'        => array(
+					array(
+						"{$global_value['prefix']}_fp_counter_circle{$i}",
+						'=',
+						'1'
+					)
+				)
+			);
+
+			$counter_circle_fields[] = array(
+				'id'       => "{$global_value['prefix']}_fp_counter_circle{$i}_filledcolor",
+				'title'    => sprintf( esc_attr__( 'Counter Circle %d Filled Color', 'evolve' ), $i ),
+				'subtitle' => esc_attr__( 'Controls the color of the filled in area', 'evolve' ),
+				'type'     => 'color',
+				'default'  => '#3e9c91',
+				'required' => array(
+					array(
+						"{$global_value['prefix']}_fp_counter_circle{$i}",
+						'=',
+						'1'
+					)
+				)
+			);
+
+			$counter_circle_fields[] = array(
+				'id'       => "{$global_value['prefix']}_fp_counter_circle{$i}_unfilledcolor",
+				'title'    => sprintf( esc_attr__( 'Counter Circle %d Unfilled Color', 'evolve' ), $i ),
+				'subtitle' => esc_attr__( 'Controls the color of the unfilled in area', 'evolve' ),
+				'type'     => 'color',
+				'default'  => '#53cabc',
+				'required' => array(
+					array(
+						"{$global_value['prefix']}_fp_counter_circle{$i}",
+						'=',
+						'1'
+					)
+				)
+			);
+		}
+
+		evolve_Kirki::setSection( $global_value['opt_name'], array(
+				'id'         => 'evl-front-page-counter-circle-tab',
+				'title'      => esc_attr__( 'Counter Circle', 'evolve' ),
+				'subsection' => true,
+				'fields'     => array(
+					array(
+						'id'       => 'evl_counter_circle_front_page',
+						'title'    => esc_attr__( 'Enable Counter Circles On Front Page', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check this box if you want to enable Counter Circles On Front Page', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0'
+					),
+					array(
+						'id'       => 'evl-front-page-subsec-counter-circle-element-item',
+						'title'    => esc_attr__( 'Items', 'evolve' ),
+						'type'     => 'info',
+						'selector' => '.home-counter-circle .badge',
+						'indent'   => true
+					),
+					$counter_circle_fields[0],
+					$counter_circle_fields[1],
+					$counter_circle_fields[2],
+					$counter_circle_fields[3],
+					$counter_circle_fields[4],
+					$counter_circle_fields[5],
+					$counter_circle_fields[6],
+					$counter_circle_fields[7],
+					$counter_circle_fields[8],
+					$counter_circle_fields[9],
+					$counter_circle_fields[10],
+					$counter_circle_fields[11],
+					$counter_circle_fields[12],
+					$counter_circle_fields[13],
+					$counter_circle_fields[14],
+					$counter_circle_fields[15],
+					$counter_circle_fields[16],
+					$counter_circle_fields[17],
+					array(
+						'id'          => 'evl_counter_circle_title_text',
+						'title'       => esc_attr__( 'Counter Circle Text Font', 'evolve' ),
+						'subtitle'    => esc_attr__( 'Select the font and color of the counter circle text and icon', 'evolve' ),
+						'type'        => 'typography',
+						'text-align'  => true,
+						'line-height' => false,
+						'default'     => array(
+							'font-size'   => '1.5rem',
+							'color'       => '#ffffff',
+							'font-family' => 'Roboto',
+							'font-weight' => '300',
+						),
+						'transport'   => 'postMessage',
+						'js_vars'     => array(
+							array(
+								'element' => '.counter-circle-text, .counter-circle-text h5'
+							)
+						)
+					),
+					array(
+						'id'     => 'evl-fp-counter-circle-slides-end',
+						'type'   => 'section',
+						'indent' => false
+					),
+					// Section settings
+					array(
+						'id'     => 'evl-front-page-subsec-counter-circle-section-start',
+						'title'  => esc_attr__( 'Section Settings', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
+					array(
+						'id'              => 'evl_counter_circle_title',
+						'title'           => esc_attr__( 'Title of Counter Circle Section', 'evolve' ),
+						'type'            => 'text',
+						'selector'        => 'h3.counter-circle-section-title',
+						'render_callback' => 'evl_counter_circle_title'
+					),
+					array(
+						'id'          => 'evl_counter_circle_title_alignment',
+						'title'       => esc_attr__( 'Title Font, Alignment and Color', 'evolve' ),
+						'subtitle'    => esc_attr__( 'Select the font, alignment and color of the section title', 'evolve' ),
+						'type'        => 'typography',
+						'text-align'  => true,
+						'line-height' => false,
+						'default'     => array(
+							'font-size'   => '2rem',
+							'color'       => '#ffffff',
+							'font-family' => 'Roboto',
+							'font-weight' => '500',
+							'text-align'  => 'center'
+						),
+						'transport'   => 'postMessage',
+						'js_vars'     => array(
+							array(
+								'element' => 'h3.counter-circle-section-title'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_counter_circle_section_padding',
+						'title'     => esc_attr__( 'Section Padding', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Enter the section padding', 'evolve' ),
+						'type'      => 'spacing',
+						'units'     => array( 'px', 'em' ),
+						'default'   => array(
+							'padding-top'    => '40px',
+							'padding-right'  => '0',
+							'padding-bottom' => '40px',
+							'padding-left'   => '0',
+							'units'          => 'px'
+						),
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-counter-circle',
+								'function' => 'css',
+								'property' => 'padding'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_counter_circle_section_background_image',
+						'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
+						'type'      => 'media',
+						'url'       => true,
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-counter-circle',
+								'function' => 'css',
+								'property' => 'background-image'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_counter_circle_section_image',
+						'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'cover'   => esc_attr__( 'Cover', 'evolve' ),
+							'contain' => esc_attr__( 'Contain', 'evolve' ),
+							'none'    => esc_attr__( 'None', 'evolve' )
+						),
+						'default'   => 'cover',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-counter-circle',
+								'function' => 'css',
+								'property' => 'background-size'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_counter_circle_section_image_background_repeat',
+						'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
+							'repeat'    => esc_attr__( 'repeat', 'evolve' ),
+							'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
+							'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
+						),
+						'default'   => 'no-repeat',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-counter-circle',
+								'function' => 'css',
+								'property' => 'background-repeat'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_counter_circle_section_image_background_position',
+						'title'     => esc_attr__( 'Background Position', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'center top'    => esc_attr__( 'center top', 'evolve' ),
+							'center center' => esc_attr__( 'center center', 'evolve' ),
+							'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
+							'left top'      => esc_attr__( 'left top', 'evolve' ),
+							'left center'   => esc_attr__( 'left center', 'evolve' ),
+							'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
+							'right top'     => esc_attr__( 'right top', 'evolve' ),
+							'right center'  => esc_attr__( 'right center', 'evolve' ),
+							'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
+						),
+						'default'   => 'center top',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-counter-circle',
+								'function' => 'css',
+								'property' => 'background-position'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_counter_circle_section_back_color',
+						'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#41d6c2',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-counter-circle',
+								'function' => 'css',
+								'property' => 'background-color'
+							)
+						)
+					),
+					array(
+						'id'     => 'evl-front-page-subsec-counter-circle-section-end',
+						'type'   => 'section',
+						'indent' => false
+					)
+				)
+			)
+		);
+
+		/*
+			-- WooCommerce Products
+			======================================= */
+
+		if ( class_exists( 'Woocommerce' ) ) :
+			evolve_Kirki::setSection( $global_value['opt_name'], array(
+					'id'         => 'evl-fp-woo-product-general-tab',
+					'title'      => esc_attr__( 'WooCommerce Products', 'evolve' ),
+					'subsection' => true,
+					'fields'     => array(
+						array(
+							'id'       => 'evl_fp_woo_product',
+							'title'    => esc_attr__( 'Product Categories', 'evolve' ),
+							'subtitle' => esc_attr__( 'Please select a category which contains some products', 'evolve' ),
+							'type'     => 'select',
+							'multi'    => 1,
+							'options'  => $global_value['product_taxonomy'],
+						),
+						array(
+							'id'       => 'evl_fp_woo_product_number',
+							'title'    => esc_attr__( 'Number Of Products To Display', 'evolve' ),
+							'subtitle' => esc_attr__( 'Select the number of Products To Display', 'evolve' ),
+							'type'     => 'select',
+							'options'  => evolve_woocommerce_product_number( 36, true, true ),
+							'default'  => '4'
+						),
+						// Section settings
+						array(
+							'id'     => 'evl-front-page-subsec-woo-product-section-start',
+							'title'  => esc_attr__( 'Section Settings', 'evolve' ),
+							'type'   => 'info',
+							'indent' => true
+						),
+						array(
+							'id'              => 'evl_woo_product_title',
+							'title'           => esc_attr__( 'Title of WooCommerce Product Section', 'evolve' ),
+							'type'            => 'text',
+							'selector'        => 'h3.woo-product-section-title',
+							'render_callback' => 'evl_woo_product_title'
+						),
+						array(
+							'id'          => 'evl_woo_product_title_alignment',
+							'title'       => esc_attr__( 'Title Font, Alignment and Color', 'evolve' ),
+							'subtitle'    => esc_attr__( 'Select the font, alignment and color of the section title', 'evolve' ),
+							'type'        => 'typography',
+							'text-align'  => true,
+							'line-height' => false,
+							'default'     => array(
+								'font-size'   => '1.9rem',
+								'color'       => '#333333',
+								'font-family' => 'Roboto',
+								'font-weight' => '700',
+								'text-align'  => 'center'
+							),
+							'transport'   => 'postMessage',
+							'js_vars'     => array(
+								array(
+									'element' => 'h3.woo-product-section-title'
+								)
+							)
+						),
+						array(
+							'id'        => 'evl_woo_product_section_padding',
+							'title'     => esc_attr__( 'Section Padding', 'evolve' ),
+							'subtitle'  => esc_attr__( 'Enter the section padding', 'evolve' ),
+							'type'      => 'spacing',
+							'units'     => array( 'px', 'em' ),
+							'default'   => array(
+								'padding-top'    => '40px',
+								'padding-right'  => '0',
+								'padding-bottom' => '40px',
+								'padding-left'   => '0',
+								'units'          => 'px'
+							),
+							'transport' => 'postMessage',
+							'js_vars'   => array(
+								array(
+									'element'  => '.home-woo-product',
+									'function' => 'css',
+									'property' => 'padding'
+								)
+							)
+						),
+						array(
+							'id'        => 'evl_woo_product_section_background_image',
+							'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
+							'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
+							'type'      => 'media',
+							'url'       => true,
+							'transport' => 'postMessage',
+							'js_vars'   => array(
+								array(
+									'element'  => '.home-woo-product',
+									'function' => 'css',
+									'property' => 'background-image'
+								)
+							)
+						),
+						array(
+							'id'        => 'evl_woo_product_section_image',
+							'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
+							'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
+							'type'      => 'select',
+							'options'   => array(
+								'cover'   => esc_attr__( 'Cover', 'evolve' ),
+								'contain' => esc_attr__( 'Contain', 'evolve' ),
+								'none'    => esc_attr__( 'None', 'evolve' )
+							),
+							'default'   => 'cover',
+							'transport' => 'postMessage',
+							'js_vars'   => array(
+								array(
+									'element'  => '.home-woo-product',
+									'function' => 'css',
+									'property' => 'background-size'
+								)
+							)
+						),
+						array(
+							'id'        => 'evl_woo_product_section_image_background_repeat',
+							'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+							'type'      => 'select',
+							'options'   => array(
+								'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
+								'repeat'    => esc_attr__( 'repeat', 'evolve' ),
+								'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
+								'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
+							),
+							'default'   => 'no-repeat',
+							'transport' => 'postMessage',
+							'js_vars'   => array(
+								array(
+									'element'  => '.home-woo-product',
+									'function' => 'css',
+									'property' => 'background-repeat'
+								)
+							)
+						),
+						array(
+							'id'        => 'evl_woo_product_section_image_background_position',
+							'title'     => esc_attr__( 'Background Position', 'evolve' ),
+							'type'      => 'select',
+							'options'   => array(
+								'center top'    => esc_attr__( 'center top', 'evolve' ),
+								'center center' => esc_attr__( 'center center', 'evolve' ),
+								'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
+								'left top'      => esc_attr__( 'left top', 'evolve' ),
+								'left center'   => esc_attr__( 'left center', 'evolve' ),
+								'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
+								'right top'     => esc_attr__( 'right top', 'evolve' ),
+								'right center'  => esc_attr__( 'right center', 'evolve' ),
+								'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
+							),
+							'default'   => 'center top',
+							'transport' => 'postMessage',
+							'js_vars'   => array(
+								array(
+									'element'  => '.home-woo-product',
+									'function' => 'css',
+									'property' => 'background-position'
+								)
+							)
+						),
+						array(
+							'id'        => 'evl_woo_product_section_back_color',
+							'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
+							'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
+							'type'      => 'color',
+							'default'   => '#fafafa',
+							'transport' => 'postMessage',
+							'js_vars'   => array(
+								array(
+									'element'  => '.home-woo-product',
+									'function' => 'css',
+									'property' => 'background-color'
+								)
+							)
+						),
+						array(
+							'id'     => 'evl-front-page-subsec-woo-product-section-end',
+							'type'   => 'section',
+							'indent' => false
+						)
+					)
+				)
+			);
+
+		endif;
+
+		/*
+			-- Custom Content
+			======================================= */
+
+		evolve_Kirki::setSection( $global_value['opt_name'], array(
+				'id'         => 'evl-fp-custom-content-general-tab',
+				'title'      => esc_attr__( 'Custom Content', 'evolve' ),
+				'subsection' => true,
+				'fields'     => array(
+					array(
+						'id'       => 'evl_custom_content_front_page',
+						'title'    => esc_attr__( 'Enable Custom Content On Front Page', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check this box if you want to enable Custom Content On Front Page', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0'
+					),
+					array(
+						'id'       => 'evl-front-page-subsec-custom-content-element',
+						'title'    => esc_attr__( 'Custom Content Element', 'evolve' ),
+						'type'     => 'info',
+						'selector' => '.home-custom-content .badge',
+						'indent'   => true
+					),
+					array(
+						'id'              => 'evl_fp_custom_content_editor',
+						'title'           => esc_attr__( 'Custom Content', 'evolve' ),
+						'subtitle'        => esc_attr__( 'Add Custom Content to Front Page', 'evolve' ),
+						'type'            => 'editor',
+						'selector'        => '.home-custom-content .custom-content-wrapper',
+						'render_callback' => 'evl_fp_custom_content_editor'
+					),
+					// Section settings
+					array(
+						'id'     => 'evl-front-page-subsec-custom-content-section-start',
+						'title'  => esc_attr__( 'Section Settings', 'evolve' ),
+						'type'   => 'info',
+						'indent' => true
+					),
+					array(
+						'id'              => 'evl_custom_content_title',
+						'title'           => esc_attr__( 'Title of Custom Content Section', 'evolve' ),
+						'type'            => 'text',
+						'selector'        => 'h3.custom-content-section-title',
+						'render_callback' => 'evl_custom_content_title'
+					),
+					array(
+						'id'          => 'evl_custom_content_title_alignment',
+						'title'       => esc_attr__( 'Title Font, Alignment and Color', 'evolve' ),
+						'subtitle'    => esc_attr__( 'Select the font, alignment and color of the section title', 'evolve' ),
+						'type'        => 'typography',
+						'text-align'  => true,
+						'line-height' => false,
+						'default'     => array(
+							'font-size'   => '1.9rem',
+							'color'       => '#333333',
+							'font-family' => 'Roboto',
+							'font-weight' => '500',
+							'text-align'  => 'center'
+						),
+						'transport'   => 'postMessage',
+						'js_vars'     => array(
+							array(
+								'element' => 'h3.custom-content-section-title'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_custom_content_section_padding',
+						'title'     => esc_attr__( 'Section Padding', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Enter the section padding', 'evolve' ),
+						'type'      => 'spacing',
+						'units'     => array( 'px', 'em' ),
+						'default'   => array(
+							'padding-top'    => '40px',
+							'padding-right'  => '0',
+							'padding-bottom' => '40px',
+							'padding-left'   => '0',
+							'units'          => 'px'
+						),
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-custom-content',
+								'function' => 'css',
+								'property' => 'padding'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_custom_content_section_background_image',
+						'title'     => esc_attr__( 'Section Background Image', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Upload a background image for this section, or specify an image URL directly', 'evolve' ),
+						'type'      => 'media',
+						'url'       => true,
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-custom-content',
+								'function' => 'css',
+								'property' => 'background-image'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_custom_content_section_image',
+						'title'     => esc_attr__( 'Background Image Responsiveness Style', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Select if the section background image should be displayed in cover or contain size', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'cover'   => esc_attr__( 'Cover', 'evolve' ),
+							'contain' => esc_attr__( 'Contain', 'evolve' ),
+							'none'    => esc_attr__( 'None', 'evolve' )
+						),
+						'default'   => 'cover',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-custom-content',
+								'function' => 'css',
+								'property' => 'background-size'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_custom_content_section_image_background_repeat',
+						'title'     => esc_attr__( 'Background Repeat', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'no-repeat' => esc_attr__( 'no-repeat', 'evolve' ),
+							'repeat'    => esc_attr__( 'repeat', 'evolve' ),
+							'repeat-x'  => esc_attr__( 'repeat-x', 'evolve' ),
+							'repeat-y'  => esc_attr__( 'repeat-y', 'evolve' )
+						),
+						'default'   => 'no-repeat',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-custom-content',
+								'function' => 'css',
+								'property' => 'background-repeat'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_custom_content_section_image_background_position',
+						'title'     => esc_attr__( 'Background Position', 'evolve' ),
+						'type'      => 'select',
+						'options'   => array(
+							'center top'    => esc_attr__( 'center top', 'evolve' ),
+							'center center' => esc_attr__( 'center center', 'evolve' ),
+							'center bottom' => esc_attr__( 'center bottom', 'evolve' ),
+							'left top'      => esc_attr__( 'left top', 'evolve' ),
+							'left center'   => esc_attr__( 'left center', 'evolve' ),
+							'left bottom'   => esc_attr__( 'left bottom', 'evolve' ),
+							'right top'     => esc_attr__( 'right top', 'evolve' ),
+							'right center'  => esc_attr__( 'right center', 'evolve' ),
+							'right bottom'  => esc_attr__( 'right bottom', 'evolve' )
+						),
+						'default'   => 'center top',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-custom-content',
+								'function' => 'css',
+								'property' => 'background-position'
+							)
+						)
+					),
+					array(
+						'id'        => 'evl_custom_content_section_back_color',
+						'title'     => esc_attr__( 'Section Background Color', 'evolve' ),
+						'subtitle'  => esc_attr__( 'Custom background color of section', 'evolve' ),
+						'type'      => 'color',
+						'default'   => '#93f2d7',
+						'transport' => 'postMessage',
+						'js_vars'   => array(
+							array(
+								'element'  => '.home-custom-content',
+								'function' => 'css',
+								'property' => 'background-color'
+							)
+						)
+					),
+					array(
+						'id'     => 'evl-front-page-subsec-custom-content-section-end',
+						'type'   => 'section',
+						'indent' => false
+					)
+				)
+			)
+		);
+
+		/*
+			Extra
+			======================================= */
+
+		evolve_Kirki::setSection( $global_value['opt_name'], array(
+				'id'      => 'evl-extra-main-tab',
+				'title'   => esc_attr__( 'Extra Settings', 'evolve' ),
+				'iconfix' => 'evolve-icon evolve-icon-extra',
+				'fields'  => array(
+					array(
+						'id'      => 'evl_pos_button',
+						'title'   => esc_attr__( 'Position of \'Back to Top\' Button', 'evolve' ),
+						'type'    => 'select',
+						'options' => array(
+							'disable' => esc_attr__( 'Disabled', 'evolve' ),
+							'left'    => esc_attr__( 'Left', 'evolve' ),
+							'right'   => esc_attr__( 'Right', 'evolve' ),
+							'middle'  => esc_attr__( 'Middle', 'evolve' )
+						),
+						'default' => 'right'
+					),
+					array(
+						'id'       => 'evl_edit_post',
+						'title'    => esc_attr__( 'Enable Edit Post/Page Link on The Front End', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check this box if you want to display edit post/page link', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0'
+					),
+					array(
+						'id'       => 'evl_google_fonts',
+						'title'    => esc_attr__( 'Disable Google Fonts Library', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check the box to disable the Google Fonts library on the front end', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0'
+					),
+					array(
+						'id'       => 'evl_fontawesome',
+						'title'    => esc_attr__( 'Disable Font Awesome', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check the box to disable Font Awesome', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0'
+					),
+					array(
+						'id'       => 'evl_fontawesome_shims',
+						'title'    => esc_attr__( 'Disable Font Awesome Conversion From Version 4 to 5', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check the box to disable Font Awesome conversion from version 4 to 5 if you update the icons manually', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0',
+						'required' => array(
+							array( 'evl_fontawesome', '=', '0' )
+						)
+					),
+					array(
+						'id'       => 'evl_jquery',
+						'title'    => esc_attr__( 'Move jQuery To The Header', 'evolve' ),
+						'subtitle' => esc_attr__( 'Check the box to move the jQuery library to the header area (decreases page speed rating, improves some plugin\'s compatibility', 'evolve' ),
+						'type'     => 'checkbox',
+						'default'  => '0'
 					)
 				)
 			)
