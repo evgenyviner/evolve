@@ -12,7 +12,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.5.0
+ * @version 3.6.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 do_action( 'woocommerce_before_customer_login_form' ); ?>
 
-<?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
+<?php if ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) ) : ?>
 
 <div class="row">
 
@@ -71,7 +71,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
         </form>
 
-		<?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
+<?php if ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) ) : ?>
 
     </div>
 
@@ -112,6 +112,10 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
                     <input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="password"
                            id="reg_password" autocomplete="new-password"/>
                 </p>
+
+			<?php else : ?>
+
+				<p><?php esc_html_e( 'A password will be sent to your email address.', 'evolve' ); ?></p>
 
 			<?php endif; ?>
 

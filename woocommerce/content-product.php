@@ -12,7 +12,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.4.0
+ * @version 3.6.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -25,7 +25,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 
-<div <?php wc_product_class( 'card text-center' ); ?>>
+<div <?php wc_product_class( 'card text-center', $product ); ?>>
 
 	<?php
 	/**
@@ -39,7 +39,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 		<?php
 		/**
-		 * woocommerce_before_shop_loop_item_title hook
+	 * Hook: woocommerce_before_shop_loop_item_title.
 		 *
 		 * @hooked woocommerce_show_product_loop_sale_flash - 10
 		 * @hooked woocommerce_template_loop_product_thumbnail - 10

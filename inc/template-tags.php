@@ -1171,14 +1171,6 @@ if ( ! function_exists( 'evolve_social_media_links' ) ) {
                 </li>
 
 			<?php }
-			if ( ! empty( $googleplus ) ) { ?>
-
-                <li><a target="_blank" href="<?php echo $googleplus; ?>" data-toggle="tooltip"
-                       data-placement="bottom"
-                       title="<?php esc_html_e( 'Google Plus', 'evolve' ); ?>"><?php echo evolve_get_svg( 'google-plus' ); ?></a>
-                </li>
-
-			<?php }
 			if ( ! empty( $instagram ) ) { ?>
 
                 <li><a target="_blank" href="<?php echo $instagram; ?>" data-toggle="tooltip"
@@ -1273,13 +1265,6 @@ if ( ! function_exists( 'evolve_sharethis' ) ) {
                        href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&amp;t=<?php echo $post->post_title; ?>">
 
 						<?php echo evolve_get_svg( 'facebook' ); ?>
-
-                    </a>
-                    <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-                       title="<?php esc_html_e( 'Share on Google Plus', 'evolve' ); ?>" target="_blank"
-                       href="https://plus.google.com/share?url=<?php the_permalink(); ?>">
-
-						<?php echo evolve_get_svg( 'google-plus' ); ?>
 
                     </a>
                     <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
