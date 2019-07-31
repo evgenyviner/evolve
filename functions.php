@@ -1,5 +1,47 @@
 <?php
 
+
+
+add_filter('theme_mod_evl_bootstrap_slider_repeater', 'evole_change_bootstrap_slider_repeater', 999);
+add_filter('theme_mod_evl_parallax_slider_repeater', 'evole_change_parallax_slider_repeater', 999);
+
+
+function evole_change_parallax_slider_repeater($mod){
+
+    return evole_change_draft_mods('evl_parallax_slider_repeater',$mod);
+}
+function evole_change_bootstrap_slider_repeater($mod)
+{
+    return evole_change_draft_mods('evl_bootstrap_slider_repeater',$mod);
+}
+
+
+
+function evole_change_draft_mods($option, $mod){
+    //  var_dump($mod);
+    global $wp_customize, $wpdb;
+
+    if($wp_customize->changeset_uuid()) {
+        try {
+            $sql = $wpdb->prepare(
+                "SELECT post_content FROM `wp_posts` WHERE `post_type` = 'customize_changeset' and `post_name` = %s",
+                $wp_customize->changeset_uuid()
+            );
+
+            $res = $wpdb->get_results($sql);
+            $obj = json_decode($res[0]->post_content, 1);
+
+
+            return json_decode(urldecode($obj['evolve-plus::'.$option]['value']), 1);
+        } catch (\Exception $e){
+            return $mod;
+        }
+    } else {
+        return $mod;
+    }
+}
+
+
 /*
 	Main Functions Definitions
 
