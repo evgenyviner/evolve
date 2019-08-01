@@ -29,7 +29,7 @@ function evole_change_draft_mods($option, $mod){
             );
 
             $res = $wpdb->get_results($sql);
-            $obj = json_decode($res[0]->post_content, 1);
+            $obj = json_decode($res[0]->post_content ?? false, 1);
 
 
             return json_decode(urldecode($obj['evolve-plus::'.$option]['value']), 1);
@@ -469,6 +469,10 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 		if ( ( get_post_meta( evolve_get_post_id(), 'evolve_slider_type', true ) == 'parallax' && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" ) || ( evolve_theme_mod( 'evl_parallax_slider', '0' ) == "1" && evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_front_page() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) || ( evolve_theme_mod( 'evl_parallax_slider_support', '0' ) == "1" && is_home() && ( evolve_theme_mod( 'evl_front_elements_header_area', array( 'parallax_slider' ) ) ) ) ):
 			$local_variables['parallax_slider'] = true;
 		endif;
+        if(get_theme_mod('evl_parallax_slider_front_page',false) && is_front_page()):
+            $local_variables['parallax_slider'] = true;
+
+        endif;
 
 		// Infinite Scroll
 
