@@ -29,8 +29,11 @@ function evole_change_draft_mods($option, $mod){
             );
 
             $res = $wpdb->get_results($sql);
-            $obj = json_decode($res[0]->post_content ?? false, 1);
-
+            if(isset($res[0]->post_content)) {
+                $obj = json_decode($res[0]->post_content , 1);
+            } else {
+                $obj = [];
+            }
 
             return json_decode(urldecode($obj['evolve-plus::'.$option]['value']), 1);
         } catch (\Exception $e){
