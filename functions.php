@@ -18,7 +18,7 @@ function evole_change_bootstrap_slider_repeater($mod)
 
 
 function evole_change_draft_mods($option, $mod){
-    //  var_dump($mod);
+
     global $wp_customize, $wpdb;
 
     if($wp_customize->changeset_uuid()) {
