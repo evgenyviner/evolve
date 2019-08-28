@@ -3323,3 +3323,7 @@ h3.no-content {
         right: 15%;
     }
 }
+/*fixed issue with plugin Page menu*/
+.open .pagemenu-hide {
+    display: block !important;
+}
