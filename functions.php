@@ -17,11 +17,18 @@ function evole_change_bootstrap_slider_repeater($mod)
 
 
 
-function evole_change_draft_mods($option, $mod){
+/**
+ * Get value from draft
+ * @param $option
+ * @param $mod
+ * @return array|mixed|object
+ */
+function evole_change_draft_mods($option, $mod)
+{
 
     global $wp_customize, $wpdb;
 
-    if($wp_customize->changeset_uuid()) {
+    if ($wp_customize->changeset_uuid() && is_customize_preview()) {
         try {
             $sql = $wpdb->prepare(
                 "SELECT post_content FROM `wp_posts` WHERE `post_type` = 'customize_changeset' and `post_name` = %s",
@@ -29,14 +36,22 @@ function evole_change_draft_mods($option, $mod){
             );
 
             $res = $wpdb->get_results($sql);
-            if(isset($res[0]->post_content)) {
-                $obj = json_decode($res[0]->post_content , 1);
+            if (isset($res[0]->post_content)) {
+                $obj = json_decode($res[0]->post_content, 1);
             } else {
                 $obj = [];
             }
 
-            return json_decode(urldecode($obj['evolve-plus::'.$option]['value']), 1);
-        } catch (\Exception $e){
+
+            if ($obj['evolve-plus::'.$option]['value'] !== null) {
+                return json_decode(urldecode($obj['evolve-plus::'.$option]['value']), 1);
+            } elseif($obj['evolve::'.$option]['value'] !== null) {
+                return json_decode(urldecode($obj['evolve::'.$option]['value']), 1);
+            } else {
+                return $mod;
+            }
+
+        } catch (\Exception $e) {
             return $mod;
         }
     } else {
