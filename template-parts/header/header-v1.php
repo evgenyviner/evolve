@@ -38,34 +38,35 @@
 					}
 				}
 
-				if ( evolve_theme_mod( 'evl_social_links', 0 ) != '1' || ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve_theme_mod( 'evl_woocommerce_cart_link_main_nav', 0 ) == "0" ) ) {
-				} else {
+                echo '<div class="' . $evolve_social_woo_class . '">';
+                if ( evolve_theme_mod( 'evl_social_links', 0 ) != '1') {
+                } else {
+                    if ( evolve_theme_mod( 'evl_social_links', 0 ) ) {
+                        evolve_social_media_links();
+                    }
+                }
+                if(!( ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0"
+                        && evolve_theme_mod( 'evl_woocommerce_cart_link_main_nav', 0 ) == "0"
+                        && ( $evolve_woocommerce_acc_link_main_nav == 'hide'
+                             && $evolve_woocommerce_cart_link_main_nav == 'hide'
+                             || ( ! $evolve_woocommerce_acc_link_main_nav && ! $evolve_woocommerce_cart_link_main_nav ) ) )
+                      || ( $evolve_woocommerce_acc_link_main_nav == 'hide' && $evolve_woocommerce_cart_link_main_nav == 'hide' ))){
+                    if ( class_exists( 'Woocommerce' ) ) {
+                        evolve_woocommerce_menu();
+                    }
+                }
+                echo '</div>';
+                if ( evolve_logo_position() != "disable" ) {
+                    evolve_header_logo();
+                }
 
-					echo '<div class="' . $evolve_social_woo_class . '">';
+                get_template_part( 'template-parts/header/header', 'tagline-above' );
 
-					if ( evolve_theme_mod( 'evl_social_links', 0 ) ) {
-						evolve_social_media_links();
-					}
+                if ( evolve_theme_mod( 'evl_blog_title', '0' ) != "1" ) {
+                    get_template_part( 'template-parts/header/header', 'website-title' );
+                }
 
-					if ( class_exists( 'Woocommerce' ) ) {
-						evolve_woocommerce_menu();
-					}
-
-					echo '</div>';
-
-				}
-
-				if ( evolve_logo_position() != "disable" ) {
-					evolve_header_logo();
-				}
-
-				get_template_part( 'template-parts/header/header', 'tagline-above' );
-
-				if ( evolve_theme_mod( 'evl_blog_title', '0' ) != "1" ) {
-					get_template_part( 'template-parts/header/header', 'website-title' );
-				}
-
-				get_template_part( 'template-parts/header/header', 'tagline-next-under' ); ?>
+                get_template_part( 'template-parts/header/header', 'tagline-next-under' ); ?>
 
             </div><!-- .row .align-items-center -->
         </div><!-- .header .container -->
