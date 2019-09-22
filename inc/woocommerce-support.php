@@ -5,9 +5,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-if ( session_id() == '' || ! isset( $_SESSION ) ) {
-	session_start();
-}
 
 add_action( 'init', 'evolve_woocommerce_ordering' );
 

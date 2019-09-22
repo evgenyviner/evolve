@@ -3327,3 +3327,22 @@ h3.no-content {
 .open .pagemenu-hide {
     display: block !important;
 }
+
+.post-content h1 {
+    font-size: 3.428rem;
+}
+.post-content h2 {
+    font-size: 2.571rem;
+}
+.post-content h3 {
+    font-size: 2.142rem;
+}
+.post-content h4 {
+    font-size: 1.714rem;
+}
+.post-content h5 {
+    font-size: 1.571rem;
+}
+.post-content h6 {
+    font-size: 1.285rem;
+}
