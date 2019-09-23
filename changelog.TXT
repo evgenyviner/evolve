@@ -1,5 +1,12 @@
 === Changelog ===
 
+Version  4.1.9
+Date:        23/09/19
+
+- Corrected some small CSS issues
+- Corrected a cURL error, sometimes appearing due to a bug in the Woocommerce integration
+- Corrected a problem with Woocommerce and login elements sometimes disappearing from header
+
 Version  4.1.8
 Date:         18/09/19
 
