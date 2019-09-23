@@ -1,5 +1,28 @@
 === Changelog ===
 
+Version  4.1.8
+Date:         18/09/19
+
+- Corrected a problem with slides not being saved in the Bootstrap Slider
+- Updated Woocommerce templates and files
+
+Version  4.1.7
+Date:         05/09/19
+
+- Polished a couple of functions in functions.php
+- Small corrections of the CSS, blocking errors caused by certain menu plugins
+
+Version  4.1.6
+Date:         22/8/19
+
+- HOTFIX - backward compatibility with oder versions of PHP
+
+Version  4.1.5
+Date:         15/8/19
+
+- Fixed some customiser issues
+- Set comments background to the general website background as default
+
 Version  4.1.4
 Date:         6/7/19
 
