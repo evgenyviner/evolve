@@ -28,34 +28,38 @@ function evole_change_draft_mods($option, $mod)
 
     global $wp_customize, $wpdb;
 
-    if ($wp_customize->changeset_uuid() && is_customize_preview()) {
-        try {
-            $sql = $wpdb->prepare(
-                "SELECT post_content FROM `wp_posts` WHERE `post_type` = 'customize_changeset' and `post_name` = %s",
-                $wp_customize->changeset_uuid()
-            );
+    try {
+	    if ( $wp_customize->changeset_uuid() && is_customize_preview() ) {
+		    try {
+			    $sql = $wpdb->prepare(
+				    "SELECT post_content FROM `wp_posts` WHERE `post_type` = 'customize_changeset' and `post_name` = %s",
+				    $wp_customize->changeset_uuid()
+			    );
 
-            $res = $wpdb->get_results($sql);
-            if (isset($res[0]->post_content)) {
-                $obj = json_decode($res[0]->post_content, 1);
-            } else {
-                $obj = [];
-            }
+			    $res = $wpdb->get_results( $sql );
+			    if ( isset( $res[0]->post_content ) ) {
+				    $obj = json_decode( $res[0]->post_content, 1 );
+			    } else {
+				    $obj = [];
+			    }
 
 
-            if ($obj['evolve-plus::'.$option]['value'] !== null) {
-                return json_decode(urldecode($obj['evolve-plus::'.$option]['value']), 1);
-            } elseif($obj['evolve::'.$option]['value'] !== null) {
-                return json_decode(urldecode($obj['evolve::'.$option]['value']), 1);
-            } else {
-                return $mod;
-            }
+			    if ( $obj[ 'evolve-plus::' . $option ]['value'] !== null ) {
+				    return json_decode( urldecode( $obj[ 'evolve-plus::' . $option ]['value'] ), 1 );
+			    } elseif ( $obj[ 'evolve::' . $option ]['value'] !== null ) {
+				    return json_decode( urldecode( $obj[ 'evolve::' . $option ]['value'] ), 1 );
+			    } else {
+				    return $mod;
+			    }
 
-        } catch (\Exception $e) {
-            return $mod;
-        }
-    } else {
-        return $mod;
+		    } catch ( \Exception $e ) {
+			    return $mod;
+		    }
+	    } else {
+		    return $mod;
+	    }
+    } catch (Exception $e){
+
     }
 }
 
