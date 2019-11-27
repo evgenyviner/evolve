@@ -1,6 +1,6 @@
 @charset "UTF-8";
 .customize-control-kirki-background {
-    position: relative;
+  position: relative;
 }
 
 .customize-control-kirki-background .background-attachment h4,
@@ -8,940 +8,940 @@
 .customize-control-kirki-background .background-position h4,
 .customize-control-kirki-background .background-repeat h4,
 .customize-control-kirki-background .background-size h4 {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .customize-control-kirki-background .background-attachment .buttonset,
 .customize-control-kirki-background .background-size .buttonset {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .customize-control-kirki-background .background-attachment .buttonset .switch-label,
 .customize-control-kirki-background .background-size .buttonset .switch-label {
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: #555;
-    flex-grow: 1;
-    margin: 0;
-    padding: 0.5em 1em;
-    text-align: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #555;
+  flex-grow: 1;
+  margin: 0;
+  padding: 0.5em 1em;
+  text-align: center;
 }
 
 .customize-control-kirki-background .background-attachment .buttonset .switch-input:checked + .switch-label,
 .customize-control-kirki-background .background-size .buttonset .switch-input:checked + .switch-label {
-    background-color: #3498db;
-    color: #fff;
+  background-color: #3498db;
+  color: #fff;
 }
 
 .customize-control-kirki-code textarea {
-    min-height: 200px;
-    width: 100%;
+  min-height: 200px;
+  width: 100%;
 }
 
 .customize-control-kirki-color-palette {
-    position: relative;
+  position: relative;
 }
 
 .customize-control-kirki-color-palette label {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
 
 .customize-control-kirki-color-palette .colors-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    max-height: 300px;
-    overflow-y: auto;
-    padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px;
 }
 
 .customize-control-kirki-color-palette .colors-wrapper .color-palette-color {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    color: transparent;
-    display: block;
-    height: 100%;
-    overflow: hidden;
-    width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: transparent;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
 }
 
 .customize-control-kirki-color-palette .colors-wrapper.round label {
-    padding: 3px;
+  padding: 3px;
 }
 
 .customize-control-kirki-color-palette .colors-wrapper.round .color-palette-color {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .customize-control-kirki-color-palette .colors-wrapper.box-shadow .color-palette-color {
-    box-shadow: inset 3px 3px 13px 2px rgba(0, 0, 0, 0.22);
+  box-shadow: inset 3px 3px 13px 2px rgba(0, 0, 0, 0.22);
 }
 
 .customize-control-kirki-color-palette .colors-wrapper input:checked + label .color-palette-color {
-    border: 0;
-    height: 150%;
-    left: -25%;
-    position: relative;
-    top: -25%;
-    width: 150%;
-    z-index: 1;
+  border: 0;
+  height: 150%;
+  left: -25%;
+  position: relative;
+  top: -25%;
+  width: 150%;
+  z-index: 1;
 }
 
 .customize-control-kirki-color-palette .colors-wrapper.with-margin label {
-    margin: 3px;
+  margin: 3px;
 }
 
 .customize-control-kirki-color-palette .colors-wrapper input {
-    display: none;
+  display: none;
 }
 
 .customize-control-kirki-color-palette .colors-wrapper input:checked + label .color-palette-color {
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    box-shadow: 1px 1px 10px 1px #333;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 10px 1px #333;
 }
 
 .customize-control-kirki-color input[data-type="hue"] + .iris-strip-horiz .iris-slider {
-    background-image: -webkit-linear-gradient(left, red, #ff7f00, yellow, #80ff00, lime, #00ff80, cyan, #007fff, blue, #7f00ff, magenta, #ff0080, red) !important;
-    widows: 100% !important;
+  background-image: -webkit-linear-gradient(left, red, #ff7f00, yellow, #80ff00, lime, #00ff80, cyan, #007fff, blue, #7f00ff, magenta, #ff0080, red) !important;
+  widows: 100% !important;
 }
 
 .customize-control-kirki-color .iris-picker .iris-square-handle {
-    z-index: 8;
+  z-index: 8;
 }
 
 .customize-control-kirki-color .iris-picker.iris-border {
-    width: 100% !important;
+  width: 100% !important;
 }
 
 .customize-control-kirki-color .iris-picker-inner {
-    display: grid;
-    grid-template-columns: 1fr 20px;
-    grid-gap: 7px;
+  display: grid;
+  grid-template-columns: 1fr 20px;
+  grid-gap: 7px;
 }
 
 .customize-control-kirki-color .kirki-input-container[data-has-alpha=true] .iris-picker-inner {
-    grid-template-columns: 1fr 20px 20px;
+  grid-template-columns: 1fr 20px 20px;
 }
 
 .customize-control-kirki-color .iris-only-strip {
-    width: 100% !important;
+  width: 100% !important;
 }
 
 .customize-control-kirki-color .iris-only-strip .iris-picker-inner {
-    grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
 }
 
 .customize-control-kirki-dashicons {
-    position: relative;
+  position: relative;
 }
 
 .customize-control-kirki-dashicons label {
-    display: inline-block;
-    position: relative;
+  display: inline-block;
+  position: relative;
 }
 
 .customize-control-kirki-dashicons .icons-wrapper {
-    max-height: 300px;
-    overflow-y: scroll;
+  max-height: 300px;
+  overflow-y: scroll;
 }
 
 .customize-control-kirki-dashicons .icons-wrapper h4 {
-    font-weight: 300;
-    margin: 0.7em 0;
+  font-weight: 300;
+  margin: 0.7em 0;
 }
 
 .customize-control-kirki-dashicons .icons-wrapper .dashicons {
-    border: 1px solid transparent;
-    font-size: 25px;
-    height: 25px;
-    padding: 3px;
-    width: 25px;
+  border: 1px solid transparent;
+  font-size: 25px;
+  height: 25px;
+  padding: 3px;
+  width: 25px;
 }
 
 .customize-control-kirki-dashicons .icons-wrapper input {
-    display: none;
+  display: none;
 }
 
 .customize-control-kirki-dashicons .icons-wrapper input:checked + label .dashicons {
-    border: 1px solid #3498db;
-    color: #000;
+  border: 1px solid #3498db;
+  color: #000;
 }
 
 .wp-customizer div.ui-datepicker {
-    background: #fff;
-    border: 1px solid #dedede;
-    width: 255px;
-    z-index: 500001 !important;
+  background: #fff;
+  border: 1px solid #dedede;
+  width: 255px;
+  z-index: 500001 !important;
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-header {
-    background: #e5e5e5;
-    border-bottom: 1px solid #fff;
-    padding: 10px;
+  background: #e5e5e5;
+  border-bottom: 1px solid #fff;
+  padding: 10px;
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-next,
 .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-prev {
-    display: block;
-    overflow: hidden;
-    position: absolute;
-    width: 1em;
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  width: 1em;
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-next:after, .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-next:before,
 .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-prev:after,
 .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-prev:before {
-    font-family: dashicons;
+  font-family: dashicons;
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-next:after:hover, .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-next:before:hover,
 .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-prev:after:hover,
 .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-prev:before:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-next .ui-icon,
 .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-prev .ui-icon {
-    display: none;
+  display: none;
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-prev {
-    left: 10px;
+  left: 10px;
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-prev:before {
-    content: "\f341";
+  content: "\f341";
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-next {
-    right: 10px;
+  right: 10px;
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-next:after {
-    content: "\f345";
+  content: "\f345";
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-header .ui-datepicker-title {
-    text-align: center;
+  text-align: center;
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-calendar {
-    border-collapse: collapse;
-    width: 100%;
+  border-collapse: collapse;
+  width: 100%;
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-calendar thead {
-    background: #e5e5e5;
-    padding: 5px;
+  background: #e5e5e5;
+  padding: 5px;
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-calendar tr td {
-    text-align: center;
+  text-align: center;
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-calendar tr td a {
-    color: #333;
-    display: block;
-    padding: 5px;
-    text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 5px;
+  text-decoration: none;
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-calendar tr td a.ui-state-active, .wp-customizer div.ui-datepicker .ui-datepicker-calendar tr td a:hover {
-    background-color: #0073aa;
-    color: #fff;
+  background-color: #0073aa;
+  color: #fff;
 }
 
 .wp-customizer div.ui-datepicker .ui-datepicker-calendar tr td.ui-state-disabled a, .wp-customizer div.ui-datepicker .ui-datepicker-calendar tr td.ui-state-disabled .ui-state-default a {
-    color: #999;
+  color: #999;
 }
 
 .customize-control-kirki-dimensions {
-    position: relative;
+  position: relative;
 }
 
 .customize-control-kirki-dimensions .wrapper {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px;
 }
 
 .customize-control-kirki-dimensions .wrapper .control {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .customize-control-kirki-dimensions .wrapper .control > div {
-    width: 48%;
+  width: 48%;
 }
 
 .customize-control-kirki-dimensions .wrapper .control > div h5 {
-    margin: 10px 0 7px;
+  margin: 10px 0 7px;
 }
 
 .customize-control-kirki-dimensions .wrapper .control > div .inner {
-    display: flex;
+  display: flex;
 }
 
 .customize-control-kirki-editor textarea {
-    width: 100%;
+  width: 100%;
 }
 
 .customize-control-kirki-generic input {
-    width: 100%;
+  width: 100%;
 }
 
 .customize-control-kirki-generic textarea {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  width: 100%;
 }
 
 .customize-control-kirki-multicolor .multicolor-single-color-wrapper {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .customize-control-kirki-multicolor .multicolor-single-label {
-    order: 2;
+  order: 2;
 }
 
 .customize-control-kirki-multicolor .wp-picker-container {
-    width: 100%;
+  width: 100%;
 }
 
 .customize-control-kirki-multicolor .wp-picker-container > .wp-color-result {
-    width: 100%;
+  width: 100%;
 }
 
 .customize-control-kirki-multicolor .wp-picker-container.wp-picker-active + .multicolor-single-label {
-    display: none;
+  display: none;
 }
 
 .customize-control-kirki-number .customize-control-content {
-    align-items: stretch;
-    display: flex;
+  align-items: stretch;
+  display: flex;
 }
 
 .customize-control-kirki-number .customize-control-content input {
-    width: 100%;
-    -moz-appearance: textfield;
+  width: 100%;
+  -moz-appearance: textfield;
 }
 
 .customize-control-kirki-number .customize-control-content input::-webkit-inner-spin-button, .customize-control-kirki-number .customize-control-content input::-webkit-outer-spin-button {
-    margin: 0;
-    -webkit-appearance: none;
+  margin: 0;
+  -webkit-appearance: none;
 }
 
 .customize-control-kirki-number .customize-control-content .quantity {
-    line-height: 24px;
-    max-width: 2rem;
-    min-width: 2rem;
-    text-align: center;
+  line-height: 24px;
+  max-width: 2rem;
+  min-width: 2rem;
+  text-align: center;
 }
 
 .customize-control-kirki-palette {
-    position: relative;
+  position: relative;
 }
 
 .customize-control-kirki-palette input[type="radio"] {
-    display: none;
+  display: none;
 }
 
 .customize-control-kirki-palette input[type="radio"]:checked + label {
-    border: 3px solid rgba(0, 0, 0, 0.4);
+  border: 3px solid rgba(0, 0, 0, 0.4);
 }
 
 .customize-control-kirki-palette label {
-    background: none;
-    border-bottom: 3px solid transparent;
-    border-top: 3px solid transparent;
-    display: flex;
-    margin-bottom: 5px;
-    padding: 0;
+  background: none;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid transparent;
+  display: flex;
+  margin-bottom: 5px;
+  padding: 0;
 }
 
 .customize-control-kirki-palette label span {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    color: rgba(0, 0, 0, 0);
-    flex-grow: 1;
-    font-size: 0;
-    line-height: 10px;
-    padding: 10px 0;
-    transition: all 200ms ease-in-out;
-    -moz-transition: all 200ms ease-in-out;
-    -ms-transition: all 200ms ease-in-out;
-    -o-transition: all 200ms ease-in-out;
-    -webkit-transition: all 200ms ease-in-out;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0);
+  flex-grow: 1;
+  font-size: 0;
+  line-height: 10px;
+  padding: 10px 0;
+  transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -ms-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  -webkit-transition: all 200ms ease-in-out;
 }
 
 .customize-control-kirki-palette label span:first-child {
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .customize-control-kirki-palette label span:last-child {
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .customize-control-kirki-palette label span:hover {
-    color: #000;
-    flex-grow: 3;
-    font-size: 10px;
-    line-height: 10px;
-    min-width: 60px;
-    padding: 10px;
+  color: #000;
+  flex-grow: 3;
+  font-size: 10px;
+  line-height: 10px;
+  min-width: 60px;
+  padding: 10px;
 }
 
 .customize-control-kirki-radio-buttonset .buttonset {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .customize-control-kirki-radio-buttonset .buttonset .switch-label {
-    background: rgba(0, 0, 0, 0.1);
-    border: 1px rgba(0, 0, 0, 0.1);
-    color: #555d66;
-    flex-grow: 1;
-    margin: 0;
-    padding: 0.5em 1em;
-    text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px rgba(0, 0, 0, 0.1);
+  color: #555d66;
+  flex-grow: 1;
+  margin: 0;
+  padding: 0.5em 1em;
+  text-align: center;
 }
 
 .customize-control-kirki-radio-buttonset .buttonset .switch-input:checked + .switch-label {
-    background-color: #00a0d2;
-    color: rgba(255, 255, 255, 0.8);
+  background-color: #00a0d2;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .customize-control-kirki-radio-image > .image {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .customize-control-kirki-radio-image label {
-    display: inline-block;
-    position: relative;
+  display: inline-block;
+  position: relative;
 }
 
 .customize-control-kirki-radio-image label .image-label {
-    background: rgba(255, 255, 255, 0.7);
-    display: none;
-    font-weight: bold;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  display: none;
+  font-weight: bold;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .customize-control-kirki-radio-image label .image-label .inner {
-    height: 100%;
-    padding: 0.5em;
-    text-align: center;
-    vertical-align: middle;
-    width: 100%;
+  height: 100%;
+  padding: 0.5em;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
 }
 
 .customize-control-kirki-radio-image label:hover .image-label {
-    display: block;
+  display: block;
 }
 
 .customize-control-kirki-radio-image input {
-    display: none;
+  display: none;
 }
 
 .customize-control-kirki-radio-image input img {
-    border: 1px solid transparent;
+  border: 1px solid transparent;
 }
 
 .customize-control-kirki-radio-image input:checked + label img {
-    border: 1px solid #3498db;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
-    -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
+  border: 1px solid #3498db;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
 }
 
 .customize-control-kirki-radio-image input + label .image-clickable {
-    bottom: 0;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
 }
 
 .customize-control-kirki-radio {
-    position: relative;
+  position: relative;
 }
 
 .customize-control-kirki-radio input[type=radio] {
-    height: 18px;
-    width: 18px;
+  height: 18px;
+  width: 18px;
 }
 
 .customize-control-kirki-radio input[type=radio]:checked:before {
-    height: 10px;
-    margin: 3px;
-    width: 10px;
+  height: 10px;
+  margin: 3px;
+  width: 10px;
 }
 
 .customize-control-kirki-radio label {
-    display: list-item;
-    margin-bottom: 7px;
+  display: list-item;
+  margin-bottom: 7px;
 }
 
 .customize-control-kirki-radio label .option-description {
-    color: rgba(0, 0, 0, 0.35);
-    display: block;
-    font-size: 0.9em;
-    padding-left: 25px;
+  color: rgba(0, 0, 0, 0.35);
+  display: block;
+  font-size: 0.9em;
+  padding-left: 25px;
 }
 
 .customize-control-repeater {
-    position: relative;
+  position: relative;
 }
 
 .customize-control-repeater .repeater-fields .repeater-row {
-    background: #eee;
-    border: 1px solid #e5e5e5;
-    margin-top: 0.5rem;
-    position: relative;
+  background: #eee;
+  border: 1px solid #e5e5e5;
+  margin-top: 0.5rem;
+  position: relative;
 }
 
 .customize-control-repeater .repeater-fields .repeater-row.minimized {
-    border: 1px solid #dfdfdf;
-    padding: 0;
+  border: 1px solid #dfdfdf;
+  padding: 0;
 }
 
 .customize-control-repeater .repeater-fields .repeater-row.minimized:hover {
-    border: 1px solid #e5e5e5;
+  border: 1px solid #e5e5e5;
 }
 
 .customize-control-repeater .repeater-fields .repeater-row.minimized .repeater-row-content {
-    display: none;
+  display: none;
 }
 
 .customize-control-repeater .repeater-fields .repeater-row label {
-    clear: both;
-    margin-bottom: 12px;
+  clear: both;
+  margin-bottom: 12px;
 }
 
 .customize-control-repeater .repeater-fields .repeater-row .repeater-field.repeater-field- {
-    display: none;
+  display: none;
 }
 
 .customize-control-repeater .repeater-fields .repeater-row .repeater-field.repeater-field-radio-image input {
-    display: none;
+  display: none;
 }
 
 .customize-control-repeater .repeater-fields .repeater-row .repeater-field.repeater-field-radio-image input img {
-    border: 1px solid transparent;
+  border: 1px solid transparent;
 }
 
 .customize-control-repeater .repeater-fields .repeater-row .repeater-field.repeater-field-radio-image input:checked + label img {
-    border: 1px solid #3498db;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
-    -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
+  border: 1px solid #3498db;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
 }
 
 .customize-control-repeater .repeater-fields .repeater-row .repeater-field:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .customize-control-repeater button.repeater-add {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .customize-control-repeater .repeater-row-content {
-    background: #fff;
-    padding: 10px 15px;
+  background: #fff;
+  padding: 10px 15px;
 }
 
 .customize-control-repeater .repeater-field {
-    border-bottom: 1px dotted #ccc;
-    clear: both;
-    margin-bottom: 12px;
-    padding-bottom: 12px;
-    width: 100%;
+  border-bottom: 1px dotted #ccc;
+  clear: both;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  width: 100%;
 }
 
 .customize-control-repeater .repeater-field .customize-control-title {
-    font-size: 13px;
-    line-height: initial;
+  font-size: 13px;
+  line-height: initial;
 }
 
 .customize-control-repeater .repeater-field .customize-control-description {
-    font-size: 13px;
-    line-height: initial;
+  font-size: 13px;
+  line-height: initial;
 }
 
 .customize-control-repeater .repeater-field.repeater-field-hidden {
-    border: 0;
-    margin: 0;
-    padding: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .customize-control-repeater .repeater-field-select select {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 .customize-control-repeater .repeater-field-checkbox label {
-    line-height: 28px;
+  line-height: 28px;
 }
 
 .customize-control-repeater .repeater-field-checkbox input {
-    line-height: 28px;
-    margin-right: 5px;
+  line-height: 28px;
+  margin-right: 5px;
 }
 
 .customize-control-repeater .repeater-field-textarea textarea {
-    resize: vertical;
-    width: 100%;
+  resize: vertical;
+  width: 100%;
 }
 
 .customize-control-repeater .repeater-row-header {
-    background: white;
-    border-bottom: 1px solid #dfdfdf;
-    height: auto;
-    line-height: 30px;
-    min-height: 20px;
-    overflow: hidden;
-    padding: 10px 15px;
-    position: relative;
-    word-wrap: break-word;
+  background: white;
+  border-bottom: 1px solid #dfdfdf;
+  height: auto;
+  line-height: 30px;
+  min-height: 20px;
+  overflow: hidden;
+  padding: 10px 15px;
+  position: relative;
+  word-wrap: break-word;
 }
 
 .customize-control-repeater .repeater-row-header:hover {
-    cursor: move;
+  cursor: move;
 }
 
 .customize-control-repeater .repeater-row-header .dashicons {
-    color: #a0a5aa;
-    font-size: 18px;
-    position: absolute;
-    right: 12px;
-    top: 2px;
+  color: #a0a5aa;
+  font-size: 18px;
+  position: absolute;
+  right: 12px;
+  top: 2px;
 }
 
 .customize-control-repeater .repeater-row-label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    height: 18px;
-    line-height: 20px;
-    overflow: hidden;
-    width: 90%;
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  height: 18px;
+  line-height: 20px;
+  overflow: hidden;
+  width: 90%;
 }
 
 .customize-control-repeater .repeater-row-remove {
-    color: #a00;
+  color: #a00;
 }
 
 .customize-control-repeater .repeater-row-remove:hover {
-    color: #f00;
+  color: #f00;
 }
 
 .customize-control-repeater .repeater-minimize {
-    line-height: 36px;
+  line-height: 36px;
 }
 
 .customize-control-repeater .remove-button,
 .customize-control-repeater .upload-button {
-    width: 48%;
+  width: 48%;
 }
 
 .kirki-image-attachment {
-    margin: 0;
-    margin-bottom: 10px;
-    text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .kirki-image-attachment img {
-    display: inline-block;
+  display: inline-block;
 }
 
 .kirki-file-attachment {
-    margin: 0;
-    margin-bottom: 10px;
-    text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .kirki-file-attachment .file {
-    background: #f9f9f9;
-    border: 1px dotted #c3c3c3;
-    display: block;
-    padding: 10px 5px;
+  background: #f9f9f9;
+  border: 1px dotted #c3c3c3;
+  display: block;
+  padding: 10px 5px;
 }
 
 .limit {
-    border-radius: 3px;
-    padding: 3px;
+  border-radius: 3px;
+  padding: 3px;
 }
 
 .limit.highlight {
-    background: #d32f2f;
-    color: #fff;
+  background: #d32f2f;
+  color: #fff;
 }
 
 .customize-control-kirki-slider .wrapper {
-    align-items: center;
-    display: flex;
-    padding: 15px 0 7px;
-    position: relative;
+  align-items: center;
+  display: flex;
+  padding: 15px 0 7px;
+  position: relative;
 }
 
 .customize-control-kirki-slider .wrapper .slider-reset {
-    color: rgba(0, 0, 0, 0.3);
-    font-size: 12px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: 0.3s ease-in-out;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.3s ease-in-out;
 }
 
 .customize-control-kirki-slider .wrapper .slider-reset:hover {
-    color: #dc3232;
-    transform: scale(1.3);
+  color: #dc3232;
+  transform: scale(1.3);
 }
 
 .customize-control-kirki-slider .wrapper input[type="range"] {
-    background-color: #bdc3c7;
-    border-radius: 5px;
-    display: block;
-    height: 5px;
-    margin: 0 auto;
-    outline: 0;
-    width: 100%;
-    -webkit-appearance: none;
+  background-color: #bdc3c7;
+  border-radius: 5px;
+  display: block;
+  height: 5px;
+  margin: 0 auto;
+  outline: 0;
+  width: 100%;
+  -webkit-appearance: none;
 }
 
 .customize-control-kirki-slider .wrapper input[type="range"]::-webkit-slider-thumb {
-    background-color: #0085ba;
-    border: 1px solid #006799;
-    border-radius: 50%;
-    cursor: pointer;
-    height: 17px;
-    transition: 0.3s ease-in-out;
-    width: 17px;
-    -webkit-appearance: none;
+  background-color: #0085ba;
+  border: 1px solid #006799;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 17px;
+  transition: 0.3s ease-in-out;
+  width: 17px;
+  -webkit-appearance: none;
 }
 
 ​ .customize-control-kirki-slider .wrapper input[type="range"]::-webkit-slider-thumb:hover {
-    background-color: #006799;
-    border: 2px solid #0085ba;
+  background-color: #006799;
+  border: 2px solid #0085ba;
 }
 
 .customize-control-kirki-slider .wrapper input[type="range"]::-webkit-slider-thumb:active {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .customize-control-kirki-slider .wrapper input[type="text"] {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    font-size: 13px;
-    padding: 0;
-    text-align: right;
-    width: 40px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  font-size: 13px;
+  padding: 0;
+  text-align: right;
+  width: 40px;
 }
 
 .customize-control-kirki-slider .wrapper .value {
-    align-items: baseline;
-    display: flex;
+  align-items: baseline;
+  display: flex;
 }
 
 .customize-control-kirki-sortable ul.ui-sortable li {
-    background: #fff;
-    border: 1px solid #333;
-    padding: 5px 10px;
+  background: #fff;
+  border: 1px solid #333;
+  padding: 5px 10px;
 }
 
 .customize-control-kirki-sortable ul.ui-sortable li .dashicons.dashicons-menu {
-    float: right;
+  float: right;
 }
 
 .customize-control-kirki-sortable ul.ui-sortable li .dashicons.visibility {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .customize-control-kirki-sortable ul.ui-sortable li.invisible {
-    border: 1px dashed #aaa;
-    color: #aaa;
+  border: 1px dashed #aaa;
+  color: #aaa;
 }
 
 .customize-control-kirki-sortable ul.ui-sortable li.invisible .dashicons.visibility {
-    color: #aaa;
+  color: #aaa;
 }
 
 .customize-control-kirki-switch {
-    position: relative;
+  position: relative;
 }
 
 .customize-control-kirki-switch .switch-off,
 .customize-control-kirki-switch .switch-on {
-    font-size: 14px;
-    line-height: 18px;
-    opacity: 1;
-    padding: 8px;
+  font-size: 14px;
+  line-height: 18px;
+  opacity: 1;
+  padding: 8px;
 }
 
 .customize-control-kirki-switch .switch-on {
-    color: #fff;
-    opacity: 0;
+  color: #fff;
+  opacity: 0;
 }
 
 .customize-control-kirki-switch .switch-off {
-    color: #777;
+  color: #777;
 }
 
 .customize-control-kirki-switch .switch {
-    border: none;
-    border-radius: 3rem;
-    margin-bottom: 1.5rem;
-    outline: 0;
-    padding: 0;
-    user-select: none;
+  border: none;
+  border-radius: 3rem;
+  margin-bottom: 1.5rem;
+  outline: 0;
+  padding: 0;
+  user-select: none;
 }
 
 .customize-control-kirki-switch label {
-    background: #b4b9be;
-    border-radius: 3rem;
-    cursor: pointer;
-    display: flex;
-    float: left;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    position: relative;
-    transition: left 0.15s ease-out;
+  background: #b4b9be;
+  border-radius: 3rem;
+  cursor: pointer;
+  display: flex;
+  float: left;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  position: relative;
+  transition: left 0.15s ease-out;
 }
 
 .customize-control-kirki-switch label:after {
-    background: #fff;
-    border-radius: 3rem;
-    content: "";
-    display: block;
-    height: calc(.85rem + 10px);
-    left: 5px;
-    position: absolute;
-    top: 5px;
-    transition: all 0.25s ease-in-out;
-    width: calc(.85rem + 10px);
+  background: #fff;
+  border-radius: 3rem;
+  content: "";
+  display: block;
+  height: calc(.85rem + 10px);
+  left: 5px;
+  position: absolute;
+  top: 5px;
+  transition: all 0.25s ease-in-out;
+  width: calc(.85rem + 10px);
 }
 
 .customize-control-kirki-switch input + label {
-    margin-left: 0;
-    margin-right: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .customize-control-kirki-switch input:checked + label {
-    background: #0073aa;
+  background: #0073aa;
 }
 
 .customize-control-kirki-switch input:checked + label:after {
-    background: #fff;
-    left: auto;
-    right: 5px;
+  background: #fff;
+  left: auto;
+  right: 5px;
 }
 
 .customize-control-kirki-switch input:checked + label .switch-on {
-    opacity: 1;
+  opacity: 1;
 }
 
 .customize-control-kirki-switch input:checked + label .switch-off {
-    opacity: 0;
+  opacity: 0;
 }
 
 .customize-control-kirki-toggle {
-    position: relative;
+  position: relative;
 }
 
 .customize-control-kirki-toggle label {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .customize-control-kirki-toggle label .customize-control-title {
-    width: calc(100% - 55px);
+  width: calc(100% - 55px);
 }
 
 .customize-control-kirki-toggle label .description {
-    order: 99;
+  order: 99;
 }
 
 .customize-control-kirki-toggle .switch {
-    background: #b4b9be;
-    border: 1px solid #b4b9be;
-    border-radius: 8px;
-    cursor: pointer;
-    display: inline-block;
-    height: 12px;
-    position: relative;
-    top: 4px;
-    transition: background 350ms ease;
-    vertical-align: middle;
-    width: 35px;
-    user-select: none;
+  background: #b4b9be;
+  border: 1px solid #b4b9be;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+  height: 12px;
+  position: relative;
+  top: 4px;
+  transition: background 350ms ease;
+  vertical-align: middle;
+  width: 35px;
+  user-select: none;
 }
 
 .customize-control-kirki-toggle .switch:after, .customize-control-kirki-toggle .switch:before {
-    border-radius: 50%;
-    content: "";
-    display: block;
-    height: 20px;
-    left: -3px;
-    position: absolute;
-    top: 50%;
-    transition: all 350ms cubic-bezier(0, 0.95, 0.38, 0.98), background 150ms ease;
-    width: 20px;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 20px;
+  left: -3px;
+  position: absolute;
+  top: 50%;
+  transition: all 350ms cubic-bezier(0, 0.95, 0.38, 0.98), background 150ms ease;
+  width: 20px;
 }
 
 .customize-control-kirki-toggle .switch:before {
-    background: rgba(0, 0, 0, 0.2);
-    transform: translate3d(0, -50%, 0) scale(0);
+  background: rgba(0, 0, 0, 0.2);
+  transform: translate3d(0, -50%, 0) scale(0);
 }
 
 .customize-control-kirki-toggle .switch:after {
-    background: #999;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    transform: translate3d(0, -50%, 0);
+  background: #999;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transform: translate3d(0, -50%, 0);
 }
 
 .customize-control-kirki-toggle .switch:active:before {
-    transform: translate3d(0, -50%, 0) scale(3);
+  transform: translate3d(0, -50%, 0) scale(3);
 }
 
 .customize-control-kirki-toggle input:checked + .switch:before {
-    background: rgba(0, 115, 170, 0.075);
-    transform: translate3d(100%, -50%, 0) scale(1);
+  background: rgba(0, 115, 170, 0.075);
+  transform: translate3d(100%, -50%, 0) scale(1);
 }
 
 .customize-control-kirki-toggle input:checked + .switch:after {
-    background: #0073aa;
-    transform: translate3d(100%, -50%, 0);
+  background: #0073aa;
+  transform: translate3d(100%, -50%, 0);
 }
 
 .customize-control-kirki-toggle input:checked + .switch:active:before {
-    background: rgba(0, 115, 170, 0.075);
-    transform: translate3d(100%, -50%, 0) scale(3);
+  background: rgba(0, 115, 170, 0.075);
+  transform: translate3d(100%, -50%, 0) scale(3);
 }
 
 .customize-control-kirki-typography {
-    position: relative;
+  position: relative;
 }
 
 .customize-control-kirki-typography .wrapper {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 .customize-control-kirki-typography .wrapper h5 {
-    margin: 0.67em 0 0;
+  margin: 0.67em 0 0;
 }
 
 .customize-control-kirki-typography .wrapper .color,
@@ -955,9 +955,9 @@
 .customize-control-kirki-typography .wrapper .text-align,
 .customize-control-kirki-typography .wrapper .text-transform,
 .customize-control-kirki-typography .wrapper .variant {
-    clear: both;
-    float: none;
-    width: 100%;
+  clear: both;
+  float: none;
+  width: 100%;
 }
 
 .customize-control-kirki-typography .wrapper .font-size,
@@ -966,30 +966,30 @@
 .customize-control-kirki-typography .wrapper .margin-bottom,
 .customize-control-kirki-typography .wrapper .margin-top,
 .customize-control-kirki-typography .wrapper .text-transform {
-    width: 48%;
+  width: 48%;
 }
 
 .customize-control-kirki-typography .wrapper .text-align .text-align-choices {
-    display: flex;
+  display: flex;
 }
 
 .customize-control-kirki-typography .wrapper .text-align .text-align-choices label {
-    border: 1px solid rgba(255, 255, 255, 0);
-    padding: 5px;
-    text-align: center;
-    width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0);
+  padding: 5px;
+  text-align: center;
+  width: 100%;
 }
 
 .customize-control-kirki-typography .wrapper .text-align .text-align-choices input {
-    display: none;
+  display: none;
 }
 
 .customize-control-kirki-typography .wrapper .text-align .text-align-choices input:checked + label {
-    border-color: #0085ba;
+  border-color: #0085ba;
 }
 
 .customize-control-kirki-typography .wrapper .color {
-    width: auto;
+  width: auto;
 }
 
 /*# sourceMappingURL=styles.css.map */

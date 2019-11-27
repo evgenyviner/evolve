@@ -141,6 +141,10 @@ class Kirki_Init {
 		}
 
 		$this->control_types = $this->default_control_types();
+
+
+        $this->control_types = apply_filters('kirki_control_types', $this->default_control_types());
+
 		if ( ! class_exists( 'WP_Customize_Code_Editor_Control' ) ) {
 			unset( $this->control_types['code_editor'] );
 		}

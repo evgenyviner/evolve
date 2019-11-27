@@ -7,7 +7,7 @@
  * @category    Core
  * @author      Ari Stathopoulos (@aristath)
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       1.0
  */
 
@@ -73,7 +73,6 @@ final class Kirki_Fonts_Google {
 	 * The class constructor.
 	 */
 	private function __construct() {
-
 		$config = apply_filters( 'kirki_config', array() );
 
 		// If we have set $config['disable_google_fonts'] to true then do not proceed any further.
@@ -140,6 +139,7 @@ final class Kirki_Fonts_Google {
 			if ( ! in_array( $value['variant'], $this->fonts[ $value['font-family'] ], true ) ) {
 				$this->fonts[ $value['font-family'] ][] = $value['variant'];
 			}
+
 			// Are we force-loading all variants?
 			if ( true === self::$force_load_all_variants ) {
 				$all_variants               = Kirki_Fonts::get_all_variants();

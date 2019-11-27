@@ -29,7 +29,7 @@ class Kirki_Field_Radio extends Kirki_Field {
 	 */
 	protected function set_type() {
 		$this->type = 'kirki-radio';
-	
+
 		// Tweaks for backwards-compatibility:
 		// Prior to version 0.8 radio-buttonset & radio-image were part of the radio control.
 		if ( in_array( $this->mode, array( 'buttonset', 'image' ), true ) ) {

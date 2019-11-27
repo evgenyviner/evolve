@@ -115,13 +115,13 @@ class Kirki_Modules_CSS {
 			$priority = 999;
 			if ( isset( $config['styles_priority'] ) ) {
 				$priority = absint( $config['styles_priority'] );
-		}
+			}
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), $priority );
 		} else {
 			add_action( 'wp_head', array( $this, 'print_styles_inline' ), 999 );
-			}
 		}
+	}
 
 	/**
 	 * Print styles inline.
@@ -202,19 +202,19 @@ class Kirki_Modules_CSS {
 
 		// Go through all configs.
 		$configs = Kirki::$config;
-			foreach ( $configs as $config_id => $args ) {
-				if ( isset( $args['disable_output'] ) && true === $args['disable_output'] ) {
-					continue;
-				}
-				$styles = self::loop_controls( $config_id );
-				$styles = apply_filters( "kirki_{$config_id}_dynamic_css", $styles );
-				if ( ! empty( $styles ) ) {
+		foreach ( $configs as $config_id => $args ) {
+			if ( isset( $args['disable_output'] ) && true === $args['disable_output'] ) {
+				continue;
+			}
+			$styles = self::loop_controls( $config_id );
+			$styles = apply_filters( "kirki_{$config_id}_dynamic_css", $styles );
+			if ( ! empty( $styles ) ) {
 
-	/**
+				/**
 				 * Note to code reviewers:
-	 *
+				 *
 				 * Though all output should be run through an escaping function, this is pure CSS.
-	 *
+				 *
 				 * When used in the print_styles_action() method the PHP header() call makes the browser interpret it as such.
 				 * No code, script or anything else can be executed from inside a stylesheet.
 				 *
@@ -222,7 +222,7 @@ class Kirki_Modules_CSS {
 				 * strips anything that has the possibility to be malicious, and since this is inslide a <style> tag
 				 * it can only be interpreted by the browser as such.
 				 * wp_strip_all_tags() excludes the possibility of someone closing the <style> tag and then opening something else.
-	 */
+				 */
 				echo wp_strip_all_tags( $styles ); // phpcs:ignore WordPress.Security.EscapeOutput
 			}
 		}
