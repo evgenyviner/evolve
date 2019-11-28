@@ -6,7 +6,7 @@
  * @category    Modules
  * @author      Ari Stathopoulos (@aristath)
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       3.0.0
  */
 
@@ -77,7 +77,7 @@ class Kirki_Modules_Selective_Refresh {
 						$partial_refresh_args = wp_parse_args(
 							$partial_refresh_args,
 							array(
-							'settings' => $field['settings'],
+								'settings' => $field['settings'],
 							)
 						);
 						$wp_customize->selective_refresh->add_partial( $partial_refresh, $partial_refresh_args );

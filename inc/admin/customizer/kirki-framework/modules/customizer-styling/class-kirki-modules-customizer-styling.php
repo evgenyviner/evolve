@@ -9,7 +9,7 @@
  * @category    Modules
  * @author      Ari Stathopoulos (@aristath)
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       3.0.0
  */
 
@@ -64,12 +64,11 @@ class Kirki_Modules_Customizer_Styling {
 	 * @access public
 	 */
 	public function custom_css() {
-
 		$config = apply_filters( 'kirki_config', array() );
 		if ( ! isset( $config['color_accent'] ) && ! isset( $config['color_back'] ) ) {
 			return;
 		}
-		$back     = isset( $config['color_back'] ) ? $config['color_back'] : false;
+		$back = isset( $config['color_back'] ) ? $config['color_back'] : false;
 
 		$text_on_back              = '';
 		$border_on_back            = '';
@@ -91,7 +90,7 @@ class Kirki_Modules_Customizer_Styling {
 			$hover_on_back  = ( 90 < $back_obj->lightness ) ? $back_obj->getNew( 'lightness', $back_obj->lightness - 3 )->toCSS( $back_obj->mode ) : $back_obj->getNew( 'lightness', $back_obj->lightness + 3 )->toCSS( $back_obj->mode );
 			$arrows_on_back = ( 50 > $back_obj->lightness ) ? $back_obj->getNew( 'lightness', $back_obj->lightness + 30 )->toCSS( $back_obj->mode ) : $back_obj->getNew( 'lightness', $back_obj->lightness - 30 )->toCSS( $back_obj->mode );
 		}
-		$accent     = ( isset( $config['color_accent'] ) ) ? $config['color_accent'] : false;
+		$accent = ( isset( $config['color_accent'] ) ) ? $config['color_accent'] : false;
 		if ( $accent ) {
 			$accent_obj                = ariColor::newColor( $accent );
 			$text_on_accent            = ( 60 > $accent_obj->lightness ) ? $accent_obj->getNew( 'lightness', $accent_obj->lightness + 60 )->toCSS( $accent_obj->mode ) : $accent_obj->getNew( 'lightness', $accent_obj->lightness - 60 )->toCSS( $accent_obj->mode );

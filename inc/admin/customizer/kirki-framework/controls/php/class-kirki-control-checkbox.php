@@ -8,7 +8,7 @@
  * @package     Kirki
  * @subpackage  Controls
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       3.0.26
  */
 
@@ -34,7 +34,7 @@ class Kirki_Control_Checkbox extends Kirki_Control_Base {
 	 * @since 3.0.26
 	 */
 	protected function render_content() {
-		$input_id = '_customize-input-' . $this->id;
+		$input_id       = '_customize-input-' . $this->id;
 		$description_id = '_customize-description-' . $this->id;
 		?>
 		<span class="customize-inside-control-row">

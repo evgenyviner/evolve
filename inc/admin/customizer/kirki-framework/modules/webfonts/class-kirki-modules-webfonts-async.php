@@ -6,7 +6,7 @@
  * @category    Core
  * @author      Ari Stathopoulos (@aristath)
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       3.0
  */
 
@@ -62,7 +62,6 @@ final class Kirki_Modules_Webfonts_Async {
 	 * @param array  $args        Extra args we want to pass.
 	 */
 	public function __construct( $config_id, $webfonts, $googlefonts, $args = array() ) {
-
 		$this->config_id   = $config_id;
 		$this->webfonts    = $webfonts;
 		$this->googlefonts = $googlefonts;
@@ -86,7 +85,6 @@ final class Kirki_Modules_Webfonts_Async {
 	 * @return array $urls           URLs to print for resource hints.
 	 */
 	public function resource_hints( $urls, $relation_type ) {
-
 		$fonts_to_load = $this->googlefonts->fonts;
 
 		if ( ! empty( $fonts_to_load ) && 'preconnect' === $relation_type ) {
@@ -96,7 +94,6 @@ final class Kirki_Modules_Webfonts_Async {
 			);
 		}
 		return $urls;
-
 	}
 
 	/**
@@ -137,7 +134,6 @@ final class Kirki_Modules_Webfonts_Async {
 	 * @since 3.0.0
 	 */
 	public function webfont_loader_script() {
-
 		if ( ! empty( $this->fonts_to_load ) ) {
 			wp_add_inline_script(
 				'webfont-loader',

@@ -5,7 +5,7 @@
  * @package     Kirki
  * @subpackage  Custom Sections Module
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       2.2.0
  */
 
@@ -40,17 +40,16 @@ class Kirki_Sections_Nested_Section extends WP_Customize_Section {
 	 * @return array The array to be exported to the client as JSON.
 	 */
 	public function json() {
-
 		$array = wp_array_slice_assoc(
 			(array) $this,
 			array(
-			'id',
-			'description',
-			'priority',
-			'panel',
-			'type',
-			'description_hidden',
-			'section',
+				'id',
+				'description',
+				'priority',
+				'panel',
+				'type',
+				'description_hidden',
+				'section',
 			)
 		);
 

@@ -6,7 +6,7 @@
  * @category    Modules
  * @author      Ari Stathopoulos (@aristath)
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       3.0.0
  */
 
@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Adds styles to the customizer.
  */
 class Kirki_Modules_PostMessage {
+
 	/**
 	 * The object instance.
 	 *
@@ -61,7 +62,6 @@ class Kirki_Modules_PostMessage {
 	 * The rest is handled via JS.
 	 */
 	public function postmessage() {
-
 		wp_enqueue_script( 'kirki_auto_postmessage', trailingslashit( Kirki::$url ) . 'modules/postmessage/postmessage.js', array( 'jquery', 'customize-preview' ), KIRKI_VERSION, true );
 		$fields = Kirki::$fields;
 		$data   = array();
@@ -74,7 +74,6 @@ class Kirki_Modules_PostMessage {
 		$extras = apply_filters( 'kirki_postmessage_script', false );
 		if ( $extras ) {
 			wp_add_inline_script( 'kirki_auto_postmessage', $extras, 'after' );
-
-	}
+		}
 	}
 }

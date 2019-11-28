@@ -6,7 +6,7 @@
  * @category    Modules
  * @author      Ari Stathopoulos (@aristath)
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       3.0.0
  */
 
@@ -34,22 +34,11 @@ class Kirki_Modules_CSS {
 	public static $css_array = array();
 
 	/**
-	 * Should we enqueue font-awesome?
-	 *
-	 * @static
-	 * @access protected
-	 * @since 3.0.26
-	 * @var bool
-	 */
-	protected static $enqueue_fa = false;
-
-	/**
 	 * Constructor
 	 *
 	 * @access protected
 	 */
 	protected function __construct() {
-
 		$class_files = array(
 			'Kirki_Modules_CSS_Generator'               => '/class-kirki-modules-css-generator.php',
 			'Kirki_Output'                              => '/class-kirki-output.php',
@@ -69,9 +58,7 @@ class Kirki_Modules_CSS {
 				include_once wp_normalize_path( dirname( __FILE__ ) . $file ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
 			}
 		}
-
 		add_action( 'init', array( $this, 'init' ) );
-
 	}
 
 	/**
@@ -87,7 +74,6 @@ class Kirki_Modules_CSS {
 		if ( ! self::$instance ) {
 			self::$instance = new self();
 		}
-
 		return self::$instance;
 	}
 
@@ -116,7 +102,6 @@ class Kirki_Modules_CSS {
 			if ( isset( $config['styles_priority'] ) ) {
 				$priority = absint( $config['styles_priority'] );
 			}
-
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), $priority );
 		} else {
 			add_action( 'wp_head', array( $this, 'print_styles_inline' ), 999 );
@@ -134,14 +119,6 @@ class Kirki_Modules_CSS {
 		echo '<style id="kirki-inline-styles">';
 		$this->print_styles();
 		echo '</style>';
-
-		// Enqueue FA if needed (I hope not, this FA version is pretty old, only kept here for backwards-compatibility purposes).
-		if ( self::$enqueue_fa && apply_filters( 'kirki_load_fontawesome', true ) ) {
-			// evolve customization
-			wp_enqueue_script( 'kirki-fontawesome-font', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-all.min.js', array(), '5.8.1' );
-			wp_enqueue_script( 'kirki-fontawesome-font-shims', get_template_directory_uri() . '/assets/fonts/fontawesome/font-awesome-shims.min.js', array(), '5.8.1' );
-			// evolve customization
-		}
 	}
 
 	/**
@@ -167,7 +144,6 @@ class Kirki_Modules_CSS {
 			array(),
 			KIRKI_VERSION
 		);
-
 	}
 
 	/**
@@ -190,7 +166,6 @@ class Kirki_Modules_CSS {
 		header( 'Content-type: text/css' );
 		$this->print_styles();
 		exit;
-
 	}
 
 	/**
@@ -209,7 +184,6 @@ class Kirki_Modules_CSS {
 			$styles = self::loop_controls( $config_id );
 			$styles = apply_filters( "kirki_{$config_id}_dynamic_css", $styles );
 			if ( ! empty( $styles ) ) {
-
 				/**
 				 * Note to code reviewers:
 				 *
@@ -258,6 +232,7 @@ class Kirki_Modules_CSS {
 			}
 
 			if ( true === apply_filters( "kirki_{$config_id}_css_skip_hidden", true ) ) {
+
 				// Only continue if field dependencies are met.
 				if ( ! empty( $field['required'] ) ) {
 					$valid = true;
@@ -296,27 +271,26 @@ class Kirki_Modules_CSS {
 	}
 
 	/**
-	 * Runs when we're adding a font-awesome field to allow enqueueing the
-	 * fontawesome script on the frontend.
+	 * The FA field got deprecated in v3.0.42.
+	 * This is here for backwards-compatibility in case a theme was calling it directly.
 	 *
 	 * @static
 	 * @since 3.0.26
 	 * @access public
 	 * @return void
 	 */
-	public static function add_fontawesome_script() {
-		self::$enqueue_fa = true;
-	}
+	public static function add_fontawesome_script() {}
 
 	/**
-	 * Check if FontAwesome should be loaded.
+	 * The FA field got deprecated in v3.0.42.
+	 * This is here for backwards-compatibility in case a theme was calling it directly.
 	 *
 	 * @static
 	 * @since 3.0.35
 	 * @access public
-	 * @return bool
+	 * @return false
 	 */
 	public static function get_enqueue_fa() {
-		return self::$enqueue_fa;
+		return false;
 	}
 }

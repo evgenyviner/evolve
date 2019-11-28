@@ -5,7 +5,7 @@
  * @package     Kirki
  * @subpackage  Controls
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       2.0
  */
 
@@ -27,30 +27,6 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 	 */
 	public $type = 'kirki-typography';
 
-	// evolve customization
-
-	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-		parent::enqueue();
-
-		// ob_start();
-		// $json_path = wp_normalize_path( Kirki::$path . '/modules/webfonts/webfonts.json' );
-		// include $json_path;
-		// $get_googlefonts_json = ob_get_contents();
-		// ob_clean();
-		// ob_end_flush();
-		$json_file = '{"items":{"AAAABeeZee":{"family":"ABeeZee","category":"sans-serif","variants":["italic","regular"]},"Abel":{"family":"Abel","category":"sans-serif","variants":["regular"]},"Abhaya Libre":{"family":"Abhaya Libre","category":"serif","variants":["500","600","700","800","regular"]},"Abril Fatface":{"family":"Abril Fatface","category":"display","variants":["regular"]},"Aclonica":{"family":"Aclonica","category":"sans-serif","variants":["regular"]},"Acme":{"family":"Acme","category":"sans-serif","variants":["regular"]},"Actor":{"family":"Actor","category":"sans-serif","variants":["regular"]}}}';
-		// var_dump($get_googlefonts_json);exit;
-		// $get_googlefonts_json = file_get_contents($json_path);
-		wp_localize_script( 'kirki-script', 'get_googlefonts_json', $json_file );
-		wp_localize_script( 'kirki-script', 'get_standard_fonts', wp_json_encode( Kirki_Fonts::get_standard_fonts() ) );
-	}
-	// evolve customization
-
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
@@ -64,10 +40,12 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 				if ( ! in_array( $key, array( 'variant', 'font-weight', 'font-style' ), true ) && ! isset( $this->json['default'][ $key ] ) ) {
 					unset( $this->json['value'][ $key ] );
 				}
+
 				// Fix for https://wordpress.org/support/topic/white-font-after-updateing-to-3-0-16.
 				if ( ! isset( $this->json['default'][ $key ] ) ) {
 					unset( $this->json['value'][ $key ] );
 				}
+
 				// Fix for https://github.com/aristath/kirki/issues/1405.
 				if ( isset( $this->json['default'][ $key ] ) && false === $this->json['default'][ $key ] ) {
 					unset( $this->json['value'][ $key ] );
@@ -255,13 +233,10 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 	 *
 	 * @access protected
 	 * @since 3.0.0
-	 *
 	 * @param array $variants The variants.
-	 *
 	 * @return array
 	 */
 	protected function format_variants_array( $variants ) {
-
 		$all_variants   = Kirki_Fonts::get_all_variants();
 		$final_variants = array();
 		foreach ( $variants as $variant ) {
@@ -274,7 +249,6 @@ class Kirki_Control_Typography extends Kirki_Control_Base {
 				$final_variants[] = $variant;
 			}
 		}
-
 		return $final_variants;
 	}
 }

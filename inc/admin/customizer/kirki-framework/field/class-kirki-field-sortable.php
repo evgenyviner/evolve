@@ -5,7 +5,7 @@
  * @package     Kirki
  * @subpackage  Controls
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       2.3.2
  */
 
@@ -20,9 +20,7 @@ class Kirki_Field_Sortable extends Kirki_Field {
 	 * @access protected
 	 */
 	protected function set_type() {
-
 		$this->type = 'kirki-sortable';
-
 	}
 
 	/**
@@ -31,9 +29,7 @@ class Kirki_Field_Sortable extends Kirki_Field {
 	 * @access protected
 	 */
 	protected function set_sanitize_callback() {
-
 		$this->sanitize_callback = array( $this, 'sanitize' );
-
 	}
 
 	/**
@@ -44,7 +40,6 @@ class Kirki_Field_Sortable extends Kirki_Field {
 	 * @return array
 	 */
 	public function sanitize( $value = array() ) {
-
 		if ( is_string( $value ) || is_numeric( $value ) ) {
 			return array(
 				sanitize_text_field( $value ),
@@ -57,6 +52,5 @@ class Kirki_Field_Sortable extends Kirki_Field {
 			}
 		}
 		return $sanitized_value;
-
 	}
 }

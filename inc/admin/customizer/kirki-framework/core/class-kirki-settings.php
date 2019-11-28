@@ -6,7 +6,7 @@
  * @category    Core
  * @author      Ari Stathopoulos (@aristath)
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       1.0
  */
 
@@ -49,6 +49,7 @@ class Kirki_Settings {
 
 		// Set the setting_types.
 		$this->set_setting_types();
+
 		// Add the settings.
 		$this->add_settings( $args );
 
@@ -112,11 +113,11 @@ class Kirki_Settings {
 				$this->wp_customize,
 				$setting,
 				array(
-				'default'           => $default,
-				'type'              => $type,
-				'capability'        => $capability,
-				'transport'         => $transport,
-				'sanitize_callback' => $sanitize_callback,
+					'default'           => $default,
+					'type'              => $type,
+					'capability'        => $capability,
+					'transport'         => $transport,
+					'sanitize_callback' => $sanitize_callback,
 				)
 			)
 		);

@@ -6,7 +6,7 @@
  * @category    Modules
  * @author      Ari Stathopoulos (@aristath)
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       3.0.0
  */
 
@@ -38,7 +38,6 @@ class Kirki_Modules_Webfonts {
 	 * @var object
 	 */
 	protected $fonts_google;
-
 
 	/**
 	 * The class constructor
@@ -90,11 +89,10 @@ class Kirki_Modules_Webfonts {
 	 * @since 3.0.0
 	 */
 	protected function init() {
-
 		foreach ( array_keys( Kirki::$config ) as $config_id ) {
 			if ( 'async' === $this->get_method() ) {
 				new Kirki_Modules_Webfonts_Async( $config_id, $this, $this->fonts_google );
-		}
+			}
 			new Kirki_Modules_Webfonts_Embed( $config_id, $this, $this->fonts_google );
 		}
 	}
@@ -108,7 +106,6 @@ class Kirki_Modules_Webfonts {
 	 * @return string
 	 */
 	public function get_method() {
-
 		return ( is_customize_preview() || is_admin() ) ? 'async' : 'embed';
 	}
 

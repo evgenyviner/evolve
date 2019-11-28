@@ -5,7 +5,7 @@
  * @package     Kirki
  * @subpackage  Controls
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       2.2.7
  */
 
@@ -20,8 +20,6 @@ class Kirki_Field_Slider extends Kirki_Field_Number {
 	 * @access protected
 	 */
 	protected function set_type() {
-
 		$this->type = 'kirki-slider';
-
 	}
 }

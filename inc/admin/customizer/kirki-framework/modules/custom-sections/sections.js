@@ -26,7 +26,7 @@ jQuery( document ).ready( function() {
 		isContextuallyActive: function() {
 			return true;
 		}
-} );
+	} );
 } () );
 
 /**

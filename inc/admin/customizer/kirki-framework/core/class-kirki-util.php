@@ -6,7 +6,7 @@
  * @category    Core
  * @author      Ari Stathopoulos (@aristath)
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       3.0.9
  */
 
@@ -22,7 +22,6 @@ class Kirki_Util {
 	 * @access public
 	 */
 	public function __construct() {
-
 		add_filter( 'http_request_args', array( $this, 'http_request' ), 10, 2 );
 	}
 
@@ -35,7 +34,6 @@ class Kirki_Util {
 	 * @return bool
 	 */
 	public static function is_plugin() {
-
 		$is_plugin = false;
 		if ( ! function_exists( 'get_plugins' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
@@ -107,7 +105,6 @@ class Kirki_Util {
 
 		// Pass the variables through a filter ('kirki_variable') and return the array of variables.
 		return apply_filters( 'kirki_variable', $variables );
-
 	}
 
 	/**
@@ -120,6 +117,7 @@ class Kirki_Util {
 	 * @return array
 	 */
 	public function http_request( $request = array(), $url = '' ) {
+
 		// Early exit if installed as a plugin or not a request to wordpress.org,
 		// or finally if we don't have everything we need.
 		if (
@@ -159,7 +157,7 @@ class Kirki_Util {
 	 * @static
 	 * @access public
 	 * @since 3.0.12
-	 * @param string  $context      Use 'minor' or 'major'.
+	 * @param string $context Use 'minor' or 'major'.
 	 * @return int|string      Returns integer when getting the 'major' version.
 	 *                         Returns string when getting the 'minor' version.
 	 */
@@ -197,11 +195,11 @@ class Kirki_Util {
 
 		// If we got this far, we want the full monty.
 		// Get the numeric part of the version without any beta, alpha etc parts.
-			if ( false !== strpos( $wp_version, '-' ) ) {
-				// We're on a dev version.
-				$version_parts = explode( '-', $wp_version );
-				return floatval( $version_parts[0] );
-			}
-			return floatval( $wp_version );
+		if ( false !== strpos( $wp_version, '-' ) ) {
+			// We're on a dev version.
+			$version_parts = explode( '-', $wp_version );
+			return floatval( $version_parts[0] );
+		}
+		return floatval( $wp_version );
 	}
 }

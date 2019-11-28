@@ -5,7 +5,7 @@
  * @package     Kirki
  * @subpackage  Controls
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       2.2.7
  */
 
@@ -20,9 +20,7 @@ class Kirki_Field_Typography extends Kirki_Field {
 	 * @access protected
 	 */
 	protected function set_type() {
-
 		$this->type = 'kirki-typography';
-
 	}
 
 	/**
@@ -72,7 +70,6 @@ class Kirki_Field_Typography extends Kirki_Field {
 			return;
 		}
 		$this->sanitize_callback = array( __CLASS__, 'sanitize' );
-
 	}
 
 	/**
@@ -81,7 +78,6 @@ class Kirki_Field_Typography extends Kirki_Field {
 	 * @access protected
 	 */
 	protected function set_js_vars() {
-
 		if ( ! is_array( $this->js_vars ) ) {
 			$this->js_vars = array();
 		}
@@ -124,9 +120,7 @@ class Kirki_Field_Typography extends Kirki_Field {
 			}
 			$this->js_vars   = $js_vars;
 			$this->transport = 'postMessage';
-
 		}
-
 	}
 
 	/**
@@ -138,7 +132,6 @@ class Kirki_Field_Typography extends Kirki_Field {
 	 * @return array
 	 */
 	public static function sanitize( $value ) {
-
 		if ( ! is_array( $value ) ) {
 			return array();
 		}
@@ -160,9 +153,11 @@ class Kirki_Field_Typography extends Kirki_Field {
 				case 'variant':
 					// Use 'regular' instead of 400 for font-variant.
 					$value['variant'] = ( 400 === $val || '400' === $val ) ? 'regular' : $val;
+
 					// Get font-weight from variant.
 					$value['font-weight'] = filter_var( $value['variant'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION );
 					$value['font-weight'] = ( 'regular' === $value['variant'] || 'italic' === $value['variant'] ) ? 400 : absint( $value['font-weight'] );
+
 					// Get font-style from variant.
 					if ( ! isset( $value['font-style'] ) ) {
 						$value['font-style'] = ( false === strpos( $value['variant'], 'italic' ) ) ? 'normal' : 'italic';
@@ -205,7 +200,6 @@ class Kirki_Field_Typography extends Kirki_Field {
 	 * @since 3.0.0
 	 */
 	protected function set_choices() {
-
 		if ( ! is_array( $this->choices ) ) {
 			$this->choices = array();
 		}

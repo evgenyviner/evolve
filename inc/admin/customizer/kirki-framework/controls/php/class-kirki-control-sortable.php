@@ -5,7 +5,7 @@
  * @package     Kirki
  * @subpackage  Controls
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       1.0
  */
 
@@ -52,8 +52,7 @@ class Kirki_Control_Sortable extends Kirki_Control_Base {
 					<li {{{ data.inputAttrs }}} class='kirki-sortable-item' data-value='{{ choiceID }}'>
 						<i class='dashicons dashicons-menu'></i>
 						<i class="dashicons dashicons-visibility visibility"></i>
-                        <!-- evolve modification -->
-						<span>{{{ data.choices[ choiceID ] }}}</span>
+						{{{ data.choices[ choiceID ] }}}
 					</li>
 				<# }); #>
 				<# _.each( data.choices, function( choiceLabel, choiceID ) { #>
@@ -61,14 +60,12 @@ class Kirki_Control_Sortable extends Kirki_Control_Base {
 						<li {{{ data.inputAttrs }}} class='kirki-sortable-item invisible' data-value='{{ choiceID }}'>
 							<i class='dashicons dashicons-menu'></i>
 							<i class="dashicons dashicons-visibility visibility"></i>
-                            <!-- evolve modification -->
-							<span>{{{ data.choices[ choiceID ] }}}</span>
+							{{{ data.choices[ choiceID ] }}}
 						</li>
 					<# } #>
 				<# }); #>
 			</ul>
 		</label>
-
 		<?php
 	}
 }

@@ -5,7 +5,7 @@
  * @package     Kirki
  * @subpackage  Controls
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       2.0
  */
 
@@ -54,7 +54,6 @@ class Kirki_Settings_Repeater_Setting extends WP_Customize_Setting {
 	 * @return array
 	 */
 	public function sanitize_repeater_setting( $value ) {
-
 		if ( ! is_array( $value ) ) {
 			$value = json_decode( urldecode( $value ) );
 		}
@@ -76,6 +75,5 @@ class Kirki_Settings_Repeater_Setting extends WP_Customize_Setting {
 		}
 
 		return $value;
-
 	}
 }

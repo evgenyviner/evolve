@@ -6,7 +6,7 @@
  * @category    Core
  * @author      Ari Stathopoulos (@aristath)
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       3.0.0
  */
 
@@ -42,10 +42,8 @@ class Kirki_Modules {
 	 * @since 3.0.0
 	 */
 	public function __construct() {
-
 		add_action( 'after_setup_theme', array( $this, 'setup_default_modules' ), 10 );
 		add_action( 'after_setup_theme', array( $this, 'init' ), 11 );
-
 	}
 
 	/**
@@ -57,7 +55,6 @@ class Kirki_Modules {
 	 * @since 3.0.0
 	 */
 	public function setup_default_modules() {
-
 		self::$modules = apply_filters(
 			'kirki_modules',
 			array(
@@ -79,7 +76,6 @@ class Kirki_Modules {
 				'telemetry'          => 'Kirki_Modules_Telemetry',
 			)
 		);
-
 	}
 
 	/**
@@ -91,7 +87,6 @@ class Kirki_Modules {
 	 * @since 3.0.0
 	 */
 	public function init() {
-
 		foreach ( self::$modules as $key => $module_class ) {
 			if ( class_exists( $module_class ) ) {
 				// Use this syntax instead of $module_class::get_instance()
@@ -110,11 +105,9 @@ class Kirki_Modules {
 	 * @since 3.0.0
 	 */
 	public static function add_module( $module ) {
-
 		if ( ! in_array( $module, self::$modules, true ) ) {
 			self::$modules[] = $module;
 		}
-
 	}
 
 	/**
@@ -126,7 +119,6 @@ class Kirki_Modules {
 	 * @since 3.0.0
 	 */
 	public static function remove_module( $module ) {
-
 		$key = array_search( $module, self::$modules, true );
 		if ( false !== $key ) {
 			unset( self::$modules[ $key ] );
@@ -142,9 +134,7 @@ class Kirki_Modules {
 	 * @return array
 	 */
 	public static function get_modules() {
-
 		return self::$modules;
-
 	}
 
 	/**
@@ -156,8 +146,6 @@ class Kirki_Modules {
 	 * @return array
 	 */
 	public static function get_active_modules() {
-
 		return self::$active_modules;
-
 	}
 }

@@ -1,10 +1,11 @@
 /* global kirkiPostMessageFields, WebFont */
 var kirkiPostMessage = {
-/**
+
+	/**
 	 * The fields.
 	 *
 	 * @since 3.0.26
- */
+	 */
 	fields: {},
 
 	/**

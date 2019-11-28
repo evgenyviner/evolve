@@ -5,7 +5,7 @@
  * @package     Kirki
  * @subpackage  Controls
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       2.2.7
  */
 
@@ -21,7 +21,6 @@ class Kirki_Field_Spacing extends Kirki_Field_Dimensions {
 	 * @access protected
 	 */
 	protected function set_choices() {
-
 		$default_args = array(
 			'controls' => array(
 				'top'    => ( isset( $this->default['top'] ) ),
@@ -38,6 +37,5 @@ class Kirki_Field_Spacing extends Kirki_Field_Dimensions {
 		);
 
 		$this->choices = wp_parse_args( $this->choices, $default_args );
-
 	}
 }

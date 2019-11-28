@@ -5,7 +5,7 @@
  * @package     Kirki
  * @subpackage  Controls
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       2.2.7
  */
 
@@ -36,9 +36,7 @@ class Kirki_Field_Color extends Kirki_Field {
 	 * @access protected
 	 */
 	protected function set_type() {
-
 		$this->type = 'kirki-color';
-
 	}
 
 	/**
@@ -47,7 +45,6 @@ class Kirki_Field_Color extends Kirki_Field {
 	 * @access protected
 	 */
 	protected function set_choices() {
-
 		if ( ! is_array( $this->choices ) ) {
 			$this->choices = array();
 		}
@@ -84,6 +81,5 @@ class Kirki_Field_Color extends Kirki_Field {
 			return;
 		}
 		$this->sanitize_callback = array( 'Kirki_Sanitize_Values', 'color' );
-
 	}
 }

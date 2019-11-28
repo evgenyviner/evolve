@@ -8,7 +8,7 @@
  * @category    Core
  * @author      Ari Stathopoulos (@aristath)
  * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
- * @license    https://opensource.org/licenses/MIT
+ * @license     https://opensource.org/licenses/MIT
  * @since       1.0
  */
 
@@ -128,7 +128,6 @@ class Kirki extends Kirki_Init {
 	 * @return mixed The saved value of the field.
 	 */
 	public static function get_option( $config_id = '', $field_id = '' ) {
-
 		return Kirki_Values::get_value( $config_id, $field_id );
 	}
 
@@ -141,7 +140,6 @@ class Kirki extends Kirki_Init {
 	 * @param array  $args      The configuration options.
 	 */
 	public static function add_config( $config_id, $args = array() ) {
-
 		$config                             = Kirki_Config::get_instance( $config_id, $args );
 		$config_args                        = $config->get_config();
 		self::$config[ $config_args['id'] ] = $config_args;
@@ -156,7 +154,6 @@ class Kirki extends Kirki_Init {
 	 * @param array  $args The panel arguments.
 	 */
 	public static function add_panel( $id = '', $args = array() ) {
-
 		$args['id'] = $id;
 		if ( ! isset( $args['description'] ) ) {
 			$args['description'] = '';
@@ -168,8 +165,7 @@ class Kirki extends Kirki_Init {
 			$args['type'] = 'default';
 		}
 		if ( false === strpos( $args['type'], 'kirki-' ) ) {
-		$args['type']        = 'kirki-' . $args['type'];
-
+			$args['type'] = 'kirki-' . $args['type'];
 		}
 		self::$panels[ $id ] = $args;
 	}
@@ -197,7 +193,6 @@ class Kirki extends Kirki_Init {
 	 * @param array  $args The section arguments.
 	 */
 	public static function add_section( $id, $args ) {
-
 		$args['id'] = $id;
 		if ( ! isset( $args['description'] ) ) {
 			$args['description'] = '';
@@ -209,7 +204,7 @@ class Kirki extends Kirki_Init {
 			$args['type'] = 'default';
 		}
 		if ( false === strpos( $args['type'], 'kirki-' ) ) {
-		$args['type']        = 'kirki-' . $args['type'];
+			$args['type'] = 'kirki-' . $args['type'];
 		}
 
 		self::$sections[ $id ] = $args;
@@ -238,19 +233,15 @@ class Kirki extends Kirki_Init {
 	 * @param array  $args      The field arguments.
 	 */
 	public static function add_field( $config_id, $args ) {
-
 		if ( doing_action( 'customize_register' ) ) {
 			_doing_it_wrong( __METHOD__, esc_html__( 'Kirki fields should not be added on customize_register. Please add them directly, or on init.', 'kirki' ), '3.0.10' );
 		}
 
+		parent::maybe_show_fontawesome_nag( $args );
+
 		// Early exit if 'type' is not defined.
 		if ( ! isset( $args['type'] ) ) {
 			return;
-		}
-
-		// If the field is font-awesome, enqueue the icons on the frontend.
-		if ( class_exists( 'Kirki_Modules_CSS' ) && ( 'fontawesome' === $args['type'] || 'kirki-fontawesome' === $args['type'] ) ) {
-			Kirki_Modules_CSS::add_fontawesome_script();
 		}
 
 		$str       = str_replace( array( '-', '_' ), ' ', $args['type'] );
@@ -266,9 +257,7 @@ class Kirki extends Kirki_Init {
 				return;
 			}
 		}
-
 		new Kirki_Field( $config_id, $args );
-
 	}
 
 	/**
@@ -296,7 +285,6 @@ class Kirki extends Kirki_Init {
 	 * @return string
 	 */
 	public static function get_config_param( $id, $param ) {
-
 		if ( ! isset( self::$config[ $id ] ) || ! isset( self::$config[ $id ][ $param ] ) ) {
 			return '';
 		}
