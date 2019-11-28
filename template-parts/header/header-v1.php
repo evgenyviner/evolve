@@ -47,9 +47,10 @@
                 }
                 if(!( ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0"
                         && evolve_theme_mod( 'evl_woocommerce_cart_link_main_nav', 0 ) == "0"
-                        && ( $evolve_woocommerce_acc_link_main_nav == 'hide'
+                        && ( isset($evolve_woocommerce_acc_link_main_nav) && $evolve_woocommerce_acc_link_main_nav == 'hide'
                              && $evolve_woocommerce_cart_link_main_nav == 'hide'
-                             || ( ! $evolve_woocommerce_acc_link_main_nav && ! $evolve_woocommerce_cart_link_main_nav ) ) )
+                             || ( !isset($evolve_woocommerce_acc_link_main_nav) || ! $evolve_woocommerce_acc_link_main_nav &&
+                                  ! $evolve_woocommerce_cart_link_main_nav ) ) )
                       || ( $evolve_woocommerce_acc_link_main_nav == 'hide' && $evolve_woocommerce_cart_link_main_nav == 'hide' ))){
                     if ( class_exists( 'Woocommerce' ) ) {
                         evolve_woocommerce_menu();
