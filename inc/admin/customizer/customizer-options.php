@@ -3357,13 +3357,14 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'id'              => 'evl_content_box1_icon',
 						'title'           => esc_attr__( 'Content Box 1 Icon (Font Awesome)', 'evolve' ),
 						'type'            => 'text',
-						'selector'        => '.content-box.content-box-1 .card-img-top',
+						//'selector'        => '.content-box.content-box-1 .card-img-top',
 						'render_callback' => 'evl_content_box1_icon',
 						'class'           => 'iconpicker-icon',
 						'required'        => array(
 							array( 'evl_content_box1_enable', '=', '1' )
 						)
 					),
+
 					array(
 						'id'        => 'evl_content_box1_icon_color',
 						'title'     => esc_attr__( 'Content Box 1 Icon Color', 'evolve' ),
@@ -3436,7 +3437,6 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'id'              => 'evl_content_box2_icon',
 						'title'           => esc_attr__( 'Content Box 2 Icon (Font Awesome)', 'evolve' ),
 						'type'            => 'text',
-						'selector'        => '.content-box.content-box-2 .card-img-top',
 						'render_callback' => 'evl_content_box2_icon',
 						'class'           => 'iconpicker-icon',
 						'required'        => array(
@@ -3515,7 +3515,6 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'id'              => 'evl_content_box3_icon',
 						'title'           => esc_attr__( 'Content Box 3 Icon (Font Awesome)', 'evolve' ),
 						'type'            => 'text',
-						'selector'        => '.content-box.content-box-3 .card-img-top',
 						'render_callback' => 'evl_content_box3_icon',
 						'class'           => 'iconpicker-icon',
 						'required'        => array(
@@ -3594,7 +3593,7 @@ if ( ! function_exists( 'evolve_customizer_options' ) ) {
 						'id'              => 'evl_content_box4_icon',
 						'title'           => esc_attr__( 'Content Box 4 Icon (Font Awesome)', 'evolve' ),
 						'type'            => 'text',
-						'selector'        => '.content-box.content-box-4 .card-img-top',
+
 						'render_callback' => 'evl_content_box4_icon',
 						'class'           => 'iconpicker-icon',
 						'required'        => array(

@@ -218,10 +218,10 @@ add_action( 'evolve_before_content_area', 'evolve_primary_container_open', 10 );
 if ( ! function_exists( 'evolve_primary_container_close' ) ) {
 	function evolve_primary_container_close() {
 		if ( ( is_home() && ! is_front_page() ) || ( is_front_page() && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) != 'above' ) || ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ( class_exists( 'bbPress' ) && is_bbpress() ) ) {
-			echo '</div><!-- #primary -->';
+			echo '</div><!-- #primary 111111-->';
 		} elseif ( ( is_home() && ! is_front_page() ) || is_front_page() && evolve_theme_mod( 'evl_front_elements_content_display', 'above' ) == 'above' ) {
 		} else {
-			echo '</div><!-- #primary -->';
+			echo '</div><!-- #primary 2222222222-->';
 		}
 	}
 }
@@ -1511,6 +1511,7 @@ if ( ! function_exists( 'evolve_front_page_builder' ) ) {
 		if ( ( ! is_front_page() && ! is_page() ) || ( ! is_home() && ! is_front_page() ) ) {
 			return;
 		}
+
 		foreach ( evolve_theme_mod( 'evl_front_elements_content_area' ) as $elementkey => $elementval ) {
 			switch ( $elementval ) {
 

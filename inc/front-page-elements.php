@@ -9,7 +9,10 @@ if ( ! function_exists( 'evolve_frontpage_bootstrap_slider' ) ) {
 		if ( ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" && is_front_page() ) || ( get_post_meta( evolve_get_post_id(), 'evolve_slider_type', true ) == 'bootstrap' && evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == '1' && is_home() ) ):
 			if ( evolve_theme_mod( 'evl_bootstrap_slider_support', '0' ) == "1" ):
 				if ( evolve_theme_mod( "evl_bootstrap_slide1", '0' ) == false && evolve_theme_mod( "evl_bootstrap_slide2", '0' ) == false && evolve_theme_mod( "evl_bootstrap_slide3", '0' ) == false && evolve_theme_mod( "evl_bootstrap_slide4", '0' ) == false && evolve_theme_mod( "evl_bootstrap_slide5", '0' ) == false && is_user_logged_in() && is_customize_preview() ) {
-					echo '<h3 class="no-content no-bootstrap-slider py-5 text-center d-block">' . __( 'Bootstrap Slider will be displayed here', 'evolve' ) . ' <span class="badge badge-pill badge-secondary">' . __( 'Add slides', 'evolve' ) . '</span></h3>';
+					echo '<h3 class="no-content no-bootstrap-slider py-5 text-center d-block">'
+					     . __( 'Bootstrap Slider will be displayed here', 'evolve' ) .
+					     ' <span class="badge badge-pill badge-secondary">' . __( 'Add slides', 'evolve' ) .
+					     '</span></h3>';
 				}
 				evolve_bootstrap();
 			endif;
@@ -125,12 +128,20 @@ if ( ! function_exists( 'evolve_content_boxes' ) ) {
 		if ( $content_box1_button === false ) {
 			$content_box1_button = '';
 		}
-		$content_box1_icon = evolve_theme_mod( 'evl_content_box1_icon', '' );
-		if ( $content_box1_icon === false ) {
+		$content_box1_icon = get_theme_mod( 'evl_content_box1_icon', '' );
+
+		//if(!preg_match('#fa#',$content_box1_icon)) {
+			$content_box1_icon = 'fas fa-'.$content_box1_icon . ' ' . $content_box1_icon;
+		//}
+		/*if ( $content_box1_icon === false ) {
 			$content_box1_icon = '';
-		}
+		}*/
+
+
 		if ( $content_box1_enable == true ) {
-			echo "<div class='$BoxClass content-box content-box-1'><div class='card text-center mb-4 mb-lg-0 w-100'><div class='card-img-top'><i class='" . $content_box1_icon . "'></i></div>";
+			echo "<div class='$BoxClass content-box content-box-1'>
+<div class='card text-center mb-4 mb-lg-0 w-100'><div class='card-img-top'>
+<i class='fas fa-".$content_box1_icon."' ></i></div>";
 			echo "<div class='card-body'>";
 			echo "<h5 class='card-title'>" . esc_attr( $content_box1_title ) . "</h5>";
 			echo "<p class='card-text'>" . do_shortcode( $content_box1_desc ) . "</p>";
@@ -153,6 +164,11 @@ if ( ! function_exists( 'evolve_content_boxes' ) ) {
 		if ( $content_box2_icon === false ) {
 			$content_box2_icon = '';
 		}
+
+		if(!preg_match('#fa#',$content_box2_icon)) {
+			$content_box2_icon = 'fas fa-'.$content_box2_icon;
+		}
+
 		if ( $content_box2_enable == true ) {
 			echo "<div class='$BoxClass content-box content-box-2'><div class='card text-center mb-4 mb-lg-0 w-100'><div class='card-img-top'><i class='" . $content_box2_icon . "'></i></div>";
 			echo "<div class='card-body'>";
@@ -438,7 +454,7 @@ if ( ! function_exists( 'evolve_blog_page_content' ) ) {
 				the_post();
 				get_template_part( 'template-parts/post/content', 'post' );
 			endwhile;
-
+			comments_template();
 			/*
 				After Posts Loop
 

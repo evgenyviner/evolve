@@ -423,7 +423,7 @@ if ( ! function_exists( 'evolve_scripts' ) ) {
 		// Bootstrap CSS
 
 		wp_enqueue_style( 'evolve-bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', false );
-
+		wp_enqueue_style( 'evolve-fw', get_template_directory_uri() . '/assets/css/fw-all.min.css', array(), '', 'all' );
 		// Main CSS
 
 		wp_enqueue_style( 'evolve-style', get_stylesheet_uri(), 'evolve-bootstrap' );

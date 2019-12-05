@@ -38,6 +38,7 @@ do_action( 'evolve_after_content_area' );
 
 do_action( 'evolve_sidebars_area' );
 
+//comments_template();
 /*
 	Footer Area
 	--------------------------------------- */

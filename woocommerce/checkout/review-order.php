@@ -4,18 +4,16 @@
  *
  * @author        WooThemes
  * @package    WooCommerce/Templates
- * @version     3.3.0
+ * @version    3.8.0
  */
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <table class="shop_table woocommerce-checkout-review-order-table table">
     <thead>
     <tr>
         <th colspan="2" class="product-name" scope="col"><?php esc_html_e( 'Product', 'evolve' ); ?></th>
-        <th class="product-total" scope="col"><?php esc_html_e( 'Total', 'evolve' ); ?></th>
+        <th class="product-total" scope="col"><?php esc_html_e( 'Subtotal', 'evolve' ); ?></th>
     </tr>
     </thead>
     <tbody>
@@ -41,10 +39,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                 </th>
                 <td class="product-name-link">
-
 					<?php
 					echo apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key );
-					echo apply_filters( 'woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf( '&times; %s', $cart_item['quantity'] ) . '</strong>', $cart_item, $cart_item_key );
+					echo apply_filters( 'woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf( '&times;&nbsp;%s', $cart_item['quantity'] ) . '</strong>', $cart_item, $cart_item_key );
 					echo wc_get_formatted_cart_item_data( $cart_item ); ?>
                 </td>
                 <td class="product-total">
