@@ -1,5 +1,13 @@
 === Changelog ===
 
+Version  4.2.0
+Date:        29/11/19
+
+- Added another image size for post sliders, to improve image quality
+- Fixed header settings being ignored
+- Improved compatibility with Wordpress 5.3
+- Updated Kirki framework
+
 Version  4.1.9
 Date:        23/09/19
 
