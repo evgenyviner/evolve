@@ -1,5 +1,14 @@
 === Changelog ===
 
+Version  4.2.1
+Date:        6/12/19
+
+- Fixed - main page content box icons not showing in Customizer
+- Fixed - changing H parameters in Customizer has no affect on the website
+- Fixed several errors in header
+- E-Commerce templates updated
+- Added the ability to show comments on home page
+
 Version  4.2.0
 Date:        29/11/19
 
