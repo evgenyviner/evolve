@@ -454,7 +454,12 @@ if ( ! function_exists( 'evolve_blog_page_content' ) ) {
 				the_post();
 				get_template_part( 'template-parts/post/content', 'post' );
 			endwhile;
-			comments_template();
+
+
+                if (comments_open() || get_comments_number()) :
+                    comments_template();
+                endif;
+
 			/*
 				After Posts Loop
 
