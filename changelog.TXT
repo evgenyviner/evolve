@@ -1,13 +1,15 @@
 === Changelog ===
 
 Version  4.2.1
-Date:        6/12/19
+Date:       10/12/19
 
 - Fixed - main page content box icons not showing in Customizer
 - Fixed - changing H parameters in Customizer has no affect on the website
 - Fixed several errors in header
 - E-Commerce templates updated
 - Added the ability to show comments on home page
+- Known persistent issue - in Customizer->Front Page Builder-Content Box the icon name shown isn't consistent with the icon presented.
+However, the icons do change when selected. Will be fixed in the future releases.
 
 Version  4.2.0
 Date:        29/11/19
