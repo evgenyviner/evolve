@@ -1,7 +1,7 @@
 === Changelog ===
 
 Version  4.2.3
-Date:       12/12/19
+Date:       26/01/20
 
 - Fixed - in the Live Preview mode, Google Fonts couldn't be loaded. 
 
