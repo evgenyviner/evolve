@@ -3347,3 +3347,12 @@ h3.no-content {
 .post-content h6 {
     font-size: 1.285rem;
 }*/
+.menu-header .rollin{
+    display: block;
+    position: relative;
+    z-index: 10000;
+}
+.menu-header .navbar-nav .dropdown-menu .dropdown-menu {
+    left: 94%;
+}
+
