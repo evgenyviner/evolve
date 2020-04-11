@@ -12,7 +12,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.6.0
+ * @version  4.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -26,9 +26,12 @@ if ( $max_value && $min_value === $max_value ) {
 	<?php
 } else {
 	/* translators: %s: Quantity. */
-	$labelledby = ! empty( $args['product_name'] ) ? sprintf( __( '%s quantity', 'evolve' ), wp_strip_all_tags( $args['product_name'] ) ) : '';
+	$labelledby = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 'evolve' ), wp_strip_all_tags( $args['product_name'] ) ) : esc_html__( 'Quantity', 'evolve' );
+
 	?>
     <div class="quantity mb-4">
+		<?php do_action( 'woocommerce_before_quantity_input_field' ); ?>
+
         <label class="screen-reader-text sr-only"
                for="<?php echo esc_attr( $input_id ); ?>"><?php esc_html_e( 'Quantity', 'evolve' ); ?></label>
         <div class="input-group">
