@@ -1,5 +1,12 @@
 === Changelog ===
 
+Version  4.2.6
+Date:       15/04/20
+
+- Woocommerce updated.
+- Fixed - several Kirki bugs, affecting the Customizer.
+- Fixed - when moving from free version to Evolve+, sometimes Customizer error appeared
+
 Version  4.2.5
 Date:       09/03/20
 
