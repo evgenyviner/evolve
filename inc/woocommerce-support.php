@@ -1600,7 +1600,9 @@ function evolve_woocommerce_before_my_account( $args ) {
         </div>
     </div>
 	<?php
-	unset( $_SESSION['formvalue'] );
+	if(isset($_SESSION['formvalue'])){
+	    unset( $_SESSION['formvalue'] );
+	}
 }
 
 class evolve_WC_Form_Handler extends WC_Form_Handler {
