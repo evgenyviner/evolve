@@ -1,5 +1,10 @@
 === Changelog ===
 
+Version  4.2.7
+Date:       04/06/20
+
+- Woocommerce updated.
+
 Version  4.2.6
 Date:       15/04/20
 
