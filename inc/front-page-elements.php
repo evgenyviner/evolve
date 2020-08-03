@@ -410,9 +410,26 @@ if ( ! function_exists( 'evolve_woocommerce_products' ) ) {
     Custom Content
     ======================================= */
 
+function  evolve_convertYoutube( $string ) {
+	return preg_replace(
+		"/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
+		"
+		
+		<iframe style='width: 100%; min-height: 650px' 
+src=\"https://www.youtube.com/embed/$2\"
+ frameborder=\"0\" 
+allow=\"accelerometer; autoplay; 
+encrypted-media; gyroscope; picture-in-picture\"
+ allowfullscreen></iframe>
+
+",
+		$string
+	);
+}
+
 if ( ! function_exists( 'evolve_custom_content' ) ) {
 	function evolve_custom_content() {
-		$content = evolve_theme_mod( "evl_fp_custom_content_editor", '' );
+		$content =  evolve_convertYoutube(evolve_theme_mod( "evl_fp_custom_content_editor", '' ));
 
 		$html = '';
 
