@@ -23,14 +23,14 @@ if ( evolve_theme_mod( 'evl_tagline_pos', 'next' ) == "next" ) {
 if ( is_front_page() ) :
 
 	echo $evolve_title_class_1;
-	?><h1 id="website-title"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
+	?><h1 id="website-title"><a href="<?php echo esc_url( home_url()); ?>"><?php bloginfo( 'name' ) ?></a>
     </h1><?php
 	echo $evolve_title_class_2;
 
 else :
 
 	echo $evolve_title_class_1;
-	?><h4 id="website-title"><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ) ?></a>
+	?><h4 id="website-title"><a href="<?php echo  esc_url(home_url()); ?>"><?php bloginfo( 'name' ) ?></a>
     </h4><?php
 	echo $evolve_title_class_2;
 

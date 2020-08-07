@@ -6,7 +6,7 @@
 
 ?>
 
-<form action="<?php echo home_url(); ?>" method="get" class="search-form">
+<form action="<?php echo  home_url(); ?>" method="get" class="search-form">
     <label>
         <input type="text" tabindex="3" name="s" class="form-control"
                placeholder="<?php _e( 'Type your search', 'evolve' ); ?>"/>

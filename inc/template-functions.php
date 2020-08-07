@@ -67,15 +67,6 @@ if ( ! function_exists( 'evolve_menu' ) ) {
 			return;
 		}
 
-		$args = array(
-			'theme_location' => $location,
-			'depth'          => 10,
-			'container'      => false,
-			'echo'           => '0',
-			'menu_class'     => $class,
-			'fallback_cb'    => 'evolve_custom_menu_walker::fallback',
-			'walker'         => new evolve_custom_menu_walker()
-		);
 
 		$menu = '';
 
@@ -92,7 +83,16 @@ if ( ! function_exists( 'evolve_menu' ) ) {
 
 		if ( has_nav_menu( 'primary-menu' ) ) {
 
-			$menu .= wp_nav_menu( $args );
+			$menu .= wp_nav_menu(  array(
+
+				'theme_location' => 'primary-menu',
+				'depth'          => 10,
+				'container'      => false,
+				'echo'           => '0',
+				'menu_class'     => $class,
+				'fallback_cb'    => 'evolve_custom_menu_walker::fallback',
+				'walker'         => new evolve_custom_menu_walker()
+			) );
 
 		} else {
 

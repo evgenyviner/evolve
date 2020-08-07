@@ -39,7 +39,7 @@ if (current_user_can('edit_topic_tags')) :
                     </div>
 
                     <div class="bbp-submit-wrapper">
-                        <button type="submit" tabindex="<?php bbp_tab_index(); ?>" class="btn btn-sm"><?php esc_attr_e('Update', 'evolve'); ?></button>
+                        <button type="submit" tabindex="<?php bbp_tab_index(); ?>" class="btn btn-sm"><?php esc_html_e('Update', 'evolve'); ?></button>
 
                         <input type="hidden" name="tag-id" value="<?php bbp_topic_tag_id(); ?>" />
                         <input type="hidden" name="action" value="bbp-update-topic-tag" />
@@ -67,7 +67,9 @@ if (current_user_can('edit_topic_tags')) :
                     </div>
 
                     <div class="bbp-submit-wrapper">
-                        <button type="submit" tabindex="<?php bbp_tab_index(); ?>" class="btn" onclick="return confirm('<?php echo esc_js(sprintf(__('Are you sure you want to merge the "%s" tag into the tag you specified?', 'evolve'), bbp_get_topic_tag_name())); ?>');"><?php esc_attr_e('Merge', 'evolve'); ?></button>
+                        <button type="submit" tabindex="<?php bbp_tab_index(); ?>" class="btn"
+                                onclick="return confirm('<?php echo esc_js(sprintf(__('Are you sure you want to merge the "%s" tag into the tag you specified?', 'evolve'), bbp_get_topic_tag_name())); ?>');">
+                            <?php esc_html_e('Merge', 'evolve'); ?></button>
 
                         <input type="hidden" name="tag-id" value="<?php bbp_topic_tag_id(); ?>" />
                         <input type="hidden" name="action" value="bbp-merge-topic-tag" />
@@ -95,7 +97,10 @@ if (current_user_can('edit_topic_tags')) :
                     <form id="delete_tag" name="delete_tag" method="post" action="<?php the_permalink(); ?>">
 
                         <div class="bbp-submit-wrapper">
-                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>" class="btn" onclick="return confirm('<?php echo esc_js(sprintf(__('Are you sure you want to delete the "%s" tag? This is permanent and cannot be undone.', 'evolve'), bbp_get_topic_tag_name())); ?>');"><?php esc_attr_e('Delete', 'evolve'); ?></button>
+                            <button type="submit" tabindex="<?php bbp_tab_index(); ?>"
+                                    class="btn"
+                                    onclick="return confirm('<?php echo esc_js(sprintf(__('Are you sure you want to delete the "%s" tag? This is permanent and cannot be undone.', 'evolve'), bbp_get_topic_tag_name())); ?>');">
+                                <?php esc_html_e('Delete', 'evolve'); ?></button>
 
                             <input type="hidden" name="tag-id" value="<?php bbp_topic_tag_id(); ?>" />
                             <input type="hidden" name="action" value="bbp-delete-topic-tag" />

@@ -14,7 +14,7 @@ language_attributes(); ?>>
 		<?php wp_head(); ?>
     </head>
 <body <?php body_class(); ?> itemscope="itemscope" itemtype="http://schema.org/WebPage">
-
+<?php wp_body_open(); ?>
 <a class="btn screen-reader-text sr-only sr-only-focusable"
    href="#primary"><?php _e( 'Skip to main content', 'evolve' ); ?></a>
 

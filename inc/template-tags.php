@@ -586,7 +586,7 @@ if ( ! function_exists( 'evolve_similar_posts' ) ) {
 					$my_query->the_post(); ?>
 
                     <a href="<?php the_permalink() ?>" rel="bookmark"
-                       title="<?php esc_html_e( 'Permanent Link to', 'evolve' ); ?> <?php the_title(); ?>"
+                       title="<?php esc_attr_e( 'Permanent Link to', 'evolve' ); ?> <?php the_title(); ?>"
                        class="list-group-item list-group-item-action flex-column align-items-start">
 
                         <div class="d-flex w-100 justify-content-between">
@@ -767,7 +767,7 @@ if ( ! function_exists( 'evolve_breadcrumbs' ) ) {
 
 		echo '<nav aria-label="' . __( "Breadcrumb", "evolve" ) . '"><ol class="breadcrumb">';
 		echo '<li class="breadcrumb-item"><a class="home" href="';
-		echo home_url();
+		echo esc_url( home_url());
 		echo '">' . __( 'Home', 'evolve' );
 		echo "</a></li>";
 		$params['link_none'] = '';
@@ -1142,7 +1142,7 @@ if ( ! function_exists( 'evolve_social_media_links' ) ) {
 
                 <li><a target="_blank" href="<?php echo $rss_feed; ?>" data-toggle="tooltip"
                        data-placement="bottom"
-                       title="<?php esc_html_e( 'RSS Feed', 'evolve' ); ?>"><?php echo evolve_get_svg( 'rss' ); ?></a>
+                       title="<?php esc_attr_e( 'RSS Feed', 'evolve' ); ?>"><?php echo evolve_get_svg( 'rss' ); ?></a>
                 </li>
 
 			<?php }
@@ -1151,7 +1151,7 @@ if ( ! function_exists( 'evolve_social_media_links' ) ) {
                 <li><a target="_blank" href="<?php if ( $newsletter != "" ) {
 						echo $newsletter;
 					} ?>" data-toggle="tooltip" data-placement="bottom"
-                       title="<?php esc_html_e( 'Newsletter', 'evolve' ); ?>"><?php echo evolve_get_svg( 'email' ); ?></a>
+                       title="<?php esc_attr_e( 'Newsletter', 'evolve' ); ?>"><?php echo evolve_get_svg( 'email' ); ?></a>
                 </li>
 
 			<?php }
@@ -1159,7 +1159,7 @@ if ( ! function_exists( 'evolve_social_media_links' ) ) {
 
                 <li><a target="_blank" href="<?php echo esc_attr( $facebook ); ?>" data-toggle="tooltip"
                        data-placement="bottom"
-                       title="<?php esc_html_e( 'Facebook', 'evolve' ); ?>"><?php echo evolve_get_svg( 'facebook' ); ?></a>
+                       title="<?php esc_attr_e( 'Facebook', 'evolve' ); ?>"><?php echo evolve_get_svg( 'facebook' ); ?></a>
                 </li>
 
 			<?php }
@@ -1167,7 +1167,7 @@ if ( ! function_exists( 'evolve_social_media_links' ) ) {
 
                 <li><a target="_blank" href="<?php echo esc_attr( $twitter_id ); ?>" data-toggle="tooltip"
                        data-placement="bottom"
-                       title="<?php esc_html_e( 'Twitter', 'evolve' ); ?>"><?php echo evolve_get_svg( 'twitter' ); ?></a>
+                       title="<?php esc_attr_e( 'Twitter', 'evolve' ); ?>"><?php echo evolve_get_svg( 'twitter' ); ?></a>
                 </li>
 
 			<?php }
@@ -1175,14 +1175,14 @@ if ( ! function_exists( 'evolve_social_media_links' ) ) {
 
                 <li><a target="_blank" href="<?php echo $instagram; ?>" data-toggle="tooltip"
                        data-placement="bottom"
-                       title="<?php esc_html_e( 'Instagram', 'evolve' ); ?>"><?php echo evolve_get_svg( 'instagram' ); ?></a>
+                       title="<?php esc_attr_e( 'Instagram', 'evolve' ); ?>"><?php echo evolve_get_svg( 'instagram' ); ?></a>
                 </li>
 
 			<?php }
 			if ( ! empty( $skype ) ) { ?>
 
                 <li><a href="skype:<?php echo $skype; ?>?call" data-toggle="tooltip" data-placement="bottom"
-                       title="<?php esc_html_e( 'Skype', 'evolve' ); ?>"><?php echo evolve_get_svg( 'skype' ); ?></a>
+                       title="<?php esc_attr_e( 'Skype', 'evolve' ); ?>"><?php echo evolve_get_svg( 'skype' ); ?></a>
                 </li>
 
 			<?php }
@@ -1190,7 +1190,7 @@ if ( ! function_exists( 'evolve_social_media_links' ) ) {
 
                 <li><a target="_blank" href="<?php echo $youtube; ?>" data-toggle="tooltip"
                        data-placement="bottom"
-                       title="<?php esc_html_e( 'YouTube', 'evolve' ); ?>"><?php echo evolve_get_svg( 'youtube' ); ?></a>
+                       title="<?php esc_attr_e( 'YouTube', 'evolve' ); ?>"><?php echo evolve_get_svg( 'youtube' ); ?></a>
                 </li>
 
 			<?php }
@@ -1198,7 +1198,7 @@ if ( ! function_exists( 'evolve_social_media_links' ) ) {
 
                 <li><a target="_blank" href="<?php echo $flickr; ?>" data-toggle="tooltip"
                        data-placement="bottom"
-                       title="<?php esc_html_e( 'Flickr', 'evolve' ); ?>"><?php echo evolve_get_svg( 'flickr' ); ?></a>
+                       title="<?php esc_attr_e( 'Flickr', 'evolve' ); ?>"><?php echo evolve_get_svg( 'flickr' ); ?></a>
                 </li>
 
 			<?php }
@@ -1206,7 +1206,7 @@ if ( ! function_exists( 'evolve_social_media_links' ) ) {
 
                 <li><a target="_blank" href="<?php echo $linkedin; ?>" data-toggle="tooltip"
                        data-placement="bottom"
-                       title="<?php esc_html_e( 'LinkedIn', 'evolve' ); ?>"><?php echo evolve_get_svg( 'linkedin' ); ?></a>
+                       title="<?php esc_attr_e( 'LinkedIn', 'evolve' ); ?>"><?php echo evolve_get_svg( 'linkedin' ); ?></a>
                 </li>
 
 			<?php }
@@ -1214,7 +1214,7 @@ if ( ! function_exists( 'evolve_social_media_links' ) ) {
 
                 <li><a target="_blank" href="<?php echo $pinterest; ?>" data-toggle="tooltip"
                        data-placement="bottom"
-                       title="<?php esc_html_e( 'Pinterest', 'evolve' ); ?>"><?php echo evolve_get_svg( 'pinterest' ); ?></a>
+                       title="<?php esc_attr_e( 'Pinterest', 'evolve' ); ?>"><?php echo evolve_get_svg( 'pinterest' ); ?></a>
                 </li>
 
 			<?php }
@@ -1222,7 +1222,7 @@ if ( ! function_exists( 'evolve_social_media_links' ) ) {
 
                 <li><a target="_blank" href="<?php echo $tumblr; ?>" data-toggle="tooltip"
                        data-placement="bottom"
-                       title="<?php esc_html_e( 'Tumblr', 'evolve' ); ?>"><?php echo evolve_get_svg( 'tumblr' ); ?></a>
+                       title="<?php esc_attr_e( 'Tumblr', 'evolve' ); ?>"><?php echo evolve_get_svg( 'tumblr' ); ?></a>
                 </li>
 
 			<?php } ?>
@@ -1254,35 +1254,35 @@ if ( ! function_exists( 'evolve_sharethis' ) ) {
                 <div class="share-this">
 
                     <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-                       title="<?php esc_html_e( 'Share on Twitter', 'evolve' ); ?>" target="_blank"
+                       title="<?php esc_attr_e( 'Share on Twitter', 'evolve' ); ?>" target="_blank"
                        href="http://twitter.com/intent/tweet?status=<?php echo $post->post_title; ?>+&raquo;+<?php the_permalink(); ?>">
 
 						<?php echo evolve_get_svg( 'twitter' ); ?>
 
                     </a>
                     <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-                       title="<?php esc_html_e( 'Share on Facebook', 'evolve' ); ?>" target="_blank"
+                       title="<?php esc_attr_e( 'Share on Facebook', 'evolve' ); ?>" target="_blank"
                        href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&amp;t=<?php echo $post->post_title; ?>">
 
 						<?php echo evolve_get_svg( 'facebook' ); ?>
 
                     </a>
                     <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-                       title="<?php esc_html_e( 'Share on Pinterest', 'evolve' ); ?>" target="_blank"
+                       title="<?php esc_attr_e( 'Share on Pinterest', 'evolve' ); ?>" target="_blank"
                        href="http://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $image_url; ?>&description=<?php echo $post->post_title; ?>">
 
 						<?php echo evolve_get_svg( 'pinterest' ); ?>
 
                     </a>
                     <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-                       title="<?php esc_html_e( 'Share by Email', 'evolve' ); ?>" target="_blank"
+                       title="<?php esc_attr_e( 'Share by Email', 'evolve' ); ?>" target="_blank"
                        href="http://www.addtoany.com/email?linkurl=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>">
 
 						<?php echo evolve_get_svg( 'email' ); ?>
 
                     </a>
                     <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-                       title="<?php esc_html_e( 'More options', 'evolve' ); ?>"
+                       title="<?php esc_attr_e( 'More options', 'evolve' ); ?>"
                        target="_blank"
                        href="http://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>">
 

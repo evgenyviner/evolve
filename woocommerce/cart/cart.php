@@ -140,7 +140,12 @@ do_action( 'woocommerce_before_cart' ); ?>
 
                 <?php if ( wc_coupons_enabled() ) { ?>
                     <div class="coupon">
-                        <label for="coupon_code"><?php esc_html_e( 'Coupon:', 'evolve' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'evolve' ); ?>" /> <button type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'evolve' ); ?>"><?php esc_attr_e( 'Apply coupon', 'evolve' ); ?></button>
+                        <label for="coupon_code"><?php esc_html_e( 'Coupon:', 'evolve' ); ?></label>
+                        <input type="text" name="coupon_code" class="input-text" id="coupon_code" value=""
+                               placeholder="<?php esc_attr_e( 'Coupon code', 'evolve' ); ?>" />
+                        <button type="submit" class="button" name="apply_coupon"
+                                value="<?php esc_attr_e( 'Apply coupon', 'evolve' ); ?>">
+                            <?php esc_html_e( 'Apply coupon', 'evolve' ); ?></button>
                         <?php do_action( 'woocommerce_cart_coupon' ); ?>
                     </div>
                 <?php } ?>

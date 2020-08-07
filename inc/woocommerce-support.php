@@ -794,10 +794,10 @@ function evolve_woocommerce_cart_collaterals( $args ) {
                 <div class="form-inline">
                     <div class="form-group mb-4 mb-sm-0 mb-md-4 mb-lg-0 mr-3 mr-md-0 mr-lg-3">
                         <input name="coupon_code" type="text" class="form-control" id="coupon_code" value=""
-                               placeholder="<?php esc_html_e( 'Coupon code', 'evolve' ); ?>"/>
+                               placeholder="<?php esc_attr_e( 'Coupon code', 'evolve' ); ?>"/>
                     </div>
                     <input type="submit" class="btn btn-sm mb-4 mb-sm-0" name="apply_coupon"
-                           value="<?php esc_html_e( 'Apply Coupon', 'evolve' ); ?>"/>
+                           value="<?php esc_attr_e( 'Apply Coupon', 'evolve' ); ?>"/>
                 </div>
 
 				<?php do_action( 'woocommerce_cart_coupon' ); ?>
@@ -1530,7 +1530,7 @@ function evolve_woocommerce_before_my_account( $args ) {
 
                     <p class="mb-0">
                         <input type="submit" class="btn btn-sm" id="saveaddress" name="save_address"
-                               value="<?php esc_html_e( 'Save Address', 'evolve' ); ?>"/>
+                               value="<?php esc_url( 'Save Address', 'evolve' ); ?>"/>
 						<?php wp_nonce_field( 'woocommerce-edit_address' ); ?>
                         <input type="hidden" name="action" value="edit_address"/>
                         <input type="hidden" name="formvalue" value="billing"/>
@@ -1589,7 +1589,7 @@ function evolve_woocommerce_before_my_account( $args ) {
 
                     <p class="mb-0">
                         <input type="submit" class="btn btn-sm" id="saveaddress" name="save_address"
-                               value="<?php esc_html_e( 'Save Address', 'evolve' ); ?>"/>
+                               value="<?php esc_attr_e( 'Save Address', 'evolve' ); ?>"/>
 						<?php wp_nonce_field( 'woocommerce-edit_address' ); ?>
                         <input type="hidden" name="action" value="edit_address"/>
                         <input type="hidden" name="formvalue" value="shipping"/>
@@ -1772,7 +1772,7 @@ function evolve_woocommerce_after_my_account( $args ) {
 
                 <input type="submit" class="btn btn-sm"
                        name="save_account_details"
-                       value="<?php esc_html_e( 'Save changes', 'evolve' ); ?>"/>
+                       value="<?php esc_attr_e( 'Save changes', 'evolve' ); ?>"/>
 
 				<?php wp_nonce_field( 'save_account_details' ); ?>
                 <input type="hidden" name="action" value="save_account_details"/>
@@ -2189,13 +2189,13 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
                                                 <div class="form-group">
                                                     <input type="text" class="form-control" name="log"
                                                            id="username" value=""
-                                                           placeholder="<?php echo esc_html__( 'Username', 'evolve' ); ?>"/>
+                                                           placeholder="<?php echo esc_attr__( 'Username', 'evolve' ); ?>"/>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <input type="password" class="form-control" name="pwd"
                                                            id="pasword" value=""
-                                                           placeholder="<?php echo esc_html__( 'Password', 'evolve' ); ?>"/>
+                                                           placeholder="<?php echo esc_attr__( 'Password', 'evolve' ); ?>"/>
                                                 </div>
 
                                                 <div class="form-group custom-control custom-checkbox">
@@ -2207,7 +2207,7 @@ if ( evolve_theme_mod( 'evl_woocommerce_acc_link_main_nav', 0 ) == "0" && evolve
 
                                                 <input type="submit" name="wp-submit" id="wp-submit"
                                                        class="btn btn-sm"
-                                                       value="<?php esc_html_e( 'Log In', 'evolve' ); ?>">
+                                                       value="<?php esc_attr_e( 'Log In', 'evolve' ); ?>">
                                                 <input type="hidden" name="redirect_to"
                                                        value="<?php if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
 													       echo $_SERVER['HTTP_REFERER'];
