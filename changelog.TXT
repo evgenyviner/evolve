@@ -1,4 +1,9 @@
 === Changelog ===
+Version  4.2.8
+Date:       07/08/20
+
+- Ability to add a Youtube video to Custom Content on the home page added.
+- Some minor bug fixes.
 
 Version  4.2.7
 Date:       04/06/20
