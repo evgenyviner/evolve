@@ -167,7 +167,7 @@ if ( !class_exists( 'Evolve_Theme_Support' ) ) {
 	}
 }
 $version = wp_get_theme( 'evolve' )->get( 'Version' );
-if ( !isset( $version{1} ) ) {
+if ( !isset( $version[1] ) ) {
 	$version = '4.1.4';
 }
 new Evolve_Theme_Support(
