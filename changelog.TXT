@@ -1,9 +1,10 @@
 === Changelog ===
 Version  4.2.8
-Date:       07/08/20
+Date:       12/08/20
 
 - Ability to add a Youtube video to Custom Content on the home page added.
 - Some minor bug fixes.
+- Updated Kirki for compatibility with Wordpress 5.5
 
 Version  4.2.7
 Date:       04/06/20
