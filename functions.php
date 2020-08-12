@@ -608,7 +608,7 @@ if ( ! function_exists( 'evolve_password_form' ) ) {
 	function evolve_password_form() {
 		global $post;
 		$label = 'pwbox-' . ( empty( $post->ID ) ? rand() : $post->ID );
-		$o     = '<form class="form-inline my-5" action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">
+		$o     = '<form class="form-inline my-5" action="' . esc_url( home_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">
     <p class="display-4">' . __( "To view this protected content, enter the password below", "evolve" ) . '</p>
     <div class="form-group"><label class="lead" for="' . $label . '">' . __( "Password:", "evolve" ) . '</label></div><div class="form-group mx-sm-3"><input class="form-control" name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" /></div><input class="btn btn-sm" type="submit" name="Submit" value="' . esc_attr__( "Submit", "evolve" ) . '" />
     </form>

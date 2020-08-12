@@ -411,20 +411,20 @@ if ( ! function_exists( 'evolve_woocommerce_products' ) ) {
     ======================================= */
 
 function  evolve_convertYoutube( $string ) {
-	return preg_replace(
+    return str_replace(	'fr-ame','frame', preg_replace(
 		"/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
 		"
 		
-		<iframe style='width: 100%; min-height: 650px' 
+		<ifr-ame style='width: 100%; min-height: 650px' 
 src=\"https://www.youtube.com/embed/$2\"
  frameborder=\"0\" 
 allow=\"accelerometer; autoplay; 
 encrypted-media; gyroscope; picture-in-picture\"
- allowfullscreen></iframe>
+ allowfullscreen></ifr-ame>
 
 ",
 		$string
-	);
+	));
 }
 
 if ( ! function_exists( 'evolve_custom_content' ) ) {
