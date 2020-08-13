@@ -1,5 +1,11 @@
 === Changelog ===
 
+Version  4.3.0
+Date:       13/08/20
+
+- Hotfixes
+
+
 Version  4.2.9
 Date:       12/08/20
 
