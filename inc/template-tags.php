@@ -1254,10 +1254,11 @@ if ( ! function_exists( 'evolve_sharethis' ) ) {
                 <div class="share-this">
 
                     <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-                       title="<?php esc_attr_e( 'Share on Twitter', 'evolve' ); ?>" target="_blank"
-                       href="http://twitter.com/intent/tweet?status=<?php echo $post->post_title; ?>+&raquo;+<?php the_permalink(); ?>">
+                       title="<?php esc_attr_e('Share on Twitter', 'evolve'); ?>" target="_blank"
+                       href="https://twitter.com/intent/tweet?text=<?php echo urlencode($post->post_title); ?>&amp;url=<?php echo urlencode(get_the_permalink()); ?>"
+                       ); ?>
 
-						<?php echo evolve_get_svg( 'twitter' ); ?>
+                        <?php echo evolve_get_svg('twitter'); ?>
 
                     </a>
                     <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
