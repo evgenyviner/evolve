@@ -413,7 +413,7 @@ add_action( 'evolve_footer_area', 'evolve_footer_widgets', 30 );
 if ( ! function_exists( 'evolve_custom_footer' ) ) {
 	function evolve_custom_footer() {
 		$evolve_home_url = esc_url( "https://theme4press.com/" );
-		echo '<div class="row"><div class="col custom-footer">' . evolve_theme_mod( 'evl_footer_content', '<div id="copyright"><a href="' . $evolve_home_url . 'evolve-multipurpose-wordpress-theme/">evolve</a> theme by Theme4Press - Powered by <a href="http://wordpress.org">WordPress</a></div>' ) . '</div></div>';
+		echo '<div class="row"><div class="col custom-footer">' . evolve_theme_mod( 'evl_footer_content', '<div id="copyright"><a href="' . $evolve_home_url . 'evolve-multipurpose-wordpress-theme/">evolve</a> theme by Theme4Press - Powered by <a href="https://wordpress.org">WordPress</a></div>' ) . '</div></div>';
 	}
 }
 
@@ -1263,21 +1263,21 @@ if ( ! function_exists( 'evolve_sharethis' ) ) {
                     </a>
                     <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
                        title="<?php esc_attr_e( 'Share on Facebook', 'evolve' ); ?>" target="_blank"
-                       href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&amp;t=<?php echo $post->post_title; ?>">
+                       href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&amp;t=<?php echo $post->post_title; ?>">
 
 						<?php echo evolve_get_svg( 'facebook' ); ?>
 
                     </a>
                     <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
                        title="<?php esc_attr_e( 'Share on Pinterest', 'evolve' ); ?>" target="_blank"
-                       href="http://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $image_url; ?>&description=<?php echo $post->post_title; ?>">
+                       href="https://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $image_url; ?>&description=<?php echo $post->post_title; ?>">
 
 						<?php echo evolve_get_svg( 'pinterest' ); ?>
 
                     </a>
                     <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
                        title="<?php esc_attr_e( 'Share by Email', 'evolve' ); ?>" target="_blank"
-                       href="http://www.addtoany.com/email?linkurl=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>">
+                       href="https://www.addtoany.com/email?linkurl=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>">
 
 						<?php echo evolve_get_svg( 'email' ); ?>
 
@@ -1285,7 +1285,7 @@ if ( ! function_exists( 'evolve_sharethis' ) ) {
                     <a rel="nofollow" data-toggle="tooltip" data-placement="bottom"
                        title="<?php esc_attr_e( 'More options', 'evolve' ); ?>"
                        target="_blank"
-                       href="http://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>">
+                       href="https://www.addtoany.com/share_save#url=<?php the_permalink(); ?>&linkname=<?php echo $post->post_title; ?>">
 
 						<?php echo evolve_get_svg( 'more' ); ?>
 
