@@ -298,8 +298,9 @@ if ( ! function_exists( 'evolve_header_block_below' ) ) {
 			}
 		} elseif ( ( evolve_get_slider_position() == 'below' && ! is_front_page() ) || ( evolve_get_slider_position() == 'default' && evolve_theme_mod( 'evl_slider_position', 'below' ) == 'below' && ! is_front_page() ) ) {
 			get_template_part( 'template-parts/slider/slider' );
-		}
-
+		} elseif(evolve_theme_mod('evl_bootstrap_slider')){
+			get_template_part( 'template-parts/slider/slider' );
+        }
 		// Load The Header Widgets If Enabled
 		get_template_part( 'template-parts/header/header', 'widgets' );
 
