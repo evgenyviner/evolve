@@ -3261,8 +3261,8 @@
             var measurement = (index === 1 ? !useHeight : useHeight) ? 'height' : 'width';
             var mergeWithPrevious = false;
             return op
-            // This aggregates any `+` or `-` sign that aren't considered operators
-            // e.g.: 10 + +5 => [10, +, +5]
+                // This aggregates any `+` or `-` sign that aren't considered operators
+                // e.g.: 10 + +5 => [10, +, +5]
                 .reduce(function (a, b) {
                     if (a[a.length - 1] === '' && ['+', '-'].indexOf(b) !== -1) {
                         a[a.length - 1] = b;
@@ -3854,10 +3854,10 @@
      * structure of the `options` object, as the 3rd argument. For example:
      * ```
      * new Popper(ref, pop, {
-   *   modifiers: {
-   *     preventOverflow: { enabled: false }
-   *   }
-   * })
+     *   modifiers: {
+     *     preventOverflow: { enabled: false }
+     *   }
+     * })
      * ```
      * @type {Object}
      * @static
@@ -3975,7 +3975,7 @@
                         name: name
                     }, _this.options.modifiers[name]);
                 })
-                // sort the modifiers by order
+                    // sort the modifiers by order
                     .sort(function (a, b) {
                         return a.order - b.order;
                     });
@@ -9100,7 +9100,7 @@ jQuery((function () {
             resizeThrottle: 100,
             scrollThrottle: 30
         };
-        return $w.load(function () {
+        return $w.on( "load", function () {
             return $[wps]('refresh');
         });
     });
@@ -9109,7 +9109,7 @@ jQuery((function () {
 
 // Theme Defined Waypoints
 
-jQuery(window).load(function () {
+jQuery(window).on( "load", function () {
 
     jQuery('.counter-circle').waypoint(function () {
         jQuery(this).draw_circles();
