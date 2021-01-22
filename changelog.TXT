@@ -1,5 +1,10 @@
 === Changelog ===
 
+Version  4.3.3
+Date:       22/01/21
+
+- Several bug fixes, mostly JS compatibility issues
+
 Version  4.3.2
 Date:       12/12/20
 
