@@ -10,18 +10,17 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see        https://docs.woocommerce.com/document/template-structure/
- * @package    WooCommerce/Templates
- * @version 3.6.0
+ * @see     https://docs.woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 4.3.0
  */
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+
+defined( 'ABSPATH' ) || exit;
 
 global $product;
 
 if ( ! comments_open() ) {
-	return;
+    return;
 }
 
 ?>

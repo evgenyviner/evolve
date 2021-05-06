@@ -2,7 +2,7 @@
 /**
  * The template for displaying product category thumbnails within loops
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/content-product_cat.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/content-product-cat.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -11,13 +11,12 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @author  WooThemes
- * @package WooCommerce/Templates
- * @version 2.6.1
+ * @package WooCommerce\Templates
+ * @version 4.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+    exit;
 }
 ?>
 <div <?php wc_product_cat_class( 'card text-center', $category ); ?>>
