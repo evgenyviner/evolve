@@ -1,5 +1,11 @@
 === Changelog ===
 
+Version  4.3.4
+Date:       10/06/21
+
+- Bug fixes
+- WooCommerce update
+
 Version  4.3.3
 Date:       22/01/21
 
