@@ -12,7 +12,7 @@
  *
  * @see         https://docs.woocommerce.com/document/template-structure/
  * @package     WooCommerce/Templates
- * @version     4.0.0
+ * @version 4.8.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -44,8 +44,11 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 					$quantites_required = $quantites_required || ( $grouped_product_child->is_purchasable() && ! $grouped_product_child->has_options() );
 					$post               = $post_object; // WPCS: override ok.
 					setup_postdata( $post );
-
+                    if ( $grouped_product_child->is_in_stock() ) {
+                        $show_add_to_cart_button = true;
+                    }
 					echo '<tr id="product-' . esc_attr( $grouped_product_child->get_id() ) . '" class="woocommerce-grouped-product-list-item ' . esc_attr( implode( ' ', wc_get_product_class( '', $grouped_product_child->get_id() ) ) ) . '">';
+                    $show_add_to_cart_button = false;
 
 					// Output columns for each product.
 					foreach ( $grouped_product_columns as $column_id ) {
@@ -106,7 +109,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
         <input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>"/>
 
-		<?php if ( $quantites_required ) : ?>
+		<?php if ( $quantites_required && $show_add_to_cart_button ) : ?>
 
 			<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
