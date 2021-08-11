@@ -51,7 +51,7 @@ if ( ! function_exists( 'evolve_header_logo' ) ) {
 					$logo_class = 'col-12 order-2 mt-md-3';
 					break;
 				case "left":
-					$logo_class = 'col-md-auto order-2 order-md-1';
+					$logo_class = 'col-md-3 order-2 order-md-1';
 					break;
 				case "right":
 					$logo_class = 'col col-md-6 col-sm-12 order-2 order-md-3';
