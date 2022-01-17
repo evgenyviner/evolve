@@ -1,5 +1,11 @@
 === Changelog ===
 
+Version  4.3.5
+Date:       17/01/22
+
+- Customizer bug fixes
+- General bug fixes
+
 Version  4.3.4
 Date:       10/06/21
 
