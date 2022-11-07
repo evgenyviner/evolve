@@ -11,8 +11,8 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
- * @version 3.8.0
+ * @package WooCommerce\Templates
+ * @version 7.0.1
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -143,7 +143,7 @@ do_action( 'woocommerce_before_cart' ); ?>
                         <label for="coupon_code"><?php esc_html_e( 'Coupon:', 'evolve' ); ?></label>
                         <input type="text" name="coupon_code" class="input-text" id="coupon_code" value=""
                                placeholder="<?php esc_attr_e( 'Coupon code', 'evolve' ); ?>" />
-                        <button type="submit" class="button" name="apply_coupon"
+                        <button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon"
                                 value="<?php esc_attr_e( 'Apply coupon', 'evolve' ); ?>">
                             <?php esc_html_e( 'Apply coupon', 'evolve' ); ?></button>
                         <?php do_action( 'woocommerce_cart_coupon' ); ?>

@@ -11,8 +11,8 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
- * @version 4.1.0
+ * @package WooCommerce\Templates
+ * @version 7.0.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -53,7 +53,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
             <div class="align-items-center mt-4 mb-4 input-group">
 				<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
-                <button type="submit" class="woocommerce-Button button" name="login"
+                <button type="submit" class="woocommerce-Button woocommerce-button button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?> woocommerce-form-register__submit" name="login"
                         value="<?php esc_attr_e( 'Log in', 'evolve' ); ?>"><?php esc_html_e( 'Log in', 'evolve' ); ?></button>
                 <div class="custom-control custom-checkbox ml-4">
                     <input class="woocommerce-form__input woocommerce-form__input-checkbox custom-control-input"

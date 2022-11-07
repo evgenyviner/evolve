@@ -10,11 +10,10 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see         https://docs.woocommerce.com/document/template-structure/
- * @package     WooCommerce/Templates
- * @version 4.8.0
+ * @see     https://docs.woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 7.0.1
  */
-
 defined( 'ABSPATH' ) || exit;
 
 global $product, $post;
@@ -39,11 +38,15 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 					),
 					$product
 				);
-				foreach ( $grouped_products as $grouped_product_child ) {
-					$post_object        = get_post( $grouped_product_child->get_id() );
-					$quantites_required = $quantites_required || ( $grouped_product_child->is_purchasable() && ! $grouped_product_child->has_options() );
-					$post               = $post_object; // WPCS: override ok.
-					setup_postdata( $post );
+                $show_add_to_cart_button = false;
+
+                do_action( 'woocommerce_grouped_product_list_before', $grouped_product_columns, $quantites_required, $product );
+
+                foreach ( $grouped_products as $grouped_product_child ) {
+                    $post_object        = get_post( $grouped_product_child->get_id() );
+                    $quantites_required = $quantites_required || ( $grouped_product_child->is_purchasable() && ! $grouped_product_child->has_options() );
+                    $post               = $post_object; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+                    setup_postdata( $post );
                     if ( $grouped_product_child->is_in_stock() ) {
                         $show_add_to_cart_button = true;
                     }
@@ -65,15 +68,15 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 								} else {
 									do_action( 'woocommerce_before_add_to_cart_quantity' );
 
-									woocommerce_quantity_input(
-										array(
-											'input_name'  => 'quantity[' . $grouped_product_child->get_id() . ']',
-											'input_value' => isset( $_POST['quantity'][ $grouped_product_child->get_id() ] ) ? wc_stock_amount( wc_clean( wp_unslash( $_POST['quantity'][ $grouped_product_child->get_id() ] ) ) ) : '', // phpcs:ignore WordPress.Security.NonceVerification.Missing
-											'min_value'   => apply_filters( 'woocommerce_quantity_input_min', 0, $grouped_product_child ),
-											'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $grouped_product_child->get_max_purchase_quantity(), $grouped_product_child ),
-											'placeholder' => '0',
-										)
-									);
+                                    woocommerce_quantity_input(
+                                        array(
+                                            'input_name'  => 'quantity[' . $grouped_product_child->get_id() . ']',
+                                            'input_value' => isset( $_POST['quantity'][ $grouped_product_child->get_id() ] ) ? wc_stock_amount( wc_clean( wp_unslash( $_POST['quantity'][ $grouped_product_child->get_id() ] ) ) ) : '', // phpcs:ignore WordPress.Security.NonceVerification.Missing
+                                            'min_value'   => apply_filters( 'woocommerce_quantity_input_min', 0, $grouped_product_child ),
+                                            'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $grouped_product_child->get_max_purchase_quantity(), $grouped_product_child ),
+                                            'placeholder' => '0',
+                                        )
+                                    );
 
 									do_action( 'woocommerce_after_add_to_cart_quantity' );
 								}
