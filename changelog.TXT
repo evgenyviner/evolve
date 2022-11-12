@@ -1,5 +1,14 @@
 === Changelog ===
 
+
+Version  4.3.6
+Date:       12/11/22
+
+- Tested up to 6.1
+- PHP 8 Support
+- WooCommerce templates updated
+- NEW features are coming!
+
 Version  4.3.5
 Date:       17/01/22
 
