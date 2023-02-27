@@ -17,7 +17,7 @@
 		if ( evolve_theme_mod( 'evl_post_layout', 'two' ) != "one" ) {
 			$evolve_title = the_title( '', '', false );
 			echo '<h2 class="post-title" itemprop="name"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
-			evolve_truncate( intval( evolve_theme_mod( 'evl_posts_excerpt_title_length', '40' ) ), $evolve_title, true, '...' );
+			evolve_truncate(intval(evolve_theme_mod('evl_posts_excerpt_title_length', '40')), $evolve_title, '...');
 			echo '</a></h2>';
 		} else {
 			the_title( '<h2 class="post-title" itemprop="name"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );

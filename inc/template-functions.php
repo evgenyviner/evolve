@@ -447,7 +447,7 @@ if ( ! function_exists( 'evolve_get_svg' ) ) {
     ======================================= */
 
 if ( ! function_exists( 'evolve_truncate' ) ) {
-	function evolve_truncate( $maxLength, $html, $isUtf8 = true, $trailing ) {
+	function evolve_truncate($maxLength, $html, $trailing, $isUtf8 = true) {
 		$printedLength = 0;
 		$position      = 0;
 		$tags          = array();

@@ -1038,7 +1038,7 @@ if ( ! function_exists( 'evolve_posts_slider' ) ) {
 
 										<?php $title = the_title( '', '', false );
 										$length      = evolve_theme_mod( 'evl_posts_slider_title_length', 40 );
-										evolve_truncate( $length, $title, true, '...' ); ?>
+										evolve_truncate($length, $title, '...'); ?>
 
                                     </a>
                                 </h5>
