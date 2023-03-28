@@ -1,6 +1,12 @@
 === Changelog ===
 
 
+Version  4.3.7
+Date:       28/03/23
+
+- Tested up to 6.2
+- PHP 8 Support improved
+
 Version  4.3.6
 Date:       12/11/22
 
