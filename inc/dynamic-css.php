@@ -182,10 +182,10 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 			======================================= */
 
 		$woo_product_section_padding             = evolve_theme_mod( 'evl_woo_product_section_padding' );
-		$woo_product_section_padding_top         = $woo_product_section_padding['top'];
-		$woo_product_section_padding_bottom      = $woo_product_section_padding['bottom'];
-		$woo_product_section_padding_left        = $woo_product_section_padding['left'];
-		$woo_product_section_padding_right       = $woo_product_section_padding['right'];
+		$woo_product_section_padding_top         = $woo_product_section_padding['top'] ?? 0;
+		$woo_product_section_padding_bottom      = $woo_product_section_padding['bottom'] ?? 0;
+		$woo_product_section_padding_left        = $woo_product_section_padding['left'] ?? 0;
+		$woo_product_section_padding_right       = $woo_product_section_padding['right'] ?? 0;
 		$woo_product_section_back_color          = evolve_theme_mod( 'evl_woo_product_section_back_color', '#fafafa' );
 		$woo_product_section_image_src           = evolve_theme_mod( 'evl_woo_product_section_background_image', '' );
 		$woo_product_section_image               = evolve_theme_mod( 'evl_woo_product_section_image', 'cover' );
