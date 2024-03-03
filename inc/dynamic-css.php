@@ -21,10 +21,10 @@ if ( ! function_exists( 'evolve_dynamic_css' ) ) {
 		$width_px               = (int) evolve_theme_mod( 'evl_width_px', '1500' );
 		$min_width_px           = $width_px + 60;
 		$header_padding         = evolve_theme_mod( 'evl_header_padding' );
-		$padding_top            = $header_padding['top'];
-		$padding_bottom         = $header_padding['bottom'];
-		$padding_left           = $header_padding['left'];
-		$padding_right          = $header_padding['right'];
+		$padding_top            = $header_padding['top'] ?? 0;
+		$padding_bottom         = $header_padding['bottom'] ?? 0;
+		$padding_left           = $header_padding['left'] ?? 0;
+		$padding_right          = $header_padding['right'] ?? 0;
 		$menu_padding           = evolve_theme_mod( 'evl_main_menu_padding', '15' );
 		$menu_height            = evolve_theme_mod( 'evl_main_menu_height', '8' );
 		$menu_font              = evolve_theme_mod( 'evl_menu_font' );
